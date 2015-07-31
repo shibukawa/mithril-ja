@@ -1,0 +1,552 @@
+<!doctype html>
+<html>
+	<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>m - Mithril</title>
+		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
+		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header>
+			<nav class="container">
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="mithril.min.zip">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+			</nav>
+		</header>
+		<main>
+			<section class="content">
+				<div class="container">
+					<div class="row">
+						<div class="col(3,3,12)">
+							<h2 id="api">API (v0.2.0)</h2>
+							<h3 id="core">コア</h3>
+							<ul>
+								<li><a href="mithril.html" title="仮想エレメントを作るためのユーティリティ">m</a></li>
+								<li><a href="mithril.component.html" title="コンポーネントのパラメータ化">m.component</a></li>
+								<li><a href="mithril.mount.html" title="コンポーネントのレンダリング">m.mount</a></li>
+								<li><a href="mithril.prop.html" title="getter-setterユーティリティ">m.prop</a></li>
+								<li><a href="mithril.withAttr.html" title="イベントハンドラを生成するユーティリティ">m.withAttr</a></li>
+							</ul>
+							<h3 id="routing">ラウティング</h3>
+							<ul>
+								<li><a href="mithril.route.html" title="ラウティングユーティリティ">m.route</a>
+									<ul>
+										<li><a href="mithril.route.html#defining-routes" title="存在するラウトの定義">m.route(rootElement, defaultRoute, routes)</a></li>
+										<li><a href="mithril.route.html#redirecting" title="ラウトへリダイレクト">m.route(path, params, replaceHistory)</a></li>
+										<li><a href="mithril.route.html#reading-current-route" title="現在のラウトを取得">m.route()</a></li>
+										<li><a href="mithril.route.html#mode-abstraction" title="ラウティングモードの抽象化">m.route(element)</a></li>
+										<li><a href="mithril.route.html#mode" title="ラウティングがハッシュ、クエリー文字列、パス名のどのモードを使用するか">m.route.mode</a></li>
+										<li><a href="mithril.route.html#param" title="パラメータ化されたラウトから引数の読み込み">m.route.param</a></li>
+										<li><a href="mithril.route.html#buildQueryString" title="データをクエリー文字列フォーマットでシリアライズ">m.route.buildQueryString</a></li>
+										<li><a href="mithril.route.html#parseQueryString" title="パラメータ化されたラウトから引数の読み込み">m.route.parseQueryString</a></li>
+									</ul>
+								</li>
+							</ul>
+							<h3 id="data">データ</h3>
+							<ul>
+								<li><a href="mithril.request.html" title="高レベルなAJAXユーティリティ">m.request</a></li>
+								<li><a href="mithril.deferred.html" title="Promiseのファクトリ">m.deferred</a></li>
+								<li><a href="mithril.sync.html" title="Promiseを集約">m.sync</a></li>
+							</ul>
+							<h3 id="html">HTML</h3>
+							<ul>
+								<li><a href="mithril.trust.html" title="エスケープしないHTMLのためのメソッド">m.trust</a></li>
+							</ul>
+							<h3 id="rendering">レンダリング</h3>
+							<ul>
+								<li><a href="mithril.render.html" title="低レベルのレンダリングの方法">m.render</a></li>
+								<li><a href="mithril.redraw.html" title="高レベルな明示的なレンダリングメソッド">m.redraw</a>
+									<ul>
+										<li><a href="mithril.redraw.html#strategy" title="次の再描画をどのような戦略で行うかを決定するフラグ">m.redraw.strategy(strategy)</a></li>
+									</ul>
+								</li>
+								<li><a href="mithril.computation.html" title="非同期のコンテキストをMithrilのレンダリングシステムに統合するためのユーティリティ">m.startComputation / m.endComputation</a></li>
+							</ul>
+							<h3 id="data">テスト</h3>
+							<ul>
+								<li><a href="mithril.deps.html" title="依存性注入(Dependency Injection)">m.deps</a></li>
+							</ul>
+							
+							<h2 id="archive">履歴</h2>
+							<ul>
+								<li><a href="roadmap.html">ロードマップ</a></li>
+								<li><a href="change-log.html">変更履歴</a></li>
+							</ul>
+						</div>
+						<div class="col(9,9,12)">
+							<h2 id="m">m</h2>
+<hr>
+<ul>
+<li><a href="#usage">使用方法</a></li>
+<li><a href="#binding-to-data">データへバインディング</a></li>
+<li><a href="#using-html-entities">HTMLエンティティを使用する</a></li>
+<li><a href="#accessing-the-real-dom-element">本物のDOM要素へアクセス</a></li>
+<li><a href="#persisting-config-data">設定データの永続化</a></li>
+<li><a href="#destructors">デストラクタ</a></li>
+<li><a href="#persisting-dom-elements-across-route-changes">ラウト変更前後でのDOMエレメントの永続化</a></li>
+<li><a href="#svg">SVG</a></li>
+<li><a href="#dealing-with-focus">フォーカスの操作</a></li>
+<li><a href="#dealing-with-sorting-and-deleting-in-lists">リスト内のソートと削除の操作</a></li>
+<li><a href="#signature">シグニチャ</a></li>
+<li><a href="#the-config-attribute"><code>config</code>属性</a></li>
+</ul>
+<hr>
+<p>この関数は仮想DOM要素を組み立てるための簡単なインタフェースを提供する関数です。この仮想DOM要素は<a href="mithril.render.html"><code>m.render()</code></a>メソッドを使ってレンダリングします。</p>
+<p>仮想エレメントを定義するときはCSSセレクタを使うのが推奨です。詳細についてはシグニチャのセクションを参照してください。</p>
+<hr>
+<h3 id="usage">使用方法</h3>
+<p>シンプルなタグセレクタを使って、HTMLに似たテンプレートを作成できます:</p>
+<pre><code class="lang-javascript">m("br"); //&lt;br&gt;を表現する仮想エレメントを作成
+
+m("div", "Hello"); //&lt;div&gt;Hello&lt;/div&gt;を作成
+
+m("div", {class: "container"}, "Hello"); //&lt;div class="container"&gt;Hello&lt;/div&gt;を作成
+</code></pre>
+<p><code>m()</code>関数が返す値は、実際のDOM要素ではありません。仮想DOMを本物のDOMに変換するには<a href="mithril.render.html"><code>m.render()</code></a>を呼ぶ必要があります。</p>
+<pre><code class="lang-javascript">m.render(document.body, m("br")); //&lt;br&gt;タグを&lt;body&gt;に出力
+</code></pre>
+<p>より複雑なCSSセレクタを使用することもできます:</p>
+<pre><code class="lang-javascript">m(".container"); //&lt;div class="container"&gt;&lt;/div&gt;を作成
+
+m("#layout"); //&lt;div id="layout"&gt;&lt;/div&gt;を作成
+
+m("a[name=top]"); //&lt;a name="top"&gt;&lt;/a&gt;を作成
+
+m("[contenteditable]"); //&lt;div contenteditable&gt;&lt;/div&gt;を作成
+
+m("a#google.external[href='http://google.com']", "Google"); //&lt;a id="google" class="external" href="http://google.com"&gt;Google&lt;/a&gt;を作成
+</code></pre>
+<p>それぞれの<code>m()</code>呼び出して作成される仮想DOM要素は、DOMエレメントに対応する情報を持つJavaScriptオブジェクトで、最終的にDOMエレメントに変換されます。</p>
+<p>もちろん、ネストされた仮想エレメントも作成できます:</p>
+<pre><code class="lang-javascript">m("ul", [
+    m("li", "アイテム 1"),
+    m("li", "アイテム 2"),
+]);
+
+/*
+これが作成される:
+&lt;ul&gt;
+    &lt;li&gt;アイテム 1&lt;/li&gt;
+    &lt;li&gt;アイテム 2&lt;/li&gt;
+&lt;/ul&gt;
+*/
+</code></pre>
+<hr>
+<p><code>a#google.external[href='http://google.com']</code>)のようなCSSセレクタ文法は、エレメントの静的なアトリビュートの定義で使用します。静的というのはアプリケーションの中で動的に変更されることがない要素になるという意味です。</p>
+<p><code>m("div", {class: "container"}, "Hello")</code>の2番目のパラメータの<code>attributes</code>引数は、動的に変更する可能性のある属性を設定するのに使います。</p>
+<p>ウェブサービスから帰ってきたエントリーを元に、動的にリンクが書き換わるようなリンクを作成するには次のようにします:</p>
+<pre><code class="lang-javascript">//この`link`変数の値はウェブサービスから返ってきた値という想定
+var link = {url: "http://google.com", title: "Google"}
+
+m("a", {href: link.url}, link.title); //&lt;a href="http://google.com"&gt;Google&lt;/a&gt;を生成
+</code></pre>
+<p>ちょっと応用的なサンプルです:</p>
+<pre><code class="lang-javascript">var links = [
+    {title: "アイテム 1", url: "/item1"},
+    {title: "アイテム 2", url: "/item2"},
+    {title: "アイテム 3", url: "/item3"}
+];
+
+m.render(document.body, [
+    m("ul.nav",
+        links.map(function(link) {
+            return m("li",
+                m("a", {href: link.url}, link.title)
+            );
+        })
+    ])
+]);
+</code></pre>
+<p>生成される結果:</p>
+<pre><code class="lang-markup">&lt;body&gt;
+    &lt;ul class="nav"&gt;
+        &lt;li&gt;&lt;a href="/item1"&gt;アイテム 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="/item2"&gt;アイテム 2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="/item3"&gt;アイテム 3&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/body&gt;
+</code></pre>
+<p>このように、普通のJavaScriptの文法を利用してフロー制御を行うことができます。これによって開発者から見てテンプレートに対してあらゆる抽象化が行えるようなっています。</p>
+<hr>
+<p><code>attributes</code>引数の中では、JavaScriptのプロパティ名とHTML属性名の両方を使って設定できますが、適切な型を使って渡されます。JavaScriptとHTMLで同じ名前の属性があった場合は、MithrilはJavaScript側の属性を優先します。</p>
+<pre><code class="lang-javascript">m("div", {class: "widget"}); //&lt;div class="widget"&gt;&lt;/div&gt;を生成
+
+m("div", {className: "widget"}); //&lt;div class="widget"&gt;&lt;/div&gt;を生成
+
+m("button", {onclick: alert}); //押されるとアラートを表示する&lt;button&gt;&lt;/button&gt;を生成
+
+//`readonly`の設定にJavaScript文法(大文字の"O"になる)を使用
+//HTML属性とは異なり、JavaScriptのプロパティではboolean型を使用する
+m("input", {readOnly: true}); //yields &lt;input readonly /&gt;
+
+//HTML属性名は`setAttribute`が使われるため期待と異なることがある
+m("input", {readonly: false}); //&lt;input readonly="false" /&gt;は属性が存在するので読み込み専用
+</code></pre>
+<hr>
+<p>アルファベットと数値以外の文字列を持つ属性名を設定したいときは、JSON文法を使うことができます:</p>
+<pre><code class="lang-javascript">m("div", {"data-index": 1}); //&lt;div data-index="1"&gt;&lt;/div&gt;を生成
+</code></pre>
+<p>次のようにインラインでスタイルを設定できます:</p>
+<pre><code class="lang-javascript">m("div", {style: {border: "1px solid red"}}); //&lt;div style="border:1px solid red;"&gt;&lt;/div&gt;を生成
+</code></pre>
+<p>フレームワークは必要最低限の動作をするように設計されているため、どの属性名にも、<code>px</code>、<code>%</code>といった単位を付けることはしません。一般的に動的に値を変更する時以外は、インラインでのスタイル設定は使用すべきではありません。</p>
+<p>Mithrilはまた、インラインのスタイル属性のCSSのプロパティ名を自動でcamel-caseに変換することはありません。そのため、JavaScriptのオブジェクトを経由してJavaScript文法を使って設定すべきです:</p>
+<pre><code class="lang-javascript">m("div", {style: {textAlign: "center"}}); //&lt;div style="text-align:center;"&gt;&lt;/div&gt;を生成
+m("div", {style: {cssFloat: "left"}}); //&lt;div style="float:left;"&gt;&lt;/div&gt;を生成
+
+//これは動作しない
+m("div", {style: {"text-align": "center"}});
+m("div", {style: {float: "left"}});
+</code></pre>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference">JavaScript文法におけるCSSのルールはこちら</a>で確認できます。</p>
+<p>インラインの文字列を使うことで、CSS文法を使ってスタイルルールを定義することもできます:</p>
+<pre><code class="lang-javascript">m("div[style='text-align:center']"); //&lt;div style="text-align:center;"&gt;&lt;/div&gt;を生成
+</code></pre>
+<p>注意点としては、CSS文法を使うとDOM要素の再描画の時に<code>style</code>属性が強制的にテンプレートで設定されたスタイルに上書きされます。そのため、Mithrilのテンプレートの外からスタイルを変更するようなサードパーティ製ツールを使用する必要があるときは、CSS文法を避けてください。この後の<code>config</code>の項目で詳しく説明します。</p>
+<hr>
+<h3 id="binding-to-data">データへバインディング</h3>
+<p>柔軟性を維持するために、Mithrilでは双方向バインディングを生成するヘルパーは提供していません。しかし、簡単に実現できます:</p>
+<pre><code class="lang-javascript">//データストア
+var name = m.prop("")
+
+//データをビューにバインド
+m("input", {oninput: m.withAttr("value", name), value: name()})
+</code></pre>
+<p>この上記のサンプルを実行すると、<code>oninput</code>イベントハンドラが<code>name</code> getter-setterを更新します。Mithrilの自動再描画システムが表示される値の更新にともなって再描画を行います。詳細の情報は<a href="mithril.prop.html">こちらの<code>m.prop</code> getter-setterユーティリティ</a>と、<a href="mithril.withAttr.html">こちらの<code>m.withAttr</code>イベントハンドラ</a>で読むことができます。また、<a href="auto-redrawing.html">こちらのドキュメントで再描画システムがどのように動くのか</a>学ぶことができます。</p>
+<p>Mithrilは、常にモデルレイヤのデータが正当なものであると判断します。これはつまり、下記のサンプルのスクリーン上のテキスト入力の値は、モデルデータが変更されるたびに上書きされることを意味しています:</p>
+<pre><code class="lang-javascript">//このサンプルではイベントハンドラが`name` getter-setterの値を変更することはない
+//再描画があるたびに現在のUI上の値が`name()`の値を使って書き換えられる
+m("input", {value: name()})
+</code></pre>
+<p>一般的なリファクタリングのテクニックを使うと、表現力を向上させることができます:</p>
+<pre><code class="lang-javascript">//バインディングをヘルパ関数にリファクタリング
+var binds = function(prop) {
+    return {oninput: m.withAttr("value", prop), value: prop()}
+}
+
+//データストア
+var name = m.prop("")
+
+//ビュー内のデータストアにバインド
+m("input", binds(name))
+</code></pre>
+<p>もっとアグレッシブなリファクタリングを行うとこうなります:</p>
+<pre><code class="lang-javascript">//バインディングをシンプルなヘルパにリファクタリング
+var input = function(prop) {
+    return m("input", {oninput: m.withAttr("value", prop), value: prop()})
+}
+
+//データストア
+var name = m.prop("")
+
+//ビュー内のデータストアにバインディング
+input(name)
+</code></pre>
+<p>バインディングに関して<a href="http://lhorie.github.io/mithril-blog/asymmetrical-data-bindings.html">パフォーマンス</a>と<a href="http://lhorie.github.io/mithril-blog/extending-the-view-language.html">表現</a>を改善する他の方法についてはブログの記事で学ぶことができます。</p>
+<hr>
+<h3 id="using-html-entities">HTMLエンティティを使用する</h3>
+<p>デフォルトでは、MithrilはXSS攻撃を防ぐためにHTMLの文字列をエスケープします。</p>
+<pre><code class="lang-javascript">m("div", "&amp;times;") //&lt;div&gt;&amp;amp;times;&lt;/div&gt;になる
+</code></pre>
+<p>信頼できるHTML文字列をエスケープを抑える時は<a href="mithril.trust.html"><code>m.trust</code></a>を使用します。</p>
+<pre><code class="lang-javascript">m("div", m.trust("&amp;times;")) //&lt;div&gt;&amp;times;&lt;/div&gt;になる
+</code></pre>
+<hr>
+<h4 id="accessing-the-real-dom-element">本物のDOM要素へアクセス</h4>
+<p><code>config</code>という名前のHTML標準ではない属性を定義することができます。この特別なパラメータを使うと、DOMエレメントの精製後にその要素に対してメソッドが呼べるようになります。</p>
+<p>この機能は、例えば<code>canvas</code>エレメントを作り、JavaScriptの描画APIを使って絵を描く場合などに便利です:</p>
+<pre><code class="lang-javascript">function draw(element, isInitialized, context) {
+    //一度描画したら再描画はしない
+    if (isInitialized) return;
+
+    var ctx = element.getContext("2d");
+    /* 描画コード */
+}
+
+var view = [
+    m("canvas", {config: draw})
+]
+
+//このメソッド呼び出しをすると、canvasエレメントが作られ、`initialized`がfalseに設定される
+m.render(document.body, view);
+
+//ここではisInitializedは`true`になる
+m.render(document.body, view);
+</code></pre>
+<p>設定<code>config</code>の一般的な使用法の１つに、<a href="mithril.route.html"><code>m.route</code></a>と一緒に使用して、設定されているラウティングモードにかかわらず、透過的に動作するようにリンクを拡張するというものがあります。</p>
+<pre><code class="lang-javascript">//このリンクはどのMithrilのラウティングシステムのモードでも使用できる。
+//ラウティングのモードにはhash, querystring, pathnameがあるが、
+//`href`属性で、ラウティングの文法(`#`, `?`)をハードコードする必要はない。
+m("a[href='/dashboard']", {config: m.route}, "Dashboard");
+</code></pre>
+<p><code>config</code>の仕組みを使うと、入力フォームにフォーカスを移動したり、通常の属性文法では呼び出せないメソッドを呼び出すことができます。</p>
+<p>また、<code>config</code>コールバックはレンダリングのライフサイクルが終わった時にしか呼ばれません。このため、コントローラやモデルの値など、すぐにレンダリングに反映したい変更をするのに<code>config</code>を使うのは適しません。この方法でコントローラやモデルの値を変更しても、次の<code>m.render</code>呼び出しか、<code>m.mount</code>呼び出しがあるまでは描画されません。</p>
+<p>この機能を使うと、サードパーティのライブラリを統合する時などに、コントローラのメソッドを呼び出すようなカスタムのイベントハンドラを登録できます。ただし、Mithrilの自動描画システムがきちんと働くようにしなければなりません。これについては<a href="integration.html">他のライブラリとの統合</a>を参照してください。</p>
+<p>この機能を使って、<code>window.onresize</code>などのイベントを他のエレメントに付与することもできますが、その場合はトラブルを避けるために<code>ctx.onunload</code> を使って確実にイベントハンドラを削除してください。</p>
+<hr>
+<h4 id="persisting-config-data">設定データの永続化</h4>
+<p><code>config</code>の3番目の引数を使うと、再描画時に仮想のDOM要素を保持しておくことができます。<code>config</code>のコールバックがサードパーティのクラスのインスタンスを作成したり、再描画時にそのインスタンスにアクセスすることができます。</p>
+<p>次のサンプルは、再描画のカウントを表示します。このコードの中で、再描画のカウントはコンテキストオブジェクト内に格納されます。このオブジェクトは再描画のたびにアクセスができます。</p>
+<pre><code class="lang-javascript">function alertsRedrawCount(element, isInit, context) {
+    if (!isInit) context.count = 0
+    alert(++context.count)
+}
+
+m("div", {config: alertsRedrawCount})
+</code></pre>
+<hr>
+<h4 id="destructors">デストラクタ</h4>
+<p><code>config</code>関数に渡される<code>context</code>オブジェクトには、<code>onunload</code>と呼ばれるプロパティがあります。この関数は、Mithirilの差分検出エンジンによって対象のエレメントがドキュメントから切り離される時に呼ばされます。</p>
+<p>エレメントが破棄されるときに、なんらかの後片付けのタスクを実行したい時にはこの機能は便利です。例えば、<code>setTimeout</code>を辞めるといったタスクがあるでしょう。</p>
+<pre><code class="lang-javascript">function unloadable(element, isInit, context) {
+    context.timer = setTimeout(function() {
+        alert("timed out!");
+    }, 1000);
+
+    context.onunload = function() {
+        clearTimeout(context.timer);
+        console.log("divをアンロード");
+    }
+};
+
+m.render(document, m("div", {config: unloadable}));
+
+m.render(document, m("a")); //`divをアンロード`とログに表示されるが、`alert`は呼ばれない
+</code></pre>
+<hr>
+<h4 id="persisting-dom-elements-across-route-changes">ラウト変更前後でのDOMエレメントの永続化</h4>
+<p><a href="mithril.route.html">router</a>を使用している時は、ラウトが変更されると、前のページで使用されていたプラグインをアンロードするために、DOMツリーがスクラッチから再生成されます。もし、ラウトの変更前後で、DOMエレメントを破棄せずに残しておきたい場合には、configのコンテキストオブジェクト内の<code>retain</code>フラグを設定してください。</p>
+<p>下記のサンプルには、2つのラウトがあります。ユーザがどちらかのURLにアクセスすると、それぞれのコンポーネントをロードします。どちらのコンポーネントも<code>menu</code>テンプレートを使用しています。このテンプレーには2つのコンポーネント間をナビゲートするリンクがあります。そして、最初期化のコストが非常に高いエレメントだとします。エレメントのconfig関数の中で<code>context.retain = true</code>と設定すると、ラウトが変更されてもコストが高い(つもりの)spanタグを保持します。</p>
+<pre><code class="lang-javascript">//メニューテンプレート
+var menu = function() {
+    return m("div", [
+        m("a[href='/']", {config: m.route}, "Home"),
+        m("a[href='/contact']", {config: m.route}, "Contact"),
+        //最初期化が非常に高価(つもり)のDOMエレメント
+        m("span", {config: persistent})
+    ])
+}
+//ラウトが変更されてもエレメントを保持する設定
+function persistent(el, isInit, context) {
+    context.retain = true
+
+    if (!isInit) {
+        // `/` と`/contact` の間を何度行き来しても、一度だけ実行される
+        doSomethingExpensive(el)
+    }
+}
+
+//上記のメニューを使用するコンポーネント
+var Home = {
+    controller: function() {},
+    view: function() {
+        return m("div", [
+            menu(),
+            m("h1", "Home")
+        ])
+    }
+}
+var Contact = {
+    view: function() {
+        return m("div", [
+            menu(),
+            m("h2", "Contact")
+        ])
+    }
+}
+
+m.route(document.body, "/", {
+    "/": Home,
+    "/contact": Contact
+})
+</code></pre>
+<p><code>context.retain = true</code>を設定しても、既存のエレメントと大きく異る場合はエレメントは破壊されて再生成されます。「大きく異る」の判定基準は:</p>
+<ul>
+<li>タグ名が変更されるか、</li>
+<li>HTML属性のリストが変更されるか、</li>
+<li>エレメントのid属性が変更された場合</li>
+</ul>
+<p><code>context.retain = false</code>が設定された場合は、変更が小さくてもエレメントは破棄されて再生成されます。</p>
+<hr>
+<h4 id="svg">SVG</h4>
+<p>ネイティブでSVGをサポートしていないブラウザをサポートしたくないと思わない限り、Mithrilを使ってSVGドキュメントを作ることができます。</p>
+<p>仮想のDOMツリーの中にSVGの要素が現れると、Mithrilは自動で正しいXML名前空間を設定します。</p>
+<pre><code class="lang-javascript">m("svg[height='200px'][width='200px']", [
+    m("image[href='foo.jpg'][height='200px'][width='200px']")
+])
+</code></pre>
+<hr>
+<h4 id="dealing-with-focus">フォーカスの操作</h4>
+<p>仮想DOMの差分検知アルゴリズムには、DOM要素の厳密な同一性について判断できないという欠点があります。例えば、リストの先頭に挿入するような操作は、すべての要素が変更されたとみなして、すべてが再生成されてしまう可能性もあります。他の副作用としては、フォーカスを持ったエレメントが移動してしまったり、<code>config</code>を通じて追加されたサードパーティのプラグインが違うエレメントの内側に移動してしまう可能性があります。</p>
+<p>幸い、Mithrilでは、開発が各エレメントに識別子のキーを付与できるため、シフト、スプライス、ソートといった配列操作が行われても、再描画時に最小のエレメントだけを変更し、残りのDOMエレメントは変更されないようにする、といったことが可能です。これを使うと、入力のフォーカスや、プラグインの状態を正しく維持することができます。</p>
+<p>DOM要素の識別子を維持するには、変更したい配列の子供に、<code>key</code>プロパティを設定します。リストの子の兄弟のDOMエレメントのキーはユニークでなければなりませんが、アプリケーション全体でグローバルにユニークである必要はありません。キーは文字列でも数値でも大丈夫です。</p>
+<pre><code class="lang-javascript">m("ul", [
+    items.map(function(item) {
+        return m("li", {key: item.id}, [
+            m("input")
+        ]);
+    })
+]);
+</code></pre>
+<p>上記のサンプルでは、<code>items</code>がソートされたり、順序が逆転したあとに再描画されても、正しくフォーカスが維持されます。キーは、<code>items</code>配列に一番近いエレメントの<code>li</code>エレメントに設定します。フォーカスを維持したいのは<code>input</code>エレメントですが、このエレメントに直接キーを設定することはしません。</p>
+<p><code>key</code>属性があるかどうかに加えて、差分検知のルールもエレメントの再生成を行うかどうかの判定に使用される点は注意してください。ノード名が変更されたり、属性名のリストが変更されたり、ID属性が変更されれば、エレメントは再生成されます。想定外の事態を避けるには、<code>undefined</code>や<code>null</code>を使って属性の値だけを変更するようにしてください。条件によって属性の辞書そのものを置き換えるコードは避けましょう。</p>
+<pre><code class="lang-javascript">//このイディオムは避けること
+m("li", selected ?{class: "active"} : {})
+
+//代わりにこのイディオムを使う
+m("li", {class: selected ?"active" : ""})
+</code></pre>
+<hr>
+<h3 id="dealing-with-sorting-and-deleting-in-lists">リスト内のソートと削除の操作</h3>
+<p>入力のフォーカスと同様に、キーを使うとリスト内のデータとそのDOM表現間の参照の整合性を維持できます。</p>
+<pre><code class="lang-javascript">m("ul", [
+    items.map(function(item) {
+        return m("li", {key: item.id}, [
+            m("input")
+        ]);
+    })
+]);
+</code></pre>
+<p>リストをソートしたり、要素を削除したり、スプライスする場合は常にキーを使用すべきです。</p>
+<hr>
+<h3 id="signature">シグニチャ</h3>
+<p><a href="how-to-read-signatures.html">シグニチャの読み方</a></p>
+<pre><code class="lang-clike">VirtualElement m(String selector [, Attributes attributes] [, Children... children])
+
+where:
+    VirtualElement :: Object { String tag, Attributes attributes, Children children }
+    Attributes :: Object&lt;any | void config(DOMElement element, Boolean isInitialized, Object context, VirtualElement vdom)&gt;
+    Children :: String text | VirtualElement virtualElement | Component | SubtreeDirective directive | Array&lt;Children children&gt;
+    Component :: Object { Function? controller, Function view }
+    SubtreeDirective :: Object { String subtree }
+</code></pre>
+<ul>
+<li><p><strong>String selector</strong></p>
+<p>DOMエレメントを表現するCSSルールの文字列を指定します。</p>
+<p>タグ、ID、クラス、属性セレクタのみがサポートされています。</p>
+<p>もしタグセレクタが省略されると、<code>div</code>がデフォルトで設定されます。</p>
+<p>もし<code>selector</code>と<code>attributes</code>パラメータで同じ属性が定義されると、<code>attributes</code>が使用されます。</p>
+<p>開発者の利便性のために、Mithrilは<code>class</code>属性は特別扱いをします。もし両方で定義されていた場合には、スペース区切りのリストとして2つのパラメータを統合します。ただし、同じクラスが2度宣言されていたら、重複は取り除かれます。</p>
+<p><em>サンプル:</em></p>
+<p><code>"div"</code></p>
+<p><code>"#container"</code></p>
+<p><code>".active"</code></p>
+<p><code>"[title='Application']"</code></p>
+<p><code>"div#container.active[title='Application']"</code></p>
+<p><code>".active#container"</code></p>
+</li>
+<li><p><strong>Attributes attributes</strong> (optional)</p>
+<p>キー・バリューのマップはHTML属性とその値を定義します。</p>
+<p>HTMLとJavaScriptの両方の属性名を使用できます。<code>class</code>も<code>className</code>も使えます。</p>
+<p>型は値の、それぞれの属性が期待する型とマッチする必要があります。</p>
+<p>例えば、<code>className</code>の値は文字列である必要があります。</p>
+<p>もし、指定された属性名がHTMLとJavaScriptで異なる型を期待している場合は、JavaScriptの型が使用されます。</p>
+<p>例えば、<code>onclick</code>属性は関数を受け入れます。</p>
+<p>同様に<code>readonly</code>属性に<code>false</code>を設定すると、その属性をHTMLから取り除くのと同じ結果になります。</p>
+<p><code>&lt;a&gt;</code>エレメントの<code>hash</code>属性のように、JavaScriptだけで使用できるプロパティの値も設定できます。</p>
+<p>もし<code>selector</code>と<code>attributes</code>パラメータで同じ属性が定義されると、<code>attributes</code>が使用されます。</p>
+<p>開発者の利便性のために、Mithrilは<code>class</code>属性は特別扱いをします。もし両方で定義されていた場合には、スペース区切りのリストとして2つのパラメータを統合します。ただし、同じクラスが2度宣言されていたら、重複は取り除かれます。</p>
+<p><em>サンプル:</em></p>
+<p><code>{ title: "Application" }</code></p>
+<p><code>{ onclick: function(e) { /*ハンドラの処理コード*/ } }</code></p>
+<p><code>{ style: {border: "1px solid red"} }</code></p>
+</li>
+<li><h4 id="the-config-attribute"><code>config</code>属性</h4>
+<p><strong>void config(DOMElement element, Boolean isInitialized, Object context, VirtualElement vdom)</strong> (optional)</p>
+<p><code>config</code>という名前のHTML標準ではない属性を定義することができます。この特別なパラメータを使うと、DOMエレメントの精製後にその要素に対してメソッドが呼べるようになります。</p>
+<p>この機能は、例えば<code>canvas</code>エレメントを作り、JavaScriptの描画APIを使って絵を描く場合などに便利です:</p>
+<pre><code class="lang-javascript">function draw(element, isInitialized) {
+   //一度描画したら再描画はしない
+   if (isInitialized) return;
+
+   var ctx = element.getContext("2d");
+   /* 描画コード */
+}
+
+var view = [
+   m("canvas", {config: draw})
+]
+
+//このメソッド呼び出しをすると、canvasエレメントが作られ、`initialized`がfalseに設定される
+m.render(document.body, view);
+
+//ここではisInitializedは`true`になる
+m.render(document.body, view);
+</code></pre>
+<p>設定<code>config</code>の一般的な使用法の１つに、<a href="mithril.route.html"><code>m.route</code></a>と一緒に使用して、設定されているラウティングモードにかかわらず、透過的に動作するようにリンクを拡張するというものがあります。</p>
+<pre><code class="lang-javascript">//このリンクはどのMithrilのラウティングシステムのモードでも使用できる。
+//ラウティングのモードにはhash, querystring, pathnameがあるが、
+//`href`属性で、ラウティングの文法(`#`, `?`)をハードコードする必要はない。
+m("a[href='/dashboard']", {config: m.route}, "Dashboard");
+</code></pre>
+<p><code>config</code>の仕組みを使うと、入力フォームにフォーカスを移動したり、通常の属性文法では呼び出せないメソッドを呼び出すことができます。</p>
+<p>また、<code>config</code>コールバックはレンダリングのライフサイクルが終わった時にしか呼ばれません。このため、コントローラやモデルの値など、すぐにレンダリングに反映したい変更をするのに<code>config</code>を使うのは適しません。この方法でコントローラやモデルの値を変更しても、次の<code>m.render</code>呼び出しか、<code>m.mount</code>呼び出しがあるまでは描画されません。</p>
+<p>この機能を使うと、サードパーティのライブラリを統合する時などに、コントローラのメソッドを呼び出すようなカスタムのイベントハンドラを登録できます。ただし、Mithrilの自動描画システムがきちんと働くようにしなければなりません。これについては<a href="integration.html">他のライブラリとの統合</a>を参照してください。</p>
+<p>この機能を使って、<code>window.onresize</code>などのイベントを他のエレメントに付与することもできますが、その場合はトラブルを避けるために<code>ctx.onunload</code> を使って確実にイベントハンドラを削除してください。</p>
+<ul>
+<li><strong>DOMElement element</strong></li>
+</ul>
+<p><code>m()</code>呼び出しで定義された仮想エレメントに対応するDOMエレメントです。</p>
+<ul>
+<li><strong>Boolean isInitialized</strong></li>
+</ul>
+<p>関数がこのエレメントに対して実行されるのが初回かどうかを表すフラグです。そのエレメントに対して初めて実行される時はこのフラグがfalseに設定され、エレメントの作成後に再描画が発生してそこから呼ばれる時はtrueになります。</p>
+<ul>
+<li><strong>Object context</strong></li>
+</ul>
+<p>再描画間で状態を保持するオブジェクトです。このオブジェクトはページのライフサイクルを通じて何度もアクセスする必要がある、サードパーティのクラスのインスタンスを保持するのにも使えます。</p>
+<p>次のサンプルは、再描画のカウントを表示します。このコードの中で、再描画のカウントはコンテキストオブジェクト内に格納されます。このオブジェクトは再描画のたびにアクセスができます。</p>
+<pre><code class="lang-javascript">function alertsRedrawCount(element, isInit, context) {
+   if (!isInit) context.count = 0
+   alert(++context.count)
+}
+
+m("div", {config: alertsRedrawCount})
+</code></pre>
+<p><code>config</code>関数に渡される<code>context</code>オブジェクトには、<code>onunload</code>と呼ばれるプロパティがあります。この関数は、Mithirilの差分検出エンジンによって対象のエレメントがドキュメントから切り離される時に呼ばされます。</p>
+<p>エレメントが破棄されるときに、なんらかの後片付けのタスクを実行したい時にはこの機能は便利です。例えば、<code>setTimeout</code>を辞めるといったタスクがあるでしょう。</p>
+<pre><code class="lang-javascript">function unloadable(element, isInit, context) {
+   context.timer = setTimeout(function() {
+       alert("timed out!");
+   }, 1000);
+
+   context.onunload = function() {
+       clearTimeout(context.timer);
+       console.log("divをアンロード");
+   }
+};
+
+m.render(document, m("div", {config: unloadable}));
+
+m.render(document, m("a")); //`divをアンロード`とログに表示されるが、`alert`は呼ばれない
+</code></pre>
+<ul>
+<li><strong>VirtualElement vdom</strong></li>
+</ul>
+<p>The virtual DOM element to which the <code>config</code> function is attached</p>
+</li>
+<li><p><strong>Children children</strong> (optional)</p>
+<p>この属性が文字列の場合は、テキストノードとしてレンダリングされます。文字列をHTMLとしてレンダリングしたい場合は、<a href="mithril.trust.html"><code>m.trust</code></a>を参照してください。</p>
+<p>もし仮想エレメントが指定された場合には、DOMエレメントとしてレンダリングされます。</p>
+<p>If it's a <a href="mithril.component.html">component</a>, the component will be instantiated and managed internally by Mithril</p>
+<p>配列だった場合には、配列の要素も再帰的にレンダリングされて、生成されたエレメントの子供として追加されます。</p>
+<p>SubtreeDirectiveの値が"retain"だった場合は、もしあれば既存のDOMツリーをその場で保持します。要塞については、<a href="mithril.render.html#subtree-directives">subtree directives.html</a>を参照してください。</p>
+</li>
+<li><p><strong>returns</strong> VirtualElement</p>
+<p>返されるVirtualElementは、DOMエレメントを表すデータ構造です。このデータ構造は<a href="mithril.render.html"><code>m.render</code></a>を通じてレンダリングされます。</p>
+</li>
+</ul>
+
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<div class="container">
+				<a href="http://opensource.org/licenses/MIT" target="_blank">MITライセンス</a>でリリースされています<br />© 2014 Leo Horie
+			</div>
+		</footer>
+		<script src="lib/prism/prism.js"></script>
+	</body>
+</html>

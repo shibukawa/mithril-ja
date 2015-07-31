@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+	<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>便利なツール - Mithril</title>
+		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
+		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header>
+			<nav class="container">
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="mithril.min.zip">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+			</nav>
+		</header>
+		<main>
+			<section class="content">
+				<div class="container">
+					<div class="row">
+						<div class="col(3,3,12)">
+							<h2 id="core-topics">基本トピック</h2>
+							<ul>
+								<li><a href="installation.html">インストール</a></li>
+								<li><a href="getting-started.html">はじめよう</a></li>
+								<li><a href="routing.html">ラウティング</a></li>
+								<li><a href="web-services.html">ウェブサービス</a></li>
+								<li><a href="components.html">コンポーネント</a></li>
+							</ul>
+							<h2 id="advanced-topics.html">上級トピック</h2>
+							<ul>
+								<li><a href="auto-redrawing.html">自動再描画システム</a></li>
+								<li><a href="integration.html">他のライブラリとの統合</a></li>
+								<li><a href="optimizing-performance.html">テンプレートのコンパイル</a></li>
+							</ul>
+							<h2 id="misc">その他</h2>
+							<ul>
+								<li><a href="comparison.html">他のMVCフレームワークとの違い</a></li>
+								<li><a href="benchmarks.html">ベンチマーク</a></li>
+								<li><a href="practices.html">良いプラクティス</a></li>
+								<li><a href="tools.html">便利なツール</a></li>
+							</ul>
+						</div>
+						<div class="col(9,9,12)">
+							<h2 id="tools">Tools</h2>
+<h3 id="html-to-mithril-template-converter">HTML→Mithrilテンプレートコンバータ</h3>
+<p>もしすでにHTMLを作成済みで、それをMithirlのテンプレートに変換したい場合は、一度だけマニュアルの変換しかできませんが、下記のツールを使うことができます。</p>
+<p><a href="tools/template-converter.html">テンプレートコンバータ</a></p>
+<hr>
+<h3 id="automatic-html-to-mithril-template-converter">自動HTML→Mithirilテンプレートコンバータ</h3>
+<p><a href="https://github.com/insin/msx"> Jonathan Buchananが作成したMSX</a> というツールがあります。これを使うとHTMLの文法を使ったテンプレートが作成できます。ファイルを変更すると自動でJavaScriptにコンパイルします。</p>
+<p>このツールは、スタイリングと機能の実装が異なるチームで行われていて、テンプレートのメンテナンスにHTML文法が使いたい場合に便利です。</p>
+<p>このツールを使うと、次のようなコードが書けます:</p>
+<pre><code class="lang-javascript">todo.view = function() {
+    return &lt;html&gt;
+        &lt;body&gt;
+            &lt;input onchange={m.withAttr("value", app.vm.description)} value={app.vm.description()}/&gt;
+            &lt;button onclick={app.vm.add}&gt;追加&lt;/button&gt;
+        &lt;/body&gt;
+    &lt;/html&gt;
+};
+</code></pre>
+<p>上記のコードはJavaScriptとして正しい文法ではありませんが、このコードは<a href="http://gulpjs.com">Gulp.js</a>などで提供されているプリプロセッサのビルドツールから読み込まれます。</p>
+<p>このツールは、 Jordan Humphreysが作成した<a href="https://github.com/mrsweaters/mithril-rails">Rails gem</a>でも提供されています。</p>
+<hr>
+<h3 id="mithril-template-compiler">Mithrilテンプレートコンパイラ</h3>
+<p>Mithirlのテンプレートは事前にコンパイルすることでさらに高速にすることができます。詳細についてはこのページを参照してください。</p>
+<p><a href="optimizing-performance.html#compiling-templates">テンプレートのコンパイル</a></p>
+<hr>
+<h3 id="typescript-support">TypeScriptサポート</h3>
+<p>TypeScriptにMithrilサポートを追加する型定義ファイルもあります。</p>
+<p><a href="mithril.d.ts">mithril.d.ts</a></p>
+<p>これを使用するには、TypeScriptファイルに参照を追加します。コンパイラがMithril API呼び出しに対して型チェックが行えるようになります。</p>
+<pre><code class="lang-javascript">/// &lt;reference path="mithril.d.ts" /&gt;
+</code></pre>
+<hr>
+<h3 id="internet-explorer-compatibility">Internet Explorerの互換性</h3>
+<p>Mithrilは<code>Array::indexOf</code>、<code>Array::map</code>、<code>Object::keys</code>、<code>JSON</code>オブジェクトなどのECMAScript 5の機能を使っています。Internet Explorer 8では、これらの機能のうちのいくつかが使えません。</p>
+<p>次のスクリプト(polyfillと呼ばれる互換性向上コード)を読み込ませるのがもっとも簡単な補完方法です。</p>
+<pre><code class="lang-javascript">&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.0.3/es5-shim.min.js"&gt;&lt;/script&gt;
+</code></pre>
+<p>このライブラリはブラウザで必要とされるすべての足りない機能を追加します。特定の</p>
+<pre><code class="lang-markup">&lt;script src="http://cdn.polyfill.io/v1/polyfill.min.js?features=Array.prototype.indexOf,Object.keys,Function.prototype.bind,Array.prototype.forEach,JSON"&gt;&lt;/script&gt;
+</code></pre>
+<p>IE7をサポートするためには他のPolyfillが使えます。</p>
+<ul>
+<li><p><a href="https://github.com/es-shims/es5-shim">ES5 Shim</a>もしくは、Mozillaの<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf">Array::indexOf</a>、<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">Array::map</a>、<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys">Object::keys</a></p>
+</li>
+<li><p><a href="https://github.com/douglascrockford/JSON-js/blob/master/json2.js">JSON2.js</a></p>
+</li>
+</ul>
+<p>MithrilはXMLHttpRequestにも依存しています。もしIE6をサポートするには、そのクラスの<a href="https://gist.github.com/Contra/2709462">シミュレートコード</a>が必要になります。IE7以下のブラウザは、クロスドメインのAJAXリクエストをサポートしていません。</p>
+<p>また、多くの<code>m.route</code>モードは、ブラウザをリフレッシュしないで他のページにジャンプするために<code>history.pushState</code>を使用しています。<a href="http://caniuse.com/#search=pushstate">IE9とそれ以下のブラウザ</a>はこの機能をサポートしていないため、リフレッシュが発生します。</p>
+
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<div class="container">
+				<a href="http://opensource.org/licenses/MIT" target="_blank">MITライセンス</a>でリリースされています<br />© 2014 Leo Horie
+			</div>
+		</footer>
+		<script src="lib/prism/prism.js"></script>
+	</body>
+</html>

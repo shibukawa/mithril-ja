@@ -1,0 +1,236 @@
+<!doctype html>
+<html>
+	<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>m.redraw - Mithril</title>
+		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
+		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header>
+			<nav class="container">
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="mithril.min.zip">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+			</nav>
+		</header>
+		<main>
+			<section class="content">
+				<div class="container">
+					<div class="row">
+						<div class="col(3,3,12)">
+							<h2 id="api">API (v0.2.0)</h2>
+							<h3 id="core">コア</h3>
+							<ul>
+								<li><a href="mithril.html" title="仮想エレメントを作るためのユーティリティ">m</a></li>
+								<li><a href="mithril.component.html" title="コンポーネントのパラメータ化">m.component</a></li>
+								<li><a href="mithril.mount.html" title="コンポーネントのレンダリング">m.mount</a></li>
+								<li><a href="mithril.prop.html" title="getter-setterユーティリティ">m.prop</a></li>
+								<li><a href="mithril.withAttr.html" title="イベントハンドラを生成するユーティリティ">m.withAttr</a></li>
+							</ul>
+							<h3 id="routing">ラウティング</h3>
+							<ul>
+								<li><a href="mithril.route.html" title="ラウティングユーティリティ">m.route</a>
+									<ul>
+										<li><a href="mithril.route.html#defining-routes" title="存在するラウトの定義">m.route(rootElement, defaultRoute, routes)</a></li>
+										<li><a href="mithril.route.html#redirecting" title="ラウトへリダイレクト">m.route(path, params, replaceHistory)</a></li>
+										<li><a href="mithril.route.html#reading-current-route" title="現在のラウトを取得">m.route()</a></li>
+										<li><a href="mithril.route.html#mode-abstraction" title="ラウティングモードの抽象化">m.route(element)</a></li>
+										<li><a href="mithril.route.html#mode" title="ラウティングがハッシュ、クエリー文字列、パス名のどのモードを使用するか">m.route.mode</a></li>
+										<li><a href="mithril.route.html#param" title="パラメータ化されたラウトから引数の読み込み">m.route.param</a></li>
+										<li><a href="mithril.route.html#buildQueryString" title="データをクエリー文字列フォーマットでシリアライズ">m.route.buildQueryString</a></li>
+										<li><a href="mithril.route.html#parseQueryString" title="パラメータ化されたラウトから引数の読み込み">m.route.parseQueryString</a></li>
+									</ul>
+								</li>
+							</ul>
+							<h3 id="data">データ</h3>
+							<ul>
+								<li><a href="mithril.request.html" title="高レベルなAJAXユーティリティ">m.request</a></li>
+								<li><a href="mithril.deferred.html" title="Promiseのファクトリ">m.deferred</a></li>
+								<li><a href="mithril.sync.html" title="Promiseを集約">m.sync</a></li>
+							</ul>
+							<h3 id="html">HTML</h3>
+							<ul>
+								<li><a href="mithril.trust.html" title="エスケープしないHTMLのためのメソッド">m.trust</a></li>
+							</ul>
+							<h3 id="rendering">レンダリング</h3>
+							<ul>
+								<li><a href="mithril.render.html" title="低レベルのレンダリングの方法">m.render</a></li>
+								<li><a href="mithril.redraw.html" title="高レベルな明示的なレンダリングメソッド">m.redraw</a>
+									<ul>
+										<li><a href="mithril.redraw.html#strategy" title="次の再描画をどのような戦略で行うかを決定するフラグ">m.redraw.strategy(strategy)</a></li>
+									</ul>
+								</li>
+								<li><a href="mithril.computation.html" title="非同期のコンテキストをMithrilのレンダリングシステムに統合するためのユーティリティ">m.startComputation / m.endComputation</a></li>
+							</ul>
+							<h3 id="data">テスト</h3>
+							<ul>
+								<li><a href="mithril.deps.html" title="依存性注入(Dependency Injection)">m.deps</a></li>
+							</ul>
+							
+							<h2 id="archive">履歴</h2>
+							<ul>
+								<li><a href="roadmap.html">ロードマップ</a></li>
+								<li><a href="change-log.html">変更履歴</a></li>
+							</ul>
+						</div>
+						<div class="col(9,9,12)">
+							<h2 id="m-redraw">m.redraw</h2>
+<hr>
+<ul>
+<li><a href="#changing-redraw-strategy">再描画戦略の変更</a></li>
+<li><a href="#difference-between-computation-methods-and-m-redraw">computationメソッドとm.redrawの違い</a></li>
+<li><a href="#preventing-redraws-on-events">イベントによる再描画の阻止</a></li>
+<li><a href="#forcing-redraw">強制再描画</a></li>
+<li><a href="#signature">シグニチャ</a></li>
+</ul>
+<hr>
+<p>現在のアクティブなコンポーネントのビューの再描画を行います。コンポーネントのアクティベートには、<a href="mithril.mount.html"><code>m.mount()</code></a>か、<a href="mithril.route.html"><code>m.route()</code></a>を使ってください。</p>
+<p><code>m.redraw</code>を呼ぶと、AJAXリクエストや他の非同期サービスが完了しているかどうかに関わらず、再描画処理を起動します。そのため、強制再描画時に、未初期化の変数アクセスが発生しないようにテンプレートでのnullチェックを確実に行うようにしてください。</p>
+<p>もし非同期のモデルレベルのサービスを開発しているとします。コードが実行されていても、Mithrilがビューを更新しないことに気づきました。この場合は、<a href="mithril.computation.html"><code>m.startComputation</code>と<code>m.endComputation</code></a>を呼んで、Mithrilの自動再描画システムと統合します。</p>
+<p>テンプレートでは適切にnullチェックが行われていると仮定すると、<code>m.redraw</code>はローディングのインジケータ表示したり、 <code>offsetWidth</code>や<code>scrollHeight</code>の値を元にDOMの状態を変更しにいく時には便利です。</p>
+<hr>
+<h3 id="difference-between-computation-methods-and-m-redraw">computationメソッドとm.redrawの違い</h3>
+<p><a href="mithril.computation.html"><code>m.startComputation</code> / <code>m.endComputation</code>のペア</a>は「スタックされる」ように設計されています。例えば、複数の非同期サービスのそれぞれがこの呼出のペアを持っており、すべてのリクエストが完了するまで再描画を待たせることができます。これとは対照的に<code>m.redraw</code>は「アグレッシブ」です。このメソッドは、呼ばれた回数だけ再描画を行おうとします(実際には、同一フレーム内の呼び出しはまとめます)。<code>m.redraw</code>を使うと、AJAX呼び出しの完了前に再描画を実行させることができます。データの存在のチェックを行わないと、null参照例外が発生する恐れがあります。</p>
+<p>そのため、複数の非同期アクセスが完了する前に再描画が即座に行われないようにするために、computationメソッドを使うほうが推奨です。</p>
+<p>computationメソッドを使うと、未完了のデータをテンプレートが利用することがなくなります。しかし、テンプレート内でnullになりえる可能性がある場合は常にチェックコードを書くことが大切です。新しく導入したサードパーティライブラリが<code>m.redraw</code>を呼び出す可能性がありますし、何かしらの機能を実装する時に積極的な再描画を行う必要が出てくる可能性があるからです。</p>
+<p>nullになる可能性がある場合の対処法としては、<a href="mithril.request.html"><code>m.request</code></a>に<code>initialValue</code>オプションを指定するか、基本的なnullチェック(例: <code>data ?m("div", data) : null</code>)を行う方法があります。</p>
+<hr>
+<h3 id="changing-redraw-strategy">再描画戦略の変更</h3>
+<p>Mithrilの再描画の実行パターンを変更する必要があれば、<code>m.redraw.strategy</code> getter-setterを、<code>"all"</code>、<code>"diff"</code>、<code>"none"</code>のどれかに設定してください。これを設定すると、次にスケジュールされている再描画の時点から、新しい方法が適用されます。Mithirlのデフォルト<code>"all"</code>で、コントローラのコンストラクタが実行される・イベントハンドラが起動される前に、差分を取得します。 </p>
+<p>再描画が完了すると、Mithrilは再描画がラウトの変更に起因するものかどうかによって、この設定を"all"か"diff"に変更します。</p>
+<p>上記の説明に書かれているように、再描画のコンテキストに入る時にこのフラグはリセットされるため、再描画コンテキスト外でこのフラグを設定しても無視されます。</p>
+<p>このフラグが"all"に設定されると、Mithrilは現在のビューをすべて破棄し、ゼロから再描画します。この動作はラウト間の遷移時のデフォルトの動作です。</p>
+<p>このフラグが"diff"に設定されると、Mithrilは古いビューと新しいビューの間の差分の検知を行い必要な箇所にだけ差分を適用します。</p>
+<p>フラグが"none"に設定されるとMithrilは次の再描画をスキップします。繰り返しになりますが、このフラグを設定する必要はありません。Mithrilが自動で行います。</p>
+<pre><code class="lang-javascript">var Component1 = {
+    controller: function() {
+        //このコンポーネントはラウトの変更時にもゼロからビューを作りなおすのではなく、差分検知を行う
+        //これにより、エレメントの再生成が不要な時は、configコンテキストがラウト変更時にも破棄されない
+        m.redraw.strategy("diff")
+    },
+    view: function() {
+        return m("h1", {config: Component1.config}, "test") //すべてのラウトが同じコンテンツを表示する
+    },
+    config: function(el, isInit, ctx) {
+        if (!isInit) ctx.data = "foo" //この初期化はラウトの変更に関わらず一度だけ実行したい
+    }
+}
+</code></pre>
+<p>再描画戦略を変更する一般的な理由としては次のようなものがあります:</p>
+<ul>
+<li><p><code>keypress</code>イベントで受け取ったキーコードが処理対象外だったので再描画を避けたい</p>
+<pre><code class="lang-javascript">//モデル
+var saved = false
+function save(e) {
+   if (e.keyCode == 13) {
+       //デフォルトでイベントハンドラは自動再描画を起動するため再描画が行われる
+       saved = true
+   }
+   else {
+       //他のキーについては無視したいので、再描画も行わない
+       m.redraw.strategy("none")
+   }
+}
+
+//ビュー
+var view = function() {
+   return m("div", [
+       m("button[type=button]", {onkeypress: save}, "保存"),
+       saved ?"Saved" : ""
+   ])
+}
+</code></pre>
+</li>
+<li><p>ラウト変更時に全画面の再構築を避けて、サードパーティのコンポーネントのパフォーマンス劣化を避ける。</p>
+<pre><code class="lang-javascript">//ゼロから再描画するのではなく、ラウト変更時にも差分検知をする
+//ラウト変更後も`&lt;input&gt;`エレメントと、それに追加されたサードパーティプラグインが維持される
+var Component1 = {
+   controller: function() {
+       m.redraw.strategy("diff")
+   },
+   view: function() {
+       return m("div", [
+           m("h1", "Hello Foo"),
+           m("input", {config: plugin}) //`plugin`がサードパーティのライブラリを初期化するものとする
+       ])
+   }
+}
+
+var Component2 = {
+   controller: function() {
+       m.redraw.strategy("diff")
+   },
+   view: function() {
+       return m("div", [
+           m("h1", "Hello Bar"),
+           m("input", {config: plugin}) //`plugin`がサードパーティのライブラリを初期化するものとする
+       ])
+   }
+}
+
+m.route(document.body, "/foo", {
+   "/foo": Component1,
+   "/bar": Component2,
+})
+</code></pre>
+</li>
+</ul>
+<p>再描画の戦略は、ページ内の全コンポーネントのテンプレートツリーに影響を与えるグローバルな設定であることに注意してください。アプリケーション内の<em>一部分</em>の再描画だけを止めたい場合は、<a href="mithril.render.html#subtree-directives">サブツリーディレクティブ</a>を参照してください。</p>
+<p><a href="mithril.html#persising-dom-elements-across-route-changes"><code>ctx.retain</code>フラグ</a>を使うと、個別のエレメントに対してラウトの変更であっても、常に差分検知を行わずに再生成させないように指示することもできます。ラウト間でDOMの状態を維持する必要があるときは、<code>m.redraw.strategy("diff")</code>ではなく、<code>ctx.retain</code>フラグを使うのが推奨です。</p>
+<hr>
+<h3 id="preventing-redraws-on-events">イベントによる再描画の阻止</h3>
+<p>イベント内の特定の条件について考慮した時に、その条件に合わなければ再描画を行いたくない、と思うこともよくあるでしょう。例えば、ユーザがスペースバーを推した時だけ再描画を行い、そうでない場合は再描画はムダなのでやりたいくない、ということもあります。この場合、<code>m.redraw.strategy("none")</code>を呼ぶことで、再描画をスキップできます。</p>
+<pre><code class="lang-javascript">m("input", {onkeydown: function(e) {
+    if (e.keyCode == 13) vm.save() //`enter`キーが押された時だけ再描画をする
+    else m.redraw.strategy("none") //そうでなければ無視する
+}})
+</code></pre>
+<p>注意すべきこととしては、<code>m.redraw.strategy("none")</code> で戦略を<code>"none"</code>に設定しても、そのフレームで<strong>同期的に行われる</strong>再描画にしか効果がありません。イベントハンドラが完了すると、再び"diff"に戻ります。</p>
+<p>このメソッドを使って<code>"none"</code>に設定したにもかかわらず、<code>start/endComputation</code>や<code>m.redraw</code>、<code>m.request</code>によって非同期での再描画のトリガーが引かれた場合は、 <code>"diff"</code> 戦略で再描画が<em>先のフレーム</em>で行われます。</p>
+<p>また、<code>m.redraw.strategy("none")</code>を呼んだ後に<code>m.redraw</code>を同期的に呼んだ場合には、戦略は<code>"diff"</code>にリセットされます。</p>
+<p>最後に、ユーザアクションがoninputとonkeypressなどの複数のイベントハンドラを起動したり、複数の祖先エレメントのイベントハンドラに対してバブリングした場合は、デフォルトではすべてのイベントが再描画を起動します。この場合、１つのハンドラでnoneに戦略を変更しても、<code>strategy("none")</code> は非同期の再描画に効果を与えないため、他のハンドラの再描画戦略に影響を与えることはありません。</p>
+<hr>
+<h3 id="forcing-redraw">強制再描画</h3>
+<p>もしブラウザの通常の再描画サイクルよりも前に再描画を行わせたい場合は、<code>m.redraw</code>のオプションとして<code>true</code>を渡すと、強制的に同期再描画を行わせることができます。</p>
+<pre><code class="lang-javascript">m.redraw(true) // 強制
+</code></pre>
+<p>通常は、<code>offsetTop</code>やCSSルールなど、ブラウザの再描画を必要とする、DOMの同期的な値読み込みが必要になった時だけにすべきです。もしDOMの値を読む必要が出てきた場合は、すべての必要なDOMの値を一度に読むようにしてください。少しずつ読み書きすると、高価なブラウザの再描画が何度も発生します。</p>
+<hr>
+<h3 id="signature">シグニチャ</h3>
+<p><a href="how-to-read-signatures.html">シグニチャの読み方</a></p>
+<pre><code class="lang-clike">void redraw([Boolean forceSync]) { GetterSetter strategy }
+
+where:
+    GetterSetter :: String getterSetter([String value])
+</code></pre>
+<ul>
+<li><p><strong>Boolean forceSync</strong> (optional)</p>
+<p>もしこれがtrueに設定されると、同期的に再描画を行う。デフォルトでは、イベントハンドラは非同期で再描画を行うようにスケジュールします。これにより、同じ入力フォームに対して同時に使われるkeypressとinputなどの複数のイベントを再描画前にまとめて実行し、再描画の回数を減らすことができます。デフォルト値は<code>false</code>です。</p>
+</li>
+<li><p><a name="strategy"></a></p>
+<h3 id="m-redraw-strategy">m.redraw.strategy</h3>
+<p><strong>GetterSetter strategy</strong></p>
+<p><code>m.redraw.strategy</code> getter-setterは次のコンポーネントの再描画をどのように行うかを設定する。これには次の3つの値のうちの1つを設定します:</p>
+<ul>
+<li><code>"all"</code> - すべて破棄してDOMツリーを再構築する</li>
+<li><code>"diff"</code> - 必要があればDOMエレメントを更新する</li>
+<li><code>"none"</code> - DOMツリーを変更せずにそのままにする</li>
+</ul>
+<p>この値は、コントローラとイベントハンドラの中で設定することができます。これは次に行われるの再描画の戦略にのみ作用します。コントローラの構築が行われると、Mithrilは内部的にこのフラグを<code>"all"</code>に設定し、再描画が行われると<code>"diff"</code>に設定します。</p>
+<p>引数を渡さずにこの関数を呼ぶと、現在の再描画戦略を返します。</p>
+</li>
+</ul>
+
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<div class="container">
+				<a href="http://opensource.org/licenses/MIT" target="_blank">MITライセンス</a>でリリースされています<br />© 2014 Leo Horie
+			</div>
+		</footer>
+		<script src="lib/prism/prism.js"></script>
+	</body>
+</html>

@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+	<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>他のライブラリとの統合 - Mithril</title>
+		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
+		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header>
+			<nav class="container">
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="mithril.min.zip">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+			</nav>
+		</header>
+		<main>
+			<section class="content">
+				<div class="container">
+					<div class="row">
+						<div class="col(3,3,12)">
+							<h2 id="core-topics">基本トピック</h2>
+							<ul>
+								<li><a href="installation.html">インストール</a></li>
+								<li><a href="getting-started.html">はじめよう</a></li>
+								<li><a href="routing.html">ラウティング</a></li>
+								<li><a href="web-services.html">ウェブサービス</a></li>
+								<li><a href="components.html">コンポーネント</a></li>
+							</ul>
+							<h2 id="advanced-topics.html">上級トピック</h2>
+							<ul>
+								<li><a href="auto-redrawing.html">自動再描画システム</a></li>
+								<li><a href="integration.html">他のライブラリとの統合</a></li>
+								<li><a href="optimizing-performance.html">テンプレートのコンパイル</a></li>
+							</ul>
+							<h2 id="misc">その他</h2>
+							<ul>
+								<li><a href="comparison.html">他のMVCフレームワークとの違い</a></li>
+								<li><a href="benchmarks.html">ベンチマーク</a></li>
+								<li><a href="practices.html">良いプラクティス</a></li>
+								<li><a href="tools.html">便利なツール</a></li>
+							</ul>
+						</div>
+						<div class="col(9,9,12)">
+							<h2 id="integrating-with-other-libraries">他のライブラリとの統合</h2>
+<p>サードパーティライブラリや、pure JavaScriptのコードと統合するには<a href="mithril.html#accessing-the-real-dom">、仮想エレメントの<code>config</code>属性</a>を使って行うことができます。</p>
+<p>統合コードやヘルパー関数をコンポーネント内にカプセル化できるため、この方法が推奨です。</p>
+<p>次のサンプルは、<a href="http://ivaynberg.github.io/select2/">select2ライブラリ</a>(jQuery用の拡張版&lt;select&gt;タグを提供するライブラリ)を統合した、シンプルなコンポーネントの例です。</p>
+<pre><code class="lang-javascript">//Select2コンポーネント(jQueryとSelect2が両方読み込まれている)
+var Select2 = {
+    //このビューはselect2の`&lt;select&gt;`プログレッシブ拡張モードを実装
+    view: function(ctrl) {
+        return m("select", {config: select2.config(ctrl)}, [
+            ctrl.data.map(function(item) {
+                return m("option", {value: item.id}, item.name)
+            })
+        ]);
+    }
+};
+
+/**
+Select2 configファクトリこのドキュメントのパラメータは、`ctrl`引数のプロパティです
+@param {Object} data - &lt;option&gt;リストを実行したいデータ
+@param {number} value - `data`内の、選択したいアイテムのID
+@param {function(Object id)} onchange - 選択が変更された時に呼び出されるイベントハンドラ
+    `id`は`value`と同じ
+*/
+Select2.config = function(ctrl) {
+    return function(element, isInitialized) {
+        var el = $(element);
+
+        if (!isInitialized) {
+            //初期化されていなければselect2を初期化します
+            el.select2()
+                //このイベントハンドラはビューが変更されたときにコントローラを更新します
+                .on("change", function(e) {
+                    //再描画システムと統合...
+                    m.startComputation();
+
+                    //...Mithrilはコントローラのコールバックが呼ばれた後に再描画します。
+                    if (typeof ctrl.onchange == "function") ctrl.onchange(el.select2("val"));
+
+                    m.endComputation();
+                    //統合処理の完了
+                });
+        }
+
+        //最新のコントローラの値を使ってビューを更新
+        el.select2("val", ctrl.value);
+    }
+}
+
+//コンポーネントの定義はここまで
+
+
+//使用方法
+var Dashboard = {
+    controller: function() {
+        //ユーザ一覧のリスト
+        var data = [{id: 1, name: "John"}, {id: 2, name: "Mary"}, {id: 3, name: "Jane"}]
+
+        return {
+            data: data,
+
+            //Maryを選択する
+            currentUser: data[1],
+
+            changeUser: function(id) {
+                console.log(id)
+            }
+        }
+    },
+
+    view: function(ctrl) {
+        return m("div", [
+            m("label", "ユーザ:"),
+            m.component(Select2, {data: ctrl.data, value: ctrl.currentUser.id, onchange: ctrl.changeUser})
+        ]);
+    }
+};
+
+
+m.mount(document.body, Dashboard);
+</code></pre>
+<p><code>select2.config</code>は、与えられたコントローラに対応する<code>config</code>関数を作成するファクトリー関数です。テンプレートが散乱するのを避けるために、<code>select2.view</code>関数の外側にこの関数を定義します。</p>
+<p>このファクトリ関数で作成された<code>config</code>関数は、初期化関数だけを実行します。ただし、すでに初期化済みの場合は何もしません。この関数はMithrilの自動再描画システムから何度も呼び出されますし、描画のたびに何度もselect2を初期化するのはうれしくないため、この<code>if</code>文は大切です。</p>
+<p>初期化コードは<code>change</code>イベントハンドラを定義します。仮想エレメントの中でこの属性を使用しなかった場合など、もしこのハンドラがMithrilのテンプレートで作成されていない場合は、手動で自動再描画システムに統合する必要があります。</p>
+<p>統合するには関数の先頭で<code>m.startComputation</code>を呼び、関数の最後で<code>m.endComputation</code>を呼び出すだけです。もしスレッドの統合が終わっていなければ、これらの関数のペアをすべての非同期実行スレッドのコードに追加します。</p>
+<p>例えば、もし非同期のウェブサービス呼び出しに<code>m.request</code>を使っていれば、これ以上<code>m.startComputation</code> / <code>m.endComputation</code>呼び出しを追加する必要はありませんが、イベントハンドラには追加しなければなりません。</p>
+<p>そうではなくjQueryを使ってウェブサービス呼び出しをしているのであれば、<code>change</code>イベントハンドラ内にこの関数のペアを置く以外に、jQueryのajax呼び出しの前に<code>m.startComputation</code>を追加し、コールバックが完了した後に<code>m.endComputation</code>呼び出しを追加します。サンプルについては<a href="auto-redrawing.html"><code>自動描画システム</code></a>のガイドを参照してください。</p>
+<p><code>config</code>メソッドについて注意すべきことは、<code>config</code>関数の実行スレッド内では、<code>m.redraw</code>、<code>m.startComputation</code>、<code>m.endComputation</code>を呼び出さないことです。(実行スレッドは基本的に、他の非同期スレッドが実行する前に、ある程度の量のコードを含んでいます。)</p>
+<p>Mithrilは技術的にこのユースケースをサポートしていないため、再描画が何度も行われてパフォーマンスが低下したりしますし、場合によってはアプリケーションコードが無限ループして、デバッグが極めて難しい状況になったりします。</p>
+<p>サンプルの<code>dashboard</code>コンポーネントを見ると、どのようにselect2コンポーネントを使用するかが分かります。</p>
+<p>統合コンポーネントを作成するときは、常にドキュメントを作成し、他の人がコンポーネントの初期化時にどの属性パラメータが使用できるか分かるようにすべきです。</p>
+<hr>
+<h2 id="integrating-to-legacy-code">レガシーコードとの統合</h2>
+<p>もし、個別のウィジェットを同じページ内の異なる場所に置きたい場合には、通常のMithrilアプリケーションと同じように、<code>m.render</code>、<code>m.mount</code>、<code>m.route</code>などを使ってそれぞれのウィジェットを初期化することができます。</p>
+<p>１つだけ注意すべきことがあるとしたら、単純にこれら複数の「島」を初期化してしまった時に、それぞれの初期化呼び出しがお互いを認識せずに、再描画処理が想定上に発生してしまう、ということを避けなければならない、ということです。レンダリングを初期化するには、それぞれの実行スレッドの中で、最初のウィジェットの初期化の前に<code>m.startComputation</code>を呼び出し、最後のウィジェットの初期化の後に<code>m.endComputation</code>を呼び出すだけです。</p>
+<pre><code class="lang-javascript">m.startComputation()
+
+m.mount(document.getElementById("widget1-container"), Widget1)
+
+m.mount(document.getElementById("widget2-container"), Widget2)
+
+m.endComputation()
+</code></pre>
+
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<div class="container">
+				<a href="http://opensource.org/licenses/MIT" target="_blank">MITライセンス</a>でリリースされています<br />© 2014 Leo Horie
+			</div>
+		</footer>
+		<script src="lib/prism/prism.js"></script>
+	</body>
+</html>
