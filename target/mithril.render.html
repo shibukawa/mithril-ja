@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+	<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>m.render - Mithril</title>
+		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
+		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header>
+			<nav class="container">
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="mithril.min.zip">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+			</nav>
+		</header>
+		<main>
+			<section class="content">
+				<div class="container">
+					<div class="row">
+						<div class="col(3,3,12)">
+							<h2 id="api">API (v0.2.0)</h2>
+							<h3 id="core">コア</h3>
+							<ul>
+								<li><a href="mithril.html" title="仮想エレメントを作るためのユーティリティ">m</a></li>
+								<li><a href="mithril.component.html" title="コンポーネントのパラメータ化">m.component</a></li>
+								<li><a href="mithril.mount.html" title="コンポーネントのレンダリング">m.mount</a></li>
+								<li><a href="mithril.prop.html" title="getter-setterユーティリティ">m.prop</a></li>
+								<li><a href="mithril.withAttr.html" title="イベントハンドラを生成するユーティリティ">m.withAttr</a></li>
+							</ul>
+							<h3 id="routing">ラウティング</h3>
+							<ul>
+								<li><a href="mithril.route.html" title="ラウティングユーティリティ">m.route</a>
+									<ul>
+										<li><a href="mithril.route.html#defining-routes" title="存在するラウトの定義">m.route(rootElement, defaultRoute, routes)</a></li>
+										<li><a href="mithril.route.html#redirecting" title="ラウトへリダイレクト">m.route(path, params, replaceHistory)</a></li>
+										<li><a href="mithril.route.html#reading-current-route" title="現在のラウトを取得">m.route()</a></li>
+										<li><a href="mithril.route.html#mode-abstraction" title="ラウティングモードの抽象化">m.route(element)</a></li>
+										<li><a href="mithril.route.html#mode" title="ラウティングがハッシュ、クエリー文字列、パス名のどのモードを使用するか">m.route.mode</a></li>
+										<li><a href="mithril.route.html#param" title="パラメータ化されたラウトから引数の読み込み">m.route.param</a></li>
+										<li><a href="mithril.route.html#buildQueryString" title="データをクエリー文字列フォーマットでシリアライズ">m.route.buildQueryString</a></li>
+										<li><a href="mithril.route.html#parseQueryString" title="パラメータ化されたラウトから引数の読み込み">m.route.parseQueryString</a></li>
+									</ul>
+								</li>
+							</ul>
+							<h3 id="data">データ</h3>
+							<ul>
+								<li><a href="mithril.request.html" title="高レベルなAJAXユーティリティ">m.request</a></li>
+								<li><a href="mithril.deferred.html" title="Promiseのファクトリ">m.deferred</a></li>
+								<li><a href="mithril.sync.html" title="Promiseを集約">m.sync</a></li>
+							</ul>
+							<h3 id="html">HTML</h3>
+							<ul>
+								<li><a href="mithril.trust.html" title="エスケープしないHTMLのためのメソッド">m.trust</a></li>
+							</ul>
+							<h3 id="rendering">レンダリング</h3>
+							<ul>
+								<li><a href="mithril.render.html" title="低レベルのレンダリングの方法">m.render</a></li>
+								<li><a href="mithril.redraw.html" title="高レベルな明示的なレンダリングメソッド">m.redraw</a>
+									<ul>
+										<li><a href="mithril.redraw.html#strategy" title="次の再描画をどのような戦略で行うかを決定するフラグ">m.redraw.strategy(strategy)</a></li>
+									</ul>
+								</li>
+								<li><a href="mithril.computation.html" title="非同期のコンテキストをMithrilのレンダリングシステムに統合するためのユーティリティ">m.startComputation / m.endComputation</a></li>
+							</ul>
+							<h3 id="data">テスト</h3>
+							<ul>
+								<li><a href="mithril.deps.html" title="依存性注入(Dependency Injection)">m.deps</a></li>
+							</ul>
+							
+							<h2 id="archive">履歴</h2>
+							<ul>
+								<li><a href="roadmap.html">ロードマップ</a></li>
+								<li><a href="change-log.html">変更履歴</a></li>
+							</ul>
+						</div>
+						<div class="col(9,9,12)">
+							<h2 id="m-render">m.render</h2>
+<hr>
+<ul>
+<li><a href="#usage">使用方法</a></li>
+<li><a href="#subtree-directives">サブツリーディレクティブ</a></li>
+<li><a href="#signature">シグニチャ</a></li>
+</ul>
+<hr>
+<p>このメソッドは、DOMツリーを指定されたHTML属性内に定義します。</p>
+<p>もしこのメソッドが、同じルートエレメントに対して2回以上呼ばれた場合には、このメソッドは新しいツリーと既存のツリーの差分を取り、変更のあった箇所だけ賢く更新します。</p>
+<p>他のテンプレートエンジンとは異なり、この「賢い差分」機能は、入力フォームのカーソルやフォーカスに対して影響を与えません。しかし、いくつかの特殊なケースをうまく処理するために、差分検知アルゴリズムに<a href="mithril.html#dealing-with-focus">key属性</a>を渡す必要があります。</p>
+<hr>
+<h3 id="usage">使用方法</h3>
+<p>ドキュメントは空の<code>&lt;body&gt;</code>エレメントを持っているとします:</p>
+<pre><code class="lang-javascript">var links = [
+    {title: "アイテム 1", url: "/item1"}
+];
+
+m.render(document.body, [
+    m("ul.nav", [
+        m("li", links.map(function(link) {
+            return m("a", {href: link.url, config: m.route}, link.title)
+        })
+    ])
+]);
+</code></pre>
+<p>生成される結果:</p>
+<pre><code class="lang-markup">&lt;body&gt;
+    &lt;ul class="nav"&gt;
+        &lt;li&gt;
+            &lt;a href="/item1"&gt;アイテム 1&lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/body&gt;
+</code></pre>
+<hr>
+<h3 id="subtree-directives">サブツリーディレクティブ</h3>
+<p><code>m.render</code>は、特別なSubtreeDirectiveオブジェクトを仮想DOMツリーのノードとして受け取ることができます。もし、ツリーが次のようなオブジェクトを含んでいると、Mithrilはこのノードに対する差分検知アルゴリズムを中断します。もし再描画間で差分が発生していないことが明示的にわかっている場合は、キャッシュと対になる仮想DOMツリーの生成の手間が省けるため、処理を最適化できます。もし、ビューに関するパフォーマンス上の問題が何もなければ、この機能は使わないでください。</p>
+<pre><code class="lang-javascript">{subtree: "retain"}
+</code></pre>
+<p>この機能は、パフォーマンスの最適化のための最終手段として用意されています。この機能を使う場合は、仮想DOMツリーのどこに変更があったか/なかったかについて、開発者が決定する責任を持つことになります。</p>
+<p>下記の例は静的なヘッダーに対してサブツリーディレクティブをどのように使用するかのサンプルです。このようにすることで、一度レンダリングされた後は差分検出のコストが発生しません。こうすると、ヘッダーに関するサブツリーが作られなくなり、差分アルゴリズムもスキップしますが、ヘッダ内の動的な変数が更新されることもなくなります。</p>
+<pre><code class="lang-javascript">var app = {}
+
+//どこのデータが変更されているかを決定するサンプルプラグイン
+//この場合、初回だけ変更されてその後は変更されない
+app.bindOnce = (function() {
+    var cache = {}
+    return function(view) {
+        if (!cache[view.toString()]) {
+            cache[view.toString()] = true
+            return view()
+        }
+        else return {subtree: "retain"}
+    }
+}())
+
+//here's the view
+app.view = function() {
+    return m(".layout", [
+        app.bindOnce(function() {
+            //パフォーマンスの最適化のために、一度しか実行されない
+            //ここの動的変数は更新されない
+            return m("header", [
+                m("h1", "this never changes")
+            ])
+        }),
+        //ここの動的変数は再描画のたびに更新される
+        m("main", "rest of app goes here")
+    ])
+}
+</code></pre>
+<hr>
+<h3 id="signature">シグニチャ</h3>
+<p><a href="how-to-read-signatures.html">シグニチャの読み方</a></p>
+<pre><code class="lang-clike">void render(DOMElement rootElement, Children children [, Boolean forceRecreation])
+
+where:
+    Children :: String text | VirtualElement virtualElement | SubtreeDirective directive | Array&lt;Children children&gt;
+    VirtualElement :: Object { String tag, Attributes attributes, Children children }
+    Attributes :: Object&lt;Any | void config(DOMElement element)&gt;
+    SubtreeDirective :: Object { String subtree }
+</code></pre>
+<ul>
+<li><p><strong>DOMElement rootElement</strong></p>
+<p><code>children</code>で表現されるテンプレートの結果が入るDOMエレメント。</p>
+</li>
+<li><p><strong>Children children</strong></p>
+<p>この属性が文字列の場合は、テキストノードとしてレンダリングされます。文字列をHTMLとしてレンダリングしたい場合は、<a href="mithril.trust.html"><code>m.trust</code></a>を参照してください。</p>
+<p>もし仮想エレメントが指定された場合には、DOMエレメントとしてレンダリングされます。</p>
+<p>配列だった場合には、配列の要素も再帰的にレンダリングされて、<code>root</code>エレメントの子供として追加されます。</p>
+</li>
+<li><p><strong>Boolean forceRecreation</strong></p>
+<p>もしこれがtrueに設定されると、差分検知せずに新しい仮想ツリーの完全なレンダリングが行われます。st it</p>
+</li>
+</ul>
+
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<div class="container">
+				<a href="http://opensource.org/licenses/MIT" target="_blank">MITライセンス</a>でリリースされています<br />© 2014 Leo Horie
+			</div>
+		</footer>
+		<script src="lib/prism/prism.js"></script>
+	</body>
+</html>

@@ -1,0 +1,230 @@
+<!doctype html>
+<html>
+	<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>ウェブサービス - Mithril</title>
+		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
+		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header>
+			<nav class="container">
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="mithril.min.zip">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+			</nav>
+		</header>
+		<main>
+			<section class="content">
+				<div class="container">
+					<div class="row">
+						<div class="col(3,3,12)">
+							<h2 id="core-topics">基本トピック</h2>
+							<ul>
+								<li><a href="installation.html">インストール</a></li>
+								<li><a href="getting-started.html">はじめよう</a></li>
+								<li><a href="routing.html">ラウティング</a></li>
+								<li><a href="web-services.html">ウェブサービス</a></li>
+								<li><a href="components.html">コンポーネント</a></li>
+							</ul>
+							<h2 id="advanced-topics.html">上級トピック</h2>
+							<ul>
+								<li><a href="auto-redrawing.html">自動再描画システム</a></li>
+								<li><a href="integration.html">他のライブラリとの統合</a></li>
+								<li><a href="optimizing-performance.html">テンプレートのコンパイル</a></li>
+							</ul>
+							<h2 id="misc">その他</h2>
+							<ul>
+								<li><a href="comparison.html">他のMVCフレームワークとの違い</a></li>
+								<li><a href="benchmarks.html">ベンチマーク</a></li>
+								<li><a href="practices.html">良いプラクティス</a></li>
+								<li><a href="tools.html">便利なツール</a></li>
+							</ul>
+						</div>
+						<div class="col(9,9,12)">
+							<h2 id="web-services">ウェブサービス</h2>
+<p>Mithrilは、ウェブサービスと協調するための高度なユーティリティを提供しています。この機能を使うと、非同期で動作するコードを、比較的手続き的に記述することができます。</p>
+<p>提供される便利な機能には次のようなものがあります:</p>
+<ul>
+<li>非同期のレスポンスが後で格納されるコンテンナを事前に参照しておく機能</li>
+<li>非同期のリクエストが完了した後に実行される操作をキューに貯めておく機能</li>
+<li>レスポンスを好きなクラスにキャストする機能</li>
+<li>メタデータのプロパティを含むレスポンスを展開する機能</li>
+</ul>
+<hr>
+<h3 id="basic-usage">基本的な使い方</h3>
+<p><code>m.request</code>を通常の使用法で使うと、AJAXのリクエストが完了した後に結果が格納される<a href="mithril.prop.html"><code>m.prop</code></a> getter-setterを返します。</p>
+<p>getter-setterを返すことは参照を安いコストでコード内に渡すことができて、値が必要になったときにデータの実体を取り出すことができることを意味します。</p>
+<pre><code class="lang-javascript">var users = m.request({method: "GET", url: "/user"});
+
+//レスポンスには`[{name: "John"}, {name: "Mary"}]`というデータが格納されると想定
+//そのため、ビューなどの中で解決されると、`users` getter-setterはユーザの配列を持ちます
+//例: users() //[{name: "John"}, {name: "Mary"}]
+</code></pre>
+<p>getter-setterは、AJAXリクエストが完了するまでは<em>undefined</em>値を返すことに注意してください。そのため、データを早期にアンラップしようとするとおそらくエラーになるでしょう。</p>
+<p>返されるgetter-setterは<a href="mithril.deferred.html">promise</a>のインタフェース(<em>thennable</em>とも呼ばれる)を持っています。この機能は、ウェブサービスからデータが帰ってきた後の操作をキューイングするのに使います。</p>
+<p>この機能のもっとも簡単な使い方は、<code>m.prop</code>を使って関数型的な値の割り当てを行うことです(上記のコードと等価です)。あらかじめ作成したgetter-setterを<code>.then</code>メソッドの引数で渡して束縛することができます:</p>
+<pre><code class="lang-javascript">var users = m.prop([]); //default value
+
+m.request({method: "GET", url: "/user"}).then(users)
+//レスポンスには`[{name: "John"}, {name: "Mary"}]`というデータが格納されると想定
+//そのため、ビューなどの中で解決されると、`users` getter-setterはユーザの配列を持ちます
+//例: users() //[{name: "John"}, {name: "Mary"}]
+
+</code></pre>
+<p>この文法を使うと、パイプ処理が次の処理を起動する前に中間結果を束縛することができるようになります。</p>
+<pre><code class="lang-javascript">var users = m.prop([]); //デフォルト値
+var doSomething = function() { /*...*/ }
+
+m.request({method: "GET", url: "/user"}).then(users).then(doSomething)
+</code></pre>
+<p>代入構文も、thennableを使った構文も同じ結果になりますが、前者の例の方が読みやすいため、何か制約がない限りはこちらを使用する方がおすすめです。</p>
+<p>thennableの仕組みは主に以下の3ヶ所で使われることを想定しています:</p>
+<ul>
+<li>モデルレイヤ内: ウェブサービスから受信したデータを変換処理をする場合。例えばウェブサービス側でサポートしていないフィルタリングをクライアント側で行う場合など。</li>
+<li>コントローラレイヤ内: 条件によって、リダイレクトするコードをバインドする場合。</li>
+<li>コントローラレイヤ内: エラーメッセージをバインドする場合。</li>
+</ul>
+<h4 id="processing-web-service-data">ウェブサービスのデータの処理</h4>
+<p>このステップはモデルレイヤ内で完結します。この処理をコントローラのレベルで行うことができますが、Mithrilの哲学としては推奨していません。コントローラと関係ない処理であったとしても、コントローラとロジックが結びついてしまうと再利用が難しくなるからです。</p>
+<p>下記のサンプルの<code>listEven</code>メソッドは、IDが偶数のユーザを含むリストのみを返すgetter-setterを返しています。</p>
+<pre><code class="lang-javascript">//モデル
+var User = {}
+
+User.listEven = function() {
+    return m.request({method: "GET", url: "/user"}).then(function(list) {
+        return list.filter(function(user) {return user.id % 2 == 0});
+    });
+}
+
+//コントローラ
+var controller = function() {
+    return {users: User.listEven()}
+}
+</code></pre>
+<h4 id="bind-redirection-code">リダイレクトするコードのバインド</h4>
+<p>このステップはコントローラレイヤ内で完結します。この処理をモデル例やで行うことも出来ますが、Mithrilの哲学としては非推奨です。リダイレクト処理とモデルが結びついてしまうと、再利用が難しくなります。</p>
+<p>下記の例では、前の例で定義したモデルの<code>listEven</code>メソッドを使用します。ユーザのリストが空の場合に他のページにリダイレクトするというコントローラレベルの機能をモデル完了後の操作としてキューイングしています。</p>
+<pre><code class="lang-javascript">//コントローラ
+var controller = function() {
+    return {
+        users: User.listEven().then(function(users) {
+            if (users.length == 0) m.route("/add");
+        })
+    }
+}
+</code></pre>
+<h4 id="binding-errors">エラーのバインド</h4>
+<p>Mithrilのthennableは、2つのオプションのパラメータを持っています。最初のパラメータはウェブサービスへのリクエストが問題なく完了した時に呼ばれます。2つ目のパラメータはエラーなく完了したときに呼ばれます。</p>
+<p>Mithrilではエラーのバインディングはコントローラレベルで行われることを想定しています。もちろん、モデルレベルで行うこともできますが、全ての関連する機能を正しく動かすためには、多くのコードを書く必要がああります。</p>
+<p>下記のサンプルでは、error getter-setterと、前のサンプルで紹介したコントローラをバインドしています。<code>error</code>変数は、サーバアクセスがうまく行かなかった時に呼び出されます。</p>
+<pre><code class="lang-javascript">//コントローラ
+var controller = function() {
+    this.error = m.prop("")
+
+    this.users = User.listEven().then(function(users) {
+        if (users.length == 0) m.route("/add");
+    }, this.error)
+}
+</code></pre>
+<p>もしコントローラが、サーバアクセスが成功した時に実行すべき処理がない場合でも、次のように書くことでエラー処理のバインドが行えます:</p>
+<pre><code class="lang-javascript">//コントローラ
+var controller = function() {
+    this.error = m.prop("")
+
+    this.users = User.listEven().then(null, this.error)
+}
+</code></pre>
+<hr>
+<h3 id="queuing-operations">操作のキューイング</h3>
+<p>これまで見てきたとおり、レスポンスで返されたデータに対して処理のオペレーションをいくつもチェーンさせて追加することができます。一般的に、この機能は以下の3つの場面で必要となります:</p>
+<ul>
+<li>モデルレベルのメソッド内で、コントローラやビューに対して処理しやすい形式のデータへの変換をクライアント側で行わなければならない場合。</li>
+<li>コントローラ内で、モデルサービスが改良した後にリダイレクトさせたい場合。</li>
+<li>コントローラ内で、エラーメッセージをバインドする場合。</li>
+</ul>
+<p>下記のサンプルはAJAXレスポンスが実際に処理される前に、デバッグ処理を差し込んでいます:</p>
+<pre><code class="lang-javascript">var users = m.request({method: "GET", url: "/user"})
+    .then(log)
+    .then(function(users) {
+        //レスポンスにユーザをもう一人追加
+        return users.concat({name: "Jane"})
+    })
+
+function log(value) {
+    console.log(value)
+    return value
+}
+
+//レスポンスには`[{name: "John"}, {name: "Mary"}]`というデータが格納されると想定
+//そのため、ビューなどの中で解決されると、`users` getter-setterはユーザの配列を持ちます
+//例: users() //[{name: "John"}, {name: "Mary"}, {name: "Jane"}]
+
+</code></pre>
+<hr>
+<h3 id="casting-the-response-data-to-a-class">ウェブサービスから帰ってきたデータをクラスにキャスト。</h3>
+<p>JSON表現をクラスに自動変換することができます。POJO(plain old JavaScript objects)の場合はすべてのフィールドが公開状態になってしまうため、この機能を使うとオブジェクト内のプロパティへのアクセス方法をコントロールしやすくなります。</p>
+<p>次のサンプルでは、<code>User.list</code>メソッドは、<code>User</code>インスタンスのリストを返します。</p>
+<pre><code class="lang-javascript">var User = function(data) {
+    this.name = m.prop(data.name);
+}
+
+User.list = function() {
+    return m.request({method: "GET", url: "/user", type: User});
+}
+
+var users = User.list();
+//レスポンスには`[{name: "John"}, {name: "Mary"}]`というデータが格納されると想定
+//そのため、ビューなどの中で解決されると、`users` はUserインスタンスのリストを格納します
+//例: users()[0].name() == "John"
+</code></pre>
+<hr>
+<h3 id="unwrapping-response-data">レスポンスデータの展開</h3>
+<p>少なくない数のウェブサービスが、それぞれのデータをメタデータ入りのオブジェクトでラップして返してきます。</p>
+<p>Mithrilは<code>unwrapSuccess</code>、<code>unwrapError</code>という2つのコールバックを提供しており、これらを使って、それぞれのデータをアンラアップすることが可能になります。</p>
+<p>これらのフックを使うと、レスポンスが成功したかどうかによって、レスポンスデータの違う箇所をアンラップできます。</p>
+<pre><code class="lang-javascript">var users = m.request({
+    method: "GET",
+    url: "/user",
+    unwrapSuccess: function(response) {
+        return response.data;
+    },
+    unwrapError: function(response) {
+        return response.error;
+    }
+});
+
+//レスポンスには`{data: [{name: "John"}, {name: "Mary"}], count: 2}`というデータが格納されると想定
+//そのため、ビューなどの中で解決されると、`users` getter-setterはユーザの配列を持ちます
+//例: users() //[{name: "John"}, {name: "Mary"}]
+</code></pre>
+<hr>
+<h3 id="using-different-data-transfer-formats">異なるデータ転送フォーマットを使用する</h3>
+<p>デフォルトでは、<code>m.request</code>はウェブサービスとのデータの送受信にJSONを使います。<code>serialize</code>オプションと、<code>deserialize</code>オプションを提供すると、この動作を変更することができます:</p>
+<pre><code class="lang-javascript">var users = m.request({
+    method: "GET",
+    url: "/user",
+    serialize: mySerializer,
+    deserialize: myDeserializer
+});
+</code></pre>
+<p>よくある変更方法としては、変換せずに帰ってきた入力をそのままアプリケーションに渡す方式です。次のサンプルはテキストファイルをそのままプレーンな文字列として受ける取る方法を紹介しています。</p>
+<pre><code class="lang-javascript">var file = m.request({
+    method: "GET",
+    url: "myfile.txt",
+    deserialize: function(value) {return value;}
+});
+</code></pre>
+
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<div class="container">
+				<a href="http://opensource.org/licenses/MIT" target="_blank">MITライセンス</a>でリリースされています<br />© 2014 Leo Horie
+			</div>
+		</footer>
+		<script src="lib/prism/prism.js"></script>
+	</body>
+</html>

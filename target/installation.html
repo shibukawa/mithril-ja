@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+	<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>インストール - Mithril</title>
+		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
+		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header>
+			<nav class="container">
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="mithril.min.zip">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+			</nav>
+		</header>
+		<main>
+			<section class="content">
+				<div class="container">
+					<div class="row">
+						<div class="col(3,3,12)">
+							<h2 id="core-topics">基本トピック</h2>
+							<ul>
+								<li><a href="installation.html">インストール</a></li>
+								<li><a href="getting-started.html">はじめよう</a></li>
+								<li><a href="routing.html">ラウティング</a></li>
+								<li><a href="web-services.html">ウェブサービス</a></li>
+								<li><a href="components.html">コンポーネント</a></li>
+							</ul>
+							<h2 id="advanced-topics.html">上級トピック</h2>
+							<ul>
+								<li><a href="auto-redrawing.html">自動再描画システム</a></li>
+								<li><a href="integration.html">他のライブラリとの統合</a></li>
+								<li><a href="optimizing-performance.html">テンプレートのコンパイル</a></li>
+							</ul>
+							<h2 id="misc">その他</h2>
+							<ul>
+								<li><a href="comparison.html">他のMVCフレームワークとの違い</a></li>
+								<li><a href="benchmarks.html">ベンチマーク</a></li>
+								<li><a href="practices.html">良いプラクティス</a></li>
+								<li><a href="tools.html">便利なツール</a></li>
+							</ul>
+						</div>
+						<div class="col(9,9,12)">
+							<h2 id="installation">インストール</h2>
+<p>Mithrilはさまざまなインストール手段を提供しています:</p>
+<hr>
+<h3 id="direct-download">直接ダウンロード</h3>
+<p><a href="http://lhorie.github.io/mithril/mithril.min.zip">ここから</a>最新バージョンのzipアーカイブをダウンロードできます。</p>
+<p><a href="change-log.html">変更履歴</a>のページ内に、古いバージョンへのリンクがあります。</p>
+<p>Mithrilを使用する場合は、zipファイルを展開し、その中の<code>.js</code>ファイルをscriptタグを使って指定してください。</p>
+<pre><code class="lang-markup">&lt;script src="mithril.min.js"&gt;&lt;/script&gt;
+</code></pre>
+<p>古いバージョンのIEをサポートする場合は、<a href="tools.html#internet-explorer-compatibility">互換性を向上させるライブラリ</a>をいくつか読み込む必要があります。</p>
+<hr>
+<h3 id="cdns-content-delivery-networks-">CDN (コンテンツデリバリネットワーク)</h3>
+<p><a href="http://cdnjs.com/libraries/mithril/">cdnjs</a>と<a href="http://www.jsdelivr.com/#!mithril">jsDelivr</a>の中から取得することもできます。</p>
+<p>CDNを使うと、同じバージョンのフレームワーク使用する、さまざまなウェブサイト間でライブラリの共有が可能になります。また、ユーザの場所から物理的に近いサーバからダウンロードが行われるため、表示の遅延を減らすのに役立ちます。</p>
+<h4 id="cdnjs">cdnjs</h4>
+<pre><code class="lang-markup">&lt;script src="//cdnjs.cloudflare.com/ajax/libs/mithril/0.2.0/mithril.min.js"&gt;&lt;/script&gt;
+</code></pre>
+<h4 id="jsdelivr">jsDelivr</h4>
+<pre><code class="lang-markup">&lt;script src="//cdn.jsdelivr.net/mithril/0.2.0/mithril.min.js"&gt;&lt;/script&gt;
+</code></pre>
+<hr>
+<h3 id="npm">NPM</h3>
+<p>NPMは<a href="http://nodejs.org/">NodeJS</a>標準のパッケージマネージャです。もしすでにNodeJSを使っていていたり、<a href="http://gruntjs.com/">Grunt</a>を使ったビルドシステムを作ろうとしているのであれば、NPMを使うとMithrilを最新に保つのが簡単になります。</p>
+<p>NodeJSがインストールされているものとすると，次のようにタイプすることでMithrilをダウンロードできます。</p>
+<pre><code>npm install mithril
+</code></pre><p>Mithrilを使う場合には、scriptタグを使って、ダウンロードしたファイルを参照します:</p>
+<pre><code class="lang-markup">&lt;script src="/node_modules/mithril/mithril.min.js"&gt;&lt;/script&gt;
+</code></pre>
+<hr>
+<h3 id="bower">Bower</h3>
+<p><a href="http://bower.io">Bower</a>は<a href="http://nodejs.org/">NodeJS</a>のためのパッケージマネージャです。もしすでにNodeJSを使っていていたり、<a href="http://gruntjs.com/">Grunt</a>を使ったビルドシステムを作ろうとしているのであれば、Bowerを使うとMithrilを最新に保つのが簡単になります。</p>
+<p>NodeJSがインストールされているものとすると，次のようにタイプすることでBowerをダウンロードできます。</p>
+<pre><code>npm install -g bower
+</code></pre><p>このあと、次のようにタイプするとMithrilをダウンロードすることができます:</p>
+<pre><code>bower install mithril
+</code></pre><p>Mithrilを使う場合には、scriptタグを使って、ダウンロードしたファイルを参照します:</p>
+<pre><code class="lang-markup">&lt;script src="/bower_components/mithril/mithril.min.js"&gt;&lt;/script&gt;
+</code></pre>
+<hr>
+<h3 id="component">Component</h3>
+<p><a href="http://component.github.io">Component</a>も、<a href="http://nodejs.org/">NodeJS</a>向けのパッケージマネージャです。もしすでにNodeJSを使っていていたり、<a href="http://gruntjs.com/">Grunt</a>を使ったビルドシステムを作ろうとしているのであれば、Componentを使うとMithrilを最新に保つのが簡単になります。</p>
+<p>NodeJSがインストールされているものとすると，次のようにタイプすることでComponentをダウンロードできます。</p>
+<pre><code>npm install -g component
+</code></pre><p>このあと、次のようにタイプするとMithrilをダウンロードすることができます:</p>
+<pre><code>component install lhorie/mithril
+</code></pre><p>Mithrilを使う場合には、scriptタグを使って、ダウンロードしたファイルを参照します:</p>
+<pre><code class="lang-markup">&lt;script src="/components/lhorie/mithril/master/mithril.js"&gt;&lt;/script&gt;
+</code></pre>
+<hr>
+<h3 id="rails">Rails</h3>
+<p>Jordan Humphreysが、Railsと統合できるようにするgemを作成しています:</p>
+<p><a href="https://github.com/mrsweaters/mithril-rails">Mithril-Rails</a></p>
+<p>これは、Jonathan Buchananが作成した、HTMLテンプレートの文法の<a href="https://github.com/insin/msx">MSX</a>も含んでいます。</p>
+<hr>
+<h3 id="github">Github</h3>
+<p><a href="https://github.com/lhorie/mithril">Githubから直接</a>、最新の安定版のプロジェクトをフォークすることもできます。</p>
+<p>もし、最先端のバージョンを使いたいのであれば、<a href="https://github.com/lhorie/mithril.js">開発版のリポジトリをフォーク</a>することもできます。</p>
+<p>Mithrilは継続的インテグレーション環境を使ってテストされていますが、最先端のバージョンは頻繁に機能しなくなる可能性がありますので注意してください。もし、Mithrilを改善することに興味があるのであれば、最先端バージョンを使用して、見つけたバグを報告してください。</p>
+<p>フォークしたMithrilを更新したい場合は、<a href="https://help.github.com/articles/syncing-a-fork">このページの説明(英語)</a>.に従ってください。</p>
+<h4 id="using-bleeding-edge-from-npm">NPMで最先端のバージョンを使用する</h4>
+<p>npmを使って最先端のバージョンをインストールするには、次のコマンドを使用してください:</p>
+<pre><code>npm install git://github.com/lhorie/mithril.js#next --save
+</code></pre>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<div class="container">
+				<a href="http://opensource.org/licenses/MIT" target="_blank">MITライセンス</a>でリリースされています<br />© 2014 Leo Horie
+			</div>
+		</footer>
+		<script src="lib/prism/prism.js"></script>
+	</body>
+</html>

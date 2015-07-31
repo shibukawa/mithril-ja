@@ -1,0 +1,602 @@
+<!doctype html>
+<html>
+	<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>m.request - Mithril</title>
+		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
+		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header>
+			<nav class="container">
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="mithril.min.zip">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+			</nav>
+		</header>
+		<main>
+			<section class="content">
+				<div class="container">
+					<div class="row">
+						<div class="col(3,3,12)">
+							<h2 id="api">API (v0.2.0)</h2>
+							<h3 id="core">コア</h3>
+							<ul>
+								<li><a href="mithril.html" title="仮想エレメントを作るためのユーティリティ">m</a></li>
+								<li><a href="mithril.component.html" title="コンポーネントのパラメータ化">m.component</a></li>
+								<li><a href="mithril.mount.html" title="コンポーネントのレンダリング">m.mount</a></li>
+								<li><a href="mithril.prop.html" title="getter-setterユーティリティ">m.prop</a></li>
+								<li><a href="mithril.withAttr.html" title="イベントハンドラを生成するユーティリティ">m.withAttr</a></li>
+							</ul>
+							<h3 id="routing">ラウティング</h3>
+							<ul>
+								<li><a href="mithril.route.html" title="ラウティングユーティリティ">m.route</a>
+									<ul>
+										<li><a href="mithril.route.html#defining-routes" title="存在するラウトの定義">m.route(rootElement, defaultRoute, routes)</a></li>
+										<li><a href="mithril.route.html#redirecting" title="ラウトへリダイレクト">m.route(path, params, replaceHistory)</a></li>
+										<li><a href="mithril.route.html#reading-current-route" title="現在のラウトを取得">m.route()</a></li>
+										<li><a href="mithril.route.html#mode-abstraction" title="ラウティングモードの抽象化">m.route(element)</a></li>
+										<li><a href="mithril.route.html#mode" title="ラウティングがハッシュ、クエリー文字列、パス名のどのモードを使用するか">m.route.mode</a></li>
+										<li><a href="mithril.route.html#param" title="パラメータ化されたラウトから引数の読み込み">m.route.param</a></li>
+										<li><a href="mithril.route.html#buildQueryString" title="データをクエリー文字列フォーマットでシリアライズ">m.route.buildQueryString</a></li>
+										<li><a href="mithril.route.html#parseQueryString" title="パラメータ化されたラウトから引数の読み込み">m.route.parseQueryString</a></li>
+									</ul>
+								</li>
+							</ul>
+							<h3 id="data">データ</h3>
+							<ul>
+								<li><a href="mithril.request.html" title="高レベルなAJAXユーティリティ">m.request</a></li>
+								<li><a href="mithril.deferred.html" title="Promiseのファクトリ">m.deferred</a></li>
+								<li><a href="mithril.sync.html" title="Promiseを集約">m.sync</a></li>
+							</ul>
+							<h3 id="html">HTML</h3>
+							<ul>
+								<li><a href="mithril.trust.html" title="エスケープしないHTMLのためのメソッド">m.trust</a></li>
+							</ul>
+							<h3 id="rendering">レンダリング</h3>
+							<ul>
+								<li><a href="mithril.render.html" title="低レベルのレンダリングの方法">m.render</a></li>
+								<li><a href="mithril.redraw.html" title="高レベルな明示的なレンダリングメソッド">m.redraw</a>
+									<ul>
+										<li><a href="mithril.redraw.html#strategy" title="次の再描画をどのような戦略で行うかを決定するフラグ">m.redraw.strategy(strategy)</a></li>
+									</ul>
+								</li>
+								<li><a href="mithril.computation.html" title="非同期のコンテキストをMithrilのレンダリングシステムに統合するためのユーティリティ">m.startComputation / m.endComputation</a></li>
+							</ul>
+							<h3 id="data">テスト</h3>
+							<ul>
+								<li><a href="mithril.deps.html" title="依存性注入(Dependency Injection)">m.deps</a></li>
+							</ul>
+							
+							<h2 id="archive">履歴</h2>
+							<ul>
+								<li><a href="roadmap.html">ロードマップ</a></li>
+								<li><a href="change-log.html">変更履歴</a></li>
+							</ul>
+						</div>
+						<div class="col(9,9,12)">
+							<h2 id="m-request">m.request</h2>
+<hr>
+<ul>
+<li><a href="#basic-usage">基本的な使い方</a></li>
+<li><a href="#processing-web-service-data">ウェブサービスのデータの処理</a></li>
+<li><a href="#bind-redirection-code">リダイレクトするコードのバインド</a></li>
+<li><a href="#binding-errors">エラーのバインド</a></li>
+<li><a href="#queuing-operations">操作のキューイング</a></li>
+<li><a href="#casting-the-response-data-to-a-class">ウェブサービスから帰ってきたデータをクラスにキャスト。</a></li>
+<li><a href="#unwrapping-response-data">レスポンスデータの展開</a></li>
+<li><a href="#using-different-data-transfer-formats">異なるデータ転送フォーマットを使用する</a></li>
+<li><a href="#file-uploads-with-formdata">FormDataによるファイルのアップロード</a></li>
+<li><a href="#using-variable-data-formats">可変データ・フォーマットの使用</a></li>
+<li><a href="#extracting-metadata-from-the-response">レスポンス中のメタデータの分解</a></li>
+<li><a href="#custom-request-rejections">カスタムリクエストのリジェクト</a></li>
+<li><a href="#configuring-the-underlying-xmlhttprequest">バックエンドのXMLHttpRequestの設定</a></li>
+<li><a href="#aborting-a-request">リクエストの中断</a></li>
+<li><a href="#using-json-p">JSONPの使用</a></li>
+<li><a href="#rendering-before-web-service-requests-finish">ウェブサービスのリクエスト完了前のレンダリング</a></li>
+<li><a href="#signature">シグニチャ</a></li>
+</ul>
+<hr>
+<p>この関数はウェブサービスと協調するための高度なユーティリティです。この機能を使うと、非同期で動作するコードを、比較的手続き的に記述することができます。</p>
+<p>デフォルトではサーバのレスポンスはJSONとみなして解釈します。また、オプションでレスポンスデータを元にクラスのインスタンスを作ることができます。</p>
+<p>提供される便利な機能には次のようなものがあります:</p>
+<ul>
+<li>非同期のレスポンスが後で格納されるコンテンナを事前に参照しておく機能</li>
+<li>非同期のリクエストが完了した後に実行される操作をキューに貯めておく機能</li>
+<li>レスポンスを好きなクラスにキャストする機能</li>
+<li>メタデータのプロパティを含むレスポンスを展開する機能</li>
+</ul>
+<hr>
+<h3 id="basic-usage">基本的な使い方</h3>
+<p><code>m.request</code>を通常の使用法で使うと、AJAXのリクエストが完了した後に結果が格納される<a href="mithril.prop.html"><code>m.prop</code></a> getter-setterを返します。</p>
+<p>getter-setterを返すことは参照を安いコストでコード内に渡すことができて、値が必要になったときにデータの実体を取り出すことができることを意味します。</p>
+<pre><code class="lang-javascript">var users = m.request({method: "GET", url: "/user"});
+
+//レスポンスには`[{name: "John"}, {name: "Mary"}]`というデータが格納されると想定
+//そのため、ビューなどの中で解決されると、`users` getter-setterはユーザの配列を持ちます
+//例: users() //[{name: "John"}, {name: "Mary"}]
+</code></pre>
+<p>getter-setterは、AJAXリクエストが完了するまでは<em>undefined</em>値を返すことに注意してください。そのため、データを早期にアンラップしようとするとおそらくエラーになるでしょう。</p>
+<p>返されるgetter-setterは<a href="mithril.deferred.html">promise</a>のインタフェース(<em>thennable</em>とも呼ばれる)を持っています。この機能は、ウェブサービスからデータが帰ってきた後の操作をキューイングするのに使います。</p>
+<p>この機能のもっとも簡単な使い方は、<code>m.prop</code>を使って関数型的な値の割り当てを行うことです(上記のコードと等価です)。あらかじめ作成したgetter-setterを<code>.then</code>メソッドの引数で渡して束縛することができます:</p>
+<pre><code class="lang-javascript">var users = m.prop([]); //default value
+
+m.request({method: "GET", url: "/user"}).then(users)
+//レスポンスには`[{name: "John"}, {name: "Mary"}]`というデータが格納されると想定
+//そのため、ビューなどの中で解決されると、`users` getter-setterはユーザの配列を持ちます
+//例: users() //[{name: "John"}, {name: "Mary"}]
+
+</code></pre>
+<p>この文法を使うと、パイプ処理が次の処理を起動する前に中間結果を束縛することができるようになります。</p>
+<pre><code class="lang-javascript">var users = m.prop([]); //デフォルト値
+var doSomething = function() { /*...*/ }
+
+m.request({method: "GET", url: "/user"}).then(users).then(doSomething)
+</code></pre>
+<p>代入構文も、thennableを使った構文も同じ結果になりますが、前者の例の方が読みやすいため、何か制約がない限りはこちらを使用する方がおすすめです。</p>
+<p>thennableの仕組みは主に以下の3ヶ所で使われることを想定しています:</p>
+<ul>
+<li>モデルレイヤ内: ウェブサービスから受信したデータを変換処理をする場合。例えばウェブサービス側でサポートしていないフィルタリングをクライアント側で行う場合など。</li>
+<li>コントローラレイヤ内: 条件によって、リダイレクトするコードをバインドする場合。</li>
+<li>コントローラレイヤ内: エラーメッセージをバインドする場合。</li>
+</ul>
+<h4 id="processing-web-service-data">ウェブサービスのデータの処理</h4>
+<p>このステップはモデルレイヤ内で完結します。この処理をコントローラのレベルで行うことができますが、Mithrilの哲学としては推奨していません。コントローラと関係ない処理であったとしても、コントローラとロジックが結びついてしまうと再利用が難しくなるからです。</p>
+<p>下記のサンプルの<code>listEven</code>メソッドは、IDが偶数のユーザを含むリストのみを返すgetter-setterを返しています。</p>
+<pre><code class="lang-javascript">//モデル
+var User = {}
+
+User.listEven = function() {
+    return m.request({method: "GET", url: "/user"}).then(function(list) {
+        return list.filter(function(user) {return user.id % 2 == 0});
+    });
+}
+
+//コントローラ
+var controller = function() {
+    return {users: User.listEven()}
+}
+</code></pre>
+<h4 id="bind-redirection-code">リダイレクトするコードのバインド</h4>
+<p>このステップはコントローラレイヤ内で完結します。この処理をモデル例やで行うことも出来ますが、Mithrilの哲学としては非推奨です。リダイレクト処理とモデルが結びついてしまうと、再利用が難しくなります。</p>
+<p>下記の例では、前の例で定義したモデルの<code>listEven</code>メソッドを使用します。ユーザのリストが空の場合に他のページにリダイレクトするというコントローラレベルの機能をモデル完了後の操作としてキューイングしています。</p>
+<pre><code class="lang-javascript">//コントローラ
+var controller = function() {
+    return {
+        users: User.listEven().then(function(users) {
+            if (users.length == 0) m.route("/add");
+        })
+    }
+}
+</code></pre>
+<h4 id="binding-errors">エラーのバインド</h4>
+<p>Mithrilのthennableは、2つのオプションのパラメータを持っています。最初のパラメータはウェブサービスへのリクエストが問題なく完了した時に呼ばれます。2つ目のパラメータはエラーなく完了したときに呼ばれます。</p>
+<p>Mithrilではエラーのバインディングはコントローラレベルで行われることを想定しています。もちろん、モデルレベルで行うこともできますが、全ての関連する機能を正しく動かすためには、多くのコードを書く必要がああります。</p>
+<p>下記のサンプルでは、error getter-setterと、前のサンプルで紹介したコントローラをバインドしています。<code>error</code>変数は、サーバアクセスがうまく行かなかった時に呼び出されます。</p>
+<pre><code class="lang-javascript">//コントローラ
+var controller = function() {
+    this.error = m.prop("")
+
+    this.users = User.listEven().then(function(users) {
+        if (users.length == 0) m.route("/add");
+    }, this.error)
+}
+</code></pre>
+<p>もしコントローラが、サーバアクセスが成功した時に実行すべき処理がない場合でも、次のように書くことでエラー処理のバインドが行えます:</p>
+<pre><code class="lang-javascript">//コントローラ
+var controller = function() {
+    this.error = m.prop("")
+
+    this.users = User.listEven().then(null, this.error)
+}
+</code></pre>
+<hr>
+<h3 id="queuing-operations">操作のキューイング</h3>
+<p>これまで見てきたとおり、レスポンスで返されたデータに対して処理のオペレーションをいくつもチェーンさせて追加することができます。一般的に、この機能は以下の3つの場面で必要となります:</p>
+<ul>
+<li>モデルレベルのメソッド内で、コントローラやビューに対して処理しやすい形式のデータへの変換をクライアント側で行わなければならない場合。</li>
+<li>コントローラ内で、モデルサービスが改良した後にリダイレクトさせたい場合。</li>
+<li>コントローラ内で、エラーメッセージをバインドする場合。</li>
+</ul>
+<p>下記のサンプルはAJAXレスポンスが実際に処理される前に、デバッグ処理を差し込んでいます:</p>
+<pre><code class="lang-javascript">//間姿プログラミングと相性の良いconsole.log
+var log = function(value) {
+    console.log(value)
+    return value
+}
+
+var users = m.request({method: "GET", url: "/user"})
+    .then(log)
+    .then(function(users) {
+        //レスポンスにユーザをもう一人追加
+        return users.concat({name: "Jane"})
+    })
+
+//レスポンスには`[{name: "John"}, {name: "Mary"}]`というデータが格納されると想定
+//そのため、ビューなどの中で解決されると、`users` getter-setterはユーザの配列を持ちます
+//例: users() //[{name: "John"}, {name: "Mary"}, {name: "Jane"}]
+</code></pre>
+<hr>
+<h3 id="casting-the-response-data-to-a-class">ウェブサービスから帰ってきたデータをクラスにキャスト。</h3>
+<p>JSON表現をクラスに自動変換することができます。POJO(plain old JavaScript objects)の場合はすべてのフィールドが公開状態になってしまうため、この機能を使うとオブジェクト内のプロパティへのアクセス方法をコントロールしやすくなります。</p>
+<p>次のサンプルでは、<code>User.list</code>メソッドは、<code>User</code>インスタンスのリストを返します。</p>
+<pre><code class="lang-javascript">var User = function(data) {
+    this.name = m.prop(data.name);
+}
+
+User.list = function() {
+    return m.request({method: "GET", url: "/user", type: User});
+}
+
+var users = User.list();
+//レスポンスには`[{name: "John"}, {name: "Mary"}]`というデータが格納されると想定
+//そのため、ビューなどの中で解決されると、`users` はUserインスタンスのリストを格納します
+//例: users()[0].name() == "John"
+</code></pre>
+<hr>
+<h3 id="unwrapping-response-data">レスポンスデータの展開</h3>
+<p>少なくない数のウェブサービスが、それぞれのデータをメタデータ入りのオブジェクトでラップして返してきます。</p>
+<p>Mithrilは<code>unwrapSuccess</code>、<code>unwrapError</code>という2つのコールバックを提供しており、これらを使って、それぞれのデータをアンラアップすることが可能になります。</p>
+<p>これらのフックを使うと、レスポンスが成功したかどうかによって、レスポンスデータの違う箇所をアンラップできます。</p>
+<pre><code class="lang-javascript">var users = m.request({
+    method: "GET",
+    url: "/user",
+    unwrapSuccess: function(response) {
+        return response.data;
+    },
+    unwrapError: function(response) {
+        return response.error;
+    }
+});
+
+//レスポンスには`{data: [{name: "John"}, {name: "Mary"}], count: 2}`というデータが格納されると想定
+//そのため、ビューなどの中で解決されると、`users` getter-setterはユーザの配列を持ちます
+//例: users() //[{name: "John"}, {name: "Mary"}]
+</code></pre>
+<hr>
+<h3 id="using-different-data-transfer-formats">異なるデータ転送フォーマットを使用する</h3>
+<p>デフォルトでは、<code>m.request</code>はウェブサービスとのデータの送受信にJSONを使います。<code>serialize</code>オプションと、<code>deserialize</code>オプションを提供すると、この動作を変更することができます:</p>
+<pre><code class="lang-javascript">var users = m.request({
+    method: "GET",
+    url: "/user",
+    serialize: mySerializer,
+    deserialize: myDeserializer
+});
+</code></pre>
+<p>よくある変更方法としては、変換せずに帰ってきた入力をそのままアプリケーションに渡す方式です。次のサンプルはテキストファイルをそのままプレーンな文字列として受ける取る方法を紹介しています。</p>
+<pre><code class="lang-javascript">var file = m.request({
+    method: "GET",
+    url: "myfile.txt",
+    deserialize: function(value) {return value;}
+});
+</code></pre>
+<hr>
+<h3 id="file-uploads-with-formdata">FormDataによるファイルのアップロード</h3>
+<p>HTML5 FormDataをリクエストのペイロードとして使うには、<code>serialize</code>をオーバーライドする必要があります。デフォルトでは<code>serialize</code>はオブジェクトをJSONに変換しますが、FormDataをペイロードとして使う場合には、オブジェクトをそのまま流します。</p>
+<pre><code class="lang-javascript">//ファイルはHTML5のドラッグアンドドロップイベントで渡されたとする
+var file = e.dataTransfer.files[0]
+
+var data = new FormData();
+data.append("file", file)
+
+m.request({
+    method: "POST",
+    url: "/upload",
+    serialize: function(data) {return data}
+})
+</code></pre>
+<hr>
+<h3 id="using-variable-data-formats">可変データ・フォーマットの使用</h3>
+<p>デフォルトでは、Mithrilは成功時も失敗時もレスポンスはJSONフォーマットで帰ってくるものとみなしてパースしようとしますが、サーバの中には404のようなエラーコードを返す時にJSONを返さないものもあります。</p>
+<p>この問題を回避するには、<code>extract</code>を使用します。</p>
+<pre><code class="lang-javascript">var nonJsonErrors = function(xhr) {
+  return xhr.status &gt; 200 ? JSON.stringify(xhr.responseText) : xhr.responseText
+}
+
+m.request({method: "GET", url: "/foo/bar.x", extract: nonJsonErrors})
+  .then(function(data) {}, function(error) {console.log(error)})
+</code></pre>
+<hr>
+<h3 id="extracting-metadata-from-the-response">レスポンス中のメタデータの分解</h3>
+<p><code>extract</code>メソッドはHTTPレスポンスヘッダのメタデータや、XMLHttpRequestのステータスフィールドを読み込むのに使用します。</p>
+<pre><code class="lang-javascript">var extract = function(xhr, xhrOptions) {
+    if (xhrOptions.method == "HEAD") return xhr.getResponseHeader("x-item-count")
+    else return xhr.responseText
+}
+
+m.request({method: "POST", url: "/foo", extract: extract});
+</code></pre>
+<hr>
+<h3 id="custom-request-rejections">カスタムリクエストのリジェクト</h3>
+<p>もし、promiseのリジェクトハンドラ内でエラー条件のハンドリングを行いたい場合は、<code>extract</code>の中から、promiseのリジェクトに向けて<code>Error</code>を投げることができます。</p>
+<p>もしJSONとしては不正なレスポンスをプロダクション環境のサーバから受け取ったとして、ユーザに対してサーバがオフラインであるというメッセージを表示したいとします。</p>
+<pre><code class="lang-javascript">var extract = function(xhr, xhrOptions) {
+    try {
+        return JSON.stringify(xhr.responseText)
+    }
+    catch (e) {
+        //e instanceof SyntaxError == true
+        //デフォルトでは`e`はMithrilのpromiseの例外モニタがキャッチして、コンソールに向けて再度投げる
+        //このエラーはPromises/A+の仕様にしたがって下流のpromiseのリジェクトに渡される
+        throw new Error("サーバがオフラインです")
+    }
+}
+
+m.request({method: "POST", url: "/foo", extract: extract});
+</code></pre>
+<p>詳細については、<a href="mithril.deferred.html#unchecked-error-handling">こちらのpromiseの例外モニタ</a>を参照してください。</p>
+<hr>
+<h3 id="configuring-the-underlying-xmlhttprequest">バックエンドのXMLHttpRequestの設定</h3>
+<p><code>config</code>オプションを使って、ネイティブのXMLHttpRequestインスタンスの設定を任意に設定したり、他の方法ではアクセスできないプロパティにアクセスすることができます。</p>
+<p>下記の例は、サーバがリクエストとして<code>Content-Type: application/json</code>ヘッダを期待しているときに、それを行うための方法を示したサンプルです。</p>
+<pre><code class="lang-javascript">var xhrConfig = function(xhr) {
+    xhr.setRequestHeader("Content-Type", "application/json");
+}
+
+m.request({method: "POST", url: "/foo", config: xhrConfig});
+</code></pre>
+<hr>
+<h3 id="aborting-a-request">リクエストの中断</h3>
+<p><code>config</code>を通じて、<code>XMLHttpRequest</code>のインスタンスに対して、リクエストの中断を行わせることもできます。この方法は、<code>onprogress</code>を付与するのにも使えます。</p>
+<pre><code class="lang-javascript">var transport = m.prop();
+
+m.request({method: "POST", url: "/foo", config: transport});
+
+//`transport` getter-setterにはXMLHttpRequestのインスタンスが含まれる。
+transport().abort();
+</code></pre>
+<hr>
+<h3 id="using-json-p">JSONPの使用</h3>
+<p>JSONPリクエストを行うには、<code>method</code>ではなく、<code>dataType</code>を設定します。通常のJSONPリクエストで必要になる<code>callback</code>クエリー文字列パラメータを設定する必要はありません。Mithrilが内部で行います。</p>
+<pre><code class="lang-javascript">m.request({dataType: "jsonp", url: "/api/User"});
+</code></pre>
+<p>Flickrなどの一部のサービスは、<code>callback</code>パラメータで指定された<code>callback</code>を呼び出すというJSONPの規約に従っていません。コールバック関数を表すクエリー文字列を指定するには、<code>callbackKey</code>を指定します。</p>
+<pre><code class="lang-javascript">m.request({
+    dataType: "jsonp",
+    callbackKey: "jsoncallback",
+    url: "http://api.flickr.com/services/feeds/photos_public.gne?tags=monkey&amp;tagmode=any&amp;format=json"
+});
+</code></pre>
+<hr>
+<h3 id="rendering-before-web-service-requests-finish">ウェブサービスのリクエスト完了前のレンダリング</h3>
+<p>デフォルトでは、Mithrilはウェブサービスへのリクエストが完了するまでは再描画を待ちます。この仕組により、ビューが非同期データのデータにアクセスするときも、データがまだ利用できないために表示がおかしくなる、ということがありません。</p>
+<p>しかし、時々ウェブサービスのリクエストが完了する前に再描画を行いたいと思うことがあります。多くのウェブサービスに並行でアクセスして、アクセスが遅いのがその中の１つだけだったり、もしくは再描画するのにレスポンスがいらない、といったこともありえます。</p>
+<p><code>background</code>オプションを<code>true</code>に設定すると、リクエストが再描画のプロセスに干渉することはなくなります。このオプションを有効にすると、データが利用可能になる前にビューがデータにアクセスしようとします。<code>m.request</code>に渡すgetter-setterに初期値を渡すという防衛的なコーディングを行えば、null参照例外が発生する可能性を抑えられます:</p>
+<pre><code class="lang-javascript">var demo = {}
+
+demo.controller = function() {
+    return {
+        users: m.request({method: "GET", url: "/api/user", background: true, initialValue: []})
+    }
+}
+
+//ビュー内
+demo.view = function(ctrl) {
+    //このビューはデータが利用可能人なる前にレンダリングされる
+    //初期値としてundefinedに代わりにからの配列を定義したため、この.mapはエラーにならない
+    return ctrl.users().map(function() {
+        return m("div", user.name)
+    })
+}
+</code></pre>
+<hr>
+<h3 id="signature">シグニチャ</h3>
+<p><a href="how-to-read-signatures.html">シグニチャの読み方</a></p>
+<pre><code class="lang-clike">Promise request(Options options)
+
+where:
+    Promise :: GetterSetter { Promise then(any successCallback(any value), any errorCallback(any value)) }
+    GetterSetter :: any getterSetter([any value])
+    Options :: XHROptions | JSONPOptions
+    XHROptions :: Object {
+        String method,
+        String url,
+        [String user,]
+        [String password,]
+        [Object&lt;any&gt; data,]
+        [Boolean background,]
+        [any initialValue,]
+        [any unwrapSuccess(any data, XMLHttpRequest xhr),]
+        [any unwrapError(any data, XMLHttpRequest xhr),]
+        [String serialize(any dataToSerialize),]
+        [any deserialize(String dataToDeserialize),]
+        [any extract(XMLHttpRequest xhr, XHROptions options),]
+        [void type(Object&lt;any&gt; data),]
+        [XMLHttpRequest? config(XMLHttpRequest xhr, XHROptions options)]
+    }
+    JSONPOptions :: Object {
+        String dataType,
+        String url,
+        String callbackKey,
+        Object&lt;any&gt; data
+    }
+</code></pre>
+<ul>
+<li><p><strong>XHROptions options</strong></p>
+<p>XMLHttpRequestに渡すオプションのマップ。</p>
+<ul>
+<li><p><strong>String method</strong></p>
+<p>HTTPのメソッド。このオプションは、<code>"GET"</code>、<code>"POST"</code>、<code>"PUT"</code>、<code>"DELETE"</code>、<code>"HEAD"</code>、<code>"OPTIONS"</code>のどれかを設定します。</p>
+</li>
+<li><p><strong>String url</strong></p>
+<p>リクエストを送るURL。もしURLが違うドメインであれば、対象となるサーバは <code>Access-Control-Allow-Origin: *</code>ヘッダを付与するなど、クロスドメインのリクエストを許可する設定になっている必要があります。</p>
+</li>
+<li><p><strong>String user</strong> (optional)</p>
+<p>HTTP認証のユーザ名。デフォルトは<code>undefined</code>。</p>
+</li>
+<li><p><strong>String password</strong> (optional)</p>
+<p>HTTP認証のパスワード。デフォルトは<code>undefined</code>。</p>
+</li>
+<li><p><strong>Object<any> data</strong> (optional)</p>
+<p>送信するデータ。設定されている<code>method</code>によって、適切な方法でシリアライズされて、適切なペイロードに格納されます。</p>
+</li>
+<li><p><strong>Boolean background</strong> (optional)</p>
+<p><code>m.request</code>中にテンプレートのレンダリング行うかどうかの設定。デフォルトはfalseです。</p>
+<p>このオプションがtrueであれば、requestメソッドは<a href="mithril.computation.html"><code>m.startComputation</code> / <code>m.endComputation</code></a>を呼びません。そのため、リクエストの完了がビュー更新のトリガーにはならず、データ更新があってもビューが更新されません。この操作は、ユーザの操作によらず行われるバックグラウンドの操作を実行する場合に便利です。</p>
+<p>バックグラウンドのリクエスト後に再描画を行わせたい場合は、<a href="mithril.redraw.html"><code>m.redraw</code></a>もしくは<code>m.startComputation</code> / <code>m.endComputation</code>を使用してください。</p>
+<pre><code class="lang-javascript">var demo = {}
+
+demo.controller = function() {
+  var users = m.request({method: "GET", url: "/api/users", background: true, initialValue: []})
+  users.then(m.redraw)
+  return {users: users}
+}
+
+demo.view = function(ctrl) {
+  //このビューは初回と上記のリクエストの完了後の2回再描画が行われる
+  return m("div", [
+      ctrl.users().map(function(user) {
+          return m("div", user.name)
+      })
+  ])
+}
+</code></pre>
+<p><code>background</code>をtrueに設定するリクエストの「全ての」リクエストに対して<code>initialValue</code>オプションを設定するのを強く推奨します。</p>
+<p>複数のバックグラウンドのAJAXリクエストを行った場合は、個別のリクエストの完了後に再描画を行うのではなく、<a href="mithril.sync.html"><code>m.sync</code></a>を使って待ち合わせを行い、一度だけ再描画を行うのが推奨です:</p>
+<pre><code class="lang-javascript">var demo = {}
+
+demo.controller = function() {
+  var users = m.request({method: "GET", url: "/api/users", background: true, initialValue: []})
+  var projects = m.request({method: "GET", url: "/api/projects", background: true, initialValue: []})
+
+  m.sync([users, projects]).then(m.redraw)
+
+  return {users: users, projects: projects}
+}
+</code></pre>
+<p>リクエスト値がnullになる可能性がある場合は、nullチェックを行ってください。</p>
+<pre><code class="lang-javascript">var demo = {}
+
+demo.controller = function() {
+  var user = m.request({method: "GET", url: "/api/users/1", background: true, initialValue: null})
+  user.then(m.redraw)
+  return {user: user}
+}
+
+demo.view = function(ctrl) {
+  return m("div", [
+      //最初の描画時はユーザがいないが、エラーにはならない
+      ctrl.user ?ctrl.user.name : "no user"
+  ])
+}
+</code></pre>
+</li>
+<li><p><strong>any initialValue</strong> (optional)</p>
+<p>リクエスト完了前に、この関数が返すgetter-setterが内部で保持する初期値。<code>background</code>オプションを使用するときにこのオプションを使用すると、リクエスト完了前にビューがgetter-setterにアクセスするときにnullチェックを行う手間が減ります。</p>
+<p>このオプションは将来落とし穴に落ちないように設定することを強く勧めます。</p>
+</li>
+<li><p><strong>any unwrapSuccess(any data, XMLHttpRequest xhr)</strong> (optional)</p>
+<p>レスポンス成功時に、レスポンスに含まれるメタデータなどからデータを取り出す時に使用するプリプロセッサです。</p>
+<p>この設定がfalsyな値だったときのデフォルトの動作は、<code>function(value) {return value}</code>という関数と等価です。</p>
+<p>もし返り値が<code>{data: [{name: "John"}, {name: "Mary"}]}</code>というJSONで、unwrap関数として<code>function(response) {return response.data}</code>という関数が渡された場合には、<code>type</code>パラメータの評価時に<code>[{name: "John"}, {name: "Mary"}]</code>というデータを返します。</p>
+<ul>
+<li><p><strong>Object<any> | Array<any> data</strong></p>
+<p>unwrapするデータ</p>
+</li>
+<li><p><strong>returns Object<any> | Array<any> unwrappedData</strong></p>
+<p>unwrapされたデータ</p>
+</li>
+</ul>
+</li>
+<li><p><strong>any unwrapError(any data, XMLHttpRequest xhr)</strong> (optional)</p>
+<p>レスポンス失敗時に、レスポンスに含まれるメタデータなどからデータを取り出す時に使用するプリプロセッサです。</p>
+<p>この設定がfalsyな値だったときのデフォルトの動作は、<code>function(value) {return value}</code>という関数と等価です。</p>
+<ul>
+<li><p><strong>Object<any> | Array<any> data</strong></p>
+<p>unwrapするデータ</p>
+</li>
+<li><p><strong>returns Object<any> | Array<any> unwrappedData</strong></p>
+<p>unwrapされたデータ</p>
+</li>
+</ul>
+</li>
+<li><p><strong>String serialize(any dataToSerialize)</strong> (optional)</p>
+<p>リクエストデータをシリアライズするときに使用するメソッド。</p>
+<p>この設定がfalsyな値だったときのデフォルト動作は、<code>JSON.stringify</code>です。</p>
+<ul>
+<li><p><strong>any dataToSerialize</strong></p>
+<p>シリアライズするデータ。</p>
+</li>
+<li><p><strong>returns String serializedData</strong></p>
+</li>
+</ul>
+</li>
+<li><p><strong>any deserialize(String dataToDeserialize)</strong> (optional)</p>
+<p>レスポンスデータをデシリアライズするメソッド。</p>
+<p>この設定がfalsyな値だったときのデフォルト動作は、<code>JSON.parse</code>です。</p>
+<ul>
+<li><p><strong>String dataToDeserialize</strong></p>
+<p>デシリアライズするデータ。</p>
+</li>
+<li><p><strong>returns any deserializedData</strong></p>
+</li>
+</ul>
+</li>
+<li><p><strong>any extract(XMLHttpRequest xhr, XHROptions options)</strong> (optional)</p>
+<p>XMLHttpRequest.からデータを取り出す時に使うメソッドです。このオプションはレスポンスヘッダやステータスフィールドに必要なデータがある場合に便利です。</p>
+<p>この設定がfalsyな値だったときのデフォルトの動作は、<code>xhr.responseText</code>を返す関数です。</p>
+</li>
+<li><p><strong>void type(Object<any> data)</strong> (optional)</p>
+<p>レスポンスオブジェクト、もしくはレスポンスが配列の場合はその子供は、<code>type</code>で定義されているクラスコンストラクタに渡されます。</p>
+<p>もしこのパラメータがfalxyな値だった時は、デシリアライズされたデータはそのまま渡されます。</p>
+<p>もし<code>type</code>として次のクラスが渡されたとします。</p>
+<pre><code class="lang-javascript">var User = function(data) {
+  this.name = m.prop(data.name);
+}
+</code></pre>
+<p>そして、サーバから<code>[{name: "John"}, {name: "Mary"}]</code>というデータが帰ってくると、レスポンスはUserクラスのインスタンスを2つ含む配列になります。</p>
+</li>
+<li><p><strong>XMLHttpRequest? config(XMLHttpRequest xhr, XHROptions options)</strong> (optional)</p>
+<p><code>open</code>と<code>send</code>の間に呼ばれる初期化関数です。この関数を使うと、リクエストヘッダを追加したり、XMLHttpRequestの<code>upload</code>プロパティなどXHR2の機能を呼び出すことができます。</p>
+<ul>
+<li><p><strong>XMLHttpRequest xhr</strong></p>
+<p>XMLHttpRequestのインスタンス。</p>
+</li>
+<li><p><strong>XHROptions options</strong></p>
+<p><code>options</code>パラメータは、<code>m.request</code>呼び出し時に渡された引数。</p>
+</li>
+<li><p><strong>returns XMLHttpRequest? xhr</strong></p>
+<p>この関数を使うと、Mithrilが生成したXHRインスタンスの代わりに、XDomainRequestインスタンスなど、XHRのように動作するまったく別のオブジェクトに置き換えることもできます。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>returns Promise promise</strong></p>
+<p>AJAXリクエストが完了したときに呼ばれるコールバックをバインドすることが可能なpromise。</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p><strong>JSONPOptions options</strong></p>
+<p>JSONPリクエストのためのオプションのマップ。</p>
+<ul>
+<li><p><strong>String dataType</strong></p>
+<p>"jsonp"でなければなりません。</p>
+</li>
+<li><p><strong>String url</strong></p>
+<p>リクエストを送るURL。もしURLが違うドメインであれば、対象となるサーバは <code>Access-Control-Allow-Origin: *</code>ヘッダを付与するなど、クロスドメインのリクエストを許可する設定になっている必要があります。</p>
+</li>
+<li><p><strong>String callbackKey</strong></p>
+<p>レスポンス受け取るコールバック関数を定義する、クエリー文字列の名前。デフォルト値は"callback"。</p>
+<p>foo.com/?jsonpCallback=doSomethingなど、一般的な規約とはことなるjsonpコールバック定義をさせるウェブサービスを章するときに使います。</p>
+</li>
+<li><p><strong>Object<any> data</strong> (optional)</p>
+<p>送信するデータ。設定されている<code>method</code>によって、適切な方法でシリアライズされて、適切なペイロードに格納されます。</p>
+</li>
+</ul>
+</li>
+</ul>
+
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<div class="container">
+				<a href="http://opensource.org/licenses/MIT" target="_blank">MITライセンス</a>でリリースされています<br />© 2014 Leo Horie
+			</div>
+		</footer>
+		<script src="lib/prism/prism.js"></script>
+	</body>
+</html>

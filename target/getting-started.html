@@ -1,0 +1,502 @@
+<!doctype html>
+<html>
+	<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>はじめよう - Mithril</title>
+		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
+		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header>
+			<nav class="container">
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="mithril.min.zip">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+			</nav>
+		</header>
+		<main>
+			<section class="content">
+				<div class="container">
+					<div class="row">
+						<div class="col(3,3,12)">
+							<h2 id="core-topics">基本トピック</h2>
+							<ul>
+								<li><a href="installation.html">インストール</a></li>
+								<li><a href="getting-started.html">はじめよう</a></li>
+								<li><a href="routing.html">ラウティング</a></li>
+								<li><a href="web-services.html">ウェブサービス</a></li>
+								<li><a href="components.html">コンポーネント</a></li>
+							</ul>
+							<h2 id="advanced-topics.html">上級トピック</h2>
+							<ul>
+								<li><a href="auto-redrawing.html">自動再描画システム</a></li>
+								<li><a href="integration.html">他のライブラリとの統合</a></li>
+								<li><a href="optimizing-performance.html">テンプレートのコンパイル</a></li>
+							</ul>
+							<h2 id="misc">その他</h2>
+							<ul>
+								<li><a href="comparison.html">他のMVCフレームワークとの違い</a></li>
+								<li><a href="benchmarks.html">ベンチマーク</a></li>
+								<li><a href="practices.html">良いプラクティス</a></li>
+								<li><a href="tools.html">便利なツール</a></li>
+							</ul>
+						</div>
+						<div class="col(9,9,12)">
+							<h2 id="getting-started">はじめよう</h2>
+<h3 id="what-is-mithril-">Mithrilとは？</h3>
+<p>MithrilはクライアントサイドのJavaScript MVCフレームワークです。このツールを使うと、アプリケーションのコードはデータレイヤ(<strong>M</strong>odel)、UIレイヤー(<strong>V</strong>iew)、接続レイヤー(<strong>C</strong>ontroller)に分割されます。</p>
+<p><a href="mithril.html">小さく、ムダのないAPI</a>のおかげで、Mithrilはgzipされた状態でたったの12kbしかありません。Mithrilは、ハイパフォーマンスなレンダリング速度を持つ、仮想DOMの差分更新機能を持ったテンプレートエンジンや、関数型によるハイレベルなモデリングのサポート、ルーティング機能、コンポーネント化をサポートしています。</p>
+<p>このフレームワークのゴールは、アプリケーションコードの探索しやすさ、読みやすさ、メンテナンス性を向上させ、あなたがすばらしい開発者になる手助けをすることです。</p>
+<p>他のフレームワークと異なり、Mithrilはクモの巣のような依存関係にとらわれないようにするために多大な努力を払っています。フレームワーク内の<em>必要な部分</em>だけを使うことができます。</p>
+<p>しかし、このツールセットのレールに乗ることで多くの利益を得ることができます。その中には、実用的なシナリオ上で関数型プログラミングを学んだり、しっかりとしたオブジェクト指向プログラミングやMVCの良いコーディングプラクティスを学ぶことも含まれます。</p>
+<hr>
+<h2 id="a-simple-application">シンプルなアプリケーション</h2>
+<p><a href="installation.html">Mithrilのインストール</a>をしたらコーディングを開始しましょう。Mithrilは、決まり文句がとても少ない、小さなHTMLから開始することができます:</p>
+<pre><code class="lang-markup">&lt;!doctype html&gt;
+&lt;title&gt;ToDoアプリケーション&lt;/title&gt;
+&lt;script src="mithril.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+//アプリケーションコードはここ
+&lt;/script&gt;
+</code></pre>
+<p>そうです。これは完全なHTML5です。HTMLの規格によると、<code>&lt;html&gt;</code>、<code>&lt;head&gt;</code>、<code>&lt;body&gt;</code>タグは省略できますが、ブラウザがマークアップをレンダリングするときに暗黙的にそれぞれのDOMエレメントを生成します。</p>
+<hr>
+<h3 id="model">モデル</h3>
+<p>Mithrilでは基本的に、アプリケーションは名前空間の中に作り、コンポーネントをその中に格納していきます。コンポーネントは見ることが可能な「ページ」もしくはページの一部を表す、単なる構造体です。アプリケーションはModel、Controller、Viewの大きく3つのレイヤーにきれいに分割することができます。</p>
+<p>サンプルを簡単にするために、これから作るアプリケーションにはコンポーネントを1つだけ作ることにします。そしてそれをアプリケーションの名前空間として使っていきます。</p>
+<p>Mithrilでは、<em>コンポーネント</em>は、<code>controller</code>と<code>view</code>の2つの関数を含むオブジェクトです:</p>
+<pre><code>//空のMithrilコンポーネント
+var myModule = {
+    controller: function() {},
+    view: function() {}
+}
+</code></pre><p>コンポーネントはコントローラとビューを保持するだけではなく、関連するデータを格納するために使用されます。</p>
+<p>それではコンポーネントを作ってみましょう。</p>
+<pre><code class="lang-markup">&lt;script&gt;
+//このアプリケーションはtodoコンポーネントのみを含む
+var todo = {};
+&lt;/script&gt;
+</code></pre>
+<p>モデルの実体は再利用可能なため、コンポーネントの外で定義されることが多いです (例: <code>var User = ...</code>)。今回のサンプルではすべてのアプリケーションが1つのコンポーネントに収まっているため、コンポーネントを名前空間として使い、モデルの実体もその中にいれてしまいましょう。</p>
+<pre><code class="lang-javascript">var todo = {};
+
+//例をシンプルにするために、このコンポーネントをモデルクラスの名前空間として利用する
+
+//Todoクラスはプロパティを2つ持つ
+todo.Todo = function(data) {
+    this.description = m.prop(data.description);
+    this.done = m.prop(false);
+};
+
+//TodoListクラスはTodoのリスト
+todo.TodoList = Array;
+</code></pre>
+<p><a href="mithril.prop.html"><code>m.prop</code></a>はgetter-setter関数を作るための、単純なファクトリです。getter-setterは次のように動作します:</p>
+<pre><code class="lang-javascript">//'John'を初期値として、getter-setterを定義する
+var a_name = m.prop("John");
+
+//値を取得する
+var a = a_name(); //a == "John"
+
+//値を`Mary`に設定する
+a_name("Mary"); //Mary
+
+//値を取得する
+var b = a_name(); //b == "Mary"
+</code></pre>
+<p>上記のサンプルで定義した<code>Todo</code>クラスと<code>TodoList</code>クラスは、混じりけのない、プレーンなJavaScriptのコンストラクタです。これらのクラスは次のように初期化して使います:</p>
+<pre><code class="lang-javascript">var myTask = new todo.Todo({description: "コードを書く"});
+
+//descriptionを取得する
+myTask.description(); //コードを書く
+
+//完了しているか?
+var isDone = myTask.done(); //isDone == false
+
+//完了にする
+myTask.done(true); //true
+
+//ここでは完了している
+isDone = myTask.done(); //isDone == true
+</code></pre>
+<p><code>TodoList</code>クラスは単に、標準の<code>Array</code>クラスの別名です。</p>
+<pre><code class="lang-javascript">var list = new todo.TodoList();
+list.length; //0
+</code></pre>
+<p>昔ながらのMVCパターンの定義によると、モデルレイヤはデータの保持、状態の管理、ビジネスロジックについての責務を負っています。</p>
+<p>上記のサンプルのモデルクラスは、この基準を満たしていることがわかるでしょう。意味のある状態を構成するのに必要なメソッドとプロパティを十分に備えています。<code>Todo</code>は初期化をして、プロパティの変更を行うことができました。配列の方は<code>push</code>メソッドを使ってTodoの項目を追加することができます。他にもあります。</p>
+<h4 id="view-model">ビュー・モデル</h4>
+<p>次のステップとして、モデルクラスを使用する、ビュー・モデルを書きます。ビュー・モデルはモデルレベルのエンティティで、UIの状態を保持します。多くのフレームワークでは、UIの状態はコントローラの内部に保持されます。しかし、コントローラはデータプロバイダとしてデザインされていないため、このような構造にしてしまうと、コードをスケールさせるのが難しくなります。Mithrilでは、UIの状態というのはデータベースのORMエンティティにマップされる必要はないが、モデルデータとなるべきもの、と考えます。</p>
+<p>ビューモデルはUI固有の制約に関するビジネスロジックを処理する責任を持ちます。例えば、テキスト入力とキャンセルのボタンを持っているフォームがあるとします。このケースでは、ビュー・モデルは、オリジナルの状態とテキスト入力の現在の状態の差のトラッキングと、キャンセル処理の提要に関する責任を持ちます。フォームが保存されるというイベントが発生したら、ビュー・モデルはより適切なORMモデルエンティティに保存処理を移譲します。</p>
+<p>われわれのToDoアプリケーションでは、ビュー・モデルに必要とされるものはそれほど多くありません。アクティブなToDoのリストと、新しいToDoを追加するためのフィールドの管理、ToDoを追加するロジックや、UIのアクションとの連携です。</p>
+<pre><code class="lang-javascript">//ビュー・モデルの定義
+todo.vm = {
+    init: function() {
+        //アクティブなToDoのリスト
+        todo.vm.list = new todo.TodoList();
+
+        //新しいToDoを作成する前の、入力中のToDoの名前を保持するスロット
+        todo.vm.description = m.prop('');
+
+        //ToDoをリストに登録し、ユーザが使いやすいようにdescriptionフィールドをクリアする
+        todo.vm.add = function(description) {
+            if (description()) {
+                todo.vm.list.push(new todo.Todo({description: description()}));
+                todo.vm.description("");
+            }
+        };
+    }
+};
+</code></pre>
+<p>上記のコードは、<code>vm</code>という名前のビュー・モデルオブジェクトを定義しています。ビュー・モデルオブジェクトは、<code>init</code>関数を持つ、シンプルなJavaScriptのオブジェクトです。このコードは、3つのメンバーを持つ<code>vm</code>オブジェクトを初期化しています。単純な配列の<code>list</code>、初期値の文字列として空の文字列を渡された<code>m.prop</code>のgetter-setter関数である<code>description</code>、入力のdescription getter-setterが空の文字列でないときに、新しいTodoインスタンスを,<code>list</code>に登録する<code>add</code>関数です。</p>
+<p>このガイドの後半では、<code>description</code>プロパティをこの関数の引数として渡します。準備が整ったところで、なぜこのサンプルではオブジェクト指向プログラミングのスタイルのメンバーの関連付けを行わずに、descriptionを引数として渡すのかを説明しましょう。</p>
+<p>ビュー・モデルは次のように使えます:</p>
+<pre><code class="lang-javascript">//ビュー・モデルの初期化
+todo.vm.init();
+
+todo.vm.description(); //[空文字列]
+
+//Todoを登録してみる
+todo.vm.add(todo.vm.description);
+todo.vm.list.length; //空のdescriptionは登録できないので、0
+
+//正しく登録できた
+todo.vm.description("コードを書く");
+todo.vm.add(todo.vm.description);
+todo.vm.list.length; //1
+</code></pre>
+<hr>
+<h3 id="controller">コントローラ</h3>
+<p>クラシカルなMVCでは、ビューからやってきたアクションを、モデルのレイヤーにディスパッチするのがコントローラの役割です。伝統的なサーバーサイドフレームワークでは、HTTPのリクエスト、レスポンスおよび、開発者に公開されているフレームワークの抽象化という性質を考えると、コントローラレイヤはとても大きな役割を持つレイヤです。コントローラはHTTPのリクエストからシリアライズされたデータを取り出して変換して、ORMのモデルのメソッドに渡したりします。</p>
+<p>クライアントサイドMVCではこのような定義との不一致は存在しないため、コントローラは極めてシンプルになります。Mithrilのコントローラは、モデルレベルの機能の中からいくつか限定したものだけを公開するという、最小限の機能にまで落とし込まれています。ここで今まで出てきたロールを思い出してみてください。モデルはビジネスロジックのカプセル化、ビュー・モデルは特定のUI状態に関するロジックのカプセル化を行います。抽象化された役割の中でコントローラが行うべきものは、モデルの中から、現在の表示されているものを切り出して表示するという役割以外は残っていません。</p>
+<p>Mithrilのコントローラが行うべきことは、次のコードがすべてです:</p>
+<pre><code class="lang-javascript">todo.controller = function() {
+    todo.vm.init()
+}
+</code></pre>
+<hr>
+<h3 id="view">ビュー</h3>
+<p>次に、ユーザとアプリケーションがインタラクションするためのビューを書きましょう。MithrilではビューはプレーンなJavaScriptコードです。このことには、エラー発生時のメッセージが分かりやすいとか、適切なレキシカルスコープが使えるなどのさまざまな利点があります。また、<a href="https://github.com/insin/msx">HTML文法を使うことができるプリプロセッサツール</a>も利用できます。</p>
+<pre><code class="lang-javascript">todo.view = function() {
+    return m("html", [
+        m("body", [
+            m("input"),
+            m("button", "追加"),
+            m("table", [
+                m("tr", [
+                    m("td", [
+                        m("input[type=checkbox]")
+                    ]),
+                    m("td", "タスクの説明"),
+                ])
+            ])
+        ])
+    ]);
+};
+</code></pre>
+<p><code>m()</code>というユーティリティ関数はvirtual DOMの要素を作成します。CSSセレクタを使って要素を選択することもできます。<code>.</code>文法を使ってCSSのクラスを追加したり、<code>#</code>を使ってidを追加することもできます。</p>
+<p><a href="https://github.com/insin/msx">MSX</a>HTML文法プリプロセッサを使っていなくても、本来のセマンティック表現の恩恵を受けられるため、<code>m(".modal-body")</code>のようなCSSセレクタ形式を使うことを推奨しています。</p>
+<p>コードをテストする目的で表示したい場合は、<code>m.render</code>メソッドを呼ぶことでビューをレンダリングすることができます:</p>
+<pre><code class="lang-javascript">m.render(document, todo.view());
+</code></pre>
+<p>renderメソッドを呼び出す時は、テンプレートそのものに加えて、ルートのDOM要素を渡します。</p>
+<p>このメソッド呼び出しをすると、次のようなマークアップが生成されます:</p>
+<pre><code class="lang-markup">&lt;html&gt;
+    &lt;body&gt;
+        &lt;input /&gt;
+        &lt;button&gt;追加&lt;/button&gt;
+        &lt;table&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&lt;input type="checkbox" /&gt;&lt;/td&gt;
+                &lt;td&gt;タスクの説明&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><code>m.render</code>はMithrilの提供する中で、とても低レベルなメソッドで、1回だけ描画するために使います。自動再描画システムを利用する場合は使用しません。自動再描画システムを利用する場合は、 <code>m.mount</code>を使って<code>todo</code>コンポーネントを初期化するか、<code>m.route</code>を使ってラウト(route)を定義する必要があります。MithrilはKnockout.jsのようなObservableベースのフレームワークとは異なり、<code>m.prop</code>のgetter-setterに値を設定しても、再描画が起動されるような副作用は発生しないことに注意してください。</p>
+<hr>
+<h4 id="data-bindings">データバインディング</h4>
+<p>次に、テキスト入力に<strong>データバインディング</strong>を実装していきましょう。データバインディングは、DOM要素とJavaScriptの変数変数を結びつけて、片方の変更をもう片方に反映させるものです。</p>
+<pre><code class="lang-javascript">//モデルの値と、テンプレート内のテキスト入力を結びつける
+m("input", {value: todo.vm.description()})
+</code></pre>
+<p>このコードにより、<code>description</code> getter-setterとテキスト入力が接続されました。モデルの中のdescriptionの値を更新すると、Mithirlが再描画を行ってDOMのテキスト入力を更新します。</p>
+<pre><code class="lang-javascript">todo.vm.init();
+
+todo.vm.description(); // 空文字列
+m.render(document, todo.view()); // テキスト入力もブランク
+
+todo.vm.description("コードを書く"); // ビュー・モデルのdescriptionに値を設定
+m.render(document, todo.view()); // テキスト入力に「コードを書く」が表示される
+</code></pre>
+<p>一見すると、このコードは再描画を何度も行っていて、とても実行コストが高そうに見えますが、<code>todo.view</code>メソッドを何度呼び出しても、実際にはテンプレート全体が再描画されることはありません。Mitril内部では、仮想的に表現されたDOMをキャッシュとして持っていて、変更を検知して変更に必要な最小限の更新だけどDOMに対して行います。そのため、極めて高速に再レンダリングを行うことができます。</p>
+<p>上記の場合、Mithrilはテキスト入力の<code>value</code>属性しか変更しません。</p>
+<p>このコードでは、DOMのテキスト入力エレメントの値に<em>設定するだけ</em>で、<em>読み込み</em>は行わないことに注意してください。これは、何かしらのテキストを入力して、再レンダリングが実行されると、スクリーン上のテキストが破棄されることを意味します。</p>
+<hr>
+<p>幸い、バインディングは<strong>双方向</strong>で行うように設定することができます。双方向になると、DOMの値を設定するだけでなく、ユーザが入力した内容を読み込んで、ビューモデル内の<code>description</code> setter-getterの内容を更新することができます。</p>
+<p>次のコードが、ビューからモデルへのバインディングを行う、最小限の実装になります:</p>
+<pre><code class="lang-javascript">m("input", {onchange: m.withAttr("value", todo.vm.description), value: todo.vm.description()})
+</code></pre>
+<p>このコードは<code>onchange</code>に結び付けれており、「valueの属性の値を, todo.vm.descriptionに設定」するという意味になります。</p>
+<p>Mithrilはどのイベントを監視して更新を受け取るかはユーザに任せています。<code>onchange</code>、<code>onkeypress</code>、<code>oninput</code>、<code>onblur</code>など、好きなイベントを使用できます。</p>
+<p>また、どの属性と結びつけるかも自由に設定できます。<code>&lt;select&gt;</code>タグであれば、<code>value</code>属性と結びつけることもできますし、用途によっては<code>selectedIndex</code>プロパティとバインドすることもできます。</p>
+<p><code>m.withAttr</code>はMithrilが提供する関数型プログラミングのためのツールで、ビューの内部で無名関数の使用頻度を下げます。</p>
+<p><code>m.withAttr("value", todo.vm.description)</code>という関数呼びしは、次のコードに相当する関数を返り値として返します:</p>
+<pre><code class="lang-javascript">onchange: function(e) {
+    todo.vm.description(e.target["value"]);
+}
+</code></pre>
+<p>無名関数の使用を避ける以外の違いとしては、<code>m.withAttr</code>を使うと、正しいイベントターゲットや、適切なデータソースを選んでくれます。例えば、その入力ソースがJavaScriptのプロパティか、<code>DOMElement::getAttribute()</code>かといった違いを識別して、適切な動作をします。</p>
+<hr>
+<p>双方向バインディング以外の機能では、パラメータ付き関数をイベントにバインドすることもできます。</p>
+<pre><code class="lang-javascript">var vm = todo.vm
+
+m("button", {onclick: vm.add.bind(vm, vm.description)}, "追加")
+</code></pre>
+<p>上記のコードは、標準的なJavaScriptの<code>Function::bind</code>メソッドを使っています。このメソッドを使うと、パラメータがあらかじめ設定された、新しい関数を作ることができます。関数型プログラミングの世界では、これは<a href="http://en.wikipedia.org/wiki/Partial_application"><em>部分適用(partial application)</em></a>と呼ばれます。</p>
+<p><code>vm.add.bind(vm, vm.description)</code>という式は、次の式と等価です:</p>
+<pre><code class="lang-javascript">onclick: function(e) {
+    todo.vm.add(todo.vm.description)
+}
+</code></pre>
+<p>パラメータを束縛するときに、上記の例では<code>description</code> getter-setterを<em>参照で渡して</em>いて、直接値を渡しているわけではありません。Mithrilは、getter-setterをcontrollerメソッド内でしか評価しません。このような形式を<em>遅延評価(lazy evaluation)</em>と呼びます。これを使うと、「イベントハンドラが呼ばれて、本当に必要になったタイミングまで値の取得を遅らせよう」ということができます。</p>
+<p>これまでの説明の中で、なぜMithrilが<code>m.prop</code>を使うことを推奨しているのか、お気づきの方もいると思います。Mithrilのgetter-setterは関数です。それにより、関数型プログラミングの道具と、相性良く組みわせることができて、強力な書き方が使えるようになります。上記の例の場合は、Cのポインタのような機能を実現しています。</p>
+<p>Mithrilは、これ以外のさまざまなところでも、これらのテクニックを使っています。</p>
+<p>賢い読者の方は、<code>add</code>メソッドをもっとシンプルなコードにリファクタリングすることができることに気づいたかもしれません:</p>
+<pre><code class="lang-javascript">vm.add = function() {
+    if (vm.description()) {
+        vm.list.push(new todo.Todo({description: vm.description()}));
+        vm.description("");
+    }
+};
+</code></pre>
+<p>変更前のコードと異なっているのは<code>add</code>メソッドの引数がなくなった点です。</p>
+<p>これにより、テンプレートの<code>onclick</code>バインディングを<em>もっとシンプルに</em>書くことができます:</p>
+<pre><code>m("button", {onclick: todo.vm.add}, "追加")
+</code></pre><p>部分適用を使って説明したのは、単にこのようなテクニックが使えるということを紹介する目的でした。これを使うと、パラメータを持つイベントハンドラの可能性が広がります。実際のコーディングでは、いくつか選択肢があった場合には、ユースケースを実現するもっともシンプルな方法を選択すべきです。</p>
+<hr>
+<p>JavaScriptの配列のメソッドを使うだけで、Mithrilのビューでフローコントロールを実装することができます:</p>
+<pre><code class="lang-javascript">//これがビュー
+m("table", [
+    todo.vm.list.map(function(task, index) {
+        return m("tr", [
+            m("td", [
+                m("input[type=checkbox]")
+            ]),
+            m("td", task.description()),
+        ])
+    })
+])
+</code></pre>
+<p>上記のコードの<code>todo.vm.list</code>はJavaScriptの配列です。<code>map</code>は関数型プログラミング的な機能を提供する、標準の関数です。このメソッドを使うと、配列の全要素に対して変換処理を行い、その結果の要素で構成される配列を返します。</p>
+<p>このメソッドは、ご覧のとおりに、2つの<code>&lt;td&gt;</code>タグを持つ、部分テンプレートを返しています。2つ目のタグは、Todoクラスのインスタンス<code>description</code> getter-setterへのバインディングが含まれています。</p>
+<p>ここまでの説明でお気づきの通り、JavaScriptには、関数型プログラミングに対する強力なサポートが備わっています。これを使うと、他のフレームワークではなかなかうまく表現しづらいコードを、とても自然な形で記述することができます。例えば、<code>&lt;dl&gt;/&lt;dt&gt;/&lt;dd&gt;</code>を構成するためにループを使うといったことができます。</p>
+<hr>
+<p>残りのコードは、これまで説明してきたテクニックで書くことができます。完成したviewは次のようなコードになっています:</p>
+<pre><code class="lang-javascript">todo.view = function() {
+    return m("html", [
+        m("body", [
+            m("input", {onchange: m.withAttr("value", todo.vm.description), value: todo.vm.description()}),
+            m("button", {onclick: todo.vm.add}, "追加"),
+            m("table", [
+                todo.vm.list.map(function(task, index) {
+                    return m("tr", [
+                        m("td", [
+                            m("input[type=checkbox]", {onclick: m.withAttr("checked", task.done), checked: task.done()})
+                        ]),
+                        m("td", {style: {textDecoration: task.done() ?"line-through" : "none"}}, task.description()),
+                    ])
+                })
+            ])
+        ])
+    ]);
+};
+</code></pre>
+<p>このテンプレートの大事なポイントを個別に説明していきます:</p>
+<ul>
+<li>テンプレートは暗黙の<code>&lt;html&gt;</code>要素としてレンダリングされます。</li>
+<li>テキスト入力は、値を、以前定義した<code>todo.vm.description</code> getter-setter に保存します。</li>
+<li>ボタンが押されると、<code>todo.vm.add</code>メソッドが呼び出されます。</li>
+<li>もし既存のToDoがある場合は、既存のすべてのToDoが表形式で出力されます。</li>
+<li>チェックボックスは値を<code>task.done</code> getter setterに保存します。</li>
+<li>タスクが完了したとマークされると、CSSを通じて説明が消されます。</li>
+<li>更新が発生した場合は、全体の再描画は行われずに、変更があった箇所だけ更新されます。</li>
+</ul>
+<hr>
+<p>最初に紹介したときは、データを変更した後に手動で<code>m.render</code>を呼び出して再描画を行わせていました。しかし、前に説明したとおり、<code>m.mount</code>を通じて<code>todo</code>コンポーネントを初期化すると、<a href="auto-redrawing.html">自動再描画システム</a>が有効になります。</p>
+<pre><code class="lang-javascript">//todoコンポーネントはdocument DOMノードの中でレンダリングする
+m.mount(document, {controller: todo.controller, view: todo.view});
+</code></pre>
+<p>Mithrilの自動再描画システムはコントローラの安定性を崩しません。ビューの再描画はコントローラの処理がすべて終わったにのみ行われます。このコントローラの処理には、AJAXによるデータのロードも含まれます。同様に、このシステムはイベントハンドラ内部の非同期サービスについても、再描画前にきちんと完了することを賢く待ちます。 </p>
+<p>どのように再描画の仕組みが動作するかは<a href="auto-redrawing.html">こちら</a>のドキュメントでより詳しく知ることができます。</p>
+<hr>
+<h3 id="summary">まとめ</h3>
+<p>完全なアプリケーションのコードはこちらになります:</p>
+<pre><code class="lang-markup">&lt;!doctype html&gt;
+&lt;script src="mithril.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+//このアプリケーションは、todoコンポーネントを1つだけ持つ
+var todo = {};
+
+//コードをシンプルにするために、このコンポーネントをモデルクラスの名前空間としても流用する
+
+//Todoクラスは2つのプロパティを持つ
+todo.Todo = function(data) {
+    this.description = m.prop(data.description);
+    this.done = m.prop(false);
+};
+
+//TodoListクラスはtodoの配列
+todo.TodoList = Array;
+
+//ビュー・モデルは表示されているTodoのリストを管理し、
+//作成が完了する前のTodoの説明を格納したり、
+//作成が可能かどうかを判定するロジックや、
+//Todoが追加された後にテキスト入力をクリアする責務を持つ
+todo.vm = (function() {
+    var vm = {}
+    vm.init = function() {
+        //アクティブなToDoのリスト
+        vm.list = new todo.TodoList();
+
+        //新しいToDoを作成する前の、入力中のToDoの名前を保持するスロット
+        vm.description = m.prop("");
+
+        //ToDoをリストに登録し、ユーザが使いやすいようにdescriptionフィールドをクリアする
+        vm.add = function() {
+            if (vm.description()) {
+                vm.list.push(new todo.Todo({description: vm.description()}));
+                vm.description("");
+            }
+        };
+    }
+    return vm
+}())
+
+//コントローラは、モデルの中のどの部分が、現在のページと関連するのかを定義している
+//この場合は１つのビュー・モデルですべてを取り仕切っている
+todo.controller = function() {
+    todo.vm.init()
+}
+
+//これがビュー
+todo.view = function() {
+    return m("html", [
+        m("body", [
+            m("input", {onchange: m.withAttr("value", todo.vm.description), value: todo.vm.description()}),
+            m("button", {onclick: todo.vm.add}, "追加"),
+            m("table", [
+                todo.vm.list.map(function(task, index) {
+                    return m("tr", [
+                        m("td", [
+                            m("input[type=checkbox]", {onclick: m.withAttr("checked", task.done), checked: task.done()})
+                        ]),
+                        m("td", {style: {textDecoration: task.done() ?"line-through" : "none"}}, task.description()),
+                    ])
+                })
+            ])
+        ])
+    ]);
+};
+
+//アプリケーションの初期化
+m.mount(document, {controller: todo.controller, view: todo.view});
+&lt;/script&gt;
+</code></pre>
+<p>このサンプルは、<a href="http://jsfiddle.net/milesmatthias/fbgypzbr/1/">jsFiddle</a>でも確認することができます。</p>
+<hr>
+<h2 id="notes-on-architecture">アーキテクチャに関するメモ</h2>
+<p>Mithril風のコードとは、良いプログラミングの規約に従っていて、リファクタリングしやすいコードです。</p>
+<p>上記のコードのTodoクラスは、もしコードを再構成する必要が出てきたとしても、とても簡単に他のコンポーネントに移動できます。</p>
+<p>Todoのコードは他のコードなどへの依存もなく、疎結合でまとまっています。jQueryベースのコードと違って、DOMと密結合していません。TodoクラスのAPIは再利用可能で、ユニットテストが容易です。また、プレーンなJavaScriptのクラスであるため、フレームワーク特有の学習は必要ありません。</p>
+<p><a href="mithril.prop.html"><code>m.prop</code></a>はシンプルですが、とても幅広く使えるつーるです。関数型のパラダイムを使えるようにしたり、<a href="http://en.wikipedia.org/wiki/Uniform_data_access">データアクセスの統一化</a>をしたり、リファクタリングが必要になったときに簡単に行えるように高度な疎結合化をするのに使えます。</p>
+<p>リファクタリングが避けられなくなったら、<code>m.prop</code>呼び出しを、適切なgetter-setter実装に置き換えるだけで済みます。プログラム全体をgrepしてAPIを使っている箇所を検索して置き換える必要はありません。</p>
+<p>例えば、ToDoの説明(description)が大文字でなければならないとしたら、<code>description</code> getter-setterだけを置き換えればこれが実現できます:</p>
+<pre><code class="lang-javascript">this.description = m.prop(data.description)
+</code></pre>
+<p>変更後:</p>
+<pre><code class="lang-javascript">//プライベート変数
+var description;
+
+//パブリックなgetter-setter
+this.description = function(value) {
+    if (arguments.length &gt; 0) description = value.toUpperCase();
+    return description;
+}
+
+//シリアライズ可能にする
+this.description.toJSON = function() {return description}
+
+//値を設定
+this.description(data.description)
+</code></pre>
+<p>サンプルのビュー・モデルの中で、<code>TodoList</code>クラスを単なる配列のエイリアスとして定義しました。ネイティブのArrayクラスを使ったお陰で、標準のArrayクラスのメソッドを自分自身のAPIとして暗黙的に使えるようになりました。</p>
+<p>既に慣れ親しんでいるAPIが使えるようになったトレードオフとして、カスタムの動作を行うことができなくなっています。例えば、リストを永続化させる機能をアプリケーションに追加したくなったとすると、ネイティブのArrayクラスはもっとも適切なクラスとは言えません。</p>
+<p>TodoListのようなクラスをリファクタリングする時は、ArrayクラスのAPIの一部だけをサポートするか、似た機能を持つまったく他のクラスを実装するか決定しなければなりません。</p>
+<p>上記のコードの場合は、新しいクラスに必要なメソッド<code>.push()</code>メソッドと<code>.map()</code>メソッドだけです。APIをフリーズしたり実装を交換したりするだけであれば、リファクタリングを行う際に他のレイヤをまったく触る必要はなくなります。</p>
+<pre><code class="lang-javascript">todo.TodoList = Array;
+</code></pre>
+<p>変更後:</p>
+<pre><code class="lang-javascript">todo.TodoList = function () {
+    this.push = function() { /*...*/ },
+    this.map = function() { /*...*/ }
+};
+</code></pre>
+<p>要件は時間とともに変化しますが、これらの例から、Mithrilがどのような哲学を持って、開発者がコードベースをリファクタリングする際に、どのように標準的なオブジェクト指向プログラミングのテクニックを使って欲しいと思っているか、アプリケーションを大きな塊にしないで小さくして欲しいと考えているのかが伝われば幸いです。</p>
+<hr>
+<p>これがもっともはっきりと気づいてもらいやすい点が、ビューがHTMLに書かれていないという点です。</p>
+<p>ぱっと見ると、これはとても奇妙な設計に見えますが、実際には多くのメリットがあります:</p>
+<ul>
+<li><p>コンテンツが設定されていない内容が一瞬表示されていまう(flash-of-unbehaviored-content :FOUC)のを防ぐ実際に、Mithrilは完全に機能を持ちイベントハンドラができる状態になってから描画を行います。DOMの準備ができるというイベントが発生する前にです！</p>
+</li>
+<li><p>HTMLまじりの複雑な文字列を表示前に自前にパースしてコンパイルして、実際に表示されるDOM要素にするという大掛かりな仕事が必要ありません。</p>
+</li>
+<li><p>また、Mithrilのビューは、行番号と分かりやすいスタックトレース付きの正確で意味のあるエラーを出力できます。</p>
+</li>
+<li><p>自動文法チェック(lint)、ユニットテスト、ビューレイヤーのminifyといったことも可能になります。</p>
+</li>
+<li><p>Mithrilのテンプレートはチューリング完全です。先行評価と遅延評価を完全に制御できますし、テンプレートのキャッシュも可能です。他のコンポーネントを一級市民のパラメータとして受け取るようなコンポーネントも実装することができます。</p>
+</li>
+</ul>
+<p>それでもHTMLの文法を使いたいということであれば、<a href="https://github.com/insin/msx">MSXと呼ばれるパッケージが使えます</a>。</p>
+<p>Mithrilのビューは仮想DOMの差分実装を使用していて、いくつかのフレームワークが持っている不透明要素のダーティチェックやパフォーマンス上の問題といった問題を解決しています。</p>
+<p><code>m()</code>ユーティリティが持つ他の機能としては、CSS的な記述方法で完結にテンプレートが記述できます。これは一般的なサーバサイドMVCフレームワークのHTML処理と似ています。</p>
+<p>MithrilのビューがJavaScriptであることから、破壊的なコンポーネントに対する双方向バインディングヘルパーといった、抽象的な一般化のパターンから開発者が開放されます。一般的なJavaScriptのリファクタリングテクニックが利用できます。</p>
+<p>Mithrilのテンプレートは他のコンポーネントシステムよりも衝突に対して安全です。アドホックにタグ名を決定してHTMLタグの名前空間を汚すことができないようになっています。</p>
+<p>Mithril実装の中で、これよりも知的で面白い点としては、<a href="mithril.withAttr.html"><code>m.withAttr</code></a>、<a href="mithril.prop.html"><code>m.prop</code></a>や、ネイティブの<code>.bind()</code>メソッドを使って部分適用させていくことで、イベントハンドリングが関数合成の文脈で行うことができる点です。</p>
+<p>もし関数型プログラミングを学習したり、実世界で使ってみたいと考えているのであれば、Mithrilがとても実践的な場を提供してくれるでしょう。</p>
+<hr>
+<h2 id="learn-more">より詳しく学ぶ</h2>
+<p>Mithrilには、このページ内で紹介しきれなかった機能がまだいくつかあります。Mithrilについてより深く知りたい場合には次のトピックが良い出発点になります。</p>
+<ul>
+<li><a href="routing.html">ラウティング</a></li>
+<li><a href="web-services.html">ウェブサービス</a></li>
+<li><a href="components.html">コンポーネント</a></li>
+</ul>
+<h2 id="advanced-topics">上級トピック</h2>
+<ul>
+<li><a href="optimizing-performance.html">パフォーマンスの最適化</a></li>
+<li><a href="auto-redrawing.html">自動再描画システムの統合</a></li>
+<li><a href="integration.html">他のライブラリとの統合</a></li>
+</ul>
+<h2 id="misc">その他</h2>
+<ul>
+<li><a href="comparison.html">他のMVCフレームワークとの違い</a></li>
+<li><a href="benchmarks.html">ベンチマーク</a></li>
+<li><a href="practices.html">良いプラクティス</a></li>
+<li><a href="tools.html">便利なツール</a></li>
+</ul>
+
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<div class="container">
+				<a href="http://opensource.org/licenses/MIT" target="_blank">MITライセンス</a>でリリースされています<br />© 2014 Leo Horie
+			</div>
+		</footer>
+		<script src="lib/prism/prism.js"></script>
+	</body>
+</html>
