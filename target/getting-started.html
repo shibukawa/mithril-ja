@@ -409,7 +409,7 @@ m.mount(document, {controller: todo.controller, view: todo.view});
 <p>Mithril風のコードとは、良いプログラミングの規約に従っていて、リファクタリングしやすいコードです。</p>
 <p>上記のコードのTodoクラスは、もしコードを再構成する必要が出てきたとしても、とても簡単に他のコンポーネントに移動できます。</p>
 <p>Todoのコードは他のコードなどへの依存もなく、疎結合でまとまっています。jQueryベースのコードと違って、DOMと密結合していません。TodoクラスのAPIは再利用可能で、ユニットテストが容易です。また、プレーンなJavaScriptのクラスであるため、フレームワーク特有の学習は必要ありません。</p>
-<p><a href="mithril.prop.html"><code>m.prop</code></a>はシンプルですが、とても幅広く使えるつーるです。関数型のパラダイムを使えるようにしたり、<a href="http://en.wikipedia.org/wiki/Uniform_data_access">データアクセスの統一化</a>をしたり、リファクタリングが必要になったときに簡単に行えるように高度な疎結合化をするのに使えます。</p>
+<p><a href="mithril.prop.html"><code>m.prop</code></a>はシンプルですが、とても幅広く使えるツールです。関数型のパラダイムを使えるようにしたり、<a href="http://en.wikipedia.org/wiki/Uniform_data_access">データアクセスの統一化</a>をしたり、リファクタリングが必要になったときに簡単に行えるように高度な疎結合化をするのに使えます。</p>
 <p>リファクタリングが避けられなくなったら、<code>m.prop</code>呼び出しを、適切なgetter-setter実装に置き換えるだけで済みます。プログラム全体をgrepしてAPIを使っている箇所を検索して置き換える必要はありません。</p>
 <p>例えば、ToDoの説明(description)が大文字でなければならないとしたら、<code>description</code> getter-setterだけを置き換えればこれが実現できます:</p>
 <pre><code class="lang-javascript">this.description = m.prop(data.description)
@@ -447,7 +447,7 @@ this.description(data.description)
 <p>これがもっともはっきりと気づいてもらいやすい点が、ビューがHTMLに書かれていないという点です。</p>
 <p>ぱっと見ると、これはとても奇妙な設計に見えますが、実際には多くのメリットがあります:</p>
 <ul>
-<li><p>コンテンツが設定されていない内容が一瞬表示されていまう(flash-of-unbehaviored-content :FOUC)のを防ぐ実際に、Mithrilは完全に機能を持ちイベントハンドラができる状態になってから描画を行います。DOMの準備ができるというイベントが発生する前にです！</p>
+<li><p>コンテンツが設定されていない内容が一瞬表示されてしまう(flash-of-unbehaviored-content :FOUC)のを防ぐ実際に、Mithrilは完全に機能を持ちイベントハンドラができる状態になってから描画を行います。DOMの準備ができるというイベントが発生する前にです！</p>
 </li>
 <li><p>HTMLまじりの複雑な文字列を表示前に自前にパースしてコンパイルして、実際に表示されるDOM要素にするという大掛かりな仕事が必要ありません。</p>
 </li>
