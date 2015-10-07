@@ -147,7 +147,7 @@ todo.vm = {
     }
 };
 </code></pre>
-<p>上記のコードは、<code>vm</code>という名前のビュー・モデルオブジェクトを定義しています。ビュー・モデルオブジェクトは、<code>init</code>関数を持つ、シンプルなJavaScriptのオブジェクトです。このコードは、3つのメンバーを持つ<code>vm</code>オブジェクトを初期化しています。単純な配列の<code>list</code>、初期値の文字列として空の文字列を渡された<code>m.prop</code>のgetter-setter関数である<code>description</code>、入力のdescription getter-setterが空の文字列でないときに、新しいTodoインスタンスを,<code>list</code>に登録する<code>add</code>関数です。</p>
+<p>上記のコードは、<code>vm</code>という名前のビュー・モデルオブジェクトを定義しています。ビュー・モデルオブジェクトは、<code>init</code>関数を持つ、シンプルなJavaScriptのオブジェクトです。このコードは、3つのメンバーを持つ<code>vm</code>オブジェクトを初期化しています。単純な配列の<code>list</code>、初期値の文字列として空の文字列を渡された<code>m.prop</code>のgetter-setter関数である<code>description</code>、入力のdescription getter-setterが空の文字列でないときに、新しいTodoインスタンスを<code>list</code>に登録する<code>add</code>関数です。</p>
 <p>このガイドの後半では、<code>description</code>プロパティをこの関数の引数として渡します。準備が整ったところで、なぜこのサンプルではオブジェクト指向プログラミングのスタイルのメンバーの関連付けを行わずに、descriptionを引数として渡すのかを説明しましょう。</p>
 <p>ビュー・モデルは次のように使えます:</p>
 <pre><code class="lang-javascript">//ビュー・モデルの初期化
