@@ -9019,7 +9019,7 @@ var ContactsWidget = {</seg>
         <seg>The example below shows a variation of the contacts app where ContactForm is responsible for saving.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T030623Z" creationid="shibukawa.yoshiki" creationdate="20150502T030623Z">
-        <seg>次のサンプルは、連絡先アプリの別バージョンdえ、ContactFormが保存の責務を担っているバージョンです。</seg>
+        <seg>次のサンプルは、連絡先アプリの別バージョンで、ContactFormが保存の責務を担っているバージョンです。</seg>
       </tuv>
     </tu>
     <tu>
