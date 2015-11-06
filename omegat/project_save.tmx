@@ -856,6 +856,78 @@ todo.vm.list.length; //1</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>//model
+var Page = {
+	list: function() {
+		return m.request({method: "GET", url: "pages.json"});
+	}
+};
+
+var Demo = {
+	//controller
+	controller: function() {
+		var pages = Page.list();
+		return {
+			pages: pages,
+			rotate: function() {
+				pages().push(pages().shift());
+			}
+		}
+	},
+
+	//view
+	view: function(ctrl) {
+		return m("div", [
+			ctrl.pages().map(function(page) {
+				return m("a", {href: page.url}, page.title);
+			}),
+			m("button", {onclick: ctrl.rotate}, "Rotate links")
+		]);
+	};
+};
+
+
+//initialize
+m.mount(document.getElementById("example"), Demo);</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20151106T114928Z" creationid="shibukawa.yoshiki" creationdate="20151106T114928Z">
+        <seg>//model
+var Page = {
+	list: function() {
+		return m.request({method: "GET", url: "pages.json"});
+	}
+};
+
+var Demo = {
+	//controller
+	controller: function() {
+		var pages = Page.list();
+		return {
+			pages: pages,
+			rotate: function() {
+				pages().push(pages().shift());
+			}
+		}
+	},
+
+	//view
+	view: function(ctrl) {
+		return m("div", [
+			ctrl.pages().map(function(page) {
+				return m("a", {href: page.url}, page.title);
+			}),
+			m("button", {onclick: ctrl.rotate}, "Rotate links")
+		]);
+	}
+};
+
+
+//initialize
+m.mount(document.getElementById("example"), Demo);</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>//model
 var User = {}
 
 User.listEven = function() {</seg>
@@ -1517,8 +1589,8 @@ todo.Todo = function(data) {</seg>
       <tuv lang="EN-US">
         <seg>&lt;a0&gt;&lt;c1&gt;m.prop&lt;/c1&gt;&lt;/a0&gt; is a simple but surprisingly versatile tool: it's functionally composable, it enables &lt;a2&gt;uniform data access&lt;/a2&gt; and allows a higher degree of decoupling when major refactoring is required.</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150409T001957Z" creationid="shibukawa.yoshiki" creationdate="20150409T001957Z">
-        <seg>&lt;a0&gt;&lt;c1&gt;m.prop&lt;/c1&gt;&lt;/a0&gt;はシンプルですが、とても幅広く使えるつーるです。関数型のパラダイムを使えるようにしたり、&lt;a2&gt;データアクセスの統一化&lt;/a2&gt;をしたり、リファクタリングが必要になったときに簡単に行えるように高度な疎結合化をするのに使えます。</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20151106T114149Z" creationid="shibukawa.yoshiki" creationdate="20150409T001957Z">
+        <seg>&lt;a0&gt;&lt;c1&gt;m.prop&lt;/c1&gt;&lt;/a0&gt;はシンプルですが、とても幅広く使えるツールです。関数型のパラダイムを使えるようにしたり、&lt;a2&gt;データアクセスの統一化&lt;/a2&gt;をしたり、リファクタリングが必要になったときに簡単に行えるように高度な疎結合化をするのに使えます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7133,8 +7205,8 @@ var ContactsWidget = {</seg>
       <tuv lang="EN-US">
         <seg>It's of course possible to use both aggregation of responsibility and the observer pattern at the same time.</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T030529Z" creationid="shibukawa.yoshiki" creationdate="20150502T030529Z">
-        <seg>もちろん、責務の統合と、オブザーバパターンを同時に使うことが出来ます。</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20151106T113528Z" creationid="shibukawa.yoshiki" creationdate="20150502T030529Z">
+        <seg>もちろん、責務の統合と、オブザーバパターンを同時に使うことができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7805,8 +7877,8 @@ var ContactsWidget = {</seg>
       <tuv lang="EN-US">
         <seg>Mithril's auto-redrawing system keeps track of controller stability, and only redraws the view once it detects that the controller has finished running all of its code, including asynchronous AJAX payloads.</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150408T161344Z" creationid="shibukawa.yoshiki" creationdate="20150408T161344Z">
-        <seg>Mithrilの自動再描画システムはコントローラの安定性を崩しません。ビューの再描画はコントローラの処理がすべて終わったにのみ行われます。このコントローラの処理には、AJAXによるデータのロードも含まれます。</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20151106T114401Z" creationid="shibukawa.yoshiki" creationdate="20150408T161344Z">
+        <seg>Mithrilの自動再描画システムはコントローラの安定性を崩しません。ビューの再描画はコントローラの処理がすべて終わった時にのみ行われます。このコントローラの処理には、AJAXによるデータのロードも含まれます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -8037,8 +8109,8 @@ var ContactsWidget = {</seg>
       <tuv lang="EN-US">
         <seg>No flash-of-unbehaviored-content (FOUC).</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150409T013414Z" creationid="shibukawa.yoshiki" creationdate="20150409T013414Z">
-        <seg>コンテンツが設定されていない内容が一瞬表示されていまう(flash-of-unbehaviored-content :FOUC)のを防ぐ</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20151106T114250Z" creationid="shibukawa.yoshiki" creationdate="20150409T013414Z">
+        <seg>コンテンツが設定されていない内容が一瞬表示されてしまう(flash-of-unbehaviored-content :FOUC)のを防ぐ</seg>
       </tuv>
     </tu>
     <tu>
@@ -10301,8 +10373,8 @@ var ContactsWidget = {</seg>
       <tuv lang="EN-US">
         <seg>The example below shows a variation of the contacts app where &lt;c0&gt;ContactForm&lt;/c0&gt; is responsible for saving.</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T030623Z" creationid="shibukawa.yoshiki" creationdate="20150502T030623Z">
-        <seg>次のサンプルは、連絡先アプリの別バージョンdえ、&lt;c0&gt;ContactForm&lt;/c0&gt;が保存の責務を担っているバージョンです。</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20151106T113524Z" creationid="shibukawa.yoshiki" creationdate="20150502T030623Z">
+        <seg>次のサンプルは、連絡先アプリの別バージョンで、&lt;c0&gt;ContactForm&lt;/c0&gt;が保存の責務を担っているバージョンです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10755,16 +10827,16 @@ var ContactsWidget = {</seg>
       <tuv lang="EN-US">
         <seg>The second one is called if it completes with an error.</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T175019Z" creationid="shibukawa.yoshiki" creationdate="20150414T175019Z">
-        <seg>2つ目のパラメータはエラーなく完了したときに呼ばれます。</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20151106T114500Z" creationid="shibukawa.yoshiki" creationdate="20150414T175019Z">
+        <seg>2つ目のパラメータはエラーで完了したときに呼ばれます。</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="EN-US">
         <seg>The second parameter is called if it completes with an error.</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150410T124846Z" creationid="shibukawa.yoshiki" creationdate="20150410T124846Z">
-        <seg>2つ目のパラメータはエラーなく完了したときに呼ばれます。</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20151106T114512Z" creationid="shibukawa.yoshiki" creationdate="20150410T124846Z">
+        <seg>2つ目のパラメータはエラーで完了したときに呼ばれます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11363,8 +11435,8 @@ var ContactsWidget = {</seg>
       <tuv lang="EN-US">
         <seg>This function initializes the &lt;c2&gt;vm&lt;/c2&gt; object with three members: &lt;c3&gt;list&lt;/c3&gt;, which is simply an array, &lt;c4&gt;description&lt;/c4&gt;, which is an &lt;c5&gt;m.prop&lt;/c5&gt; getter-setter function with an empty string as the initial value, and &lt;c6&gt;add&lt;/c6&gt;, which is a method that adds a new Todo instance to &lt;c7&gt;list&lt;/c7&gt; if an input description getter-setter is not an empty string.</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T162621Z" creationid="shibukawa.yoshiki" creationdate="20150407T162621Z">
-        <seg>このコードは、3つのメンバーを持つ&lt;c2&gt;vm&lt;/c2&gt;オブジェクトを初期化しています。単純な配列の&lt;c3&gt;list&lt;/c3&gt;、初期値の文字列として空の文字列を渡された&lt;c5&gt;m.prop&lt;/c5&gt;のgetter-setter関数である&lt;c4&gt;description&lt;/c4&gt;、入力のdescription getter-setterが空の文字列でないときに、新しいTodoインスタンスを,&lt;c7&gt;list&lt;/c7&gt;に登録する&lt;c6&gt;add&lt;/c6&gt;関数です。</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20151106T113954Z" creationid="shibukawa.yoshiki" creationdate="20150407T162621Z">
+        <seg>このコードは、3つのメンバーを持つ&lt;c2&gt;vm&lt;/c2&gt;オブジェクトを初期化しています。単純な配列の&lt;c3&gt;list&lt;/c3&gt;、初期値の文字列として空の文字列を渡された&lt;c5&gt;m.prop&lt;/c5&gt;のgetter-setter関数である&lt;c4&gt;description&lt;/c4&gt;、入力のdescription getter-setterが空の文字列でないときに、新しいTodoインスタンスを&lt;c7&gt;list&lt;/c7&gt;に登録する&lt;c6&gt;add&lt;/c6&gt;関数です。</seg>
       </tuv>
     </tu>
     <tu>

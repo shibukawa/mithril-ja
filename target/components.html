@@ -310,7 +310,7 @@ m.mount(document.body, ContactsWidget)
 </code></pre>
 <p>このパターンは依存関係の鎖を分離するのに役立ちます。しかし、数多くの内部依存関係を持つことによって、イベントの連鎖を追いかけるのが難しくなる「地獄からやってくる」ケースに陥らないように注意する必要があります。</p>
 <h3 id="hybrid-architecture">ハイブリッドアーキテクチャ</h3>
-<p>もちろん、責務の統合と、オブザーバパターンを同時に使うことが出来ます。</p>
+<p>もちろん、責務の統合と、オブザーバパターンを同時に使うことができます。</p>
 <p>次のサンプルは、連絡先アプリの別バージョンで、<code>ContactForm</code>が保存の責務を担っているバージョンです。</p>
 <pre><code class="lang-javascript">var ContactsWidget = {
     controller: Observable.register(["updateContact"], function() {

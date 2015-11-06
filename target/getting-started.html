@@ -147,7 +147,7 @@ todo.vm = {
     }
 };
 </code></pre>
-<p>上記のコードは、<code>vm</code>という名前のビュー・モデルオブジェクトを定義しています。ビュー・モデルオブジェクトは、<code>init</code>関数を持つ、シンプルなJavaScriptのオブジェクトです。このコードは、3つのメンバーを持つ<code>vm</code>オブジェクトを初期化しています。単純な配列の<code>list</code>、初期値の文字列として空の文字列を渡された<code>m.prop</code>のgetter-setter関数である<code>description</code>、入力のdescription getter-setterが空の文字列でないときに、新しいTodoインスタンスを,<code>list</code>に登録する<code>add</code>関数です。</p>
+<p>上記のコードは、<code>vm</code>という名前のビュー・モデルオブジェクトを定義しています。ビュー・モデルオブジェクトは、<code>init</code>関数を持つ、シンプルなJavaScriptのオブジェクトです。このコードは、3つのメンバーを持つ<code>vm</code>オブジェクトを初期化しています。単純な配列の<code>list</code>、初期値の文字列として空の文字列を渡された<code>m.prop</code>のgetter-setter関数である<code>description</code>、入力のdescription getter-setterが空の文字列でないときに、新しいTodoインスタンスを<code>list</code>に登録する<code>add</code>関数です。</p>
 <p>このガイドの後半では、<code>description</code>プロパティをこの関数の引数として渡します。準備が整ったところで、なぜこのサンプルではオブジェクト指向プログラミングのスタイルのメンバーの関連付けを行わずに、descriptionを引数として渡すのかを説明しましょう。</p>
 <p>ビュー・モデルは次のように使えます:</p>
 <pre><code class="lang-javascript">//ビュー・モデルの初期化
@@ -327,7 +327,7 @@ m("table", [
 <pre><code class="lang-javascript">//todoコンポーネントはdocument DOMノードの中でレンダリングする
 m.mount(document, {controller: todo.controller, view: todo.view});
 </code></pre>
-<p>Mithrilの自動再描画システムはコントローラの安定性を崩しません。ビューの再描画はコントローラの処理がすべて終わったにのみ行われます。このコントローラの処理には、AJAXによるデータのロードも含まれます。同様に、このシステムはイベントハンドラ内部の非同期サービスについても、再描画前にきちんと完了することを賢く待ちます。 </p>
+<p>Mithrilの自動再描画システムはコントローラの安定性を崩しません。ビューの再描画はコントローラの処理がすべて終わった時にのみ行われます。このコントローラの処理には、AJAXによるデータのロードも含まれます。同様に、このシステムはイベントハンドラ内部の非同期サービスについても、再描画前にきちんと完了することを賢く待ちます。 </p>
 <p>どのように再描画の仕組みが動作するかは<a href="auto-redrawing.html">こちら</a>のドキュメントでより詳しく知ることができます。</p>
 <hr>
 <h3 id="summary">まとめ</h3>
@@ -409,7 +409,7 @@ m.mount(document, {controller: todo.controller, view: todo.view});
 <p>Mithril風のコードとは、良いプログラミングの規約に従っていて、リファクタリングしやすいコードです。</p>
 <p>上記のコードのTodoクラスは、もしコードを再構成する必要が出てきたとしても、とても簡単に他のコンポーネントに移動できます。</p>
 <p>Todoのコードは他のコードなどへの依存もなく、疎結合でまとまっています。jQueryベースのコードと違って、DOMと密結合していません。TodoクラスのAPIは再利用可能で、ユニットテストが容易です。また、プレーンなJavaScriptのクラスであるため、フレームワーク特有の学習は必要ありません。</p>
-<p><a href="mithril.prop.html"><code>m.prop</code></a>はシンプルですが、とても幅広く使えるつーるです。関数型のパラダイムを使えるようにしたり、<a href="http://en.wikipedia.org/wiki/Uniform_data_access">データアクセスの統一化</a>をしたり、リファクタリングが必要になったときに簡単に行えるように高度な疎結合化をするのに使えます。</p>
+<p><a href="mithril.prop.html"><code>m.prop</code></a>はシンプルですが、とても幅広く使えるツールです。関数型のパラダイムを使えるようにしたり、<a href="http://en.wikipedia.org/wiki/Uniform_data_access">データアクセスの統一化</a>をしたり、リファクタリングが必要になったときに簡単に行えるように高度な疎結合化をするのに使えます。</p>
 <p>リファクタリングが避けられなくなったら、<code>m.prop</code>呼び出しを、適切なgetter-setter実装に置き換えるだけで済みます。プログラム全体をgrepしてAPIを使っている箇所を検索して置き換える必要はありません。</p>
 <p>例えば、ToDoの説明(description)が大文字でなければならないとしたら、<code>description</code> getter-setterだけを置き換えればこれが実現できます:</p>
 <pre><code class="lang-javascript">this.description = m.prop(data.description)
@@ -447,7 +447,7 @@ this.description(data.description)
 <p>これがもっともはっきりと気づいてもらいやすい点が、ビューがHTMLに書かれていないという点です。</p>
 <p>ぱっと見ると、これはとても奇妙な設計に見えますが、実際には多くのメリットがあります:</p>
 <ul>
-<li><p>コンテンツが設定されていない内容が一瞬表示されていまう(flash-of-unbehaviored-content :FOUC)のを防ぐ実際に、Mithrilは完全に機能を持ちイベントハンドラができる状態になってから描画を行います。DOMの準備ができるというイベントが発生する前にです！</p>
+<li><p>コンテンツが設定されていない内容が一瞬表示されてしまう(flash-of-unbehaviored-content :FOUC)のを防ぐ実際に、Mithrilは完全に機能を持ちイベントハンドラができる状態になってから描画を行います。DOMの準備ができるというイベントが発生する前にです！</p>
 </li>
 <li><p>HTMLまじりの複雑な文字列を表示前に自前にパースしてコンパイルして、実際に表示されるDOM要素にするという大掛かりな仕事が必要ありません。</p>
 </li>
