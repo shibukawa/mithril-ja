@@ -198,7 +198,7 @@ var controller = function() {
 <li>コントローラ内で、エラーメッセージをバインドする場合。</li>
 </ul>
 <p>下記のサンプルはAJAXレスポンスが実際に処理される前に、デバッグ処理を差し込んでいます:</p>
-<pre><code class="lang-javascript">//間姿プログラミングと相性の良いconsole.log
+<pre><code class="lang-javascript">//関数型プログラミングと相性の良いconsole.log
 var log = function(value) {
     console.log(value)
     return value
@@ -371,8 +371,8 @@ demo.controller = function() {
 
 //ビュー内
 demo.view = function(ctrl) {
-    //このビューはデータが利用可能人なる前にレンダリングされる
-    //初期値としてundefinedに代わりにからの配列を定義したため、この.mapはエラーにならない
+    //このビューはデータが利用可能になる前にレンダリングされる
+    //初期値としてundefinedの代わりに空の配列を定義したため、この.mapはエラーにならない
     return ctrl.users().map(function() {
         return m("div", user.name)
     })

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tmx SYSTEM "tmx11.dtd">
 <tmx version="1.1">
-  <header creationtool="OmegaT" o-tmf="OmegaT TMX" adminlang="EN-US" datatype="plaintext" creationtoolversion="3.1.9" segtype="sentence" srclang="EN-US"/>
+  <header creationtool="OmegaT" o-tmf="OmegaT TMX" adminlang="EN-US" datatype="plaintext" creationtoolversion="3.1.9_4" segtype="sentence" srclang="EN-US"/>
   <body>
 <!-- Default translations -->
     <tu>
@@ -292,8 +292,8 @@ dashboard.controller = function() {</seg>
         <seg>//a FP-friendly console.log
 var log = function(value) {</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T175127Z" creationid="shibukawa.yoshiki" creationdate="20150414T175127Z">
-        <seg>//間姿プログラミングと相性の良いconsole.log
+      <tuv lang="JA" changeid="iktakahiro" changedate="20151106T161358Z" creationid="shibukawa.yoshiki" creationdate="20150414T175127Z">
+        <seg>//関数型プログラミングと相性の良いconsole.log
 var log = function(value) {</seg>
       </tuv>
     </tu>
