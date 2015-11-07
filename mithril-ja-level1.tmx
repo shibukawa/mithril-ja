@@ -136,8 +136,8 @@ var view = [</seg>
       <tuv lang="EN-US">
         <seg>//Calling .map doesn't throw an error because we defined the initial value to be an empty array, instead of undefined</seg>
       </tuv>
-      <tuv lang="JA" changeid="iktakahiro" changedate="20151106T163532Z" creationid="shibukawa.yoshiki" creationdate="20150415T001934Z">
-        <seg>//初期値としてundefinedの代わりに空の配列を定義したため、この.mapはエラーにならない</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20151107T161403Z" creationid="shibukawa.yoshiki" creationdate="20150415T001934Z">
+        <seg>//初期値としてundefinedに代わりに空の配列を定義したため、この.mapはエラーにならない</seg>
       </tuv>
     </tu>
     <tu>
@@ -170,7 +170,7 @@ var Select2 = {</seg>
       <tuv lang="EN-US">
         <seg>//This view gets rendered before the request above completes</seg>
       </tuv>
-      <tuv lang="JA" changeid="iktakahiro" changedate="20151106T163519Z" creationid="shibukawa.yoshiki" creationdate="20150415T001852Z">
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20151107T161147Z" creationid="shibukawa.yoshiki" creationdate="20150415T001852Z">
         <seg>//このビューはデータが利用可能になる前にレンダリングされる</seg>
       </tuv>
     </tu>
@@ -197,7 +197,7 @@ var component = m.component({</seg>
         <seg>//a FP-friendly console.log
 var log = function(value) {</seg>
       </tuv>
-      <tuv lang="JA" changeid="iktakahiro" changedate="20151106T163515Z" creationid="shibukawa.yoshiki" creationdate="20150414T175127Z">
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20151107T161428Z" creationid="shibukawa.yoshiki" creationdate="20150414T175127Z">
         <seg>//関数プログラミングと相性の良いconsole.log
 var log = function(value) {</seg>
       </tuv>

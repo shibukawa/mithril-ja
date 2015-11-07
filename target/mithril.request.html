@@ -372,7 +372,7 @@ demo.controller = function() {
 //ビュー内
 demo.view = function(ctrl) {
     //このビューはデータが利用可能になる前にレンダリングされる
-    //初期値としてundefinedの代わりに空の配列を定義したため、この.mapはエラーにならない
+    //初期値としてundefinedに代わりに空の配列を定義したため、この.mapはエラーにならない
     return ctrl.users().map(function() {
         return m("div", user.name)
     })

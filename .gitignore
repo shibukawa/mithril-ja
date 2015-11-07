@@ -1,3 +1,4 @@
 *.bak
 omegat/project_stats.txt
-omegat/last_entry.properties 
+omegat/last_entry.properties
+.DS_Store
