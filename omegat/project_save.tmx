@@ -4755,6 +4755,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Here we've moved &lt;c0&gt;Contact.save(contact).then(Observable.trigger("updateContact"))&lt;/c0&gt; out of the &lt;c1&gt;ContactForm&lt;/c1&gt; component and into the model layer.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T115347Z" creationid="shibukawa.yoshiki" creationdate="20160101T115347Z">
+        <seg>このコードでは、&lt;c0&gt;Contact.save(contact).then(Observable.trigger("updateContact"))&lt;/c0&gt;を&lt;c1&gt;ContactForm&lt;/c1&gt;コンポーネントの中から、モデルレイヤの中に移動しています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Here you can see that the controller holds the state for the list of users.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150411T011139Z" creationid="shibukawa.yoshiki" creationdate="20150411T011139Z">
@@ -7735,6 +7743,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T143231Z" creationid="shibukawa.yoshiki" creationdate="20150407T141328Z">
         <seg>&lt;a0&gt;小さく、ムダのないAPI&lt;/a0&gt;のおかげで、Mithrilはgzipされた状態でたったの5kbしかありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Mithril is around 7kb gzipped thanks to its &lt;a0&gt;small, focused, API&lt;/a0&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T115447Z" creationid="shibukawa.yoshiki" creationdate="20160101T115447Z">
+        <seg>&lt;a0&gt;小さく、ムダのないAPI&lt;/a0&gt;のおかげで、Mithrilはgzipされた状態でたったの7kbしかありません。</seg>
       </tuv>
     </tu>
     <tu>
