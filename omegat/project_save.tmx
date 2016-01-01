@@ -882,6 +882,78 @@ var Demo = {
 			}),
 			m("button", {onclick: ctrl.rotate}, "Rotate links")
 		]);
+	}
+};
+
+
+//initialize
+m.mount(document.getElementById("example"), Demo);</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T115728Z" creationid="shibukawa.yoshiki" creationdate="20160101T115718Z">
+        <seg>//モデル
+var Page = {
+	list: function() {
+		return m.request({method: "GET", url: "pages.json"});
+	}
+};
+
+var Demo = {
+	//controller
+	controller: function() {
+		var pages = Page.list();
+		return {
+			pages: pages,
+			rotate: function() {
+				pages().push(pages().shift());
+			}
+		}
+	},
+
+	//view
+	view: function(ctrl) {
+		return m("div", [
+			ctrl.pages().map(function(page) {
+				return m("a", {href: page.url}, page.title);
+			}),
+			m("button", {onclick: ctrl.rotate}, "Rotate links")
+		]);
+	}
+};
+
+
+//初期化
+m.mount(document.getElementById("example"), Demo);</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>//model
+var Page = {
+	list: function() {
+		return m.request({method: "GET", url: "pages.json"});
+	}
+};
+
+var Demo = {
+	//controller
+	controller: function() {
+		var pages = Page.list();
+		return {
+			pages: pages,
+			rotate: function() {
+				pages().push(pages().shift());
+			}
+		}
+	},
+
+	//view
+	view: function(ctrl) {
+		return m("div", [
+			ctrl.pages().map(function(page) {
+				return m("a", {href: page.url}, page.title);
+			}),
+			m("button", {onclick: ctrl.rotate}, "Rotate links")
+		]);
 	};
 };
 
@@ -1655,6 +1727,14 @@ todo.Todo = function(data) {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T132127Z" creationid="shibukawa.yoshiki" creationdate="20150407T132127Z">
         <seg>&lt;a0&gt;ガイド&lt;/a0&gt; &lt;a1&gt;v0.1.34のダウンロード&lt;/a1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;a0&gt;Guide&lt;/a0&gt; &lt;a1&gt;Download v0.2.2-rc.1&lt;/a1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T115817Z" creationid="shibukawa.yoshiki" creationdate="20160101T115817Z">
+        <seg>&lt;a0&gt;ガイド&lt;/a0&gt; &lt;a1&gt;v0.2.2-rc.1のダウンロード&lt;/a1&gt;</seg>
       </tuv>
     </tu>
     <tu>
