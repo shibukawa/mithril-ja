@@ -10,7 +10,7 @@
 	<body>
 		<header>
 			<nav class="container">
-				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="mithril.min.zip">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
 			</nav>
 		</header>
 		<main>
@@ -61,12 +61,12 @@
 <p>まずはシンプルなモデルのエンティティを作ってみます。これはさまざまなコンポーネントの使用方法を説明するアプリケーションで使用します:</p>
 <pre><code class="lang-javascript">var Contact = function(data) {
     data = data || {}
-    this.id = m.prop(data.id)
-    this.name = m.prop(data.name)
-    this.email = m.prop(data.email)
+    this.id = m.prop(data.id || "")
+    this.name = m.prop(data.name || "")
+    this.email = m.prop(data.email || "")
 }
 Contact.list = function(data) {
-    return m.request({method: "GET", url: "/api/contact", data: data})
+    return m.request({method: "GET", url: "/api/contact", type: Contact})
 }
 Contact.save = function(data) {
     return m.request({method: "POST", url: "/api/contact", data: data})
@@ -300,7 +300,7 @@ m.mount(document.body, ContactsWidget)
             }
         },
         trigger: function(channel, args) {
-            console.log(channel)
+            console.log("triggered: " + channel)
             channels[channel].map(function(callback) {
                 callback(args)
             })
@@ -380,7 +380,9 @@ var ContactsWidget = {
     view: function(ctrl) {
         return [
             m.component(ContactForm),
-            m.component(ContactList, {contacts: ctrl.contacts})
+            ctrl.contacts() === undefined
+              ?m("div", "loading contacts...") //waiting for promise to resolve
+              : m.component(ContactList, {contacts: ctrl.contacts})
         ]
     }
 }
@@ -388,10 +390,13 @@ var ContactsWidget = {
 //ContactListは`Contact.save`を呼ばない
 var ContactForm = {
     controller: function(args) {
-        this.contact = m.prop(new Contact())
-        this.save = function(contact) {
+            var ctrl = this
+        ctrl.contact = m.prop(new Contact())
+        ctrl.save = function(contact) {
             Observable.trigger("saveContact", {contact: contact})
+            ctrl.contact = m.prop(new Contact()) //reset to empty contact
         }
+        return ctrl
     },
     view: function(ctrl, args) {
         var contact = ctrl.contact()
@@ -425,7 +430,7 @@ var ContactList = {
 
 m.mount(document.body, ContactsWidget)
 </code></pre>
-<p>このコードでは、<code>Contact.save(contact).then(Observable.broadcast("updateContact"))</code>を<code>ContactForm</code>コンポーネントの中から、モデルレイヤの中に移動しています。<code>ContactForm</code>では単に、アクションを送信しています。これはモデルレイヤーのオブザーバが受け取って処理をします。</p>
+<p>このコードでは、<code>Contact.save(contact).then(Observable.trigger("updateContact"))</code>を<code>ContactForm</code>コンポーネントの中から、モデルレイヤの中に移動しています。<code>ContactForm</code>では単に、アクションを送信しています。これはモデルレイヤーのオブザーバが受け取って処理をします。</p>
 <p>これにより、<code>ContactForm</code>コンポーネントを変更することなく、<code>saveContact</code>ハンドラの実装を変更することができます。</p>
 <hr>
 <h3 id="example-html5-drag-n-drop-file-uploader-component">サンプル: HTML5ドラッグ・アンド・ドロップでファイルアップロードするコンポーネント</h3>

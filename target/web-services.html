@@ -10,7 +10,7 @@
 	<body>
 		<header>
 			<nav class="container">
-				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="mithril.min.zip">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
 			</nav>
 		</header>
 		<main>
@@ -42,8 +42,8 @@
 						</div>
 						<div class="col(9,9,12)">
 							<h2 id="web-services">ウェブサービス</h2>
-<p>Mithrilは、ウェブサービスと協調するための高度なユーティリティを提供しています。この機能を使うと、非同期で動作するコードを、比較的手続き的に記述することができます。</p>
-<p>提供される便利な機能には次のようなものがあります:</p>
+<p>Mithrilはウェブサービス側と連係をするための高度なユーティリティを提供しており、非同期のコードを手続き的に書くことができます。</p>
+<p>提供されるこの便利な機能には次のようなものがあります:</p>
 <ul>
 <li>非同期のレスポンスが後で格納されるコンテンナを事前に参照しておく機能</li>
 <li>非同期のリクエストが完了した後に実行される操作をキューに貯めておく機能</li>
@@ -61,7 +61,7 @@
 //例: users() //[{name: "John"}, {name: "Mary"}]
 </code></pre>
 <p>getter-setterは、AJAXリクエストが完了するまでは<em>undefined</em>値を返すことに注意してください。そのため、データを早期にアンラップしようとするとおそらくエラーになるでしょう。</p>
-<p>返されるgetter-setterは<a href="mithril.deferred.html">promise</a>のインタフェース(<em>thennable</em>とも呼ばれる)を持っています。この機能は、ウェブサービスからデータが帰ってきた後の操作をキューイングするのに使います。</p>
+<p>返されるgetter-setterは<a href="mithril.deferred.html">promise</a>のインタフェース(<em>thenable</em>とも呼ばれる)を持っています。この機能は、ウェブサービスからデータが帰ってきた後の操作をキューイングするのに使います。</p>
 <p>この機能のもっとも簡単な使い方は、<code>m.prop</code>を使って関数型的な値の割り当てを行うことです(上記のコードと等価です)。あらかじめ作成したgetter-setterを<code>.then</code>メソッドの引数で渡して束縛することができます:</p>
 <pre><code class="lang-javascript">var users = m.prop([]); //default value
 
@@ -77,8 +77,8 @@ var doSomething = function() { /*...*/ }
 
 m.request({method: "GET", url: "/user"}).then(users).then(doSomething)
 </code></pre>
-<p>代入構文も、thennableを使った構文も同じ結果になりますが、前者の例の方が読みやすいため、何か制約がない限りはこちらを使用する方がおすすめです。</p>
-<p>thennableの仕組みは主に以下の3ヶ所で使われることを想定しています:</p>
+<p>代入構文も、thenableを使った構文も同じ結果になりますが、前者の例の方が読みやすいため、何か制約がない限りはこちらを使用する方がおすすめです。</p>
+<p>thenableの仕組みは主に以下の3ヶ所で使われることを想定しています:</p>
 <ul>
 <li>モデルレイヤ内: ウェブサービスから受信したデータを変換処理をする場合。例えばウェブサービス側でサポートしていないフィルタリングをクライアント側で行う場合など。</li>
 <li>コントローラレイヤ内: 条件によって、リダイレクトするコードをバインドする場合。</li>
@@ -102,7 +102,7 @@ var controller = function() {
 }
 </code></pre>
 <h4 id="bind-redirection-code">リダイレクトするコードのバインド</h4>
-<p>このステップはコントローラレイヤ内で完結します。この処理をモデル例やで行うことも出来ますが、Mithrilの哲学としては非推奨です。リダイレクト処理とモデルが結びついてしまうと、再利用が難しくなります。</p>
+<p>このステップはコントローラレイヤ内で完結します。この処理をモデルレイヤで行うことも出来ますが、Mithrilの哲学としては非推奨です。リダイレクト処理とモデルが結びついてしまうと、再利用が難しくなります。</p>
 <p>下記の例では、前の例で定義したモデルの<code>listEven</code>メソッドを使用します。ユーザのリストが空の場合に他のページにリダイレクトするというコントローラレベルの機能をモデル完了後の操作としてキューイングしています。</p>
 <pre><code class="lang-javascript">//コントローラ
 var controller = function() {
@@ -114,7 +114,7 @@ var controller = function() {
 }
 </code></pre>
 <h4 id="binding-errors">エラーのバインド</h4>
-<p>Mithrilのthennableは、2つのオプションのパラメータを持っています。最初のパラメータはウェブサービスへのリクエストが問題なく完了した時に呼ばれます。2つ目のパラメータはエラーで完了したときに呼ばれます。</p>
+<p>Mithrilのthenableは、2つのオプションのパラメータを持っています。最初のパラメータはウェブサービスへのリクエストが問題なく完了した時に呼ばれます。2つ目のパラメータはエラーで完了したときに呼ばれます。</p>
 <p>Mithrilではエラーのバインディングはコントローラレベルで行われることを想定しています。もちろん、モデルレベルで行うこともできますが、全ての関連する機能を正しく動かすためには、多くのコードを書く必要がああります。</p>
 <p>下記のサンプルでは、error getter-setterと、前のサンプルで紹介したコントローラをバインドしています。<code>error</code>変数は、サーバアクセスがうまく行かなかった時に呼び出されます。</p>
 <pre><code class="lang-javascript">//コントローラ

@@ -10,7 +10,7 @@
 	<body>
 		<header>
 			<nav class="container">
-				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="mithril.min.zip">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
 			</nav>
 		</header>
 		<main>
@@ -44,7 +44,7 @@
 							<h2 id="getting-started">はじめよう</h2>
 <h3 id="what-is-mithril-">Mithrilとは？</h3>
 <p>MithrilはクライアントサイドのJavaScript MVCフレームワークです。このツールを使うと、アプリケーションのコードはデータレイヤ(<strong>M</strong>odel)、UIレイヤー(<strong>V</strong>iew)、接続レイヤー(<strong>C</strong>ontroller)に分割されます。</p>
-<p><a href="mithril.html">小さく、ムダのないAPI</a>のおかげで、Mithrilはgzipされた状態でたったの12kbしかありません。Mithrilは、ハイパフォーマンスなレンダリング速度を持つ、仮想DOMの差分更新機能を持ったテンプレートエンジンや、関数型によるハイレベルなモデリングのサポート、ルーティング機能、コンポーネント化をサポートしています。</p>
+<p><a href="mithril.html">小さく、ムダのないAPI</a>のおかげで、Mithrilはgzipされた状態でたったの7kbしかありません。Mithrilは、ハイパフォーマンスなレンダリング速度を持つ、仮想DOMの差分更新機能を持ったテンプレートエンジンや、関数型によるハイレベルなモデリングのサポート、ルーティング機能、コンポーネント化をサポートしています。</p>
 <p>このフレームワークのゴールは、アプリケーションコードの探索しやすさ、読みやすさ、メンテナンス性を向上させ、あなたがすばらしい開発者になる手助けをすることです。</p>
 <p>他のフレームワークと異なり、Mithrilはクモの巣のような依存関係にとらわれないようにするために多大な努力を払っています。フレームワーク内の<em>必要な部分</em>だけを使うことができます。</p>
 <p>しかし、このツールセットのレールに乗ることで多くの利益を得ることができます。その中には、実用的なシナリオ上で関数型プログラミングを学んだり、しっかりとしたオブジェクト指向プログラミングやMVCの良いコーディングプラクティスを学ぶことも含まれます。</p>
@@ -63,7 +63,7 @@
 <h3 id="model">モデル</h3>
 <p>Mithrilでは基本的に、アプリケーションは名前空間の中に作り、コンポーネントをその中に格納していきます。コンポーネントは見ることが可能な「ページ」もしくはページの一部を表す、単なる構造体です。アプリケーションはModel、Controller、Viewの大きく3つのレイヤーにきれいに分割することができます。</p>
 <p>サンプルを簡単にするために、これから作るアプリケーションにはコンポーネントを1つだけ作ることにします。そしてそれをアプリケーションの名前空間として使っていきます。</p>
-<p>Mithrilでは、<em>コンポーネント</em>は、<code>controller</code>と<code>view</code>の2つの関数を含むオブジェクトです:</p>
+<p>Mithrilにおいて、<em>コンポーネント</em>は<code>view</code>関数と、<code>controller</code>関数(オプション)を含むオブジェクトです。</p>
 <pre><code>//空のMithrilコンポーネント
 var myModule = {
     controller: function() {},
@@ -147,7 +147,7 @@ todo.vm = {
     }
 };
 </code></pre>
-<p>上記のコードは、<code>vm</code>という名前のビュー・モデルオブジェクトを定義しています。ビュー・モデルオブジェクトは、<code>init</code>関数を持つ、シンプルなJavaScriptのオブジェクトです。このコードは、3つのメンバーを持つ<code>vm</code>オブジェクトを初期化しています。単純な配列の<code>list</code>、初期値の文字列として空の文字列を渡された<code>m.prop</code>のgetter-setter関数である<code>description</code>、入力のdescription getter-setterが空の文字列でないときに、新しいTodoインスタンスを<code>list</code>に登録する<code>add</code>関数です。</p>
+<p>上記のコードは、<code>vm</code>という名前のビュー・モデルオブジェクトを定義しています。It is simply a javascript object that has an <code>init</code> function. このコードは、3つのメンバーを持つ<code>vm</code>オブジェクトを初期化しています。単純な配列の<code>list</code>、初期値の文字列として空の文字列を渡された<code>m.prop</code>のgetter-setter関数である<code>description</code>、入力のdescription getter-setterが空の文字列でないときに、新しいTodoインスタンスを<code>list</code>に登録する<code>add</code>関数です。</p>
 <p>このガイドの後半では、<code>description</code>プロパティをこの関数の引数として渡します。準備が整ったところで、なぜこのサンプルではオブジェクト指向プログラミングのスタイルのメンバーの関連付けを行わずに、descriptionを引数として渡すのかを説明しましょう。</p>
 <p>ビュー・モデルは次のように使えます:</p>
 <pre><code class="lang-javascript">//ビュー・モデルの初期化
@@ -403,7 +403,7 @@ todo.view = function() {
 m.mount(document, {controller: todo.controller, view: todo.view});
 &lt;/script&gt;
 </code></pre>
-<p>このサンプルは、<a href="http://jsfiddle.net/milesmatthias/fbgypzbr/1/">jsFiddle</a>でも確認することができます。</p>
+<p>このサンプルは、<a href="http://jsfiddle.net/fbgypzbr/16/">jsFiddle</a>でも確認することができます。There is also <a href="http://jsfiddle.net/glebcha/q7tvLxsa/">Extended example</a> available on jsfiddle.</p>
 <hr>
 <h2 id="notes-on-architecture">アーキテクチャに関するメモ</h2>
 <p>Mithril風のコードとは、良いプログラミングの規約に従っていて、リファクタリングしやすいコードです。</p>

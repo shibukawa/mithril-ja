@@ -10,7 +10,7 @@
 	<body>
 		<header>
 			<nav class="container">
-				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="mithril.min.zip">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
 			</nav>
 		</header>
 		<main>
@@ -18,7 +18,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col(3,3,12)">
-							<h2 id="api">API (v0.2.0)</h2>
+							<h2 id="api">API (v0.2.2-rc.1)</h2>
 							<h3 id="core">コア</h3>
 							<ul>
 								<li><a href="mithril.html" title="仮想エレメントを作るためのユーティリティ">m</a></li>
@@ -81,6 +81,7 @@
 <li><a href="#optional-controller">オプショナルなコントローラ</a></li>
 <li><a href="#controller-as-a-class-constructor">クラスコンストラクタ形式のコントローラ</a></li>
 <li><a href="#notes-on-the-view-function">view関数に関するメモ</a></li>
+<li><a href="#shorthand-syntax">短縮文法</a></li>
 </ul>
 </li>
 <li><a href="#parameterized-components">パラメータ化されたコンポーネント</a></li>
@@ -92,7 +93,7 @@
 </ul>
 </li>
 <li><a href="#data-driven-component-identity">データ駆動コンポーネントの同一性</a></li>
-<li><a href="#unloading-components">コンポーネントのアンロード</a></li>
+<li><a href="#unloading-components">コンポーネントのアンロード/アンマウント</a></li>
 <li><a href="#nested-asynchronous-components">非同期のネストされたコンポーネント</a></li>
 <li><a href="#limitations-and-caveats">制限と制約</a></li>
 <li><a href="#opting-out-of-the-auto-redrawing-system">自動再描画システムの対象から外す</a></li>
@@ -201,6 +202,23 @@ m.mount(document.body, MyComponent) // 表示: &lt;h1&gt;Hello&lt;/h1&gt;
 <p><code>view</code>関数は使用されたタイミングではDOMツリーを作成することはありません。ビュー関数の返り値はDOMを表現したJavaScriptのデータ構造です。内部的にMithrilはこのDOMのデータ構造を使用して、データの変更を検知し、必要なところだけDOMを更新します。このレンダリング技術は<em>仮想DOMの差分検知</em>と呼ばれています。</p>
 <p>ユーザ入力イベントのハンドラが起動された時など、再描画が必要な時にview関数は何度も呼ばれます。この返り値は以前の仮想DOMのツリーに対する差分を検知するのに使われます。</p>
 <p>一見、変更を表示するたびに、このビュー全体に対する再計算を行うのは高コストな処理に見えるかもしれませんが、以前からあったフレームワークが使うレンダリングの方法論に比べると極めて高速です。Mithrilは差分検知アルゴリズムを利用することで、高コストなDOM操作を本当に必要な箇所だけ実行することができます。また、全体を再描画するという仕組み上、アプリケーションの状態がビューとモデルの2つに存在するのではなく、モデルの状態によってのみ管理されるため、トラブルシューティングが簡単になります。</p>
+<h3 id="shorthand-syntax">短縮文法</h3>
+<p>もし、<code>m()</code>の最初の引数がコンポーネントであれば、<code>m.component()</code>を省略することができます。</p>
+<pre><code class="lang-javascript">var MyComponent = {
+    controller: function() {
+        return {greeting: "hello"}
+    },
+    view: function(ctrl, args) {
+        return m("h1", ctrl.greeting + " " + args.data)
+    }
+}
+
+m.render(document.body, [
+    //以下の2行は等価です
+    m(component, {data: "world"}),
+    m.component(component, {data: "world"})
+])
+</code></pre>
 <hr>
 <h3 id="parameterized-components">パラメータ化されたコンポーネント</h3>
 <p>コンポーネントは「事前にロードされた」引数を持つことができます。<code>m.component(MyComponent, {foo: "bar"})</code>という呼び出しをすると、<code>MyComponent</code>と同じコンポーネントを返しますが、<code>{foo: "bar"}</code>という引数が<code>controller</code>と<code>view</code>関数に束縛されます。</p>
@@ -257,9 +275,9 @@ m.mount(document.body, App)
 </code></pre>
 <p>コンポーネントは、通常のエレメントが置けるところであればどこにでも置くことができます。もしソート可能なリストの中にコンポーネントを置く場合には、<code>key</code> 属性をコンポーネントに追加して、単なる移動時にDOM要素が再生成されないようにしてください。キーは兄弟のDOM要素の中でユニークである必要があります。キーの値は文字列でも数値でも大丈夫です。</p>
 <pre><code class="lang-javascript">var App = {
-    ctrl: function() {
+    controller: function() {
         return {data: [1, 2, 3]}
-    }
+    },
     view: function(ctrl) {
         return m(".app", [
             //ボタンを押すとリストの順序が逆転する
@@ -313,7 +331,7 @@ var TemperatureConverter = {
                 return value - 273.15
             },
             kelvinToFahrenheit: function(value) {
-                return (value 9 / 5 * (v - 273.15)) + 32
+                return (9 / 5 * (value - 273.15)) + 32
             }
         }
     },
@@ -392,21 +410,21 @@ m.render(document.body, ProjectList({key: people[1].id, value: people[1]})
 <li><code>m.mount</code>関数が当たらたに呼ばれ、指定されたコンポーネントのルートのDOMエレメントが更新された時</li>
 <li><a href="mithril.route.html"><code>m.route</code></a>を使ってラウトが変更された場合</li>
 </ul>
-<p>他のコンポーネントをロードせずにコンポーネントをアンロードする場合は、コンポーネントの引数として<code>null</code>を<code>m.mount</code>に渡せばできます:</p>
+<p>他のコンポーネントをロードせずにコンポーネントをアンロード/アンマウントする場合は、コンポーネントの引数として<code>null</code>を<code>m.mount</code>に渡すと行えます:</p>
 <pre><code class="lang-javascript">m.mount(rootElement, null);
 </code></pre>
 <p>コンポーネントをアンロードする前にタイマーをクリアしたり、イベントハンドラを削除したり、何か仕事をしたくなることがあります:</p>
 <pre><code class="lang-javascript">var MyComponent = {
     controller: function() {
         return {
-            onunload = function() {
+            onunload: function() {
                 console.log("MyComponentコンポーネントを削除しています");
             }
         }
     },
     view: function() {
         return m("div", "test")
-    };
+    }
 };
 
 m.mount(document.body, MyComponent);
@@ -492,7 +510,7 @@ m.mount(document.body, MyApp)
 <ol>
 <li><p>ネストされたコンポーネントのビューは、仮想エレメントか他のコンポーネントを返さなければならない。配列、文字列、数値、ブーリアン、負になる値などを返すとエラーになる。</p>
 </li>
-<li><p>ネストされたコンポーネントはコントローラのコンストラクタから<code>m.redraw.strategy</code>を変更することはできません。ただしイベントハンドラからなら行えます。再描画の戦略を変更する代わりに、<a href="mithril.html#persising-dom-elements-across-route-changes"><code>ctx.retain</code></a>フラグを使うのを推奨します。</p>
+<li><p>ネストされたコンポーネントはコントローラのコンストラクタから<code>m.redraw.strategy</code>を変更することはできません。ただしイベントハンドラからなら行えます。再描画の戦略を変更する代わりに、<a href="mithril.html#persisting-dom-elements-across-route-changes"><code>ctx.retain</code></a>フラグを使うのを推奨します。</p>
 </li>
 <li><p>コンポーネントのビューのルートのDOMエレメントはコンポーネントのライフサイクル内で変更してはいけません。未定義の動作をします。別の説明をすると、以下のようなことをしてはならないということです。</p>
 <pre><code class="lang-javascript">var MyComponent = {

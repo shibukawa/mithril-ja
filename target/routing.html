@@ -10,7 +10,7 @@
 	<body>
 		<header>
 			<nav class="container">
-				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="mithril.min.zip">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
 			</nav>
 		</header>
 		<main>
@@ -52,7 +52,7 @@
 </ul>
 <hr>
 <h3 id="defining-routes">ラウトの定義</h3>
-<p>ラウトを定義する時は、ホストとなるDOM要素と、デフォルトのラウト、あとは遷移する可能性のあるラウトとそれをレンダリングするための<a href="mithril.module.html">モジュール</a>のキー・バリューのマップが必要となります。</p>
+<p>ラウトを定義する時は、ホストとなるDOM要素と、デフォルトのラウト、あとは遷移する可能性のあるラウトとそれをレンダリングするための<a href="mithril.mount.html">モジュール</a>のキー・バリューのマップが必要となります。</p>
 <p>次のサンプルは、&lt;body&gt;のレンダリングをする、3つのラウトを定義しています。<code>home</code>、<code>login</code>、<code>dashboard</code>はそれぞれモジュールです。どのようにモジュールを定義するか見ていきましょう。</p>
 <pre><code class="lang-javascript">m.route(document.body, "/", {
     "/": home,
@@ -86,7 +86,7 @@ m.route(document.body, "/dashboard/johndoe", {
 <p>上記のサンプルの<code>dashboard</code>はモジュールです。モジュールは<code>controller</code>プロパティと<code>view</code>プロパティを持ちます。URLがラウトにマッチすると、対応するモジュールのコントローラがインスタンス化されて、引数としてビューに渡されます。</p>
 <p>この場合、ひとつのラウトしかないため、アプリケーションはデフォルトのラウトの<code>"/dashboard/johndoe"</code>にリダイレクトして、フレームワーク内で<code>m.mount(document.body, dashboard)</code>が呼ばれます。</p>
 <p><code>johndoe</code>という文字列が<code>:userID</code>パラメータに結び付けられます。このパラメータは、コントローラ内で<code>m.route.param("userID")</code>というAPI呼び出しをするとプログラムから参照できます。</p>
-<p><code>m.route.mode</code>プロパティを使うと、どのURLに対してラウティングの仕組みを実装するかを定義できます。このプロパティには、"search"、"hash"、"pathname"のいづれかの文字列を設定できます。デフォルトは"search"です。</p>
+<p><code>m.route.mode</code>プロパティを使うと、どのURLに対してラウティングの仕組みを実装するかを定義できます。これは必ず<code>m.route</code>呼び出しよりも先に設定しなければなりません。このプロパティには、"search"、"hash"、"pathname"のいづれかの文字列を設定できます。デフォルトは"search"です。</p>
 <ul>
 <li><p><code>search</code>モードはクエリー文字列を利用します。このモードを使うと、名前付きのアンカー(例えば、<code>&lt;a href="#top"&gt;トップに戻る&lt;/a&gt;</code>、<code>&lt;a name="top"&gt;&lt;/a&gt;</code>)を使うことができますが、IE8の場合は<code>history.pushState</code>のサポートがないため、ページリフレッシュが発生してしまいます。</p>
 <p>サンプルURL: <code>http://server/?/path/to/page</code></p>
@@ -113,6 +113,9 @@ m("a[href='/dashboard/alicesmith']", {config: m.route});
 </code></pre>
 <p>この書き方を使用すると、どの<code>m.route.mode</code>が選択されていたとしても、期待通りの実行結果が得られます。href属性の中に<code>?</code>や<code>#</code>をハードコードするのではなく、常に上記のようなイディオムを使うのが良いプラクティスです。</p>
 <p>仮想エレメントについての詳細は、<a href="mithril.html"><code>m()</code></a>のドキュメントを参照してください。</p>
+<hr>
+<h3 id="redrawing-semantics-of-routing">ラウティングのおける再描画のセマンティクス</h3>
+<p>デフォルトでは、ラウトの変更時にはすべてを破棄してテンプレートの再描画が行われます。この動作は、<a href="mithril.html#persisting-dom-elements-across-route-changes">configのコンテキストオブジェクトのretainフラグ</a>、もしくは<a href="mithril.redraw.html#changing-redraw-strategy"><code>m.redraw.strategy("diff")</code>ヒント</a>を使って変更することができます。</p>
 
 						</div>
 					</div>

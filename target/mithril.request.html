@@ -10,7 +10,7 @@
 	<body>
 		<header>
 			<nav class="container">
-				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="mithril.min.zip">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
 			</nav>
 		</header>
 		<main>
@@ -18,7 +18,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col(3,3,12)">
-							<h2 id="api">API (v0.2.0)</h2>
+							<h2 id="api">API (v0.2.2-rc.1)</h2>
 							<h3 id="core">コア</h3>
 							<ul>
 								<li><a href="mithril.html" title="仮想エレメントを作るためのユーティリティ">m</a></li>
@@ -157,7 +157,7 @@ var controller = function() {
 }
 </code></pre>
 <h4 id="bind-redirection-code">リダイレクトするコードのバインド</h4>
-<p>このステップはコントローラレイヤ内で完結します。この処理をモデル例やで行うことも出来ますが、Mithrilの哲学としては非推奨です。リダイレクト処理とモデルが結びついてしまうと、再利用が難しくなります。</p>
+<p>このステップはコントローラレイヤ内で完結します。この処理をモデルレイヤで行うことも出来ますが、Mithrilの哲学としては非推奨です。リダイレクト処理とモデルが結びついてしまうと、再利用が難しくなります。</p>
 <p>下記の例では、前の例で定義したモデルの<code>listEven</code>メソッドを使用します。ユーザのリストが空の場合に他のページにリダイレクトするというコントローラレベルの機能をモデル完了後の操作としてキューイングしています。</p>
 <pre><code class="lang-javascript">//コントローラ
 var controller = function() {
@@ -373,7 +373,7 @@ demo.controller = function() {
 demo.view = function(ctrl) {
     //このビューはデータが利用可能になる前にレンダリングされる
     //初期値としてundefinedに代わりに空の配列を定義したため、この.mapはエラーにならない
-    return ctrl.users().map(function() {
+    return ctrl.users().map(function(user) {
         return m("div", user.name)
     })
 }

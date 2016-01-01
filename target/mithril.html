@@ -10,7 +10,7 @@
 	<body>
 		<header>
 			<nav class="container">
-				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="mithril.min.zip">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
 			</nav>
 		</header>
 		<main>
@@ -18,7 +18,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col(3,3,12)">
-							<h2 id="api">API (v0.2.0)</h2>
+							<h2 id="api">API (v0.2.2-rc.1)</h2>
 							<h3 id="core">コア</h3>
 							<ul>
 								<li><a href="mithril.html" title="仮想エレメントを作るためのユーティリティ">m</a></li>
@@ -87,6 +87,7 @@
 <li><a href="#svg">SVG</a></li>
 <li><a href="#dealing-with-focus">フォーカスの操作</a></li>
 <li><a href="#dealing-with-sorting-and-deleting-in-lists">リスト内のソートと削除の操作</a></li>
+<li><a href="#component-shorthand">Component shorthand</a></li>
 <li><a href="#signature">シグニチャ</a></li>
 <li><a href="#the-config-attribute"><code>config</code>属性</a></li>
 </ul>
@@ -154,7 +155,7 @@ m.render(document.body, [
                 m("a", {href: link.url}, link.title)
             );
         })
-    ])
+    )
 ]);
 </code></pre>
 <p>生成される結果:</p>
@@ -409,6 +410,25 @@ m("li", {class: selected ?"active" : ""})
 </code></pre>
 <p>リストをソートしたり、要素を削除したり、スプライスする場合は常にキーを使用すべきです。</p>
 <hr>
+<h3 id="component-shorthand">Component Shorthand</h3>
+<p>もし、<code>m()</code>の最初の引数がコンポーネントであれば、<code>m.component()</code>を省略することができます。</p>
+<pre><code class="lang-javascript">var MyComponent = {
+    controller: function() {
+        return {greeting: "hello"}
+    },
+    view: function(ctrl, args) {
+        return m("h1", ctrl.greeting + " " + args.data)
+    }
+}
+
+m.render(document.body, [
+    //以下の2行は等価です
+    m(component, {data: "world"}),
+    m.component(component, {data: "world"})
+])
+</code></pre>
+<p>See <a href="mithril.component.html">components</a> for more information.</p>
+<hr>
 <h3 id="signature">シグニチャ</h3>
 <p><a href="how-to-read-signatures.html">シグニチャの読み方</a></p>
 <pre><code class="lang-clike">VirtualElement m(String selector [, Attributes attributes] [, Children... children])
@@ -528,7 +548,7 @@ m.render(document, m("a")); //`divをアンロード`とログに表示される
 <li><p><strong>Children children</strong> (optional)</p>
 <p>この属性が文字列の場合は、テキストノードとしてレンダリングされます。文字列をHTMLとしてレンダリングしたい場合は、<a href="mithril.trust.html"><code>m.trust</code></a>を参照してください。</p>
 <p>もし仮想エレメントが指定された場合には、DOMエレメントとしてレンダリングされます。</p>
-<p>If it's a <a href="mithril.component.html">component</a>, the component will be instantiated and managed internally by Mithril</p>
+<p>もしこれが<a href="mithril.component.html">component</a>だった場合は、コンポーネントはインスタンス化され、Mithrilによって内部で管理されます。</p>
 <p>配列だった場合には、配列の要素も再帰的にレンダリングされて、生成されたエレメントの子供として追加されます。</p>
 <p>SubtreeDirectiveの値が"retain"だった場合は、もしあれば既存のDOMツリーをその場で保持します。要塞については、<a href="mithril.render.html#subtree-directives">subtree directives.html</a>を参照してください。</p>
 </li>

@@ -10,7 +10,7 @@
 	<body>
 		<header>
 			<nav class="container">
-				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="mithril.min.zip">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
 			</nav>
 		</header>
 		<main>
@@ -45,7 +45,7 @@
 <p>JavaScriptのフレームワーク同士で比較しても数多くの相違点があります。それぞれのフレームワークのメリット、欠点を評価するのは骨の折れる仕事です。</p>
 <p>このページではMithrilと他のよく使われるフレームワークの違いについて説明します。中には関連しているが、まだまだ若いものもあります。</p>
 <h3 id="code-size">コードサイズ</h3>
-<p>One of the most obvious differences between Mithril and most frameworks is in file size: Mithril is around 12kb gzipped and has no dependencies on other libraries.</p>
+<p>One of the most obvious differences between Mithril and most frameworks is in file size: Mithril is around 7kb gzipped and has no dependencies on other libraries.</p>
 <p>gzipされたコードが小さいのがアピールポイントというのは、非圧縮時にとても大きくなることを隠しているように見えるかもしれません。非圧縮のJavaScriptはページロードのたびにパースと評価が行われます。いくつかのフレームワークでは環境によっては数10msにもなりますが、このコストはキャッシュできません。</p>
 <p>このコストは、シングルページアプリケーションでは影響は小さくなりますが、複数タブで同時に開かれたり、性能の低いデバイスで実行される場合はそうではありません。</p>
 <p>ホームページのパフォーマンステストでは、Mithrilと他の有名なフレームワークで、コードのパースと評価にかかる時間の比較をしています。すでにご覧になられたとおり、大げさではなくて、gzipされたサイズ以上のパフォーマンスが出ている事がわかります。</p>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tmx SYSTEM "tmx11.dtd">
 <tmx version="1.1">
-  <header creationtool="OmegaT" o-tmf="OmegaT TMX" adminlang="EN-US" datatype="plaintext" creationtoolversion="3.1.9" segtype="sentence" srclang="EN-US"/>
+  <header creationtool="OmegaT" o-tmf="OmegaT TMX" adminlang="EN-US" datatype="plaintext" creationtoolversion="3.5.3_0_r8005" segtype="sentence" srclang="EN-US"/>
   <body>
 <!-- Default translations -->
     <tu>
@@ -28,38 +28,6 @@ m.route.param("date") === "archive/2014"
 m.route.param("date") === "archive/2014"
 
 //`m.route.param("year") == "2014"`が成立するように、ラウト定義の順番を変えること</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
-        <seg>"/dashboard": Dashboard,
-});
-
-//re-route to dashboard
-m.route("/dashboard"); // logs "unloading home"</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T135617Z" creationid="shibukawa.yoshiki" creationdate="20150502T135350Z">
-        <seg>"/dashboard": Dashboard,
-});
-
-//dashboardに移動
-m.route("/dashboard"); // 表示 "ホームをアンロード"</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
-        <seg>"name": "project-name-goes-here",</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T150642Z" creationid="shibukawa.yoshiki" creationdate="20150412T150642Z">
-        <seg>"name": "プロジェクト名はこちら",</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
-        <seg>"version": "0.0.0", //must follow this format</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T150613Z" creationid="shibukawa.yoshiki" creationdate="20150412T150613Z">
-        <seg>"version": "0.0.0", //このsemver形式のフォーマットを必ず使用してください</seg>
       </tuv>
     </tu>
     <tu>
@@ -116,20 +84,44 @@ var view = [</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>//    Note: The config is never run server side.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T132852Z" creationid="shibukawa.yoshiki" creationdate="20160101T132852Z">
+        <seg>// 注意: configはサーバサイドでは実行されません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>//    Returns a select box</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T131529Z" creationid="shibukawa.yoshiki" creationdate="20160101T131529Z">
+        <seg>// 選択ボックスを返す</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>//    Set selected option</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T132122Z" creationid="shibukawa.yoshiki" creationdate="20160101T132122Z">
+        <seg>// 選択されているオプションを設定します</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>//  Has to use a prop for the current user</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T133133Z" creationid="shibukawa.yoshiki" creationdate="20160101T133100Z">
+        <seg>// 現在のユーザはpropに格納します</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>// Your tests here...
 }</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T161345Z" creationid="shibukawa.yoshiki" creationdate="20150416T161345Z">
         <seg>//テストはこちら
 }</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
-        <seg>//...so that Mithril autoredraws the view after calling the controller callback</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T021758Z" creationid="shibukawa.yoshiki" creationdate="20150412T021758Z">
-        <seg>//...Mithrilはコントローラのコールバックが呼ばれた後に再描画します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -142,6 +134,14 @@ var view = [</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>//Create a Select2 progrssively enhanced SELECT element</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T132050Z" creationid="shibukawa.yoshiki" creationdate="20160101T132050Z">
+        <seg>//SELECTエレメントの拡張であるSelect2を作成します</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>//Note that the '#' is not required in `href`, thanks to the `config` setting.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150410T013325Z" creationid="shibukawa.yoshiki" creationdate="20150410T013325Z">
@@ -150,12 +150,10 @@ var view = [</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>//Select2 component (assumes both jQuery and Select2 are included in the page)
-var Select2 = {</seg>
+        <seg>//Set the value to the selected option</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T045128Z" creationid="shibukawa.yoshiki" creationdate="20150502T045128Z">
-        <seg>//Select2コンポーネント(jQueryとSelect2が両方読み込まれている)
-var Select2 = {</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T132916Z" creationid="shibukawa.yoshiki" creationdate="20160101T132916Z">
+        <seg>// 選択されているオプションを設定します</seg>
       </tuv>
     </tu>
     <tu>
@@ -582,14 +580,6 @@ var Component1 = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>//end integration</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T021809Z" creationid="shibukawa.yoshiki" creationdate="20150412T021809Z">
-        <seg>//統合処理の完了</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>//here's the view
 m("table", [</seg>
       </tuv>
@@ -662,14 +652,6 @@ todo.vm.list.length; //1</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>//integrate with the auto-redrawing system...</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T021727Z" creationid="shibukawa.yoshiki" creationdate="20150412T021727Z">
-        <seg>//再描画システムと統合...</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>//list of users to show</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T021945Z" creationid="shibukawa.yoshiki" creationdate="20150412T021945Z">
@@ -705,15 +687,15 @@ var Demo = {
 			}),
 			m("button", {onclick: ctrl.rotate}, "Rotate links")
 		]);
-	};
+	}
 };
 
 
 //initialize
 m.mount(document.getElementById("example"), Demo);</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20151106T114928Z" creationid="shibukawa.yoshiki" creationdate="20151106T114928Z">
-        <seg>//model
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T115728Z" creationid="shibukawa.yoshiki" creationdate="20160101T115718Z">
+        <seg>//モデル
 var Page = {
 	list: function() {
 		return m.request({method: "GET", url: "pages.json"});
@@ -744,7 +726,7 @@ var Demo = {
 };
 
 
-//initialize
+//初期化
 m.mount(document.getElementById("example"), Demo);</seg>
       </tuv>
     </tu>
@@ -908,22 +890,6 @@ m.mount(document, {controller: todo.controller, view: todo.view});</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>//select Mary</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T021951Z" creationid="shibukawa.yoshiki" creationdate="20150412T021951Z">
-        <seg>//Maryを選択する</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
-        <seg>//set up select2 (only if not initialized already)</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T021656Z" creationid="shibukawa.yoshiki" creationdate="20150412T021656Z">
-        <seg>//初期化されていなければselect2を初期化します</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>//setting `background` allows the component to redraw immediately, without waiting for the request to complete</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T114043Z" creationid="shibukawa.yoshiki" creationdate="20150502T114043Z">
@@ -1030,6 +996,14 @@ assert(testRoot.innerHTML.indexOf("celsius:0") &gt; -1)</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>//the two lines below are equivalent</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T133918Z" creationid="shibukawa.yoshiki" creationdate="20160101T133918Z">
+        <seg>//以下の2行は等価です</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>//this allows config contexts to live across route changes, if its element does not need to be recreated by the diff</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T143800Z" creationid="shibukawa.yoshiki" creationdate="20150416T143800Z">
@@ -1050,14 +1024,6 @@ assert(testRoot.innerHTML.indexOf("celsius:0") &gt; -1)</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T130645Z" creationid="shibukawa.yoshiki" creationdate="20150502T130645Z">
         <seg>//このコンポーネントはラウトの変更時にもゼロからビューを作りなおすのではなく、差分検知を行う</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
-        <seg>//this event handler updates the controller when the view changes</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T021716Z" creationid="shibukawa.yoshiki" creationdate="20150412T021716Z">
-        <seg>//このイベントハンドラはビューが変更されたときにコントローラを更新します</seg>
       </tuv>
     </tu>
     <tu>
@@ -1102,26 +1068,10 @@ var doStuff = function() {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>//this view implements select2's `&lt;select&gt;` progressive enhancement mode</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T045157Z" creationid="shibukawa.yoshiki" creationdate="20150502T045157Z">
-        <seg>//このビューはselect2の`&lt;select&gt;`プログレッシブ拡張モードを実装</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>//this view renders twice (once immediately, and once after the request above completes)</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150415T012109Z" creationid="shibukawa.yoshiki" creationdate="20150415T012109Z">
         <seg>//このビューは初回と上記のリクエストの完了後の2回再描画が行われる</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
-        <seg>//update the view with the latest controller value</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T021827Z" creationid="shibukawa.yoshiki" creationdate="20150412T021827Z">
-        <seg>//最新のコントローラの値を使ってビューを更新</seg>
       </tuv>
     </tu>
     <tu>
@@ -1262,14 +1212,6 @@ todo.Todo = function(data) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>&lt;a0&gt;Bower&lt;/a0&gt; is a package manager for &lt;a1&gt;NodeJS&lt;/a1&gt;.</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T170224Z" creationid="shibukawa.yoshiki" creationdate="20150407T170224Z">
-        <seg>&lt;a0&gt;Bower&lt;/a0&gt;は&lt;a1&gt;NodeJS&lt;/a1&gt;のためのパッケージマネージャです。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>&lt;a0&gt;Component&lt;/a0&gt; is another package manager for &lt;a1&gt;NodeJS&lt;/a1&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T235559Z" creationid="shibukawa.yoshiki" creationdate="20150407T235559Z">
@@ -1282,6 +1224,14 @@ todo.Todo = function(data) {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150417T014856Z" creationid="shibukawa.yoshiki" creationdate="20150417T014856Z">
         <seg>&lt;a0&gt;ES5 Shim&lt;/a0&gt;もしくは、Mozillaの&lt;a1&gt;Array::indexOf&lt;/a1&gt;、&lt;a2&gt;Array::map&lt;/a2&gt;、&lt;a3&gt;Object::keys&lt;/a3&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;a0&gt;Guide&lt;/a0&gt; &lt;a1&gt;Download v0.2.2-rc.1&lt;/a1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T115817Z" creationid="shibukawa.yoshiki" creationdate="20160101T115817Z">
+        <seg>&lt;a0&gt;ガイド&lt;/a0&gt; &lt;a1&gt;v0.2.2-rc.1のダウンロード&lt;/a1&gt;</seg>
       </tuv>
     </tu>
     <tu>
@@ -1612,6 +1562,30 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150408T013941Z" creationid="shibukawa.yoshiki" creationdate="20150408T013941Z">
         <seg>&lt;td&gt;タスクの説明&lt;/td&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>@param {Object} data - the data with which to populate the &lt;option&gt; list</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T132418Z" creationid="shibukawa.yoshiki" creationdate="20160101T132418Z">
+        <seg>@param {Object} data - &lt;option&gt;リストに追加されるデータ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>@param {function(Object id)} onchange - the event handler to call when the selection changes.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T132807Z" creationid="shibukawa.yoshiki" creationdate="20160101T132807Z">
+        <seg>@param {function(Object id)} onchange - 選択が変更された時に呼び出されるイベントハンドラ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>@param {prop} value - the prop of the item in `data` that we want to select</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T132749Z" creationid="shibukawa.yoshiki" creationdate="20160101T132749Z">
+        <seg>@param {prop} value - `data`内の選択したいアイテムのプロパティ</seg>
       </tuv>
     </tu>
     <tu>
@@ -2184,6 +2158,14 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>An object containing all the route parameters</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T135456Z" creationid="shibukawa.yoshiki" creationdate="20160101T135456Z">
+        <seg>ラウトのパラメータをすべて含むオブジェクト</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>An object that retains its state across redraws.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150413T155255Z" creationid="shibukawa.yoshiki" creationdate="20150413T155255Z">
@@ -2472,14 +2454,6 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>Assuming NodeJS is already installed, run the following command to install GruntJS:</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T150453Z" creationid="shibukawa.yoshiki" creationdate="20150412T150453Z">
-        <seg>NodeJSがすでにインストールされているとすると、次のコマンドをタイプするとGruntJSがインストールされます:</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>Assuming a document has an empty &lt;c0&gt;&lt;body&gt;&lt;/c0&gt; element, the code below:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T123317Z" creationid="shibukawa.yoshiki" creationdate="20150416T081357Z">
@@ -2540,14 +2514,6 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150417T013614Z" creationid="shibukawa.yoshiki" creationdate="20150417T013614Z">
         <seg>自動HTML→Mithirilテンプレートコンバータ</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
-        <seg>Automating Compilation</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T150242Z" creationid="shibukawa.yoshiki" creationdate="20150412T150242Z">
-        <seg>自動コンパイル</seg>
       </tuv>
     </tu>
     <tu>
@@ -2780,6 +2746,14 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T235712Z" creationid="shibukawa.yoshiki" creationdate="20150414T235712Z">
         <seg>デフォルトでは、Mithrilはウェブサービスへのリクエストが完了するまでは再描画を待ちます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>By default, changing routes causes templates to be re-rendered from scratch.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T140443Z" creationid="shibukawa.yoshiki" creationdate="20160101T140443Z">
+        <seg>デフォルトでは、ラウトの変更時にはすべてを破棄してテンプレートの再描画が行われます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3522,8 +3496,8 @@ var ContactsWidget = {</seg>
       <tuv lang="EN-US">
         <seg>Doing it in the model level is also possible, but philosophically not recommended, because by tying redirection to the model, the code becomes harder to reuse due to overly tight coupling.</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150410T124425Z" creationid="shibukawa.yoshiki" creationdate="20150410T124425Z">
-        <seg>この処理をモデル例やで行うことも出来ますが、Mithrilの哲学としては非推奨です。リダイレクト処理とモデルが結びついてしまうと、再利用が難しくなります。</seg>
+      <tuv lang="JA" changeid="shunya_shishido" changedate="20151110T183623Z" creationid="shibukawa.yoshiki" creationdate="20150410T124425Z">
+        <seg>この処理をモデルレイヤで行うことも出来ますが、Mithrilの哲学としては非推奨です。リダイレクト処理とモデルが結びついてしまうと、再利用が難しくなります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3576,9 +3550,9 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>Each of those should point to a Javascript function</seg>
+        <seg>Each of those should point to a Javascript function.</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T125556Z" creationid="shibukawa.yoshiki" creationdate="20150502T125556Z">
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150413T161544Z" creationid="shibukawa.yoshiki" creationdate="20150413T161544Z">
         <seg>このどちらの属性も、JavaScriptの関数でなければなりません。</seg>
       </tuv>
     </tu>
@@ -4040,10 +4014,10 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>Here we've moved &lt;c0&gt;Contact.save(contact).then(Observable.broadcast("updateContact"))&lt;/c0&gt; out of the &lt;c1&gt;ContactForm&lt;/c1&gt; component and into the model layer.</seg>
+        <seg>Here we've moved &lt;c0&gt;Contact.save(contact).then(Observable.trigger("updateContact"))&lt;/c0&gt; out of the &lt;c1&gt;ContactForm&lt;/c1&gt; component and into the model layer.</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T031438Z" creationid="shibukawa.yoshiki" creationdate="20150502T031438Z">
-        <seg>このコードでは、&lt;c0&gt;Contact.save(contact).then(Observable.broadcast("updateContact"))&lt;/c0&gt;を&lt;c1&gt;ContactForm&lt;/c1&gt;コンポーネントの中から、モデルレイヤの中に移動しています。</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T115347Z" creationid="shibukawa.yoshiki" creationdate="20160101T115347Z">
+        <seg>このコードでは、&lt;c0&gt;Contact.save(contact).then(Observable.trigger("updateContact"))&lt;/c0&gt;を&lt;c1&gt;ContactForm&lt;/c1&gt;コンポーネントの中から、モデルレイヤの中に移動しています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4408,6 +4382,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If it's a &lt;a0&gt;component&lt;/a0&gt;, the component will be instantiated and managed internally by Mithril</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T134843Z" creationid="shibukawa.yoshiki" creationdate="20160101T134843Z">
+        <seg>もしこれが&lt;a0&gt;component&lt;/a0&gt;だった場合は、コンポーネントはインスタンス化され、Mithrilによって内部で管理されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If it's a SubtreeDirective with the value "retain", it will retain the existing DOM tree in place, if any.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150413T160432Z" creationid="shibukawa.yoshiki" creationdate="20150413T160432Z">
@@ -4528,6 +4510,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If the first argument to &lt;c0&gt;m()&lt;/c0&gt; is a component, it acts as an alias of &lt;c1&gt;m.component()&lt;/c1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T133847Z" creationid="shibukawa.yoshiki" creationdate="20160101T133847Z">
+        <seg>もし、&lt;c0&gt;m()&lt;/c0&gt;の最初の引数がコンポーネントであれば、&lt;c1&gt;m.component()&lt;/c1&gt;を省略することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If the method is run more than once with the same root element, it diffs the new tree against the existing one and intelligently modifies only the portions that have changed.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T020105Z" creationid="shibukawa.yoshiki" creationdate="20150416T020105Z">
@@ -4548,14 +4538,6 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150413T155516Z" creationid="shibukawa.yoshiki" creationdate="20150413T155516Z">
         <seg>この属性が文字列の場合は、テキストノードとしてレンダリングされます。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
-        <seg>If this function returns undefined, then it passes the &lt;c0&gt;value&lt;/c0&gt; argument to the next step in the thennable queue, if any</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150415T175859Z" creationid="shibukawa.yoshiki" creationdate="20150415T175859Z">
-        <seg>もしこの関数がundefinedを返してきたら、値がどんなでものであろうと、&lt;c0&gt;value&lt;/c0&gt;引数がthennableキューの次のキューに渡されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4720,14 +4702,6 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>If you want to automate compilation, you can use &lt;a0&gt;GruntJS&lt;/a0&gt;, a task automation tool.</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T150401Z" creationid="shibukawa.yoshiki" creationdate="20150412T150401Z">
-        <seg>テンプレートを自動コンパイルするには、タスク自動化ツールの&lt;a0&gt;GruntJS&lt;/a0&gt;を使用します。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>If you want to be able to handle a condition as an error in a promise rejection handler, you can throw an &lt;c0&gt;Error&lt;/c0&gt; from &lt;c1&gt;extract&lt;/c1&gt; to reject the promise.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T181142Z" creationid="shibukawa.yoshiki" creationdate="20150414T181142Z">
@@ -4788,14 +4762,6 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150408T000614Z" creationid="shibukawa.yoshiki" creationdate="20150408T000614Z">
         <seg>もし、Mithrilを改善することに興味があるのであれば、最先端バージョンを使用して、見つけたバグを報告してください。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
-        <seg>If you're not familiar with GruntJS, you can find a tutorial on their website.</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T150430Z" creationid="shibukawa.yoshiki" creationdate="20150412T150430Z">
-        <seg>もしGruntJSについて馴染みがなければ、GruntJSのウェブサイト上にチュートリアルがあります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4864,10 +4830,10 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>In Mithril, a &lt;e0&gt;component&lt;/e0&gt; is an object that contains two functions: &lt;c1&gt;controller&lt;/c1&gt; and &lt;c2&gt;view&lt;/c2&gt;.</seg>
+        <seg>In Mithril, a &lt;e0&gt;component&lt;/e0&gt; is an object that contains a &lt;c1&gt;view&lt;/c1&gt; function and optionally a &lt;c2&gt;controller&lt;/c2&gt; function.</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T040244Z" creationid="shibukawa.yoshiki" creationdate="20150502T040244Z">
-        <seg>Mithrilでは、&lt;e0&gt;コンポーネント&lt;/e0&gt;は、&lt;c1&gt;controller&lt;/c1&gt;と&lt;c2&gt;view&lt;/c2&gt;の2つの関数を含むオブジェクトです:</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T124214Z" creationid="shibukawa.yoshiki" creationdate="20160101T124214Z">
+        <seg>Mithrilにおいて、&lt;e0&gt;コンポーネント&lt;/e0&gt;は&lt;c1&gt;view&lt;/c1&gt;関数と、&lt;c2&gt;controller&lt;/c2&gt;関数(オプション)を含むオブジェクトです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5696,14 +5662,6 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>Installing NodeJS and SweetJS for one-off compilations</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T150018Z" creationid="shibukawa.yoshiki" creationdate="20150412T150018Z">
-        <seg>事前コンパイルのためのNodeJSとSweetJSのインストール</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>Instead of copying arguments to the controller object and then passing the controller object to the view (thereby creating internal state in the component), it is often desirable that views update based on the current value of arguments initially passed to a component.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T081032Z" creationid="shibukawa.yoshiki" creationdate="20150502T081032Z">
@@ -6048,14 +6006,6 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>It is simply a javascript object that has a &lt;c1&gt;init&lt;/c1&gt; function.</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T162128Z" creationid="shibukawa.yoshiki" creationdate="20150407T162128Z">
-        <seg>ビュー・モデルオブジェクトは、&lt;c1&gt;init&lt;/c1&gt;関数を持つ、シンプルなJavaScriptのオブジェクトです。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>It is strongly recommended that you always set this option to avoid future surprises.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150415T012549Z" creationid="shibukawa.yoshiki" creationdate="20150415T012549Z">
@@ -6148,6 +6098,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T140211Z" creationid="shibukawa.yoshiki" creationdate="20150414T140211Z">
         <seg>この関数は、DOMエレメントのイベントリスナとして使えるメソッドを返します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It should be set before any calls to &lt;c1&gt;m.route&lt;/c1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T140316Z" creationid="shibukawa.yoshiki" creationdate="20160101T140316Z">
+        <seg>これは必ず&lt;c1&gt;m.route&lt;/c1&gt;呼び出しよりも先に設定しなければなりません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6504,14 +6462,6 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>Make sure to replace the &lt;c0&gt;project-name-goes-here&lt;/c0&gt; and &lt;c1&gt;destination-folder-goes-here&lt;/c1&gt; placeholders with appropriate values.</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T150801Z" creationid="shibukawa.yoshiki" creationdate="20150412T150713Z">
-        <seg>サンプル中の&lt;c0&gt;プロジェクト名はこちら&lt;/c0&gt;と、&lt;c1&gt;インストールフィルダはこちら&lt;/c1&gt;は実際の設定と置き換えてください。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>Manually throwing an instance of the Error class itself (or any other objects or primitives) does trigger the rejection callback path as per the Promises/A+ spec.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150415T172438Z" creationid="shibukawa.yoshiki" creationdate="20150415T141210Z">
@@ -6556,6 +6506,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150417T014148Z" creationid="shibukawa.yoshiki" creationdate="20150417T014148Z">
         <seg>Mithrilテンプレートコンパイラ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Mithril allows writing asynchronous code in a procedural way through a high-level utility for working with web services.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T140811Z" creationid="shibukawa.yoshiki" creationdate="20160101T140811Z">
+        <seg>Mithrilはウェブサービス側と連係をするための高度なユーティリティを提供しており、非同期のコードを手続き的に書くことができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6672,10 +6630,10 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>Mithril is around 12kb gzipped thanks to its &lt;a0&gt;small, focused, API&lt;/a0&gt;.</seg>
+        <seg>Mithril is around 7kb gzipped thanks to its &lt;a0&gt;small, focused, API&lt;/a0&gt;.</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150506T110536Z" creationid="shibukawa.yoshiki" creationdate="20150506T110536Z">
-        <seg>&lt;a0&gt;小さく、ムダのないAPI&lt;/a0&gt;のおかげで、Mithrilはgzipされた状態でたったの12kbしかありません。</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T115447Z" creationid="shibukawa.yoshiki" creationdate="20160101T115447Z">
+        <seg>&lt;a0&gt;小さく、ムダのないAPI&lt;/a0&gt;のおかげで、Mithrilはgzipされた状態でたったの7kbしかありません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6716,14 +6674,6 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150409T015709Z" creationid="shibukawa.yoshiki" creationdate="20150409T015709Z">
         <seg>Mithrilには、このページ内で紹介しきれなかった機能がまだいくつかあります。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
-        <seg>Mithril provides a high-level utility for working with web services, which allows writing asynchronous code relatively procedurally.</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150410T014041Z" creationid="shibukawa.yoshiki" creationdate="20150410T014041Z">
-        <seg>Mithrilは、ウェブサービスと協調するための高度なユーティリティを提供しています。この機能を使うと、非同期で動作するコードを、比較的手続き的に記述することができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6772,6 +6722,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150409T161828Z" creationid="shibukawa.yoshiki" creationdate="20150407T135140Z">
         <seg>Mithrilのテンプレートはデフォルトで安全な動作をするようになっています。無理やり作ろうとしなければセキュリティホールを作ることはできません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Mithril thenables take two functions as optional parameters: the first parameter is called if the web service request completes successfully.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T140954Z" creationid="shibukawa.yoshiki" creationdate="20160101T140954Z">
+        <seg>Mithrilのthenableは、2つのオプションのパラメータを持っています。最初のパラメータはウェブサービスへのリクエストが問題なく完了した時に呼ばれます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6848,9 +6806,9 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>Mithril's view layer paradigm is designed be &lt;s0&gt;declarative&lt;/s0&gt;, much like HTML, such that the same code implicitly does everything it needs to.</seg>
+        <seg>Mithril's view layer paradigm is designed to be &lt;s0&gt;declarative&lt;/s0&gt;, much like HTML, such that the same code implicitly does everything it needs to.</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150420T014616Z" creationid="shibukawa.yoshiki" creationdate="20150420T014616Z">
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T115211Z" creationid="shibukawa.yoshiki" creationdate="20160101T115211Z">
         <seg>Mithrilのビューレイヤーは&lt;s0&gt;宣言的&lt;/s0&gt;なコードになるように設計されていて、よりHTMLに近くなっています。表示するコードを書くだけですべて完了します。</seg>
       </tuv>
     </tu>
@@ -6892,14 +6850,6 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150421T033522Z" creationid="shibukawa.yoshiki" creationdate="20150421T033411Z">
         <seg>エンティティのリストのフィルタリングや、バリデーションもモデルの責務になります。モデルに定義することで、アプリケーション全体でこれらのメソッドが利用可能になります。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
-        <seg>More documentation on the grunt-sweet.js task and its options &lt;a0&gt;can be found here&lt;/a0&gt;</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T150911Z" creationid="shibukawa.yoshiki" creationdate="20150412T150911Z">
-        <seg>grunt-sweet.jsタスクと、オプションについては、&lt;a0&gt;こちら見ることがｄけいます&lt;/a0&gt;。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7408,14 +7358,6 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>Once installed, create two files in the root of your project, &lt;c0&gt;package.json&lt;/c0&gt; and &lt;c1&gt;Gruntfile.js&lt;/c1&gt;</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T150546Z" creationid="shibukawa.yoshiki" creationdate="20150412T150546Z">
-        <seg>インストールしたら、プロジェクトのルートに&lt;c0&gt;package.json&lt;/c0&gt;と&lt;c1&gt;Gruntfile.js&lt;/c1&gt;の2つのファイルを作成します。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>Once resolved, the placeholder is replaced with component B's view.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T094557Z" creationid="shibukawa.yoshiki" creationdate="20150502T094557Z">
@@ -7548,14 +7490,6 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T000307Z" creationid="shibukawa.yoshiki" creationdate="20150502T000307Z">
         <seg>コンポーネントの組み立て方の１つの例としては、コンポーネントのパラメータリストを使ってデータを下流に流すと共に、モデルレイヤとのインタフェースとなっている中心のモジュールまでバブリングしてデータを上流に戻すイベントを定義するというものです。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
-        <seg>Only 12kb gzipped, no dependencies</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150730T225644Z" creationid="shibukawa.yoshiki" creationdate="20150730T225636Z">
-        <seg>gzip圧縮時にたったの12KBで、他への依存がない</seg>
       </tuv>
     </tu>
     <tu>
@@ -7820,6 +7754,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T153249Z" creationid="shibukawa.yoshiki" creationdate="20150412T153249Z">
         <seg>ラウトへリダイレクト</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Redrawing semantics of routing</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T140401Z" creationid="shibukawa.yoshiki" creationdate="20160101T140401Z">
+        <seg>ラウティングのおける再描画のセマンティクス</seg>
       </tuv>
     </tu>
     <tu>
@@ -8120,6 +8062,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Select2 config factory.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T132152Z" creationid="shibukawa.yoshiki" creationdate="20160101T132152Z">
+        <seg>Select2 configファクトリ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Serialize data into querystring format</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T153729Z" creationid="shibukawa.yoshiki" creationdate="20150412T153729Z">
@@ -8164,6 +8114,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150415T000224Z" creationid="shibukawa.yoshiki" creationdate="20150415T000224Z">
         <seg>&lt;c0&gt;background&lt;/c0&gt;オプションを&lt;c1&gt;true&lt;/c1&gt;に設定すると、リクエストが再描画のプロセスに干渉することはなくなります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Shorthand syntax</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T133751Z" creationid="shibukawa.yoshiki" creationdate="20160101T133751Z">
+        <seg>短縮文法</seg>
       </tuv>
     </tu>
     <tu>
@@ -8364,14 +8322,6 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T085647Z" creationid="shibukawa.yoshiki" creationdate="20150502T085647Z">
         <seg>下記のデータを持つ、&lt;c0&gt;ProjectList&lt;/c0&gt;と呼ばれるコンポーネントがあったとします:</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
-        <seg>SweetJS requires a &lt;a0&gt;NodeJS&lt;/a0&gt; environment.</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T150037Z" creationid="shibukawa.yoshiki" creationdate="20150412T150037Z">
-        <seg>SweetJSを実行するには&lt;a0&gt;NodeJS&lt;/a0&gt;環境が必要になります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9232,14 +9182,6 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>The macro takes regular Mithril templates like the one below:</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T144911Z" creationid="shibukawa.yoshiki" creationdate="20150412T144911Z">
-        <seg>このマクロは下記のような通常のMithrilのテンプレートを受け取ります:</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>The main difference between Angular templates and Mithril templates is that Angular templates follow the tradition of being defined in HTML.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150420T025135Z" creationid="shibukawa.yoshiki" creationdate="20150420T025135Z">
@@ -9288,9 +9230,9 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>The name of a route parameter</seg>
+        <seg>The name of a route parameter.</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T170816Z" creationid="shibukawa.yoshiki" creationdate="20150414T170816Z">
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T135425Z" creationid="shibukawa.yoshiki" creationdate="20160101T135425Z">
         <seg>ラウトパラメータの名前</seg>
       </tuv>
     </tu>
@@ -9316,6 +9258,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T040836Z" creationid="shibukawa.yoshiki" creationdate="20150502T040836Z">
         <seg>次に、ユーザとアプリケーションがインタラクションするためのビューを書きましょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The object which the &lt;c0&gt;this&lt;/c0&gt; keyword points to for the callback</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T135147Z" creationid="shibukawa.yoshiki" creationdate="20160101T135147Z">
+        <seg>コールバック内で&lt;c0&gt;this&lt;/c0&gt;キーワードが指すオブジェクトを指定します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9360,16 +9310,10 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>The params in this doc refer to properties of the `ctrl` argument
-@param {Object} data - the data with which to populate the &lt;option&gt; list
-@param {number} value - the id of the item in `data` that we want to select
-@param {function(Object id)} onchange - the event handler to call when the selection changes.</seg>
+        <seg>The params in this doc refer to properties of the `ctrl` argument</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T021530Z" creationid="shibukawa.yoshiki" creationdate="20150412T014315Z">
-        <seg>このドキュメントのパラメータは、`ctrl`引数のプロパティです
-@param {Object} data - &lt;option&gt;リストを実行したいデータ
-@param {number} value - `data`内の、選択したいアイテムのID
-@param {function(Object id)} onchange - 選択が変更された時に呼び出されるイベントハンドラ</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T132303Z" creationid="shibukawa.yoshiki" creationdate="20160101T132303Z">
+        <seg>このドキュメントのパラメータは、`ctrl`引数のプロパティについて説明しています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9450,6 +9394,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150413T160555Z" creationid="shibukawa.yoshiki" creationdate="20150413T160555Z">
         <seg>返されるVirtualElementは、DOMエレメントを表すデータ構造です。このデータ構造は&lt;a0&gt;&lt;c1&gt;m.render&lt;/c1&gt;&lt;/a0&gt;を通じてレンダリングされます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The returned getter-setter also implements the &lt;a0&gt;promise&lt;/a0&gt; interface (also known as a &lt;e1&gt;thenable&lt;/e1&gt;): this is the mechanism you should always use to queue operations to be performed on the data from the web service.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T140904Z" creationid="shibukawa.yoshiki" creationdate="20160101T140904Z">
+        <seg>返されるgetter-setterは&lt;a0&gt;promise&lt;/a0&gt;のインタフェース(&lt;e1&gt;thenable&lt;/e1&gt;とも呼ばれる)を持っています。この機能は、ウェブサービスからデータが帰ってきた後の操作をキューイングするのに使います。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9590,6 +9542,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The thenable mechanism is intended to be used in three ways:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T140929Z" creationid="shibukawa.yoshiki" creationdate="20160101T140929Z">
+        <seg>thenableの仕組みは主に以下の3ヶ所で使われることを想定しています:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The thennable mechanism is intended to be used in three ways:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150410T123530Z" creationid="shibukawa.yoshiki" creationdate="20150410T123530Z">
@@ -9610,6 +9570,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150417T013900Z" creationid="shibukawa.yoshiki" creationdate="20150417T013900Z">
         <seg>このツールを使うと、次のようなコードが書けます:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The tool takes regular Mithril templates like the one below:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T141506Z" creationid="shibukawa.yoshiki" creationdate="20160101T141506Z">
+        <seg>このツールは下記のような通常のMithrilのテンプレートを受け取ります:</seg>
       </tuv>
     </tu>
     <tu>
@@ -9690,6 +9658,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150411T190021Z" creationid="shibukawa.yoshiki" creationdate="20150411T190021Z">
         <seg>再描画エンジンは、内部のカウンタを使って再描画のタイミングを遅らせます。カウンタは&lt;c4&gt;m.startComputation&lt;/c4&gt;を呼び出すとインクリメントされ、&lt;c5&gt;m.endComputation&lt;/c5&gt;を呼び出すとデクリメントされます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Then, to compile a file, type:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T141603Z" creationid="shibukawa.yoshiki" creationdate="20160101T141603Z">
+        <seg>インストールが終わって、ファイルをコンパイルするには次のようにタイプします:</seg>
       </tuv>
     </tu>
     <tu>
@@ -10002,6 +9978,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T012919Z" creationid="shibukawa.yoshiki" creationdate="20150502T012919Z">
         <seg>このアーキテクチャにすることで、高い柔軟性と再利用性の高井コードが得られますが、柔軟性が高いということはシステムを理解する負荷が高まるということです。どのようにデータが表示されるかを知るには、トップレベルのモジュールと、&lt;c0&gt;ContactList&lt;/c0&gt;の2つを見る必要があります。場合によってはどのようにフィルタされるかを知る必要もあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This behavior can be changed either via the &lt;a0&gt;retain flag in a config's context object&lt;/a0&gt;, or the &lt;a1&gt;&lt;c2&gt;m.redraw.strategy("diff")&lt;/c2&gt; hint&lt;/a1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T140605Z" creationid="shibukawa.yoshiki" creationdate="20160101T140605Z">
+        <seg>この動作は、&lt;a0&gt;configのコンテキストオブジェクトのretainフラグ&lt;/a0&gt;、もしくは&lt;a1&gt;&lt;c2&gt;m.redraw.strategy("diff")&lt;/c2&gt;ヒント&lt;/a1&gt;を使って変更することができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10670,6 +10654,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This utility provides a number of useful features out of the box:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T140832Z" creationid="shibukawa.yoshiki" creationdate="20160101T140832Z">
+        <seg>提供されるこの便利な機能には次のようなものがあります:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This value can be programmatically changed in controllers and event handlers to modify the next redrawing strategy.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T152459Z" creationid="shibukawa.yoshiki" creationdate="20150416T152459Z">
@@ -10698,14 +10690,6 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150413T144324Z" creationid="shibukawa.yoshiki" creationdate="20150413T144324Z">
         <seg>想定外の事態を避けるには、&lt;c1&gt;undefined&lt;/c1&gt;や&lt;c2&gt;null&lt;/c2&gt;を使って属性の値だけを変更するようにしてください。条件によって属性の辞書そのものを置き換えるコードは避けましょう。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
-        <seg>To compile a file, type:</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T150219Z" creationid="shibukawa.yoshiki" creationdate="20150412T150219Z">
-        <seg>ファイルをコンパイルするには次のようにタイプします:</seg>
       </tuv>
     </tu>
     <tu>
@@ -10742,18 +10726,18 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>To install SweetJS, NodeJS provides a command-line package manager tool.</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T150153Z" creationid="shibukawa.yoshiki" creationdate="20150412T150153Z">
-        <seg>SweetJSをインストールするのに使うコマンドラインのパッケージマネージャは、NodeJSが提供しています。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>To install it, go to its website and use the installer provided.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T150117Z" creationid="shibukawa.yoshiki" creationdate="20150412T150117Z">
         <seg>NodeJSをインストールするには、NodeJSのウェブサイトに行き、提供されているインストーラを使用します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To install mithril-objectify, NodeJS provides a command-line package manager tool.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T141532Z" creationid="shibukawa.yoshiki" creationdate="20160101T141532Z">
+        <seg>mithril-objectifyをインストールするのに使うコマンドラインのパッケージマネージャは、NodeJSが提供しています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10806,14 +10790,6 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>To run the automation task, run the following command from the root folder of your project:</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T150823Z" creationid="shibukawa.yoshiki" creationdate="20150412T150823Z">
-        <seg>自動化処理を実行するには、プロジェクトのルートフォルダで次のようにタイプします:</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>To run the execution time tests below, click on their respective links, run the profiler from your desired browser's developer tools and measure the running time of a page refresh (Lower is better).</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T134936Z" creationid="shibukawa.yoshiki" creationdate="20150407T134936Z">
@@ -10830,10 +10806,10 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>To unload a component without loading another component, you can simply call &lt;c0&gt;m.mount&lt;/c0&gt; with a &lt;c1&gt;null&lt;/c1&gt; as the component parameter:</seg>
+        <seg>To unload/unmount a component without loading another component, you can simply call &lt;c0&gt;m.mount&lt;/c0&gt; with a &lt;c1&gt;null&lt;/c1&gt; as the component parameter:</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T091517Z" creationid="shibukawa.yoshiki" creationdate="20150502T091517Z">
-        <seg>他のコンポーネントをロードせずにコンポーネントをアンロードする場合は、コンポーネントの引数として&lt;c1&gt;null&lt;/c1&gt;を&lt;c0&gt;m.mount&lt;/c0&gt;に渡せばできます:</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T134258Z" creationid="shibukawa.yoshiki" creationdate="20160101T134258Z">
+        <seg>他のコンポーネントをロードせずにコンポーネントをアンロード/アンマウントする場合は、コンポーネントの引数として&lt;c1&gt;null&lt;/c1&gt;を&lt;c0&gt;m.mount&lt;/c0&gt;に渡すと行えます:</seg>
       </tuv>
     </tu>
     <tu>
@@ -10970,6 +10946,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T050641Z" creationid="shibukawa.yoshiki" creationdate="20150502T050641Z">
         <seg>コンポーネントのアンロード</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Unloading/Unmounting components</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T134534Z" creationid="shibukawa.yoshiki" creationdate="20160101T134534Z">
+        <seg>コンポーネントのアンロード/アンマウント</seg>
       </tuv>
     </tu>
     <tu>
@@ -11446,10 +11430,10 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>While both basic assignment syntax and thennable syntax can be used to the same effect, typically it's recommended that you use the assignment syntax in the first example whenever possible, as it's easier to read.</seg>
+        <seg>While both basic assignment syntax and thenable syntax can be used to the same effect, typically it's recommended that you use the assignment syntax in the first example whenever possible, as it's easier to read.</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150410T022931Z" creationid="shibukawa.yoshiki" creationdate="20150410T022931Z">
-        <seg>代入構文も、thennableを使った構文も同じ結果になりますが、前者の例の方が読みやすいため、何か制約がない限りはこちらを使用する方がおすすめです。</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T140923Z" creationid="shibukawa.yoshiki" creationdate="20160101T140923Z">
+        <seg>代入構文も、thenableを使った構文も同じ結果になりますが、前者の例の方が読みやすいため、何か制約がない限りはこちらを使用する方がおすすめです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11514,14 +11498,6 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150421T020812Z" creationid="shibukawa.yoshiki" creationdate="20150421T020812Z">
         <seg>そのため、テンプレートが大きくなりすぎないようにして、レンダリングを効率よく行うことが大切です。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
-        <seg>You can &lt;a0&gt;download a zip of the latest version version here&lt;/a0&gt;.</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T164534Z" creationid="shibukawa.yoshiki" creationdate="20150407T164534Z">
-        <seg>&lt;a0&gt;ここから&lt;/a0&gt;最新バージョンのzipアーカイブをダウンロードできます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11670,10 +11646,10 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>You can optionally pre-compile templates that use &lt;c0&gt;m()&lt;/c0&gt; by running the &lt;a1&gt;&lt;c2&gt;template-compiler.sjs&lt;/c2&gt;&lt;/a1&gt; macro with &lt;a3&gt;Sweet.js&lt;/a3&gt;.</seg>
+        <seg>You can optionally pre-compile templates that use &lt;c0&gt;m()&lt;/c0&gt; by using &lt;a1&gt;mithril-objectify&lt;/a1&gt;.</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T143744Z" creationid="shibukawa.yoshiki" creationdate="20150412T143744Z">
-        <seg>&lt;a3&gt;Sweet.js&lt;/a3&gt;と一緒に&lt;a1&gt;&lt;c2&gt;template-compiler.sjs&lt;/c2&gt;&lt;/a1&gt;マクロを実行すると、&lt;c0&gt;m()&lt;/c0&gt;を使用するテンプレートをプリコンパイルすることができます。</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T141443Z" creationid="shibukawa.yoshiki" creationdate="20160101T141443Z">
+        <seg>オプションの機能としては、&lt;a1&gt;mithril-objectify&lt;/a1&gt;を使用すると、&lt;c0&gt;m()&lt;/c0&gt;を使ったテンプレートを事前にコンパイルすることができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11974,14 +11950,10 @@ m.mount(document, {controller: todo.controller, view: todo.view});
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>`id` is the the same as `value`
-*/
-Select2.config = function(ctrl) {</seg>
+        <seg>`id` is the the same as `value`</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T045234Z" creationid="shibukawa.yoshiki" creationdate="20150502T045234Z">
-        <seg>`id`は`value`と同じ
-*/
-Select2.config = function(ctrl) {</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T132826Z" creationid="shibukawa.yoshiki" creationdate="20160101T132826Z">
+        <seg>`id`は`value`と同じです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12026,14 +11998,6 @@ Select2.config = function(ctrl) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>compile: {expand: true, cwd: ".", src: "**/*.js", dest: "destination-folder-goes-here/"}</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T150721Z" creationid="shibukawa.yoshiki" creationdate="20150412T150655Z">
-        <seg>compile: {expand: true, cwd: ".", src: "**/*.js", dest: "インストールフォルダはこちら/"}</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>console.log("unloaded the div");</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T124516Z" creationid="shibukawa.yoshiki" creationdate="20150502T124516Z">
@@ -12062,6 +12026,14 @@ Select2.config = function(ctrl) {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T091634Z" creationid="shibukawa.yoshiki" creationdate="20150502T091634Z">
         <seg>console.log("MyComponentコンポーネントを削除しています");</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>console.warn('ERROR: You need jquery and Select2 in the page');</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T132957Z" creationid="shibukawa.yoshiki" creationdate="20160101T132957Z">
+        <seg>console.warn('ERROR: ページにjqueryとSelect2がロードされていません');</seg>
       </tuv>
     </tu>
     <tu>
@@ -12837,14 +12809,6 @@ m("input", binds(name))</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>sjs -r -m /template-compiler.sjs -o &lt;output-filename&gt;.js &lt;input-filename&gt;.js</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T150236Z" creationid="shibukawa.yoshiki" creationdate="20150412T150236Z">
-        <seg>sjs -r -m /template-compiler.sjs -o &lt;出力ファイル名&gt;.js &lt;入力ファイル名&gt;.js</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>temp: m.prop(10) // kelvin</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T081105Z" creationid="shibukawa.yoshiki" creationdate="20150502T081105Z">
@@ -13367,29 +13331,6 @@ m.render(document.body, component.view(ctrl)) // 手動で仮想DOMツリーを�
         <seg>}
 }
 
-//end component
-
-
-
-//usage
-var Dashboard = {</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T045300Z" creationid="shibukawa.yoshiki" creationdate="20150502T045255Z">
-        <seg>}
-}
-
-//コンポーネントの定義はここまで
-
-
-//使用方法
-var Dashboard = {</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
-        <seg>}
-}
-
 //in the view
 demo.view = function(ctrl) {</seg>
       </tuv>
@@ -13507,22 +13448,6 @@ m.mount(document.body, MyComponent) // &lt;body&gt;に&lt;h1&gt;Hello&lt;/h1&gt;
 //レスポンスには`{data: [{name: "John"}, {name: "Mary"}], count: 2}`というデータが格納されると想定
 //そのため、ビューなどの中で解決されると、`users` getter-setterはユーザの配列を持ちます
 //例: users() //[{name: "John"}, {name: "Mary"}]</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
-        <seg>}
-};
-
-/**
-Select2 config factory.</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T045219Z" creationid="shibukawa.yoshiki" creationdate="20150502T045219Z">
-        <seg>}
-};
-
-/**
-Select2 configファクトリ</seg>
       </tuv>
     </tu>
     <tu>
