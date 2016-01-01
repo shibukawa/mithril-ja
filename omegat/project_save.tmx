@@ -3787,6 +3787,22 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Component Shorthand</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T144932Z" creationid="shibukawa.yoshiki" creationdate="20160101T144932Z">
+        <seg>コンポーネントの短縮形</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Component shorthand</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T144824Z" creationid="shibukawa.yoshiki" creationdate="20160101T144824Z">
+        <seg>コンポーネントの短縮形</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Component views can include other components:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T080057Z" creationid="shibukawa.yoshiki" creationdate="20150502T080057Z">
@@ -5501,8 +5517,8 @@ var ContactsWidget = {</seg>
       <tuv lang="EN-US">
         <seg>If the first argument to &lt;c0&gt;m()&lt;/c0&gt; is a component, it acts as an alias of &lt;c1&gt;m.component()&lt;/c1&gt;</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T133847Z" creationid="shibukawa.yoshiki" creationdate="20160101T133847Z">
-        <seg>もし、&lt;c0&gt;m()&lt;/c0&gt;の最初の引数がコンポーネントであれば、&lt;c1&gt;m.component()&lt;/c1&gt;を省略することができます。</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T144631Z" creationid="shibukawa.yoshiki" creationdate="20160101T133847Z">
+        <seg>もし、&lt;c0&gt;m()&lt;/c0&gt;の最初の引数がコンポーネントであれば、&lt;c1&gt;m.component()&lt;/c1&gt;の代わりに使うことができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6871,6 +6887,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T164330Z" creationid="shibukawa.yoshiki" creationdate="20150407T164330Z">
         <seg>インストール - Mithril</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Installing</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T144428Z" creationid="shibukawa.yoshiki" creationdate="20160101T144428Z">
+        <seg>インストール</seg>
       </tuv>
     </tu>
     <tu>
@@ -9567,6 +9591,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150415T180629Z" creationid="shibukawa.yoshiki" creationdate="20150415T180629Z">
         <seg>promiseについては&lt;a0&gt;&lt;c1&gt;m.deferred&lt;/c1&gt;&lt;/a0&gt;を参照してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>See &lt;a0&gt;components&lt;/a0&gt; for more information.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T144952Z" creationid="shibukawa.yoshiki" creationdate="20160101T144952Z">
+        <seg>より詳細な情報は&lt;a0&gt;コンポーネント&lt;/a0&gt;を参照してください。</seg>
       </tuv>
     </tu>
     <tu>

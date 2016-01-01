@@ -3006,6 +3006,22 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Component Shorthand</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T144932Z" creationid="shibukawa.yoshiki" creationdate="20160101T144932Z">
+        <seg>コンポーネントの短縮形</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Component shorthand</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T144824Z" creationid="shibukawa.yoshiki" creationdate="20160101T144824Z">
+        <seg>コンポーネントの短縮形</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Component views can include other components:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T080057Z" creationid="shibukawa.yoshiki" creationdate="20150502T080057Z">
@@ -4512,8 +4528,8 @@ var ContactsWidget = {</seg>
       <tuv lang="EN-US">
         <seg>If the first argument to m() is a component, it acts as an alias of m.component()</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T133847Z" creationid="shibukawa.yoshiki" creationdate="20160101T133847Z">
-        <seg>もし、m()の最初の引数がコンポーネントであれば、m.component()を省略することができます。</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T144631Z" creationid="shibukawa.yoshiki" creationdate="20160101T133847Z">
+        <seg>もし、m()の最初の引数がコンポーネントであれば、m.component()の代わりに使うことができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5658,6 +5674,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T164330Z" creationid="shibukawa.yoshiki" creationdate="20150407T164330Z">
         <seg>インストール - Mithril</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Installing</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T144428Z" creationid="shibukawa.yoshiki" creationdate="20160101T144428Z">
+        <seg>インストール</seg>
       </tuv>
     </tu>
     <tu>
@@ -7446,6 +7470,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>One of the most obvious differences between Mithril and most frameworks is in file size: Mithril is around 7kb gzipped and has no dependencies on other libraries.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T141700Z" creationid="shibukawa.yoshiki" creationdate="20160101T141700Z">
+        <seg>Mithrilと他のフレームワークの違いの中で、もっとも分かりやすいものはファイルサイズです。Mithrilはgzip圧縮された状態で7kb前後で、他のライブラリへの依存もありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>One other difference that is extremely clear is the treatment of data.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150420T015651Z" creationid="shibukawa.yoshiki" creationdate="20150420T015651Z">
@@ -8026,6 +8058,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150415T180629Z" creationid="shibukawa.yoshiki" creationdate="20150415T180629Z">
         <seg>promiseについてはm.deferredを参照してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>See components for more information.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T144952Z" creationid="shibukawa.yoshiki" creationdate="20160101T144952Z">
+        <seg>より詳細な情報はコンポーネントを参照してください。</seg>
       </tuv>
     </tu>
     <tu>
