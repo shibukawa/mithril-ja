@@ -5795,6 +5795,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In Mithril, a &lt;e0&gt;component&lt;/e0&gt; is an object that contains a &lt;c1&gt;view&lt;/c1&gt; function and optionally a &lt;c2&gt;controller&lt;/c2&gt; function.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T124214Z" creationid="shibukawa.yoshiki" creationdate="20160101T124214Z">
+        <seg>Mithrilにおいて、&lt;e0&gt;コンポーネント&lt;/e0&gt;は&lt;c1&gt;view&lt;/c1&gt;関数と、&lt;c2&gt;controller&lt;/c2&gt;関数(オプション)を含むオブジェクトです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In Mithril, a &lt;e0&gt;component&lt;/e0&gt; is an object that contains two functions: &lt;c1&gt;controller&lt;/c1&gt; and &lt;c2&gt;view&lt;/c2&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T040244Z" creationid="shibukawa.yoshiki" creationdate="20150502T040244Z">
