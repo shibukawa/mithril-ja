@@ -7915,6 +7915,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Mithril's view layer paradigm is designed to be &lt;s0&gt;declarative&lt;/s0&gt;, much like HTML, such that the same code implicitly does everything it needs to.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T115211Z" creationid="shibukawa.yoshiki" creationdate="20160101T115211Z">
+        <seg>Mithrilのビューレイヤーは&lt;s0&gt;宣言的&lt;/s0&gt;なコードになるように設計されていて、よりHTMLに近くなっています。表示するコードを書くだけですべて完了します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Mithril, on the other hand, purposely avoids the observer pattern in an attempt to abolish "come-from hell", a class of debugging problems where you don't know what triggers some code because of a long chain of events triggering other events.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150420T021100Z" creationid="shibukawa.yoshiki" creationdate="20150420T020944Z">
