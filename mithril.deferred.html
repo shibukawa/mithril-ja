@@ -10,7 +10,7 @@
 	<body>
 		<header>
 			<nav class="container">
-				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="mithril.min.zip">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
 			</nav>
 		</header>
 		<main>
@@ -18,7 +18,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col(3,3,12)">
-							<h2 id="api">API (v0.2.0)</h2>
+							<h2 id="api">API (v0.2.2-rc.1)</h2>
 							<h3 id="core">コア</h3>
 							<ul>
 								<li><a href="mithril.html" title="仮想エレメントを作るためのユーティリティ">m</a></li>
@@ -218,7 +218,7 @@ m.deferred.onerror = function(e) {console.error(e)}
 
 where:
     Deferred :: Object { Promise promise, void resolve(any value), void reject(any value) }
-    Promise :: GetterSetter { Promise then(any successCallback(any value), any errorCallback(any value)) }
+    Promise :: GetterSetter { Promise then(any successCallback(any value), any errorCallback(any value)), Promise catch(any errorCallback(any value)) }
     GetterSetter :: any getterSetter([any value])
 </code></pre>
 <ul>
@@ -226,6 +226,7 @@ where:
 <p>promiseは、2つの計算のコールバックを持つ<code>then</code>メソッドを持っています。</p>
 <p><code>then</code>メソッドは親のpromiseの計算結果を受け取る、別のpromiseを作って返します。</p>
 <p>promiseはgetter-setter (<a href="mithril.prop.html"><code>m.prop</code></a>参照)。<code>resolve</code>と<code>reject</code>のどちらを呼んでも、promiseは親の計算結果の値 (もしくはpromiseが親を持っていなければ<code>resolve</code>/<code>reject</code>)を保持します。</p>
+<p>Promises also have a method called <code>catch</code>, which is equivalent to calling <code>then(null, errorCallback)</code></p>
 <ul>
 <li><p><strong>Promise then([any successCallback(any value) [, any errorCallback(any value)]])</strong></p>
 <p>このメソッドは、<code>resolve</code>、<code>reject</code>メソッドに渡される値を受け取り、結果のpromiseに格納される値を処理して返す2つのコールバックを受け取ります。</p>
@@ -233,12 +234,12 @@ where:
 <li><p><strong>any successCallback(any value)</strong> (optional)</p>
 <p>ルートの<code>deferred</code>の<code>resolve</code>が呼ばれると<code>successCallback</code>が呼ばれます。</p>
 <p>この設定がfalsyな値だったときのデフォルトの動作は、<code>function(value) {return value}</code>という関数と等価です。</p>
-<p>もしこの関数がundefinedを返してきたら、値がどんなでものであろうと、<code>value</code>引数がthennableキューの次のキューに渡されます。</p>
+<p>If this function returns undefined, then it passes the <code>value</code> argument to the next step in the thenable queue, if any</p>
 </li>
 <li><p><strong>any errorCallback(any value)</strong> (optional)</p>
 <p>ルートの<code>deferred</code>の<code>reject</code>が呼ばれると<code>errorCallback</code>が呼ばれます。</p>
 <p>この設定がfalsyな値だったときのデフォルトの動作は、<code>function(value) {return value}</code>という関数と等価です。</p>
-<p>もしこの関数がundefinedを返してきたら、値がどんなでものであろうと、<code>value</code>引数がthennableキューの次のキューに渡されます。</p>
+<p>If this function returns undefined, then it passes the <code>value</code> argument to the next step in the thenable queue, if any</p>
 </li>
 <li><p><strong>returns Promise promise</strong></p>
 </li>

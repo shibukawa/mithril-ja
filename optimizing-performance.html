@@ -10,7 +10,7 @@
 	<body>
 		<header>
 			<nav class="container">
-				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="mithril.min.zip">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
 			</nav>
 		</header>
 		<main>
@@ -47,10 +47,10 @@
 <p>もし、数千行の行を持つテーブルの構築を行っていて、そのテンプレートの動作が遅いことが分かったとしても、まずはユーザビリティの観点から表示行数を少なくすることを検討すべきです。だれも数千行のレコードを実際に読み込もうとする人などいないからです。テーブルをページ分割したり、ソートやフィルタ可能にすると、ユーザエクスペリエンスが向上するだけでなく、再描画と初期のページロードの両方のパフォマンスの問題が解決します。</p>
 <hr>
 <h2 id="compiling-templates">テンプレートのコンパイル</h2>
-<p><a href="https://github.com/mozilla/sweet.js">Sweet.js</a>と一緒に<a href="tools/template-compiler.sjs"><code>template-compiler.sjs</code></a>マクロを実行すると、<code>m()</code>を使用するテンプレートをプリコンパイルすることができます。このステップはMithrilを使う上で必須のものではありませんが、コードを一切変更せずにアプリケーション外で簡単にパフォーマンスを少し向上させることができます。</p>
+<p>オプションの機能としては、<a href="https://github.com/tivac/mithril-objectify/">mithril-objectify</a>を使用すると、<code>m()</code>を使ったテンプレートを事前にコンパイルすることができます。このステップはMithrilを使う上で必須のものではありませんが、コードを一切変更せずにアプリケーション外で簡単にパフォーマンスを少し向上させることができます。</p>
 <p>テンプレートをコンパイルすると、ネストされた関数呼び出しを生の仮想DOMツリーに変換します。これはネイティブのJavaScriptオブジェクトの集合体で、<a href="mithril.render.html"><code>m.render</code></a>を使って即座にレンダリングできます。コンパイルされたテンプレートを使用する時は、<code>m("div#foo")</code>といった文字列をパースする必要がなく、関数呼び出しのコストは発生しません。</p>
 <p>Mithrilでは、ブラウザの再描画の管理やDOMの更新などの、本物のボトルネック以外をあまり気にする必要はありません。Mithirilは <a href="http://lhorie.github.io/mithril/index.html#performance">トップページのパフォーマンスのセクション</a>で既にお見せしているように、コンパイルなどしなくてもすでに高速です。このオプションのコンパイルツールは、いわば「ケーキの上のデコレーション」です。</p>
-<p>このマクロは下記のような通常のMithrilのテンプレートを受け取ります:</p>
+<p>このツールは下記のような通常のMithrilのテンプレートを受け取ります:</p>
 <pre><code class="lang-javascript">var view = function() {
     return m("a", {href: "http://google.com"}, "test");
 }
@@ -62,46 +62,13 @@
 </code></pre>
 <p>このコンパイル済みのテンプレートは自動ビルドプロセスの結果作られたものであって、人間がこのように書くべきという意味ではありません。</p>
 <hr>
-<h3 id="installing-nodejs-and-sweetjs-for-one-off-compilations">事前コンパイルのためのNodeJSとSweetJSのインストール</h3>
-<p>SweetJSを実行するには<a href="http://nodejs.org">NodeJS</a>環境が必要になります。NodeJSをインストールするには、NodeJSのウェブサイトに行き、提供されているインストーラを使用します。</p>
-<p>SweetJSをインストールするのに使うコマンドラインのパッケージマネージャは、NodeJSが提供しています。コマンドラインで次のようにタイプします:</p>
-<pre><code>npm install -g sweet.js
-</code></pre><p>ファイルをコンパイルするには次のようにタイプします:</p>
-<pre><code>sjs -r -m /template-compiler.sjs -o &lt;出力ファイル名&gt;.js &lt;入力ファイル名&gt;.js
-</code></pre><hr>
-<h3 id="automating-compilation">自動コンパイル</h3>
-<p>テンプレートを自動コンパイルするには、タスク自動化ツールの<a href="http://gruntjs.com">GruntJS</a>を使用します。もしGruntJSについて馴染みがなければ、GruntJSのウェブサイト上にチュートリアルがあります。</p>
-<p>NodeJSがすでにインストールされているとすると、次のコマンドをタイプするとGruntJSがインストールされます:</p>
-<pre><code>npm install -g grunt-cli
-</code></pre><p>インストールしたら、プロジェクトのルートに<code>package.json</code>と<code>Gruntfile.js</code>の2つのファイルを作成します。</p>
-<p><code>package.json</code></p>
-<pre><code class="lang-javascript">{
-    "name": "プロジェクト名はこちら",
-    "version": "0.0.0", //このsemver形式のフォーマットを必ず使用してください
-    "devDependencies": {
-        "grunt-sweet.js": "*"
-    }
-}
+<h3 id="installing">Installing</h3>
+<p>Mithril-objectify requires a <a href="http://nodejs.org">NodeJS</a> environment. NodeJSをインストールするには、NodeJSのウェブサイトに行き、提供されているインストーラを使用します。</p>
+<p>mithril-objectifyをインストールするのに使うコマンドラインのパッケージマネージャは、NodeJSが提供しています。コマンドラインで次のようにタイプします:</p>
+<pre><code>npm install -g mithril-objectify
+</code></pre><p>インストールが終わって、ファイルをコンパイルするには次のようにタイプします:</p>
+<pre><code>mithril-objectify ./input-filename.js ./output-filename.js
 </code></pre>
-<p><code>Gruntfile.js</code></p>
-<pre><code class="lang-javascript">module.exports = function(grunt) {
-    grunt.initConfig({
-        sweetjs: {
-            modules: ["template-compiler.sjs"],
-            compile: {expand: true, cwd: ".", src: "**/*.js", dest: "インストールフォルダはこちら/"}
-        }
-    });
-
-    grunt.loadNpmTasks('grunt-sweet.js');
-
-    grunt.registerTask('default', ['sweetjs']);
-}
-</code></pre>
-<p>サンプル中の<code>プロジェクト名はこちら</code>と、<code>インストールフィルダはこちら</code>は実際の設定と置き換えてください。</p>
-<p>自動化処理を実行するには、プロジェクトのルートフォルダで次のようにタイプします:</p>
-<pre><code>grunt
-</code></pre><p>grunt-sweet.jsタスクと、オプションについては、<a href="https://github.com/natefaubion/grunt-sweet.js">こちら見ることがｄけいます</a>。</p>
-
 						</div>
 					</div>
 				</div>

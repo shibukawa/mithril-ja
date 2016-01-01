@@ -10,7 +10,7 @@
 	<body>
 		<header>
 			<nav class="container">
-				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="mithril.min.zip">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
 			</nav>
 		</header>
 		<main>
@@ -18,7 +18,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col(3,3,12)">
-							<h2 id="api">API (v0.2.0)</h2>
+							<h2 id="api">API (v0.2.2-rc.1)</h2>
 							<h3 id="core">コア</h3>
 							<ul>
 								<li><a href="mithril.html" title="仮想エレメントを作るためのユーティリティ">m</a></li>
@@ -176,7 +176,7 @@ m.route(document.body, "/foo", {
 </li>
 </ul>
 <p>再描画の戦略は、ページ内の全コンポーネントのテンプレートツリーに影響を与えるグローバルな設定であることに注意してください。アプリケーション内の<em>一部分</em>の再描画だけを止めたい場合は、<a href="mithril.render.html#subtree-directives">サブツリーディレクティブ</a>を参照してください。</p>
-<p><a href="mithril.html#persising-dom-elements-across-route-changes"><code>ctx.retain</code>フラグ</a>を使うと、個別のエレメントに対してラウトの変更であっても、常に差分検知を行わずに再生成させないように指示することもできます。ラウト間でDOMの状態を維持する必要があるときは、<code>m.redraw.strategy("diff")</code>ではなく、<code>ctx.retain</code>フラグを使うのが推奨です。</p>
+<p><a href="mithril.html#persisting-dom-elements-across-route-changes"><code>ctx.retain</code>フラグ</a>を使うと、個別のエレメントに対してラウトの変更であっても、常に差分検知を行わずに再生成させないように指示することもできます。ラウト間でDOMの状態を維持する必要があるときは、<code>m.redraw.strategy("diff")</code>ではなく、<code>ctx.retain</code>フラグを使うのが推奨です。</p>
 <hr>
 <h3 id="preventing-redraws-on-events">イベントによる再描画の阻止</h3>
 <p>イベント内の特定の条件について考慮した時に、その条件に合わなければ再描画を行いたくない、と思うこともよくあるでしょう。例えば、ユーザがスペースバーを推した時だけ再描画を行い、そうでない場合は再描画はムダなのでやりたいくない、ということもあります。この場合、<code>m.redraw.strategy("none")</code>を呼ぶことで、再描画をスキップできます。</p>

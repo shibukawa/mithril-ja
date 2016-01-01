@@ -10,7 +10,7 @@
 	<body>
 		<header>
 			<nav class="container">
-				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="mithril.min.zip">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
 			</nav>
 		</header>
 		<main>
@@ -45,79 +45,89 @@
 <p>サードパーティライブラリや、pure JavaScriptのコードと統合するには<a href="mithril.html#accessing-the-real-dom">、仮想エレメントの<code>config</code>属性</a>を使って行うことができます。</p>
 <p>統合コードやヘルパー関数をコンポーネント内にカプセル化できるため、この方法が推奨です。</p>
 <p>次のサンプルは、<a href="http://ivaynberg.github.io/select2/">select2ライブラリ</a>(jQuery用の拡張版&lt;select&gt;タグを提供するライブラリ)を統合した、シンプルなコンポーネントの例です。</p>
-<pre><code class="lang-javascript">//Select2コンポーネント(jQueryとSelect2が両方読み込まれている)
-var Select2 = {
-    //このビューはselect2の`&lt;select&gt;`プログレッシブ拡張モードを実装
-    view: function(ctrl) {
-        return m("select", {config: select2.config(ctrl)}, [
-            ctrl.data.map(function(item) {
-                return m("option", {value: item.id}, item.name)
+<pre><code class="lang-javascript">var Select2 = {
+    // 選択ボックスを返す
+    view: function(ctrl, attrs) {
+        var selectedId = attrs.value().id;
+        //SELECTエレメントの拡張であるSelect2を作成します
+        return m("select", {config: Select2.config(attrs)}, [
+            attrs.data.map(function(item) {
+                var args = {value: item.id};
+                // 選択されているオプションを設定します
+                if(item.id == selectedId) {
+                    args.selected = "selected";
+                }
+                return m("option", args, item.name);
             })
         ]);
+    },
+    /**
+    Select2 configファクトリこのドキュメントのパラメータは、`ctrl`引数のプロパティについて説明しています。
+    @param {Object} data - &lt;option&gt;リストに追加されるデータ
+    @param {prop} value - `data`内の選択したいアイテムのプロパティ
+    @param {function(Object id)} onchange - 選択が変更された時に呼び出されるイベントハンドラ
+        `id`は`value`と同じです。
+    */
+    // 注意: configはサーバサイドでは実行されません。
+    config: function(ctrl) {
+        return function(element, isInitialized) {
+            if(typeof jQuery !== 'undefined' &amp;&amp; typeof jQuery.fn.select2 !== 'undefined') {
+                var el = $(element);
+                if (!isInitialized) {
+                    el.select2()
+                        .on("change", function(e) {
+                            var id = el.select2("val");
+                            m.startComputation();
+                            // 選択されているオプションを設定します
+                            ctrl.data.map(function(d){
+                                if(d.id == id) {
+                                    ctrl.value(d);
+                                }
+                            });
+
+                            if (typeof ctrl.onchange == "function"){
+                                ctrl.onchange(el.select2("val"));
+                            }
+                            m.endComputation();
+                        });
+                }
+                el.val(ctrl.value().id).trigger("change");
+            } else {
+                console.warn('ERROR: ページにjqueryとSelect2がロードされていません');
+            }
+        };
     }
 };
 
-/**
-Select2 configファクトリこのドキュメントのパラメータは、`ctrl`引数のプロパティです
-@param {Object} data - &lt;option&gt;リストを実行したいデータ
-@param {number} value - `data`内の、選択したいアイテムのID
-@param {function(Object id)} onchange - 選択が変更された時に呼び出されるイベントハンドラ
-    `id`は`value`と同じ
-*/
-Select2.config = function(ctrl) {
-    return function(element, isInitialized) {
-        var el = $(element);
-
-        if (!isInitialized) {
-            //初期化されていなければselect2を初期化します
-            el.select2()
-                //このイベントハンドラはビューが変更されたときにコントローラを更新します
-                .on("change", function(e) {
-                    //再描画システムと統合...
-                    m.startComputation();
-
-                    //...Mithrilはコントローラのコールバックが呼ばれた後に再描画します。
-                    if (typeof ctrl.onchange == "function") ctrl.onchange(el.select2("val"));
-
-                    m.endComputation();
-                    //統合処理の完了
-                });
-        }
-
-        //最新のコントローラの値を使ってビューを更新
-        el.select2("val", ctrl.value);
-    }
-}
-
-//コンポーネントの定義はここまで
-
-
-//使用方法
 var Dashboard = {
     controller: function() {
-        //ユーザ一覧のリスト
-        var data = [{id: 1, name: "John"}, {id: 2, name: "Mary"}, {id: 3, name: "Jane"}]
+        var ctrl = this,
+          //ユーザ一覧のリスト
+          data = [
+            {id: 1, name: "John"},
+            {id: 2, name: "Mary"},
+            {id: 3, name: "Seniqua"}
+          ];
 
-        return {
-            data: data,
-
-            //Maryを選択する
-            currentUser: data[1],
-
-            changeUser: function(id) {
-                console.log(id)
-            }
-        }
+        ctrl.data = data;
+        // 現在のユーザはpropに格納します
+        ctrl.currentUser = m.prop(data[1]);
+        ctrl.changeUser = function(id) {
+          console.log(id);
+        };
     },
 
     view: function(ctrl) {
         return m("div", [
             m("label", "ユーザ:"),
-            m.component(Select2, {data: ctrl.data, value: ctrl.currentUser.id, onchange: ctrl.changeUser})
+            m.component(Select2, {
+              data: ctrl.data,
+              value: ctrl.currentUser,
+              onchange: ctrl.changeUser
+            })
         ]);
     }
 };
-
 
 m.mount(document.body, Dashboard);
 </code></pre>
