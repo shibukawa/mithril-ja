@@ -203,7 +203,7 @@ m.mount(document.body, MyComponent) // 表示: &lt;h1&gt;Hello&lt;/h1&gt;
 <p>ユーザ入力イベントのハンドラが起動された時など、再描画が必要な時にview関数は何度も呼ばれます。この返り値は以前の仮想DOMのツリーに対する差分を検知するのに使われます。</p>
 <p>一見、変更を表示するたびに、このビュー全体に対する再計算を行うのは高コストな処理に見えるかもしれませんが、以前からあったフレームワークが使うレンダリングの方法論に比べると極めて高速です。Mithrilは差分検知アルゴリズムを利用することで、高コストなDOM操作を本当に必要な箇所だけ実行することができます。また、全体を再描画するという仕組み上、アプリケーションの状態がビューとモデルの2つに存在するのではなく、モデルの状態によってのみ管理されるため、トラブルシューティングが簡単になります。</p>
 <h3 id="shorthand-syntax">短縮文法</h3>
-<p>もし、<code>m()</code>の最初の引数がコンポーネントであれば、<code>m.component()</code>を省略することができます。</p>
+<p>もし、<code>m()</code>の最初の引数がコンポーネントであれば、<code>m.component()</code>の代わりに使うことができます。</p>
 <pre><code class="lang-javascript">var MyComponent = {
     controller: function() {
         return {greeting: "hello"}

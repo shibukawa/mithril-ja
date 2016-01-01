@@ -87,7 +87,7 @@
 <li><a href="#svg">SVG</a></li>
 <li><a href="#dealing-with-focus">フォーカスの操作</a></li>
 <li><a href="#dealing-with-sorting-and-deleting-in-lists">リスト内のソートと削除の操作</a></li>
-<li><a href="#component-shorthand">Component shorthand</a></li>
+<li><a href="#component-shorthand">コンポーネントの短縮形</a></li>
 <li><a href="#signature">シグニチャ</a></li>
 <li><a href="#the-config-attribute"><code>config</code>属性</a></li>
 </ul>
@@ -410,8 +410,8 @@ m("li", {class: selected ?"active" : ""})
 </code></pre>
 <p>リストをソートしたり、要素を削除したり、スプライスする場合は常にキーを使用すべきです。</p>
 <hr>
-<h3 id="component-shorthand">Component Shorthand</h3>
-<p>もし、<code>m()</code>の最初の引数がコンポーネントであれば、<code>m.component()</code>を省略することができます。</p>
+<h3 id="component-shorthand">コンポーネントの短縮形</h3>
+<p>もし、<code>m()</code>の最初の引数がコンポーネントであれば、<code>m.component()</code>の代わりに使うことができます。</p>
 <pre><code class="lang-javascript">var MyComponent = {
     controller: function() {
         return {greeting: "hello"}
@@ -427,7 +427,7 @@ m.render(document.body, [
     m.component(component, {data: "world"})
 ])
 </code></pre>
-<p>See <a href="mithril.component.html">components</a> for more information.</p>
+<p>より詳細な情報は<a href="mithril.component.html">コンポーネント</a>を参照してください。</p>
 <hr>
 <h3 id="signature">シグニチャ</h3>
 <p><a href="how-to-read-signatures.html">シグニチャの読み方</a></p>
