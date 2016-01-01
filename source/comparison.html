@@ -14,7 +14,7 @@
 				<a href="mithril.html">API</a>
 				<a href="community.html">Community</a>
 				<a href="http://lhorie.github.io/mithril-blog">Learn</a>
-				<a href="mithril.min.zip">Download</a>
+				<a href="installation.html">Download</a>
 				<a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
 			</nav>
 		</header>
@@ -50,7 +50,7 @@
 <p>There are a lot of different Javascript frameworks and evaluating their merits and shortcomings can be a daunting task.</p>
 <p>This page aims to provide a comparison between Mithril and some of the most widely used frameworks, as well as some of the younger, but relevant ones.</p>
 <h3 id="code-size">Code Size</h3>
-<p>One of the most obvious differences between Mithril and most frameworks is in file size: Mithril is around 12kb gzipped and has no dependencies on other libraries.</p>
+<p>One of the most obvious differences between Mithril and most frameworks is in file size: Mithril is around 7kb gzipped and has no dependencies on other libraries.</p>
 <p>Note that while a small gzipped size can look appealing, that number is often used to &quot;hide the weight&quot; of the uncompressed code: remember that the decompressed Javascript still needs to be parsed and evaluated on every page load, and this cost (which can be in the dozens of milliseconds range for some frameworks in some browsers) cannot be cached.</p>
 <p>This cost might be less of a concern in single page apps, but not necessarily if the app is typically opened simultaneously in multiple tabs, or run on less powerful devices.</p>
 <p>The performance tests in the homepage show execution times for parsing and evaluation of Mithril&#39;s code, compared to some popular frameworks. As you can see, it paints a much less flattering picture for some frameworks than when we look at gzipped size alone.</p>
@@ -71,7 +71,7 @@
 <h3 id="view-layer-paradigm">View Layer Paradigm</h3>
 <p>Some of the older frameworks among the popular ones (out-of-the-box jQuery and Backbone, specifically) take a more procedural paradigm when it comes to the view layer; this means every action requires the developer to write custom view-level code to handle it.</p>
 <p>This can get noticeably bulky when you look at thing like collections: you often need to implement insertion code and deletion code, in addition to a &quot;draw everything&quot; routine for performance. And this is for every list that needs to be displayed in some way.</p>
-<p>Mithril&#39;s view layer paradigm is designed be <strong>declarative</strong>, much like HTML, such that the same code implicitly does everything it needs to. As it turns out, this design decision is actually a compromise: it offers the benefit of decreased application code complexity at the cost of some performance loss. However, as the performance tests in the homepage show, this does not necessarily hurt Mithril in a meaningful way.</p>
+<p>Mithril&#39;s view layer paradigm is designed to be <strong>declarative</strong>, much like HTML, such that the same code implicitly does everything it needs to. As it turns out, this design decision is actually a compromise: it offers the benefit of decreased application code complexity at the cost of some performance loss. However, as the performance tests in the homepage show, this does not necessarily hurt Mithril in a meaningful way.</p>
 <hr>
 <h2 id="specific-framework-comparisons">Specific Framework Comparisons</h2>
 <p>Warning: this section is likely biased. Take it with a grain of salt.</p>

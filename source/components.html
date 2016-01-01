@@ -14,7 +14,7 @@
 				<a href="mithril.html">API</a>
 				<a href="community.html">Community</a>
 				<a href="http://lhorie.github.io/mithril-blog">Learn</a>
-				<a href="mithril.min.zip">Download</a>
+				<a href="installation.html">Download</a>
 				<a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
 			</nav>
 		</header>
@@ -66,12 +66,12 @@
 <p>Let&#39;s create a simple model entity which we&#39;ll use in a simple application, to illustrate different usage patterns for components:</p>
 <pre><code class="lang-javascript">var Contact = function(data) {
     data = data || {}
-    this.id = m.prop(data.id)
-    this.name = m.prop(data.name)
-    this.email = m.prop(data.email)
+    this.id = m.prop(data.id || &quot;&quot;)
+    this.name = m.prop(data.name || &quot;&quot;)
+    this.email = m.prop(data.email || &quot;&quot;)
 }
 Contact.list = function(data) {
-    return m.request({method: &quot;GET&quot;, url: &quot;/api/contact&quot;, data: data})
+    return m.request({method: &quot;GET&quot;, url: &quot;/api/contact&quot;, type: Contact})
 }
 Contact.save = function(data) {
     return m.request({method: &quot;POST&quot;, url: &quot;/api/contact&quot;, data: data})
@@ -305,7 +305,7 @@ m.mount(document.body, ContactsWidget)
             }
         },
         trigger: function(channel, args) {
-            console.log(channel)
+            console.log(&quot;triggered: &quot; + channel)
             channels[channel].map(function(callback) {
                 callback(args)
             })
@@ -385,7 +385,9 @@ var ContactsWidget = {
     view: function(ctrl) {
         return [
             m.component(ContactForm),
-            m.component(ContactList, {contacts: ctrl.contacts})
+            ctrl.contacts() === undefined
+              ? m(&quot;div&quot;, &quot;loading contacts...&quot;) //waiting for promise to resolve
+              : m.component(ContactList, {contacts: ctrl.contacts})
         ]
     }
 }
@@ -393,10 +395,13 @@ var ContactsWidget = {
 //ContactList no longer calls `Contact.save`
 var ContactForm = {
     controller: function(args) {
-        this.contact = m.prop(new Contact())
-        this.save = function(contact) {
+            var ctrl = this
+        ctrl.contact = m.prop(new Contact())
+        ctrl.save = function(contact) {
             Observable.trigger(&quot;saveContact&quot;, {contact: contact})
+            ctrl.contact = m.prop(new Contact()) //reset to empty contact
         }
+        return ctrl
     },
     view: function(ctrl, args) {
         var contact = ctrl.contact()
@@ -430,7 +435,7 @@ var ContactList = {
 
 m.mount(document.body, ContactsWidget)
 </code></pre>
-<p>Here we&#39;ve moved <code>Contact.save(contact).then(Observable.broadcast(&quot;updateContact&quot;))</code> out of the <code>ContactForm</code> component and into the model layer. In its place, <code>ContactForm</code> merely emits an action, which is then handled by this model layer observer.</p>
+<p>Here we&#39;ve moved <code>Contact.save(contact).then(Observable.trigger(&quot;updateContact&quot;))</code> out of the <code>ContactForm</code> component and into the model layer. In its place, <code>ContactForm</code> merely emits an action, which is then handled by this model layer observer.</p>
 <p>This allows swapping the implementation of the <code>saveContact</code> handler without changing the <code>ContactForm</code> component.</p>
 <hr>
 <h3 id="example-html5-drag-n-drop-file-uploader-component">Example: HTML5 drag-n-drop file uploader component</h3>

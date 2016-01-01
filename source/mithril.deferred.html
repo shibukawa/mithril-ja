@@ -14,7 +14,7 @@
 				<a href="mithril.html">API</a>
 				<a href="community.html">Community</a>
 				<a href="http://lhorie.github.io/mithril-blog">Learn</a>
-				<a href="mithril.min.zip">Download</a>
+				<a href="installation.html">Download</a>
 				<a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
 			</nav>
 		</header>
@@ -23,7 +23,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col(3,3,12)">
-							<h2 id="api">API (v0.2.0)</h2>
+							<h2 id="api">API (v0.2.2-rc.1)</h2>
 							<h3 id="core">Core</h3>
 							<ul>
 								<li><a href="mithril.html" title="A utility to create virtual elements">m</a></li>
@@ -223,7 +223,7 @@ m.deferred.onerror = function(e) {console.error(e)}
 
 where:
     Deferred :: Object { Promise promise, void resolve(any value), void reject(any value) }
-    Promise :: GetterSetter { Promise then(any successCallback(any value), any errorCallback(any value)) }
+    Promise :: GetterSetter { Promise then(any successCallback(any value), any errorCallback(any value)), Promise catch(any errorCallback(any value)) }
     GetterSetter :: any getterSetter([any value])
 </code></pre>
 <ul>
@@ -231,6 +231,7 @@ where:
 <p>A promise has a method called <code>then</code> which takes two computation callbacks as parameters.</p>
 <p>The <code>then</code> method returns another promise whose computations (if any) receive their inputs from the parent promise&#39;s computation.</p>
 <p>A promise is also a getter-setter (see <a href="mithril.prop.html"><code>m.prop</code></a>). After a call to either <code>resolve</code> or <code>reject</code>, it holds the result of the parent&#39;s computation (or the <code>resolve</code>/<code>reject</code> value, if the promise has no parent promises)</p>
+<p>Promises also have a method called <code>catch</code>, which is equivalent to calling <code>then(null, errorCallback)</code></p>
 <ul>
 <li><p><strong>Promise then([any successCallback(any value) [, any errorCallback(any value)]])</strong></p>
 <p>This method accepts two callbacks which process a value passed to the <code>resolve</code> and <code>reject</code> methods, respectively, and pass the processed value to the returned promise</p>
@@ -238,12 +239,12 @@ where:
 <li><p><strong>any successCallback(any value)</strong> (optional)</p>
 <p>The <code>successCallback</code> is called if <code>resolve</code> is called in the root <code>deferred</code>.</p>
 <p>The default value (if this parameter is falsy) is the identity function <code>function(value) {return value}</code></p>
-<p>If this function returns undefined, then it passes the <code>value</code> argument to the next step in the thennable queue, if any</p>
+<p>If this function returns undefined, then it passes the <code>value</code> argument to the next step in the thenable queue, if any</p>
 </li>
 <li><p><strong>any errorCallback(any value)</strong> (optional)</p>
 <p>The <code>errorCallback</code> is called if <code>reject</code> is called in the root <code>deferred</code>.</p>
 <p>The default value (if this parameter is falsy) is the identity function <code>function(value) {return value}</code></p>
-<p>If this function returns undefined, then it passes the <code>value</code> argument to the next step in the thennable queue, if any</p>
+<p>If this function returns undefined, then it passes the <code>value</code> argument to the next step in the thenable queue, if any</p>
 </li>
 <li><p><strong>returns Promise promise</strong></p>
 </li>

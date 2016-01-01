@@ -14,7 +14,7 @@
 				<a href="mithril.html">API</a>
 				<a href="community.html">Community</a>
 				<a href="http://lhorie.github.io/mithril-blog">Learn</a>
-				<a href="mithril.min.zip">Download</a>
+				<a href="installation.html">Download</a>
 				<a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
 			</nav>
 		</header>
@@ -57,7 +57,7 @@
 </ul>
 <hr>
 <h3 id="defining-routes">Defining routes</h3>
-<p>To define a list of routes, you need to specify a host DOM element, a default route and a key-value map of possible routes and respective <a href="mithril.module.html">modules</a> to be rendered.</p>
+<p>To define a list of routes, you need to specify a host DOM element, a default route and a key-value map of possible routes and respective <a href="mithril.mount.html">modules</a> to be rendered.</p>
 <p>The example below defines three routes, to be rendered in <code>&lt;body&gt;</code>. <code>home</code>, <code>login</code> and <code>dashboard</code> are modules. We&#39;ll see how to define a module in a bit.</p>
 <pre><code class="lang-javascript">m.route(document.body, &quot;/&quot;, {
     &quot;/&quot;: home,
@@ -91,7 +91,7 @@ m.route(document.body, &quot;/dashboard/johndoe&quot;, {
 <p>Above, <code>dashboard</code> is a module. It contains <code>controller</code> and <code>view</code> properties. When the URL matches a route, the respective module&#39;s controller is instantiated and passed as a parameter to the view.</p>
 <p>In this case, since there&#39;s only one route, the app redirects to the default route <code>&quot;/dashboard/johndoe&quot;</code> and, under the hood, it calls <code>m.mount(document.body, dashboard)</code>.</p>
 <p>The string <code>johndoe</code> is bound to the <code>:userID</code> parameter, which can be retrieved programmatically in the controller via <code>m.route.param(&quot;userID&quot;)</code>.</p>
-<p>The <code>m.route.mode</code> property defines which URL portion is used to implement the routing mechanism. Its value can be set to either &quot;search&quot;, &quot;hash&quot; or &quot;pathname&quot;. The default value is &quot;search&quot;.</p>
+<p>The <code>m.route.mode</code> property defines which URL portion is used to implement the routing mechanism. It should be set before any calls to <code>m.route</code>.  Its value can be set to either &quot;search&quot;, &quot;hash&quot; or &quot;pathname&quot;. The default value is &quot;search&quot;.</p>
 <ul>
 <li><p><code>search</code> mode uses the querystring. This allows named anchors (i.e. <code>&lt;a href=&quot;#top&quot;&gt;Back to top&lt;/a&gt;</code>, <code>&lt;a name=&quot;top&quot;&gt;&lt;/a&gt;</code>) to work on the page, but routing changes causes page refreshes in IE8, due to its lack of support for <code>history.pushState</code>.</p>
 <p>Example URL: <code>http://server/?/path/to/page</code></p>
@@ -118,6 +118,9 @@ m(&quot;a[href=&#39;/dashboard/alicesmith&#39;]&quot;, {config: m.route});
 </code></pre>
 <p>This makes the href behave correctly regardless of which <code>m.route.mode</code> is selected. It&#39;s a good practice to always use the idiom above, instead of hardcoding <code>?</code> or <code>#</code> in the href attribute.</p>
 <p>See <a href="mithril.html"><code>m()</code></a> for more information on virtual elements.</p>
+<hr>
+<h3 id="redrawing-semantics-of-routing">Redrawing semantics of routing</h3>
+<p>By default, changing routes causes templates to be re-rendered from scratch. This behavior can be changed either via the <a href="mithril.html#persisting-dom-elements-across-route-changes">retain flag in a config&#39;s context object</a>, or the <a href="mithril.redraw.html#changing-redraw-strategy"><code>m.redraw.strategy(&quot;diff&quot;)</code> hint</a>.</p>
 
 						</div>
 					</div>

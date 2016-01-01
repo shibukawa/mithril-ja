@@ -14,7 +14,7 @@
 				<a href="mithril.html">API</a>
 				<a href="community.html">Community</a>
 				<a href="http://lhorie.github.io/mithril-blog">Learn</a>
-				<a href="mithril.min.zip">Download</a>
+				<a href="installation.html">Download</a>
 				<a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
 			</nav>
 		</header>
@@ -23,7 +23,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col(3,3,12)">
-							<h2 id="api">API (v0.2.0)</h2>
+							<h2 id="api">API (v0.2.2-rc.1)</h2>
 							<h3 id="core">Core</h3>
 							<ul>
 								<li><a href="mithril.html" title="A utility to create virtual elements">m</a></li>
@@ -203,7 +203,7 @@ m.route(document.body, &quot;/&quot;, {
 });
 
 //re-route to dashboard
-m.route(&quot;/dashboard&quot;); // logs &quot;unloading home&quot;
+m.route(&quot;/dashboard&quot;); // logs &quot;unloading home component&quot;
 </code></pre>
 <p>This mechanism is useful to clear timers and unsubscribe event handlers. If you have a hierarchy of components, you can recursively call <code>onunload</code> on all the components in the tree or use a <a href="http://microjs.com/#pubsub">pubsub</a> library to unload specific components on demand.</p>
 <hr>
@@ -261,10 +261,16 @@ where:
 <p><code>&quot;/grid?sortby=date&quot;</code> - here,  <code>m.route.param(&quot;sortby&quot;)</code> returns <code>&quot;date&quot;</code></p>
 <ul>
 <li><p><strong>String key</strong></p>
-<p>The name of a route parameter</p>
+<p>The name of a route parameter.</p>
 </li>
 <li><p><strong>returns String value</strong></p>
 <p>The value that maps to the parameter specified by <code>key</code></p>
+</li>
+</ul>
+<p><strong>Object param()</strong></p>
+<ul>
+<li><p><strong>returns Object params</strong></p>
+<p>An object containing all the route parameters</p>
 </li>
 </ul>
 </li>

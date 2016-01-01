@@ -14,7 +14,7 @@
 				<a href="mithril.html">API</a>
 				<a href="community.html">Community</a>
 				<a href="http://lhorie.github.io/mithril-blog">Learn</a>
-				<a href="mithril.min.zip">Download</a>
+				<a href="installation.html">Download</a>
 				<a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
 			</nav>
 		</header>
@@ -23,7 +23,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col(3,3,12)">
-							<h2 id="api">API (v0.2.0)</h2>
+							<h2 id="api">API (v0.2.2-rc.1)</h2>
 							<h3 id="core">Core</h3>
 							<ul>
 								<li><a href="mithril.html" title="A utility to create virtual elements">m</a></li>
@@ -110,7 +110,7 @@ document.body.onclick = m.withAttr(&quot;title&quot;, function(value) {
 <hr>
 <h3 id="signature">Signature</h3>
 <p><a href="how-to-read-signatures.html">How to read signatures</a></p>
-<pre><code class="lang-clike">EventHandler withAttr(String property, void callback(any value))
+<pre><code class="lang-clike">EventHandler withAttr(String property, void callback(any value) [, any callbackThis])
 
 where:
     EventHandler :: void handler(Event e)
@@ -126,6 +126,9 @@ where:
 <p>This is the value of the defined DOM element&#39;s property.</p>
 </li>
 </ul>
+</li>
+<li><p><strong>any callbackThis</strong></p>
+<p>The object which the <code>this</code> keyword points to for the callback</p>
 </li>
 <li><p><strong>returns EventHandler handler</strong></p>
 <p>This handler method can be assigned to properties like <code>onclick</code>, or passed as callbacks to <code>addEventListener</code>.</p>

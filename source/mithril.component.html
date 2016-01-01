@@ -14,7 +14,7 @@
 				<a href="mithril.html">API</a>
 				<a href="community.html">Community</a>
 				<a href="http://lhorie.github.io/mithril-blog">Learn</a>
-				<a href="mithril.min.zip">Download</a>
+				<a href="installation.html">Download</a>
 				<a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
 			</nav>
 		</header>
@@ -23,7 +23,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col(3,3,12)">
-							<h2 id="api">API (v0.2.0)</h2>
+							<h2 id="api">API (v0.2.2-rc.1)</h2>
 							<h3 id="core">Core</h3>
 							<ul>
 								<li><a href="mithril.html" title="A utility to create virtual elements">m</a></li>
@@ -86,6 +86,7 @@
 <li><a href="#optional-controller">Optional controller</a></li>
 <li><a href="#controller-as-a-class-constructor">Controller as a class constructor</a></li>
 <li><a href="#notes-on-the-view-function">Notes on the view function</a></li>
+<li><a href="#shorthand-syntax">Shorthand syntax</a></li>
 </ul>
 </li>
 <li><a href="#parameterized-components">Parameterized components</a></li>
@@ -97,7 +98,7 @@
 </ul>
 </li>
 <li><a href="#data-driven-component-identity">Data-driven component identity</a></li>
-<li><a href="#unloading-components">Unloading components</a></li>
+<li><a href="#unloading-components">Unloading/Unmounting components</a></li>
 <li><a href="#nested-asynchronous-components">Nested asynchronous components</a></li>
 <li><a href="#limitations-and-caveats">Limitations and caveats</a></li>
 <li><a href="#opting-out-of-the-auto-redrawing-system">Opting out of the auto redrawing system</a></li>
@@ -206,6 +207,23 @@ m.mount(document.body, MyComponent) // renders &lt;h1&gt;Hello&lt;/h1&gt;
 <p>The <code>view</code> function does not create a DOM tree when called. The return value of the view function is merely a plain Javascript data structure that represents a DOM tree. Internally, Mithril uses this data representation of the DOM to probe for data changes and update the DOM only where necessary. This rendering technique is known as <em>virtual DOM diffing</em>.</p>
 <p>The view function is run again whenever a redraw is required (i.e. whenever event handlers are triggered by user input). Its return value is used to diff against the previous virtual DOM tree.</p>
 <p>It may sound expensive to recompute an entire view any time there&#39;s a change to be displayed, but this operation actually turns out to be quite fast, compared to rendering strategies used by older frameworks. Mithril&#39;s diffing algorithm makes sure expensive DOM operations are performed only if absolutely necessary, and as an extra benefit, the global nature of the redraw makes it easy to reason about and troubleshoot the state of the application.</p>
+<h3 id="shorthand-syntax">Shorthand syntax</h3>
+<p>If the first argument to <code>m()</code> is a component, it acts as an alias of <code>m.component()</code></p>
+<pre><code class="lang-javascript">var MyComponent = {
+    controller: function() {
+        return {greeting: &quot;hello&quot;}
+    },
+    view: function(ctrl, args) {
+        return m(&quot;h1&quot;, ctrl.greeting + &quot; &quot; + args.data)
+    }
+}
+
+m.render(document.body, [
+    //the two lines below are equivalent
+    m(component, {data: &quot;world&quot;}),
+    m.component(component, {data: &quot;world&quot;})
+])
+</code></pre>
 <hr>
 <h3 id="parameterized-components">Parameterized components</h3>
 <p>Components can have arguments &quot;preloaded&quot;. In practice, this means that calling <code>m.component(MyComponent, {foo: &quot;bar&quot;})</code> will return a component that behaves exactly the same as <code>MyComponent</code>, but <code>{foo: &quot;bar&quot;}</code> will be bound as an argument to both the <code>controller</code> and <code>view</code> functions.</p>
@@ -262,9 +280,9 @@ m.mount(document.body, App)
 </code></pre>
 <p>Components can be placed anywhere a regular element can. If you have components inside a sortable list, you should add <code>key</code> attributes to your components to ensure that DOM elements are not recreated from scratch, but merely moved when possible. Keys must be unique within a list of sibling DOM elements, and they must be either a string or a number:</p>
 <pre><code class="lang-javascript">var App = {
-    ctrl: function() {
+    controller: function() {
         return {data: [1, 2, 3]}
-    }
+    },
     view: function(ctrl) {
         return m(&quot;.app&quot;, [
             //pressing the button reverses the list
@@ -318,7 +336,7 @@ var TemperatureConverter = {
                 return value - 273.15
             },
             kelvinToFahrenheit: function(value) {
-                return (value 9 / 5 * (v - 273.15)) + 32
+                return (9 / 5 * (value - 273.15)) + 32
             }
         }
     },
@@ -397,21 +415,21 @@ m.render(document.body, ProjectList({key: people[1].id, value: people[1]})
 <li>when a new call to <code>m.mount</code> updates the root DOM element of the component in question</li>
 <li>when a route changes (if you are using <a href="mithril.route.html"><code>m.route</code></a>)</li>
 </ul>
-<p>To unload a component without loading another component, you can simply call <code>m.mount</code> with a <code>null</code> as the component parameter:</p>
+<p>To unload/unmount a component without loading another component, you can simply call <code>m.mount</code> with a <code>null</code> as the component parameter:</p>
 <pre><code class="lang-javascript">m.mount(rootElement, null);
 </code></pre>
 <p>Often, you will want to do some work before the component is unloaded (i.e. clear timers or unsubscribe event handlers):</p>
 <pre><code class="lang-javascript">var MyComponent = {
     controller: function() {
         return {
-            onunload = function() {
+            onunload: function() {
                 console.log(&quot;unloading my component&quot;);
             }
         }
     },
     view: function() {
         return m(&quot;div&quot;, &quot;test&quot;)
-    };
+    }
 };
 
 m.mount(document.body, MyComponent);
@@ -497,7 +515,7 @@ m.mount(document.body, MyApp)
 <ol>
 <li><p>Nested component views must return either a virtual element or another component. Returning an array, a string, a number, boolean, falsy value, etc will result in an error.</p>
 </li>
-<li><p>Nested components cannot change <code>m.redraw.strategy</code> from the controller constructor (but they can from event handlers). It&#39;s recommended that you use the <a href="mithril.html#persising-dom-elements-across-route-changes"><code>ctx.retain</code></a> flag instead of changing the redraw strategy in controller constructors.</p>
+<li><p>Nested components cannot change <code>m.redraw.strategy</code> from the controller constructor (but they can from event handlers). It&#39;s recommended that you use the <a href="mithril.html#persisting-dom-elements-across-route-changes"><code>ctx.retain</code></a> flag instead of changing the redraw strategy in controller constructors.</p>
 </li>
 <li><p>The root DOM element in a component&#39;s view must not be changed during the lifecycle of the component, otherwise undefined behavior will occur. In other words, don&#39;t do this:</p>
 <pre><code class="lang-javascript">var MyComponent = {

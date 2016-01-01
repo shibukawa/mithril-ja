@@ -14,7 +14,7 @@
 				<a href="mithril.html">API</a>
 				<a href="community.html">Community</a>
 				<a href="http://lhorie.github.io/mithril-blog">Learn</a>
-				<a href="mithril.min.zip">Download</a>
+				<a href="installation.html">Download</a>
 				<a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
 			</nav>
 		</header>
@@ -49,7 +49,7 @@
 							<h2 id="getting-started">Getting Started</h2>
 <h3 id="what-is-mithril-">What is Mithril?</h3>
 <p>Mithril is a client-side Javascript MVC framework, i.e. it&#39;s a tool to make application code divided into a data layer (called <strong>M</strong>odel), a UI layer (called <strong>V</strong>iew), and a glue layer (called <strong>C</strong>ontroller)</p>
-<p>Mithril is around 12kb gzipped thanks to its <a href="mithril.html">small, focused, API</a>. It provides a templating engine with a virtual DOM diff implementation for performant rendering, utilities for high-level modelling via functional composition, as well as support for routing and componentization.</p>
+<p>Mithril is around 7kb gzipped thanks to its <a href="mithril.html">small, focused, API</a>. It provides a templating engine with a virtual DOM diff implementation for performant rendering, utilities for high-level modelling via functional composition, as well as support for routing and componentization.</p>
 <p>The goal of the framework is to make application code discoverable, readable and maintainable, and hopefully help you become an even better developer.</p>
 <p>Unlike some frameworks, Mithril tries very hard to avoid locking you into a web of dependencies: you can use as <em>little</em> of the framework as you need.</p>
 <p>However, using its entire toolset idiomatically can bring lots of benefits: learning to use functional programming in real world scenarios and solidifying good coding practices for OOP and MVC are just some of them.</p>
@@ -68,7 +68,7 @@
 <h3 id="model">Model</h3>
 <p>In Mithril, an application typically lives in a namespace and contains components. Components are merely structures that represent a viewable &quot;page&quot; or a part of a page. In addition, an application can be organizationally divided into three major layers: Model, Controller and View.</p>
 <p>For simplicity, our application will have only one component, and we&#39;re going to use it as the namespace for our application.</p>
-<p>In Mithril, a <em>component</em> is an object that contains two functions: <code>controller</code> and <code>view</code>.</p>
+<p>In Mithril, a <em>component</em> is an object that contains a <code>view</code> function and optionally a <code>controller</code> function.</p>
 <pre><code>//an empty Mithril component
 var myComponent = {
     controller: function() {},
@@ -152,7 +152,7 @@ todo.vm = {
     }
 };
 </code></pre>
-<p>The code above defines a view-model object called <code>vm</code>. It is simply a javascript object that has a <code>init</code> function. This function initializes the <code>vm</code> object with three members: <code>list</code>, which is simply an array, <code>description</code>, which is an <code>m.prop</code> getter-setter function with an empty string as the initial value, and <code>add</code>, which is a method that adds a new Todo instance to <code>list</code> if an input description getter-setter is not an empty string.</p>
+<p>The code above defines a view-model object called <code>vm</code>. It is simply a javascript object that has an <code>init</code> function. This function initializes the <code>vm</code> object with three members: <code>list</code>, which is simply an array, <code>description</code>, which is an <code>m.prop</code> getter-setter function with an empty string as the initial value, and <code>add</code>, which is a method that adds a new Todo instance to <code>list</code> if an input description getter-setter is not an empty string.</p>
 <p>Later in this guide, we&#39;ll pass the <code>description</code> property as the parameter to this function. When we get there, I&#39;ll explain why we&#39;re passing description as an argument instead of simply using OOP-style member association.</p>
 <p>You can use the view-model like this:</p>
 <pre><code class="lang-javascript">//initialize our view-model
@@ -408,7 +408,8 @@ todo.view = function() {
 m.mount(document, {controller: todo.controller, view: todo.view});
 &lt;/script&gt;
 </code></pre>
-<p>This example is also available as a <a href="http://jsfiddle.net/milesmatthias/fbgypzbr/1/">jsFiddle</a>.</p>
+<p>This example is also available as a <a href="http://jsfiddle.net/fbgypzbr/16/">jsFiddle</a>.
+There is also <a href="http://jsfiddle.net/glebcha/q7tvLxsa/">Extended example</a> available on jsfiddle.</p>
 <hr>
 <h2 id="notes-on-architecture">Notes on Architecture</h2>
 <p>Idiomatic Mithril code is meant to apply good programming conventions and be easy to refactor.</p>

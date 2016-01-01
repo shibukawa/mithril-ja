@@ -14,7 +14,7 @@
 				<a href="mithril.html">API</a>
 				<a href="community.html">Community</a>
 				<a href="http://lhorie.github.io/mithril-blog">Learn</a>
-				<a href="mithril.min.zip">Download</a>
+				<a href="installation.html">Download</a>
 				<a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
 			</nav>
 		</header>
@@ -23,7 +23,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col(3,3,12)">
-							<h2 id="api">API (v0.2.0)</h2>
+							<h2 id="api">API (v0.2.2-rc.1)</h2>
 							<h3 id="core">Core</h3>
 							<ul>
 								<li><a href="mithril.html" title="A utility to create virtual elements">m</a></li>
@@ -92,6 +92,7 @@
 <li><a href="#svg">SVG</a></li>
 <li><a href="#dealing-with-focus">Dealing with focus</a></li>
 <li><a href="#dealing-with-sorting-and-deleting-in-lists">Dealing with sorting and deleting in lists</a></li>
+<li><a href="#component-shorthand">Component shorthand</a></li>
 <li><a href="#signature">Signature</a></li>
 <li><a href="#the-config-attribute">The <code>config</code> attribute</a></li>
 </ul>
@@ -159,7 +160,7 @@ m.render(document.body, [
                 m(&quot;a&quot;, {href: link.url}, link.title) 
             );
         })
-    ])
+    )
 ]);
 </code></pre>
 <p>yields:</p>
@@ -413,6 +414,25 @@ m(&quot;li&quot;, {class: selected ? &quot;active&quot; : &quot;&quot;})
 ]);
 </code></pre>
 <p>You should always use keys if you need to sort lists, remove items from them or splice them in any way.</p>
+<hr>
+<h3 id="component-shorthand">Component Shorthand</h3>
+<p>If the first argument to <code>m()</code> is a component, it acts as an alias of <code>m.component()</code></p>
+<pre><code class="lang-javascript">var MyComponent = {
+    controller: function() {
+        return {greeting: &quot;hello&quot;}
+    },
+    view: function(ctrl, args) {
+        return m(&quot;h1&quot;, ctrl.greeting + &quot; &quot; + args.data)
+    }
+}
+
+m.render(document.body, [
+    //the two lines below are equivalent
+    m(component, {data: &quot;world&quot;}),
+    m.component(component, {data: &quot;world&quot;})
+])
+</code></pre>
+<p>See <a href="mithril.component.html">components</a> for more information.</p>
 <hr>
 <h3 id="signature">Signature</h3>
 <p><a href="how-to-read-signatures.html">How to read signatures</a></p>

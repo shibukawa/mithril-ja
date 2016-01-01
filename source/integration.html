@@ -14,7 +14,7 @@
 				<a href="mithril.html">API</a>
 				<a href="community.html">Community</a>
 				<a href="http://lhorie.github.io/mithril-blog">Learn</a>
-				<a href="mithril.min.zip">Download</a>
+				<a href="installation.html">Download</a>
 				<a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
 			</nav>
 		</header>
@@ -50,80 +50,89 @@
 <p>Integration with third party libraries or vanilla javascript code can be achieved via the <a href="mithril.html#accessing-the-real-dom"><code>config</code> attribute of virtual elements</a>.</p>
 <p>It&#39;s recommended that you encapsulate integration code in a component or a helper function.</p>
 <p>The example below shows a simple component that integrates with the <a href="http://ivaynberg.github.io/select2/">select2 library</a>.</p>
-<pre><code class="lang-javascript">//Select2 component (assumes both jQuery and Select2 are included in the page)
-var Select2 = {
-    //this view implements select2&#39;s `&lt;select&gt;` progressive enhancement mode
-    view: function(ctrl) {
-        return m(&quot;select&quot;, {config: select2.config(ctrl)}, [
-            ctrl.data.map(function(item) {
-                return m(&quot;option&quot;, {value: item.id}, item.name)
+<pre><code class="lang-javascript">var Select2 = {
+    //    Returns a select box
+    view: function(ctrl, attrs) {
+        var selectedId = attrs.value().id;
+        //Create a Select2 progrssively enhanced SELECT element
+        return m(&quot;select&quot;, {config: Select2.config(attrs)}, [
+            attrs.data.map(function(item) {
+                var args = {value: item.id};
+                //    Set selected option
+                if(item.id == selectedId) {
+                    args.selected = &quot;selected&quot;;
+                }
+                return m(&quot;option&quot;, args, item.name);
             })
         ]);
+    },
+    /**
+    Select2 config factory. The params in this doc refer to properties of the `ctrl` argument
+    @param {Object} data - the data with which to populate the &lt;option&gt; list
+    @param {prop} value - the prop of the item in `data` that we want to select
+    @param {function(Object id)} onchange - the event handler to call when the selection changes.
+        `id` is the the same as `value`
+    */
+    //    Note: The config is never run server side.
+    config: function(ctrl) {
+        return function(element, isInitialized) {
+            if(typeof jQuery !== &#39;undefined&#39; &amp;&amp; typeof jQuery.fn.select2 !== &#39;undefined&#39;) {
+                var el = $(element);
+                if (!isInitialized) {
+                    el.select2()
+                        .on(&quot;change&quot;, function(e) {
+                            var id = el.select2(&quot;val&quot;);
+                            m.startComputation();
+                            //Set the value to the selected option
+                            ctrl.data.map(function(d){
+                                if(d.id == id) {
+                                    ctrl.value(d);
+                                }
+                            });
+
+                            if (typeof ctrl.onchange == &quot;function&quot;){
+                                ctrl.onchange(el.select2(&quot;val&quot;));
+                            }
+                            m.endComputation();
+                        });
+                }
+                el.val(ctrl.value().id).trigger(&quot;change&quot;);
+            } else {
+                console.warn(&#39;ERROR: You need jquery and Select2 in the page&#39;);    
+            }
+        };
     }
 };
 
-/**
-Select2 config factory. The params in this doc refer to properties of the `ctrl` argument
-@param {Object} data - the data with which to populate the &lt;option&gt; list
-@param {number} value - the id of the item in `data` that we want to select
-@param {function(Object id)} onchange - the event handler to call when the selection changes.
-    `id` is the the same as `value`
-*/
-Select2.config = function(ctrl) {
-    return function(element, isInitialized) {
-        var el = $(element);
-
-        if (!isInitialized) {
-            //set up select2 (only if not initialized already)
-            el.select2()
-                //this event handler updates the controller when the view changes
-                .on(&quot;change&quot;, function(e) {
-                    //integrate with the auto-redrawing system...
-                    m.startComputation();
-
-                    //...so that Mithril autoredraws the view after calling the controller callback
-                    if (typeof ctrl.onchange == &quot;function&quot;) ctrl.onchange(el.select2(&quot;val&quot;));
-
-                    m.endComputation();
-                    //end integration
-                });
-        }
-
-        //update the view with the latest controller value
-        el.select2(&quot;val&quot;, ctrl.value);
-    }
-}
-
-//end component
-
-
-
-//usage
 var Dashboard = {
     controller: function() {
-        //list of users to show
-        var data = [{id: 1, name: &quot;John&quot;}, {id: 2, name: &quot;Mary&quot;}, {id: 3, name: &quot;Jane&quot;}]
+        var ctrl = this,
+          //list of users to show
+          data = [
+            {id: 1, name: &quot;John&quot;}, 
+            {id: 2, name: &quot;Mary&quot;}, 
+            {id: 3, name: &quot;Seniqua&quot;}
+          ];
 
-        return {
-            data: data,
-
-            //select Mary
-            currentUser: data[1],
-
-            changeUser: function(id) {
-                console.log(id)
-            }
-        }
+        ctrl.data = data;
+        //  Has to use a prop for the current user
+        ctrl.currentUser = m.prop(data[1]);
+        ctrl.changeUser = function(id) {
+          console.log(id);
+        };
     },
 
     view: function(ctrl) {
         return m(&quot;div&quot;, [
             m(&quot;label&quot;, &quot;User:&quot;),
-            m.component(Select2, {data: ctrl.data, value: ctrl.currentUser.id, onchange: ctrl.changeUser})
+            m.component(Select2, {
+              data: ctrl.data, 
+              value: ctrl.currentUser, 
+              onchange: ctrl.changeUser
+            })
         ]);
     }
 };
-
 
 m.mount(document.body, Dashboard);
 </code></pre>

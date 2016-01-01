@@ -14,7 +14,7 @@
 				<a href="mithril.html">API</a>
 				<a href="community.html">Community</a>
 				<a href="http://lhorie.github.io/mithril-blog">Learn</a>
-				<a href="mithril.min.zip">Download</a>
+				<a href="installation.html">Download</a>
 				<a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
 			</nav>
 		</header>
@@ -47,8 +47,8 @@
 						</div>
 						<div class="col(9,9,12)">
 							<h2 id="web-services">Web Services</h2>
-<p>Mithril provides a high-level utility for working with web services, which allows writing asynchronous code relatively procedurally.</p>
-<p>It provides a number of useful features out of the box:</p>
+<p>Mithril allows writing asynchronous code in a procedural way through a high-level utility for working with web services.</p>
+<p>This utility provides a number of useful features out of the box:</p>
 <ul>
 <li>The ability to get an early reference to a container that will hold the asynchronous response</li>
 <li>The ability to queue operations to be performed after the asynchronous request completes</li>
@@ -66,7 +66,7 @@
 //i.e. users() //[{name: &quot;John&quot;}, {name: &quot;Mary&quot;}]
 </code></pre>
 <p>Note that this getter-setter holds an <em>undefined</em> value until the AJAX request completes. Attempting to unwrap its value early will likely result in errors.</p>
-<p>The returned getter-setter also implements the <a href="mithril.deferred.html">promise</a> interface (also known as a <em>thennable</em>): this is the mechanism you should always use to queue operations to be performed on the data from the web service.</p>
+<p>The returned getter-setter also implements the <a href="mithril.deferred.html">promise</a> interface (also known as a <em>thenable</em>): this is the mechanism you should always use to queue operations to be performed on the data from the web service.</p>
 <p>The simplest use case of this feature is to implement functional value assignment via <code>m.prop</code> (i.e. the same thing as above). You can bind a pre-existing getter-setter by passing it in as a parameter to a <code>.then</code> method:</p>
 <pre><code class="lang-javascript">var users = m.prop([]); //default value
 
@@ -81,8 +81,8 @@ var doSomething = function() { /*...*/ }
 
 m.request({method: &quot;GET&quot;, url: &quot;/user&quot;}).then(users).then(doSomething)
 </code></pre>
-<p>While both basic assignment syntax and thennable syntax can be used to the same effect, typically it&#39;s recommended that you use the assignment syntax in the first example whenever possible, as it&#39;s easier to read.</p>
-<p>The thennable mechanism is intended to be used in three ways:</p>
+<p>While both basic assignment syntax and thenable syntax can be used to the same effect, typically it&#39;s recommended that you use the assignment syntax in the first example whenever possible, as it&#39;s easier to read.</p>
+<p>The thenable mechanism is intended to be used in three ways:</p>
 <ul>
 <li>In the model layer: to process web service data in transformative ways (e.g. filtering a list based on a parameter that the web service doesn&#39;t support)</li>
 <li>In the controller layer: to bind redirection code upon a condition</li>
@@ -118,7 +118,7 @@ var controller = function() {
 }
 </code></pre>
 <h4 id="binding-errors">Binding errors</h4>
-<p>Mithril thennables take two functions as optional parameters: the first parameter is called if the web service request completes successfully. The second parameter is called if it completes with an error.</p>
+<p>Mithril thenables take two functions as optional parameters: the first parameter is called if the web service request completes successfully. The second parameter is called if it completes with an error.</p>
 <p>Error binding is meant to be done in the controller layer. Doing it in the model level is also possible, but generally leads to more code in order to connect all the dots.</p>
 <p>In the example below, we bind an error getter-setter to our previous controller so that the <code>error</code> variable gets populated if the server throws an error.</p>
 <pre><code class="lang-javascript">//controller

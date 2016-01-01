@@ -14,7 +14,7 @@
 				<a href="mithril.html">API</a>
 				<a href="community.html">Community</a>
 				<a href="http://lhorie.github.io/mithril-blog">Learn</a>
-				<a href="mithril.min.zip">Download</a>
+				<a href="installation.html">Download</a>
 				<a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
 			</nav>
 		</header>
@@ -23,7 +23,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col(3,3,12)">
-							<h2 id="api">API (v0.2.0)</h2>
+							<h2 id="api">API (v0.2.2-rc.1)</h2>
 							<h3 id="core">Core</h3>
 							<ul>
 								<li><a href="mithril.html" title="A utility to create virtual elements">m</a></li>
@@ -80,8 +80,29 @@
 						</div>
 						<div class="col(9,9,12)">
 							<h2 id="change-log">Change Log</h2>
+<p><a href="http://mithril.js.org/archive/v0.2.2-rc.1">v0.2.2-rc.1</a></p>
+<h3 id="bug-fixes-">Bug Fixes:</h3>
+<ul>
+<li>revert regressions from 0.2.1 refactor</li>
+<li>revert <code>finally</code> because it&#39;s not in the ES6 promise spec</li>
+</ul>
+<p><a href="http://mithril.js.org/archive/v0.2.1">v0.2.1</a></p>
+<h3 id="news-">News:</h3>
+<ul>
+<li>large refactor to take better advantage of Chrome js optimizations and improve source code readability (thanks to @isiahmeadows)</li>
+<li>added <code>catch</code> to promises</li>
+<li>improvements and fixes in the documentation and wiki</li>
+<li><code>m(component, ...args)</code> can now be used as a shorthand for <code>m.component(component, ...args)</code></li>
+</ul>
+<h3 id="bug-fixes-">Bug Fixes:</h3>
+<ul>
+<li>errors thrown from the exception monitor no longer freeze redrawing</li>
+<li>fix edge case with falsy keys</li>
+<li>fix controller prototype inheritance in component controllers</li>
+<li>fix return value of <code>parseQueryString</code> if input is empty string</li>
+</ul>
 <hr>
-<p><a href="/mithril/archive/v0.2.0">v0.2.0</a> - improved components</p>
+<p><a href="http://mithril.js.org/archive/v0.2.0">v0.2.0</a> - improved components</p>
 <h3 id="news-">News:</h3>
 <ul>
 <li>Mithril modules will be referred to as <em>components</em> from now on.</li>
@@ -100,13 +121,13 @@
 <li>fix support for arrays in template compiler</li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.34">v0.1.34</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.34">v0.1.34</a> - maintenance</p>
 <h3 id="bug-fixes-">Bug Fixes:</h3>
 <ul>
 <li>fix identity bug when mixing unkeyable elements in a tree <a href="https://github.com/lhorie/mithril.js/issues/524">#524</a></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.33">v0.1.33</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.33">v0.1.33</a> - maintenance</p>
 <h3 id="bug-fixes-">Bug Fixes:</h3>
 <ul>
 <li>fix diff bug when mixing <code>undefined</code> in a tree <a href="https://github.com/lhorie/mithril.js/issues/524">#524</a></li>
@@ -114,13 +135,13 @@
 <li>fix links in documentation</li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.32">v0.1.32</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.32">v0.1.32</a> - maintenance</p>
 <h3 id="bug-fixes-">Bug Fixes:</h3>
 <ul>
 <li>fix regression caused by <a href="https://github.com/lhorie/mithril.js/issues/454">#454</a></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.31">v0.1.31</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.31">v0.1.31</a> - maintenance</p>
 <h3 id="news-">News:</h3>
 <ul>
 <li>Typescript definitions are more strongly typed</li>
@@ -140,7 +161,7 @@
 <li>revert <a href="https://github.com/lhorie/mithril.js/issues/382">#382</a> due to diff regression <a href="https://github.com/lhorie/mithril.js/issues/512">#512</a></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.30">v0.1.30</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.30">v0.1.30</a> - maintenance</p>
 <h3 id="bug-fixes-">Bug Fixes:</h3>
 <ul>
 <li>fix history.back() regression <a href="https://github.com/lhorie/mithril.js/issues/435">#435</a></li>
@@ -148,7 +169,7 @@
 <li>fix array serialization syntax in querystrings <a href="https://github.com/lhorie/mithril.js/issues/440">#440</a></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.29">v0.1.29</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.29">v0.1.29</a> - maintenance</p>
 <h3 id="news-">News:</h3>
 <ul>
 <li>Calling m.module without a module now unloads the current one <a href="https://github.com/lhorie/mithril.js/issues/420">#420</a></li>
@@ -163,7 +184,7 @@
 <li>fix key association when DOM order is modified by external code <a href="https://github.com/lhorie/mithril.js/issues/424">#424</a></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.28">v0.1.28</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.28">v0.1.28</a> - maintenance</p>
 <h3 id="news-">News:</h3>
 <ul>
 <li>Landed some performance improvements</li>
@@ -173,7 +194,7 @@
 <li>throw error if root element is null in m.module/m.route <a href="https://github.com/lhorie/mithril.js/issues/388">#388</a></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.27">v0.1.27</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.27">v0.1.27</a> - maintenance</p>
 <h3 id="bug-fixes-">Bug Fixes:</h3>
 <ul>
 <li>prevent strategy(&quot;none&quot;) event contamination <a href="https://github.com/lhorie/mithril.js/issues/378">#378</a></li>
@@ -182,14 +203,14 @@
 <li>make sure empty value in option tag creates attribute <a href="https://github.com/lhorie/mithril.js/issues/380">#380</a></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.26">v0.1.26</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.26">v0.1.26</a> - maintenance</p>
 <h3 id="bug-fixes-">Bug Fixes:</h3>
 <ul>
 <li>make sure input[type] is CSS-targetable <a href="https://github.com/lhorie/mithril.js/issues/364">#364</a></li>
 <li>throw error if m.route.param is called before initializing routes <a href="https://github.com/lhorie/mithril.js/issues/361">#361</a></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.25">v0.1.25</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.25">v0.1.25</a> - maintenance</p>
 <h3 id="bug-fixes-">Bug Fixes:</h3>
 <ul>
 <li>fixed input cursor jumping regression</li>
@@ -198,14 +219,14 @@
 <li>prevented meaningless error in Chrome edge case <a href="https://github.com/lhorie/mithril.js/issues/358">#358</a></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.24">v0.1.24</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.24">v0.1.24</a> - maintenance</p>
 <h3 id="bug-fixes-">Bug Fixes:</h3>
 <ul>
 <li>Prevent rogue <code>is</code> attribute from being created in Chrome</li>
 <li>Fix <code>data</code> regression in <code>m.request</code></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.23">v0.1.23</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.23">v0.1.23</a> - maintenance</p>
 <h3 id="news-">News:</h3>
 <ul>
 <li>There&#39;s now support for extended custom elements (e.g. <code>m(&quot;button[is=my-button]&quot;)</code>)</li>
@@ -224,7 +245,7 @@
 <li>fixed handling of value in inputs when model value is not in sync with input value <a href="https://github.com/lhorie/mithril.js/issues/336">#336</a></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.22">v0.1.22</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.22">v0.1.22</a> - maintenance</p>
 <h3 id="news-">News:</h3>
 <ul>
 <li>docs now have anchor links for easier navigation</li>
@@ -246,7 +267,7 @@
 <li>don&#39;t send Content-Type header if there&#39;s no request data <a href="https://github.com/lhorie/mithril.js/issues/280">#280</a></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.21">v0.1.21</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.21">v0.1.21</a> - maintenance</p>
 <h3 id="news-">News:</h3>
 <ul>
 <li>passing a promise to an <code>m.prop</code> now populates it with the resolved value upon resolution, and returns <code>undefined</code> otherwise</li>
@@ -260,7 +281,7 @@
 <li>fixed handling on comments in HTML converter tool</li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.20">v0.1.20</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.20">v0.1.20</a> - maintenance</p>
 <h3 id="news-">News:</h3>
 <ul>
 <li>redraw strategy can now be modified via <code>m.redraw.strategy</code></li>
@@ -273,7 +294,7 @@
 <li>fixed <code>m.sync</code> resolution when passed an empty array <a href="https://github.com/lhorie/mithril.js/issues/191">#191</a></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.19">v0.1.19</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.19">v0.1.19</a> - maintenance</p>
 <h3 id="bug-fixes-">Bug Fixes:</h3>
 <ul>
 <li>fixed double redraw when events fire simultaneously <a href="https://github.com/lhorie/mithril.js/issues/151">#151</a></li>
@@ -283,14 +304,14 @@
 <li>fixed key ordering in interpolation case <a href="https://github.com/lhorie/mithril.js/issues/157">#157</a></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.18">v0.1.18</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.18">v0.1.18</a> - maintenance</p>
 <h3 id="bug-fixes-">Bug Fixes:</h3>
 <ul>
 <li>routing now correctly clears diff cache <a href="https://github.com/lhorie/mithril.js/issues/148">#148</a></li>
 <li>fixed incorrect context unloading when reattaching a child to a new parent</li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.17">v0.1.17</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.17">v0.1.17</a> - maintenance</p>
 <h3 id="news-">News:</h3>
 <ul>
 <li>config contexts can now have an <code>onunload</code> property for clean up tasks after elements are detached from the document</li>
@@ -306,7 +327,7 @@
 <li>pre-existing nodes in a root element now get cleared if there&#39;s no cell cache associated with the element <a href="https://github.com/lhorie/mithril.js/issues/60">#60</a></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.16">v0.1.16</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.16">v0.1.16</a> - maintenance</p>
 <h3 id="news-">News:</h3>
 <ul>
 <li>controller::onunload now receives an event parameter so that the unloading can be aborted <a href="https://github.com/lhorie/mithril.js/issues/135">#135</a></li>
@@ -328,7 +349,7 @@
 <li>Due to the poor level of compatibility between XDomainRequest and XHR2, XDomainRequest is no longer called internally by Mithril. If you need to use CORS in IE9 or lower, you will need to return an XDomainRequest instance from <code>m.request</code>&#39;s <code>config</code> method <a href="https://github.com/lhorie/mithril.js/issues/121">#121</a></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.15">v0.1.15</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.15">v0.1.15</a> - maintenance</p>
 <h3 id="bug-fixes-">Bug Fixes:</h3>
 <ul>
 <li><code>m.sync</code> now correctly passes arguments to resolver in same order as input arguments <a href="https://github.com/lhorie/mithril.js/issues/96">#96</a> </li>
@@ -336,7 +357,7 @@
 <li>updating textarea attributes updates its value correctly <a href="https://github.com/lhorie/mithril.js/issues/100">#100</a></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.14">v0.1.14</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.14">v0.1.14</a> - maintenance</p>
 <h3 id="news-">News:</h3>
 <ul>
 <li>The signature of <code>m</code> now accepts virtual elements as the second parameter of the function.</li>
@@ -352,7 +373,7 @@
 <li>HTTP error codes now correctly reject promises</li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.13">v0.1.13</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.13">v0.1.13</a> - maintenance</p>
 <h3 id="news-">News:</h3>
 <ul>
 <li>m.module now runs clean-up code in root module controllers that implement an <code>onunload</code> instance method <a href="https://github.com/lhorie/mithril.js/issues/82">#82</a></li>
@@ -362,7 +383,7 @@
 <li>Removing CSS rules now diffs correctly <a href="https://github.com/lhorie/mithril.js/issues/79">#79</a></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.12">v0.1.12</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.12">v0.1.12</a> - maintenance</p>
 <h3 id="news-">News:</h3>
 <ul>
 <li>It&#39;s now possible to define <a href="mithril.route.html#variadic-routes">variadic routes</a> <a href="https://github.com/lhorie/mithril.js/issues/70">#70</a></li>
@@ -374,7 +395,7 @@
 <li>Fixed URL decoding in route params <a href="https://github.com/lhorie/mithril.js/issues/75">#75</a></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.11">v0.1.11</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.11">v0.1.11</a> - maintenance</p>
 <h3 id="news-">News:</h3>
 <ul>
 <li>Added <code>m.route()</code> overload to allow reading of current route <a href="https://github.com/lhorie/mithril.js/issues/61">#61</a></li>
@@ -386,7 +407,7 @@
 <li>Fixed diff within contenteditable areas <a href="https://github.com/lhorie/mithril.js/issues/65">#65</a></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.10">v0.1.10</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.10">v0.1.10</a> - maintenance</p>
 <h3 id="news-">News:</h3>
 <ul>
 <li>Added social buttons to homepage</li>
@@ -396,7 +417,7 @@
 <li>Bi-directional bindings no longer wipe out cursor position in Chrome <a href="https://github.com/lhorie/mithril.js/issues/58">#58</a></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.9">v0.1.9</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.9">v0.1.9</a> - maintenance</p>
 <h3 id="news-">News:</h3>
 <ul>
 <li>Added comparison with React to homepage</li>
@@ -414,7 +435,7 @@
 <li>changing an id in a  virtual element now recreates the element, instead of recycling it <a href="https://github.com/lhorie/mithril.js/issues/55">#55</a></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.8">v0.1.8</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.8">v0.1.8</a> - maintenance</p>
 <h3 id="news-">News:</h3>
 <ul>
 <li>Mock now contains a basic <code>insertAdjacentHTML</code> implementation to enable better testing of <code>m.trust</code> / <code>m.render</code> interactions</li>
@@ -425,7 +446,7 @@
 <li>Fixed ordering bug with trusted strings <a href="https://github.com/lhorie/mithril.js/issues/51">#51</a></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.7">v0.1.7</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.7">v0.1.7</a> - maintenance</p>
 <h3 id="news-">News:</h3>
 <ul>
 <li>Mithril will be on a accelerated release cycle for the rest of the v0.1.x series. This means CDNs may lag behind in versions, so it&#39;s recommended that you either use one of the supported NodeJS package managers or fork from the Github repo directly. More information can be found <a href="https://groups.google.com/forum/#!msg/mithriljs/mc0qTgFTlgs/OD7Mc7_2Wa4J">here</a></li>
@@ -435,13 +456,13 @@
 <li>Fixed ordering bug when virtual element is preceded by array <a href="https://github.com/lhorie/mithril.js/issues/50">#50</a></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.6">v0.1.6</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.6">v0.1.6</a> - maintenance</p>
 <h3 id="bug-fixes-">Bug Fixes:</h3>
 <ul>
 <li>Fixed serious bug when mixing cached text nodes with new virtual elements <a href="https://github.com/lhorie/mithril.js/issues/49">#49</a></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.5">v0.1.5</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.5">v0.1.5</a> - maintenance</p>
 <h3 id="news-">News:</h3>
 <ul>
 <li>Launched the <a href="http://lhorie.github.io/mithril-blog">Mithril Blog</a></li>
@@ -451,7 +472,7 @@
 <li>Fixed serious ordering problem when mixing arrays with virtual elements <a href="https://github.com/lhorie/mithril.js/issues/48">#48</a></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.4">v0.1.4</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.4">v0.1.4</a> - maintenance</p>
 <h3 id="news-">News:</h3>
 <ul>
 <li>added regression tests for reported bugs</li>
@@ -466,7 +487,7 @@
 <li>fixed attribute update bug when an element has both <code>oninput</code> and <code>onkeydown</code> handlers <a href="https://github.com/lhorie/mithril.js/issues/36">#36</a></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.3">v0.1.3</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.3">v0.1.3</a> - maintenance</p>
 <h3 id="news-">News:</h3>
 <ul>
 <li>Mithril is now available via <a href="http://component.io">Component</a></li>
@@ -479,7 +500,7 @@
 <li>diff now correctly clears subtree if null or undefined is passed as a node</li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.2">v0.1.2</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.2">v0.1.2</a> - maintenance</p>
 <h3 id="news-">News:</h3>
 <ul>
 <li>There&#39;s now a <a href="mailto:mithriljs@googlegroups.com">community mailing list</a>. There&#39;s also a <a href="https://groups.google.com/forum/#!forum/mithriljs">web interface</a></li>
@@ -493,10 +514,10 @@
 <li>UI actions that can potentially de-synchronize the DOM from cache now force synchronization <a href="https://github.com/lhorie/mithril.js/issues/29">#29</a></li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1.1">v0.1.1</a> - maintenance</p>
+<p><a href="http://mithril.js.org/archive/v0.1.1">v0.1.1</a> - maintenance</p>
 <h3 id="news-">News:</h3>
 <ul>
-<li>Mithril is now available at <a href="http://cdnjs.com/libraries/mithril/">cdnjs</a> and <a href="http://www.jsdelivr.com/#!mithril">jsdelivr</a></li>
+<li>Mithril is now available at <a href="http://cdnjs.com/librarieshttp://mithril.js.org/">cdnjs</a> and <a href="http://www.jsdelivr.com/#!mithril">jsdelivr</a></li>
 </ul>
 <h3 id="bug-fixes-">Bug Fixes:</h3>
 <ul>
@@ -515,7 +536,7 @@ m.request({method: &quot;GET&quot;, url: &quot;http://foo.com/api&quot;, config:
 </li>
 </ul>
 <hr>
-<p><a href="/mithril/archive/v0.1">v0.1</a> - Initial release</p>
+<p><a href="http://mithril.js.org/archive/v0.1">v0.1</a> - Initial release</p>
 
 						</div>
 					</div>

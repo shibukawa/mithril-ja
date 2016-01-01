@@ -14,7 +14,7 @@
 				<a href="mithril.html">API</a>
 				<a href="community.html">Community</a>
 				<a href="http://lhorie.github.io/mithril-blog">Learn</a>
-				<a href="mithril.min.zip">Download</a>
+				<a href="installation.html">Download</a>
 				<a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
 			</nav>
 		</header>
@@ -23,7 +23,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col(3,3,12)">
-							<h2 id="api">API (v0.2.0)</h2>
+							<h2 id="api">API (v0.2.2-rc.1)</h2>
 							<h3 id="core">Core</h3>
 							<ul>
 								<li><a href="mithril.html" title="A utility to create virtual elements">m</a></li>
@@ -181,7 +181,7 @@ m.route(document.body, &quot;/foo&quot;, {
 </li>
 </ul>
 <p>Note that the redraw strategy is a global setting that affects the entire template trees of all components on the page. In order to prevent redraws in <em>some parts</em> of an application, but not others, see <a href="mithril.render.html#subtree-directives">subtree directives</a></p>
-<p>You can also configure individual elements to always be diffed, instead of recreated from scratch (even across route changes), by using the <a href="mithril.html#persising-dom-elements-across-route-changes"><code>ctx.retain</code> flag</a>. If you need to persist DOM state across route changes, it&#39;s recommended that you use the <code>ctx.retain</code> flag instead of <code>m.redraw.strategy(&quot;diff&quot;)</code>.</p>
+<p>You can also configure individual elements to always be diffed, instead of recreated from scratch (even across route changes), by using the <a href="mithril.html#persisting-dom-elements-across-route-changes"><code>ctx.retain</code> flag</a>. If you need to persist DOM state across route changes, it&#39;s recommended that you use the <code>ctx.retain</code> flag instead of <code>m.redraw.strategy(&quot;diff&quot;)</code>.</p>
 <hr>
 <h3 id="preventing-redraws-on-events">Preventing redraws on events</h3>
 <p>Sometimes you only care about a particular condition in an event and want the event to not trigger a redraw if this condition is not met. 
