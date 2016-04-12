@@ -18,7 +18,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col(3,3,12)">
-							<h2 id="api">API (v0.2.2-rc.1)</h2>
+							<h2 id="api">API (v0.2.3)</h2>
 							<h3 id="core">コア</h3>
 							<ul>
 								<li><a href="mithril.html" title="仮想エレメントを作るためのユーティリティ">m</a></li>
@@ -84,7 +84,7 @@
 <li><a href="#signature">シグニチャ</a></li>
 </ul>
 <hr>
-<p>現在のアクティブなコンポーネントのビューの再描画を行います。コンポーネントのアクティベートには、<a href="mithril.mount.html"><code>m.mount()</code></a>か、<a href="mithril.route.html"><code>m.route()</code></a>を使ってください。</p>
+<p>Redraws the view. コンポーネントのアクティベートには、<a href="mithril.mount.html"><code>m.mount()</code></a>か、<a href="mithril.route.html"><code>m.route()</code></a>を使ってください。</p>
 <p><code>m.redraw</code>を呼ぶと、AJAXリクエストや他の非同期サービスが完了しているかどうかに関わらず、再描画処理を起動します。そのため、強制再描画時に、未初期化の変数アクセスが発生しないようにテンプレートでのnullチェックを確実に行うようにしてください。</p>
 <p>もし非同期のモデルレベルのサービスを開発しているとします。コードが実行されていても、Mithrilがビューを更新しないことに気づきました。この場合は、<a href="mithril.computation.html"><code>m.startComputation</code>と<code>m.endComputation</code></a>を呼んで、Mithrilの自動再描画システムと統合します。</p>
 <p>テンプレートでは適切にnullチェックが行われていると仮定すると、<code>m.redraw</code>はローディングのインジケータ表示したり、 <code>offsetWidth</code>や<code>scrollHeight</code>の値を元にDOMの状態を変更しにいく時には便利です。</p>

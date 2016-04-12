@@ -1,6 +1,6 @@
 {
     "name": "mithril",
-    "version": "0.2.2-rc.1",
+    "version": "0.2.3",
     "main": "mithril.min.js",
     "description": "A Javascript Framework for building brilliant applications",
     "authors": ["Leo Horie <lhorie@hotmail.com>"],

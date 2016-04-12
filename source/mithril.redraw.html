@@ -23,7 +23,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col(3,3,12)">
-							<h2 id="api">API (v0.2.2-rc.1)</h2>
+							<h2 id="api">API (v0.2.3)</h2>
 							<h3 id="core">Core</h3>
 							<ul>
 								<li><a href="mithril.html" title="A utility to create virtual elements">m</a></li>
@@ -89,7 +89,7 @@
 <li><a href="#signature">Signature</a></li>
 </ul>
 <hr>
-<p>Redraws the view for the currently active component. Use <a href="mithril.mount.html"><code>m.mount()</code></a> or <a href="mithril.route.html"><code>m.route()</code></a> to activate a component.</p>
+<p>Redraws the view. Use <a href="mithril.mount.html"><code>m.mount()</code></a> or <a href="mithril.route.html"><code>m.route()</code></a> to activate a component.</p>
 <p>Calling <code>m.redraw</code> triggers a redraw regardless of whether AJAX requests (and other asynchronous services) are completed. Therefore, you should ensure that templates have null checks in place to account for the possibility of variables being uninitialized when the forced redraw occurs.</p>
 <p>If you are developing an asynchronous model-level service and finding that Mithril is not redrawing the view after your code runs, you should consider using <a href="mithril.computation.html"><code>m.startComputation</code> and <code>m.endComputation</code></a> to integrate with Mithril&#39;s auto-redrawing system instead.</p>
 <p>Assuming your templates have appropriate null checks in place, <code>m.redraw</code> is useful for transient DOM state such as loading indicators and to commit state to the DOM for the purposes of reading back computed values (for example, <code>offsetWidth</code> or <code>scrollHeight</code>)</p>

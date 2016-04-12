@@ -23,7 +23,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col(3,3,12)">
-							<h2 id="api">API (v0.2.2-rc.1)</h2>
+							<h2 id="api">API (v0.2.3)</h2>
 							<h3 id="core">Core</h3>
 							<ul>
 								<li><a href="mithril.html" title="A utility to create virtual elements">m</a></li>
@@ -120,7 +120,7 @@
 
 m.mount(document.body, MyComponent) // renders &lt;h1&gt;Hello&lt;/h1&gt; into &lt;body&gt;
 </code></pre>
-<p>The optional <code>controller</code> function creates an object that may be used in the following recommended ways: </p>
+<p>The optional <code>controller</code> function creates an object that may be used in the following recommended ways:</p>
 <ul>
 <li>It can contain methods meant to be called by a <code>view</code>.</li>
 <li>It can call model methods directly or from methods inside the resulting object.</li>
@@ -220,8 +220,8 @@ m.mount(document.body, MyComponent) // renders &lt;h1&gt;Hello&lt;/h1&gt;
 
 m.render(document.body, [
     //the two lines below are equivalent
-    m(component, {data: &quot;world&quot;}),
-    m.component(component, {data: &quot;world&quot;})
+    m(MyComponent, {data: &quot;world&quot;}),
+    m.component(MyComponent, {data: &quot;world&quot;})
 ])
 </code></pre>
 <hr>
@@ -357,12 +357,12 @@ var ctrl = new TemperatureConverter.controller();
 assert(ctrl.kelvinToCelsius(273.15) == 0)
 
 //test the template
-var tpl = TemperatureConverter.view(null, {value: 273.15})
+var tpl = TemperatureConverter.view(ctrl, {value: 273.15})
 assert(tpl.children[1] == 0)
 
 //test with real DOM
 var testRoot = document.createElement(&quot;div&quot;)
-m.render(testRoot, TemperatureConverter.view(null, {value: 273.15}))
+m.render(testRoot, TemperatureConverter.view(ctrl, {value: 273.15}))
 assert(testRoot.innerHTML.indexOf(&quot;celsius:0&quot;) &gt; -1)
 </code></pre>
 <p>Note that the sample component above is illustrative. Ideally, temperature conversion functions (and any functions that deal strictly within the domain of the data) should go in the model layer, not in a component&#39;s controller.</p>
@@ -382,7 +382,7 @@ assert(testRoot.innerHTML.indexOf(&quot;celsius:0&quot;) &gt; -1)
     },
     view: function(ctrl) {
         return m(&quot;ul&quot;, [
-            ctrl.things().map(function(name) {
+            ctrl.things().map(function(thing) {
                 return m(&quot;li&quot;, thing.name)
             })
         ]);
@@ -558,7 +558,7 @@ where:
 </code></pre>
 <ul>
 <li><p><strong>Component component</strong></p>
-<p>A component is supposed to be an Object with two keys: <code>controller</code> and <code>view</code>. Each of these should point to a Javascript function. If a contoller is not specified, Mithril will automatically create an empty controller function.</p>
+<p>A component is supposed to be an Object with two keys: <code>controller</code> and <code>view</code>. Each of these should point to a Javascript function. If a controller is not specified, Mithril will automatically create an empty controller function.</p>
 </li>
 <li><p><strong>Object attributes</strong></p>
 <p>A key/value map of attributes that gets bound as an argument to both the <code>controller</code> and <code>view</code> functions of the component.</p>

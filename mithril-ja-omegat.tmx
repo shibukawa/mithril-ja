@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tmx SYSTEM "tmx11.dtd">
 <tmx version="1.1">
-  <header creationtool="OmegaT" o-tmf="OmegaT TMX" adminlang="EN-US" datatype="plaintext" creationtoolversion="3.5.3_0_r8005" segtype="sentence" srclang="EN-US"/>
+  <header creationtool="OmegaT" o-tmf="OmegaT TMX" adminlang="EN-US" datatype="plaintext" creationtoolversion="3.6.0_1_r8695:8697" segtype="sentence" srclang="EN-US"/>
   <body>
 <!-- Default translations -->
     <tu>
@@ -955,26 +955,26 @@ var ctrl = new TemperatureConverter.controller();
 assert(ctrl.kelvinToCelsius(273.15) == 0)
 
 //test the template
-var tpl = TemperatureConverter.view(null, {value: 273.15})
+var tpl = TemperatureConverter.view(ctrl, {value: 273.15})
 assert(tpl.children[1] == 0)
 
 //test with real DOM
 var testRoot = document.createElement("div")
-m.render(testRoot, TemperatureConverter.view(null, {value: 273.15}))
+m.render(testRoot, TemperatureConverter.view(ctrl, {value: 273.15}))
 assert(testRoot.innerHTML.indexOf("celsius:0") &gt; -1)</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T081642Z" creationid="shibukawa.yoshiki" creationdate="20150502T081557Z">
-        <seg>//controller内の変換関数のテスト
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T142610Z" creationid="shibukawa.yoshiki" creationdate="20160412T142535Z">
+        <seg>//コントローラのtransformation関数のテスト
 var ctrl = new TemperatureConverter.controller();
 assert(ctrl.kelvinToCelsius(273.15) == 0)
 
 //テンプレートのテスト
-var tpl = TemperatureConverter.view(null, {value: 273.15})
+var tpl = TemperatureConverter.view(ctrl, {value: 273.15})
 assert(tpl.children[1] == 0)
 
-//実際のDOMのテスト
+//実際のDOMを使ったテスト
 var testRoot = document.createElement("div")
-m.render(testRoot, TemperatureConverter.view(null, {value: 273.15}))
+m.render(testRoot, TemperatureConverter.view(ctrl, {value: 273.15}))
 assert(testRoot.innerHTML.indexOf("celsius:0") &gt; -1)</seg>
       </tuv>
     </tu>
@@ -1212,6 +1212,14 @@ todo.Todo = function(data) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;a0&gt;Bower&lt;/a0&gt; is a frontend package manager built in &lt;a1&gt;NodeJS&lt;/a1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T142356Z" creationid="shibukawa.yoshiki" creationdate="20160412T142356Z">
+        <seg>&lt;a0&gt;Bower&lt;/a0&gt;は&lt;a1&gt;NodeJS&lt;/a1&gt;で作成されたパッケージマネージャです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;a0&gt;Component&lt;/a0&gt; is another package manager for &lt;a1&gt;NodeJS&lt;/a1&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T235559Z" creationid="shibukawa.yoshiki" creationdate="20150407T235559Z">
@@ -1228,10 +1236,10 @@ todo.Todo = function(data) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>&lt;a0&gt;Guide&lt;/a0&gt; &lt;a1&gt;Download v0.2.2-rc.1&lt;/a1&gt;</seg>
+        <seg>&lt;a0&gt;Guide&lt;/a0&gt; &lt;a1&gt;Download v0.2.3&lt;/a1&gt;</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T115817Z" creationid="shibukawa.yoshiki" creationdate="20160101T115817Z">
-        <seg>&lt;a0&gt;ガイド&lt;/a0&gt; &lt;a1&gt;v0.2.2-rc.1のダウンロード&lt;/a1&gt;</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T144517Z" creationid="shibukawa.yoshiki" creationdate="20160412T144517Z">
+        <seg>&lt;a0&gt;ガイド&lt;/a0&gt; &lt;a1&gt;ダウンロード v0.2.3&lt;/a1&gt;</seg>
       </tuv>
     </tu>
     <tu>
@@ -1240,6 +1248,14 @@ todo.Todo = function(data) {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T135001Z" creationid="shibukawa.yoshiki" creationdate="20150407T135001Z">
         <seg>&lt;a0&gt;より詳しい説明&lt;/a0&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;a0&gt;v0.2.0&lt;/a0&gt; - improved components</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T140707Z" creationid="shibukawa.yoshiki" creationdate="20160412T140707Z">
+        <seg>&lt;a0&gt;v0.2.0&lt;/a0&gt; - コンポーネントの改善</seg>
       </tuv>
     </tu>
     <tu>
@@ -1344,6 +1360,22 @@ todo.Todo = function(data) {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150410T005129Z" creationid="shibukawa.yoshiki" creationdate="20150410T005129Z">
         <seg>&lt;c0&gt;hash&lt;/c0&gt;モードはハッシュを使います。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;c0&gt;m(component, ...args)&lt;/c0&gt; can now be used as a shorthand for &lt;c1&gt;m.component(component, ...args)&lt;/c1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T140251Z" creationid="shibukawa.yoshiki" creationdate="20160412T140251Z">
+        <seg>&lt;c0&gt;m(component, ...args)&lt;/c0&gt;を&lt;c1&gt;m.component(component, ...args)&lt;/c1&gt;の短縮形として使えるようになった。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;c0&gt;m.module&lt;/c0&gt; has been renamed &lt;c1&gt;m.mount&lt;/c1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T140924Z" creationid="shibukawa.yoshiki" creationdate="20160412T140924Z">
+        <seg>&lt;c0&gt;m.module&lt;/c0&gt;は&lt;c1&gt;m.mount&lt;/c1&gt;へとリネームされた。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1958,6 +1990,14 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Absolute (e.g. Jan 1, 1970 12:00 AM)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T143449Z" creationid="shibukawa.yoshiki" creationdate="20160412T143449Z">
+        <seg>絶対 (例 Jan 1, 1970 12:00 AM)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Accessing the real DOM element</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T234151Z" creationid="shibukawa.yoshiki" creationdate="20150412T234151Z">
@@ -2246,6 +2286,14 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Animation</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T143306Z" creationid="shibukawa.yoshiki" creationdate="20160412T143306Z">
+        <seg>アニメーション</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Another difference is that Mithril, being an MVC framework, rather than a templating engine, provides an auto-redrawing system that is aware of network asynchrony and that can render views efficiently without cluttering application code with redraw calls, and without letting the developer unintentionally bleed out of the MVC pattern.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150420T105303Z" creationid="shibukawa.yoshiki" creationdate="20150420T105303Z">
@@ -2510,6 +2558,14 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Autocompleter</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T143311Z" creationid="shibukawa.yoshiki" creationdate="20160412T143311Z">
+        <seg>自動補完</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Automatic HTML-to-Mithril Template Converter</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150417T013614Z" creationid="shibukawa.yoshiki" creationdate="20150417T013614Z">
@@ -2658,6 +2714,14 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T014634Z" creationid="shibukawa.yoshiki" creationdate="20150416T014634Z">
         <seg>しかし、ブラウザが非同期でスクリプトの実行を行うポイントがいくつかあります。&lt;c2&gt;&lt;img&gt;&lt;/c2&gt;と&lt;c3&gt;&lt;iframe&gt;&lt;/c3&gt;に含まれる&lt;c0&gt;onload&lt;/c0&gt;、&lt;c1&gt;onerror&lt;/c1&gt;属性などです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Bug Fixes:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T135158Z" creationid="shibukawa.yoshiki" creationdate="20160412T135158Z">
+        <seg>バグ修正:</seg>
       </tuv>
     </tu>
     <tu>
@@ -2874,6 +2938,14 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T130115Z" creationid="shibukawa.yoshiki" creationdate="20150502T130115Z">
         <seg>&lt;c0&gt;m.redraw&lt;/c0&gt;を呼ぶと、AJAXリクエストや他の非同期サービスが完了しているかどうかに関わらず、再描画処理を起動します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Calling &lt;c2&gt;m.module&lt;/c2&gt; will still work, but should be considered deprecated.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T140955Z" creationid="shibukawa.yoshiki" creationdate="20160412T140955Z">
+        <seg>&lt;c2&gt;m.module&lt;/c2&gt;呼び出しはまだ動作するが、非推奨になった。</seg>
       </tuv>
     </tu>
     <tu>
@@ -3102,6 +3174,14 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Components can now be parameterized via &lt;c0&gt;m.component&lt;/c0&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T140903Z" creationid="shibukawa.yoshiki" creationdate="20160412T140903Z">
+        <seg>コンポーネントは&lt;c0&gt;m.component&lt;/c0&gt;を使ってパラメータ化することができるようになった。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Components that are nested inside other components can also call &lt;c0&gt;onunload&lt;/c0&gt; and its &lt;c1&gt;e.preventDefault()&lt;/c1&gt; like top-level components.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T092543Z" creationid="shibukawa.yoshiki" creationdate="20150502T092510Z">
@@ -3222,6 +3302,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Currency (e.g. $1,000.00)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T143516Z" creationid="shibukawa.yoshiki" creationdate="20160412T143516Z">
+        <seg>通貨 (例 $1,000.00)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Custom request rejections</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T174633Z" creationid="shibukawa.yoshiki" creationdate="20150414T174633Z">
@@ -3298,6 +3386,22 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T050634Z" creationid="shibukawa.yoshiki" creationdate="20150502T050634Z">
         <seg>データ駆動コンポーネントの同一性</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Date</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T143442Z" creationid="shibukawa.yoshiki" creationdate="20160412T143442Z">
+        <seg>日付</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Date/time picker</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T143318Z" creationid="shibukawa.yoshiki" creationdate="20160412T143318Z">
+        <seg>日付/時間のピッカー</seg>
       </tuv>
     </tu>
     <tu>
@@ -3402,6 +3506,22 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T034741Z" creationid="shibukawa.yoshiki" creationdate="20150502T034741Z">
         <seg>デモ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Dependency management</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T143527Z" creationid="shibukawa.yoshiki" creationdate="20160412T143527Z">
+        <seg>依存性マネジメント</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Deprecations:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T140911Z" creationid="shibukawa.yoshiki" creationdate="20160412T140911Z">
+        <seg>非推奨化</seg>
       </tuv>
     </tu>
     <tu>
@@ -3910,6 +4030,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Formatters / parsers</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T143437Z" creationid="shibukawa.yoshiki" creationdate="20160412T143437Z">
+        <seg>フォーマッタ/パーサ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Fortunately, bindings can also be &lt;s0&gt;bi-directional&lt;/s0&gt;: that is, they can be coded in such a way that, in addition to setting the DOM value, it's also possible to read it as a user types, and then update the &lt;c1&gt;description&lt;/c1&gt; getter-setter in the view-model.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150506T110549Z" creationid="shibukawa.yoshiki" creationdate="20150408T020207Z">
@@ -3930,6 +4058,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150417T114752Z" creationid="shibukawa.yoshiki" creationdate="20150417T114752Z">
         <seg>Mithrilのビルドシステムは、過去のバージョンのコードとドキュメントをすべてアーカイブします。過去のバージョンの情報がなくて困ることもありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Functional / relational tools</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T143354Z" creationid="shibukawa.yoshiki" creationdate="20160412T143354Z">
+        <seg>関数型 / リレーショナル関連のツール</seg>
       </tuv>
     </tu>
     <tu>
@@ -4310,6 +4446,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>IMPORTANT NOTE: Due to some unfortunate factors, 0.2.1 is not a stable release.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T135636Z" creationid="shibukawa.yoshiki" creationdate="20160412T135636Z">
+        <seg>重要なメモ: 不幸なリファクタリングにより、0.2.1は安定バージョンではありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Ideally, temperature conversion functions (and any functions that deal strictly within the domain of the data) should go in the model layer, not in a component's controller.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T081933Z" creationid="shibukawa.yoshiki" creationdate="20150502T081933Z">
@@ -4354,14 +4498,6 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T100058Z" creationid="shibukawa.yoshiki" creationdate="20150502T100058Z">
         <seg>初回レンダリング時に、コンポーネントのルートのエレメントがサブツリーディレクティブを返した場合は未定義の動作になります。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
-        <seg>If a contoller is not specified, Mithril will automatically create an empty controller function.</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T100517Z" creationid="shibukawa.yoshiki" creationdate="20150502T100517Z">
-        <seg>もしコントローラが指定されなければ、Mithrilは自動的に空のコントローラ関数を作成します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4494,6 +4630,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If the &lt;c2&gt;controller&lt;/c2&gt; is omitted, Mithril will provide one, pointing to an empty function.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T142918Z" creationid="shibukawa.yoshiki" creationdate="20160412T142918Z">
+        <seg>もしコントローラが省略されると、Mithrilは自動的に空のコントローラ関数を補完します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If the URL is not in the same domain as the application, the target server must be configured to accept cross-domain requests from the application's domain, i.e. its responses must include the header &lt;c0&gt;Access-Control-Allow-Origin: *&lt;/c0&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150415T002310Z" creationid="shibukawa.yoshiki" creationdate="20150415T002310Z">
@@ -4578,6 +4722,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150415T013825Z" creationid="shibukawa.yoshiki" creationdate="20150415T013825Z">
         <seg>もしこのパラメータがfalxyな値だった時は、デシリアライズされたデータはそのまま渡されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you already have your HTML written and want to convert it into a Mithril template, paste the HTML below and press the "Convert" button.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T143948Z" creationid="shibukawa.yoshiki" creationdate="20160412T143948Z">
+        <seg>もしすでにHTMLを作成済みで、それをMithirlのテンプレートに変換したい場合は、HTMLを下に貼り付けて"Convert"ボタンを押してください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5226,6 +5378,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T004625Z" creationid="shibukawa.yoshiki" creationdate="20150412T004625Z">
         <seg>自明でない非同期処理のコードとMithrilの自動再描画システムを統合するときには、確実にすべてのスレッドで&lt;c0&gt;m.startComputation&lt;/c0&gt; / &lt;c1&gt;m.endComputation&lt;/c1&gt;を呼び出す必要があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In order to migrate, search for &lt;c0&gt;m.module&lt;/c0&gt; calls and replace them with &lt;c1&gt;m.mount&lt;/c1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T141350Z" creationid="shibukawa.yoshiki" creationdate="20160412T141350Z">
+        <seg>移行する場合は、&lt;c0&gt;m.module&lt;/c0&gt;呼び出しを探しだして、&lt;c1&gt;m.mount&lt;/c1&gt;にリネームすること。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6654,10 +6814,10 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>Mithril is around 7kb gzipped thanks to its &lt;a0&gt;small, focused, API&lt;/a0&gt;.</seg>
+        <seg>Mithril is around 7.8 kB gzipped thanks to its &lt;a0&gt;small, focused, API&lt;/a0&gt;.</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T115447Z" creationid="shibukawa.yoshiki" creationdate="20160101T115447Z">
-        <seg>&lt;a0&gt;小さく、ムダのないAPI&lt;/a0&gt;のおかげで、Mithrilはgzipされた状態でたったの7kbしかありません。</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T142237Z" creationid="shibukawa.yoshiki" creationdate="20160412T142237Z">
+        <seg>&lt;a0&gt;小さく、ムダのないAPI&lt;/a0&gt;のおかげで、Mithrilはgzipされた状態でたったの7.8kbしかありません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6674,6 +6834,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150411T183448Z" creationid="shibukawa.yoshiki" creationdate="20150411T183448Z">
         <seg>Mithrilは、データは常にモデルからビューに流れる、という原則のもとに設計されています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Mithril modules will be referred to as &lt;e0&gt;components&lt;/e0&gt; from now on.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T140802Z" creationid="shibukawa.yoshiki" creationdate="20160412T140802Z">
+        <seg>Mithrilモジュールは今から&lt;e0&gt;コンポーネント&lt;/e0&gt;と呼ばれるようになった。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6962,6 +7130,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T050545Z" creationid="shibukawa.yoshiki" creationdate="20150502T050545Z">
         <seg>コンポーネントのネスト</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>News:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T135659Z" creationid="shibukawa.yoshiki" creationdate="20160412T135659Z">
+        <seg>ニュース:</seg>
       </tuv>
     </tu>
     <tu>
@@ -7334,6 +7510,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Number (e.g. 1,234.5)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T143506Z" creationid="shibukawa.yoshiki" creationdate="20160412T143506Z">
+        <seg>数値 (例 1,234.5)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Often, web services return the relevant data wrapped in objects that contain metadata.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150410T174025Z" creationid="shibukawa.yoshiki" creationdate="20150410T174025Z">
@@ -7470,10 +7654,10 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>One of the most obvious differences between Mithril and most frameworks is in file size: Mithril is around 7kb gzipped and has no dependencies on other libraries.</seg>
+        <seg>One of the most obvious differences between Mithril and most frameworks is in file size: Mithril is around 7.8 kB gzipped and has no dependencies on other libraries.</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T141700Z" creationid="shibukawa.yoshiki" creationdate="20160101T141700Z">
-        <seg>Mithrilと他のフレームワークの違いの中で、もっとも分かりやすいものはファイルサイズです。Mithrilはgzip圧縮された状態で7kb前後で、他のライブラリへの依存もありません。</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T141537Z" creationid="shibukawa.yoshiki" creationdate="20160412T141537Z">
+        <seg>Mithrilと他のフレームワークの違いの中で、もっとも分かりやすいものはファイルサイズです。Mithrilはgzip圧縮された状態で7.8kb前後で、他のライブラリへの依存もありません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7522,6 +7706,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T000307Z" creationid="shibukawa.yoshiki" creationdate="20150502T000307Z">
         <seg>コンポーネントの組み立て方の１つの例としては、コンポーネントのパラメータリストを使ってデータを下流に流すと共に、モデルレイヤとのインタフェースとなっている中心のモジュールまでバブリングしてデータを上流に戻すイベントを定義するというものです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Only 7.8 kB gzipped, no dependencies</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T144538Z" creationid="shibukawa.yoshiki" creationdate="20160412T144538Z">
+        <seg>gzip圧縮時でたったの7.8KBで、他への依存がない</seg>
       </tuv>
     </tu>
     <tu>
@@ -7662,6 +7854,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Please use either 0.2.0 or latest instead</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T135651Z" creationid="shibukawa.yoshiki" creationdate="20160412T135651Z">
+        <seg>0.2.1、もしくは最新版を使用してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Post questions and discuss Mithril related topics.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T135754Z" creationid="shibukawa.yoshiki" creationdate="20150407T135754Z">
@@ -7714,6 +7914,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T174524Z" creationid="shibukawa.yoshiki" creationdate="20150414T174524Z">
         <seg>操作のキューイング</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Rationale: Mithril modules and components are the same thing, therefore from now on, they will be referred to as components, since that name is more descriptive of their purpose, and causes less confusion in the face of ES6 modules.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T141319Z" creationid="shibukawa.yoshiki" creationdate="20160412T141319Z">
+        <seg>理由: Mithrilのモジュールとコンポーネントは結果として同じものとなったため、今後はコンポーネントと呼称することになった。コンポーネントのという名前の方が目的を明確に伝えることが出来、ES6のモジュールと混乱することが減るためである。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7798,14 +8006,6 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
-        <seg>Redraws the view for the currently active component.</seg>
-      </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T125933Z" creationid="shibukawa.yoshiki" creationdate="20150502T125933Z">
-        <seg>現在のアクティブなコンポーネントのビューの再描画を行います。</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN-US">
         <seg>Refer to the &lt;a3&gt;&lt;c4&gt;auto-redrawing&lt;/c4&gt;&lt;/a3&gt; guide for an example.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T135018Z" creationid="shibukawa.yoshiki" creationdate="20150412T135018Z">
@@ -7818,6 +8018,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T094358Z" creationid="shibukawa.yoshiki" creationdate="20150502T094149Z">
         <seg>特に気にしなければ、&lt;a1&gt;&lt;c2&gt;background&lt;/c2&gt;&lt;/a1&gt;オプションと&lt;c3&gt;initialValue&lt;/c3&gt;オプションを付けて&lt;c4&gt;m.request&lt;/c4&gt;を呼び出すか、手動で&lt;a5&gt;&lt;c6&gt;m.redraw()&lt;/c6&gt;&lt;/a5&gt;を呼び出せば、何度か強制的に再描画させることもできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Relative (e.g. 10 days ago)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T143456Z" creationid="shibukawa.yoshiki" creationdate="20160412T143456Z">
+        <seg>相対 (例 10 days ago)</seg>
       </tuv>
     </tu>
     <tu>
@@ -8362,6 +8570,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T085647Z" creationid="shibukawa.yoshiki" creationdate="20150502T085647Z">
         <seg>下記のデータを持つ、&lt;c0&gt;ProjectList&lt;/c0&gt;と呼ばれるコンポーネントがあったとします:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Swipe-to-show panel</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T143327Z" creationid="shibukawa.yoshiki" creationdate="20160412T143327Z">
+        <seg>スワイプによって表示されるパネル</seg>
       </tuv>
     </tu>
     <tu>
@@ -9230,6 +9446,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The method signature is the same.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T141400Z" creationid="shibukawa.yoshiki" creationdate="20160412T141400Z">
+        <seg>メソッドのシグニチャには変化はない。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The methods can be called to dispatch a value to the promise tree.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150415T134114Z" creationid="shibukawa.yoshiki" creationdate="20150415T134114Z">
@@ -9926,6 +10150,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Things that would be useful to have (though likely not as part of Mithril core)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T143426Z" creationid="shibukawa.yoshiki" creationdate="20160412T143426Z">
+        <seg>Mithrilのコアとしてではないかもしれないが、あると便利だと思われるもの</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Third-party promise library support</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T133735Z" creationid="shibukawa.yoshiki" creationdate="20150414T133735Z">
@@ -10016,8 +10248,8 @@ var ContactsWidget = {</seg>
       <tuv lang="EN-US">
         <seg>This architecture can yield highly flexible and reusable code, but flexibility can also increase the cognitive load of the system (for example, you need to look at both the top-level module and &lt;c0&gt;ContactList&lt;/c0&gt; in order to know what is the data being displayed (and how it's being filtered, etc).</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T012919Z" creationid="shibukawa.yoshiki" creationdate="20150502T012919Z">
-        <seg>このアーキテクチャにすることで、高い柔軟性と再利用性の高井コードが得られますが、柔軟性が高いということはシステムを理解する負荷が高まるということです。どのようにデータが表示されるかを知るには、トップレベルのモジュールと、&lt;c0&gt;ContactList&lt;/c0&gt;の2つを見る必要があります。場合によってはどのようにフィルタされるかを知る必要もあります。</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T142157Z" creationid="shibukawa.yoshiki" creationdate="20150502T012919Z">
+        <seg>このアーキテクチャにすることで、高い柔軟性と再利用性の高いコードが得られますが、柔軟性が高いということはシステムを理解する負荷が高まるということです。どのようにデータが表示されるかを知るには、トップレベルのモジュールと、&lt;c0&gt;ContactList&lt;/c0&gt;の2つを見る必要があります。場合によってはどのようにフィルタされるかを知る必要もあります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10886,6 +11118,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Tree</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T143332Z" creationid="shibukawa.yoshiki" creationdate="20160412T143332Z">
+        <seg>ツリー</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Trusted HTML is allowed to render arbitrary, potentially invalid markup, as well as run arbitrary Javascript, and therefore the developer is responsible for either:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T013853Z" creationid="shibukawa.yoshiki" creationdate="20150416T013728Z">
@@ -11118,6 +11358,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Utilities</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T143429Z" creationid="shibukawa.yoshiki" creationdate="20160412T143429Z">
+        <seg>ユーティリティ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Utilities to integrate asynchronous contexts to the rendering system</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T154215Z" creationid="shibukawa.yoshiki" creationdate="20150412T154215Z">
@@ -11186,6 +11434,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T134014Z" creationid="shibukawa.yoshiki" creationdate="20150407T134014Z">
         <seg>Virtual DOM差分更新と、コンパイル可能なテンプレート</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Virtual DOM tree can now contain &lt;a0&gt;components&lt;/a0&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T140833Z" creationid="shibukawa.yoshiki" creationdate="20160412T140833Z">
+        <seg>仮想DOMツリーは&lt;a0&gt;components&lt;/a0&gt;を持つことができるようになった。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11514,6 +11770,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T062103Z" creationid="shibukawa.yoshiki" creationdate="20150502T062103Z">
         <seg>これらのメソッドとプロパティを使い、モデルデータを利用したり、モデルを変化させるコントローラのメソッドを呼んだりするテンプレートを作成します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Word wrap</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T143519Z" creationid="shibukawa.yoshiki" creationdate="20160412T143519Z">
+        <seg>ワードラップ</seg>
       </tuv>
     </tu>
     <tu>
@@ -12006,6 +12270,14 @@ m.mount(document, {controller: todo.controller, view: todo.view});
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>added &lt;c0&gt;catch&lt;/c0&gt; to promises</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T140053Z" creationid="shibukawa.yoshiki" creationdate="20160412T140040Z">
+        <seg>&lt;c0&gt;catch&lt;/c0&gt;をpromiseに追加</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>after saving the contact, it reloads the list (&lt;c0&gt;.then(update.bind(this))&lt;/c0&gt;)</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T003126Z" creationid="shibukawa.yoshiki" creationdate="20150502T003126Z">
@@ -12078,6 +12350,14 @@ m.mount(document, {controller: todo.controller, view: todo.view});
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>ctrl.contact = m.prop(new Contact()) //reset to empty contact</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T141941Z" creationid="shibukawa.yoshiki" creationdate="20160412T141941Z">
+        <seg>ctrl.contact = m.prop(new Contact()) //連絡先を空にリセットする</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>defining a list of routes</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150409T162201Z" creationid="shibukawa.yoshiki" creationdate="20150409T162201Z">
@@ -12092,6 +12372,78 @@ m.mount(document, {controller: todo.controller, view: todo.view});
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T150258Z" creationid="shibukawa.yoshiki" creationdate="20150416T150258Z">
         <seg>else m.redraw.strategy("none") //そうでなければ無視する
 }})</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>errors thrown from the exception monitor no longer freeze redrawing</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T140331Z" creationid="shibukawa.yoshiki" creationdate="20160412T140331Z">
+        <seg>例外モニターの中から例外を投げても、再描画をフリーズすることがなくなった</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>fix controller prototype inheritance in component controllers</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T140430Z" creationid="shibukawa.yoshiki" creationdate="20160412T140430Z">
+        <seg>コンポーネントコントローラ内でのコントローラプロトタイプの継承を修正</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>fix diff edge case in &lt;c0&gt;&lt;select&gt;&lt;/c0&gt; &lt;a1&gt;#569&lt;/a1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T141414Z" creationid="shibukawa.yoshiki" creationdate="20160412T141414Z">
+        <seg>&lt;c0&gt;&lt;select&gt;&lt;/c0&gt;のエッジケースの問題を修正 &lt;a1&gt;#569&lt;/a1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>fix double unloading issue &lt;a0&gt;#931&lt;/a0&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T135431Z" creationid="shibukawa.yoshiki" creationdate="20160412T135431Z">
+        <seg>二重のアンロードの問題の修正 &lt;a0&gt;#931&lt;/a0&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>fix edge case with falsy keys</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T140403Z" creationid="shibukawa.yoshiki" creationdate="20160412T140403Z">
+        <seg>偽のキーのエッジケースの問題を修正</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>fix handling of read-only attributes &lt;a0&gt;#925&lt;/a0&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T135411Z" creationid="shibukawa.yoshiki" creationdate="20160412T135411Z">
+        <seg>読み込み専用属性の取り扱いの修正&lt;a0&gt;#925&lt;/a0&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>fix regression that prevented string keys</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T135339Z" creationid="shibukawa.yoshiki" creationdate="20160412T135339Z">
+        <seg>文字列キーの動作を無効にしていたリグレッションの修正</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>fix return value of &lt;c0&gt;parseQueryString&lt;/c0&gt; if input is empty string</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T140655Z" creationid="shibukawa.yoshiki" creationdate="20160412T140655Z">
+        <seg>入力が空文字列だった場合の&lt;c0&gt;parseQueryString&lt;/c0&gt;の返り値の修正</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>fix support for arrays in template compiler</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T141429Z" creationid="shibukawa.yoshiki" creationdate="20160412T141429Z">
+        <seg>テンプレートコンパイラの配列サポートを修正</seg>
       </tuv>
     </tu>
     <tu>
@@ -12124,6 +12476,15 @@ m.mount(document, {controller: todo.controller, view: todo.view});
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T150248Z" creationid="shibukawa.yoshiki" creationdate="20150416T150248Z">
         <seg>if (e.keyCode == 13) vm.save() //`enter`キーが押された時だけ再描画をする</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>improvements and fixes in the documentation and wiki</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T140118Z" creationid="shibukawa.yoshiki" creationdate="20160412T140046Z">
+        <seg>
+ドキュメントとWikiの改善や修正</seg>
       </tuv>
     </tu>
     <tu>
@@ -12204,6 +12565,14 @@ m.mount(document, {controller: todo.controller, view: todo.view});
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150420T015221Z" creationid="shibukawa.yoshiki" creationdate="20150420T015221Z">
         <seg>jQueryはどこでも使われ、巨大なエコシステムを構築しましたが、それ自身はMVCフレームワークではありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>large refactor to take better advantage of Chrome js optimizations and improve source code readability (thanks to @isiahmeadows)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T140032Z" creationid="shibukawa.yoshiki" creationdate="20160412T135738Z">
+        <seg>ChromeのJavaScriptオプティマイザの恩恵を得られるように改善し、ソースコードの読みやすさを改善するリファクタリングを行った(@isiahmeadows ありがとう)</seg>
       </tuv>
     </tu>
     <tu>
@@ -12330,6 +12699,14 @@ m.render(document.body, view);</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150413T020917Z" creationid="shibukawa.yoshiki" creationdate="20150413T020917Z">
         <seg>m("div", "&amp;times;") //&lt;div&gt;&amp;amp;times;&lt;/div&gt;になる</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>m("div", "loading contacts...") //waiting for promise to resolve</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T142023Z" creationid="shibukawa.yoshiki" creationdate="20160412T142023Z">
+        <seg>m("div", "連絡先をロード中...") //Promiseが解決されるのを待つ</seg>
       </tuv>
     </tu>
     <tu>
@@ -12837,6 +13214,22 @@ m("input", binds(name))</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T172212Z" creationid="shibukawa.yoshiki" creationdate="20150414T172212Z">
         <seg>現在アクティブなラウトを返します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>revert &lt;c0&gt;finally&lt;/c0&gt; because it's not in the ES6 promise spec</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T135552Z" creationid="shibukawa.yoshiki" creationdate="20160412T135552Z">
+        <seg>ES6のPromiseの仕様にないため、&lt;c0&gt;finally&lt;/c0&gt;を戻した</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>revert regressions from 0.2.1 refactor</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T135741Z" creationid="shibukawa.yoshiki" creationdate="20160412T135454Z">
+        <seg>0.2.1のリファクタリングによるリグレッションを修正</seg>
       </tuv>
     </tu>
     <tu>
