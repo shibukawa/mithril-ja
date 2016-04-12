@@ -140,7 +140,7 @@ m.mount(document.body, ContactsWidget)
 <p><code>update</code>はコントローラの関数そのものです。それをPromiseのコールバックとして定義するとということは、非同期操作(<code>Contact.save()</code>)が完了したあとにコントローラを再初期化しています。</p>
 <p>責務とトップレベルのコンポーネントで統合するという方法は、複数のモデルエンティティを持つ場合の管理を楽にします。多くのコンポーネントがサーバ側のデータを必要としても、AJAXアクセスをまとめて通信をシンプルにしたり、データのリフレッシュが行い易くなります。</p>
 <p>それに加えて、さまざまなコンテキストでコンポーネントを再利用しやすくなります。<code>ContactList</code>リストは<code>args.contacts</code>がデータベース内のすべての連絡先を参照しているか、フィルタリング条件でヒットしたものだけが渡されているのかどうかは知りません。同様に<code>ContactForm</code>も、新規の連絡先の作成と、既存の連絡先の編集の両方に利用できます。保存の操作については、親のコンポーネントに残してあります。</p>
-<p>このアーキテクチャにすることで、高い柔軟性と再利用性の高井コードが得られますが、柔軟性が高いということはシステムを理解する負荷が高まるということです。どのようにデータが表示されるかを知るには、トップレベルのモジュールと、<code>ContactList</code>の2つを見る必要があります。場合によってはどのようにフィルタされるかを知る必要もあります。それに加えて、ツリーのネストが深くなると、コンポーネント間の引数のパススルーや、イベントハンドラが増えることになります。</p>
+<p>このアーキテクチャにすることで、高い柔軟性と再利用性の高いコードが得られますが、柔軟性が高いということはシステムを理解する負荷が高まるということです。どのようにデータが表示されるかを知るには、トップレベルのモジュールと、<code>ContactList</code>の2つを見る必要があります。場合によってはどのようにフィルタされるかを知る必要もあります。それに加えて、ツリーのネストが深くなると、コンポーネント間の引数のパススルーや、イベントハンドラが増えることになります。</p>
 <hr>
 <h3 id="distribution-of-concrete-responsibilities">具体的な責務の分担</h3>
 <p>他のコードの構築方法としては、具体的な責務をモジュール間に分配する方法があります。</p>
@@ -381,7 +381,7 @@ var ContactsWidget = {
         return [
             m.component(ContactForm),
             ctrl.contacts() === undefined
-              ?m("div", "loading contacts...") //waiting for promise to resolve
+              ?m("div", "連絡先をロード中...") //Promiseが解決されるのを待つ
               : m.component(ContactList, {contacts: ctrl.contacts})
         ]
     }
@@ -394,7 +394,7 @@ var ContactForm = {
         ctrl.contact = m.prop(new Contact())
         ctrl.save = function(contact) {
             Observable.trigger("saveContact", {contact: contact})
-            ctrl.contact = m.prop(new Contact()) //reset to empty contact
+            ctrl.contact = m.prop(new Contact()) //連絡先を空にリセットする
         }
         return ctrl
     },

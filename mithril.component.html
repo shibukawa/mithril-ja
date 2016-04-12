@@ -18,7 +18,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col(3,3,12)">
-							<h2 id="api">API (v0.2.2-rc.1)</h2>
+							<h2 id="api">API (v0.2.3)</h2>
 							<h3 id="core">コア</h3>
 							<ul>
 								<li><a href="mithril.html" title="仮想エレメントを作るためのユーティリティ">m</a></li>
@@ -115,7 +115,7 @@
 
 m.mount(document.body, MyComponent) // &lt;body&gt;に&lt;h1&gt;Hello&lt;/h1&gt;と表示
 </code></pre>
-<p>オプションの<code>controller</code>関数は、次のように使われるオブジェクトを作成することが期待されています: </p>
+<p>オプションの<code>controller</code>関数は、次のように使われるオブジェクトを作成することが期待されています:</p>
 <ul>
 <li><code>view</code>と呼ばれるメソッドを持つ。</li>
 <li>オブジェクトから、モデルのメソッドを直接呼び出したり、あるいはオブジェクトのメソッド内部から呼び出すことができる。</li>
@@ -215,8 +215,8 @@ m.mount(document.body, MyComponent) // 表示: &lt;h1&gt;Hello&lt;/h1&gt;
 
 m.render(document.body, [
     //以下の2行は等価です
-    m(component, {data: "world"}),
-    m.component(component, {data: "world"})
+    m(MyComponent, {data: "world"}),
+    m.component(MyComponent, {data: "world"})
 ])
 </code></pre>
 <hr>
@@ -347,17 +347,17 @@ m.mount(document.body, MyApp);
 </code></pre>
 <p>上記のサンプルは、テキスト入力と、<code>temp</code> getter-setterが双方向のバインディングで接続されています。入力フォームから温度を入力すると、温度値が変更されてTemperatureConverterに直接渡されます。ここから変換関数が呼ばれます。TemperatureConverterコントローラは値を保持することはありません。</p>
 <p>コンポーネントのさまざまなパーツをテストするのは簡単です。</p>
-<pre><code class="lang-javascript">//controller内の変換関数のテスト
+<pre><code class="lang-javascript">//コントローラのtransformation関数のテスト
 var ctrl = new TemperatureConverter.controller();
 assert(ctrl.kelvinToCelsius(273.15) == 0)
 
 //テンプレートのテスト
-var tpl = TemperatureConverter.view(null, {value: 273.15})
+var tpl = TemperatureConverter.view(ctrl, {value: 273.15})
 assert(tpl.children[1] == 0)
 
-//実際のDOMのテスト
+//実際のDOMを使ったテスト
 var testRoot = document.createElement("div")
-m.render(testRoot, TemperatureConverter.view(null, {value: 273.15}))
+m.render(testRoot, TemperatureConverter.view(ctrl, {value: 273.15}))
 assert(testRoot.innerHTML.indexOf("celsius:0") &gt; -1)
 </code></pre>
 <p>上記のサンプルは実際には役に立ちません。理想的には温度変換処理や、データの領域で行われるその他の処理はコンポーネントのコントローラではなく、モデルレイヤーに移動すべきです。</p>
@@ -377,7 +377,7 @@ assert(testRoot.innerHTML.indexOf("celsius:0") &gt; -1)
     },
     view: function(ctrl) {
         return m("ul", [
-            ctrl.things().map(function(name) {
+            ctrl.things().map(function(thing) {
                 return m("li", thing.name)
             })
         ]);
@@ -553,7 +553,7 @@ where:
 </code></pre>
 <ul>
 <li><p><strong>Component component</strong></p>
-<p>コンポーネントは、<code>controller</code>と<code>view</code>のキーを持つオブジェクトです。それぞれ、JavaScriptの関数を持ちます。もしコントローラが指定されなければ、Mithrilは自動的に空のコントローラ関数を作成します。</p>
+<p>コンポーネントは、<code>controller</code>と<code>view</code>のキーを持つオブジェクトです。それぞれ、JavaScriptの関数を持ちます。If a controller is not specified, Mithril will automatically create an empty controller function.</p>
 </li>
 <li><p><strong>Object attributes</strong></p>
 <p>コンポーネントの<code>controller</code>と<code>view</code>の両方の関数に束縛される属性のキー/バリューマップです。</p>

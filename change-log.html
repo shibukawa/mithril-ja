@@ -18,7 +18,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col(3,3,12)">
-							<h2 id="api">API (v0.2.2-rc.1)</h2>
+							<h2 id="api">API (v0.2.3)</h2>
 							<h3 id="core">コア</h3>
 							<ul>
 								<li><a href="mithril.html" title="仮想エレメントを作るためのユーティリティ">m</a></li>
@@ -75,55 +75,66 @@
 						</div>
 						<div class="col(9,9,12)">
 							<h2 id="change-log">Change Log</h2>
-<p><a href="http://mithril.js.org/archive/v0.2.2-rc.1">v0.2.2-rc.1</a></p>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<p><a href="http://mithril.js.org/archive/v0.2.3">v0.2.3</a></p>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
-<li>revert regressions from 0.2.1 refactor</li>
-<li>revert <code>finally</code> because it's not in the ES6 promise spec</li>
-</ul>
-<p><a href="http://mithril.js.org/archive/v0.2.1">v0.2.1</a></p>
-<h3 id="news-">News:</h3>
-<ul>
-<li>large refactor to take better advantage of Chrome js optimizations and improve source code readability (thanks to @isiahmeadows)</li>
-<li>added <code>catch</code> to promises</li>
-<li>improvements and fixes in the documentation and wiki</li>
-<li><code>m(component, ...args)</code> can now be used as a shorthand for <code>m.component(component, ...args)</code></li>
-</ul>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
-<ul>
-<li>errors thrown from the exception monitor no longer freeze redrawing</li>
-<li>fix edge case with falsy keys</li>
-<li>fix controller prototype inheritance in component controllers</li>
-<li>fix return value of <code>parseQueryString</code> if input is empty string</li>
+<li>文字列キーの動作を無効にしていたリグレッションの修正</li>
+<li>読み込み専用属性の取り扱いの修正<a href="https://github.com/lhorie/mithril.js/issues/925">#925</a></li>
+<li>二重のアンロードの問題の修正 <a href="https://github.com/lhorie/mithril.js/issues/931">#931</a></li>
 </ul>
 <hr>
-<p><a href="http://mithril.js.org/archive/v0.2.0">v0.2.0</a> - improved components</p>
-<h3 id="news-">News:</h3>
+<p><a href="http://mithril.js.org/archive/v0.2.2-rc.1">v0.2.2-rc.1</a></p>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
-<li>Mithril modules will be referred to as <em>components</em> from now on.</li>
-<li>Virtual DOM tree can now contain <a href="mithril.component.html">components</a></li>
-<li>Components can now be parameterized via <code>m.component</code></li>
+<li>0.2.1のリファクタリングによるリグレッションを修正</li>
+<li>ES6のPromiseの仕様にないため、<code>finally</code>を戻した</li>
 </ul>
-<h3 id="deprecations-">Deprecations:</h3>
+<hr>
+<p><a href="http://mithril.js.org/archive/v0.2.1">v0.2.1</a></p>
+<p><strong>重要なメモ: 不幸なリファクタリングにより、0.2.1は安定バージョンではありません。0.2.1、もしくは最新版を使用してください。</strong></p>
+<h3 id="news-">ニュース:</h3>
 <ul>
-<li><p><code>m.module</code> has been renamed <code>m.mount</code>. Calling <code>m.module</code> will still work, but should be considered deprecated. Rationale: Mithril modules and components are the same thing, therefore from now on, they will be referred to as components, since that name is more descriptive of their purpose, and causes less confusion in the face of ES6 modules.</p>
-<p>In order to migrate, search for <code>m.module</code> calls and replace them with <code>m.mount</code>. The method signature is the same.</p>
+<li>ChromeのJavaScriptオプティマイザの恩恵を得られるように改善し、ソースコードの読みやすさを改善するリファクタリングを行った(@isiahmeadows ありがとう)</li>
+<li><code>catch</code>をpromiseに追加</li>
+<li>
+ドキュメントとWikiの改善や修正</li>
+<li><code>m(component, ...args)</code>を<code>m.component(component, ...args)</code>の短縮形として使えるようになった。</li>
+</ul>
+<h3 id="bug-fixes-">バグ修正:</h3>
+<ul>
+<li>例外モニターの中から例外を投げても、再描画をフリーズすることがなくなった</li>
+<li>偽のキーのエッジケースの問題を修正</li>
+<li>コンポーネントコントローラ内でのコントローラプロトタイプの継承を修正</li>
+<li>入力が空文字列だった場合の<code>parseQueryString</code>の返り値の修正</li>
+</ul>
+<hr>
+<p><a href="http://mithril.js.org/archive/v0.2.0">v0.2.0</a> - コンポーネントの改善</p>
+<h3 id="news-">ニュース:</h3>
+<ul>
+<li>Mithrilモジュールは今から<em>コンポーネント</em>と呼ばれるようになった。</li>
+<li>仮想DOMツリーは<a href="mithril.component.html">components</a>を持つことができるようになった。</li>
+<li>コンポーネントは<code>m.component</code>を使ってパラメータ化することができるようになった。</li>
+</ul>
+<h3 id="deprecations-">非推奨化</h3>
+<ul>
+<li><p><code>m.module</code>は<code>m.mount</code>へとリネームされた。<code>m.module</code>呼び出しはまだ動作するが、非推奨になった。理由: Mithrilのモジュールとコンポーネントは結果として同じものとなったため、今後はコンポーネントと呼称することになった。コンポーネントのという名前の方が目的を明確に伝えることが出来、ES6のモジュールと混乱することが減るためである。</p>
+<p>移行する場合は、<code>m.module</code>呼び出しを探しだして、<code>m.mount</code>にリネームすること。メソッドのシグニチャには変化はない。</p>
 </li>
 </ul>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
-<li>fix diff edge case in <code>&lt;select&gt;</code> <a href="https://github.com/lhorie/mithril.js/issues/569">#569</a></li>
-<li>fix support for arrays in template compiler</li>
+<li><code>&lt;select&gt;</code>のエッジケースの問題を修正 <a href="https://github.com/lhorie/mithril.js/issues/569">#569</a></li>
+<li>テンプレートコンパイラの配列サポートを修正</li>
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.34">v0.1.34</a> - maintenance</p>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>fix identity bug when mixing unkeyable elements in a tree <a href="https://github.com/lhorie/mithril.js/issues/524">#524</a></li>
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.33">v0.1.33</a> - maintenance</p>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>fix diff bug when mixing <code>undefined</code> in a tree <a href="https://github.com/lhorie/mithril.js/issues/524">#524</a></li>
 <li>fix reference to map file in package.json for cdnjs</li>
@@ -131,13 +142,13 @@
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.32">v0.1.32</a> - maintenance</p>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>fix regression caused by <a href="https://github.com/lhorie/mithril.js/issues/454">#454</a></li>
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.31">v0.1.31</a> - maintenance</p>
-<h3 id="news-">News:</h3>
+<h3 id="news-">ニュース:</h3>
 <ul>
 <li>Typescript definitions are more strongly typed</li>
 <li>m.request's <code>unwrapSuccess</code> and <code>unwrapError</code> callbacks now receive the XMLHttpRequest instance as a second parameter</li>
@@ -145,7 +156,7 @@
 <li>exact routes now have higher precedence than routes w/ variables <a href="https://github.com/lhorie/mithril.js/issues/452">#452</a></li>
 <li>there's now a <code>retain</code> flag to control on-route-change diff strategy on a per-element basis</li>
 </ul>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>fix routing bug in IE9 <a href="https://github.com/lhorie/mithril.js/issues/320">#320</a></li>
 <li>fix ordering bug in m.trust when using HTML entities <a href="https://github.com/lhorie/mithril.js/issues/453">#453</a></li>
@@ -157,7 +168,7 @@
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.30">v0.1.30</a> - maintenance</p>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>fix history.back() regression <a href="https://github.com/lhorie/mithril.js/issues/435">#435</a></li>
 <li>fix module.view's <code>this</code> association regression in Haxe environment <a href="https://github.com/lhorie/mithril.js/issues/434">#434</a></li>
@@ -165,12 +176,12 @@
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.29">v0.1.29</a> - maintenance</p>
-<h3 id="news-">News:</h3>
+<h3 id="news-">ニュース:</h3>
 <ul>
 <li>Calling m.module without a module now unloads the current one <a href="https://github.com/lhorie/mithril.js/issues/420">#420</a></li>
 <li>Both <code>controller</code> and <code>view</code> properties in modules are now optional</li>
 </ul>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>prevent empty class attributes <a href="https://github.com/lhorie/mithril.js/issues/382">#382</a></li>
 <li>array-to-querystring serialization in <code>m.request</code> now behaves like jQuery <a href="https://github.com/lhorie/mithril.js/issues/426">#426</a></li>
@@ -180,17 +191,17 @@
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.28">v0.1.28</a> - maintenance</p>
-<h3 id="news-">News:</h3>
+<h3 id="news-">ニュース:</h3>
 <ul>
 <li>Landed some performance improvements</li>
 </ul>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>throw error if root element is null in m.module/m.route <a href="https://github.com/lhorie/mithril.js/issues/388">#388</a></li>
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.27">v0.1.27</a> - maintenance</p>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>prevent strategy("none") event contamination <a href="https://github.com/lhorie/mithril.js/issues/378">#378</a></li>
 <li>fix equality strictness <a href="https://github.com/lhorie/mithril.js/issues/379">#379</a></li>
@@ -199,14 +210,14 @@
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.26">v0.1.26</a> - maintenance</p>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>make sure input[type] is CSS-targetable <a href="https://github.com/lhorie/mithril.js/issues/364">#364</a></li>
 <li>throw error if m.route.param is called before initializing routes <a href="https://github.com/lhorie/mithril.js/issues/361">#361</a></li>
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.25">v0.1.25</a> - maintenance</p>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>fixed input cursor jumping regression</li>
 <li>fixed interop bug when QUnit and AMD are used at the same time <a href="https://github.com/lhorie/mithril.js/issues/355">#355</a></li>
@@ -215,19 +226,19 @@
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.24">v0.1.24</a> - maintenance</p>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>Prevent rogue <code>is</code> attribute from being created in Chrome</li>
 <li>Fix <code>data</code> regression in <code>m.request</code></li>
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.23">v0.1.23</a> - maintenance</p>
-<h3 id="news-">News:</h3>
+<h3 id="news-">ニュース:</h3>
 <ul>
 <li>There's now support for extended custom elements (e.g. <code>m("button[is=my-button]")</code>)</li>
 <li><code>m.request</code> now supports a <code>initialValue</code> option to help prevent type errors in views when using the <code>background</code> option</li>
 </ul>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>docs now have anchor links for easier navigation</li>
 <li>fixed a bunch of IE8 issues <a href="https://github.com/lhorie/mithril.js/issues/298">#298</a></li>
@@ -241,7 +252,7 @@
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.22">v0.1.22</a> - maintenance</p>
-<h3 id="news-">News:</h3>
+<h3 id="news-">ニュース:</h3>
 <ul>
 <li>docs now have anchor links for easier navigation</li>
 <li>there is more documentation for things that weren't that clear</li>
@@ -249,7 +260,7 @@
 <li><code>m()</code> now supports splat for children (e.g. <code>m("div", m("a"), m("b"), m("i"))</code> for nicer Coffeescript syntax</li>
 <li>by popular demand, <code>m.module</code> now returns a controller instance</li>
 </ul>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>gracefully degrade on IE exceptions when setting invalid values</li>
 <li>fixes for Typescript definition file</li>
@@ -263,12 +274,12 @@
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.21">v0.1.21</a> - maintenance</p>
-<h3 id="news-">News:</h3>
+<h3 id="news-">ニュース:</h3>
 <ul>
 <li>passing a promise to an <code>m.prop</code> now populates it with the resolved value upon resolution, and returns <code>undefined</code> otherwise</li>
 <li><code>m.redraw</code> can now be forced to called synchronously</li>
 </ul>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>fixed handling of <code>+</code> character in <code>m.route.param</code> <a href="https://github.com/lhorie/mithril.js/issues/204">#204</a></li>
 <li>fixed corner case for undefined children in diff <a href="https://github.com/lhorie/mithril.js/issues/206">#206</a></li>
@@ -277,12 +288,12 @@
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.20">v0.1.20</a> - maintenance</p>
-<h3 id="news-">News:</h3>
+<h3 id="news-">ニュース:</h3>
 <ul>
 <li>redraw strategy can now be modified via <code>m.redraw.strategy</code></li>
 <li><code>math</code> tags now automatically get created with the MathML namespace</li>
 </ul>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>fixed IE8 null reference exception in <code>m</code></li>
 <li>fixed IE8 empty-text-node-in-input issue <a href="https://github.com/lhorie/mithril.js/issues/195">#195</a></li>
@@ -290,7 +301,7 @@
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.19">v0.1.19</a> - maintenance</p>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>fixed double redraw when events fire simultaneously <a href="https://github.com/lhorie/mithril.js/issues/151">#151</a></li>
 <li>fixed node insertion bug when using document as root <a href="https://github.com/lhorie/mithril.js/issues/153">#153</a></li>
@@ -300,20 +311,20 @@
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.18">v0.1.18</a> - maintenance</p>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>routing now correctly clears diff cache <a href="https://github.com/lhorie/mithril.js/issues/148">#148</a></li>
 <li>fixed incorrect context unloading when reattaching a child to a new parent</li>
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.17">v0.1.17</a> - maintenance</p>
-<h3 id="news-">News:</h3>
+<h3 id="news-">ニュース:</h3>
 <ul>
 <li>config contexts can now have an <code>onunload</code> property for clean up tasks after elements are detached from the document</li>
 <li>route changes now re-render from scratch, rather than attempting a virtual dom diff</li>
 <li>virtual elements that are children of an array can now accept a <code>key</code> attribute which maintains the identity of the underlying DOM elements when the array gets shuffled <a href="https://github.com/lhorie/mithril.js/issues/98">#98</a></li>
 </ul>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>fixed a subtree directive bug that happened in inputs inside loops</li>
 <li>fixed select.value so that the correct option is displayed on first render</li>
@@ -323,11 +334,11 @@
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.16">v0.1.16</a> - maintenance</p>
-<h3 id="news-">News:</h3>
+<h3 id="news-">ニュース:</h3>
 <ul>
 <li>controller::onunload now receives an event parameter so that the unloading can be aborted <a href="https://github.com/lhorie/mithril.js/issues/135">#135</a></li>
 </ul>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>prevent route change when only hash changes in non-hash mode <a href="https://github.com/lhorie/mithril.js/issues/107">#107</a></li>
 <li>config now always runs after template is attached to document <a href="https://github.com/lhorie/mithril.js/issues/109">#109</a></li>
@@ -345,7 +356,7 @@
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.15">v0.1.15</a> - maintenance</p>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li><code>m.sync</code> now correctly passes arguments to resolver in same order as input arguments <a href="https://github.com/lhorie/mithril.js/issues/96">#96</a> </li>
 <li>fixed diff deletion bug <a href="https://github.com/lhorie/mithril.js/issues/99">#99</a> </li>
@@ -353,13 +364,13 @@
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.14">v0.1.14</a> - maintenance</p>
-<h3 id="news-">News:</h3>
+<h3 id="news-">ニュース:</h3>
 <ul>
 <li>The signature of <code>m</code> now accepts virtual elements as the second parameter of the function.</li>
 <li><code>m.route(path, params)</code> now accepts an argument that gets parsed as a querystring.</li>
 <li>routes now ignore trailing slashes <a href="https://github.com/lhorie/mithril.js/issues/88">#88</a></li>
 </ul>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>Resolving promises early without a value now works <a href="https://github.com/lhorie/mithril.js/issues/85">#85</a></li>
 <li>Throwing exceptions within <code>m.request</code> now follow the same resolution procedure as <code>m.deferred</code> <a href="https://github.com/lhorie/mithril.js/issues/85">#86</a></li>
@@ -369,21 +380,21 @@
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.13">v0.1.13</a> - maintenance</p>
-<h3 id="news-">News:</h3>
+<h3 id="news-">ニュース:</h3>
 <ul>
 <li>m.module now runs clean-up code in root module controllers that implement an <code>onunload</code> instance method <a href="https://github.com/lhorie/mithril.js/issues/82">#82</a></li>
 </ul>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>Removing CSS rules now diffs correctly <a href="https://github.com/lhorie/mithril.js/issues/79">#79</a></li>
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.12">v0.1.12</a> - maintenance</p>
-<h3 id="news-">News:</h3>
+<h3 id="news-">ニュース:</h3>
 <ul>
 <li>It's now possible to define <a href="mithril.route.html#variadic-routes">variadic routes</a> <a href="https://github.com/lhorie/mithril.js/issues/70">#70</a></li>
 </ul>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>Fix link location in links using <code>config: m.route</code> after redraws <a href="https://github.com/lhorie/mithril.js/issues/74">#74</a></li>
 <li>Fixed support for <code>list</code> attribute in inputs <a href="https://github.com/lhorie/mithril.js/issues/69">#69</a></li>
@@ -391,36 +402,36 @@
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.11">v0.1.11</a> - maintenance</p>
-<h3 id="news-">News:</h3>
+<h3 id="news-">ニュース:</h3>
 <ul>
 <li>Added <code>m.route()</code> overload to allow reading of current route <a href="https://github.com/lhorie/mithril.js/issues/61">#61</a></li>
 <li>Added <code>background</code> option to <code>m.request</code> to allow requests that don't affect rendering <a href="https://github.com/lhorie/mithril.js/issues/62">#62</a></li>
 </ul>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>Links using <code>config: m.route</code> can now be opened in new tab correctly <a href="https://github.com/lhorie/mithril.js/issues/64">#64</a></li>
 <li>Fixed diff within contenteditable areas <a href="https://github.com/lhorie/mithril.js/issues/65">#65</a></li>
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.10">v0.1.10</a> - maintenance</p>
-<h3 id="news-">News:</h3>
+<h3 id="news-">ニュース:</h3>
 <ul>
 <li>Added social buttons to homepage</li>
 </ul>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>Bi-directional bindings no longer wipe out cursor position in Chrome <a href="https://github.com/lhorie/mithril.js/issues/58">#58</a></li>
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.9">v0.1.9</a> - maintenance</p>
-<h3 id="news-">News:</h3>
+<h3 id="news-">ニュース:</h3>
 <ul>
 <li>Added comparison with React to homepage</li>
 <li>Added support for multi-island apps <a href="https://github.com/lhorie/mithril.js/issues/34">#34</a></li>
 <li>m.prop is now JSON-serializable <a href="https://github.com/lhorie/mithril.js/issues/54">#54</a></li>
 <li>Added <code>extract</code> option to <code>m.request</code> to allow access to response metadata <a href="https://github.com/lhorie/mithril.js/issues/53">#53</a></li>
 </ul>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>Fixed node index displacement by null/undefined nodes <a href="https://github.com/lhorie/mithril.js/issues/56">#56</a></li>
 <li>Fixed mock's insertBefore and appendChild when dealing w/ reattachments</li>
@@ -431,49 +442,49 @@
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.8">v0.1.8</a> - maintenance</p>
-<h3 id="news-">News:</h3>
+<h3 id="news-">ニュース:</h3>
 <ul>
 <li>Mock now contains a basic <code>insertAdjacentHTML</code> implementation to enable better testing of <code>m.trust</code> / <code>m.render</code> interactions</li>
 </ul>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>Fixed ordering bug in deep subchildren <a href="https://github.com/lhorie/mithril.js/issues/51">#51</a></li>
 <li>Fixed ordering bug with trusted strings <a href="https://github.com/lhorie/mithril.js/issues/51">#51</a></li>
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.7">v0.1.7</a> - maintenance</p>
-<h3 id="news-">News:</h3>
+<h3 id="news-">ニュース:</h3>
 <ul>
 <li>Mithril will be on a accelerated release cycle for the rest of the v0.1.x series. This means CDNs may lag behind in versions, so it's recommended that you either use one of the supported NodeJS package managers or fork from the Github repo directly. More information can be found <a href="https://groups.google.com/forum/#!msg/mithriljs/mc0qTgFTlgs/OD7Mc7_2Wa4J">here</a></li>
 </ul>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>Fixed ordering bug when virtual element is preceded by array <a href="https://github.com/lhorie/mithril.js/issues/50">#50</a></li>
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.6">v0.1.6</a> - maintenance</p>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>Fixed serious bug when mixing cached text nodes with new virtual elements <a href="https://github.com/lhorie/mithril.js/issues/49">#49</a></li>
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.5">v0.1.5</a> - maintenance</p>
-<h3 id="news-">News:</h3>
+<h3 id="news-">ニュース:</h3>
 <ul>
 <li>Launched the <a href="http://lhorie.github.io/mithril-blog">Mithril Blog</a></li>
 </ul>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>Fixed serious ordering problem when mixing arrays with virtual elements <a href="https://github.com/lhorie/mithril.js/issues/48">#48</a></li>
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.4">v0.1.4</a> - maintenance</p>
-<h3 id="news-">News:</h3>
+<h3 id="news-">ニュース:</h3>
 <ul>
 <li>added regression tests for reported bugs</li>
 <li>added support for SVG</li>
 </ul>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>URLs with port numbers are now handled correctly <a href="https://github.com/lhorie/mithril.js/issues/40">#40</a></li>
 <li>NPM package now contains unminified version for map files <a href="https://github.com/lhorie/mithril.js/issues/39">#39</a></li>
@@ -483,12 +494,12 @@
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.3">v0.1.3</a> - maintenance</p>
-<h3 id="news-">News:</h3>
+<h3 id="news-">ニュース:</h3>
 <ul>
 <li>Mithril is now available via <a href="http://component.io">Component</a></li>
 <li>There's now an extra low-level optimization hook called a SubtreeDirective, which allows implementing plugins that only create virtual trees if necessary.</li>
 </ul>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li>diff no longer touch the DOM when processing <code>style</code> attributes and event handlers</li>
 <li>returning a thennable to a resolution callback in <code>m.deferred().promise</code> now causes the promise to adopt its state  </li>
@@ -496,25 +507,25 @@
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.2">v0.1.2</a> - maintenance</p>
-<h3 id="news-">News:</h3>
+<h3 id="news-">ニュース:</h3>
 <ul>
 <li>There's now a <a href="mailto:mithriljs@googlegroups.com">community mailing list</a>. There's also a <a href="https://groups.google.com/forum/#!forum/mithriljs">web interface</a></li>
 <li>Mithril is now on Travis CI. The build status can be found in the <a href="https://github.com/lhorie/mithril.js">project homepage</a></li>
 <li>Mithril is now available via the CommonJS and AMD API</li>
 <li>Mithril can now <a href="installation.html">be installed via npm and bower</a></li>
 </ul>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li><code>m.render</code> now correctly reattaches reused DOM elements to replaced parent nodes <a href="https://github.com/lhorie/mithril.js/issues/31">#31</a></li>
 <li>UI actions that can potentially de-synchronize the DOM from cache now force synchronization <a href="https://github.com/lhorie/mithril.js/issues/29">#29</a></li>
 </ul>
 <hr>
 <p><a href="http://mithril.js.org/archive/v0.1.1">v0.1.1</a> - maintenance</p>
-<h3 id="news-">News:</h3>
+<h3 id="news-">ニュース:</h3>
 <ul>
 <li>Mithril is now available at <a href="http://cdnjs.com/librarieshttp://mithril.js.org/">cdnjs</a> and <a href="http://www.jsdelivr.com/#!mithril">jsdelivr</a></li>
 </ul>
-<h3 id="bug-fixes-">Bug Fixes:</h3>
+<h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
 <li><code>m.route.param</code> now resets on route change correctly <a href="https://github.com/lhorie/mithril.js/issues/15">#15</a></li>
 <li><code>m.render</code> now correctly ignores undefined values in the virtual tree<a href="https://github.com/lhorie/mithril.js/issues/16">#16</a></li>
