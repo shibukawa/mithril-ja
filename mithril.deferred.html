@@ -226,7 +226,7 @@ where:
 <p>promiseは、2つの計算のコールバックを持つ<code>then</code>メソッドを持っています。</p>
 <p><code>then</code>メソッドは親のpromiseの計算結果を受け取る、別のpromiseを作って返します。</p>
 <p>promiseはgetter-setter (<a href="mithril.prop.html"><code>m.prop</code></a>参照)。<code>resolve</code>と<code>reject</code>のどちらを呼んでも、promiseは親の計算結果の値 (もしくはpromiseが親を持っていなければ<code>resolve</code>/<code>reject</code>)を保持します。</p>
-<p>Promises also have a method called <code>catch</code>, which is equivalent to calling <code>then(null, errorCallback)</code></p>
+<p>Promiseの<code>catch</code>メソッド呼び出しは、<code>then(null, errorCallback)</code>と等価です。</p>
 <ul>
 <li><p><strong>Promise then([any successCallback(any value) [, any errorCallback(any value)]])</strong></p>
 <p>このメソッドは、<code>resolve</code>、<code>reject</code>メソッドに渡される値を受け取り、結果のpromiseに格納される値を処理して返す2つのコールバックを受け取ります。</p>
@@ -234,12 +234,12 @@ where:
 <li><p><strong>any successCallback(any value)</strong> (optional)</p>
 <p>ルートの<code>deferred</code>の<code>resolve</code>が呼ばれると<code>successCallback</code>が呼ばれます。</p>
 <p>この設定がfalsyな値だったときのデフォルトの動作は、<code>function(value) {return value}</code>という関数と等価です。</p>
-<p>If this function returns undefined, then it passes the <code>value</code> argument to the next step in the thenable queue, if any</p>
+<p>もしこの関数がundefinedを返してきたら、値がどんなでものであろうと、<code>value</code>引数がthenableキューの次のキューに渡されます。</p>
 </li>
 <li><p><strong>any errorCallback(any value)</strong> (optional)</p>
 <p>ルートの<code>deferred</code>の<code>reject</code>が呼ばれると<code>errorCallback</code>が呼ばれます。</p>
 <p>この設定がfalsyな値だったときのデフォルトの動作は、<code>function(value) {return value}</code>という関数と等価です。</p>
-<p>If this function returns undefined, then it passes the <code>value</code> argument to the next step in the thenable queue, if any</p>
+<p>もしこの関数がundefinedを返してきたら、値がどんなでものであろうと、<code>value</code>引数がthenableキューの次のキューに渡されます。</p>
 </li>
 <li><p><strong>returns Promise promise</strong></p>
 </li>

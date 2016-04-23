@@ -125,7 +125,7 @@ var doStuff = function() {
 <hr>
 <h3 id="how-auto-redrawing-works">どのように再描画が行われるか</h3>
 <p>Mithrilの自動再描画システムは、<code>m.prop</code> getter-setterの値の変更では何もしません。Mithrilは再描画のタイミングを、<code>m.startComputation</code>と<code>m.endComputation</code>の呼び出しで決めます。</p>
-<p>Mithrilは内部カウンタを持っています。このカウンタは<code>m.startComputation</code>が呼ばれるたびに増加し、<code>m.endComputation</code>が呼ばれると減少します。カウンタがゼロになるとMithrilは再描画を行います。Mithril internally calls this pair of functions when you call <a href="mithril.mount.html"><code>m.mount</code></a>, <a href="mithril.route.html"><code>m.route</code></a>, <a href="mithril.request.html"><code>m.request</code></a>, and whenever an event defined with <a href="mithril.html"><code>m()</code></a> is triggered.</p>
+<p>Mithrilは内部カウンタを持っています。このカウンタは<code>m.startComputation</code>が呼ばれるたびに増加し、<code>m.endComputation</code>が呼ばれると減少します。カウンタがゼロになるとMithrilは再描画を行います。Mithrilは、<a href="mithril.mount.html"><code>m.mount</code></a>、<a href="mithril.route.html"><code>m.route</code></a>、<a href="mithril.request.html"><code>m.request</code></a>の中と、<a href="mithril.html"><code>m()</code></a> で定義されたイベント呼び出しの中で、この関数のペアを呼びます。</p>
 <p><code>m.request</code>をコントローラのコンテキスト内で複数回呼ぶと、内部カウンターが増加します。リクエストが完了するたびにカウンタが減少します。すべてのリクエストが完了するのを待って、Mithrilは再描画を行おうとします。サードパーティのライブラリや、ネイティブJavaScriptのコードから非同期関数を使う時も、これらの関数のペアを呼ぶ場合は同じルールが適用されます。</p>
 <p>Mithrilがすべての非同期サービスの待ち合わせをするのは、何度もムダなブラウザ再描画を行わないようにしたり、テンプレート内でnull参照チェックを行う回数を減らす、という理由によるものです。</p>
 <p><code>m.request</code>の<code>background</code>オプションを使用したり、Mithril外の非同期関数を呼ぶ時は単に<code>m.startComputation</code> / <code>m.endComputation</code>の呼び出しをしなければ再描画のスケジューリングをやめ、再描画が積極的に行われます。</p>
