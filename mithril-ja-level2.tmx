@@ -4096,8 +4096,8 @@ var ContactsWidget = {</seg>
       <tuv xml:lang="EN-US">
         <seg>Getting Started - Mithril</seg>
       </tuv>
-      <tuv xml:lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T140640Z" creationid="shibukawa.yoshiki" creationdate="20150407T140554Z">
-        <seg>はじめよう - Mithril</seg>
+      <tuv xml:lang="JA" changeid="shibukawa.yoshiki" changedate="20160423T045552Z" creationid="shibukawa.yoshiki" creationdate="20150407T140554Z">
+        <seg>はじめよう - Mithrilf</seg>
       </tuv>
     </tu>
     <tu>
@@ -4502,6 +4502,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv xml:lang="EN-US">
+        <seg>If a controller is not specified, Mithril will automatically create an empty controller function.</seg>
+      </tuv>
+      <tuv xml:lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T144943Z" creationid="shibukawa.yoshiki" creationdate="20160412T144943Z">
+        <seg>もしコントローラが指定されなければ、Mithrilは自動的に空のコントローラ関数を作成します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv xml:lang="EN-US">
         <seg>If a promise is passed into <bpt i="0" x="0">&lt;c0&gt;</bpt>m.prop()<ept i="0">&lt;/c0&gt;</ept>, a Mithril promise is returned.</seg>
       </tuv>
       <tuv xml:lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T135230Z" creationid="shibukawa.yoshiki" creationdate="20150414T135230Z">
@@ -4698,6 +4706,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv xml:lang="JA" changeid="shibukawa.yoshiki" changedate="20150413T155516Z" creationid="shibukawa.yoshiki" creationdate="20150413T155516Z">
         <seg>この属性が文字列の場合は、テキストノードとしてレンダリングされます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv xml:lang="EN-US">
+        <seg>If this function returns undefined, then it passes the <bpt i="0" x="0">&lt;c0&gt;</bpt>value<ept i="0">&lt;/c0&gt;</ept> argument to the next step in the thenable queue, if any</seg>
+      </tuv>
+      <tuv xml:lang="JA" changeid="shibukawa.yoshiki" changedate="20160423T051003Z" creationid="shibukawa.yoshiki" creationdate="20160423T051003Z">
+        <seg>もしこの関数がundefinedを返してきたら、値がどんなでものであろうと、<bpt i="0" x="0">&lt;c0&gt;</bpt>value<ept i="0">&lt;/c0&gt;</ept>引数がthenableキューの次のキューに渡されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6798,6 +6814,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv xml:lang="EN-US">
+        <seg>Mithril internally calls this pair of functions when you call <bpt i="2" x="2">&lt;a2&gt;</bpt><bpt i="3" x="3">&lt;c3&gt;</bpt>m.mount<ept i="3">&lt;/c3&gt;</ept><ept i="2">&lt;/a2&gt;</ept>, <bpt i="4" x="4">&lt;a4&gt;</bpt><bpt i="5" x="5">&lt;c5&gt;</bpt>m.route<ept i="5">&lt;/c5&gt;</ept><ept i="4">&lt;/a4&gt;</ept>, <bpt i="6" x="6">&lt;a6&gt;</bpt><bpt i="7" x="7">&lt;c7&gt;</bpt>m.request<ept i="7">&lt;/c7&gt;</ept><ept i="6">&lt;/a6&gt;</ept>, and whenever an event defined with <bpt i="8" x="8">&lt;a8&gt;</bpt><bpt i="9" x="9">&lt;c9&gt;</bpt>m()<ept i="9">&lt;/c9&gt;</ept><ept i="8">&lt;/a8&gt;</ept> is triggered.</seg>
+      </tuv>
+      <tuv xml:lang="JA" changeid="shibukawa.yoshiki" changedate="20160423T051404Z" creationid="shibukawa.yoshiki" creationdate="20160423T051404Z">
+        <seg>Mithrilは、<bpt i="2" x="2">&lt;a2&gt;</bpt><bpt i="3" x="3">&lt;c3&gt;</bpt>m.mount<ept i="3">&lt;/c3&gt;</ept><ept i="2">&lt;/a2&gt;</ept>、<bpt i="4" x="4">&lt;a4&gt;</bpt><bpt i="5" x="5">&lt;c5&gt;</bpt>m.route<ept i="5">&lt;/c5&gt;</ept><ept i="4">&lt;/a4&gt;</ept>、<bpt i="6" x="6">&lt;a6&gt;</bpt><bpt i="7" x="7">&lt;c7&gt;</bpt>m.request<ept i="7">&lt;/c7&gt;</ept><ept i="6">&lt;/a6&gt;</ept>の中と、<bpt i="8" x="8">&lt;a8&gt;</bpt><bpt i="9" x="9">&lt;c9&gt;</bpt>m()<ept i="9">&lt;/c9&gt;</ept><ept i="8">&lt;/a8&gt;</ept> で定義されたイベント呼び出しの中で、この関数のペアを呼びます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv xml:lang="EN-US">
         <seg>Mithril is a client-side Javascript MVC framework, i.e. it's a tool to make application code divided into a data layer (called <bpt i="0" x="0">&lt;s0&gt;</bpt>M<ept i="0">&lt;/s0&gt;</ept>odel), a UI layer (called <bpt i="1" x="1">&lt;s1&gt;</bpt>V<ept i="1">&lt;/s1&gt;</ept>iew), and a glue layer (called <bpt i="2" x="2">&lt;s2&gt;</bpt>C<ept i="2">&lt;/s2&gt;</ept>ontroller)</seg>
       </tuv>
       <tuv xml:lang="JA" changeid="shibukawa.yoshiki" changedate="20150506T110641Z" creationid="shibukawa.yoshiki" creationdate="20150407T141220Z">
@@ -7018,6 +7042,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv xml:lang="JA" changeid="shibukawa.yoshiki" changedate="20150420T095131Z" creationid="shibukawa.yoshiki" creationdate="20150420T095131Z">
         <seg>Mithrilはそれとは対照的に、よりクラシックなMVCをサポートするのに必要な機能だけを備えています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv xml:lang="EN-US">
+        <seg>Mithril-objectify requires a <bpt i="0" x="0">&lt;a0&gt;</bpt>NodeJS<ept i="0">&lt;/a0&gt;</ept> environment.</seg>
+      </tuv>
+      <tuv xml:lang="JA" changeid="shibukawa.yoshiki" changedate="20160423T050029Z" creationid="shibukawa.yoshiki" creationdate="20160423T050029Z">
+        <seg>Mithril-objectifyを実行するには<bpt i="0" x="0">&lt;a0&gt;</bpt>NodeJS<ept i="0">&lt;/a0&gt;</ept>環境が必要になります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7464,8 +7496,8 @@ var ContactsWidget = {</seg>
       <tuv xml:lang="EN-US">
         <seg>Notes on Architecture</seg>
       </tuv>
-      <tuv xml:lang="JA" changeid="shibukawa.yoshiki" changedate="20150408T163521Z" creationid="shibukawa.yoshiki" creationdate="20150408T163521Z">
-        <seg>アーキテクチャに関するメモ</seg>
+      <tuv xml:lang="JA" changeid="shibukawa.yoshiki" changedate="20160423T045602Z" creationid="shibukawa.yoshiki" creationdate="20150408T163521Z">
+        <seg>アーキテクチャに関するノート</seg>
       </tuv>
     </tu>
     <tu>
@@ -7890,6 +7922,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv xml:lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T174506Z" creationid="shibukawa.yoshiki" creationdate="20150414T174506Z">
         <seg>ウェブサービスのデータの処理</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv xml:lang="EN-US">
+        <seg>Promises also have a method called <bpt i="0" x="0">&lt;c0&gt;</bpt>catch<ept i="0">&lt;/c0&gt;</ept>, which is equivalent to calling <bpt i="1" x="1">&lt;c1&gt;</bpt>then(null, errorCallback)<ept i="1">&lt;/c1&gt;</ept></seg>
+      </tuv>
+      <tuv xml:lang="JA" changeid="shibukawa.yoshiki" changedate="20160423T050924Z" creationid="shibukawa.yoshiki" creationdate="20160423T050924Z">
+        <seg>Promiseの<bpt i="0" x="0">&lt;c0&gt;</bpt>catch<ept i="0">&lt;/c0&gt;</ept>メソッド呼び出しは、<bpt i="1" x="1">&lt;c1&gt;</bpt>then(null, errorCallback)<ept i="1">&lt;/c1&gt;</ept>と等価です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9918,6 +9958,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv xml:lang="EN-US">
+        <seg>The virtual DOM element to which the <bpt i="0" x="0">&lt;c0&gt;</bpt>config<ept i="0">&lt;/c0&gt;</ept> function is attached</seg>
+      </tuv>
+      <tuv xml:lang="JA" changeid="shibukawa.yoshiki" changedate="20160423T050321Z" creationid="shibukawa.yoshiki" creationdate="20160423T050321Z">
+        <seg><bpt i="0" x="0">&lt;c0&gt;</bpt>config<ept i="0">&lt;/c0&gt;</ept>関数が設定された仮想DOMエレメント</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv xml:lang="EN-US">
         <seg>The way the redrawing engine defers redrawing is by keeping an internal counter that is incremented by <bpt i="4" x="4">&lt;c4&gt;</bpt>m.startComputation<ept i="4">&lt;/c4&gt;</ept> and decremented by <bpt i="5" x="5">&lt;c5&gt;</bpt>m.endComputation<ept i="5">&lt;/c5&gt;</ept>.</seg>
       </tuv>
       <tuv xml:lang="JA" changeid="shibukawa.yoshiki" changedate="20150411T190021Z" creationid="shibukawa.yoshiki" creationdate="20150411T190021Z">
@@ -10002,6 +10050,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv xml:lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T020315Z" creationid="shibukawa.yoshiki" creationdate="20150416T020315Z">
         <seg>しかし、いくつかの特殊なケースをうまく処理するために、差分検知アルゴリズムに<bpt i="0" x="0">&lt;a0&gt;</bpt>key属性<ept i="0">&lt;/a0&gt;</ept>を渡す必要があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv xml:lang="EN-US">
+        <seg>There is also <bpt i="1" x="1">&lt;a1&gt;</bpt>Extended example<ept i="1">&lt;/a1&gt;</ept> available on jsfiddle.</seg>
+      </tuv>
+      <tuv xml:lang="JA" changeid="shibukawa.yoshiki" changedate="20160423T045719Z" creationid="shibukawa.yoshiki" creationdate="20160423T045719Z">
+        <seg>これらに関する<bpt i="1" x="1">&lt;a1&gt;</bpt>拡張済みのサンプル<ept i="1">&lt;/a1&gt;</ept>もjsFiddleで提供しています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11802,6 +11858,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv xml:lang="JA" changeid="shibukawa.yoshiki" changedate="20150421T020812Z" creationid="shibukawa.yoshiki" creationdate="20150421T020812Z">
         <seg>そのため、テンプレートが大きくなりすぎないようにして、レンダリングを効率よく行うことが大切です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv xml:lang="EN-US">
+        <seg>You can <bpt i="0" x="0">&lt;a0&gt;</bpt>download a zip of the latest version here<ept i="0">&lt;/a0&gt;</ept>.</seg>
+      </tuv>
+      <tuv xml:lang="JA" changeid="shibukawa.yoshiki" changedate="20160423T045818Z" creationid="shibukawa.yoshiki" creationdate="20160423T045818Z">
+        <seg><bpt i="0" x="0">&lt;a0&gt;</bpt>ここから<ept i="0">&lt;/a0&gt;</ept>最新バージョンのzipアーカイブをダウンロードできます。</seg>
       </tuv>
     </tu>
     <tu>

@@ -2,7 +2,7 @@
 <html>
 	<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<title>はじめよう - Mithril</title>
+		<title>はじめよう - Mithrilf</title>
 		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
 		<link href="lib/prism/prism.css" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
@@ -403,9 +403,9 @@ todo.view = function() {
 m.mount(document, {controller: todo.controller, view: todo.view});
 &lt;/script&gt;
 </code></pre>
-<p>このサンプルは、<a href="http://jsfiddle.net/fbgypzbr/16/">jsFiddle</a>でも確認することができます。There is also <a href="http://jsfiddle.net/glebcha/q7tvLxsa/">Extended example</a> available on jsfiddle.</p>
+<p>このサンプルは、<a href="http://jsfiddle.net/fbgypzbr/16/">jsFiddle</a>でも確認することができます。これらに関する<a href="http://jsfiddle.net/glebcha/q7tvLxsa/">拡張済みのサンプル</a>もjsFiddleで提供しています。</p>
 <hr>
-<h2 id="notes-on-architecture">アーキテクチャに関するメモ</h2>
+<h2 id="notes-on-architecture">アーキテクチャに関するノート</h2>
 <p>Mithril風のコードとは、良いプログラミングの規約に従っていて、リファクタリングしやすいコードです。</p>
 <p>上記のコードのTodoクラスは、もしコードを再構成する必要が出てきたとしても、とても簡単に他のコンポーネントに移動できます。</p>
 <p>Todoのコードは他のコードなどへの依存もなく、疎結合でまとまっています。jQueryベースのコードと違って、DOMと密結合していません。TodoクラスのAPIは再利用可能で、ユニットテストが容易です。また、プレーンなJavaScriptのクラスであるため、フレームワーク特有の学習は必要ありません。</p>

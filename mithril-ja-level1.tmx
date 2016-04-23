@@ -4096,8 +4096,8 @@ var ContactsWidget = {</seg>
       <tuv lang="EN-US">
         <seg>Getting Started - Mithril</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T140640Z" creationid="shibukawa.yoshiki" creationdate="20150407T140554Z">
-        <seg>はじめよう - Mithril</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160423T045552Z" creationid="shibukawa.yoshiki" creationdate="20150407T140554Z">
+        <seg>はじめよう - Mithrilf</seg>
       </tuv>
     </tu>
     <tu>
@@ -4502,6 +4502,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If a controller is not specified, Mithril will automatically create an empty controller function.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T144943Z" creationid="shibukawa.yoshiki" creationdate="20160412T144943Z">
+        <seg>もしコントローラが指定されなければ、Mithrilは自動的に空のコントローラ関数を作成します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If a promise is passed into m.prop(), a Mithril promise is returned.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T135230Z" creationid="shibukawa.yoshiki" creationdate="20150414T135230Z">
@@ -4698,6 +4706,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150413T155516Z" creationid="shibukawa.yoshiki" creationdate="20150413T155516Z">
         <seg>この属性が文字列の場合は、テキストノードとしてレンダリングされます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If this function returns undefined, then it passes the value argument to the next step in the thenable queue, if any</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160423T051003Z" creationid="shibukawa.yoshiki" creationdate="20160423T051003Z">
+        <seg>もしこの関数がundefinedを返してきたら、値がどんなでものであろうと、value引数がthenableキューの次のキューに渡されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6798,6 +6814,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Mithril internally calls this pair of functions when you call m.mount, m.route, m.request, and whenever an event defined with m() is triggered.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160423T051404Z" creationid="shibukawa.yoshiki" creationdate="20160423T051404Z">
+        <seg>Mithrilは、m.mount、m.route、m.requestの中と、m() で定義されたイベント呼び出しの中で、この関数のペアを呼びます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Mithril is a client-side Javascript MVC framework, i.e. it's a tool to make application code divided into a data layer (called Model), a UI layer (called View), and a glue layer (called Controller)</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150506T110641Z" creationid="shibukawa.yoshiki" creationdate="20150407T141220Z">
@@ -7018,6 +7042,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150420T095131Z" creationid="shibukawa.yoshiki" creationdate="20150420T095131Z">
         <seg>Mithrilはそれとは対照的に、よりクラシックなMVCをサポートするのに必要な機能だけを備えています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Mithril-objectify requires a NodeJS environment.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160423T050029Z" creationid="shibukawa.yoshiki" creationdate="20160423T050029Z">
+        <seg>Mithril-objectifyを実行するにはNodeJS環境が必要になります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7464,8 +7496,8 @@ var ContactsWidget = {</seg>
       <tuv lang="EN-US">
         <seg>Notes on Architecture</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150408T163521Z" creationid="shibukawa.yoshiki" creationdate="20150408T163521Z">
-        <seg>アーキテクチャに関するメモ</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160423T045602Z" creationid="shibukawa.yoshiki" creationdate="20150408T163521Z">
+        <seg>アーキテクチャに関するノート</seg>
       </tuv>
     </tu>
     <tu>
@@ -7890,6 +7922,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T174506Z" creationid="shibukawa.yoshiki" creationdate="20150414T174506Z">
         <seg>ウェブサービスのデータの処理</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Promises also have a method called catch, which is equivalent to calling then(null, errorCallback)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160423T050924Z" creationid="shibukawa.yoshiki" creationdate="20160423T050924Z">
+        <seg>Promiseのcatchメソッド呼び出しは、then(null, errorCallback)と等価です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9918,6 +9958,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The virtual DOM element to which the config function is attached</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160423T050321Z" creationid="shibukawa.yoshiki" creationdate="20160423T050321Z">
+        <seg>config関数が設定された仮想DOMエレメント</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The way the redrawing engine defers redrawing is by keeping an internal counter that is incremented by m.startComputation and decremented by m.endComputation.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150411T190021Z" creationid="shibukawa.yoshiki" creationdate="20150411T190021Z">
@@ -10002,6 +10050,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T020315Z" creationid="shibukawa.yoshiki" creationdate="20150416T020315Z">
         <seg>しかし、いくつかの特殊なケースをうまく処理するために、差分検知アルゴリズムにkey属性を渡す必要があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>There is also Extended example available on jsfiddle.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160423T045719Z" creationid="shibukawa.yoshiki" creationdate="20160423T045719Z">
+        <seg>これらに関する拡張済みのサンプルもjsFiddleで提供しています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11802,6 +11858,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150421T020812Z" creationid="shibukawa.yoshiki" creationdate="20150421T020812Z">
         <seg>そのため、テンプレートが大きくなりすぎないようにして、レンダリングを効率よく行うことが大切です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You can download a zip of the latest version here.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160423T045818Z" creationid="shibukawa.yoshiki" creationdate="20160423T045818Z">
+        <seg>ここから最新バージョンのzipアーカイブをダウンロードできます。</seg>
       </tuv>
     </tu>
     <tu>
