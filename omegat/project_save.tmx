@@ -1841,6 +1841,14 @@ todo.Todo = function(data) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;a0&gt;Guide&lt;/a0&gt; &lt;a1&gt;Download v0.2.4&lt;/a1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160425T035258Z" creationid="shibukawa.yoshiki" creationdate="20160425T035258Z">
+        <seg>&lt;a0&gt;ガイド&lt;/a0&gt; &lt;a1&gt;ダウンロード v0.2.4&lt;/a1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;a0&gt;Read more&lt;/a0&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T135001Z" creationid="shibukawa.yoshiki" creationdate="20150407T135001Z">
@@ -3781,6 +3789,22 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150410T130540Z" creationid="shibukawa.yoshiki" creationdate="20150410T130440Z">
         <seg>ウェブサービスから帰ってきたデータをクラスにキャスト。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Change Log</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160425T035859Z" creationid="shibukawa.yoshiki" creationdate="20160425T035859Z">
+        <seg>変更履歴</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Change Log - Mithril</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160425T035919Z" creationid="shibukawa.yoshiki" creationdate="20160425T035919Z">
+        <seg>変更履歴 - Mithril</seg>
       </tuv>
     </tu>
     <tu>
@@ -14614,6 +14638,14 @@ var dashboardView = function() {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>fix ReferenceError when calling an event handler via mithril-query without an event argument</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160425T035843Z" creationid="shibukawa.yoshiki" creationdate="20160425T035843Z">
+        <seg>event引数を与えずにmithril-query経由でイベントハンドラを呼ぶとReferenceErrorが発生する問題を修正</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>fix controller prototype inheritance in component controllers</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T140430Z" creationid="shibukawa.yoshiki" creationdate="20160412T140430Z">
@@ -14650,6 +14682,14 @@ var dashboardView = function() {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T135411Z" creationid="shibukawa.yoshiki" creationdate="20160412T135411Z">
         <seg>読み込み専用属性の取り扱いの修正&lt;a0&gt;#925&lt;/a0&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>fix regression that caused errors to be swallowed in promises returned by m.request &lt;a0&gt;#968&lt;/a0&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160425T035806Z" creationid="shibukawa.yoshiki" creationdate="20160425T035806Z">
+        <seg>m.requestの返り値のpromiseがエラーを飲み込んでしまうというリグレッションの修正&lt;a0&gt;#968&lt;/a0&gt;</seg>
       </tuv>
     </tu>
     <tu>

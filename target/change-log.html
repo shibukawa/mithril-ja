@@ -2,7 +2,7 @@
 <html>
 	<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<title>Change Log - Mithril</title>
+		<title>変更履歴 - Mithril</title>
 		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
 		<link href="lib/prism/prism.css" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
@@ -18,7 +18,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col(3,3,12)">
-							<h2 id="api">API (v0.2.3)</h2>
+							<h2 id="api">API (v0.2.4)</h2>
 							<h3 id="core">コア</h3>
 							<ul>
 								<li><a href="mithril.html" title="仮想エレメントを作るためのユーティリティ">m</a></li>
@@ -74,7 +74,14 @@
 							</ul>
 						</div>
 						<div class="col(9,9,12)">
-							<h2 id="change-log">Change Log</h2>
+							<h2 id="change-log">変更履歴</h2>
+<p><a href="http://mithril.js.org/archive/v0.2.4">v0.2.4</a></p>
+<h3 id="bug-fixes-">バグ修正:</h3>
+<ul>
+<li>m.requestの返り値のpromiseがエラーを飲み込んでしまうというリグレッションの修正<a href="https://github.com/lhorie/mithril.js/issues/968">#968</a></li>
+<li>event引数を与えずにmithril-query経由でイベントハンドラを呼ぶとReferenceErrorが発生する問題を修正</li>
+</ul>
+<hr>
 <p><a href="http://mithril.js.org/archive/v0.2.3">v0.2.3</a></p>
 <h3 id="bug-fixes-">バグ修正:</h3>
 <ul>
