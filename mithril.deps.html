@@ -18,7 +18,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col(3,3,12)">
-							<h2 id="api">API (v0.2.3)</h2>
+							<h2 id="api">API (v0.2.4)</h2>
 							<h3 id="core">コア</h3>
 							<ul>
 								<li><a href="mithril.html" title="仮想エレメントを作るためのユーティリティ">m</a></li>
@@ -81,7 +81,7 @@
 <li><a href="#signature">シグニチャ</a></li>
 </ul>
 <hr>
-<p>この関数を使うと、Mithril内部で使われる<code>window</code>オブジェクトを置き換えます。このカンスを使うと、モックの<code>window</code>の依存性を注入できます。非ブラウザ環境でテストしたり、Mithrilを実行することができます。Mithril自身がテストで使っているモックは<a href="https://github.com/lhorie/mithril.js/blob/next/tests/mock.js">開発リポジトリ</a>の中にあります。</p>
+<p>この関数を使うと、Mithril内部で使われる<code>window</code>オブジェクトを置き換えます。このカンスを使うと、モックの<code>window</code>の依存性を注入できます。非ブラウザ環境でテストしたり、Mithrilを実行することができます。Mithril自身がテストで使っているモックは<a href="https://github.com/lhorie/mithril.js/blob/next/test-deps/mock.js">開発リポジトリ</a>の中にあります。</p>
 <p>デフォルトではMithrilは依存先として<code>window</code>自身を使います。MithrilはDOM APIや<code>requestAnimationFrame</code>などのブラウザAPIのためにのみモックオブジェクトを使いますが、<code>Object.keys</code>などのECMAScript環境にも依存しています。</p>
 <hr>
 <h3 id="usage">使用方法</h3>
