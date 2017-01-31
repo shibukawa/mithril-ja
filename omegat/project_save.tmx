@@ -214,6 +214,14 @@ var view = [</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>// Called before the node is removed, but after onbeforeremove calls done()</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T035440Z" creationid="shibukawa.yoshiki" creationdate="20170131T035440Z">
+        <seg>// ノードが削除される前で、onbeforeremoveが完了した後に呼ばれる。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>// Called before the node is removed, return a Promise that resolves when</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T035350Z" creationid="shibukawa.yoshiki" creationdate="20170131T035350Z">
@@ -274,6 +282,14 @@ m(component)</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T035051Z" creationid="shibukawa.yoshiki" creationdate="20170131T035051Z">
         <seg>// isInitializedはブール値で、ノードがDOMに追加されるときにtrueになる</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>// ready for the node to be removed from the DOM</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T035403Z" creationid="shibukawa.yoshiki" creationdate="20170131T035403Z">
+        <seg>// する準備が整ったときに解決されるPromiseを返す</seg>
       </tuv>
     </tu>
     <tu>
@@ -5991,6 +6007,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150413T012442Z" creationid="shibukawa.yoshiki" creationdate="20150413T012442Z">
         <seg>JavaScriptとHTMLで同じ名前の属性があった場合は、MithrilはJavaScript側の属性を優先します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If available the DOM-Element of the vnode can be accessed at &lt;c0&gt;vnode.dom&lt;/c0&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T035518Z" creationid="shibukawa.yoshiki" creationdate="20170131T035518Z">
+        <seg>もしDOMエレメントにアクセス可能であれば、&lt;c0&gt;vnode.dom&lt;/c0&gt;プロパティを使って参照できます。</seg>
       </tuv>
     </tu>
     <tu>
