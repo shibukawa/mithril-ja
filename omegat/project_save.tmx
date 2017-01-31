@@ -200,6 +200,18 @@ var view = [</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>// These are equivalent
+m.component(component)
+m(component)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034904Z" creationid="shibukawa.yoshiki" creationdate="20170131T034904Z">
+        <seg>// 次の行は同じ
+m.component(component)
+m(component)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>// Your tests here...
 }</seg>
       </tuv>
@@ -214,6 +226,14 @@ var view = [</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030900Z" creationid="shibukawa.yoshiki" creationdate="20170131T030900Z">
         <seg>// この行を変更</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>// runs on each redraw</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T035024Z" creationid="shibukawa.yoshiki" creationdate="20170131T035024Z">
+        <seg>// 毎回の再描画時に呼ばれる</seg>
       </tuv>
     </tu>
     <tu>
@@ -2307,6 +2327,22 @@ var root = document.body
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150410T002830Z" creationid="shibukawa.yoshiki" creationdate="20150410T002811Z">
         <seg>&lt;c1&gt;home&lt;/c1&gt;、&lt;c2&gt;login&lt;/c2&gt;、&lt;c3&gt;dashboard&lt;/c3&gt;はそれぞれモジュールです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;c2&gt;v1.x&lt;/c2&gt; provides much more fine-grained control over the lifecycle of a vnode.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T035011Z" creationid="shibukawa.yoshiki" creationdate="20170131T035011Z">
+        <seg>&lt;c2&gt;v1.x&lt;/c2&gt;ではVノードのライフサイクルに対して適切な粒度の制御方法を提供しています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;c3&gt;v1.x&lt;/c3&gt; only supports &lt;c4&gt;m(component)&lt;/c4&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034850Z" creationid="shibukawa.yoshiki" creationdate="20170131T034850Z">
+        <seg>&lt;c3&gt;v1.x&lt;/c3&gt;では&lt;c4&gt;m(component)&lt;/c4&gt;だけがサポートされます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6495,10 +6531,26 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In &lt;c0&gt;v0.2.x&lt;/c0&gt; components could be created using either &lt;c1&gt;m(component)&lt;/c1&gt; or &lt;c2&gt;m.component(component)&lt;/c2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034838Z" creationid="shibukawa.yoshiki" creationdate="20170131T034838Z">
+        <seg>&lt;c0&gt;v0.2.x&lt;/c0&gt;では、&lt;c1&gt;m(component)&lt;/c1&gt;か&lt;c2&gt;m.component(component)&lt;/c2&gt;のどちらをつかってもコンポーネントを作ることができました。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In &lt;c0&gt;v0.2.x&lt;/c0&gt; mithril provided a single lifecycle method, &lt;c1&gt;config&lt;/c1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034936Z" creationid="shibukawa.yoshiki" creationdate="20170131T034936Z">
+        <seg>&lt;c0&gt;v0.2.x&lt;/c0&gt;では、Mithrilはライフサイクルメソッドとして&lt;c1&gt;config&lt;/c1&gt;だけを提供していました。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In &lt;c0&gt;v1.x&lt;/c0&gt;, &lt;c1&gt;m.prop()&lt;/c1&gt; is now a more powerful stream micro-library, but it's no longer part of core.</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034702Z" creationid="shibukawa.yoshiki" creationdate="20170131T034702Z">
-        <seg>&lt;c0&gt;v1.x&lt;/c0&gt;では、&lt;c1&gt;m.prop()&lt;/c1&gt;はより強力でコンパクトなストリームとしてライブラリ化されました。 is now a more powerful stream micro-library, but it's no longer part of core.</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034716Z" creationid="shibukawa.yoshiki" creationdate="20170131T034702Z">
+        <seg>&lt;c0&gt;v1.x&lt;/c0&gt;では、&lt;c1&gt;m.prop()&lt;/c1&gt;はより強力でコンパクトなストリームとしてライブラリ化されました。Mithrilのコアからは外れました。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14833,6 +14885,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150410T012943Z" creationid="shibukawa.yoshiki" creationdate="20150410T012943Z">
         <seg>APIを使用して他のページにリダイレクトすることもできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You can read about how to use the optional Streams module in &lt;a2&gt;the documentation&lt;/a2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034756Z" creationid="shibukawa.yoshiki" creationdate="20170131T034756Z">
+        <seg>オプションであるストリームモジュールの使用方法は、こちらの&lt;a2&gt;ドキュメント&lt;/a2&gt;で読むことができます。</seg>
       </tuv>
     </tu>
     <tu>
