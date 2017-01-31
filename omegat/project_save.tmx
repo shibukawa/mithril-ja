@@ -6319,6 +6319,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If you're wondering about performance, it turns out Mithril is very fast at rendering updates, because it only touches the parts of the DOM it absolutely needs to.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T031707Z" creationid="shibukawa.yoshiki" creationdate="20170131T031707Z">
+        <seg>パフォーマンスについて気になる方もいるでしょう。Mithrilは、本当に必要なDOMの部分にしか触れないため、レンダリングの更新時を非常に高速に行います。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If you're writing a template for a view, use &lt;c0&gt;m()&lt;/c0&gt; instead.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T013520Z" creationid="shibukawa.yoshiki" creationdate="20150416T013520Z">
@@ -10423,6 +10431,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Since we used &lt;c0&gt;m.mount&lt;/c0&gt;, you don't need to manually call &lt;c1&gt;m.render&lt;/c1&gt; to apply the changes in the &lt;c2&gt;count&lt;/c2&gt; variable to the HTML; Mithril does it for you.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T031551Z" creationid="shibukawa.yoshiki" creationdate="20170131T031551Z">
+        <seg>&lt;c0&gt;m.mount()&lt;/c0&gt;を使うと、&lt;c1&gt;m.render()&lt;/c1&gt;をマニュアルで呼び出さなくても&lt;c2&gt;count&lt;/c2&gt;変数の変更をMithrilがHTMLに反映します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Small API, small learning curve</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T134049Z" creationid="shibukawa.yoshiki" creationdate="20150407T133432Z">
@@ -10451,6 +10467,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030122Z" creationid="shibukawa.yoshiki" creationdate="20170131T030122Z">
         <seg>&lt;c1&gt;&lt;h1&gt;&lt;/c1&gt;タグにクラスを追加してみます:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>So in our example above, when you click the button, the text in it is the only part of the DOM Mithril actually updates.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T031759Z" creationid="shibukawa.yoshiki" creationdate="20170131T031759Z">
+        <seg>上記のサンプルでは、ボタンをクリックしたときには、MithrilはボタンのテキストのDOM部分だけを更新します。</seg>
       </tuv>
     </tu>
     <tu>
