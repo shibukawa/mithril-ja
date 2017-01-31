@@ -2015,6 +2015,14 @@ var root = document.body
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;c0&gt;config&lt;/c0&gt; function</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T033732Z" creationid="shibukawa.yoshiki" creationdate="20170131T033732Z">
+        <seg>&lt;c0&gt;config&lt;/c0&gt;関数</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;c0&gt;hash&lt;/c0&gt; mode uses the hash (i.e. &lt;c1&gt;#&lt;/c1&gt;).</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T170025Z" creationid="shibukawa.yoshiki" creationdate="20150414T170025Z">
@@ -2039,6 +2047,14 @@ var root = document.body
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;c0&gt;m.component&lt;/c0&gt; removed</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T033722Z" creationid="shibukawa.yoshiki" creationdate="20170131T033722Z">
+        <seg>&lt;c0&gt;m.component&lt;/c0&gt;は削除されました。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;c0&gt;m.module&lt;/c0&gt; has been renamed &lt;c1&gt;m.mount&lt;/c1&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T140924Z" creationid="shibukawa.yoshiki" creationdate="20160412T140924Z">
@@ -2051,6 +2067,14 @@ var root = document.body
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T134821Z" creationid="shibukawa.yoshiki" creationdate="20150414T134821Z">
         <seg>&lt;c0&gt;m.prop&lt;/c0&gt;は、&lt;a1&gt;&lt;c2&gt;m.request&lt;/c2&gt;&lt;/a1&gt;や&lt;a3&gt;&lt;c4&gt;m.deferred&lt;/c4&gt;&lt;/a3&gt;と組み合わせて、非同期操作の結果に対してデータを束縛することもできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;c0&gt;m.prop&lt;/c0&gt; removed</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034024Z" creationid="shibukawa.yoshiki" creationdate="20170131T033714Z">
+        <seg>&lt;c0&gt;m.prop&lt;/c0&gt;が削除された</seg>
       </tuv>
     </tu>
     <tu>
@@ -3911,6 +3935,14 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Cancelling redraw from event handlers</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T033846Z" creationid="shibukawa.yoshiki" creationdate="20170131T033846Z">
+        <seg>イベントハンドラから再描画をキャンセルする</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Casting the Response Data to a Class</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150410T130540Z" creationid="shibukawa.yoshiki" creationdate="20150410T130440Z">
@@ -3955,6 +3987,14 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T024847Z" creationid="shibukawa.yoshiki" creationdate="20170131T024847Z">
         <seg>変更履歴/移行</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Changes in redraw behaviour</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T033907Z" creationid="shibukawa.yoshiki" creationdate="20170131T033755Z">
+        <seg>再描画時の動作の変更</seg>
       </tuv>
     </tu>
     <tu>
@@ -9063,6 +9103,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>No more redraw locks</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T033814Z" creationid="shibukawa.yoshiki" creationdate="20170131T033814Z">
+        <seg>再描画のロックはなくなりました。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Normally, calling &lt;c0&gt;m.module&lt;/c0&gt; will return the controller instance for that module, but there's one corner case: if &lt;c1&gt;preventDefault&lt;/c1&gt; is called from a controller's &lt;c2&gt;onunload&lt;/c2&gt; method as a result of calling &lt;c3&gt;m.module&lt;/c3&gt;, then the &lt;c4&gt;m.module&lt;/c4&gt; call will not instantiate the new controller, and will return &lt;c5&gt;undefined&lt;/c5&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T020601Z" creationid="shibukawa.yoshiki" creationdate="20150414T020601Z">
@@ -10755,6 +10803,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150415T140153Z" creationid="shibukawa.yoshiki" creationdate="20150415T140153Z">
         <seg>同期実行</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Synchronous redraw removed</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T033925Z" creationid="shibukawa.yoshiki" creationdate="20170131T033925Z">
+        <seg>同期再描画は削除されました。</seg>
       </tuv>
     </tu>
     <tu>
