@@ -190,6 +190,16 @@ var view = [</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>// HTML syntax via Babel's JSX plugin
+&lt;main&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030451Z" creationid="shibukawa.yoshiki" creationdate="20170131T030451Z">
+        <seg>// BabelのJSXをプラグインを使ったHTML文法
+&lt;main&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>// Your tests here...
 }</seg>
       </tuv>
@@ -1931,6 +1941,16 @@ var root = document.body
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;button&gt;A button&lt;/button&gt;
+&lt;/main&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030509Z" creationid="shibukawa.yoshiki" creationdate="20170131T030509Z">
+        <seg>&lt;button&gt;ボタン&lt;/button&gt;
+&lt;/main&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;button&gt;Add&lt;/button&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150408T013845Z" creationid="shibukawa.yoshiki" creationdate="20150408T013845Z">
@@ -2203,6 +2223,14 @@ var root = document.body
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;h1 class="title"&gt;My first app&lt;/h1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030505Z" creationid="shibukawa.yoshiki" creationdate="20170131T030505Z">
+        <seg>&lt;h1 class="title"&gt;最初のMithrilアプリケーション&lt;/h1&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;h1&gt;Error: invalid user&lt;/h1&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T015426Z" creationid="shibukawa.yoshiki" creationdate="20150416T015426Z">
@@ -2351,6 +2379,14 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150420T105558Z" creationid="shibukawa.yoshiki" creationdate="20150420T105558Z">
         <seg>Knockoutのビュー・モデルはモデルとコントローラレイヤーを1つに融合させるものです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A Mithril component is just an object with a &lt;c0&gt;view&lt;/c0&gt; function.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030537Z" creationid="shibukawa.yoshiki" creationdate="20170131T030537Z">
+        <seg>Mithrilのコンポーネントは&lt;c0&gt;view&lt;/c0&gt;関数を持つ単なるオブジェクトです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2999,6 +3035,14 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T152205Z" creationid="shibukawa.yoshiki" creationdate="20150407T152205Z">
         <seg>他にもあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>And so on:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030330Z" creationid="shibukawa.yoshiki" creationdate="20170131T030330Z">
+        <seg>さらにタグで囲って階層化してみます:</seg>
       </tuv>
     </tu>
     <tu>
@@ -9275,6 +9319,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Note: If you prefer &lt;c0&gt;&lt;html&gt;&lt;/c0&gt; syntax, &lt;a1&gt;it's possible to use it via a Babel plugin&lt;/a1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030427Z" creationid="shibukawa.yoshiki" creationdate="20170131T030427Z">
+        <seg>Note: もし&lt;c0&gt;&lt;html&gt;&lt;/c0&gt;という文法を使いたい時は、&lt;a1&gt;Babelプラグイン&lt;/a1&gt;を使うと利用できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Notes on Architecture</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160423T045602Z" creationid="shibukawa.yoshiki" creationdate="20150408T163521Z">
@@ -15227,6 +15279,26 @@ m("div", {class: "container"}, "Hello"); //&lt;div class="container"&gt;Hello&lt
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>m("button", "A button"),
+]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030256Z" creationid="shibukawa.yoshiki" creationdate="20170131T030256Z">
+        <seg>m("button", "ボタン"),
+]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>m("button", "A button"),
+])</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030340Z" creationid="shibukawa.yoshiki" creationdate="20170131T030340Z">
+        <seg>m("button", "ボタン"),
+])</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>m("button", "Add"),</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150408T013733Z" creationid="shibukawa.yoshiki" creationdate="20150408T013733Z">
@@ -15421,6 +15493,14 @@ m("div", {style: {float: "left"}});</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030149Z" creationid="shibukawa.yoshiki" creationdate="20170131T030149Z">
         <seg>m("h1", {class: "title"}, "最初のMithrilアプリケーション")</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>m("h1", {class: "title"}, "My first app"),</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030249Z" creationid="shibukawa.yoshiki" creationdate="20170131T030249Z">
+        <seg>m("h1", {class: "title"}, "最初のMithrilアプリケーション"),</seg>
       </tuv>
     </tu>
     <tu>
