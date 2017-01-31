@@ -1905,6 +1905,24 @@ todo.Todo = function(data) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;body&gt;&lt;/body&gt;
+&lt;script src="http://unpkg.com/mithril/mithril.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+var root = document.body
+
+// your code goes here!</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T025531Z" creationid="shibukawa.yoshiki" creationdate="20170131T025531Z">
+        <seg>&lt;body&gt;&lt;/body&gt;
+&lt;script src="http://unpkg.com/mithril/mithril.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+var root = document.body
+
+// ここにコードを書きます</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;button onclick={app.vm.add}&gt;Add&lt;/button&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150417T013912Z" creationid="shibukawa.yoshiki" creationdate="20150417T013912Z">
@@ -7729,6 +7747,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It'll cover the majority of the API surface (including routing and XHR) but it'll only take 10 minutes.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T025452Z" creationid="shibukawa.yoshiki" creationdate="20170131T025452Z">
+        <seg>このチュートリアルはラウティングやXHRも含めて、主要なAPIを紹介しますが、10分程度しかかかりません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It's a good idea to wrap exception-prone code in a &lt;c2&gt;try&lt;/c2&gt; block and call &lt;c3&gt;m.endComputation&lt;/c3&gt; from within the respective &lt;c4&gt;finally&lt;/c4&gt; block, in order to prevent rendering from halting.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T153521Z" creationid="shibukawa.yoshiki" creationdate="20150416T153521Z">
@@ -8069,6 +8095,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150501T223633Z" creationid="shibukawa.yoshiki" creationdate="20150501T223633Z">
         <seg>まずはシンプルなモデルのエンティティを作ってみます。これはさまざまなコンポーネントの使用方法を説明するアプリケーションで使用します:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Let's create an HTML file to follow along:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T025512Z" creationid="shibukawa.yoshiki" creationdate="20170131T025512Z">
+        <seg>それでは次のようなHTMLファイルを作ってみましょう:</seg>
       </tuv>
     </tu>
     <tu>
@@ -11125,6 +11159,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150417T014737Z" creationid="shibukawa.yoshiki" creationdate="20150417T014614Z">
         <seg>次のスクリプト(polyfillと呼ばれる互換性向上コード)を読み込ませるのがもっとも簡単な補完方法です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The easiest way to try out Mithril is to include it from a CDN, and follow this tutorial.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T025358Z" creationid="shibukawa.yoshiki" creationdate="20170131T025358Z">
+        <seg>CDNを使ってMithrilを読み込んで、これから説明するチュートリアルをなぞるのが、Mithrilを試すもっとも簡単な方法です。</seg>
       </tuv>
     </tu>
     <tu>
