@@ -4569,6 +4569,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Download size</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T025046Z" creationid="shibukawa.yoshiki" creationdate="20170131T025046Z">
+        <seg>ダウンロードサイズの比較</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Dynamic parameters are wild cards that allow selecting a component based on a URL pattern.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T135745Z" creationid="shibukawa.yoshiki" creationdate="20150502T135745Z">
@@ -5917,6 +5925,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150417T013549Z" creationid="shibukawa.yoshiki" creationdate="20150417T013549Z">
         <seg>もしすでにHTMLを作成済みで、それをMithirlのテンプレートに変換したい場合は、一度だけマニュアルの変換しかできませんが、下記のツールを使うことができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you are an experienced developer and want to know how Mithril compares to other frameworks, see the &lt;a0&gt;framework comparison&lt;/a0&gt; page.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T025238Z" creationid="shibukawa.yoshiki" creationdate="20170131T025238Z">
+        <seg>もし、すでにJavaScriptのフレームワークでの開発経験があり、他のフレームワークとなにが違うのかを知りたければ、&lt;a0&gt;フレームワークの比較&lt;/a0&gt;のページを見てください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7843,8 +7859,8 @@ var ContactsWidget = {</seg>
       <tuv lang="EN-US">
         <seg>It's small (&lt; 8kb gzip), fast and provides routing and XHR utilities out of the box.</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T024951Z" creationid="shibukawa.yoshiki" creationdate="20170131T024951Z">
-        <seg>サイズは小さく（&lt; 8kb gzip）, fast and provides routing and XHR utilities out of the box.</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T025037Z" creationid="shibukawa.yoshiki" creationdate="20170131T024951Z">
+        <seg>サイズは小さく（&lt; 8kb gzip）高速で、ラウティングやXHRといったユーティリティもパッケージ内に内蔵しています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -8397,6 +8413,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150411T183448Z" creationid="shibukawa.yoshiki" creationdate="20150411T183448Z">
         <seg>Mithrilは、データは常にモデルからビューに流れる、という原則のもとに設計されています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Mithril is used by companies like Vimeo and Nike, and open source platforms like Lichess.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T025132Z" creationid="shibukawa.yoshiki" creationdate="20170131T025115Z">
+        <seg>MithrilはVimeoやNikeといった企業や、Lichessのようなオープンソースプラットフォームで利用されています。</seg>
       </tuv>
     </tu>
     <tu>
