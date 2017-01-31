@@ -1,52 +1,27 @@
-<!doctype html>
 <html>
 	<head>
-		<title>Getting Started - Mithril</title>
-		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
+		<meta charset="UTF-8" />
+		<title># Getting Started - Mithril.js</title>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 		<link href="lib/prism/prism.css" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 	</head>
 	<body>
 		<header>
-			<nav class="container">
-				<a href="index.html" class="logo"><span>&#9675;</span> Mithril</a>
-				<a href="getting-started.html">Guide</a>
-				<a href="mithril.html">API</a>
-				<a href="community.html">Community</a>
-				<a href="http://lhorie.github.io/mithril-blog">Learn</a>
-				<a href="installation.html">Download</a>
-				<a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
-			</nav>
+			<section>
+				<a class="hamburger" href="javascript:;">≡</a>
+				<h1><img src="logo.svg"> Mithril <small>1.0.0</small></h1>
+				<nav>
+					<a href="index.html">Guide</a>
+					<a href="api.html">API</a>
+					<a href="https://gitter.im/lhorie/mithril.js">Chat</a>
+					<a href="https://github.com/lhorie/mithril.js">Github</a>
+				</nav>
+			</section>
 		</header>
 		<main>
-			<section class="content">
-				<div class="container">
-					<div class="row">
-						<div class="col(3,3,12)">
-							<h2 id="core-topics">Core Topics</h2>
-							<ul>
-								<li><a href="installation.html">Installation</a></li>
-								<li><a href="getting-started.html">Getting Started</a></li>
-								<li><a href="routing.html">Routing</a></li>
-								<li><a href="web-services.html">Web Services</a></li>
-								<li><a href="components.html">Components</a></li>
-							</ul>
-							<h2 id="advanced-topics.html">Advanced Topics</h2>
-							<ul>
-								<li><a href="auto-redrawing.html">The Auto-Redrawing System</a></li>
-								<li><a href="integration.html">Integrating with Other Libraries</a></li>
-								<li><a href="optimizing-performance.html">Compiling Templates</a></li>
-							</ul>
-							<h2 id="misc">Misc</h2>
-							<ul>
-								<li><a href="comparison.html">Differences from Other MVC Frameworks</a></li>
-								<li><a href="benchmarks.html">Benchmarks</a></li>
-								<li><a href="practices.html">Good Practices</a></li>
-								<li><a href="tools.html">Useful Tools</a></li>
-							</ul>
-						</div>
-						<div class="col(9,9,12)">
-							<h2 id="getting-started">Getting Started</h2>
+			<section>
+				<h2 id="getting-started">Getting Started</h2>
 <h3 id="what-is-mithril-">What is Mithril?</h3>
 <p>Mithril is a client-side Javascript MVC framework, i.e. it&#39;s a tool to make application code divided into a data layer (called <strong>M</strong>odel), a UI layer (called <strong>V</strong>iew), and a glue layer (called <strong>C</strong>ontroller)</p>
 <p>Mithril is around 7.8 kB gzipped thanks to its <a href="mithril.html">small, focused, API</a>. It provides a templating engine with a virtual DOM diff implementation for performant rendering, utilities for high-level modelling via functional composition, as well as support for routing and componentization.</p>
@@ -59,11 +34,13 @@
 <pre><code class="lang-markup">&lt;!doctype html&gt;
 &lt;title&gt;Todo app&lt;/title&gt;
 &lt;script src=&quot;mithril.min.js&quot;&gt;&lt;/script&gt;
+&lt;body&gt;
 &lt;script&gt;
 //app goes here
 &lt;/script&gt;
+&lt;/body&gt;
 </code></pre>
-<p>Yes, this is valid HTML 5! According to the specs, the <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> tags can be omitted, but their respective DOM elements will still be there implicitly when a browser renders that markup.</p>
+<p>Yes, this is valid HTML 5! According to the specs, the <code>&lt;html&gt;</code> and <code>&lt;head&gt;</code> tags can be omitted, but their respective DOM elements will still be there implicitly when a browser renders that markup.</p>
 <hr>
 <h3 id="model">Model</h3>
 <p>In Mithril, an application typically lives in a namespace and contains components. Components are merely structures that represent a viewable &quot;page&quot; or a part of a page. In addition, an application can be organizationally divided into three major layers: Model, Controller and View.</p>
@@ -299,27 +276,25 @@ m(&quot;table&quot;, [
 <hr>
 <p>The rest of the code can be implemented using idioms we already covered. The complete view looks like this:</p>
 <pre><code class="lang-javascript">todo.view = function() {
-    return m(&quot;html&quot;, [
-        m(&quot;body&quot;, [
-            m(&quot;input&quot;, {onchange: m.withAttr(&quot;value&quot;, todo.vm.description), value: todo.vm.description()}),
-            m(&quot;button&quot;, {onclick: todo.vm.add}, &quot;Add&quot;),
-            m(&quot;table&quot;, [
-                todo.vm.list.map(function(task, index) {
-                    return m(&quot;tr&quot;, [
-                        m(&quot;td&quot;, [
-                            m(&quot;input[type=checkbox]&quot;, {onclick: m.withAttr(&quot;checked&quot;, task.done), checked: task.done()})
-                        ]),
-                        m(&quot;td&quot;, {style: {textDecoration: task.done() ? &quot;line-through&quot; : &quot;none&quot;}}, task.description()),
-                    ])
-                })
-            ])
+    return [
+        m(&quot;input&quot;, {onchange: m.withAttr(&quot;value&quot;, todo.vm.description), value: todo.vm.description()}),
+        m(&quot;button&quot;, {onclick: todo.vm.add}, &quot;Add&quot;),
+        m(&quot;table&quot;, [
+            todo.vm.list.map(function(task, index) {
+                return m(&quot;tr&quot;, [
+                    m(&quot;td&quot;, [
+                        m(&quot;input[type=checkbox]&quot;, {onclick: m.withAttr(&quot;checked&quot;, task.done), checked: task.done()})
+                    ]),
+                    m(&quot;td&quot;, {style: {textDecoration: task.done() ? &quot;line-through&quot; : &quot;none&quot;}}, task.description()),
+                ])
+            })
         ])
-    ]);
+    ];
 };
 </code></pre>
 <p>Here are the highlights of the template above:</p>
 <ul>
-<li>The template is rendered as a child of the implicit <code>&lt;html&gt;</code> element of the document.</li>
+<li>The template is rendered as a child of the document&#39;s <code>&lt;body&gt;</code>.</li>
 <li>The text input saves its value to the <code>todo.vm.description</code> getter-setter we defined earlier.</li>
 <li>The button calls the <code>todo.vm.add</code> method when clicked.</li>
 <li>The table lists all the existing to-dos, if any.</li>
@@ -329,16 +304,17 @@ m(&quot;table&quot;, [
 </ul>
 <hr>
 <p>So far, we&#39;ve been using <code>m.render</code> to manually redraw after we made a change to the data. However, as I mentioned before, you can enable an <a href="auto-redrawing.html">auto-redrawing system</a>, by initializing the <code>todo</code> component via <code>m.mount</code>.</p>
-<pre><code class="lang-javascript">//render the todo component inside the document DOM node
-m.mount(document, {controller: todo.controller, view: todo.view});
+<pre><code class="lang-javascript">//render the todo component inside the body DOM node
+m.mount(document.body, {controller: todo.controller, view: todo.view});
 </code></pre>
-<p>Mithril&#39;s auto-redrawing system keeps track of controller stability, and only redraws the view once it detects that the controller has finished running all of its code, including asynchronous AJAX payloads. Likewise, it intelligently waits for asynchronous services inside event handlers to complete before redrawing. </p>
+<p>Mithril&#39;s auto-redrawing system keeps track of controller stability, and only redraws the view once it detects that the controller has finished running all of its code, including asynchronous AJAX payloads. Likewise, it intelligently waits for asynchronous services inside event handlers to complete before redrawing.</p>
 <p>You can learn more about how redrawing heuristics work <a href="auto-redrawing.html">here</a>.</p>
 <hr>
 <h3 id="summary">Summary</h3>
 <p>Here&#39;s the application code in its entirety:</p>
 <pre><code class="lang-markup">&lt;!doctype html&gt;
 &lt;script src=&quot;mithril.min.js&quot;&gt;&lt;/script&gt;
+&lt;body&gt;
 &lt;script&gt;
 //this application only has one component: todo
 var todo = {};
@@ -386,27 +362,26 @@ todo.controller = function() {
 
 //here&#39;s the view
 todo.view = function() {
-    return m(&quot;html&quot;, [
-        m(&quot;body&quot;, [
-            m(&quot;input&quot;, {onchange: m.withAttr(&quot;value&quot;, todo.vm.description), value: todo.vm.description()}),
-            m(&quot;button&quot;, {onclick: todo.vm.add}, &quot;Add&quot;),
-            m(&quot;table&quot;, [
-                todo.vm.list.map(function(task, index) {
-                    return m(&quot;tr&quot;, [
-                        m(&quot;td&quot;, [
-                            m(&quot;input[type=checkbox]&quot;, {onclick: m.withAttr(&quot;checked&quot;, task.done), checked: task.done()})
-                        ]),
-                        m(&quot;td&quot;, {style: {textDecoration: task.done() ? &quot;line-through&quot; : &quot;none&quot;}}, task.description()),
-                    ])
-                })
-            ])
+    return [
+        m(&quot;input&quot;, {onchange: m.withAttr(&quot;value&quot;, todo.vm.description), value: todo.vm.description()}),
+        m(&quot;button&quot;, {onclick: todo.vm.add}, &quot;Add&quot;),
+        m(&quot;table&quot;, [
+            todo.vm.list.map(function(task, index) {
+                return m(&quot;tr&quot;, [
+                    m(&quot;td&quot;, [
+                        m(&quot;input[type=checkbox]&quot;, {onclick: m.withAttr(&quot;checked&quot;, task.done), checked: task.done()})
+                    ]),
+                    m(&quot;td&quot;, {style: {textDecoration: task.done() ? &quot;line-through&quot; : &quot;none&quot;}}, task.description()),
+                ])
+            })
         ])
-    ]);
+    ]
 };
 
 //initialize the application
-m.mount(document, {controller: todo.controller, view: todo.view});
+m.mount(document.body, {controller: todo.controller, view: todo.view});
 &lt;/script&gt;
+&lt;/body&gt;
 </code></pre>
 <p>This example is also available as a <a href="http://jsfiddle.net/fbgypzbr/16/">jsFiddle</a>.
 There is also <a href="http://jsfiddle.net/glebcha/q7tvLxsa/">Extended example</a> available on jsfiddle.</p>
@@ -493,17 +468,18 @@ this.description(data.description)
 <li><a href="tools.html">Useful Tools</a></li>
 </ul>
 
-						</div>
-					</div>
-				</div>
+				<hr />
+				<small>License: MIT. &copy; Leo Horie.</small>
 			</section>
 		</main>
-		<footer>
-			<div class="container">
-				Released under the <a href="http://opensource.org/licenses/MIT" target="_blank">MIT license</a>
-				<br />&copy; 2014 Leo Horie
-			</div>
-		</footer>
 		<script src="lib/prism/prism.js"></script>
+		<script>
+		document.querySelector(".hamburger").onclick = function() {
+			document.body.className = 'navigating'
+			document.querySelector("h1 + ul").onclick = function() {
+				document.body.className = ''
+			}
+		}
+		</script>
 	</body>
-</html>
+</html

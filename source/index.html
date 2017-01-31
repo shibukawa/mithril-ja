@@ -1,274 +1,258 @@
-<!doctype html>
 <html>
 	<head>
-		<title>Mithril</title>
-		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
+		<meta charset="UTF-8" />
+		<title> Introduction - Mithril.js</title>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 		<link href="lib/prism/prism.css" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
 	<body>
 		<header>
-			<nav class="container">
-				<a href="index.html" class="logo"><span>&#9675;</span> Mithril</a>
-				<a href="getting-started.html">Guide</a>
-				<a href="mithril.html">API</a>
-				<a href="community.html">Community</a>
-				<a href="http://lhorie.github.io/mithril-blog">Learn</a>
-				<a href="installation.html">Download</a>
-				<a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
-			</nav>
+			<section>
+				<a class="hamburger" href="javascript:;">≡</a>
+				<h1><img src="logo.svg"> Mithril <small>1.0.0</small></h1>
+				<nav>
+					<a href="index.html">Guide</a>
+					<a href="api.html">API</a>
+					<a href="https://gitter.im/lhorie/mithril.js">Chat</a>
+					<a href="https://github.com/lhorie/mithril.js">Github</a>
+				</nav>
+			</section>
 		</header>
-		
 		<main>
-			<section class="cta">
-				<div class="container">
-					<h1 class="logo"><span>&#9675;</span> Mithril</h1>
+			<section>
+				<h1 id="introduction">Introduction</h1>
+<ul>
+<li>Tutorials<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><strong><a href="index.html">Introduction</a></strong><ul>
+<li><a href="#what-is-mithril">What is Mithril?</a></li>
+<li><a href="#getting-started">Getting started</a></li>
+<li><a href="#hello-world">Hello world</a></li>
+<li><a href="#dom-elements">DOM elements</a></li>
+<li><a href="#components">Components</a></li>
+<li><a href="#routing">Routing</a></li>
+<li><a href="#xhr">XHR</a></li>
+</ul>
+</li>
+<li><a href="simple-application.html">Tutorial</a></li>
+</ul>
+</li>
+<li>Resources<ul>
+<li><a href="jsx.html">JSX</a></li>
+<li><a href="es6.html">ES6</a></li>
+<li><a href="css.html">CSS</a></li>
+<li><a href="animation.html">Animation</a></li>
+<li><a href="testing.html">Testing</a></li>
+<li><a href="examples.html">Examples</a></li>
+</ul>
+</li>
+<li>Key concepts<ul>
+<li><a href="vnodes.html">Vnodes</a></li>
+<li><a href="components.html">Components</a></li>
+<li><a href="lifecycle-methods.html">Lifecycle methods</a></li>
+<li><a href="keys.html">Keys</a></li>
+<li><a href="autoredraw.html">Autoredraw system</a></li>
+</ul>
+</li>
+<li>Social<ul>
+<li><a href="https://github.com/lhorie/mithril.js/wiki/JOBS">Mithril Jobs</a></li>
+<li><a href="contributing.html">How to contribute</a></li>
+<li><a href="credits.html">Credits</a></li>
+</ul>
+</li>
+<li>Misc<ul>
+<li><a href="framework-comparison.html">Framework comparison</a></li>
+<li><a href="change-log.html">Change log/Migration</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-mithril-">What is Mithril?</h3>
+<p>Mithril is a modern client-side Javascript framework for building Single Page Applications.<br>It&#39;s small (&lt; 8kb gzip), fast and provides routing and XHR utilities out of the box.</p>
+<div style="display:flex;margin:0 0 30px;">
+    <div style="width:50%;">
+        <h5>Download size</h5>
+        <small>Mithril (8kb)</small>
+        <div style="animation:grow 0.08s;background:#1e5799;height:3px;margin:0 10px 10px 0;transform-origin:0;width:4%;"></div>
+        <small style="color:#aaa;">Vue + Vue-Router + Vuex + fetch (40kb)</small>
+        <div style="animation:grow 0.4s;background:#1e5799;height:3px;margin:0 10px 10px 0;transform-origin:0;width:20%"></div>
+        <small style="color:#aaa;">React + React-Router + Redux + fetch (64kb)</small>
+        <div style="animation:grow 0.64s;background:#1e5799;height:3px;margin:0 10px 10px 0;transform-origin:0;width:32%"></div>
+        <small style="color:#aaa;">Angular (135kb)</small>
+        <div style="animation:grow 1.35s;background:#1e5799;height:3px;margin:0 10px 10px 0;transform-origin:0;width:68%"></div>
+    </div>
+    <div style="width:50%;">
+        <h5>Performance</h5>
+        <small>Mithril (6.4ms)</small>
+        <div style="animation:grow 0.64s;background:#1e5799;height:3px;margin:0 10px 10px 0;transform-origin:0;width:24%;"></div>
+        <small style="color:#aaa;">Vue (9.8ms)</small>
+        <div style="animation:grow 0.98s;background:#1e5799;height:3px;margin:0 10px 10px 0;transform-origin:0;width:40%"></div>
+        <small style="color:#aaa;">React (12.1ms)</small>
+        <div style="animation:grow 1.21s;background:#1e5799;height:3px;margin:0 10px 10px 0;transform-origin:0;width:48%"></div>
+        <small style="color:#aaa;">Angular (11.5ms)</small>
+        <div style="animation:grow 1.15s;background:#1e5799;height:3px;margin:0 10px 10px 0;transform-origin:0;width:44%"></div>
+    </div>
+</div>
 
-					<p>A Javascript Framework for Building Brilliant Applications</p>
+<p>Mithril is used by companies like Vimeo and Nike, and open source platforms like Lichess.</p>
+<p>If you are an experienced developer and want to know how Mithril compares to other frameworks, see the <a href="framework-comparison.html">framework comparison</a> page.</p>
+<hr>
+<h3 id="getting-started">Getting started</h3>
+<p>The easiest way to try out Mithril is to include it from a CDN, and follow this tutorial. It&#39;ll cover the majority of the API surface (including routing and XHR) but it&#39;ll only take 10 minutes.</p>
+<p>Let&#39;s create an HTML file to follow along:</p>
+<pre><code class="lang-markup">&lt;body&gt;&lt;/body&gt;
+&lt;script src=&quot;http://unpkg.com/mithril/mithril.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+var root = document.body
 
-					<p>
-						<a class="button" href="getting-started.html">Guide</a>
-						<a class="button" href="installation.html">Download v0.2.4</a>
-					</p>
-					
-					<iframe src="ghbtns.html?user=lhorie&amp;repo=mithril.js&amp;type=watch&amp;count=true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
-					
-					<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lhorie.github.io/mithril" data-via="LeoHorie">Tweet</a>
-					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-					
-					<a href="http://flattr.com/thing/2778375/lhoriemithril-js-on-GitHub" target="_blank"><img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr" title="Flattr" border="0" /></a>
-					<a class="changelog" href="change-log.html"><small>Change Log</small></a>
-				</div>
-			</section>
-			
-			<section class="features">
-				<div class="container">
-					<h2>What is Mithril?</h2>
-					<p>Mithril is a client-side MVC framework - a tool to organize code in a way that is easy to think about and to maintain.</p>
-				</div>
-				<div class="container row">
-					<div class="feature col(4,4,12)">
-						<h2>Light-weight</h2>
-						<ul>
-							<li>Only 7.8 kB gzipped, no dependencies</li>
-							<li>Small API, small learning curve</li>
-						</ul>
-					</div>
+// your code goes here!
+&lt;/script&gt;
+</code></pre>
+<hr>
+<h3 id="hello-world">Hello world</h3>
+<p>Let&#39;s start as small as well can: render some text on screen. Copy the code below into your file (and by copy, I mean type it out - you&#39;ll learn better)</p>
+<pre><code class="lang-javascript">var root = document.body
 
-					<div class="feature col(4,4,12)">
-						<h2>Robust</h2>
-						<ul>
-							<li>Safe-by-default templates</li>
-							<li>Hierarchical MVC via components</li>
-						</ul>
-					</div>
+m.render(root, &quot;Hello world&quot;)
+</code></pre>
+<p>Now, let&#39;s change the text to something else. Add this line of code under the previous one:</p>
+<pre><code class="lang-javascript">m.render(root, &quot;My first app&quot;)
+</code></pre>
+<p>As you can see, you use the same code to both create and update HTML. Mithril automatically figures out the most efficient way of updating the text, rather than blindly recreating it from scratch.</p>
+<hr>
+<h3 id="dom-elements">DOM elements</h3>
+<p>Let&#39;s wrap our text in an <code>&lt;h1&gt;</code> tag.</p>
+<pre><code class="lang-javascript">m.render(root, m(&quot;h1&quot;, &quot;My first app&quot;))
+</code></pre>
+<p>The <code>m()</code> function can be used to describe any HTML structure you want. So if you to add a class to the <code>&lt;h1&gt;</code>:</p>
+<pre><code class="lang-javascript">m(&quot;h1&quot;, {class: &quot;title&quot;}, &quot;My first app&quot;)
+</code></pre>
+<p>If you want to have multiple elements:</p>
+<pre><code class="lang-javascript">[
+    m(&quot;h1&quot;, {class: &quot;title&quot;}, &quot;My first app&quot;),
+    m(&quot;button&quot;, &quot;A button&quot;),
+]
+</code></pre>
+<p>And so on:</p>
+<pre><code class="lang-javascript">m(&quot;main&quot;, [
+    m(&quot;h1&quot;, {class: &quot;title&quot;}, &quot;My first app&quot;),
+    m(&quot;button&quot;, &quot;A button&quot;),
+])
+</code></pre>
+<p>Note: If you prefer <code>&lt;html&gt;</code> syntax, <a href="jsx.html">it&#39;s possible to use it via a Babel plugin</a>.</p>
+<pre><code class="lang-jsx">// HTML syntax via Babel&#39;s JSX plugin
+&lt;main&gt;
+    &lt;h1 class=&quot;title&quot;&gt;My first app&lt;/h1&gt;
+    &lt;button&gt;A button&lt;/button&gt;
+&lt;/main&gt;
+</code></pre>
+<hr>
+<h3 id="components">Components</h3>
+<p>A Mithril component is just an object with a <code>view</code> function. Here&#39;s the code above as a component:</p>
+<pre><code class="lang-javascript">var Hello = {
+    view: function() {
+        return m(&quot;main&quot;, [
+            m(&quot;h1&quot;, {class: &quot;title&quot;}, &quot;My first app&quot;),
+            m(&quot;button&quot;, &quot;A button&quot;),
+        ])
+    }
+}
+</code></pre>
+<p>To activate the component, we use <code>m.mount</code>.</p>
+<pre><code class="lang-javascript">m.mount(root, Hello)
+</code></pre>
+<p>As you would expect, doing so creates this markup:</p>
+<pre><code class="lang-markup">&lt;main&gt;
+    &lt;h1 class=&quot;title&quot;&gt;My first app&lt;/h1&gt;
+    &lt;button&gt;A button&lt;/button&gt;
+&lt;/main&gt;
+</code></pre>
+<p>The <code>m.mount</code> function is similar to <code>m.render</code>, but instead of rendering some HTML only once, it activates Mithril&#39;s auto-redrawing system. To understand what that means, let&#39;s add some events:</p>
+<pre><code class="lang-javascript">var count = 0 // added a variable
 
-					<div class="feature col(4,4,12)">
-						<h2>Fast</h2>
-						<ul>
-							<li>Virtual DOM diffing and compilable templates</li>
-							<li>Intelligent auto-redrawing system</li>
-						</ul>
-					</div>
-				</div>
-			</section>
+var Hello = {
+    view: function() {
+        return m(&quot;main&quot;, [
+            m(&quot;h1&quot;, {class: &quot;title&quot;}, &quot;My first app&quot;),
+            // changed the next line
+            m(&quot;button&quot;, {onclick: function() {count++}}, count + &quot; clicks&quot;),
+        ])
+    }
+}
 
-			<section class="sample">
-				<div class="container">
-					<div class="col(8,8,12)">
-						<h2>Sample code</h2>
-						
-<pre><code class="language-javascript">
-//model
-var Page = {
-	list: function() {
-		return m.request({method: "GET", url: "pages.json"});
-	}
-};
+m.mount(root, Hello)
+</code></pre>
+<p>We defined an <code>onclick</code> event on the button, which increments a variable <code>count</code> (which was declared at the top). We are now also rendering the value of that variable in the button label.</p>
+<p>You can now update the label of the button by clicking the button. Since we used <code>m.mount</code>, you don&#39;t need to manually call <code>m.render</code> to apply the changes in the <code>count</code> variable to the HTML; Mithril does it for you.</p>
+<p>If you&#39;re wondering about performance, it turns out Mithril is very fast at rendering updates, because it only touches the parts of the DOM it absolutely needs to. So in our example above, when you click the button, the text in it is the only part of the DOM Mithril actually updates.</p>
+<hr>
+<h3 id="routing">Routing</h3>
+<p>Routing just means going from one screen to another in an application with several screens.</p>
+<p>Let&#39;s add a splash page that appears before our click counter. First we create a component for it:</p>
+<pre><code class="lang-javascript">var Splash = {
+    view: function() {
+        return m(&quot;a&quot;, {href: &quot;#!/hello&quot;}, &quot;Enter!&quot;)
+    }
+}
+</code></pre>
+<p>As you can see, this component simply renders a link to <code>#!/hello</code>. The <code>#!</code> part is known as a hashbang, and it&#39;s a common convention used in Single Page Applications to indicate that the stuff after it (the <code>/hello</code> part) is a route path.</p>
+<p>Now that we going to have more than one screen, we use <code>m.route</code> instead of <code>m.mount</code>.</p>
+<pre><code class="lang-javascript">m.route(root, &quot;/splash&quot;, {
+    &quot;/splash&quot;: Splash,
+    &quot;/hello&quot;: Hello,
+})
+</code></pre>
+<p>The <code>m.route</code> function still has the same auto-redrawing functionality that <code>m.mount</code> does, and it also enables URL awareness; in other words, it lets Mithril know what to do when it sees a <code>#!</code> in the URL.</p>
+<p>The <code>&quot;/splash&quot;</code> right after <code>root</code> means that&#39;s the default route, i.e. if the hashbang in the URL doesn&#39;t point to one of the defined routes (<code>/splash</code> and <code>/hello</code>, in our case), then Mithril redirects to the default route. So if you open the page in a browser and your URL is <code>http://localhost</code>, then you get redirected to <code>http://localhost/#!/splash</code>.</p>
+<p>Also, as you would expect, clicking on the link on the splash page takes you to the click counter screen we created earlier. Notice that now your URL will point to <code>http://localhost/#!/hello</code>. You can navigate back and forth to the splash page using the browser&#39;s back and next button.</p>
+<hr>
+<h3 id="xhr">XHR</h3>
+<p>Basically, XHR is just a way to talk to a server.</p>
+<p>Let&#39;s change our click counter to make it save data on a server. For the server, we&#39;ll use <a href="http://rem-rest-api.herokuapp.com">REM</a>, a mock REST API designed for toy apps like this tutorial.</p>
+<p>First we create a function that calls <code>m.request</code>. The <code>url</code> specifies an endpoint that represents a resource, the <code>method</code> specifies the type of action we&#39;re taking (typically the <code>PUT</code> method <a href="https://en.wiktionary.org/wiki/upsert">upserts</a>), <code>data</code> is the payload that we&#39;re sending to the endpoint and <code>useCredentials</code> means to enable cookies (a requirement for the REM API to work)</p>
+<pre><code class="lang-javascript">var count = 0
+var increment = function() {
+    m.request({
+        method: &quot;PUT&quot;,
+        url: &quot;http://rem-rest-api.herokuapp.com/api/tutorial/1&quot;,
+        data: {count: count + 1},
+        useCredentials: true,
+    })
+    .then(function(data) {
+        count = parseInt(data.count)
+    })
+}
+</code></pre>
+<p>Calling the increment function <a href="https://en.wiktionary.org/wiki/upsert">upserts</a> an object <code>{count: 1}</code> to the <code>/api/tutorial/1</code> endpoint. This endpoint returns an object with the same <code>count</code> value that was sent to it. Notice that the <code>count</code> variable is only updated after the request completes, and it&#39;s updated with the response value from the server now.</p>
+<p>Let&#39;s replace the event handler in the component to call the <code>increment</code> function instead of incrementing the <code>count</code> variable directly:</p>
+<pre><code class="lang-javascript">var Hello = {
+    view: function() {
+        return m(&quot;main&quot;, [
+            m(&quot;h1&quot;, {class: &quot;title&quot;}, &quot;My first app&quot;),
+            m(&quot;button&quot;, {onclick: increment}, count + &quot; clicks&quot;),
+        ])
+    }
+}
+</code></pre>
+<p>Clicking the button should now update the count.</p>
+<hr>
+<p>We covered how to create and update HTML, how to create components, routes for a Single Page Application, and interacted with a server via XHR.</p>
+<p>This should be enough to get you started writing the frontend for a real application. Now that you are comfortable with the basics of the Mithril API, <a href="simple-application.html">be sure to check out the simple application tutorial</a>, which walks you through building a realistic application.</p>
 
-var Demo = {
-	//controller
-	controller: function() {
-		var pages = Page.list();
-		return {
-			pages: pages,
-			rotate: function() {
-				pages().push(pages().shift());
-			}
-		}
-	},
-
-	//view
-	view: function(ctrl) {
-		return m("div", [
-			ctrl.pages().map(function(page) {
-				return m("a", {href: page.url}, page.title);
-			}),
-			m("button", {onclick: ctrl.rotate}, "Rotate links")
-		]);
-	}
-};
-
-
-//initialize
-m.mount(document.getElementById("example"), Demo);</code></pre>
-
-					</div>
-					<div class="col(4,4,12)">
-						<h2>Output</h2>
-						<div id="example" class="example output">
-							<script src="mithril.min.js"></script>
-							<script>
-//model
-var Page = {
-	list: function() {
-		return m.request({method: "GET", url: "pages.json"});
-	}
-};
-
-var Demo = {
-	//controller
-	controller: function() {
-		var pages = Page.list();
-		return {
-			pages: pages,
-			rotate: function() {
-				pages().push(pages().shift());
-			}
-		}
-	},
-
-	//view
-	view: function(ctrl) {
-		return m("div", [
-			ctrl.pages().map(function(page) {
-				return m("a", {href: page.url}, page.title);
-			}),
-			m("button", {onclick: ctrl.rotate}, "Rotate links")
-		]);
-	}
-};
-
-
-//initialize
-m.mount(document.getElementById("example"), Demo);
-							</script>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<section class="performance">
-				<div class="container">
-					<h2 id="performance">Performance</h2>
-					<p>To run the execution time tests below, click on their respective links, run the profiler from your desired browser's developer tools and measure the running time of a page refresh (Lower is better). <a href="benchmarks.html">Read more</a></p>
-					<div class="row">
-						<div class="col(4,4,6)">
-							<h3>Loading</h3>
-							<table>
-								<tr><td><a href="comparisons/mithril.parsing.html">Mithril</a></td><td><span class="bar" style="background:#161;width:1%;"></span> 0.28ms</td></tr>
-								<tr><td><a href="comparisons/jquery.parsing.html">jQuery</a></td><td><span class="bar" style="background:#66c;width:26%;"></span> 13.11ms</td></tr>
-								<tr><td><a href="comparisons/backbone.parsing.html">Backbone</a></td><td><span class="bar" style="background:#33c;width:37%;"></span> 18.54ms</td></tr>
-								<tr><td><a href="comparisons/angular.parsing.html">Angular</a></td><td><span class="bar" style="background:#c33;width:14%;"></span> 7.49ms</td></tr>
-								<tr><td><a href="comparisons/react.parsing.html">React</a></td><td><span class="bar" style="background:#6af;width:50%;"></span> 24.99ms</td></tr>
-							</table>
-						</div>
-						<div class="col(8,8,12)">
-							<h3>Rendering</h3>
-							<table>
-								<tr><td><a href="comparisons/mithril.rendering.html">Mithril</a></td><td><span class="bar" style="background:#161;width:4%;"></span> 9.44ms (uncompiled)</td></tr>
-								<tr><td><a href="comparisons/jquery.rendering.html">jQuery</a></td><td><span class="bar" style="background:#66c;width:17%;"></span> 40.27ms</td></tr>
-								<tr><td><a href="comparisons/backbone.rendering.html">Backbone</a></td><td><span class="bar" style="background:#33c;width:10%;"></span> 23.05ms</td></tr>
-								<tr><td><a href="comparisons/angular.rendering.html">Angular</a></td><td><span class="bar" style="background:#c33;width:50%;"></span> 118.63ms</td></tr>
-								<tr><td><a href="comparisons/react.rendering.html">React</a></td><td><span class="bar" style="background:#6af;width:33%;"></span> 79.65ms</td></tr>
-							</table>
-						</div>
-					</div>
-				</div>
-			</section>
-			
-			<section class="security">
-				<div class="container">
-					<div class="row">
-						<div class="col(8,8,12)">
-							<h2>Safety</h2>
-							<p>Mithril templates are safe by default, i.e. you can't unintentionally create security holes.</p>
-							<p>To run the tests for each framework, click on the respective links. If you see an alert box, ensuring security with that framework is more work for you.</p>
-						</div>
-						<div class="col(4,4,12)">
-							<h3>Test Summary</h3>
-							<a href="comparisons/mithril.safety.html">Mithril</a> <em class="success">(pass) &#x2713;</em><br />
-							<a href="comparisons/jquery.safety.html">jQuery</a> <em class="error">(fail) &#x2717;</em><br />
-							<a href="comparisons/backbone.safety.html">Backbone</a> <em class="error">(fail) &#x2717;</em><br />
-							<a href="comparisons/angular.safety.html">Angular</a> <em class="success">(pass) &#x2713;</em><br />
-							<a href="comparisons/react.safety.html">React</a> <em class="success">(pass) &#x2713;</em><br />
-						</div>
-					</div>
-				</div>
-			</section>
-			
-			<section class="more">
-				<div class="container row">
-					<div class="col(3,6,12)">
-						<div style="padding:0 2em 0 0;">
-							<h2>Guide</h2>
-							<p>Build a simple application. Learn the ropes</p>
-							<p><a href="getting-started.html">Read Guide</a></p>
-						</div>
-					</div>
-
-					<div class="col(3,6,12)">
-						<div style="padding:0 2em 0 0;">
-							<h2>API</h2>
-							<p>Docs and code samples for your reference</p>
-							<p><a href="mithril.html">Read docs</a></p>
-						</div>
-					</div>
-
-					<div class="col(3,6,12)">
-						<div style="padding:0 2em 0 0;">
-							<h2>Learn Mithril</h2>
-							<p>Weekly articles on how to use Mithril to its full potential.</p>
-							<p><a href="http://lhorie.github.io/mithril-blog">Read articles</a></p>
-						</div>
-					</div>
-
-					<div class="col(3,6,12)">
-						<div style="padding:0 2em 0 0;">
-							<h2>Mailing List</h2>
-							<p>Post questions and discuss Mithril related topics.</p>
-							<p><a href="https://groups.google.com/forum/#!forum/mithriljs">Go to mailing list</a></p>
-						</div>
-					</div>
-				</div>
-			</section>
-			
-			<section class="socialmedia">
-				<div class="container row">
-					<h2>Social Media</h2>
-					<div class="col(6,12,12)">
-						<div style="padding:0 1em 0 0;">
-						<blockquote class="twitter-tweet" lang="en"><p>Just converted the MELPA site from Angular to <a href="https://twitter.com/LeoHorie">@LeoHorie</a>&#39;s tiny mithril.js: very pleasant. <a href="http://t.co/R7JKfo9vJ1">http://t.co/R7JKfo9vJ1</a> <a href="https://t.co/7IrR3L84OY">https://t.co/7IrR3L84OY</a></p>&mdash; Steve Purcell (@sanityinc) <a href="https://twitter.com/sanityinc/statuses/471358494101504000">May 27, 2014</a></blockquote>
-						
-						<blockquote class="twitter-tweet" lang="en"><p><a href="https://twitter.com/LeoHorie">@<b>LeoHorie</b></a> I've long opposed JS frameworks, but I *really* dig Mithril! Major major kudos for making my life easier!</p>&mdash; i80and (@i80and) <a href="https://twitter.com/i80and/status/586170085691252736">Apr 9, 2015</a></blockquote>
-						</div>
-					</div>	
-					<div class="col(6,12,12)">
-						<blockquote class="twitter-tweet" lang="en"><p>Mithril.js m.prop feature is plain brilliant. I spent years yearning for an approach that lightweight <a href="http://t.co/KgzOxoa2WR">http://t.co/KgzOxoa2WR</a></p>&mdash; Xavier Via (@xaviervia) <a href="https://twitter.com/xaviervia/statuses/454635992360554497">April 11, 2014</a></blockquote>
-						
-						<blockquote class="twitter-tweet" lang="en"><p>Ported my angularjs based WebGL ui editor to mithril and got a big speed boost. <a href="https://twitter.com/hashtag/mithriljs">#<b>mithriljs</b></a> love the small api and docs!</p> &mdash; geekrelief (@geekrelief) <a href="https://twitter.com/geekrelief/status/554214299460435969">January 11, 2015</a></blockquote>
-						
-						<script async src="//platform.twitter.com/widgets.js"></script>
-					</div>
-				</div>
+				<hr />
+				<small>License: MIT. &copy; Leo Horie.</small>
 			</section>
 		</main>
-		<footer>
-			<div class="container">
-				Released under the <a href="http://opensource.org/licenses/MIT" target="_blank">MIT license</a><br />
-				&copy; 2014 Leo Horie
-			</div>
-		</footer>
 		<script src="lib/prism/prism.js"></script>
+		<script>
+		document.querySelector(".hamburger").onclick = function() {
+			document.body.className = document.body.className === "navigating" ? "" : "navigating"
+			document.querySelector("h1 + ul").onclick = function() {
+				document.body.className = ''
+			}
+		}
+		</script>
 	</body>
 </html>

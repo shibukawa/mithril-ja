@@ -1,150 +1,117 @@
-<!doctype html>
 <html>
 	<head>
-		<title>Integrating with Other Libraries - Mithril</title>
-		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
+		<meta charset="UTF-8" />
+		<title># Integrating with Other Libraries - Mithril.js</title>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 		<link href="lib/prism/prism.css" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 	</head>
 	<body>
 		<header>
-			<nav class="container">
-				<a href="index.html" class="logo"><span>&#9675;</span> Mithril</a>
-				<a href="getting-started.html">Guide</a>
-				<a href="mithril.html">API</a>
-				<a href="community.html">Community</a>
-				<a href="http://lhorie.github.io/mithril-blog">Learn</a>
-				<a href="installation.html">Download</a>
-				<a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
-			</nav>
+			<section>
+				<a class="hamburger" href="javascript:;">≡</a>
+				<h1><img src="logo.svg"> Mithril <small>1.0.0</small></h1>
+				<nav>
+					<a href="index.html">Guide</a>
+					<a href="api.html">API</a>
+					<a href="https://gitter.im/lhorie/mithril.js">Chat</a>
+					<a href="https://github.com/lhorie/mithril.js">Github</a>
+				</nav>
+			</section>
 		</header>
 		<main>
-			<section class="content">
-				<div class="container">
-					<div class="row">
-						<div class="col(3,3,12)">
-							<h2 id="core-topics">Core Topics</h2>
-							<ul>
-								<li><a href="installation.html">Installation</a></li>
-								<li><a href="getting-started.html">Getting Started</a></li>
-								<li><a href="routing.html">Routing</a></li>
-								<li><a href="web-services.html">Web Services</a></li>
-								<li><a href="components.html">Components</a></li>
-							</ul>
-							<h2 id="advanced-topics.html">Advanced Topics</h2>
-							<ul>
-								<li><a href="auto-redrawing.html">The Auto-Redrawing System</a></li>
-								<li><a href="integration.html">Integrating with Other Libraries</a></li>
-								<li><a href="optimizing-performance.html">Compiling Templates</a></li>
-							</ul>
-							<h2 id="misc">Misc</h2>
-							<ul>
-								<li><a href="comparison.html">Differences from Other MVC Frameworks</a></li>
-								<li><a href="benchmarks.html">Benchmarks</a></li>
-								<li><a href="practices.html">Good Practices</a></li>
-								<li><a href="tools.html">Useful Tools</a></li>
-							</ul>
-						</div>
-						<div class="col(9,9,12)">
-							<h2 id="integrating-with-other-libraries">Integrating with Other Libraries</h2>
+			<section>
+				<h2 id="integrating-with-other-libraries">Integrating with Other Libraries</h2>
 <p>Integration with third party libraries or vanilla javascript code can be achieved via the <a href="mithril.html#accessing-the-real-dom"><code>config</code> attribute of virtual elements</a>.</p>
 <p>It&#39;s recommended that you encapsulate integration code in a component or a helper function.</p>
 <p>The example below shows a simple component that integrates with the <a href="http://ivaynberg.github.io/select2/">select2 library</a>.</p>
-<pre><code class="lang-javascript">var Select2 = {
-    //    Returns a select box
-    view: function(ctrl, attrs) {
-        var selectedId = attrs.value().id;
-        //Create a Select2 progrssively enhanced SELECT element
-        return m(&quot;select&quot;, {config: Select2.config(attrs)}, [
-            attrs.data.map(function(item) {
-                var args = {value: item.id};
-                //    Set selected option
-                if(item.id == selectedId) {
-                    args.selected = &quot;selected&quot;;
-                }
-                return m(&quot;option&quot;, args, item.name);
-            })
-        ]);
-    },
-    /**
-    Select2 config factory. The params in this doc refer to properties of the `ctrl` argument
-    @param {Object} data - the data with which to populate the &lt;option&gt; list
-    @param {prop} value - the prop of the item in `data` that we want to select
-    @param {function(Object id)} onchange - the event handler to call when the selection changes.
-        `id` is the the same as `value`
+<pre><code class="lang-javascript">// Component containing a Select that uses Select2 for functionality.
+var S2Component = {
+
+  // Rendered view for S2
+  view: function(ctrl, attrs) {
+    var current = attrs.selectedUser
+
+    return m(&#39;select&#39;, {
+        class: &#39;select-field&#39;,
+        config: S2Component._configure
+      },
+      attrs.data.map(function(item){
+        return m(&#39;option&#39;, {
+                  id: item.id,
+                  value: item.value,
+                  selected: (item.id === current) ? true : false
+                }, item.name);
+      })
+    )
+  },
+
+   // Configure function -- called from m(&#39;select&#39;) in the view
+  _configure: function(element, initialized) {
+
+    /*
+      Note: This function is being called from the &#39;config&#39; attribute
+      in our mithril view.
+
+      Integration with third-party party DOM manipulation (jQuery) needs 
+      {config: function(){}} because that&#39;s the attribute that exposes the real
+      DOM element (as opposed to the virtual DOM element) in the corresponding 
+      function so you can access and manipulate it.
     */
-    //    Note: The config is never run server side.
-    config: function(ctrl) {
-        return function(element, isInitialized) {
-            if(typeof jQuery !== &#39;undefined&#39; &amp;&amp; typeof jQuery.fn.select2 !== &#39;undefined&#39;) {
-                var el = $(element);
-                if (!isInitialized) {
-                    el.select2()
-                        .on(&quot;change&quot;, function(e) {
-                            var id = el.select2(&quot;val&quot;);
-                            m.startComputation();
-                            //Set the value to the selected option
-                            ctrl.data.map(function(d){
-                                if(d.id == id) {
-                                    ctrl.value(d);
-                                }
-                            });
 
-                            if (typeof ctrl.onchange == &quot;function&quot;){
-                                ctrl.onchange(el.select2(&quot;val&quot;));
-                            }
-                            m.endComputation();
-                        });
-                }
-                el.val(ctrl.value().id).trigger(&quot;change&quot;);
-            } else {
-                console.warn(&#39;ERROR: You need jquery and Select2 in the page&#39;);    
-            }
-        };
+    // If this hasn&#39;t been initialized, we can do our setup  
+    if(!initialized) {
+
+       $(element).select2({
+        // options
+      });
+
+      // Other logic pertaining to this select also goes here.
+      // e.g. Event handlers, etc.
     }
-};
+  }
+}
 
-var Dashboard = {
-    controller: function() {
-        var ctrl = this,
-          //list of users to show
-          data = [
-            {id: 1, name: &quot;John&quot;}, 
-            {id: 2, name: &quot;Mary&quot;}, 
-            {id: 3, name: &quot;Seniqua&quot;}
-          ];
+// Primary component.
+var MainComponent = {
+  controller: function() {
+    var ctrl = this;
 
-        ctrl.data = data;
-        //  Has to use a prop for the current user
-        ctrl.currentUser = m.prop(data[1]);
-        ctrl.changeUser = function(id) {
-          console.log(id);
-        };
-    },
+    // Some arbitrary data
+   // Aaron Burr is the initially selected user.
+    ctrl.selectedUser = 2;
+    ctrl.data = [
+          {id: 1, name: &#39;Alexander Hamilton&#39;},
+          {id: 2, name: &#39;Aaron Burr&#39;},
+          {id: 3, name: &#39;Thomas Jefferson&#39;},
+          {id: 4, name: &#39;John Adams&#39;},
+          {id: 5, name: &#39;James Madison&#39;},
+          {id: 6, name: &#39;Elizabeth Schuyler&#39;},
+          {id: 7, name: &#39;King George&#39;},
+          {id: 8, name: &#39;Marquis de Lafayette&#39;}
+        ]
+  },
 
-    view: function(ctrl) {
-        return m(&quot;div&quot;, [
-            m(&quot;label&quot;, &quot;User:&quot;),
-            m.component(Select2, {
-              data: ctrl.data, 
-              value: ctrl.currentUser, 
-              onchange: ctrl.changeUser
-            })
-        ]);
-    }
-};
+  view: function(ctrl) {
+    return m(&#39;div&#39;, {class: &#39;select-container&#39;}, [
+      m(&#39;label&#39;, &#39;Historical Figure: &#39;),
+      m(S2Component, {
+        selectedUser: ctrl.selectedUser,
+        data: ctrl.data
+      })
+    ])
+  }
+}
 
-m.mount(document.body, Dashboard);
+m.mount(document.body, MainComponent)
 </code></pre>
-<p><code>select2.config</code> is a factory that creates a <code>config</code> function based on a given controller. We declare this outside of the <code>select2.view</code> function to avoid cluttering the template.</p>
-<p>The <code>config</code> function created by our factory only runs the initialization code if it hasn&#39;t already. This <code>if</code> statement is important, because this function may be called multiple times by Mithril&#39;s auto-redrawing system and we don&#39;t want to re-initialize select2 at every redraw.</p>
-<p>The initialization code defines a <code>change</code> event handler. Because this handler is not created using Mithril&#39;s templating engine (i.e. we&#39;re not defining an attribute in a virtual element), we must manually integrate it to the auto-redrawing system.</p>
-<p>This can be done by simply calling <code>m.startComputation</code> at the beginning, and <code>m.endComputation</code> at the end of the function. You must add a pair of these calls for each asynchronous execution thread, unless the thread is already integrated.</p>
-<p>For example, if you were to call a web service using <code>m.request</code>, you would not need to add more calls to <code>m.startComputation</code> / <code>m.endComputation</code> (you would still need the first pair in the event handler, though).</p>
-<p>On the other hand, if you were to call a web service using jQuery, then you would be responsible for adding a <code>m.startComputation</code> call before the jQuery ajax call, and for adding a <code>m.endComputation</code> call at the end of the completion callback, in addition to the calls within the <code>change</code> event handler. Refer to the <a href="auto-redrawing.html"><code>auto-redrawing</code></a> guide for an example.</p>
-<p>One important note about the <code>config</code> method is that you should avoid calling <code>m.redraw</code>, <code>m.startComputation</code> and <code>m.endComputation</code> in the <code>config</code> function&#39;s execution thread. (An execution thread is basically any amount of code that runs before other asynchronous threads start to run.)</p>
-<p>While Mithril technically does support this use case, relying on multiple redraw passes degrades performance and makes it possible to code yourself into an infinite execution loop situation, which is extremely difficult to debug.</p>
-<p>The <code>dashboard</code> component in the example shows how a developer would consume the select2 component.</p>
+<p><a href="https://jsfiddle.net/11pz8afy/9/">Source code in JSFiddle</a></p>
+<p><code>_configure</code> is a helper function that is called via the <code>config</code> attribute in the <code>select</code> we render in our <code>SC2Component.view</code></p>
+<p>This <code>_configure</code> function has a guarded <code>if</code> statement: <code>if(!initialized)</code>. In the event this component is being instantiated for the first time, we&#39;re going to do all of the initial setup on the first render. Subsequent redraws will <strong>not</strong> run the initialization code again, making sure everything in the <code>_configure</code> function is only initialized once.</p>
+<p>The initialization code is simply calling <code>$(element).select2()</code> on the exposed DOM element in order to initialize it. You can also addevent handlers to these elements. If you modify the DOM or any data that your component relies on inside of this function, you&#39;ll need to make sure the component knows to redraw itself by adding <code>m.redraw</code> as needed.</p>
+<p><code>m.startComputation</code> and <code>m.endComputation</code> are used for asynchronous operations. If you were to call a web service using jQuery, then you would be responsible for adding a <code>m.startComputation</code> call before the jQuery ajax call, and for adding a <code>m.endComputation</code> call at the end of the completion callback, in addition to the calls within any event handlers. Refer to the <a href="auto-redrawing.html"><code>auto-redrawing</code></a> guide for an example.</p>
+<p>Though possible, you should avoid calling <code>m.redraw</code>, <code>m.startComputation</code> and <code>m.endComputation</code> in the <code>_configure</code> function&#39;s execution thread. (An execution thread is basically any amount of code that runs before other asynchronous threads start to run.) Relying on multiple redraw passes degrades performance and makes it possible to code yourself into an infinite execution loop situation, which is extremely difficult to debug.</p>
+<p>The component in the example shows how a developer would consume the <code>SC2Component</code>.</p>
 <p>You should always document integration components so that others can find out what attribute parameters can be used to initialize the component.</p>
 <hr>
 <h2 id="integrating-to-legacy-code">Integrating to legacy code</h2>
@@ -159,17 +126,18 @@ m.mount(document.getElementById(&quot;widget2-container&quot;), Widget2)
 m.endComputation()
 </code></pre>
 
-						</div>
-					</div>
-				</div>
+				<hr />
+				<small>License: MIT. &copy; Leo Horie.</small>
 			</section>
 		</main>
-		<footer>
-			<div class="container">
-				Released under the <a href="http://opensource.org/licenses/MIT" target="_blank">MIT license</a>
-				<br />&copy; 2014 Leo Horie
-			</div>
-		</footer>
 		<script src="lib/prism/prism.js"></script>
+		<script>
+		document.querySelector(".hamburger").onclick = function() {
+			document.body.className = 'navigating'
+			document.querySelector("h1 + ul").onclick = function() {
+				document.body.className = ''
+			}
+		}
+		</script>
 	</body>
-</html>
+</html

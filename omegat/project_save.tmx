@@ -2155,6 +2155,14 @@ var root = document.body
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;c0&gt;m.mount()&lt;/c0&gt; and &lt;c1&gt;m.route()&lt;/c1&gt; still automatically redraw after a DOM event handler runs.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T120724Z" creationid="shibukawa.yoshiki" creationdate="20170131T120724Z">
+        <seg>&lt;c0&gt;m.mount()&lt;/c0&gt;と&lt;c1&gt;m.route()&lt;/c1&gt;は、引き続きDOMイベントハンドラの実行後に再描画を行います。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;c0&gt;m.prop&lt;/c0&gt; can also be used in conjunction with &lt;a1&gt;&lt;c2&gt;m.request&lt;/c2&gt;&lt;/a1&gt; and &lt;a3&gt;&lt;c4&gt;m.deferred&lt;/c4&gt;&lt;/a3&gt; to bind data on completion of an asynchronous operation.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T134821Z" creationid="shibukawa.yoshiki" creationdate="20150414T134821Z">
@@ -4095,6 +4103,14 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T033846Z" creationid="shibukawa.yoshiki" creationdate="20170131T033846Z">
         <seg>イベントハンドラから再描画をキャンセルする</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Cancelling these redraws from within your event handlers is now done by setting the &lt;c2&gt;redraw&lt;/c2&gt; property on the passed-in event object to &lt;c3&gt;false&lt;/c3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T120837Z" creationid="shibukawa.yoshiki" creationdate="20170131T120837Z">
+        <seg>イベントハンドラ内からこれらの再描画をキャンセルするには、イベントオブジェクトの&lt;c2&gt;redraw&lt;/c2&gt;プロパティに&lt;c3&gt;false&lt;/c3&gt;を設定してください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7619,6 +7635,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In v0.2.x, Mithril allowed 'redraw locks' which temporarily prevented blocked draw logic: by default, &lt;c0&gt;m.request&lt;/c0&gt; would lock the draw loop on execution and unlock when all pending requests had resolved - the same behaviour could be invoked manually using &lt;c1&gt;m.startComputation()&lt;/c1&gt; and &lt;c2&gt;m.endComputation()&lt;/c2&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T120421Z" creationid="shibukawa.yoshiki" creationdate="20170131T120421Z">
+        <seg>v0.2.xでは、Mithrilはデフォルトで一時的な描画ロジックのブロックを行っていました。&lt;c0&gt;m.request()&lt;/c0&gt;は実行時に描画ループをロックし、すべての大気中のリクエストが完了したときにアンロックしていました。同様のことは手動で&lt;c1&gt;m.startComputation()&lt;/c1&gt;と&lt;c2&gt;m.endComputation()&lt;/c2&gt;を呼び出すことで実現できました。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Initializes a controller/view pair</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T153138Z" creationid="shibukawa.yoshiki" creationdate="20150412T153138Z">
@@ -9091,6 +9115,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Mithril's rendering engine still operates on the basis of semi-automated global redraws, but some APIs and behaviours differ:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T120119Z" creationid="shibukawa.yoshiki" creationdate="20170131T120119Z">
+        <seg>Mithrilのレンダリングエンジンは基本的に半自動グローバル再描画を行いますが、いくつかのAPIと挙動が変わりました。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Mithril's view layer paradigm is designed be &lt;s0&gt;declarative&lt;/s0&gt;, much like HTML, such that the same code implicitly does everything it needs to.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150420T014616Z" creationid="shibukawa.yoshiki" creationdate="20150420T014616Z">
@@ -10367,6 +10399,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T153249Z" creationid="shibukawa.yoshiki" creationdate="20150412T153249Z">
         <seg>ラウトへリダイレクト</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Redraw locking can lead to buggy UIs: the concerns of one part of the application should not be allowed to prevent other parts of the view from updating to reflect change.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T120652Z" creationid="shibukawa.yoshiki" creationdate="20170131T120652Z">
+        <seg>再描画のロックはUIのバグを引き起こすことがありました。アプリケーションの一部がビューの一部の更新を停止することで、他の部分で変更が反映されないことがありました。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12007,6 +12047,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150413T143904Z" creationid="shibukawa.yoshiki" creationdate="20150413T143904Z">
         <seg>キーは、&lt;c2&gt;items&lt;/c2&gt;配列に一番近いエレメントの&lt;c1&gt;li&lt;/c1&gt;エレメントに設定します。フォーカスを維持したいのは&lt;c3&gt;input&lt;/c3&gt;エレメントですが、このエレメントに直接キーを設定することはしません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The latter APIs and the associated behaviour has been removed in v1.x.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T120444Z" creationid="shibukawa.yoshiki" creationdate="20170131T120444Z">
+        <seg>これらのAPIと、関連する動作はv1.xで削除されました。</seg>
       </tuv>
     </tu>
     <tu>
