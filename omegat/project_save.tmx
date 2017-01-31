@@ -9439,6 +9439,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Now that we going to have more than one screen, we use &lt;c0&gt;m.route&lt;/c0&gt; instead of &lt;c1&gt;m.mount&lt;/c1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T032240Z" creationid="shibukawa.yoshiki" creationdate="20170131T032240Z">
+        <seg>アプリケーションが複数のスクリーンを扱う時は&lt;c1&gt;m.mount()&lt;/c1&gt;の代わりに&lt;c0&gt;m.route()&lt;/c0&gt;を使います。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Now, let's change the text to something else.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T025758Z" creationid="shibukawa.yoshiki" creationdate="20170131T025758Z">
