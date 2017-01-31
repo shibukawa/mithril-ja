@@ -11215,6 +11215,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The auto-redraw system becomes enabled when you call &lt;c0&gt;m.mount&lt;/c0&gt; or &lt;c1&gt;m.route&lt;/c1&gt; (but it stays disabled if your app is bootstrapped solely via &lt;c2&gt;m.render&lt;/c2&gt; calls).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T032934Z" creationid="shibukawa.yoshiki" creationdate="20170131T032934Z">
+        <seg>自動再描画システムは&lt;c0&gt;m.mount()&lt;/c0&gt;、もしくは&lt;c1&gt;m.route()&lt;/c1&gt;関数を使うと有効化されます。&lt;c2&gt;m.render()&lt;/c2&gt;呼び出しを使って画面更新を行うとこの機能は無効なままです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The auto-redrawing system in Mithril is not affected by changes in values of &lt;c0&gt;m.prop&lt;/c0&gt; getter-setters.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T153954Z" creationid="shibukawa.yoshiki" creationdate="20150416T153954Z">
