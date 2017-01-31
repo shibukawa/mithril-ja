@@ -8519,6 +8519,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Mithril implements a virtual DOM diffing system for fast rendering, and in addition, it offers various mechanisms to gain granular control over the rendering of an application.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T032529Z" creationid="shibukawa.yoshiki" creationdate="20170131T032529Z">
+        <seg>Mithrilは、高速なレンダリングのために仮想DOM差分システムを実装しています。また、それに加えてアプリケーションがレンダリングをコントロールできるように、適切な粒度のさまざまなメカニズムを提供しています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Mithril internally calls this pair of functions when you call &lt;a2&gt;&lt;c3&gt;m.module&lt;/c3&gt;&lt;/a2&gt;, &lt;a4&gt;&lt;c5&gt;m.route&lt;/c5&gt;&lt;/a4&gt;, &lt;a6&gt;&lt;c7&gt;m.request&lt;/c7&gt;&lt;/a6&gt;, and whenever an event defined with &lt;a8&gt;&lt;c9&gt;m()&lt;/c9&gt;&lt;/a8&gt; is triggered.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T154410Z" creationid="shibukawa.yoshiki" creationdate="20150416T154410Z">
@@ -11195,6 +11203,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150410T014517Z" creationid="shibukawa.yoshiki" creationdate="20150410T014517Z">
         <seg>メタデータのプロパティを含むレスポンスを展開する機能</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The auto-redraw system - Mithril.js</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T032318Z" creationid="shibukawa.yoshiki" creationdate="20170131T032318Z">
+        <seg>自動再描画システム - Mithril.js</seg>
       </tuv>
     </tu>
     <tu>
