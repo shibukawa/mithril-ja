@@ -14181,6 +14181,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>When used idiomatically, Mithril employs an auto-redraw system that synchronizes the DOM whenever changes are made in the data layer.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T032809Z" creationid="shibukawa.yoshiki" creationdate="20170131T032809Z">
+        <seg>慣用的な表現をすると、Mithrilはデータレイヤーの変更をDOMに同期するために、自動再描画システムを利用しています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>When using &lt;c0&gt;m.module&lt;/c0&gt;, Mithril instantiates controllers as if they were class constructors.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T003459Z" creationid="shibukawa.yoshiki" creationdate="20150413T161721Z">
