@@ -5547,6 +5547,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Here are some examples of Mithril in action</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T035745Z" creationid="shibukawa.yoshiki" creationdate="20170131T035745Z">
+        <seg>実践的なMithrilのサンプルです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Here are the highlights of the template above:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150408T153647Z" creationid="shibukawa.yoshiki" creationdate="20150408T153647Z">
@@ -8623,6 +8631,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150415T172438Z" creationid="shibukawa.yoshiki" creationdate="20150415T141210Z">
         <seg>Promises/A+の仕様通りであれば、例外クラスそのもののインスタンス、もしくは何らかのプリミティブなオブジェクトを手動で投げるとrejectionコールバックが呼ばれます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Markdown Editor</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T035651Z" creationid="shibukawa.yoshiki" creationdate="20170131T035651Z">
+        <seg>Markdownエディター</seg>
       </tuv>
     </tu>
     <tu>
