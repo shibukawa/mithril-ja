@@ -13869,6 +13869,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>We are now also rendering the value of that variable in the button label.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T031354Z" creationid="shibukawa.yoshiki" creationdate="20170131T031354Z">
+        <seg>そして、この変数の値をボタンのラベルとして表示するようにしました。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>We can append an ellipsis (&lt;c0&gt;...&lt;/c0&gt;) to the name of a route argument to allow it to match URL snippets that contain slashes:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T153907Z" creationid="shibukawa.yoshiki" creationdate="20150414T153907Z">
@@ -14441,6 +14449,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T014936Z" creationid="shibukawa.yoshiki" creationdate="20150414T014936Z">
         <seg>無名のモジュールを既存のクラスの外に作ることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You can now update the label of the button by clicking the button.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T031425Z" creationid="shibukawa.yoshiki" creationdate="20170131T031425Z">
+        <seg>ボタンをクリックすると、ボタンのラベルが更新されるようになります。</seg>
       </tuv>
     </tu>
     <tu>
