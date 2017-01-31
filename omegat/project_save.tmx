@@ -2167,6 +2167,14 @@ var root = document.body
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;c0&gt;v1.x&lt;/c0&gt; is largely API-compatible with &lt;c1&gt;v0.2.x&lt;/c1&gt;, but there are some breaking changes.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T033608Z" creationid="shibukawa.yoshiki" creationdate="20170131T033608Z">
+        <seg>&lt;c0&gt;v1.x&lt;/c0&gt; は&lt;c1&gt;v0.2.x&lt;/c1&gt;と幅広くAPIの互換性がありますが、破壊的変更もいくつか行われています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;c0&gt;{'/path/to/page/': pageComponent}&lt;/c0&gt; - a route with a basic pathname</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T135713Z" creationid="shibukawa.yoshiki" creationdate="20150502T135713Z">
@@ -3931,6 +3939,14 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T154309Z" creationid="shibukawa.yoshiki" creationdate="20150412T154309Z">
         <seg>変更履歴</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Change log - Mithril.js</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T033422Z" creationid="shibukawa.yoshiki" creationdate="20170131T033422Z">
+        <seg>変更履歴 - Mithril.js</seg>
       </tuv>
     </tu>
     <tu>
@@ -6075,6 +6091,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T130650Z" creationid="shibukawa.yoshiki" creationdate="20150416T130650Z">
         <seg>もし非同期のモデルレベルのサービスを開発しているとします。コードが実行されていても、Mithrilがビューを更新しないことに気づきました。この場合は、&lt;a0&gt;&lt;c1&gt;m.startComputation&lt;/c1&gt;と&lt;c2&gt;m.endComputation&lt;/c2&gt;&lt;/a0&gt;を呼んで、Mithrilの自動再描画システムと統合します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you are migrating, consider using the &lt;a0&gt;mithril-codemods&lt;/a0&gt; tool to help automate the most straightforward migrations.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T033704Z" creationid="shibukawa.yoshiki" creationdate="20170131T033704Z">
+        <seg>もし移行を考えている時は&lt;a0&gt;mithril-codemods&lt;/a0&gt;の使用を検討してください。このツールはほとんどのシンプルな移行を自動化するツールです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -8383,6 +8407,22 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Migrating from &lt;c0&gt;v0.2.x&lt;/c0&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T033536Z" creationid="shibukawa.yoshiki" creationdate="20170131T033536Z">
+        <seg>v0.2.xからの移行</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Migrating from v0.2.x</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T033505Z" creationid="shibukawa.yoshiki" creationdate="20170131T033505Z">
+        <seg>v0.2.xからの移行</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Misc</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T140947Z" creationid="shibukawa.yoshiki" creationdate="20150407T140947Z">
@@ -9483,6 +9523,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T091614Z" creationid="shibukawa.yoshiki" creationdate="20150502T091614Z">
         <seg>コンポーネントをアンロードする前にタイマーをクリアしたり、イベントハンドラを削除したり、何か仕事をしたくなることがあります:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Older docs</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T033512Z" creationid="shibukawa.yoshiki" creationdate="20170131T033512Z">
+        <seg>古いドキュメント</seg>
       </tuv>
     </tu>
     <tu>
