@@ -2747,6 +2747,14 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Add this line of code under the previous one:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T025814Z" creationid="shibukawa.yoshiki" creationdate="20170131T025814Z">
+        <seg>次の行を前のサンプルに追加してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Additionally, calling &lt;c0&gt;m.redraw&lt;/c0&gt; synchronously after calling &lt;c1&gt;m.redraw.strategy("none")&lt;/c1&gt; resets the strategy to &lt;c2&gt;"diff"&lt;/c2&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T150834Z" creationid="shibukawa.yoshiki" creationdate="20150416T150834Z">
@@ -3255,6 +3263,14 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150408T004324Z" creationid="shibukawa.yoshiki" creationdate="20150408T004324Z">
         <seg>CSSセレクタを使って要素を選択することもできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>As you can see, you use the same code to both create and update HTML.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T025858Z" creationid="shibukawa.yoshiki" creationdate="20170131T025858Z">
+        <seg>このコードを見ればおわかりの通りに、同じコードをつかってHTMLの作成と更新を行うことができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -4183,6 +4199,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150421T033711Z" creationid="shibukawa.yoshiki" creationdate="20150421T033711Z">
         <seg>コントローラで明示的に&lt;a3&gt;&lt;c4&gt;m.redraw&lt;/c4&gt;&lt;/a3&gt;を呼び出すことも出来ますが、操作を抽象化してMithrilの自動再描画システムと統合する方が望ましいです(&lt;a5&gt;&lt;c6&gt;m.startComputation&lt;/c6&gt; / &lt;c7&gt;m.endComputation&lt;/c7&gt;&lt;/a5&gt;参照)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Copy the code below into your file (and by copy, I mean type it out - you'll learn better)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T025724Z" creationid="shibukawa.yoshiki" creationdate="20170131T025724Z">
+        <seg>次のコードをコピーして、最初に作ったファイルにコピーしてみましょう（コピーと言いましたが、タイピングした方が学習効果は高いでしょう）。</seg>
       </tuv>
     </tu>
     <tu>
@@ -8115,6 +8139,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Let's start as small as well can: render some text on screen.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T025624Z" creationid="shibukawa.yoshiki" creationdate="20170131T025624Z">
+        <seg>まずはなるべく小さなステップから始めましょう。スクリーンにテキストを表示してみます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Let's walk through how one might implement one.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150411T180659Z" creationid="shibukawa.yoshiki" creationdate="20150411T180659Z">
@@ -9271,6 +9303,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150408T013700Z" creationid="shibukawa.yoshiki" creationdate="20150408T013700Z">
         <seg>renderメソッドを呼び出す時は、テンプレートそのものに加えて、ルートのDOM要素を渡します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Now, let's change the text to something else.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T025758Z" creationid="shibukawa.yoshiki" creationdate="20170131T025758Z">
+        <seg>別のテキストに変えてみましょう。</seg>
       </tuv>
     </tu>
     <tu>
