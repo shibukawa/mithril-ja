@@ -2049,8 +2049,8 @@ var root = document.body
       <tuv lang="EN-US">
         <seg>&lt;c0&gt;m.component&lt;/c0&gt; removed</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T033722Z" creationid="shibukawa.yoshiki" creationdate="20170131T033722Z">
-        <seg>&lt;c0&gt;m.component&lt;/c0&gt;は削除されました。</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034030Z" creationid="shibukawa.yoshiki" creationdate="20170131T033722Z">
+        <seg>&lt;c0&gt;m.component&lt;/c0&gt;が削除された</seg>
       </tuv>
     </tu>
     <tu>
@@ -2143,6 +2143,22 @@ var root = document.body
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;c0&gt;m.route&lt;/c0&gt; and anchor tags</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034245Z" creationid="shibukawa.yoshiki" creationdate="20170131T034245Z">
+        <seg>&lt;c0&gt;m.route&lt;/c0&gt;とアンカータグ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;c0&gt;m.startComputation&lt;/c0&gt;/&lt;c1&gt;m.endComputation&lt;/c1&gt; removed</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034106Z" creationid="shibukawa.yoshiki" creationdate="20170131T034106Z">
+        <seg>&lt;c0&gt;m.startComputation&lt;/c0&gt;/&lt;c1&gt;m.endComputation&lt;/c1&gt;の削除</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;c0&gt;pathname&lt;/c0&gt; mode allows routing URLs that contain no special characters, however this mode requires server-side setup in order to support bookmarking and page refreshes.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150410T005430Z" creationid="shibukawa.yoshiki" creationdate="20150410T005430Z">
@@ -2195,6 +2211,14 @@ var root = document.body
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T033608Z" creationid="shibukawa.yoshiki" creationdate="20170131T033608Z">
         <seg>&lt;c0&gt;v1.x&lt;/c0&gt; は&lt;c1&gt;v0.2.x&lt;/c1&gt;と幅広くAPIの互換性がありますが、破壊的変更もいくつか行われています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;c0&gt;view()&lt;/c0&gt; parameters</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034130Z" creationid="shibukawa.yoshiki" creationdate="20170131T034130Z">
+        <seg>&lt;c0&gt;view()&lt;/c0&gt;パラメータ</seg>
       </tuv>
     </tu>
     <tu>
@@ -2795,6 +2819,14 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T143449Z" creationid="shibukawa.yoshiki" creationdate="20160412T143449Z">
         <seg>絶対 (例 Jan 1, 1970 12:00 AM)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Accessing route params</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034306Z" creationid="shibukawa.yoshiki" creationdate="20170131T034306Z">
+        <seg>ラウトパラメータへのアクセス</seg>
       </tuv>
     </tu>
     <tu>
@@ -4103,10 +4135,26 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Component &lt;c0&gt;controller&lt;/c0&gt; function</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034118Z" creationid="shibukawa.yoshiki" creationdate="20170131T034118Z">
+        <seg>コンポーネントの&lt;c0&gt;controller&lt;/c0&gt;関数</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Component Shorthand</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T144932Z" creationid="shibukawa.yoshiki" creationdate="20160101T144932Z">
         <seg>コンポーネントの短縮形</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Component arguments</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034124Z" creationid="shibukawa.yoshiki" creationdate="20170131T034124Z">
+        <seg>コンポーネントの引数</seg>
       </tuv>
     </tu>
     <tu>
@@ -9105,8 +9153,8 @@ var ContactsWidget = {</seg>
       <tuv lang="EN-US">
         <seg>No more redraw locks</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T033814Z" creationid="shibukawa.yoshiki" creationdate="20170131T033814Z">
-        <seg>再描画のロックはなくなりました。</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034043Z" creationid="shibukawa.yoshiki" creationdate="20170131T033814Z">
+        <seg>再描画のロックはなくなった</seg>
       </tuv>
     </tu>
     <tu>
@@ -9919,6 +9967,22 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Passing components to &lt;c0&gt;m()&lt;/c0&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034143Z" creationid="shibukawa.yoshiki" creationdate="20170131T034143Z">
+        <seg>&lt;c0&gt;m()&lt;/c0&gt;にコンポーネントを渡す</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Passing vnodes to &lt;c0&gt;m.mount()&lt;/c0&gt; and &lt;c1&gt;m.route()&lt;/c1&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034235Z" creationid="shibukawa.yoshiki" creationdate="20170131T034235Z">
+        <seg>&lt;c0&gt;m.mount()&lt;/c0&gt;と&lt;c1&gt;m.route()&lt;/c1&gt;にVノードを渡す</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Performance</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T134435Z" creationid="shibukawa.yoshiki" creationdate="20150407T134435Z">
@@ -10083,6 +10147,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T152451Z" creationid="shibukawa.yoshiki" creationdate="20150414T152451Z">
         <seg>現在アクティブなラウトの取得</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Reading/writing the current route</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034257Z" creationid="shibukawa.yoshiki" creationdate="20170131T034257Z">
+        <seg>現在のラウトの読み込み/書き込み</seg>
       </tuv>
     </tu>
     <tu>
@@ -10809,8 +10881,8 @@ var ContactsWidget = {</seg>
       <tuv lang="EN-US">
         <seg>Synchronous redraw removed</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T033925Z" creationid="shibukawa.yoshiki" creationdate="20170131T033925Z">
-        <seg>同期再描画は削除されました。</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034100Z" creationid="shibukawa.yoshiki" creationdate="20170131T033925Z">
+        <seg>同期再描画の削除</seg>
       </tuv>
     </tu>
     <tu>
