@@ -3833,6 +3833,14 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Change log/Migration</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T024847Z" creationid="shibukawa.yoshiki" creationdate="20170131T024847Z">
+        <seg>変更履歴/移行</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Changes to controller and model values in this fashion will only render on the next &lt;c2&gt;m.render&lt;/c2&gt; or &lt;c3&gt;m.module&lt;/c3&gt; call.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150413T125132Z" creationid="shibukawa.yoshiki" creationdate="20150413T125132Z">
@@ -4173,6 +4181,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T140757Z" creationid="shibukawa.yoshiki" creationdate="20150407T140623Z">
         <seg>基本トピック</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Credits</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T024826Z" creationid="shibukawa.yoshiki" creationdate="20170131T024826Z">
+        <seg>クレジット</seg>
       </tuv>
     </tu>
     <tu>
@@ -5049,6 +5065,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Framework comparison</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T024838Z" creationid="shibukawa.yoshiki" creationdate="20170131T024838Z">
+        <seg>フレームワークの比較</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>From the get-go, Mithril's build system produces archived versions of the code and documentation so that you'll never be stuck without docs for out-of-date versions.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150417T114752Z" creationid="shibukawa.yoshiki" creationdate="20150417T114752Z">
@@ -5381,6 +5405,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150417T015419Z" creationid="shibukawa.yoshiki" creationdate="20150417T015419Z">
         <seg>Mithrilと他のフレームワークの違い - Mithril</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>How to contribute</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T024822Z" creationid="shibukawa.yoshiki" creationdate="20170131T024822Z">
+        <seg>貢献の仕方</seg>
       </tuv>
     </tu>
     <tu>
@@ -7809,6 +7841,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It's small (&lt; 8kb gzip), fast and provides routing and XHR utilities out of the box.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T024951Z" creationid="shibukawa.yoshiki" creationdate="20170131T024951Z">
+        <seg>サイズは小さく（&lt; 8kb gzip）, fast and provides routing and XHR utilities out of the box.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It's strongly recommended that you consider adopting the pattern of using thin controllers and view models.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150411T172817Z" creationid="shibukawa.yoshiki" creationdate="20150411T172817Z">
@@ -8153,6 +8193,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Mithril Jobs</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T024813Z" creationid="shibukawa.yoshiki" creationdate="20170131T024813Z">
+        <seg>Mithrilの求人</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Mithril Template Compiler</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150417T014148Z" creationid="shibukawa.yoshiki" creationdate="20150417T014148Z">
@@ -8293,6 +8341,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T133223Z" creationid="shibukawa.yoshiki" creationdate="20150407T133223Z">
         <seg>MithrilはクライアントサイドMVCフレームワークです。コードをきれいに構成して、構造について考えるのを簡単にしたり、メンテナンスしやすくします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Mithril is a modern client-side Javascript framework for building Single Page Applications.&lt;br0&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T024925Z" creationid="shibukawa.yoshiki" creationdate="20170131T024925Z">
+        <seg>Mithrilはシングルページアプリケーションを構築するためのモダンなクライアントサイドのJavaScriptフレームワークです。&lt;br0&gt;</seg>
       </tuv>
     </tu>
     <tu>
@@ -10189,6 +10245,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150408T161003Z" creationid="shibukawa.yoshiki" creationdate="20150408T161003Z">
         <seg>最初に紹介したときは、データを変更した後に手動で&lt;c0&gt;m.render&lt;/c0&gt;を呼び出して再描画を行わせていました。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Social</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T024800Z" creationid="shibukawa.yoshiki" creationdate="20170131T024800Z">
+        <seg>ソーシャル</seg>
       </tuv>
     </tu>
     <tu>
