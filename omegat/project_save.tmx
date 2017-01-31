@@ -2055,6 +2055,14 @@ var root = document.body
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;c0&gt;m.deferred&lt;/c0&gt; removed</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034549Z" creationid="shibukawa.yoshiki" creationdate="20170131T034528Z">
+        <seg>&lt;c0&gt;m.deferred&lt;/c0&gt;が削除された</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;c0&gt;m.module&lt;/c0&gt; has been renamed &lt;c1&gt;m.mount&lt;/c1&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T140924Z" creationid="shibukawa.yoshiki" creationdate="20160412T140924Z">
@@ -2159,6 +2167,14 @@ var root = document.body
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;c0&gt;m.sync&lt;/c0&gt; removed</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034538Z" creationid="shibukawa.yoshiki" creationdate="20170131T034538Z">
+        <seg>&lt;c0&gt;m.sync&lt;/c0&gt;が削除された</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;c0&gt;pathname&lt;/c0&gt; mode allows routing URLs that contain no special characters, however this mode requires server-side setup in order to support bookmarking and page refreshes.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150410T005430Z" creationid="shibukawa.yoshiki" creationdate="20150410T005430Z">
@@ -2219,6 +2235,14 @@ var root = document.body
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034130Z" creationid="shibukawa.yoshiki" creationdate="20170131T034130Z">
         <seg>&lt;c0&gt;view()&lt;/c0&gt;パラメータ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;c0&gt;xlink&lt;/c0&gt; namespace required</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034622Z" creationid="shibukawa.yoshiki" creationdate="20170131T034622Z">
+        <seg>&lt;c0&gt;xlink&lt;/c0&gt;名前空間が必要になった</seg>
       </tuv>
     </tu>
     <tu>
@@ -6471,6 +6495,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In &lt;c0&gt;v1.x&lt;/c0&gt;, &lt;c1&gt;m.prop()&lt;/c1&gt; is now a more powerful stream micro-library, but it's no longer part of core.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034702Z" creationid="shibukawa.yoshiki" creationdate="20170131T034702Z">
+        <seg>&lt;c0&gt;v1.x&lt;/c0&gt;では、&lt;c1&gt;m.prop()&lt;/c1&gt;はより強力でコンパクトなストリームとしてライブラリ化されました。 is now a more powerful stream micro-library, but it's no longer part of core.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In Apache, this URL rewriting can be achieved using &lt;a0&gt;mod_rewrite&lt;/a0&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150410T012855Z" creationid="shibukawa.yoshiki" creationdate="20150410T012855Z">
@@ -9095,6 +9127,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Nested arrays in views</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034611Z" creationid="shibukawa.yoshiki" creationdate="20170131T034611Z">
+        <seg>ビューのネストされた配列</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Nested asynchronous components</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T050651Z" creationid="shibukawa.yoshiki" creationdate="20150502T050651Z">
@@ -10039,6 +10079,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Preventing unmounting</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034508Z" creationid="shibukawa.yoshiki" creationdate="20170131T034508Z">
+        <seg>アンマウントを停止させる</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Processing web service data</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150410T123850Z" creationid="shibukawa.yoshiki" creationdate="20150410T123850Z">
@@ -10419,6 +10467,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T153317Z" creationid="shibukawa.yoshiki" creationdate="20150412T153317Z">
         <seg>ラウティングモードの抽象化</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Run code on component removal</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034520Z" creationid="shibukawa.yoshiki" creationdate="20170131T034520Z">
+        <seg>コンポーネント削除時にコードを実行</seg>
       </tuv>
     </tu>
     <tu>
