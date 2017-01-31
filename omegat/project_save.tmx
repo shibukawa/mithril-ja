@@ -4261,8 +4261,8 @@ var ContactsWidget = {</seg>
       <tuv lang="EN-US">
         <seg>DOM elements</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T024644Z" creationid="shibukawa.yoshiki" creationdate="20170131T024644Z">
-        <seg>DOM要素</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030218Z" creationid="shibukawa.yoshiki" creationdate="20170131T024644Z">
+        <seg>DOMエレメント</seg>
       </tuv>
     </tu>
     <tu>
@@ -6151,6 +6151,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T181142Z" creationid="shibukawa.yoshiki" creationdate="20150414T181142Z">
         <seg>もし、promiseのリジェクトハンドラ内でエラー条件のハンドリングを行いたい場合は、&lt;c1&gt;extract&lt;/c1&gt;の中から、promiseのリジェクトに向けて&lt;c0&gt;Error&lt;/c0&gt;を投げることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you want to have multiple elements:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030211Z" creationid="shibukawa.yoshiki" creationdate="20170131T030211Z">
+        <seg>複数のエレメントを追加してみましょう:</seg>
       </tuv>
     </tu>
     <tu>
@@ -8155,6 +8163,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Let's wrap our text in an &lt;c0&gt;&lt;h1&gt;&lt;/c0&gt; tag.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030000Z" creationid="shibukawa.yoshiki" creationdate="20170131T030000Z">
+        <seg>次に、テキストを&lt;c0&gt;&lt;h1&gt;&lt;/c0&gt;タグでくくってみましょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Librarization</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150411T180503Z" creationid="shibukawa.yoshiki" creationdate="20150411T180503Z">
@@ -8343,6 +8359,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150413T140855Z" creationid="shibukawa.yoshiki" creationdate="20150413T140843Z">
         <seg>仮想のDOMツリーの中にSVGの要素が現れると、Mithrilは自動で正しいXML名前空間を設定します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Mithril automatically figures out the most efficient way of updating the text, rather than blindly recreating it from scratch.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T025940Z" creationid="shibukawa.yoshiki" creationdate="20170131T025940Z">
+        <seg>Mithrilは自動的にテキストを更新するためのもっとも効率的な方法を判断して実行します。盲目的にすべてを再作成することはありません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10347,6 +10371,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>So if you to add a class to the &lt;c1&gt;&lt;h1&gt;&lt;/c1&gt;:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030122Z" creationid="shibukawa.yoshiki" creationdate="20170131T030122Z">
+        <seg>&lt;c1&gt;&lt;h1&gt;&lt;/c1&gt;タグにクラスを追加してみます:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Social</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T024800Z" creationid="shibukawa.yoshiki" creationdate="20170131T024800Z">
@@ -10743,6 +10775,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T175735Z" creationid="shibukawa.yoshiki" creationdate="20150414T175735Z">
         <seg>&lt;c0&gt;extract&lt;/c0&gt;メソッドはHTTPレスポンスヘッダのメタデータや、XMLHttpRequestのステータスフィールドを読み込むのに使用します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;c0&gt;m()&lt;/c0&gt; function can be used to describe any HTML structure you want.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030136Z" creationid="shibukawa.yoshiki" creationdate="20170131T030057Z">
+        <seg>&lt;c0&gt;m()&lt;/c0&gt;関数を使うと、あらゆるHTML構造が表現できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15377,6 +15417,14 @@ m("div", {style: {float: "left"}});</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>m("h1", {class: "title"}, "My first app")</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030149Z" creationid="shibukawa.yoshiki" creationdate="20170131T030149Z">
+        <seg>m("h1", {class: "title"}, "最初のMithrilアプリケーション")</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>m("input", {config: plugin}) //assuming `plugin` initializes a 3rd party library</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T144635Z" creationid="shibukawa.yoshiki" creationdate="20150416T144635Z">
@@ -15507,6 +15555,22 @@ yields
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150413T000216Z" creationid="shibukawa.yoshiki" creationdate="20150413T000216Z">
         <seg>m.render(document.body, m("br")); //&lt;br&gt;タグを&lt;body&gt;に出力</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>m.render(root, "My first app")</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030017Z" creationid="shibukawa.yoshiki" creationdate="20170131T030017Z">
+        <seg>m.render(root, "最初のMithrilアプリケーション")</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>m.render(root, m("h1", "My first app"))</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030032Z" creationid="shibukawa.yoshiki" creationdate="20170131T030032Z">
+        <seg>m.render(root, m("h1", "最初のMithrilアプリケーション"))</seg>
       </tuv>
     </tu>
     <tu>
