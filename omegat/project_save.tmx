@@ -1817,6 +1817,14 @@ todo.Todo = function(data) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;a0&gt;Guide&lt;/a0&gt; &lt;a1&gt;API&lt;/a1&gt; &lt;a2&gt;Chat&lt;/a2&gt; &lt;a3&gt;Github&lt;/a3&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T024549Z" creationid="shibukawa.yoshiki" creationdate="20170131T024549Z">
+        <seg>&lt;a0&gt;ガイド&lt;/a0&gt; &lt;a1&gt;API&lt;/a1&gt; &lt;a2&gt;チャット&lt;/a2&gt; &lt;a3&gt;Github&lt;/a3&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;a0&gt;Guide&lt;/a0&gt; &lt;a1&gt;Download v0.1.34&lt;/a1&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T132127Z" creationid="shibukawa.yoshiki" creationdate="20150407T132127Z">
@@ -3337,6 +3345,14 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Autoredraw system</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T024752Z" creationid="shibukawa.yoshiki" creationdate="20170131T024752Z">
+        <seg>自動再描画システム</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Backbone was originally designed as a way to structure jQuery-based applications.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150420T015758Z" creationid="shibukawa.yoshiki" creationdate="20150420T015758Z">
@@ -4185,6 +4201,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>DOM elements</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T024644Z" creationid="shibukawa.yoshiki" creationdate="20170131T024644Z">
+        <seg>DOM要素</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>DOM manipulation should be done in the view via &lt;a0&gt;&lt;c1&gt;m()&lt;/c1&gt; and &lt;c2&gt;config&lt;/c2&gt;&lt;/a0&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150421T021348Z" creationid="shibukawa.yoshiki" creationdate="20150421T021246Z">
@@ -4673,6 +4697,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Examples</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T024720Z" creationid="shibukawa.yoshiki" creationdate="20170131T024720Z">
+        <seg>サンプル</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Examples:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150413T153334Z" creationid="shibukawa.yoshiki" creationdate="20150413T153334Z">
@@ -5069,6 +5101,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160423T045552Z" creationid="shibukawa.yoshiki" creationdate="20150407T140554Z">
         <seg>はじめよう - Mithrilf</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Getting started</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T024616Z" creationid="shibukawa.yoshiki" creationdate="20170131T024616Z">
+        <seg>はじめよう</seg>
       </tuv>
     </tu>
     <tu>
@@ -7321,6 +7361,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Introduction</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T024555Z" creationid="shibukawa.yoshiki" creationdate="20170131T024555Z">
+        <seg>イントロダクション</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It allows us to iterate over the list and merge transformed versions of the list items into an output array.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150408T153155Z" creationid="shibukawa.yoshiki" creationdate="20150408T153155Z">
@@ -7849,6 +7897,22 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Key concepts</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T024726Z" creationid="shibukawa.yoshiki" creationdate="20170131T024726Z">
+        <seg>重要なコンセプト</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Keys</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T024745Z" creationid="shibukawa.yoshiki" creationdate="20170131T024745Z">
+        <seg>キー</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Keys are expected to be absolute pathnames, but can include dynamic parameters.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T155928Z" creationid="shibukawa.yoshiki" creationdate="20150414T155928Z">
@@ -7973,6 +8037,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150411T180503Z" creationid="shibukawa.yoshiki" creationdate="20150411T180503Z">
         <seg>ライブラリ化</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Lifecycle methods</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T024740Z" creationid="shibukawa.yoshiki" creationdate="20170131T024740Z">
+        <seg>ライフサイクルメソッド</seg>
       </tuv>
     </tu>
     <tu>
@@ -9749,6 +9821,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T045812Z" creationid="shibukawa.yoshiki" creationdate="20150502T045812Z">
         <seg>コンポーネントのレンダリング</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Resources</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T024710Z" creationid="shibukawa.yoshiki" creationdate="20170131T024710Z">
+        <seg>リソース</seg>
       </tuv>
     </tu>
     <tu>
@@ -13063,6 +13143,22 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Tutorial</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T024652Z" creationid="shibukawa.yoshiki" creationdate="20170131T024652Z">
+        <seg>チュートリアル</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Tutorials</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T024559Z" creationid="shibukawa.yoshiki" creationdate="20170131T024559Z">
+        <seg>チュートリアル</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Typescript Support</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150417T014243Z" creationid="shibukawa.yoshiki" creationdate="20150417T014243Z">
@@ -13427,6 +13523,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T140833Z" creationid="shibukawa.yoshiki" creationdate="20160412T140833Z">
         <seg>仮想DOMツリーは&lt;a0&gt;components&lt;/a0&gt;を持つことができるようになった。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Vnodes</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T024732Z" creationid="shibukawa.yoshiki" creationdate="20170131T024732Z">
+        <seg>Vノード</seg>
       </tuv>
     </tu>
     <tu>
