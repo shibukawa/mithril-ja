@@ -3335,6 +3335,14 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>As you would expect, doing so creates this markup:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030705Z" creationid="shibukawa.yoshiki" creationdate="20170131T030705Z">
+        <seg>期待されるように、次のマークアップが生成されます:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Assuming NodeJS is already installed, run the following command to install GruntJS:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T150453Z" creationid="shibukawa.yoshiki" creationdate="20150412T150453Z">
@@ -5403,6 +5411,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150408T162102Z" creationid="shibukawa.yoshiki" creationdate="20150408T162102Z">
         <seg>完全なアプリケーションのコードはこちらになります:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Here's the code above as a component:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030551Z" creationid="shibukawa.yoshiki" creationdate="20170131T030551Z">
+        <seg>上記のコードをコンポーネント化してみましょう。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10839,6 +10855,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The &lt;c0&gt;m.mount&lt;/c0&gt; function is similar to &lt;c1&gt;m.render&lt;/c1&gt;, but instead of rendering some HTML only once, it activates Mithril's auto-redrawing system.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030820Z" creationid="shibukawa.yoshiki" creationdate="20170131T030820Z">
+        <seg>&lt;c0&gt;m.mount()&lt;/c0&gt;関数は&lt;c1&gt;m.render()&lt;/c1&gt;関数と似ていますが、後者は一度しかHTMLをレンダリング（DOMの生成）を行いません。前者はMithrilの自動再描画システムを起動します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The &lt;c0&gt;m.redraw.strategy&lt;/c0&gt; getter-setter indicates how the next component redraw will occur.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T133408Z" creationid="shibukawa.yoshiki" creationdate="20150502T133408Z">
@@ -13189,6 +13213,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>To activate the component, we use &lt;c0&gt;m.mount&lt;/c0&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030629Z" creationid="shibukawa.yoshiki" creationdate="20170131T030629Z">
+        <seg>コンポーネントをアクティベート化するには&lt;c0&gt;m.mount()&lt;/c0&gt;関数を使います。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To avoid surprises, be sure to change only attribute values, using &lt;c1&gt;undefined&lt;/c1&gt; or &lt;c2&gt;null&lt;/c2&gt; as values if appropriate, rather than conditionally substituting attribute dictionaries altogether.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150413T144324Z" creationid="shibukawa.yoshiki" creationdate="20150413T144324Z">
@@ -13329,6 +13361,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T135234Z" creationid="shibukawa.yoshiki" creationdate="20150407T135234Z">
         <seg>各々のフレームワークのテストを実行する場合は、それぞれのリンクをクリックしてください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To understand what that means, let's add some events:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030838Z" creationid="shibukawa.yoshiki" creationdate="20170131T030838Z">
+        <seg>この意味を理解するために、イベントを追加してみましょう:</seg>
       </tuv>
     </tu>
     <tu>
@@ -15279,6 +15319,14 @@ m("div", {class: "container"}, "Hello"); //&lt;div class="container"&gt;Hello&lt
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>m("button", "A button"),</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030603Z" creationid="shibukawa.yoshiki" creationdate="20170131T030603Z">
+        <seg>m("button", "ボタン"),</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>m("button", "A button"),
 ]</seg>
       </tuv>
@@ -16168,6 +16216,17 @@ m.render(document, todo.view()); // テキスト入力に「コードを書く�
         <seg>var app = {}
 
 //どこのデータが変更されているかを決定するサンプルプラグイン</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>var count = 0 // added a variable
+
+var Hello = {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030846Z" creationid="shibukawa.yoshiki" creationdate="20170131T030846Z">
+        <seg>var count = 0 // 変数を追加
+var Hello = {</seg>
       </tuv>
     </tu>
     <tu>
