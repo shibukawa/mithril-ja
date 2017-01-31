@@ -210,6 +210,14 @@ var view = [</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>// changed the next line</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030900Z" creationid="shibukawa.yoshiki" creationdate="20170131T030900Z">
+        <seg>// この行を変更</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>//...so that Mithril autoredraws the view after calling the controller callback</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T021758Z" creationid="shibukawa.yoshiki" creationdate="20150412T021758Z">
@@ -13885,6 +13893,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>We defined an &lt;c0&gt;onclick&lt;/c0&gt; event on the button, which increments a variable &lt;c1&gt;count&lt;/c1&gt; (which was declared at the top).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T031010Z" creationid="shibukawa.yoshiki" creationdate="20170131T031010Z">
+        <seg>ボタンに対して&lt;c0&gt;onclick&lt;/c0&gt;イベントを追加しました。このイベントは、コードの先頭で宣言されている&lt;c1&gt;count&lt;/c1&gt;変数をインクリメントします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>We only evaluate the getter-setter to get its value in the controller method.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150408T151744Z" creationid="shibukawa.yoshiki" creationdate="20150408T151744Z">
@@ -15351,6 +15367,14 @@ m("div", {class: "container"}, "Hello"); //&lt;div class="container"&gt;Hello&lt
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150408T013733Z" creationid="shibukawa.yoshiki" creationdate="20150408T013733Z">
         <seg>m("button", "追加"),</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>m("button", {onclick: function() {count++}}, count + " clicks"),</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030925Z" creationid="shibukawa.yoshiki" creationdate="20170131T030907Z">
+        <seg>m("button", {onclick: function() {count++}}, count + " クリック"),</seg>
       </tuv>
     </tu>
     <tu>
