@@ -190,6 +190,46 @@ var view = [</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>// Called after the DOM node is created</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T035154Z" creationid="shibukawa.yoshiki" creationdate="20170131T035154Z">
+        <seg>// DOMノードが作成された後に呼ばれる</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>// Called after the node is updated</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T035254Z" creationid="shibukawa.yoshiki" creationdate="20170131T035254Z">
+        <seg>// ノードが更新された後に呼ばれる</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>// Called before the DOM node is created</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T035143Z" creationid="shibukawa.yoshiki" creationdate="20170131T035143Z">
+        <seg>// DOMノードが作成される前に呼ばれる</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>// Called before the node is removed, return a Promise that resolves when</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T035350Z" creationid="shibukawa.yoshiki" creationdate="20170131T035350Z">
+        <seg>// ノードが削除されたときに呼ばれる。DOMからノードを削除</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>// Called before the node is updated, return false to cancel</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T035239Z" creationid="shibukawa.yoshiki" creationdate="20170131T035239Z">
+        <seg>// DOMノードが更新前に呼ばれ、falseを返すと更新をキャンセルする</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>// HTML syntax via Babel's JSX plugin
 &lt;main&gt;</seg>
       </tuv>
@@ -226,6 +266,14 @@ m(component)</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030900Z" creationid="shibukawa.yoshiki" creationdate="20170131T030900Z">
         <seg>// この行を変更</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>// isInitialized is a boolean representing if the node has been added to the DOM</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T035051Z" creationid="shibukawa.yoshiki" creationdate="20170131T035051Z">
+        <seg>// isInitializedはブール値で、ノードがDOMに追加されるときにtrueになる</seg>
       </tuv>
     </tu>
     <tu>
@@ -9111,6 +9159,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T150911Z" creationid="shibukawa.yoshiki" creationdate="20150412T150911Z">
         <seg>grunt-sweet.jsタスクと、オプションについては、&lt;a0&gt;こちら見ることがｄけいます&lt;/a0&gt;。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>More documentation on these new methods is available in &lt;a0&gt;lifecycle-methods.md&lt;/a0&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T035131Z" creationid="shibukawa.yoshiki" creationdate="20170131T035131Z">
+        <seg>これらの新しいメソッドについては、&lt;a0&gt;ライフサイクルメソッド&lt;/a0&gt;のドキュメントで紹介されています。</seg>
       </tuv>
     </tu>
     <tu>
