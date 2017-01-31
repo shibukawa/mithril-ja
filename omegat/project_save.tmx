@@ -3303,6 +3303,14 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>As you can see, this component simply renders a link to &lt;c0&gt;#!/hello&lt;/c0&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T032008Z" creationid="shibukawa.yoshiki" creationdate="20170131T032008Z">
+        <seg>このコンポーネントは、&lt;c0&gt;#!/hello&lt;/c0&gt;へのリンクをレンダリングするだけのシンプルなものです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>As you can see, we return a partial template with two &lt;c0&gt;&lt;td&gt;&lt;/c0&gt;'s.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150408T153237Z" creationid="shibukawa.yoshiki" creationdate="20150408T153237Z">
@@ -4907,6 +4915,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T142408Z" creationid="shibukawa.yoshiki" creationdate="20150412T142408Z">
         <seg>まず第一に、パフォーマンスの最適化が自分にとって最後の手段であるかどうかを真剣に考えてください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>First we create a component for it:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T031919Z" creationid="shibukawa.yoshiki" creationdate="20170131T031919Z">
+        <seg>まず次のコンポーネントを作成します:</seg>
       </tuv>
     </tu>
     <tu>
@@ -8183,6 +8199,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Let's add a splash page that appears before our click counter.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T031904Z" creationid="shibukawa.yoshiki" creationdate="20170131T031904Z">
+        <seg>クリックカウンターの前に、スプラッシュページを追加してみましょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Let's create a component.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T040339Z" creationid="shibukawa.yoshiki" creationdate="20150502T040339Z">
@@ -10199,6 +10223,14 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Routing just means going from one screen to another in an application with several screens.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T031847Z" creationid="shibukawa.yoshiki" creationdate="20170131T031847Z">
+        <seg>ラウティングは、アプリケーション内のいくつかのスクリーン間で移動することです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Routing mode abstraction</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T153317Z" creationid="shibukawa.yoshiki" creationdate="20150412T153317Z">
@@ -11019,6 +11051,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150415T134713Z" creationid="shibukawa.yoshiki" creationdate="20150415T134645Z">
         <seg>&lt;c13&gt;then&lt;/c13&gt;メソッドは子供のpromiseを返します。この子のpromiseにもさらに子のpromiseを追加することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;c1&gt;#!&lt;/c1&gt; part is known as a hashbang, and it's a common convention used in Single Page Applications to indicate that the stuff after it (the &lt;c2&gt;/hello&lt;/c2&gt; part) is a route path.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T032146Z" creationid="shibukawa.yoshiki" creationdate="20170131T032146Z">
+        <seg>&lt;c1&gt;#!&lt;/c1&gt;部分はハッシュバング（hashbang）と言われています。これはシングルページアプリケーションで一般的にみられる慣習です。このハッシュバングの後の部分（&lt;c2&gt;/hello&lt;/c2&gt;パート）がラウトのパスです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15899,6 +15939,14 @@ this.description.toJSON = function() {return description}
 
 //値を設定
 this.description(data.description)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>return m("a", {href: "#!/hello"}, "Enter!")</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T031934Z" creationid="shibukawa.yoshiki" creationdate="20170131T031934Z">
+        <seg>return m("a", {href: "#!/hello"}, "ようこそ!")</seg>
       </tuv>
     </tu>
     <tu>
