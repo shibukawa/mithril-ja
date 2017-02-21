@@ -11,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg"> Mithril <small>1.0.0</small></h1>
+				<h1><img src="logo.svg"> Mithril <small>1.0.1</small></h1>
 				<nav>
 					<a href="index.html">Guide</a>
 					<a href="api.html">API</a>
@@ -526,7 +526,7 @@ m.route(document.body, &quot;/list&quot;, {
 </code></pre>
 <p>We replaced each component with a <a href="route.html#routeresolver">RouteResolver</a> (basically, an object with a <code>render</code> method). The <code>render</code> methods can be written in the same way as regular component views would be, by nesting <code>m()</code> calls.</p>
 <p>The interesting thing to pay attention to is how components can be used instead of a selector string in a <code>m()</code> call. Here, in the <code>/list</code> route, we have <code>m(Layout, m(UserList))</code>. This means there&#39;s a root vnode that represents an instance of <code>Layout</code>, which has a <code>UserList</code> vnode as its only child.</p>
-<p>In the <code>/edit/:id</code> route, there&#39;s also a <code>vnode</code> argument that carries the route parameters into the <code>UserForm</code> component. So if the URL is <code>/edit/1</code>, then <code>vnode.attrs</code> in this case is <code>{id: 1}</code>, and this <code>m(UserForm, vnode.attrs)</code> is equivalent to <code>m(UserForm, {id: 1})</code>. The equivalent JSX code would be <code>&lt;UserForm id={vnode.attrs} /&gt;</code>.</p>
+<p>In the <code>/edit/:id</code> route, there&#39;s also a <code>vnode</code> argument that carries the route parameters into the <code>UserForm</code> component. So if the URL is <code>/edit/1</code>, then <code>vnode.attrs</code> in this case is <code>{id: 1}</code>, and this <code>m(UserForm, vnode.attrs)</code> is equivalent to <code>m(UserForm, {id: 1})</code>. The equivalent JSX code would be <code>&lt;UserForm id={vnode.attrs.id} /&gt;</code>.</p>
 <p>Refresh the page in the browser and now you&#39;ll see the global navigation on every page in the app.</p>
 <hr>
 <p>This concludes the tutorial.</p>

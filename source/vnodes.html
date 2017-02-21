@@ -11,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg"> Mithril <small>1.0.0</small></h1>
+				<h1><img src="logo.svg"> Mithril <small>1.0.1</small></h1>
 				<nav>
 					<a href="index.html">Guide</a>
 					<a href="api.html">API</a>
@@ -69,22 +69,22 @@
 </ul>
 <hr>
 <h3 id="what-is-virtual-dom">What is virtual DOM</h3>
-<p>A virtual DOM tree is a Javascript data structure that describes a DOM tree. It consists of nested virtual DOM nodes, also known <em>vnodes</em>.</p>
+<p>A virtual DOM tree is a Javascript data structure that describes a DOM tree. It consists of nested virtual DOM nodes, also known as <em>vnodes</em>.</p>
 <p>The first time a virtual DOM tree is rendered, it is used as a blueprint to create a DOM tree that matches its structure.</p>
-<p>Typically, Virtual DOM trees are then recreated every render cycle, which normally occurs in response to event handlers or to data changes. Mithril <em>diffs</em> a vnode tree against its previous version and only modifies DOM elements in spots where there are changes.</p>
+<p>Typically, virtual DOM trees are then recreated every render cycle, which normally occurs in response to event handlers or to data changes. Mithril <em>diffs</em> a vnode tree against its previous version and only modifies DOM elements in spots where there are changes.</p>
 <p>It may seem wasteful to recreate vnodes so frequently, but as it turns out, modern Javascript engines can create hundreds of thousands of objects in less than a millisecond. On the other hand, modifying the DOM is several orders of magnitude more expensive than creating vnodes.</p>
 <p>For that reason, Mithril uses a sophisticated and highly optimized virtual DOM diffing algorithm to minimize the amount of DOM updates. Mithril <em>also</em> generates carefully crafted vnode data structures that are compiled by Javascript engines for near-native data structure access performance. In addition, Mithril aggressively optimizes the function that creates vnodes as well.</p>
 <p>The reason Mithril goes to such great lengths to support a rendering model that recreates the entire virtual DOM tree on every render is to provide <a href="https://en.wikipedia.org/wiki/Retained_mode">retained mode rendering</a>, a style of rendering that makes it drastically easier to manage UI complexity.</p>
-<p>To illustrate why retained mode is so important, consider the DOM API and HTML. The DOM API is an <a href="https://en.wikipedia.org/wiki/Immediate_mode_(computer_graphics">immediate mode</a>) rendering system and requires writing out exact instructions to assemble a DOM tree procedurally. The imperative nature of the DOM API means you have many opportunities to micro-optimize your code, but it also means that you have more chances for introducing bugs and more chances to make code harder to understand.</p>
+<p>To illustrate why retained mode is so important, consider the DOM API and HTML. The DOM API is an <a href="https://en.wikipedia.org/wiki/Immediate_mode_(computer_graphics">immediate mode</a>) rendering system and requires writing out exact instructions to assemble a DOM tree procedurally. The imperative nature of the DOM API means you have many opportunities to micro-optimize your code, but it also means that you have more chances of introducing bugs and more chances to make code harder to understand.</p>
 <p>In contrast, HTML is a retained mode rendering system. With HTML, you can write a DOM tree in a far more natural and readable way, without worrying about forgetting to append a child to a parent, running into stack overflows when rendering extremely deep trees, etc.</p>
 <p>Virtual DOM goes one step further than HTML by allowing you to write <em>dynamic</em> DOM trees without having to manually write multiple sets of DOM API calls to efficiently synchronize the UI to arbitrary data changes.</p>
 <hr>
 <h3 id="basics">Basics</h3>
 <p>Virtual DOM nodes, or <em>vnodes</em>, are javascript objects that represent DOM elements (or parts of the DOM). Mithril&#39;s virtual DOM engine consumes a tree of vnodes to produce a DOM tree.</p>
-<p>Vnodes can be created via the <a href="hyperscript.html"><code>m()</code></a> hyperscript utility:</p>
+<p>Vnodes are created via the <a href="hyperscript.html"><code>m()</code></a> hyperscript utility:</p>
 <pre><code class="lang-javascript">m(&quot;div&quot;, {id: &quot;test&quot;}, &quot;hello&quot;)
 </code></pre>
-<p>Vnodes can also consume <a href="components.html">components</a>:</p>
+<p>Hyperscript can also consume <a href="components.html">components</a>:</p>
 <pre><code class="lang-javascript">// define a component
 var ExampleComponent = {
     view: function(vnode) {
@@ -133,12 +133,12 @@ m(ExampleComponent, {style: &quot;color:red;&quot;}, &quot;world&quot;)
 <tr>
 <td><code>text</code></td>
 <td><code>(String&#124;Number&#124;Boolean)?</code></td>
-<td>This is used instead of <code>children</code> if a vnode contains a text node as its only child. This is done for performance reasons. Component vnodes never use the <code>text</code> property even if they have a text node as its only child.</td>
+<td>This is used instead of <code>children</code> if a vnode contains a text node as its only child. This is done for performance reasons. Component vnodes never use the <code>text</code> property even if they have a text node as their only child.</td>
 </tr>
 <tr>
 <td><code>dom</code></td>
 <td><code>Element?</code></td>
-<td>Points to the element that corresponds to the vnode. This property is <code>undefined</code> in the <code>oninit</code> lifecycle method. In fragment and trusted HTML vnodes, <code>dom</code> points to the first element in the range.</td>
+<td>Points to the element that corresponds to the vnode. This property is <code>undefined</code> in the <code>oninit</code> lifecycle method. In fragments and trusted HTML vnodes, <code>dom</code> points to the first element in the range.</td>
 </tr>
 <tr>
 <td><code>domSize</code></td>

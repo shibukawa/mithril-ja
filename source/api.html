@@ -11,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg"> Mithril <small>1.0.0</small></h1>
+				<h1><img src="logo.svg"> Mithril <small>1.0.1</small></h1>
 				<nav>
 					<a href="index.html">Guide</a>
 					<a href="api.html">API</a>
@@ -52,11 +52,11 @@
 </ul>
 <h3 id="cheatsheet">Cheatsheet</h3>
 <p>Here are examples for the most commonly used methods. If a method is not listed below, it&#39;s meant for advanced usage.</p>
-<h4 id="m-selector-attrs-children-docs-hyperscript-html-">m(selector, attrs, children) - <a href="hyperscript.html">docs</a></h4>
+<h4 id="mselector,-attrs,-children---">m(selector, attrs, children) - <a href="hyperscript.html">docs</a></h4>
 <pre><code class="lang-javascript">m(&quot;div.class#id&quot;, {title: &quot;title&quot;}, [&quot;children&quot;])
 </code></pre>
 <hr>
-<h4 id="m-mount-element-component-docs-mount-html-">m.mount(element, component) - <a href="mount.html">docs</a></h4>
+<h4 id="mmountelement,-component---">m.mount(element, component) - <a href="mount.html">docs</a></h4>
 <pre><code class="lang-javascript">var state = {
     count: 0,
     inc: function() {state.count++}
@@ -71,7 +71,7 @@ var Counter = {
 m.mount(document.body, Counter)
 </code></pre>
 <hr>
-<h4 id="m-route-root-defaultroute-routes-docs-route-html-">m.route(root, defaultRoute, routes) - <a href="route.html">docs</a></h4>
+<h4 id="mrouteroot,-defaultroute,-routes---">m.route(root, defaultRoute, routes) - <a href="route.html">docs</a></h4>
 <pre><code class="lang-javascript">var Home = {
     view: function() {
         return &quot;Welcome&quot;
@@ -82,21 +82,21 @@ m.route(document.body, &quot;/home&quot;, {
     &quot;/home&quot;: Home, // defines `http://localhost/#!/home`
 })
 </code></pre>
-<h4 id="m-route-set-path-docs-route-html-mrouteset-">m.route.set(path) - <a href="route.html#mrouteset">docs</a></h4>
+<h4 id="mroutesetpath---">m.route.set(path) - <a href="route.html#mrouteset">docs</a></h4>
 <pre><code class="lang-javascript">m.route.set(&quot;/home&quot;)
 </code></pre>
-<h4 id="m-route-get-docs-route-html-mrouteget-">m.route.get() - <a href="route.html#mrouteget">docs</a></h4>
+<h4 id="mrouteget---">m.route.get() - <a href="route.html#mrouteget">docs</a></h4>
 <pre><code class="lang-javascript">var currentRoute = m.route.get()
 </code></pre>
-<h4 id="m-route-prefix-prefix-docs-route-html-mrouteprefix-">m.route.prefix(prefix) - <a href="route.html#mrouteprefix">docs</a></h4>
+<h4 id="mrouteprefixprefix---">m.route.prefix(prefix) - <a href="route.html#mrouteprefix">docs</a></h4>
 <p>Call this before <code>m.route()</code></p>
 <pre><code class="lang-javascript">m.route.prefix(&quot;#!&quot;)
 </code></pre>
-<h4 id="m-route-link-docs-route-html-mroutelink-">m.route.link() - <a href="route.html#mroutelink">docs</a></h4>
+<h4 id="mroutelink---">m.route.link() - <a href="route.html#mroutelink">docs</a></h4>
 <pre><code class="lang-javascript">m(&quot;a[href=&#39;/Home&#39;]&quot;, {oncreate: m.route.link}, &quot;Go to home page&quot;)
 </code></pre>
 <hr>
-<h4 id="m-request-options-docs-request-html-">m.request(options) - <a href="request.html">docs</a></h4>
+<h4 id="mrequestoptions---">m.request(options) - <a href="request.html">docs</a></h4>
 <pre><code class="lang-javascript">m.request({
     method: &quot;PUT&quot;,
     url: &quot;/api/v1/users/:id&quot;,
@@ -107,7 +107,7 @@ m.route(document.body, &quot;/home&quot;, {
 })
 </code></pre>
 <hr>
-<h4 id="m-jsonp-options-docs-jsonp-html-">m.jsonp(options) - <a href="jsonp.html">docs</a></h4>
+<h4 id="mjsonpoptions---">m.jsonp(options) - <a href="jsonp.html">docs</a></h4>
 <pre><code class="lang-javascript">m.jsonp({
     url: &quot;/api/v1/users/:id&quot;,
     data: {id: 1},
@@ -118,17 +118,17 @@ m.route(document.body, &quot;/home&quot;, {
 })
 </code></pre>
 <hr>
-<h4 id="m-parsequerystring-querystring-docs-parsequerystring-html-">m.parseQueryString(querystring) - <a href="parseQueryString.html">docs</a></h4>
+<h4 id="mparsequerystringquerystring---">m.parseQueryString(querystring) - <a href="parseQueryString.html">docs</a></h4>
 <pre><code class="lang-javascript">var object = m.parseQueryString(&quot;a=1&amp;b=2&quot;)
 // {a: &quot;1&quot;, b: &quot;2&quot;}
 </code></pre>
 <hr>
-<h4 id="m-buildquerystring-object-docs-buildquerystring-html-">m.buildQueryString(object) - <a href="buildQueryString.html">docs</a></h4>
+<h4 id="mbuildquerystringobject---">m.buildQueryString(object) - <a href="buildQueryString.html">docs</a></h4>
 <pre><code class="lang-javascript">var querystring = m.buildQueryString({a: &quot;1&quot;, b: &quot;2&quot;})
 // &quot;a=1&amp;b=2&quot;
 </code></pre>
 <hr>
-<h4 id="m-withattr-attrname-callback-docs-withattr-html-">m.withAttr(attrName, callback) - <a href="withAttr.html">docs</a></h4>
+<h4 id="mwithattrattrname,-callback---">m.withAttr(attrName, callback) - <a href="withAttr.html">docs</a></h4>
 <pre><code class="lang-javascript">var state = {
     value: &quot;&quot;,
     setValue: function(v) {state.value = v}
@@ -146,11 +146,11 @@ var Component = {
 m.mount(document.body, Component)
 </code></pre>
 <hr>
-<h4 id="m-trust-htmlstring-docs-trust-html-">m.trust(htmlString) - <a href="trust.html">docs</a></h4>
+<h4 id="mtrusthtmlstring---">m.trust(htmlString) - <a href="trust.html">docs</a></h4>
 <pre><code class="lang-javascript">m.render(document.body, m.trust(&quot;&lt;h1&gt;Hello&lt;/h1&gt;&quot;))
 </code></pre>
 <hr>
-<h4 id="m-redraw-docs-redraw-html-">m.redraw() - <a href="redraw.html">docs</a></h4>
+<h4 id="mredraw---">m.redraw() - <a href="redraw.html">docs</a></h4>
 <pre><code class="lang-javascript">var count = 0
 function inc() {
     setInterval(function() {

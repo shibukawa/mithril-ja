@@ -1,80 +1,25 @@
-<!doctype html>
 <html>
 	<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<title>m.component - Mithril</title>
-		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
+		<meta charset="UTF-8" />
+		<title># m.component - Mithril.js</title>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 		<link href="lib/prism/prism.css" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 	</head>
 	<body>
 		<header>
-			<nav class="container">
-				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
-			</nav>
+			<section>
+				<a class="hamburger" href="javascript:;">≡</a>
+				<h1><img src="logo.svg">  Mithril <small>1.0.0</small></h1>
+				<nav>
+					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
+				</nav>
+			</section>
 		</header>
 		<main>
-			<section class="content">
-				<div class="container">
-					<div class="row">
-						<div class="col(3,3,12)">
-							<h2 id="api">API (v0.2.4)</h2>
-							<h3 id="core">コア</h3>
-							<ul>
-								<li><a href="mithril.html" title="仮想エレメントを作るためのユーティリティ">m</a></li>
-								<li><a href="mithril.component.html" title="コンポーネントのパラメータ化">m.component</a></li>
-								<li><a href="mithril.mount.html" title="コンポーネントのレンダリング">m.mount</a></li>
-								<li><a href="mithril.prop.html" title="getter-setterユーティリティ">m.prop</a></li>
-								<li><a href="mithril.withAttr.html" title="イベントハンドラを生成するユーティリティ">m.withAttr</a></li>
-							</ul>
-							<h3 id="routing">ラウティング</h3>
-							<ul>
-								<li><a href="mithril.route.html" title="ラウティングユーティリティ">m.route</a>
-									<ul>
-										<li><a href="mithril.route.html#defining-routes" title="存在するラウトの定義">m.route(rootElement, defaultRoute, routes)</a></li>
-										<li><a href="mithril.route.html#redirecting" title="ラウトへリダイレクト">m.route(path, params, replaceHistory)</a></li>
-										<li><a href="mithril.route.html#reading-current-route" title="現在のラウトを取得">m.route()</a></li>
-										<li><a href="mithril.route.html#mode-abstraction" title="ラウティングモードの抽象化">m.route(element)</a></li>
-										<li><a href="mithril.route.html#mode" title="ラウティングがハッシュ、クエリー文字列、パス名のどのモードを使用するか">m.route.mode</a></li>
-										<li><a href="mithril.route.html#param" title="パラメータ化されたラウトから引数の読み込み">m.route.param</a></li>
-										<li><a href="mithril.route.html#buildQueryString" title="データをクエリー文字列フォーマットでシリアライズ">m.route.buildQueryString</a></li>
-										<li><a href="mithril.route.html#parseQueryString" title="パラメータ化されたラウトから引数の読み込み">m.route.parseQueryString</a></li>
-									</ul>
-								</li>
-							</ul>
-							<h3 id="data">データ</h3>
-							<ul>
-								<li><a href="mithril.request.html" title="高レベルなAJAXユーティリティ">m.request</a></li>
-								<li><a href="mithril.deferred.html" title="Promiseのファクトリ">m.deferred</a></li>
-								<li><a href="mithril.sync.html" title="Promiseを集約">m.sync</a></li>
-							</ul>
-							<h3 id="html">HTML</h3>
-							<ul>
-								<li><a href="mithril.trust.html" title="エスケープしないHTMLのためのメソッド">m.trust</a></li>
-							</ul>
-							<h3 id="rendering">レンダリング</h3>
-							<ul>
-								<li><a href="mithril.render.html" title="低レベルのレンダリングの方法">m.render</a></li>
-								<li><a href="mithril.redraw.html" title="高レベルな明示的なレンダリングメソッド">m.redraw</a>
-									<ul>
-										<li><a href="mithril.redraw.html#strategy" title="次の再描画をどのような戦略で行うかを決定するフラグ">m.redraw.strategy(strategy)</a></li>
-									</ul>
-								</li>
-								<li><a href="mithril.computation.html" title="非同期のコンテキストをMithrilのレンダリングシステムに統合するためのユーティリティ">m.startComputation / m.endComputation</a></li>
-							</ul>
-							<h3 id="data">テスト</h3>
-							<ul>
-								<li><a href="mithril.deps.html" title="依存性注入(Dependency Injection)">m.deps</a></li>
-							</ul>
-							
-							<h2 id="archive">履歴</h2>
-							<ul>
-								<li><a href="roadmap.html">ロードマップ</a></li>
-								<li><a href="change-log.html">変更履歴</a></li>
-							</ul>
-						</div>
-						<div class="col(9,9,12)">
-							<h2 id="m-component">m.component</h2>
+			<section>
+				<h2 id="m-component">m.component</h2>
 <hr>
 <ul>
 <li><a href="#rendering-components">コンポーネントのレンダリング</a><ul>
@@ -395,11 +340,11 @@ var people = [
     {id: 2, name: "Mary"}
 ]
 
-//AJAXでデータを取得し、Johnのプロジェクト一覧を表示
-m.render(document.body, ProjectList({key: people[0].id, value: people[0]})
+//ajax and display a list of projects for John
+m.render(document.body, m(ProjectList, {key: people[0].id, value: people[0]}))
 
-//AJAXでデータを取得し、Maryのプロジェクト一覧を表示
-m.render(document.body, ProjectList({key: people[1].id, value: people[1]})
+//ajax and display a list of projects for Mary
+m.render(document.body, m(ProjectList, {key: people[1].id, value: people[1]}))
 </code></pre>
 <p>上記の例では、キーが異なるため、ProjectListのコンポーネントは一度破棄されて再生成されます。これにより、コントローラが再実行され、DOMが再生成されます。また、サードパーティのプラグインがconfigで設定されていた場合には、これも最初期化されます。</p>
 <p>キーの適用のルールは通常のエレメントと同じです。同じ親の子供が同じキーを持つことはできません。またキーは文字列か数字、もしくは<code>.toString()</code>メソッドを持っていてローカルスコープ内でユニークなキーを生成できる必要があります。キーについては<a href="mithril.html#dealing-with-focus">ここで</a>学ぶことができます。</p>
@@ -566,16 +511,19 @@ where:
 </li>
 </ul>
 
-						</div>
-					</div>
-				</div>
+				<hr />
+				<small>License: MIT. © Leo Horie.</small>
 			</section>
 		</main>
-		<footer>
-			<div class="container">
-				<a href="http://opensource.org/licenses/MIT" target="_blank">MITライセンス</a>でリリースされています<br />© 2014 Leo Horie
-			</div>
-		</footer>
 		<script src="lib/prism/prism.js"></script>
+		<script>
+		document.querySelector(".hamburger").onclick = function() {
+			document.body.className = 'navigating'
+			document.querySelector("h1 + ul").onclick = function() {
+				document.body.className = ''
+			}
+		}
+		</script>
 	</body>
-</html>
+</html
+>

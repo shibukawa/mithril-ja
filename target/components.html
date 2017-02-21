@@ -1,555 +1,428 @@
-<!doctype html>
 <html>
 	<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<title>コンポーネント - Mithril</title>
-		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
+		<meta charset="UTF-8" />
+		<title>  Components - Mithril.js</title>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 		<link href="lib/prism/prism.css" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
 	<body>
 		<header>
-			<nav class="container">
-				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
-			</nav>
+			<section>
+				<a class="hamburger" href="javascript:;">≡</a>
+				<h1><img src="logo.svg">  Mithril <small>1.0.0</small></h1>
+				<nav>
+					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
+				</nav>
+			</section>
 		</header>
 		<main>
-			<section class="content">
-				<div class="container">
-					<div class="row">
-						<div class="col(3,3,12)">
-							<h2 id="core-topics">基本トピック</h2>
-							<ul>
-								<li><a href="installation.html">インストール</a></li>
-								<li><a href="getting-started.html">はじめよう</a></li>
-								<li><a href="routing.html">ラウティング</a></li>
-								<li><a href="web-services.html">ウェブサービス</a></li>
-								<li><a href="components.html">コンポーネント</a></li>
-							</ul>
-							<h2 id="advanced-topics.html">上級トピック</h2>
-							<ul>
-								<li><a href="auto-redrawing.html">自動再描画システム</a></li>
-								<li><a href="integration.html">他のライブラリとの統合</a></li>
-								<li><a href="optimizing-performance.html">テンプレートのコンパイル</a></li>
-							</ul>
-							<h2 id="misc">その他</h2>
-							<ul>
-								<li><a href="comparison.html">他のMVCフレームワークとの違い</a></li>
-								<li><a href="benchmarks.html">ベンチマーク</a></li>
-								<li><a href="practices.html">良いプラクティス</a></li>
-								<li><a href="tools.html">便利なツール</a></li>
-							</ul>
-						</div>
-						<div class="col(9,9,12)">
-							<h2 id="components">コンポーネント</h2>
-<hr>
+			<section>
+				<h1 id="components">コンポーネント</h1>
 <ul>
-<li><a href="#application-architecture-with-components">アプリケーションアーキテクチャとコンポーネント</a><ul>
-<li><a href="#aggregation-of-responsibility">責務の集約</a></li>
-<li><a href="#distribution-of-concrete-responsibilities">具体的な責務の分担</a></li>
-<li><a href="#cross-communication-in-single-purpose-components">単一目的のコンポーネント間のコミュニケーション</a></li>
-<li><a href="#the-observer-pattern">オブザーバパターン</a></li>
-<li><a href="#hybrid-architecture">ハイブリッドアーキテクチャ</a></li>
-<li><a href="#classic-mvc">クラシックなMVC</a></li>
+<li>チュートリアル<ul>
+<li><a href="installation.html">インストール</a></li>
+<li><a href="index.html">イントロダクション</a></li>
+<li><a href="simple-application.html">チュートリアル</a></li>
 </ul>
 </li>
-<li><a href="#example-html5-drag-n-drop-file-uploader-component">サンプル: HTML5ドラッグ・アンド・ドロップでファイルアップロードするコンポーネント</a></li>
+<li>リソース<ul>
+<li><a href="jsx.html">JSX</a></li>
+<li><a href="es6.html">ES6</a></li>
+<li><a href="css.html">CSS</a></li>
+<li><a href="animation.html">アニメーション</a></li>
+<li><a href="testing.html">テスト</a></li>
+<li><a href="examples.html">サンプル</a></li>
 </ul>
-<hr>
-<h2 id="application-architecture-with-components">アプリケーションアーキテクチャとコンポーネント</h2>
-<p>コンポーネントはコードを組織化するのに使える多目的なツールで、さまざまな用途があります。</p>
-<p>まずはシンプルなモデルのエンティティを作ってみます。これはさまざまなコンポーネントの使用方法を説明するアプリケーションで使用します:</p>
-<pre><code class="lang-javascript">var Contact = function(data) {
-    data = data || {}
-    this.id = m.prop(data.id || "")
-    this.name = m.prop(data.name || "")
-    this.email = m.prop(data.email || "")
-}
-Contact.list = function(data) {
-    return m.request({method: "GET", url: "/api/contact", type: Contact})
-}
-Contact.save = function(data) {
-    return m.request({method: "POST", url: "/api/contact", data: data})
-}
-</code></pre>
-<p><code>Contact</code>(連絡先)クラスを定義しました。この連絡先には、id、名前、eメールが含まれます。これらには、データのリストを取得する<code>list</code>メソッドと、単体の連絡先を取得する<code>save</code>メソッドという2つの静的メソッドがあります。このlistメソッドは、AJAXのレスポンスとして、クラスと同じ名前のフィールドを含むJSON形式で連絡先情報を返してくることを想定しています。</p>
-<h3 id="aggregation-of-responsibility">責務の集約</h3>
-<p>コンポーネントの組み立て方の１つの例としては、コンポーネントのパラメータリストを使ってデータを下流に流すと共に、モデルレイヤとのインタフェースとなっている中心のモジュールまでバブリングしてデータを上流に戻すイベントを定義するというものです。</p>
-<pre><code class="lang-javascript">var ContactsWidget = {
-    controller: function update() {
-        this.contacts = Contact.list()
-        this.save = function(contact) {
-            Contact.save(contact).then(update.bind(this))
-        }.bind(this)
-    },
-    view: function(ctrl) {
-        return [
-            m.component(ContactForm, {onsave: ctrl.save}),
-            m.component(ContactList, {contacts: ctrl.contacts})
-        ]
-    }
-}
-
-var ContactForm = {
-    controller: function(args) {
-        this.contact = m.prop(args.contact || new Contact())
-    },
-    view: function(ctrl, args) {
-        var contact = ctrl.contact()
-
-        return m("form", [
-            m("label", "名前"),
-            m("input", {oninput: m.withAttr("value", contact.name), value: contact.name()}),
-
-            m("label", "Eメール"),
-            m("input", {oninput: m.withAttr("value", contact.email), value: contact.email()}),
-
-            m("button[type=button]", {onclick: args.onsave.bind(this, contact)}, "保存")
-        ])
-    }
-}
-
-var ContactList = {
-    view: function(ctrl, args) {
-        return m("table", [
-            args.contacts().map(function(contact) {
-                return m("tr", [
-                    m("td", contact.id()),
-                    m("td", contact.name()),
-                    m("td", contact.email())
-                ])
-            })
-        ])
-    }
-}
-
-m.mount(document.body, ContactsWidget)
-</code></pre>
-<p>上記のサンプルには3つのコンポーネントが含まれています。<code>ContactsWidget</code>は<code>document.body</code>にレンダリングされる、最上位のモジュールです。また、これは先に定義していた<code>Contact</code>モデルのエンティティと話をする責務を持っています。</p>
-<p><code>ContactForm</code>コンポーネントは、名前から推測できる通りで、<code>Contact</code>エンティティのフィールドを編集するフォームを提供します。このモジュールは、フォーム上の保存ボタンが押された時に起動される<code>onsave</code>イベントを公開しています。それに加えて、未保存の連絡先情報をコンポーネント内に保管しています(<code>this.contact = m.prop(args.contact || new Contact())</code>)。</p>
-<p><code>ContactList</code>コンポーネントは、<code>contacts</code>引数で渡されたすべての連絡先のエンティティを表形式で表示します。</p>
-<p>もっとも興味深いコンポーネントは<code>ContactsWidget</code>です。</p>
-<ol>
-<li><p>初期化時に連絡先のリストを取得します(<code>this.contacts = Contact.list()</code>)。</p>
 </li>
-<li><p><code>save</code>が呼ばれると、連絡先を保存する(<code>Contact.save(contact)</code>)。</p>
+<li>重要なコンセプト<ul>
+<li><a href="vnodes.html">Vノード</a></li>
+<li><strong><a href="components.html">コンポーネント</a></strong><ul>
+<li><a href="#structure">Structure</a></li>
+<li><a href="#lifecycle-methods">ライフサイクルメソッド</a></li>
+<li><a href="#state">State</a></li>
+<li><a href="#avoid-anti-patterns">Avoid-anti-patterns</a></li>
+</ul>
 </li>
-<li><p>保存が完了したらリストのリロードをする(<code>.then(update.bind(this))</code>)。</p>
+<li><a href="lifecycle-methods.html">ライフサイクルメソッド</a></li>
+<li><a href="keys.html">キー</a></li>
+<li><a href="autoredraw.html">自動再描画システム</a></li>
+</ul>
 </li>
-</ol>
-<p><code>update</code>はコントローラの関数そのものです。それをPromiseのコールバックとして定義するとということは、非同期操作(<code>Contact.save()</code>)が完了したあとにコントローラを再初期化しています。</p>
-<p>責務とトップレベルのコンポーネントで統合するという方法は、複数のモデルエンティティを持つ場合の管理を楽にします。多くのコンポーネントがサーバ側のデータを必要としても、AJAXアクセスをまとめて通信をシンプルにしたり、データのリフレッシュが行い易くなります。</p>
-<p>それに加えて、さまざまなコンテキストでコンポーネントを再利用しやすくなります。<code>ContactList</code>リストは<code>args.contacts</code>がデータベース内のすべての連絡先を参照しているか、フィルタリング条件でヒットしたものだけが渡されているのかどうかは知りません。同様に<code>ContactForm</code>も、新規の連絡先の作成と、既存の連絡先の編集の両方に利用できます。保存の操作については、親のコンポーネントに残してあります。</p>
-<p>このアーキテクチャにすることで、高い柔軟性と再利用性の高いコードが得られますが、柔軟性が高いということはシステムを理解する負荷が高まるということです。どのようにデータが表示されるかを知るには、トップレベルのモジュールと、<code>ContactList</code>の2つを見る必要があります。場合によってはどのようにフィルタされるかを知る必要もあります。それに加えて、ツリーのネストが深くなると、コンポーネント間の引数のパススルーや、イベントハンドラが増えることになります。</p>
+<li>ソーシャル<ul>
+<li><a href="https://github.com/lhorie/mithril.js/wiki/JOBS">Mithrilの求人</a></li>
+<li><a href="contributing.html">貢献の仕方</a></li>
+<li><a href="credits.html">クレジット</a></li>
+</ul>
+</li>
+<li>その他<ul>
+<li><a href="framework-comparison.html">フレームワークの比較</a></li>
+<li><a href="change-log.html">変更履歴/移行</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="structure">Structure</h3>
+<p>Components are a mechanism to encapsulate parts of a view to make code easier to organize and/or reuse.</p>
+<p>Any Javascript object that has a view method is a Mithril component. Components can be consumed via the <a href="hyperscript.html"><code>m()</code></a> utility:</p>
+<pre><code class="lang-javascript">var Example = {
+    view: function() {
+        return m("div", "Hello")
+    }
+}
+
+m(Example)
+
+// equivalent HTML
+// &lt;div&gt;Hello&lt;/div&gt;
+</code></pre>
 <hr>
-<h3 id="distribution-of-concrete-responsibilities">具体的な責務の分担</h3>
-<p>他のコードの構築方法としては、具体的な責務をモジュール間に分配する方法があります。</p>
-<p>以下のコードは上記のコードをリファクタリングしたものです:</p>
-<pre><code class="lang-javascript">var ContactForm = {
-    controller: function() {
-        this.contact = m.prop(new Contact())
-        this.save = function(contact) {
-            Contact.save(contact)
-        }
-    },
-    view: function(ctrl) {
-        var contact = ctrl.contact()
-
-        return m("form", [
-            m("label", "名前"),
-            m("input", {oninput: m.withAttr("value", contact.name), value: contact.name()}),
-
-            m("label", "Eメール"),
-            m("input", {oninput: m.withAttr("value", contact.email), value: contact.email()}),
-
-            m("button[type=button]", {onclick: ctrl.save.bind(this, contact)}, "保存")
-        ])
-    }
-}
-
-var ContactList = {
-    controller: function() {
-        this.contacts = Contact.list()
-    },
-    view: function(ctrl) {
-        return m("table", [
-            ctrl.contacts().map(function(contact) {
-                return m("tr", [
-                    m("td", contact.id()),
-                    m("td", contact.name()),
-                    m("td", contact.email())
-                ])
-            })
-        ])
-    }
-}
-
-m.route(document.body, "/", {
-    "/list": ContactList,
-    "/create": ContactForm
-})
+<h3 id="passing-data-to-components">Passing data to components</h3>
+<p>Data can be passed to component instances by passing an <code>attrs</code> object as the second parameter in the hyperscript function:</p>
+<pre><code class="lang-javascript">m(Example, {name: "Floyd"})
 </code></pre>
-<p>これらのコンポーネントは機能別にまとまっています。それぞれ異なったラウターを持ち、それぞれのコンポーネントは1つのタスクだけを行います。これらのコンポーネントはお互いのコンポーネントとやりとりをするようには設計されていません。それぞれのコンポーネントは個別の目的のために提供されているため、動作を理解するのは簡単ですが、前述のサンプルのような柔軟性はありません。<code>ContactList</code>は全連絡先のリストを表示するのにしか使えず、サブセットの表示はできません。</p>
-<p>また、それぞれのコンポーネントの動作はカプセル化されているため、他のモジュールを外部から操作することは簡単にはできません。実際、<code>ContactsWidget</code>内にコンポーネントが2つあるとすると、何もコードを追加しなければリストが更新されることはありません。</p>
-<h4 id="cross-communication-in-single-purpose-components">単一目的のコンポーネント間のコミュニケーション</h4>
-<p>以下のコードは、上記の単一機能を提供するコンポーネント間のコミュニケーションを提供する方法です:</p>
-<pre><code class="lang-javascript">var Observable = function() {
-    var controllers = []
-    return {
-        register: function(controller) {
-            return function() {
-                var ctrl = new controller
-                ctrl.onunload = function() {
-                    controllers.splice(controllers.indexOf(ctrl), 1)
-                }
-                controllers.push({instance: ctrl, controller: controller})
-                return ctrl
-            }
-        },
-        trigger: function() {
-            controllers.map(function(c) {
-                ctrl = new c.controller
-                for (var i in ctrl) c.instance[i] = ctrl[i]
-            })
-        }
-    }
-}.call()
-
-
-var ContactsWidget = {
-    view: function(ctrl) {
-        return [
-            ContactForm,
-            ContactList
-        ]
+<p>This data can be accessed in the component's view or lifecycle methods via the <code>vnode.attrs</code>:</p>
+<pre><code class="lang-javascript">var Example = {
+    view: function (vnode) {
+        return m("div", "Hello, " + vnode.attrs.name)
     }
 }
-
-var ContactForm = {
-    controller: function() {
-        this.contact = m.prop(new Contact())
-        this.save = function(contact) {
-            Contact.save(contact).then(Observable.trigger)
-        }
-    },
-    view: function(ctrl) {
-        var contact = ctrl.contact()
-
-        return m("form", [
-            m("label", "名前"),
-            m("input", {oninput: m.withAttr("value", contact.name), value: contact.name()}),
-
-            m("label", "Eメール"),
-            m("input", {oninput: m.withAttr("value", contact.email), value: contact.email()}),
-
-            m("button[type=button]", {onclick: ctrl.save.bind(this, contact)}, "保存")
-        ])
-    }
-}
-
-var ContactList = {
-    controller: Observable.register(function() {
-        this.contacts = Contact.list()
-    }),
-    view: function(ctrl) {
-        return m("table", [
-            ctrl.contacts().map(function(contact) {
-                return m("tr", [
-                    m("td", contact.id()),
-                    m("td", contact.name()),
-                    m("td", contact.email())
-                ])
-            })
-        ])
-    }
-}
-
-m.mount(document.body, ContactsWidget)
 </code></pre>
-<p>ここでは、<code>ContactForm</code>コンポーネントと<code>ContactList</code>コンポーネントは<code>ContactsWidget</code>コンポーネントの子供になっていて、どちらも同じページ内で表示されています。</p>
-<p><code>Observable</code>オブジェクトは2つのメソッドを提供しています。<code>register</code>はコントローラのエンティティを監視対象のエンティティとして登録します。<code>trigger</code>は<code>register</code>で登録されたコントローラをリロードします。<code>onunload</code>イベントが起動されるとコントローラの登録は解除されます。</p>
-<p><code>ContactList</code>コンポーネントのコントローラが監視対象としてマークして、その後<code>ContactForm</code>の<code>save</code>イベントハンドラの中で、保存後に<code>Observable.trigger</code>呼びます。</p>
-<p>この仕組みを使うと、状態を変更させるような操作に対して複数のコンポーネントをリロードさせることができます。</p>
-<p>このアーキテクチャの注意点としては、コンポーネントが内部状態をカプセル化しているため、AJAXアクセスが冗長になってしまうのを防ぐのが難しいということがあります。異なるコンポーネントがまったく同じAJAXアクセスを行うのを防ぐ方法はありません。</p>
-<h3 id="the-observer-pattern">オブザーバパターン</h3>
-<p><code>Observable</code>(監視可能)オブジェクトは<code>trigger</code>を使ってコントローラが購読している"channels"にブロードキャストするという方式にリファクタリングすることができます。これは<a href="http://ja.wikipedia.org/wiki/Observer_%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3">オブザーバパターン</a>と呼ばれています。</p>
-<pre><code class="lang-javascript">var Observable = function() {
-    var channels = {}
-    return {
-        register: function(subscriptions, controller) {
-            return function self() {
-                var ctrl = new controller
-                var reload = controller.bind(ctrl)
-                Observable.on(subscriptions, reload)
-                ctrl.onunload = function() {
-                    Observable.off(reload)
-                }
-                return ctrl
-            }
-        },
-        on: function(subscriptions, callback) {
-            subscriptions.forEach(function(subscription) {
-                if (!channels[subscription]) channels[subscription] = []
-                channels[subscription].push(callback)
-            })
-        },
-        off: function(callback) {
-            for (var channel in channels) {
-                var index = channels[channel].indexOf(callback)
-                if (index &gt; -1) channels[channel].splice(index, 1)
-            }
-        },
-        trigger: function(channel, args) {
-            console.log("triggered: " + channel)
-            channels[channel].map(function(callback) {
-                callback(args)
-            })
-        }
-    }
-}.call()
-</code></pre>
-<p>このパターンは依存関係の鎖を分離するのに役立ちます。しかし、数多くの内部依存関係を持つことによって、イベントの連鎖を追いかけるのが難しくなる「地獄からやってくる」ケースに陥らないように注意する必要があります。</p>
-<h3 id="hybrid-architecture">ハイブリッドアーキテクチャ</h3>
-<p>もちろん、責務の統合と、オブザーバパターンを同時に使うことができます。</p>
-<p>次のサンプルは、連絡先アプリの別バージョンで、<code>ContactForm</code>が保存の責務を担っているバージョンです。</p>
-<pre><code class="lang-javascript">var ContactsWidget = {
-    controller: Observable.register(["updateContact"], function() {
-        this.contacts = Contact.list()
-    }),
-    view: function(ctrl) {
-        return [
-            m.component(ContactForm),
-            m.component(ContactList, {contacts: ctrl.contacts})
-        ]
-    }
-}
-
-var ContactForm = {
-    controller: function(args) {
-        this.contact = m.prop(new Contact())
-        this.save = function(contact) {
-            Contact.save(contact).then(Observable.trigger("updateContact"))
-        }
-    },
-    view: function(ctrl, args) {
-        var contact = ctrl.contact()
-
-        return m("form", [
-            m("label", "名前"),
-            m("input", {oninput: m.withAttr("value", contact.name), value: contact.name()}),
-
-            m("label", "Eメール"),
-            m("input", {oninput: m.withAttr("value", contact.email), value: contact.email()}),
-
-            m("button[type=button]", {onclick: ctrl.save.bind(this, contact)}, "保存")
-        ])
-    }
-}
-
-var ContactList = {
-    view: function(ctrl, args) {
-        return m("table", [
-            args.contacts().map(function(contact) {
-                return m("tr", [
-                    m("td", contact.id()),
-                    m("td", contact.name()),
-                    m("td", contact.email())
-                ])
-            })
-        ])
-    }
-}
-
-m.mount(document.body, ContactsWidget)
-</code></pre>
-<p>この場合データの取得コードはトップレーベルモジュールに集約されています。これによりAJAXリクエストを何度も行うことを避けられるようになっています。</p>
-<p>また、保存の責務を<code>ContactForm</code>コンポーネントに移動したことで、コンポーネントツリーをさかのぼってデータを渡す必要は軽減されています。 引数を使ってパススルーするノイズも減らしています。</p>
+<p>NOTE: Lifecycle methods can also be provided via the <code>attrs</code> object, so you should avoid using the lifecycle method names for your own callbacks as they would also be invoked by Mithril. Use lifecycle methods in <code>attrs</code> only when you specifically wish to create lifecycle hooks.</p>
 <hr>
-<h3 id="classic-mvc">クラシックなMVC</h3>
-<p>次は最後のパターンです。上記で説明したものの変形バージョンです。</p>
-<pre><code class="lang-javascript">//モデルレイヤのオブザーバ
-Observable.on(["saveContact"], function(data) {
-    Contact.save(data.contact).then(Observable.trigger("updateContact"))
-})
-
-//ContactsWidgetは以前と同じ
-var ContactsWidget = {
-    controller: Observable.register(["updateContact"], function() {
-        this.contacts = Contact.list()
-    }),
-    view: function(ctrl) {
-        return [
-            m.component(ContactForm),
-            ctrl.contacts() === undefined
-              ?m("div", "連絡先をロード中...") //Promiseが解決されるのを待つ
-              : m.component(ContactList, {contacts: ctrl.contacts})
-        ]
-    }
-}
-
-//ContactListは`Contact.save`を呼ばない
-var ContactForm = {
-    controller: function(args) {
-            var ctrl = this
-        ctrl.contact = m.prop(new Contact())
-        ctrl.save = function(contact) {
-            Observable.trigger("saveContact", {contact: contact})
-            ctrl.contact = m.prop(new Contact()) //連絡先を空にリセットする
-        }
-        return ctrl
+<h3 id="lifecycle-methods">ライフサイクルメソッド</h3>
+<p>Components can have the same <a href="lifecycle-methods.html">lifecycle methods</a> as virtual DOM nodes: <code>oninit</code>, <code>oncreate</code>, <code>onupdate</code>, <code>onbeforeremove</code>, <code>onremove</code> and <code>onbeforeupdate</code>.</p>
+<pre><code class="lang-javascript">var ComponentWithHooks = {
+    oninit: function(vnode) {
+        console.log("initialized")
     },
-    view: function(ctrl, args) {
-        var contact = ctrl.contact()
-
-        return m("form", [
-            m("label", "名前"),
-            m("input", {oninput: m.withAttr("value", contact.name), value: contact.name()}),
-
-            m("label", "Eメール"),
-            m("input", {oninput: m.withAttr("value", contact.email), value: contact.email()}),
-
-            m("button[type=button]", {onclick: ctrl.save.bind(this, contact)}, "保存")
-        ])
-    }
-}
-
-//ContactListは前の実装と同じ
-var ContactList = {
-    view: function(ctrl, args) {
-        return m("table", [
-            args.contacts().map(function(contact) {
-                return m("tr", [
-                    m("td", contact.id()),
-                    m("td", contact.name()),
-                    m("td", contact.email())
-                ])
-            })
-        ])
-    }
-}
-
-m.mount(document.body, ContactsWidget)
-</code></pre>
-<p>このコードでは、<code>Contact.save(contact).then(Observable.trigger("updateContact"))</code>を<code>ContactForm</code>コンポーネントの中から、モデルレイヤの中に移動しています。<code>ContactForm</code>では単に、アクションを送信しています。これはモデルレイヤーのオブザーバが受け取って処理をします。</p>
-<p>これにより、<code>ContactForm</code>コンポーネントを変更することなく、<code>saveContact</code>ハンドラの実装を変更することができます。</p>
-<hr>
-<h3 id="example-html5-drag-n-drop-file-uploader-component">サンプル: HTML5ドラッグ・アンド・ドロップでファイルアップロードするコンポーネント</h3>
-<p>１つ面白いサンプルを紹介します。ドラッグ・アンド・ドロップでファイルをアップロードするコンポーネントです。<code>Uploader</code>オブジェクトをそのままコンポーネントとして使えるように<code>controller</code>と<code>view</code>プロパティを提供しています。また、それに追加して基本的なアップロードの機能を提供する<code>upload</code>関数もモデルのメソッドとして提供しています。また、通常はJSONでシリアライズされるサーバリクエストで、<code>application/x-www-form-urlencoded</code>エンコードでファイル送信ができるようにする<code>serialize</code>関数も提供しています。</p>
-<p>これらの2つの関数は、コンポーネント利用者にAPIを公開することで、コンポーネントのインタフェースを補完できることを示しています。コンポーネントにモデルメソッドをバンドルするときは、どのようにファイルを取り扱うかをハードコーディングするのを避けます。アプリケーションの需要に応じて柔軟に使用できる関数ライブラリを提供します。</p>
-<pre><code class="lang-javascript">var Uploader = {
-    upload: function(options) {
-        var formData = new FormData
-        for (var key in options.data) {
-            for (var i = 0; i &lt; options.data[key].length; i++) {
-                formData.append(key, options.data[key][i])
-            }
-        }
-
-        //JSON.stringifyをしないで、FormDataをそのままバックエンドのXMLHttpRequestに渡す
-        options.serialize = function(value) {return value}
-        options.data = formData
-
-        return m.request(options)
+    oncreate: function(vnode) {
+        console.log("DOM created")
     },
-    serialize: function(files) {
-        var promises = files.map(function(file) {
-            var deferred = m.deferred()
-
-            var reader = new FileReader
-            reader.readAsDataURL()
-            reader.onloadend = function(e) {
-                deferred.resolve(e.result)
-            }
-            reader.onerror = deferred.reject
-            return deferred.promise
+    onupdate: function(vnode) {
+        console.log("DOM updated")
+    },
+    onbeforeremove: function(vnode) {
+        console.log("exit animation can start")
+        return new Promise(function(resolve) {
+            // call after animation completes
+            resolve()
         })
-        return m.sync(promises)
     },
-    controller: function(args) {
-        this.noop = function(e) {
-            e.preventDefault()
-        }
-        this.update = function(e) {
-            e.preventDefault()
-            if (typeof args.onchange == "function") {
-                args.onchange([].slice.call((e.dataTransfer || e.target).files))
-            }
-        }
+    onremove: function(vnode) {
+        console.log("removing DOM element")
     },
-    view: function(ctrl, args) {
-        return m(".uploader", {ondragover: ctrl.noop, ondrop: ctrl.update})
+    onbeforeupdate: function(vnode, old) {
+        return true
+    },
+    view: function(vnode) {
+        return "hello"
     }
 }
 </code></pre>
-<p>次のコードは<code>Uploader</code>コンポーネントの使用例です:</p>
-<pre><code class="lang-javascript">//デモ1: コンポーネントにファイルがドロップされた時にmultipart/form-dataでアップロード
-var Demo1 = {
-    controller: function() {
-        return {
-            upload: function(files) {
-                Uploader.upload({method: "POST", url: "/api/files", data: {files: files}}).then(function() {
-                    alert("uploaded!")
-                })
-            }
-        }
+<p>Like other types of virtual DOM nodes, components may have additional lifecycle methods defined when consumed as vnode types.</p>
+<pre><code class="lang-javascript">function initialize() {
+    console.log("initialized as vnode")
+}
+
+m(ComponentWithHooks, {oninit: initialize})
+</code></pre>
+<p>Lifecycle methods in vnodes do not override component methods, nor vice versa. Component lifecycle methods are always run after the vnode's corresponding method.</p>
+<p>Take care not to use lifecycle method names for your own callback function names in vnodes.</p>
+<p>To learn more about lifecycle methods, <a href="lifecycle-methods.html">see the lifecycle methods page</a>.</p>
+<hr>
+<h3 id="state">State</h3>
+<p>Like all virtual DOM nodes, component vnodes can have state. Component state is useful for supporting object-oriented architectures, for encapsulation and for separation of concerns.</p>
+<p>The state of a component can be accessed three ways: as a blueprint at initialization, via <code>vnode.state</code> and via the <code>this</code> keyword in component methods.</p>
+<h4 id="at-initialization">At initialization</h4>
+<p>Any property attached to the component object is copied for every instance of the component. This allows simple state initialization.</p>
+<p>In the example below, <code>data</code> is a property of the <code>ComponentWithInitialState</code> component's state object.</p>
+<pre><code class="lang-javascript">var ComponentWithInitialState = {
+    data: "Initial content",
+    view: function(vnode) {
+        return m("div", vnode.state.data)
+    }
+}
+
+m(ComponentWithInitialState)
+
+// Equivalent HTML
+// &lt;div&gt;Initial content&lt;/div&gt;
+</code></pre>
+<h4 id="via-vnode-state">Via vnode.state</h4>
+<p>State can also be accessed via the <code>vnode.state</code> property, which is available to all lifecycle methods as well as the <code>view</code> method of a component.</p>
+<pre><code class="lang-javascript">var ComponentWithDynamicState = {
+    oninit: function(vnode) {
+        vnode.state.data = vnode.attrs.text
     },
-    view: function(ctrl) {
+    view: function(vnode) {
+        return m("div", vnode.state.data)
+    }
+}
+
+m(ComponentWithDynamicState, {text: "Hello"})
+
+// Equivalent HTML
+// &lt;div&gt;Hello&lt;/div&gt;
+</code></pre>
+<h4 id="via-the-this-keyword">Via the this keyword</h4>
+<p>State can also be accessed via the <code>this</code> keyword, which is available to all lifecycle methods as well as the <code>view</code> method of a component.</p>
+<pre><code class="lang-javascript">var ComponentUsingThis = {
+    oninit: function(vnode) {
+        this.data = vnode.attrs.text
+    },
+    view: function(vnode) {
+        return m("div", this.data)
+    }
+}
+
+m(ComponentUsingThis, {text: "Hello"})
+
+// Equivalent HTML
+// &lt;div&gt;Hello&lt;/div&gt;
+</code></pre>
+<p>Be aware that when using ES5 functions, the value of <code>this</code> in nested anonymous functions is not the component instance. There are two recommended ways to get around this Javascript limitation, use ES6 arrow functions, or if ES6 is not available, use <code>vnode.state</code>.</p>
+<hr>
+<h3 id="avoid-anti-patterns">アンチパターンを避ける</h3>
+<p>Although Mithril is flexible, some code patterns are discouraged:</p>
+<h4 id="avoid-fat-components">Avoid fat components</h4>
+<p>Generally speaking, a "fat" component is a component that has custom instance methods. In other words, you should avoid attaching functions to <code>vnode.state</code> or <code>this</code>. It's exceedingly rare to have logic that logically fits in a component instance method and that can't be reused by other components. It's relatively common that said logic might be needed by a different component down the road.</p>
+<p>It's easier to refactor code if that logic is placed in the data layer than if it's tied to a component state.</p>
+<p>Consider this fat component:</p>
+<pre><code class="lang-javascript">// views/Login.js
+// AVOID
+var Login = {
+    username: "",
+    password: "",
+    setUsername: function(value) {
+        this.username = value
+    },
+    setPassword: function(value) {
+        this.password = value
+    },
+    canSubmit: function() {
+        return this.username !== "" &amp;&amp; this.password !== ""
+    },
+    login: function() {/*...*/},
+    view: function() {
+        return m(".login", [
+            m("input[type=text]", {oninput: m.withAttr("value", this.setUsername.bind(this)), value: this.username}),
+            m("input[type=password]", {oninput: m.withAttr("value", this.setPassword.bind(this)), value: this.password}),
+            m("button", {disabled: !this.canSubmit(), onclick: this.login}, "Login"),
+        ])
+    }
+}
+</code></pre>
+<p>Normally, in the context of a larger application, a login component like the one above exists alongside components for user registration and password recovery. Imagine that we want to be able to prepopulate the email field when navigating from the login screen to the registration or password recovery screens (or vice versa), so that the user doesn't need to re-type their email if they happened to fill the wrong page (or maybe you want to bump the user to the registration form if a username is not found).</p>
+<p>Right away, we see that sharing the <code>username</code> and <code>password</code> fields from this component to another is difficult. This is because the fat component encapsulates its our state, which by definition makes this state difficult to access from outside.</p>
+<p>It makes more sense to refactor this component and pull the state code out of the component and into the application's data layer. This can be as simple as creating a new module:</p>
+<pre><code class="lang-javascript">// models/Auth.js
+// PREFER
+var Auth = {
+    username: "",
+    password: "",
+    setUsername: function(value) {
+        Auth.username = value
+    },
+    setPassword: function(value) {
+        Auth.password = value
+    },
+    canSubmit: function() {
+        return Auth.username !== "" &amp;&amp; Auth.password !== ""
+    },
+    login: function() {/*...*/},
+}
+
+module.exports = Auth
+</code></pre>
+<p>Then, we can clean up the component:</p>
+<pre><code class="lang-javascript">// views/Login.js
+// PREFER
+var Auth = require("../models/Auth")
+
+var Login = {
+    view: function() {
+        return m(".login", [
+            m("input[type=text]", {oninput: m.withAttr("value", Auth.setUsername), value: Auth.username}),
+            m("input[type=password]", {oninput: m.withAttr("value", Auth.setPassword), value: Auth.password}),
+            m("button", {disabled: !Auth.canSubmit(), onclick: Auth.login}, "Login"),
+        ])
+    }
+}
+</code></pre>
+<p>This way, the <code>Auth</code> module is now the source of truth for auth-related state, and a <code>Register</code> component can easily access this data, and even reuse methods like <code>canSubmit</code>, if needed. In addition, if validation code is required (for example, for the email field), you only need to modify <code>setEmail</code>, and that change will do email validation for any component that modifies an email field.</p>
+<p>As a bonus, notice that we no longer need to use <code>.bind</code> to keep a reference to the state for the component's event handlers.</p>
+<h4 id="avoid-restrictive-interfaces">Avoid restrictive interfaces</h4>
+<p>Try to keep component interfaces generic - using <code>attrs</code> and <code>children</code> directly - unless the component requires special logic to operate on input.</p>
+<p>In the example below, the <code>button</code> configuration is severely limited: it does not support any events other than <code>onclick</code>, it's not styleable and it only accepts text as children (but not elements, fragments or trusted HTML).</p>
+<pre><code class="lang-javascript">// AVOID
+var RestrictiveComponent = {
+    view: function(vnode) {
+        return m("button", {onclick: vnode.attrs.onclick}, [
+            "Click to " + vnode.attrs.text
+        ])
+    }
+}
+</code></pre>
+<p>If the required attributes are equivalent to generic DOM attributes, it's preferable to allow passing through parameters to a component's root node.</p>
+<pre><code class="lang-javascript">// PREFER
+var FlexibleComponent = {
+    view: function(vnode) {
+        return m("button", vnode.attrs, [
+            "Click to ", vnode.children
+        ])
+    }
+}
+</code></pre>
+<h4 id="don-t-manipulate-children-">Don't manipulate <code>children</code></h4>
+<p>If a component is opinionated in how it applies attributes or children, you should switch to using custom attributes.</p>
+<p>Often it's desirable to define multiple sets of children, for example, if a component has a configurable title and body.</p>
+<p>Avoid destructuring the <code>children</code> property for this purpose.</p>
+<pre><code class="lang-javascript">// AVOID
+var Header = {
+    view: function(vnode) {
+        return m(".section", [
+            m(".header", vnode.children[0]),
+            m(".tagline", vnode.children[1]),
+        ])
+    }
+}
+
+m(Header, [
+    m("h1", "My title"),
+    m("h2", "Lorem ipsum"),
+])
+
+// awkward consumption use case
+m(Header, [
+    [
+        m("h1", "My title"),
+        m("small", "A small note"),
+    ],
+    m("h2", "Lorem ipsum"),
+])
+</code></pre>
+<p>The component above breaks the assumption that children will be output in the same contiguous format as they are received. It's difficult to understand the component without reading its implementation. Instead, use attributes as named parameters and reserve <code>children</code> for uniform child content:</p>
+<pre><code class="lang-javascript">// PREFER
+var BetterHeader = {
+    view: function(vnode) {
+        return m(".section", [
+            m(".header", vnode.attrs.title),
+            m(".tagline", vnode.attrs.tagline),
+        ])
+    }
+}
+
+m(BetterHeader, {
+    title: m("h1", "My title"),
+    tagline: m("h2", "Lorem ipsum"),
+})
+
+// clearer consumption use case
+m(BetterHeader, {
+    title: [
+        m("h1", "My title"),
+        m("small", "A small note"),
+    ],
+    tagline: m("h2", "Lorem ipsum"),
+})
+</code></pre>
+<h4 id="define-components-statically-call-them-dynamically">Define components statically, call them dynamically</h4>
+<h5 id="avoid creating component definitions inside views">Avoid creating component definitions inside views</h5>
+<p>If you create a component from within a <code>view</code> method (either directly inline or by calling a function that does so), each redraw will have a different clone of the component. When diffing component vnodes, if the component referenced by the new vnode is not strictly equal to the one referenced by the old component, the two are assumed to be different components even if they ultimately run equivalent code. This means components created dynamically via a factory will always be re-created from scratch.</p>
+<p>For that reason you should avoid recreating components. Instead, consume components idiomatically.</p>
+<pre><code class="lang-javascript">// AVOID
+var ComponentFactory = function(greeting) {
+    // creates a new component on every call
+    return {
+        view: function() {
+            return m("div", greeting)
+        }
+    }
+}
+m.render(document.body, m(ComponentFactory("hello")))
+// calling a second time recreates div from scratch rather than doing nothing
+m.render(document.body, m(ComponentFactory("hello")))
+
+// PREFER
+var Component = {
+    view: function(vnode) {
+        return m("div", vnode.attrs.greeting)
+    }
+}
+m.render(document.body, m(Component, {greeting: "hello"}))
+// calling a second time does not modify DOM
+m.render(document.body, m(Component, {greeting: "hello"}))
+</code></pre>
+<h5 id="avoid creating component instances outside views">Avoid creating component instances outside views</h5>
+<p>Conversely, for similar reasons, if a component instance is created outside of a view, future redraws will perform an equality check on the node and skip it. Therefore component instances should always be created inside views:</p>
+<pre><code class="lang-javascript">// AVOID
+var Counter = {
+    count: 0,
+    view: function(vnode) {
+        return m("div",
+            m("p", "Count: " + vnode.state.count ),
+
+            m("button", {
+                onclick: function() {
+                    vnode.state.count++
+                }
+            }, "Increase count")
+        )
+    }
+}
+
+var counter = m(Counter)
+
+m.mount(document.body, {
+    view: function(vnode) {
         return [
-            m("h1", "アップローダデモ"),
-            m.component(Uploader, {onchange: ctrl.upload})
+            m("h1", "My app"),
+            counter
         ]
     }
-}
+})
 </code></pre>
-<p><a href="http://jsfiddle.net/vL22kjvs/5/">デモ</a></p>
-<pre><code class="lang-javascript">//デモ2: base64のデータURLとしてデータをアップロード
-var Demo2 = {
-    Asset: {
-        save: function(data) {
-            return m.request({method: "POST", url: "/api/assets", data: data})
-        }
-    },
+<p>In the example above, clicking the counter component button will increase its state count, but its view will not be triggered because the vnode representing the component shares the same reference, and therefore the render process doesn't diff them. You should always call components in the view to ensure a new vnode is created:</p>
+<pre><code class="lang-javascript">// PREFER
+var Counter = {
+    count: 0,
+    view: function(vnode) {
+        return m("div",
+            m("p", "Count: " + vnode.state.count ),
 
-    controller: function() {
-        var files = m.prop([])
-        return {
-            files: files,
-            save: function() {
-                Uploader.serialize(files()).then(function(files) {
-                    Demo2.Asset.save({files: files}).then(function() {
-                        alert("Uploaded!")
-                    })
-                })
-            }
-        }
-    },
-    view: function(ctrl) {
-        return [
-            m("h1", "アップローダデモ"),
-            m("p", "ファイルをここにドロップしてください。アップロードが完了するとアラートボックスが表示されます。"),
-            m("form", [
-                m.component(Uploader, {onchange: ctrl.files}),
-                ctrl.files().map(function(file) {
-                    return file.name
-                }).join(),
-                m("button[type=button]", {onclick: ctrl.save}, "アップロード")
-            ])
-        ]
+            m("button", {
+                onclick: function() {
+                    vnode.state.count++
+                }
+            }, "Increase count")
+        )
     }
 }
-</code></pre>
-<p><a href="http://jsfiddle.net/vL22kjvs/6/">デモ</a></p>
 
-						</div>
-					</div>
-				</div>
+m.mount(document.body, {
+    view: function(vnode) {
+        return [
+            m("h1", "My app"),
+            m(Counter)
+        ]
+    }
+})
+</code></pre>
+
+				<hr />
+				<small>License: MIT. © Leo Horie.</small>
 			</section>
 		</main>
-		<footer>
-			<div class="container">
-				<a href="http://opensource.org/licenses/MIT" target="_blank">MITライセンス</a>でリリースされています<br />© 2014 Leo Horie
-			</div>
-		</footer>
 		<script src="lib/prism/prism.js"></script>
+		<script>
+		document.querySelector(".hamburger").onclick = function() {
+			document.body.className = document.body.className === "navigating" ? "" : "navigating"
+			document.querySelector("h1 + ul").onclick = function() {
+				document.body.className = ''
+			}
+		}
+		</script>
 	</body>
 </html>

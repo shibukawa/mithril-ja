@@ -11,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg"> Mithril <small>1.0.0</small></h1>
+				<h1><img src="logo.svg"> Mithril <small>1.0.1</small></h1>
 				<nav>
 					<a href="index.html">Guide</a>
 					<a href="api.html">API</a>
@@ -47,7 +47,6 @@
 <li><a href="#what-are-keys">What are keys</a></li>
 <li><a href="#how-to-use">How to use</a></li>
 <li><a href="#debugging-key-related-issues">Debugging key related issues</a></li>
-<li><a href="#avoid-anti-patterns">Avoid anti-patterns</a></li>
 </ul>
 </li>
 <li><a href="autoredraw.html">Autoredraw system</a></li>
@@ -134,9 +133,11 @@ var Button = {
         return m(&quot;button&quot;, {key: vnode.attrs.id}, u.name)
     }
 }
+
+// PREFER
 users.map(function(u) {
     return m(&quot;div&quot;, [
-        m(Button, {id: u.id}, u.name) // key should be here, not in component
+        m(Button, {key: u.id}, u.name) // key should be here, not in component
     ])
 })
 </code></pre>
@@ -167,6 +168,29 @@ var things = [
     {id: &quot;1&quot;, name: &quot;Book&quot;},
     {id: 1, name: &quot;Cup&quot;},
 ]
+</code></pre>
+<h4 id="avoid-mixing-keyed-and-non-keyed-vnodes-in-the-same-array">Avoid mixing keyed and non-keyed vnodes in the same array</h4>
+<p>An array of vnodes must have only keyed vnodes or non-keyed vnodes, but not both. If you need to mix them, create a nested array.</p>
+<pre><code class="lang-javascript">// AVOID
+m(&quot;div&quot;, [
+    m(&quot;div&quot;, &quot;a&quot;),
+    m(&quot;div&quot;, {key: 1}, &quot;b&quot;),
+])
+
+// PREFER
+m(&quot;div&quot;, [
+    m(&quot;div&quot;, {key: 0}, &quot;a&quot;),
+    m(&quot;div&quot;, {key: 1}, &quot;b&quot;),
+])
+
+
+// PREFER
+m(&quot;div&quot;, [
+    m(&quot;div&quot;, &quot;a&quot;),
+    [
+        m(&quot;div&quot;, {key: 1}, &quot;b&quot;),
+    ]
+])
 </code></pre>
 
 				<hr />

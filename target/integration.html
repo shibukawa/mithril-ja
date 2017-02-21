@@ -1,145 +1,115 @@
-<!doctype html>
 <html>
 	<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<title>他のライブラリとの統合 - Mithril</title>
-		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
+		<meta charset="UTF-8" />
+		<title># Integrating with Other Libraries - Mithril.js</title>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 		<link href="lib/prism/prism.css" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 	</head>
 	<body>
 		<header>
-			<nav class="container">
-				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
-			</nav>
+			<section>
+				<a class="hamburger" href="javascript:;">≡</a>
+				<h1><img src="logo.svg">  Mithril <small>1.0.0</small></h1>
+				<nav>
+					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
+				</nav>
+			</section>
 		</header>
 		<main>
-			<section class="content">
-				<div class="container">
-					<div class="row">
-						<div class="col(3,3,12)">
-							<h2 id="core-topics">基本トピック</h2>
-							<ul>
-								<li><a href="installation.html">インストール</a></li>
-								<li><a href="getting-started.html">はじめよう</a></li>
-								<li><a href="routing.html">ラウティング</a></li>
-								<li><a href="web-services.html">ウェブサービス</a></li>
-								<li><a href="components.html">コンポーネント</a></li>
-							</ul>
-							<h2 id="advanced-topics.html">上級トピック</h2>
-							<ul>
-								<li><a href="auto-redrawing.html">自動再描画システム</a></li>
-								<li><a href="integration.html">他のライブラリとの統合</a></li>
-								<li><a href="optimizing-performance.html">テンプレートのコンパイル</a></li>
-							</ul>
-							<h2 id="misc">その他</h2>
-							<ul>
-								<li><a href="comparison.html">他のMVCフレームワークとの違い</a></li>
-								<li><a href="benchmarks.html">ベンチマーク</a></li>
-								<li><a href="practices.html">良いプラクティス</a></li>
-								<li><a href="tools.html">便利なツール</a></li>
-							</ul>
-						</div>
-						<div class="col(9,9,12)">
-							<h2 id="integrating-with-other-libraries">他のライブラリとの統合</h2>
+			<section>
+				<h2 id="integrating-with-other-libraries">他のライブラリとの統合</h2>
 <p>サードパーティライブラリや、pure JavaScriptのコードと統合するには<a href="mithril.html#accessing-the-real-dom">、仮想エレメントの<code>config</code>属性</a>を使って行うことができます。</p>
 <p>統合コードやヘルパー関数をコンポーネント内にカプセル化できるため、この方法が推奨です。</p>
 <p>次のサンプルは、<a href="http://ivaynberg.github.io/select2/">select2ライブラリ</a>(jQuery用の拡張版&lt;select&gt;タグを提供するライブラリ)を統合した、シンプルなコンポーネントの例です。</p>
-<pre><code class="lang-javascript">var Select2 = {
-    // 選択ボックスを返す
-    view: function(ctrl, attrs) {
-        var selectedId = attrs.value().id;
-        //SELECTエレメントの拡張であるSelect2を作成します
-        return m("select", {config: Select2.config(attrs)}, [
-            attrs.data.map(function(item) {
-                var args = {value: item.id};
-                // 選択されているオプションを設定します
-                if(item.id == selectedId) {
-                    args.selected = "selected";
-                }
-                return m("option", args, item.name);
-            })
-        ]);
-    },
-    /**
-    Select2 configファクトリこのドキュメントのパラメータは、`ctrl`引数のプロパティについて説明しています。
-    @param {Object} data - &lt;option&gt;リストに追加されるデータ
-    @param {prop} value - `data`内の選択したいアイテムのプロパティ
-    @param {function(Object id)} onchange - 選択が変更された時に呼び出されるイベントハンドラ
-        `id`は`value`と同じです。
+<pre><code class="lang-javascript">// Component containing a Select that uses Select2 for functionality.
+var S2Component = {
+
+  // Rendered view for S2
+  view: function(ctrl, attrs) {
+    var current = attrs.selectedUser
+
+    return m('select', {
+        class: 'select-field',
+        config: S2Component._configure
+      },
+      attrs.data.map(function(item){
+        return m('option', {
+                  id: item.id,
+                  value: item.value,
+                  selected: (item.id === current) ?true : false
+                }, item.name);
+      })
+    )
+  },
+
+   // Configure function -- called from m('select') in the view
+  _configure: function(element, initialized) {
+
+    /*
+      Note: This function is being called from the 'config' attribute
+      in our mithril view.
+
+      Integration with third-party party DOM manipulation (jQuery) needs
+      {config: function(){}} because that's the attribute that exposes the real
+      DOM element (as opposed to the virtual DOM element) in the corresponding
+      function so you can access and manipulate it.
     */
-    // 注意: configはサーバサイドでは実行されません。
-    config: function(ctrl) {
-        return function(element, isInitialized) {
-            if(typeof jQuery !== 'undefined' &amp;&amp; typeof jQuery.fn.select2 !== 'undefined') {
-                var el = $(element);
-                if (!isInitialized) {
-                    el.select2()
-                        .on("change", function(e) {
-                            var id = el.select2("val");
-                            m.startComputation();
-                            // 選択されているオプションを設定します
-                            ctrl.data.map(function(d){
-                                if(d.id == id) {
-                                    ctrl.value(d);
-                                }
-                            });
 
-                            if (typeof ctrl.onchange == "function"){
-                                ctrl.onchange(el.select2("val"));
-                            }
-                            m.endComputation();
-                        });
-                }
-                el.val(ctrl.value().id).trigger("change");
-            } else {
-                console.warn('ERROR: ページにjqueryとSelect2がロードされていません');
-            }
-        };
+    // If this hasn't been initialized, we can do our setup
+    if(!initialized) {
+
+       $(element).select2({
+        // options
+      });
+
+      // Other logic pertaining to this select also goes here.
+      // e.g. Event handlers, etc.
     }
-};
+  }
+}
 
-var Dashboard = {
-    controller: function() {
-        var ctrl = this,
-          //ユーザ一覧のリスト
-          data = [
-            {id: 1, name: "John"},
-            {id: 2, name: "Mary"},
-            {id: 3, name: "Seniqua"}
-          ];
+// Primary component.
+var MainComponent = {
+  controller: function() {
+    var ctrl = this;
 
-        ctrl.data = data;
-        // 現在のユーザはpropに格納します
-        ctrl.currentUser = m.prop(data[1]);
-        ctrl.changeUser = function(id) {
-          console.log(id);
-        };
-    },
+    // Some arbitrary data
+   // Aaron Burr is the initially selected user.
+    ctrl.selectedUser = 2;
+    ctrl.data = [
+          {id: 1, name: 'Alexander Hamilton'},
+          {id: 2, name: 'Aaron Burr'},
+          {id: 3, name: 'Thomas Jefferson'},
+          {id: 4, name: 'John Adams'},
+          {id: 5, name: 'James Madison'},
+          {id: 6, name: 'Elizabeth Schuyler'},
+          {id: 7, name: 'King George'},
+          {id: 8, name: 'Marquis de Lafayette'}
+        ]
+  },
 
-    view: function(ctrl) {
-        return m("div", [
-            m("label", "ユーザ:"),
-            m.component(Select2, {
-              data: ctrl.data,
-              value: ctrl.currentUser,
-              onchange: ctrl.changeUser
-            })
-        ]);
-    }
-};
+  view: function(ctrl) {
+    return m('div', {class: 'select-container'}, [
+      m('label', 'Historical Figure: '),
+      m(S2Component, {
+        selectedUser: ctrl.selectedUser,
+        data: ctrl.data
+      })
+    ])
+  }
+}
 
-m.mount(document.body, Dashboard);
+m.mount(document.body, MainComponent)
 </code></pre>
-<p><code>select2.config</code>は、与えられたコントローラに対応する<code>config</code>関数を作成するファクトリー関数です。テンプレートが散乱するのを避けるために、<code>select2.view</code>関数の外側にこの関数を定義します。</p>
-<p>このファクトリ関数で作成された<code>config</code>関数は、初期化関数だけを実行します。ただし、すでに初期化済みの場合は何もしません。この関数はMithrilの自動再描画システムから何度も呼び出されますし、描画のたびに何度もselect2を初期化するのはうれしくないため、この<code>if</code>文は大切です。</p>
-<p>初期化コードは<code>change</code>イベントハンドラを定義します。仮想エレメントの中でこの属性を使用しなかった場合など、もしこのハンドラがMithrilのテンプレートで作成されていない場合は、手動で自動再描画システムに統合する必要があります。</p>
-<p>統合するには関数の先頭で<code>m.startComputation</code>を呼び、関数の最後で<code>m.endComputation</code>を呼び出すだけです。もしスレッドの統合が終わっていなければ、これらの関数のペアをすべての非同期実行スレッドのコードに追加します。</p>
-<p>例えば、もし非同期のウェブサービス呼び出しに<code>m.request</code>を使っていれば、これ以上<code>m.startComputation</code> / <code>m.endComputation</code>呼び出しを追加する必要はありませんが、イベントハンドラには追加しなければなりません。</p>
-<p>そうではなくjQueryを使ってウェブサービス呼び出しをしているのであれば、<code>change</code>イベントハンドラ内にこの関数のペアを置く以外に、jQueryのajax呼び出しの前に<code>m.startComputation</code>を追加し、コールバックが完了した後に<code>m.endComputation</code>呼び出しを追加します。サンプルについては<a href="auto-redrawing.html"><code>自動描画システム</code></a>のガイドを参照してください。</p>
-<p><code>config</code>メソッドについて注意すべきことは、<code>config</code>関数の実行スレッド内では、<code>m.redraw</code>、<code>m.startComputation</code>、<code>m.endComputation</code>を呼び出さないことです。(実行スレッドは基本的に、他の非同期スレッドが実行する前に、ある程度の量のコードを含んでいます。)</p>
-<p>Mithrilは技術的にこのユースケースをサポートしていないため、再描画が何度も行われてパフォーマンスが低下したりしますし、場合によってはアプリケーションコードが無限ループして、デバッグが極めて難しい状況になったりします。</p>
-<p>サンプルの<code>dashboard</code>コンポーネントを見ると、どのようにselect2コンポーネントを使用するかが分かります。</p>
+<p><a href="https://jsfiddle.net/11pz8afy/9/">Source code in JSFiddle</a></p>
+<p><code>_configure</code> is a helper function that is called via the <code>config</code> attribute in the <code>select</code> we render in our <code>SC2Component.view</code></p>
+<p>This <code>_configure</code> function has a guarded <code>if</code> statement: <code>if(!initialized)</code>. In the event this component is being instantiated for the first time, we're going to do all of the initial setup on the first render. Subsequent redraws will <strong>not</strong> run the initialization code again, making sure everything in the <code>_configure</code> function is only initialized once.</p>
+<p>The initialization code is simply calling <code>$(element).select2()</code> on the exposed DOM element in order to initialize it. You can also addevent handlers to these elements. If you modify the DOM or any data that your component relies on inside of this function, you'll need to make sure the component knows to redraw itself by adding <code>m.redraw</code> as needed.</p>
+<p><code>m.startComputation</code> and <code>m.endComputation</code> are used for asynchronous operations. If you were to call a web service using jQuery, then you would be responsible for adding a <code>m.startComputation</code> call before the jQuery ajax call, and for adding a <code>m.endComputation</code> call at the end of the completion callback, in addition to the calls within any event handlers. Refer to the <a href="auto-redrawing.html"><code>auto-redrawing</code></a> guide for an example.</p>
+<p>Though possible, you should avoid calling <code>m.redraw</code>, <code>m.startComputation</code> and <code>m.endComputation</code> in the <code>_configure</code> function's execution thread. (An execution thread is basically any amount of code that runs before other asynchronous threads start to run.) Relying on multiple redraw passes degrades performance and makes it possible to code yourself into an infinite execution loop situation, which is extremely difficult to debug.</p>
+<p>The component in the example shows how a developer would consume the <code>SC2Component</code>.</p>
 <p>統合コンポーネントを作成するときは、常にドキュメントを作成し、他の人がコンポーネントの初期化時にどの属性パラメータが使用できるか分かるようにすべきです。</p>
 <hr>
 <h2 id="integrating-to-legacy-code">レガシーコードとの統合</h2>
@@ -154,16 +124,19 @@ m.mount(document.getElementById("widget2-container"), Widget2)
 m.endComputation()
 </code></pre>
 
-						</div>
-					</div>
-				</div>
+				<hr />
+				<small>License: MIT. © Leo Horie.</small>
 			</section>
 		</main>
-		<footer>
-			<div class="container">
-				<a href="http://opensource.org/licenses/MIT" target="_blank">MITライセンス</a>でリリースされています<br />© 2014 Leo Horie
-			</div>
-		</footer>
 		<script src="lib/prism/prism.js"></script>
+		<script>
+		document.querySelector(".hamburger").onclick = function() {
+			document.body.className = 'navigating'
+			document.querySelector("h1 + ul").onclick = function() {
+				document.body.className = ''
+			}
+		}
+		</script>
 	</body>
-</html>
+</html
+>

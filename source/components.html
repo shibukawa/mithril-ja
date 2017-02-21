@@ -11,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg"> Mithril <small>1.0.0</small></h1>
+				<h1><img src="logo.svg"> Mithril <small>1.0.1</small></h1>
 				<nav>
 					<a href="index.html">Guide</a>
 					<a href="api.html">API</a>
@@ -152,7 +152,7 @@ m(ComponentWithInitialState)
 // Equivalent HTML
 // &lt;div&gt;Initial content&lt;/div&gt;
 </code></pre>
-<h4 id="via-vnode-state">Via vnode.state</h4>
+<h4 id="via-vnodestate">Via vnode.state</h4>
 <p>State can also be accessed via the <code>vnode.state</code> property, which is available to all lifecycle methods as well as the <code>view</code> method of a component.</p>
 <pre><code class="lang-javascript">var ComponentWithDynamicState = {
     oninit: function(vnode) {
@@ -277,7 +277,7 @@ var FlexibleComponent = {
     }
 }
 </code></pre>
-<h4 id="don-t-manipulate-children-">Don&#39;t manipulate <code>children</code></h4>
+<h4 id="don&#39;t-manipulate-children">Don&#39;t manipulate <code>children</code></h4>
 <p>If a component is opinionated in how it applies attributes or children, you should switch to using custom attributes.</p>
 <p>Often it&#39;s desirable to define multiple sets of children, for example, if a component has a configurable title and body.</p>
 <p>Avoid destructuring the <code>children</code> property for this purpose.</p>
@@ -330,8 +330,8 @@ m(BetterHeader, {
     tagline: m(&quot;h2&quot;, &quot;Lorem ipsum&quot;),
 })
 </code></pre>
-<h4 id="define-components-statically-call-them-dynamically">Define components statically, call them dynamically</h4>
-<h5 id="avoid creating component definitions inside views">Avoid creating component definitions inside views</h5>
+<h4 id="define-components-statically,-call-them-dynamically">Define components statically, call them dynamically</h4>
+<h5 id="avoid-creating-component-definitions-inside-views">Avoid creating component definitions inside views</h5>
 <p>If you create a component from within a <code>view</code> method (either directly inline or by calling a function that does so), each redraw will have a different clone of the component. When diffing component vnodes, if the component referenced by the new vnode is not strictly equal to the one referenced by the old component, the two are assumed to be different components even if they ultimately run equivalent code. This means components created dynamically via a factory will always be re-created from scratch.</p>
 <p>For that reason you should avoid recreating components. Instead, consume components idiomatically.</p>
 <pre><code class="lang-javascript">// AVOID
@@ -357,7 +357,7 @@ m.render(document.body, m(Component, {greeting: &quot;hello&quot;}))
 // calling a second time does not modify DOM
 m.render(document.body, m(Component, {greeting: &quot;hello&quot;}))
 </code></pre>
-<h5 id="avoid creating component instances outside views">Avoid creating component instances outside views</h5>
+<h5 id="avoid-creating-component-instances-outside-views">Avoid creating component instances outside views</h5>
 <p>Conversely, for similar reasons, if a component instance is created outside of a view, future redraws will perform an equality check on the node and skip it. Therefore component instances should always be created inside views:</p>
 <pre><code class="lang-javascript">// AVOID
 var Counter = {

@@ -1,47 +1,25 @@
-<!doctype html>
 <html>
 	<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<title>はじめよう - Mithrilf</title>
-		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
+		<meta charset="UTF-8" />
+		<title># Getting Started - Mithril.js</title>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 		<link href="lib/prism/prism.css" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 	</head>
 	<body>
 		<header>
-			<nav class="container">
-				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
-			</nav>
+			<section>
+				<a class="hamburger" href="javascript:;">≡</a>
+				<h1><img src="logo.svg">  Mithril <small>1.0.0</small></h1>
+				<nav>
+					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
+				</nav>
+			</section>
 		</header>
 		<main>
-			<section class="content">
-				<div class="container">
-					<div class="row">
-						<div class="col(3,3,12)">
-							<h2 id="core-topics">基本トピック</h2>
-							<ul>
-								<li><a href="installation.html">インストール</a></li>
-								<li><a href="getting-started.html">はじめよう</a></li>
-								<li><a href="routing.html">ラウティング</a></li>
-								<li><a href="web-services.html">ウェブサービス</a></li>
-								<li><a href="components.html">コンポーネント</a></li>
-							</ul>
-							<h2 id="advanced-topics.html">上級トピック</h2>
-							<ul>
-								<li><a href="auto-redrawing.html">自動再描画システム</a></li>
-								<li><a href="integration.html">他のライブラリとの統合</a></li>
-								<li><a href="optimizing-performance.html">テンプレートのコンパイル</a></li>
-							</ul>
-							<h2 id="misc">その他</h2>
-							<ul>
-								<li><a href="comparison.html">他のMVCフレームワークとの違い</a></li>
-								<li><a href="benchmarks.html">ベンチマーク</a></li>
-								<li><a href="practices.html">良いプラクティス</a></li>
-								<li><a href="tools.html">便利なツール</a></li>
-							</ul>
-						</div>
-						<div class="col(9,9,12)">
-							<h2 id="getting-started">はじめよう</h2>
+			<section>
+				<h2 id="getting-started">はじめよう</h2>
 <h3 id="what-is-mithril-">Mithrilとは？</h3>
 <p>MithrilはクライアントサイドのJavaScript MVCフレームワークです。このツールを使うと、アプリケーションのコードはデータレイヤ(<strong>M</strong>odel)、UIレイヤー(<strong>V</strong>iew)、接続レイヤー(<strong>C</strong>ontroller)に分割されます。</p>
 <p><a href="mithril.html">小さく、ムダのないAPI</a>のおかげで、Mithrilはgzipされた状態でたったの7.8kbしかありません。Mithrilは、ハイパフォーマンスなレンダリング速度を持つ、仮想DOMの差分更新機能を持ったテンプレートエンジンや、関数型によるハイレベルなモデリングのサポート、ルーティング機能、コンポーネント化をサポートしています。</p>
@@ -52,13 +30,15 @@
 <h2 id="a-simple-application">シンプルなアプリケーション</h2>
 <p><a href="installation.html">Mithrilのインストール</a>をしたらコーディングを開始しましょう。Mithrilは、決まり文句がとても少ない、小さなHTMLから開始することができます:</p>
 <pre><code class="lang-markup">&lt;!doctype html&gt;
-&lt;title&gt;ToDoアプリケーション&lt;/title&gt;
+&lt;title&gt;Todo app&lt;/title&gt;
 &lt;script src="mithril.min.js"&gt;&lt;/script&gt;
+&lt;body&gt;
 &lt;script&gt;
-//アプリケーションコードはここ
+//app goes here
 &lt;/script&gt;
+&lt;/body&gt;
 </code></pre>
-<p>そうです。これは完全なHTML5です。HTMLの規格によると、<code>&lt;html&gt;</code>、<code>&lt;head&gt;</code>、<code>&lt;body&gt;</code>タグは省略できますが、ブラウザがマークアップをレンダリングするときに暗黙的にそれぞれのDOMエレメントを生成します。</p>
+<p>そうです。これは完全なHTML5です。According to the specs, the <code>&lt;html&gt;</code> and <code>&lt;head&gt;</code> tags can be omitted, but their respective DOM elements will still be there implicitly when a browser renders that markup.</p>
 <hr>
 <h3 id="model">モデル</h3>
 <p>Mithrilでは基本的に、アプリケーションは名前空間の中に作り、コンポーネントをその中に格納していきます。コンポーネントは見ることが可能な「ページ」もしくはページの一部を表す、単なる構造体です。アプリケーションはModel、Controller、Viewの大きく3つのレイヤーにきれいに分割することができます。</p>
@@ -294,27 +274,25 @@ m("table", [
 <hr>
 <p>残りのコードは、これまで説明してきたテクニックで書くことができます。完成したviewは次のようなコードになっています:</p>
 <pre><code class="lang-javascript">todo.view = function() {
-    return m("html", [
-        m("body", [
-            m("input", {onchange: m.withAttr("value", todo.vm.description), value: todo.vm.description()}),
-            m("button", {onclick: todo.vm.add}, "追加"),
-            m("table", [
-                todo.vm.list.map(function(task, index) {
-                    return m("tr", [
-                        m("td", [
-                            m("input[type=checkbox]", {onclick: m.withAttr("checked", task.done), checked: task.done()})
-                        ]),
-                        m("td", {style: {textDecoration: task.done() ?"line-through" : "none"}}, task.description()),
-                    ])
-                })
-            ])
+    return [
+        m("input", {onchange: m.withAttr("value", todo.vm.description), value: todo.vm.description()}),
+        m("button", {onclick: todo.vm.add}, "追加"),
+        m("table", [
+            todo.vm.list.map(function(task, index) {
+                return m("tr", [
+                    m("td", [
+                        m("input[type=checkbox]", {onclick: m.withAttr("checked", task.done), checked: task.done()})
+                    ]),
+                    m("td", {style: {textDecoration: task.done() ?"line-through" : "none"}}, task.description()),
+                ])
+            })
         ])
-    ]);
+    ];
 };
 </code></pre>
 <p>このテンプレートの大事なポイントを個別に説明していきます:</p>
 <ul>
-<li>テンプレートは暗黙の<code>&lt;html&gt;</code>要素としてレンダリングされます。</li>
+<li>The template is rendered as a child of the document's <code>&lt;body&gt;</code>.</li>
 <li>テキスト入力は、値を、以前定義した<code>todo.vm.description</code> getter-setter に保存します。</li>
 <li>ボタンが押されると、<code>todo.vm.add</code>メソッドが呼び出されます。</li>
 <li>もし既存のToDoがある場合は、既存のすべてのToDoが表形式で出力されます。</li>
@@ -324,23 +302,24 @@ m("table", [
 </ul>
 <hr>
 <p>最初に紹介したときは、データを変更した後に手動で<code>m.render</code>を呼び出して再描画を行わせていました。しかし、前に説明したとおり、<code>m.mount</code>を通じて<code>todo</code>コンポーネントを初期化すると、<a href="auto-redrawing.html">自動再描画システム</a>が有効になります。</p>
-<pre><code class="lang-javascript">//todoコンポーネントはdocument DOMノードの中でレンダリングする
-m.mount(document, {controller: todo.controller, view: todo.view});
+<pre><code class="lang-javascript">//render the todo component inside the body DOM node
+m.mount(document.body, {controller: todo.controller, view: todo.view});
 </code></pre>
-<p>Mithrilの自動再描画システムはコントローラの安定性を崩しません。ビューの再描画はコントローラの処理がすべて終わった時にのみ行われます。このコントローラの処理には、AJAXによるデータのロードも含まれます。同様に、このシステムはイベントハンドラ内部の非同期サービスについても、再描画前にきちんと完了することを賢く待ちます。 </p>
+<p>Mithrilの自動再描画システムはコントローラの安定性を崩しません。ビューの再描画はコントローラの処理がすべて終わった時にのみ行われます。このコントローラの処理には、AJAXによるデータのロードも含まれます。同様に、このシステムはイベントハンドラ内部の非同期サービスについても、再描画前にきちんと完了することを賢く待ちます。</p>
 <p>どのように再描画の仕組みが動作するかは<a href="auto-redrawing.html">こちら</a>のドキュメントでより詳しく知ることができます。</p>
 <hr>
 <h3 id="summary">まとめ</h3>
 <p>完全なアプリケーションのコードはこちらになります:</p>
 <pre><code class="lang-markup">&lt;!doctype html&gt;
 &lt;script src="mithril.min.js"&gt;&lt;/script&gt;
+&lt;body&gt;
 &lt;script&gt;
-//このアプリケーションは、todoコンポーネントを1つだけ持つ
+//this application only has one component: todo
 var todo = {};
 
-//コードをシンプルにするために、このコンポーネントをモデルクラスの名前空間としても流用する
+//for simplicity, we use this component to namespace the model classes
 
-//Todoクラスは2つのプロパティを持つ
+//the Todo class has two properties
 todo.Todo = function(data) {
     this.description = m.prop(data.description);
     this.done = m.prop(false);
@@ -381,27 +360,26 @@ todo.controller = function() {
 
 //これがビュー
 todo.view = function() {
-    return m("html", [
-        m("body", [
-            m("input", {onchange: m.withAttr("value", todo.vm.description), value: todo.vm.description()}),
-            m("button", {onclick: todo.vm.add}, "追加"),
-            m("table", [
-                todo.vm.list.map(function(task, index) {
-                    return m("tr", [
-                        m("td", [
-                            m("input[type=checkbox]", {onclick: m.withAttr("checked", task.done), checked: task.done()})
-                        ]),
-                        m("td", {style: {textDecoration: task.done() ?"line-through" : "none"}}, task.description()),
-                    ])
-                })
-            ])
+    return [
+        m("input", {onchange: m.withAttr("value", todo.vm.description), value: todo.vm.description()}),
+        m("button", {onclick: todo.vm.add}, "追加"),
+        m("table", [
+            todo.vm.list.map(function(task, index) {
+                return m("tr", [
+                    m("td", [
+                        m("input[type=checkbox]", {onclick: m.withAttr("checked", task.done), checked: task.done()})
+                    ]),
+                    m("td", {style: {textDecoration: task.done() ?"line-through" : "none"}}, task.description()),
+                ])
+            })
         ])
-    ]);
+    ]
 };
 
-//アプリケーションの初期化
-m.mount(document, {controller: todo.controller, view: todo.view});
+//initialize the application
+m.mount(document.body, {controller: todo.controller, view: todo.view});
 &lt;/script&gt;
+&lt;/body&gt;
 </code></pre>
 <p>このサンプルは、<a href="http://jsfiddle.net/fbgypzbr/16/">jsFiddle</a>でも確認することができます。これらに関する<a href="http://jsfiddle.net/glebcha/q7tvLxsa/">拡張済みのサンプル</a>もjsFiddleで提供しています。</p>
 <hr>
@@ -487,16 +465,19 @@ this.description(data.description)
 <li><a href="tools.html">便利なツール</a></li>
 </ul>
 
-						</div>
-					</div>
-				</div>
+				<hr />
+				<small>License: MIT. © Leo Horie.</small>
 			</section>
 		</main>
-		<footer>
-			<div class="container">
-				<a href="http://opensource.org/licenses/MIT" target="_blank">MITライセンス</a>でリリースされています<br />© 2014 Leo Horie
-			</div>
-		</footer>
 		<script src="lib/prism/prism.js"></script>
+		<script>
+		document.querySelector(".hamburger").onclick = function() {
+			document.body.className = 'navigating'
+			document.querySelector("h1 + ul").onclick = function() {
+				document.body.className = ''
+			}
+		}
+		</script>
 	</body>
-</html>
+</html
+>

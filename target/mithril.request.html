@@ -1,80 +1,25 @@
-<!doctype html>
 <html>
 	<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<title>m.request - Mithril</title>
-		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
+		<meta charset="UTF-8" />
+		<title># m.request - Mithril.js</title>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 		<link href="lib/prism/prism.css" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 	</head>
 	<body>
 		<header>
-			<nav class="container">
-				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
-			</nav>
+			<section>
+				<a class="hamburger" href="javascript:;">≡</a>
+				<h1><img src="logo.svg">  Mithril <small>1.0.0</small></h1>
+				<nav>
+					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
+				</nav>
+			</section>
 		</header>
 		<main>
-			<section class="content">
-				<div class="container">
-					<div class="row">
-						<div class="col(3,3,12)">
-							<h2 id="api">API (v0.2.4)</h2>
-							<h3 id="core">コア</h3>
-							<ul>
-								<li><a href="mithril.html" title="仮想エレメントを作るためのユーティリティ">m</a></li>
-								<li><a href="mithril.component.html" title="コンポーネントのパラメータ化">m.component</a></li>
-								<li><a href="mithril.mount.html" title="コンポーネントのレンダリング">m.mount</a></li>
-								<li><a href="mithril.prop.html" title="getter-setterユーティリティ">m.prop</a></li>
-								<li><a href="mithril.withAttr.html" title="イベントハンドラを生成するユーティリティ">m.withAttr</a></li>
-							</ul>
-							<h3 id="routing">ラウティング</h3>
-							<ul>
-								<li><a href="mithril.route.html" title="ラウティングユーティリティ">m.route</a>
-									<ul>
-										<li><a href="mithril.route.html#defining-routes" title="存在するラウトの定義">m.route(rootElement, defaultRoute, routes)</a></li>
-										<li><a href="mithril.route.html#redirecting" title="ラウトへリダイレクト">m.route(path, params, replaceHistory)</a></li>
-										<li><a href="mithril.route.html#reading-current-route" title="現在のラウトを取得">m.route()</a></li>
-										<li><a href="mithril.route.html#mode-abstraction" title="ラウティングモードの抽象化">m.route(element)</a></li>
-										<li><a href="mithril.route.html#mode" title="ラウティングがハッシュ、クエリー文字列、パス名のどのモードを使用するか">m.route.mode</a></li>
-										<li><a href="mithril.route.html#param" title="パラメータ化されたラウトから引数の読み込み">m.route.param</a></li>
-										<li><a href="mithril.route.html#buildQueryString" title="データをクエリー文字列フォーマットでシリアライズ">m.route.buildQueryString</a></li>
-										<li><a href="mithril.route.html#parseQueryString" title="パラメータ化されたラウトから引数の読み込み">m.route.parseQueryString</a></li>
-									</ul>
-								</li>
-							</ul>
-							<h3 id="data">データ</h3>
-							<ul>
-								<li><a href="mithril.request.html" title="高レベルなAJAXユーティリティ">m.request</a></li>
-								<li><a href="mithril.deferred.html" title="Promiseのファクトリ">m.deferred</a></li>
-								<li><a href="mithril.sync.html" title="Promiseを集約">m.sync</a></li>
-							</ul>
-							<h3 id="html">HTML</h3>
-							<ul>
-								<li><a href="mithril.trust.html" title="エスケープしないHTMLのためのメソッド">m.trust</a></li>
-							</ul>
-							<h3 id="rendering">レンダリング</h3>
-							<ul>
-								<li><a href="mithril.render.html" title="低レベルのレンダリングの方法">m.render</a></li>
-								<li><a href="mithril.redraw.html" title="高レベルな明示的なレンダリングメソッド">m.redraw</a>
-									<ul>
-										<li><a href="mithril.redraw.html#strategy" title="次の再描画をどのような戦略で行うかを決定するフラグ">m.redraw.strategy(strategy)</a></li>
-									</ul>
-								</li>
-								<li><a href="mithril.computation.html" title="非同期のコンテキストをMithrilのレンダリングシステムに統合するためのユーティリティ">m.startComputation / m.endComputation</a></li>
-							</ul>
-							<h3 id="data">テスト</h3>
-							<ul>
-								<li><a href="mithril.deps.html" title="依存性注入(Dependency Injection)">m.deps</a></li>
-							</ul>
-							
-							<h2 id="archive">履歴</h2>
-							<ul>
-								<li><a href="roadmap.html">ロードマップ</a></li>
-								<li><a href="change-log.html">変更履歴</a></li>
-							</ul>
-						</div>
-						<div class="col(9,9,12)">
-							<h2 id="m-request">m.request</h2>
+			<section>
+				<h2 id="m-request">m.request</h2>
 <hr>
 <ul>
 <li><a href="#basic-usage">基本的な使い方</a></li>
@@ -89,6 +34,7 @@
 <li><a href="#using-variable-data-formats">可変データ・フォーマットの使用</a></li>
 <li><a href="#extracting-metadata-from-the-response">レスポンス中のメタデータの分解</a></li>
 <li><a href="#custom-request-rejections">カスタムリクエストのリジェクト</a></li>
+<li><a href="#setting-headers">Setting headers</a></li>
 <li><a href="#configuring-the-underlying-xmlhttprequest">バックエンドのXMLHttpRequestの設定</a></li>
 <li><a href="#aborting-a-request">リクエストの中断</a></li>
 <li><a href="#using-json-p">JSONPの使用</a></li>
@@ -281,6 +227,7 @@ data.append("file", file)
 m.request({
     method: "POST",
     url: "/upload",
+    data: data,
     serialize: function(data) {return data}
 })
 </code></pre>
@@ -325,11 +272,26 @@ m.request({method: "POST", url: "/foo", extract: extract});
 </code></pre>
 <p>詳細については、<a href="mithril.deferred.html#unchecked-error-handling">こちらのpromiseの例外モニタ</a>を参照してください。</p>
 <hr>
+<h3 id="setting-headers">Setting headers</h3>
+<p>The <code>headers</code> option can be used to add or modify existing headers. The example The example below shows how to configure a <code>POST</code> request where the server expects requests to have a <code>Content-Type: application/json</code> header.</p>
+<pre><code class="lang-javascript">m.request({
+    method: "POST",
+    url: "/foo",
+    headers: {"Content-Type": "application/json"}
+});
+</code></pre>
+<hr>
 <h3 id="configuring-the-underlying-xmlhttprequest">バックエンドのXMLHttpRequestの設定</h3>
-<p><code>config</code>オプションを使って、ネイティブのXMLHttpRequestインスタンスの設定を任意に設定したり、他の方法ではアクセスできないプロパティにアクセスすることができます。</p>
-<p>下記の例は、サーバがリクエストとして<code>Content-Type: application/json</code>ヘッダを期待しているときに、それを行うための方法を示したサンプルです。</p>
+<p><code>config</code>オプションを使って、ネイティブのXMLHttpRequestインスタンスの設定を任意に設定したり、他の方法ではアクセスできないプロパティにアクセスすることができます。For example, this is how to listen for progress notifications.</p>
 <pre><code class="lang-javascript">var xhrConfig = function(xhr) {
-    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onprogress = function(ev) {
+        ev = ev || event;
+        if (ev.lengthComputable) {
+            console.log(ev.loaded + " bytes sent out of " + ev.total + " total.")
+        } else {
+            console.log(ev.loaded + " bytes sent.")
+        }
+    }
 }
 
 m.request({method: "POST", url: "/foo", config: xhrConfig});
@@ -407,6 +369,7 @@ where:
         String dataType,
         String url,
         String callbackKey,
+        String callbackName,
         Object&lt;any&gt; data
     }
 </code></pre>
@@ -475,7 +438,7 @@ demo.controller = function() {
 demo.view = function(ctrl) {
   return m("div", [
       //最初の描画時はユーザがいないが、エラーにはならない
-      ctrl.user ?ctrl.user.name : "no user"
+      ctrl.user() ?ctrl.user().name : "no user"
   ])
 }
 </code></pre>
@@ -489,10 +452,10 @@ demo.view = function(ctrl) {
 <p>この設定がfalsyな値だったときのデフォルトの動作は、<code>function(value) {return value}</code>という関数と等価です。</p>
 <p>もし返り値が<code>{data: [{name: "John"}, {name: "Mary"}]}</code>というJSONで、unwrap関数として<code>function(response) {return response.data}</code>という関数が渡された場合には、<code>type</code>パラメータの評価時に<code>[{name: "John"}, {name: "Mary"}]</code>というデータを返します。</p>
 <ul>
-<li><p><strong>Object<any> | Array<any> data</strong></p>
+<li><p><strong>Object<any> | Array&lt;any&gt; data</strong></p>
 <p>unwrapするデータ</p>
 </li>
-<li><p><strong>returns Object<any> | Array<any> unwrappedData</strong></p>
+<li><p><strong>returns Object<any> | Array&lt;any&gt; unwrappedData</strong></p>
 <p>unwrapされたデータ</p>
 </li>
 </ul>
@@ -501,10 +464,10 @@ demo.view = function(ctrl) {
 <p>レスポンス失敗時に、レスポンスに含まれるメタデータなどからデータを取り出す時に使用するプリプロセッサです。</p>
 <p>この設定がfalsyな値だったときのデフォルトの動作は、<code>function(value) {return value}</code>という関数と等価です。</p>
 <ul>
-<li><p><strong>Object<any> | Array<any> data</strong></p>
+<li><p><strong>Object<any> | Array&lt;any&gt; data</strong></p>
 <p>unwrapするデータ</p>
 </li>
-<li><p><strong>returns Object<any> | Array<any> unwrappedData</strong></p>
+<li><p><strong>returns Object<any> | Array&lt;any&gt; unwrappedData</strong></p>
 <p>unwrapされたデータ</p>
 </li>
 </ul>
@@ -545,8 +508,11 @@ demo.view = function(ctrl) {
 </code></pre>
 <p>そして、サーバから<code>[{name: "John"}, {name: "Mary"}]</code>というデータが帰ってくると、レスポンスはUserクラスのインスタンスを2つ含む配列になります。</p>
 </li>
+<li><p><strong>Object<String> headers</strong> (optional)</p>
+<p>Additional headers to set on the request, if any. Each header is specified as a key-value pair.</p>
+</li>
 <li><p><strong>XMLHttpRequest? config(XMLHttpRequest xhr, XHROptions options)</strong> (optional)</p>
-<p><code>open</code>と<code>send</code>の間に呼ばれる初期化関数です。この関数を使うと、リクエストヘッダを追加したり、XMLHttpRequestの<code>upload</code>プロパティなどXHR2の機能を呼び出すことができます。</p>
+<p><code>open</code>と<code>send</code>の間に呼ばれる初期化関数です。Useful for using XHR2 features, such as the XMLHttpRequest's <code>upload</code> property or <code>progress</code> event.</p>
 <ul>
 <li><p><strong>XMLHttpRequest xhr</strong></p>
 <p>XMLHttpRequestのインスタンス。</p>
@@ -580,6 +546,10 @@ demo.view = function(ctrl) {
 <p>レスポンス受け取るコールバック関数を定義する、クエリー文字列の名前。デフォルト値は"callback"。</p>
 <p>foo.com/?jsonpCallback=doSomethingなど、一般的な規約とはことなるjsonpコールバック定義をさせるウェブサービスを章するときに使います。</p>
 </li>
+<li><p><strong>String callbackName</strong></p>
+<p>The name of callback function to be called by the response. Defaults to a unique auto-generated name</p>
+<p>This option is useful for web services serving static files and to prevent cache busting.</p>
+</li>
 <li><p><strong>Object<any> data</strong> (optional)</p>
 <p>送信するデータ。設定されている<code>method</code>によって、適切な方法でシリアライズされて、適切なペイロードに格納されます。</p>
 </li>
@@ -587,16 +557,19 @@ demo.view = function(ctrl) {
 </li>
 </ul>
 
-						</div>
-					</div>
-				</div>
+				<hr />
+				<small>License: MIT. © Leo Horie.</small>
 			</section>
 		</main>
-		<footer>
-			<div class="container">
-				<a href="http://opensource.org/licenses/MIT" target="_blank">MITライセンス</a>でリリースされています<br />© 2014 Leo Horie
-			</div>
-		</footer>
 		<script src="lib/prism/prism.js"></script>
+		<script>
+		document.querySelector(".hamburger").onclick = function() {
+			document.body.className = 'navigating'
+			document.querySelector("h1 + ul").onclick = function() {
+				document.body.className = ''
+			}
+		}
+		</script>
 	</body>
-</html>
+</html
+>

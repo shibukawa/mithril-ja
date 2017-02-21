@@ -11,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg"> Mithril <small>1.0.0</small></h1>
+				<h1><img src="logo.svg"> Mithril <small>1.0.1</small></h1>
 				<nav>
 					<a href="index.html">Guide</a>
 					<a href="api.html">API</a>
@@ -69,7 +69,7 @@
 </li>
 </ul>
 <hr>
-<h3 id="what-is-mithril-">What is Mithril?</h3>
+<h3 id="what-is-mithril?">What is Mithril?</h3>
 <p>Mithril is a modern client-side Javascript framework for building Single Page Applications.<br>It&#39;s small (&lt; 8kb gzip), fast and provides routing and XHR utilities out of the box.</p>
 <div style="display:flex;margin:0 0 30px;">
     <div style="width:50%;">
@@ -98,17 +98,19 @@
 
 <p>Mithril is used by companies like Vimeo and Nike, and open source platforms like Lichess.</p>
 <p>If you are an experienced developer and want to know how Mithril compares to other frameworks, see the <a href="framework-comparison.html">framework comparison</a> page.</p>
+<p>Mithril supports browsers all the way back to IE9, no polyfills required.</p>
 <hr>
 <h3 id="getting-started">Getting started</h3>
 <p>The easiest way to try out Mithril is to include it from a CDN, and follow this tutorial. It&#39;ll cover the majority of the API surface (including routing and XHR) but it&#39;ll only take 10 minutes.</p>
 <p>Let&#39;s create an HTML file to follow along:</p>
-<pre><code class="lang-markup">&lt;body&gt;&lt;/body&gt;
-&lt;script src=&quot;http://unpkg.com/mithril/mithril.js&quot;&gt;&lt;/script&gt;
-&lt;script&gt;
-var root = document.body
+<pre><code class="lang-markup">&lt;body&gt;
+    &lt;script src=&quot;//unpkg.com/mithril/mithril.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+    var root = document.body
 
-// your code goes here!
-&lt;/script&gt;
+    // your code goes here!
+    &lt;/script&gt;
+&lt;/body&gt;
 </code></pre>
 <hr>
 <h3 id="hello-world">Hello world</h3>
@@ -211,14 +213,14 @@ m.mount(root, Hello)
 <h3 id="xhr">XHR</h3>
 <p>Basically, XHR is just a way to talk to a server.</p>
 <p>Let&#39;s change our click counter to make it save data on a server. For the server, we&#39;ll use <a href="http://rem-rest-api.herokuapp.com">REM</a>, a mock REST API designed for toy apps like this tutorial.</p>
-<p>First we create a function that calls <code>m.request</code>. The <code>url</code> specifies an endpoint that represents a resource, the <code>method</code> specifies the type of action we&#39;re taking (typically the <code>PUT</code> method <a href="https://en.wiktionary.org/wiki/upsert">upserts</a>), <code>data</code> is the payload that we&#39;re sending to the endpoint and <code>useCredentials</code> means to enable cookies (a requirement for the REM API to work)</p>
+<p>First we create a function that calls <code>m.request</code>. The <code>url</code> specifies an endpoint that represents a resource, the <code>method</code> specifies the type of action we&#39;re taking (typically the <code>PUT</code> method <a href="https://en.wiktionary.org/wiki/upsert">upserts</a>), <code>data</code> is the payload that we&#39;re sending to the endpoint and <code>withCredentials</code> means to enable cookies (a requirement for the REM API to work)</p>
 <pre><code class="lang-javascript">var count = 0
 var increment = function() {
     m.request({
         method: &quot;PUT&quot;,
-        url: &quot;http://rem-rest-api.herokuapp.com/api/tutorial/1&quot;,
+        url: &quot;//rem-rest-api.herokuapp.com/api/tutorial/1&quot;,
         data: {count: count + 1},
-        useCredentials: true,
+        withCredentials: true,
     })
     .then(function(data) {
         count = parseInt(data.count)

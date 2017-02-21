@@ -11,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg"> Mithril <small>1.0.0</small></h1>
+				<h1><img src="logo.svg"> Mithril <small>1.0.1</small></h1>
 				<nav>
 					<a href="index.html">Guide</a>
 					<a href="api.html">API</a>
@@ -90,7 +90,7 @@ function doSomething(e) {
 
 m.mount(document.body, MyComponent)
 </code></pre>
-<h3 id="after-m-request">After m.request</h3>
+<h3 id="after-mrequest">After m.request</h3>
 <p>Mithril automatically redraws after <a href="request.html"><code>m.request</code></a> completes:</p>
 <pre><code class="lang-javascript">m.request(&quot;/api/v1/users&quot;).then(function() {
     // a redraw happens after this function runs
@@ -123,7 +123,7 @@ m.route(document.body, &quot;/&quot;, {
 </code></pre>
 <hr>
 <h3 id="when-mithril-does-not-redraw">When Mithril does not redraw</h3>
-<p>Mithril does not redraw after <code>setTimeout</code>, <code>setInterval</code>, <code>requestAnimationFrame</code> and 3rd party library event handlers (e.g. Socket.io callbacks). In those cases, you must manually call <a href="redraw.html"><code>m.redraw()</code></a>.</p>
+<p>Mithril does not redraw after <code>setTimeout</code>, <code>setInterval</code>, <code>requestAnimationFrame</code>, raw <code>Promise</code> resolutions and 3rd party library event handlers (e.g. Socket.io callbacks). In those cases, you must manually call <a href="redraw.html"><code>m.redraw()</code></a>.</p>
 <p>Mithril also does not redraw after lifecycle methods. Parts of the UI may be redrawn after an <code>oninit</code> handler, but other parts of the UI may already have been redrawn when a given <code>oninit</code> handler fires. Handlers like <code>oncreate</code> and <code>onupdate</code> fire after the UI has been redrawn.</p>
 <p>If you need to explicitly trigger a redraw within a lifecycle method, you should call <code>m.redraw()</code>, which will trigger an asynchronous redraw.</p>
 <pre><code class="lang-javascript">var StableComponent = {

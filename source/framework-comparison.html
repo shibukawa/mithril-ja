@@ -11,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg"> Mithril <small>1.0.0</small></h1>
+				<h1><img src="logo.svg"> Mithril <small>1.0.1</small></h1>
 				<nav>
 					<a href="index.html">Guide</a>
 					<a href="api.html">API</a>
@@ -68,13 +68,13 @@
 </ul>
 <p>If you&#39;re reading this page, you probably have used other frameworks to build applications, and you want to know if Mithril would help you solve your problems more effectively.</p>
 <hr>
-<h2 id="why-not-insert-favorite-framework-here-">Why not [insert favorite framework here]?</h2>
+<h2 id="why-not-insert-favorite-framework-here?">Why not [insert favorite framework here]?</h2>
 <p>The reality is that most modern frameworks are fast, well-suited to build complex applications, and maintainable if you know how to use them effectively. There are examples of highly complex applications in the wild using just about every popular framework: Udemy uses Angular, AirBnB uses React, Gitlab uses Vue, Guild Wars 2 uses Mithril (yes, inside the game!). Clearly, these are all production-quality frameworks.</p>
 <p>As a rule of thumb, if your team is already heavily invested in another framework/library/stack, it makes more sense to stick with it, unless your team agrees that there&#39;s a very strong reason to justify a costly rewrite.</p>
 <p>However, if you&#39;re starting something new, do consider giving Mithril a try, if nothing else, to see how much value Mithril adopters have been getting out of 8kb (gzipped) of code. Mithril is used by many well-known companies (e.g. Vimeo, Nike, Fitbit), and it powers large open-sourced platforms too (e.g. Lichess, Flarum).</p>
 <hr>
-<h2 id="why-use-mithril-">Why use Mithril?</h2>
-<p>In one sentence: because <strong>Mithril is pragmatic</strong>. The 10 minutes <a href="index.html">guide</a> is a good example: that&#39;s how long it takes to learn components, XHR and routing - and that&#39;s just about the right amount of knowledge needed to build useful applications.</p>
+<h2 id="why-use-mithril?">Why use Mithril?</h2>
+<p>In one sentence: because <strong>Mithril is pragmatic</strong>. This <a href="index.html">10 minute guide</a> is a good example: that&#39;s how long it takes to learn components, XHR and routing - and that&#39;s just about the right amount of knowledge needed to build useful applications.</p>
 <p>Mithril is all about getting meaningful work done efficiently. Doing file uploads? <a href="request.html#file-uploads">The docs show you how</a>. Authentication? <a href="route.html#authentication">Documented too</a>. Exit animations? <a href="animation.html">You got it</a>. No extra libraries, no magic.</p>
 <hr>
 <h2 id="comparisons">Comparisons</h2>
@@ -125,7 +125,7 @@
 </tbody>
 </table>
 <p>What these numbers show is that not only does Mithril initializes significantly faster, it can process upwards of 20,000 virtual DOM nodes before React is ready to use.</p>
-<h5 id="update performance">Update performance</h5>
+<h5 id="update-performance">Update performance</h5>
 <p>Update performance can be even more important than first-render performance, since updates can happen many times while a Single Page Application is running.</p>
 <p>A useful tool to benchmark update performance is a tool developed by the Ember team called DbMonster. It updates a table as fast as it can and measures frames per second (FPS) and Javascript times (min, max and mean). The FPS count can be difficult to evaluate since it also includes browser repaint times and <code>setTimeout</code> clamping delay, so the most meaningful number to look at is the mean render time. You can compare a <a href="http://cdn.rawgit.com/lhorie/mithril.js/rewrite/examples/dbmonster/react/index.html">React implementation</a> and a <a href="http://cdn.rawgit.com/lhorie/mithril.js/rewrite/examples/dbmonster/mithril/index.html">Mithril implementation</a>. Sample results are shown below:</p>
 <table>
@@ -142,9 +142,9 @@
 </tr>
 </tbody>
 </table>
-<h5 id="development performance">Development performance</h5>
+<h5 id="development-performance">Development performance</h5>
 <p>Another thing to keep in mind is that because React adds extra checks and helpful error messages in development mode, it is slower in development than the production version used for the benchmarks above. To illustrate, <a href="https://jsfiddle.net/r1jfckrd/">here&#39;s the 10,000 node benchmark from above using the development version of React</a>.</p>
-<h5 id="drop-in replacements">Drop-in replacements</h5>
+<h5 id="drop-in-replacements">Drop-in replacements</h5>
 <p>There are <a href="https://preactjs.com/">several</a> <a href="https://github.com/Lucifier129/react-lite">projects</a> <a href="https://infernojs.org/">that</a> <a href="https://github.com/alibaba/rax">claim</a> API parity with React (some via compatibility layer libraries), but they are not fully compatible (e.g. PropType support is usually stubbed out, synthetic events are sometimes not supported, and some APIs have different semantics). Note that these libraries typically also include features of their own that are not part of the official React API, which may become problematic down the road if one decides to switch back to React Fiber.</p>
 <p>Claims about small download size (compared to React) are accurate, but most of these libraries are slightly larger than Mithril&#39;s renderer module. Preact is the only exception.</p>
 <p>Be wary of aggressive performance claims, as benchmarks used by some of these projects are known to be out-of-date and flawed (in the sense that they can be - and are - exploited). Boris Kaul (author of some of the benchmarks) has <a href="https://medium.com/@localvoid/how-to-win-in-web-framework-benchmarks-8bc31af76ce7">written in detail about how benchmarks are gamed</a>. Another thing to keep in mind is that some benchmarks aggressively use advanced optimization features and thus demonstrate <em>potential</em> performance, i.e. performance that is possible given some caveats, but realistically unlikely unless you actively spend the time to go over your entire codebase identifying optimization candidates and evaluating the regression risks brought by the optimization caveats.</p>
@@ -173,7 +173,7 @@
 <p>It&#39;s difficult to make a comparison of load times between Angular and Mithril for a couple of reasons. The first is that Angular 1 and 2 are in fact completely different codebases, and both versions are officially supported and maintained (and the vast majority of Angular codebases in the wild currently still use version 1). The second reason is that both Angular and Mithril are modular. In both cases, it&#39;s possible to remove a significant part of the framework that is not used in a given application.</p>
 <p>With that being said, the smallest known Angular 2 bundle is a <a href="https://www.lucidchart.com/techblog/2016/09/26/improving-angular-2-load-times/">29kb hello world</a> compressed w/ the Brotli algorithm (it&#39;s 35kb using standard gzip), and with most of Angular&#39;s useful functionality removed. By comparison, a Mithril hello world - including the entire Mithril core - would not be over 8kb gzipped (a more optimized bundle could easily be half of that).</p>
 <p>Also, remember that frameworks like Angular and Mithril are designed for non-trivial application, so an application that managed to use all of Angular&#39;s API surface would need to download several hundred kb of framework code, rather than merely 29kb.</p>
-<h5 id="update performance">Update performance</h5>
+<h5 id="update-performance">Update performance</h5>
 <p>A useful tool to benchmark update performance is a tool developed by the Ember team called DbMonster. It updates a table as fast as it can and measures frames per second (FPS) and Javascript times (min, max and mean). The FPS count can be difficult to evaluate since it also includes browser repaint times and <code>setTimeout</code> clamping delay, so the most meaningful number to look at is the mean render time. You can compare an <a href="http://cdn.rawgit.com/lhorie/mithril.js/rewrite/examples/dbmonster/angular/index.html">Angular implementation</a> and a <a href="http://cdn.rawgit.com/lhorie/mithril.js/rewrite/examples/dbmonster/mithril/index.html">Mithril implementation</a>. Both implementations are naive (i.e. no optimizations). Sample results are shown below:</p>
 <table>
 <thead>
@@ -226,7 +226,7 @@
 </tbody>
 </table>
 <p>Library load times matter in applications that don&#39;t stay open for long periods of time (for example, anything in mobile) and cannot be improved via caching or other optimization techniques.</p>
-<h5 id="update performance">Update performance</h5>
+<h5 id="update-performance">Update performance</h5>
 <p>A useful tool to benchmark update performance is a tool developed by the Ember team called DbMonster. It updates a table as fast as it can and measures frames per second (FPS) and Javascript times (min, max and mean). The FPS count can be difficult to evaluate since it also includes browser repaint times and <code>setTimeout</code> clamping delay, so the most meaningful number to look at is the mean render time. You can compare a <a href="http://cdn.rawgit.com/lhorie/mithril.js/rewrite/examples/dbmonster/vue/index.html">Vue implementation</a> and a <a href="http://cdn.rawgit.com/lhorie/mithril.js/rewrite/examples/dbmonster/mithril/index.html">Mithril implementation</a>. Both implementations are naive (i.e. no optimizations). Sample results are shown below:</p>
 <table>
 <thead>
