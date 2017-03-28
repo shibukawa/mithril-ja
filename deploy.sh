@@ -1,9 +1,10 @@
 #!/bin/sh
 
 cp target/*.html ../mithril-ja-js/
-cp target/mithril* ../mithril-ja-js/
-cp target/*.json ../mithril-ja-js/
+cp target/*.svg ../mithril-ja-js/
 cp target/*.css ../mithril-ja-js/
-cp target/tools/* ../mithril-ja-js/tools/
-cp target/fun/* ../mithril-ja-js/fun/
+rm -rf ../mithril-ja-js/lib
+cp -r target/lib ../mithril-ja-js/
+rm -rf ../mithril-ja-js/archive
+cp -r target/archive ../mithril-ja-js/
 

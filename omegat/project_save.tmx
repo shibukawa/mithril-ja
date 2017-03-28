@@ -31954,8 +31954,8 @@ m.request({method: "POST", url: "/foo", extract: extract});</seg>
       <tuv lang="EN-US">
         <seg>http://mithril.js.org/archive/v0.2.5/index.html</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T013021Z" creationid="shibukawa.yoshiki" creationdate="20170222T013021Z">
-        <seg>http://mithril.js.org/archive/v0.2.5/index.html</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T031852Z" creationid="shibukawa.yoshiki" creationdate="20170222T013021Z">
+        <seg>./archive/v0.2.5/index.html</seg>
       </tuv>
     </tu>
     <tu>
