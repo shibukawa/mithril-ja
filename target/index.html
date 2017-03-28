@@ -2,7 +2,7 @@
 	<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8" />
-		<title>  Introduction - Mithril.js</title>
+		<title> イントロダクション - Mithril.js</title>
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 		<link href="lib/prism/prism.css" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
@@ -12,7 +12,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg">  Mithril <small>1.0.0</small></h1>
+				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
 				<nav>
 					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
 				</nav>
@@ -67,7 +67,7 @@
 </li>
 </ul>
 <hr>
-<h3 id="what-is-mithril-">Mithrilとは？</h3>
+<h3 id="what-is-mithril?">Mithrilとは？</h3>
 <p>Mithrilはシングルページアプリケーションを構築するためのモダンなクライアントサイドのJavaScriptフレームワークです。<br>サイズは小さく（&lt; 8kb gzip）高速で、ラウティングやXHRといったユーティリティもパッケージ内に内蔵しています。</p>
 <div style="display:flex;margin:0 0 30px;">
     <div style="width:50%;">
@@ -96,17 +96,19 @@
 
 <p>MithrilはVimeoやNikeといった企業や、Lichessのようなオープンソースプラットフォームで利用されています。</p>
 <p>もし、すでにJavaScriptのフレームワークでの開発経験があり、他のフレームワークとなにが違うのかを知りたければ、<a href="framework-comparison.html">フレームワークの比較</a>のページを見てください。</p>
+<p>MithrilはPolyfillなしでIE9以降のすべてのブラウザに対応しています。</p>
 <hr>
 <h3 id="getting-started">はじめよう</h3>
 <p>CDNを使ってMithrilを読み込んで、これから説明するチュートリアルをなぞるのが、Mithrilを試すもっとも簡単な方法です。このチュートリアルはラウティングやXHRも含めて、主要なAPIを紹介しますが、10分程度しかかかりません。</p>
 <p>それでは次のようなHTMLファイルを作ってみましょう:</p>
-<pre><code class="lang-markup">&lt;body&gt;&lt;/body&gt;
-&lt;script src="http://unpkg.com/mithril/mithril.js"&gt;&lt;/script&gt;
-&lt;script&gt;
-var root = document.body
+<pre><code class="lang-markup">&lt;body&gt;
+    &lt;script src="//unpkg.com/mithril/mithril.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+    var root = document.body
 
-// ここにコードを書きます
-&lt;/script&gt;
+    // ここにコードを追加していきます
+    &lt;/script&gt;
+&lt;/body&gt;
 </code></pre>
 <hr>
 <h3 id="hello-world">Hello world</h3>
@@ -208,14 +210,14 @@ m.mount(root, Hello)
 <h3 id="xhr">XHR</h3>
 <p>基本的にXHRはサーバーと話をするための方法です。</p>
 <p>クリックカウンターを修正して、サーバーにデータを保存できるようにしましょう。サーバーには、チュートリアルのようなおもちゃアプリケーションのために作られた、モックのREST APIを提供する<a href="http://rem-rest-api.herokuapp.com">REM</a>を使います。</p>
-<p>まず、<code>m.request</code>を呼び出す関数を作ってみましょう。<code>url</code>はリソースを表すエンドポイントを指定します。<code>method</code>は話をするアクションの種類を指定します（<a href="https://en.wiktionary.org/wiki/upsert">upserts</a>には通常<code>PUT</code>メソッドを使います）。<code>data</code>はエンドポイントに送付するペイロードです。<code>useCredentials</code>はクッキーを有効化する（REM APを動作させるのに必要）ために指定します。</p>
+<p>まず、<code>m.request</code>を呼び出す関数を作ってみましょう。<code>url</code>はリソースを表すエンドポイントを指定します。<code>method</code>は話をするアクションの種類を指定します（<a href="https://en.wiktionary.org/wiki/upsert">upserts</a>には通常<code>PUT</code>メソッドを使います）。<code>data</code>はエンドポイントに送付するペイロードです。<code>withCredentials</code>はクッキーを有効化する（REM APを動作させるのに必要）ために指定します。</p>
 <pre><code class="lang-javascript">var count = 0
 var increment = function() {
     m.request({
         method: "PUT",
-        url: "http://rem-rest-api.herokuapp.com/api/tutorial/1",
+        url: "//rem-rest-api.herokuapp.com/api/tutorial/1",
         data: {count: count + 1},
-        useCredentials: true,
+        withCredentials: true,
     })
     .then(function(data) {
         count = parseInt(data.count)
@@ -228,7 +230,7 @@ var increment = function() {
     view: function() {
         return m("main", [
             m("h1", {class: "title"}, "最初のMithrilアプリケーション"),
-            m("button", {onclick: increment}, count + " clicks"),
+            m("button", {onclick: increment}, count + " クリック"),
         ])
     }
 }

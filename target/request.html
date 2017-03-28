@@ -1,0 +1,545 @@
+<html>
+	<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="UTF-8" />
+		<title>  request(options) - Mithril.js</title>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	</head>
+	<body>
+		<header>
+			<section>
+				<a class="hamburger" href="javascript:;">≡</a>
+				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<nav>
+					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
+				</nav>
+			</section>
+		</header>
+		<main>
+			<section>
+				<h1 id="requestoptions">request(options)</h1>
+<ul>
+<li>コア<ul>
+<li><a href="hyperscript.html">m</a></li>
+<li><a href="render.html">m.render</a></li>
+<li><a href="mount.html">m.mount</a></li>
+<li><a href="route.html">m.route</a></li>
+<li><strong><a href="request.html">m.request</a></strong><ul>
+<li><a href="#description">説明</a></li>
+<li><a href="#signature">シグニチャ</a></li>
+<li><a href="#how-it-works">どのように動作するのか</a></li>
+<li><a href="#typical-usage">一般的な使用法</a></li>
+<li><a href="#loading-icons-and-error-messages">ローディングアイコンとエラーメッセージ</a></li>
+<li><a href="#dynamic-urls">動的URL</a></li>
+<li><a href="#aborting-requests">リクエストの中断</a></li>
+<li><a href="#file-uploads">ファイルアップロード</a></li>
+<li><a href="#monitoring-progress">進捗のモニタリング</a></li>
+<li><a href="#casting-response-to-a-type">レスポンスを指定の型にキャスト</a></li>
+<li><a href="#non-json-responses">JSON以外のレスポンス</a></li>
+<li><a href="#retrieving-response-details">レスポンスの詳細の取得</a></li>
+<li><a href="#why-json-instead-of-html">なぜHTMLではなくJSONなのか</a></li>
+<li><a href="#why-xhr-instead-of-fetch">なぜfetchではなくXHRなのか</a></li>
+<li><a href="#avoid-anti-patterns">アンチパターンを避ける</a></li>
+</ul>
+</li>
+<li><a href="jsonp.html">m.jsonp</a></li>
+<li><a href="parseQueryString.html">m.parseQueryString</a></li>
+<li><a href="buildQueryString.html">m.buildQueryString</a></li>
+<li><a href="withAttr.html">m.withAttr</a></li>
+<li><a href="trust.html">m.trust</a></li>
+<li><a href="fragment.html">m.fragment</a></li>
+<li><a href="redraw.html">m.redraw</a></li>
+<li><a href="version.html">m.version</a></li>
+<li><a href="promise.html">Promise</a></li>
+</ul>
+</li>
+<li>オプショナル<ul>
+<li><a href="stream.html">Stream</a></li>
+</ul>
+</li>
+<li>ツール<ul>
+<li><a href="https://github.com/lhorie/mithril.js/blob/rewrite/ospec">Ospec</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="description">説明</h3>
+<p>XHR (別名 AJAX) リクエストを行い、<a href="promise.html">Promise</a>を返します。</p>
+<pre><code class="lang-javascript">m.request({
+    method: "PUT",
+    url: "/api/v1/users/:id",
+    data: {id: 1, name: "test"}
+})
+.then(function(result) {
+    console.log(result)
+})
+</code></pre>
+<hr>
+<h3 id="signature">シグニチャ</h3>
+<p><code>promise = m.request([url,] options)</code></p>
+<table>
+<thead>
+<tr>
+<th>引数</th>
+<th>型</th>
+<th>必須</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>url</code></td>
+<td><code>String</code></td>
+<td>No</td>
+<td>これが存在していたら、<code>{method: "GET", url: url}</code>というオプションと等価です。<code>options</code>引数に渡されたオプションは、この短縮形式のデフォルトオプションを上書きします。</td>
+</tr>
+<tr>
+<td><code>options.method</code></td>
+<td><code>String</code></td>
+<td>No</td>
+<td>使用するHTTPメソッドです。このオプションは、<code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>PATCH</code>, <code>DELETE</code>, <code>HEAD</code>, <code>OPTIONS</code>のどれかでなければなりません。デフォルトは<code>GET</code>です。</td>
+</tr>
+<tr>
+<td><code>options.url</code></td>
+<td><code>String</code></td>
+<td>Yes</td>
+<td>リクエストを送る先のURLです。。URLは絶対パスでも相対パスでも使用できますし、 <a href="#dynamic-urls">変数（interpolation）</a>を含むことも可能です。</td>
+</tr>
+<tr>
+<td><code>options.data</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>URLの変数に挿入されたり、クエリー文字列（GETリクエスト）やボディー（他のメソッドのリクエスト）として文字列化されるデータです。</td>
+</tr>
+<tr>
+<td><code>options.async</code></td>
+<td><code>Boolean</code></td>
+<td>No</td>
+<td>リクエストが非同期であるべきかどうか。デフォルト値は<code>true</code>です。</td>
+</tr>
+<tr>
+<td><code>options.user</code></td>
+<td><code>String</code></td>
+<td>No</td>
+<td>HTTP認証のユーザー名。デフォルトは<code>undefined</code>です。</td>
+</tr>
+<tr>
+<td><code>options.password</code></td>
+<td><code>String</code></td>
+<td>No</td>
+<td>HTTP認証のパスワード。デフォルトは<code>undefined</code>です。このオプションは<code>XMLHttpRequest</code>との互換性のために用意されていますが、このメソッドはパスワードをプレーンテキスト形式で送付してしまうため、避けるべきです。</td>
+</tr>
+<tr>
+<td><code>options.withCredentials</code></td>
+<td><code>Boolean</code></td>
+<td>No</td>
+<td>サードパーティードメインに対してクッキーを送付するかどうかを決定します。デフォルト値は<code>false</code>です。</td>
+</tr>
+<tr>
+<td><code>options.config</code></td>
+<td><code>xhr = Function(xhr)</code></td>
+<td>No</td>
+<td>低レベルの設定を行うために、APIの内部に隠れているXMLHttpRequestオブジェクトに触れるようにします。デフォルトは<a href="https://ja.wikipedia.org/wiki/%E6%81%92%E7%AD%89%E5%86%99%E5%83%8F">恒等写像（入力をそのまま返す関数）</a>です。</td>
+</tr>
+<tr>
+<td><code>options.headers</code></td>
+<td><code>Object</code></td>
+<td>No</td>
+<td>送信前に追加されるヘッダーです。<code>options.config</code>の直前に付与が行われます。</td>
+</tr>
+<tr>
+<td><code>options.type</code></td>
+<td><code>any = Function(any)</code></td>
+<td>No</td>
+<td>レスポンスの中でオブジェクトごとに適用されるコンストラクタです。デフォルトは<a href="https://ja.wikipedia.org/wiki/%E6%81%92%E7%AD%89%E5%86%99%E5%83%8F">恒等写像（入力をそのまま返す関数）</a>です。</td>
+</tr>
+<tr>
+<td><code>options.serialize</code></td>
+<td><code>string = Function(any)</code></td>
+<td>No</td>
+<td><code>data</code>に適用されるシリアライズメソッドです。デフォルトは<code>JSON.stringify</code>、あるいは、<code>options.data</code>が<a href="https://developer.mozilla.org/ja/docs/Web/API/FormData"><code>FormData</code></a>の時は<a href="https://ja.wikipedia.org/wiki/%E6%81%92%E7%AD%89%E5%86%99%E5%83%8F">恒等写像</a>（<code>function(value) {return value}</code>）となります。</td>
+</tr>
+<tr>
+<td><code>options.deserialize</code></td>
+<td><code>any = Function(string)</code></td>
+<td>No</td>
+<td>レスポンスをデシリアライズするときに適用されるメソッドです。デフォルトは、空のレスポンスに対して<code>null</code>を返すようにした、<code>JSON.parse</code>のラッパー関数です。</td>
+</tr>
+<tr>
+<td><code>options.extract</code></td>
+<td><code>string = Function(xhr, options)</code></td>
+<td>No</td>
+<td>XMLHttpRequestのレスポンスをどのように読み込むかを指定するフック関数です。レスポンスヘッダーやクッキーを読み込んでレスポンスに加えたいときに使えます。デフォルトは<code>xhr.responseText</code>を返す関数です。もしこれが定義されると、リクエストに使ったXMLHttpRequestインスタンスが<code>xhr</code>パラメータとして、<code>m.request</code>呼び出し時に渡したオブジェクトが<code>options</code>として渡されます。もし、カスタムの<code>extract</code>コールバックがセットされると、<code>options.deserialize</code>は無視されます。extractコールバックが返す文字列は自動でJSONにパースされなくなります。</td>
+</tr>
+<tr>
+<td><code>options.useBody</code></td>
+<td><code>Boolean</code></td>
+<td>No</td>
+<td><code>true</code>をセットすると、<code>GET</code>リクエスト時にHTTPのボディセクションを<code>data</code>に使うようになります。 <code>false</code>を設定すると他のHTTPメソッドのときにクエリー文字列を使うようになります。<code>GET</code>リクエスト時のデフォルトは<code>false</code>で、他のメソッドのリクエスト時のデフォルトは<code>true</code>です。</td>
+</tr>
+<tr>
+<td><code>options.background</code></td>
+<td><code>Boolean</code></td>
+<td>No</td>
+<td>このパラメータを<code>false</code>にすると、リクエスト完了時にマウントされているコンポーネントを再描画します。<code>true</code>の場合は再描画を行いません。デフォルトは<code>false</code>です。</td>
+</tr>
+<tr>
+<td><strong>returns</strong></td>
+<td><code>Promise</code></td>
+<td></td>
+<td>このPromiseが解決されると<code>extract</code>, <code>deserialize</code>, <code>type</code>メソッドで処理されたレスポンスデータが渡されます。</td>
+</tr>
+</tbody>
+</table>
+<p><a href="signatures.html">シグニチャの読み方</a></p>
+<hr>
+<h3 id="how-it-works">どのように動作するのか</h3>
+<p><code>m.request</code>ユーティリティは<a href="https://developer.mozilla.org/ja/docs/Web/API/XMLHttpRequest"><code>XMLHttpRequest</code></a>の薄いラッパーです。これを使うとHTTPリクエストを通じて、リモートサーバーにデータを保存したり、データを取得してくることができます。</p>
+<pre><code class="lang-javascript">m.request({
+    method: "GET",
+    url: "/api/v1/users",
+})
+.then(function(users) {
+    console.log(users)
+})
+</code></pre>
+<p><code>m.request</code>を呼ぶと<a href="promise.html">Promise</a>が返ってきます。また、そのPromiseのチェーンが完了すると再描画が行われます。</p>
+<p>デフォルトでは<code>m.request</code>はレスポンスがJSONフォーマットであると想定してパースし、JavaScriptのオブジェクトや配列に変換します。</p>
+<hr>
+<h3 id="typical-usage">一般的な使用法</h3>
+<p>次のコードは<code>m.request</code>を使ってサーバーからデータを取得してくるコンポーネントのサンプルです。</p>
+<pre><code class="lang-javascript">var Data = {
+    todos: {
+        list: [],
+        fetch: function() {
+            m.request({
+                method: "GET",
+                url: "/api/v1/todos",
+            })
+            .then(function(items) {
+                Data.todos.list = items
+            })
+        }
+    }
+}
+
+var Todos = {
+    oninit: Data.todos.fetch,
+    view: function(vnode) {
+        return Data.todos.list.map(function(item) {
+            return m("div", item.title)
+        })
+    }
+}
+
+m.route(document.body, "/", {
+    "/": Todos
+})
+</code></pre>
+<p>サーバーURL<code>/api/items</code>がJSONオブジェクトの配列を返すものとします。</p>
+<p>最後の行で<code>m.route</code>が呼ばれると、<code>Todos</code>コンポーネントが初期化されます。初期化されると<code>oninit</code>が呼び出され、この中で<code>m.request</code>が実行されます。この関数は非同期でサーバーからオブジェクトの配列を取得します。「非同期」とは、サーバーからレスポンスが返ってくるのを待つ間に、JavaScriptの他のコードの実行が継続されることを意味します。このサンプルの場合、<code>fetch</code>が完了したときにはまだサーバーからレスポンスが返ってきていないので、<code>Data.todos.list</code>に格納されているオリジナルの空の配列を使って表示を行います。サーバーからレスポンスが返ってくると、オブジェクトの配列の<code>items</code>が<code>Data.todos.list</code>に割り当てられ、再描画が行われ、ToDoのタイトルが格納されている<code>&lt;div&gt;</code>タグが挿入されます。</p>
+<hr>
+<h3 id="loading-icons-and-error-messages">ローディングアイコンとエラーメッセージ</h3>
+<p>次のコードは前述のサンプルに、ローディングのインジケーターと、エラーメッセージを追加したサンプルです。</p>
+<pre><code class="lang-javascript">var Data = {
+    todos: {
+        list: null,
+        error: "",
+        fetch: function() {
+            m.request({
+                method: "GET",
+                url: "/api/v1/todos",
+            })
+            .then(function(items) {
+                Data.todos.list = items
+            })
+            .catch(function(e) {
+                Data.todos.error = e.message
+            })
+        }
+    }
+}
+
+var Todos = {
+    oninit: Data.todos.fetch,
+    view: function(vnode) {
+        return Data.todos.error ?[
+            m(".error", Data.todos.error)
+        ] : Data.todos.list ?[
+            Data.todos.list.map(function(item) {
+                return m("div", item.title)
+            })
+        ] : m(".loading-icon")
+    }
+}
+
+m.route(document.body, "/", {
+    "/": Todos
+})
+</code></pre>
+<p>最初のサンプルに対して、いくつか違いがあります。まず、<code>Data.todos.list</code>の初期値が<code>null</code>になっています。また、エラーメッセージを保持する追加フィールドの<code>error</code>が追加されており、エラーがあったらエラーメッセージを、<code>Data.todos.list</code>が配列でなかったらローディングアイコンを表示するように<code>Todos</code> コンポーネントが書き換えられています。</p>
+<hr>
+<h3 id="dynamic-urls">動的URL</h3>
+<p>リクエストするURLには変数（interpolation）を含めることができます。</p>
+<pre><code class="lang-javascript">m.request({
+    method: "GET",
+    url: "/api/v1/users/:id",
+    data: {id: 123},
+}).then(function(user) {
+    console.log(user.id) // logs 123
+})
+</code></pre>
+<p>上記の例では<code>:id</code>の項目はオブジェクト<code>{id: 123}</code>を使って置き換えられ、リクエスト先は<code>GET /api/v1/users/123</code>となります。</p>
+<p>I<code>data</code>プロパティにマッチするデータがなければ、変数は無視されます。</p>
+<pre><code class="lang-javascript">m.request({
+    method: "GET",
+    url: "/api/v1/users/foo:bar",
+    data: {id: 123},
+})
+</code></pre>
+<p>上記のコードではリクエスト先は<code>GET /api/v1/users/foo:bar</code>となります。</p>
+<hr>
+<h3 id="aborting-requests">リクエストの中断</h3>
+<p>リクエストを中断したくなるケースがあります。例えば、自動補完やサジェストウィジェットの場合、最後にリクエストした補完だけを利用したいはずです。よくある自動補完ではユーザーが入力するたびに何度もリクエストが発生しますが、ネットワークの性質上、結果の順序が正しく返ってくるとは限りません。もし、最後に実行したリクエストよりも後に他のリクエストが完了すると、本来よりも精度が低い（場合によっては間違った）データが表示されることになります。</p>
+<p><code>options.config</code>パラメータを使うと、<code>m.request()</code>の内部の<code>XMLHttpRequest</code>オブジェクトに触れる事ができます。これを使ってオブジェクトの参照を保存しておくことで、必要に応じて<code>abort</code>メソッドを呼ぶこともができます。</p>
+<pre><code class="lang-javascript">var searchXHR = null
+function search() {
+    abortPreviousSearch()
+
+    m.request({
+        method: "GET",
+        url: "/api/v1/users",
+        data: {search: query},
+        config: function(xhr) {searchXHR = xhr}
+    })
+}
+function abortPreviousSearch() {
+    if (searchXHR !== null) searchXHR.abort()
+    searchXHR = null
+}
+</code></pre>
+<hr>
+<h3 id="file-uploads">ファイルアップロード</h3>
+<p>ファイルをアップロードする時はまず、<a href="https://developer.mozilla.org/ja/docs/Web/API/File"><code>File</code></a>オブジェクトの参照を取得します。もっとも簡単な方法は<code>&lt;input type="file"&gt;</code>を使うことです。</p>
+<pre><code class="lang-javascript">m.render(document.body, [
+    m("input[type=file]", {onchange: upload})
+])
+
+function upload(e) {
+    var file = e.target.files[0]
+}
+</code></pre>
+<p>上記のスニペットはファイルのinputタグをレンダリングします。ユーザーがファイルを選択すると、<code>onchange</code>イベントが起動し、<code>upload</code>関数が呼ばれます。<code>e.target.files</code>が<code>File</code>オブジェクトの配列になっています。</p>
+<p>次に、<a href="https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html">マルチパートリクエスト</a>を作成するための<a href="https://developer.mozilla.org/ja/docs/Web/API/FormData"><code>FormData</code></a>オブジェクトを作ります。これを使うと、ファイルデータを含められるように特別にフォーマットされたHTTPリクエストが行えるようになります。</p>
+<pre><code class="lang-javascript">function upload(e) {
+    var file = e.target.files[0]
+
+    var data = new FormData()
+    data.append("myfile", file)
+}
+</code></pre>
+<p>次に<code>m.request</code>を呼びます。<code>options.method</code>にはボディが指定できるHTTPメソッド（<code>POST</code>, <code>PUT</code>, <code>PATCH</code>）を設定し、<code>FormData</code>オブジェクトを<code>options.data</code>に設定します。</p>
+<pre><code class="lang-javascript">function upload(e) {
+    var file = e.target.files[0]
+
+    var data = new FormData()
+    data.append("myfile", file)
+
+    m.request({
+        method: "POST",
+        url: "/api/v1/upload",
+        data: data,
+    })
+}
+</code></pre>
+<p>マルチパートフォームが受け取れるサーバーであれば、<code>myfile</code>キーに格納されたファイル情報が取得できます。</p>
+<h4 id="multiple-file-uploads">複数ファイルのアップロード</h4>
+<p>ひとつのリクエストで複数ファイルの同時アップロードも行えます。複数ファイルを同時にアップロードすると、その通信はアトミックになります。そのため、アップロード中にエラーがひとつでもあると、すべてのファイルのアップロードが無効になります。一部だけを保存することはできません。ネットワークエラーが発生したときに、ひとつでも多くのファイルを保存したいのであれば、それぞれのファイルを個別音リクエストでアップロードすべきです。</p>
+<p>複数ファイルをアップロードするのは、<code>FormData</code>オブジェクトに送信したいファイルをすべて登録するだけで行なえます。fileのinputタグを使うのであれば、<code>multiple</code>属性を付与すると、ファイルのリストが得られるようになります。</p>
+<pre><code class="lang-javascript">m.render(document.body, [
+    m("input[type=file][multiple]", {onchange: upload})
+])
+
+function upload(e) {
+    var files = e.target.files
+
+    var data = new FormData()
+    for (var i = 0; i &lt; files.length; i++) {
+        data.append("file" + i, file)
+    }
+
+    m.request({
+        method: "POST",
+        url: "/api/v1/upload",
+        data: data,
+    })
+}
+</code></pre>
+<hr>
+<h3 id="monitoring-progress">進捗のモニタリング</h3>
+<p>巨大なファイルのアップロードなど、リクエストが遅い場合にはプログレスのインジケーターを表示して、ユーザーにアプリケーションが正常に稼働していることを表示したくなるでしょう。</p>
+<p><code>options.config</code>パラメータを使うと、<code>m.request()</code>の内部の<code>XMLHttpRequest</code>オブジェクトに触れる事ができます。これを使うと、XMLHttpRequestオブジェクトにイベントリスナーを付与するできます。</p>
+<pre><code class="lang-javascript">var progress = 0
+
+m.mount(document.body, {
+    view: function() {
+        return [
+            m("input[type=file]", {onchange: upload}),
+            progress + "% completed"
+        ]
+    }
+})
+
+function upload(e) {
+    var file = e.target.files[0]
+
+    var data = new FormData()
+    data.append("myfile", file)
+
+    m.request({
+        method: "POST",
+        url: "/api/v1/upload",
+        data: data,
+        config: function(xhr) {
+            xhr.addEventListener("progress", function(e) {
+                progress = e.loaded / e.total
+
+                m.redraw() // Mithrilに再描画が必要なことを伝える
+            })
+        }
+    })
+}
+</code></pre>
+<p>上記のサンプルではファイルのinputタグを表示しています。ユーザーがファイルを選択すると、<code>config</code>コールバック内でアップロードが初期化されます。<code>progress</code>イベントハンドラが登録されます。このイベントハンドラは、XMLHttpRequestの進捗が更新されると呼び出されます。XMLHttpRequestのプログレスイベントはMithrilの仮想DOMエンジンでは直接扱う方法は提供していません。そのため、Mithrilにデータが変更されて再描画が必要なことを伝えるには<code>m.redraw()</code>を呼び出す必要があります。</p>
+<hr>
+<h3 id="casting-response-to-a-type">レスポンスを指定の型にキャスト</h3>
+<p>アプリケーションのアーキテクチャによっては、レスポンスデータを特定のクラスや型に変換し、データの正規化を行ったり、ヘルパーメソッドを持たせたいことがあります。</p>
+<p><code>options.type</code>パラメータにコンストラクタを渡すと、MithrilがHTTPレスポンスの各オブジェクトからインスタンス化を行います。</p>
+<pre><code class="lang-javascript">function User(data) {
+    this.name = data.firstName + " " + data.lastName
+}
+
+m.request({
+    method: "GET",
+    url: "/api/v1/users",
+    type: User
+})
+.then(function(users) {
+    console.log(users[0].name) // 名前をログに出力
+})
+</code></pre>
+<p>この例では、<code>/api/v1/users</code>はオブジェクトの配列を返すことを想定しています。その配列の各要素のオブジェクトごとに<code>User</code>コンストラクタが呼ばれます。内部では要素ごとに<code>new User(data)</code>というコンストラクタ呼び出しが行われます。もしレスポンスが配列ではなくてオブジェクトだった時も、このオブジェクトを<code>data</code>引数に渡してインスタンスが1つ作られます。</p>
+<hr>
+<h3 id="non-json-responses">JSON以外のレスポンス</h3>
+<p>JSON以外を返すサーバーのエンドポイントもあります。例えば、HTMLファイル、SVG fileファイル、CSVファイル形式でレスポンスを返すようにリクエストを送ることがありえます。MithrilはデフォルトではレスポンスがJSONであるとみなしてパースしようとします。この動作を変更するには、カスタムの<code>options.deserialize</code>関数を定義します。</p>
+<pre><code class="lang-javascript">m.request({
+    method: "GET",
+    url: "/files/icon.svg",
+    deserialize: function(value) {return value}
+})
+.then(function(svg) {
+    m.render(document.body, m.trust(svg))
+})
+</code></pre>
+<p>この上記のサンプルのリクエストはSVGファイルを取得しています。このサンプルの<code>deserialize</code>関数は入力値をそのまま返しているため、パースは何も行われません。SVG文字列をそのまま信用できるHTMLとしてレンダリングしています。</p>
+<p>もちろん、<code>deserialize</code>関数により複雑な処理をさせることも可能です。</p>
+<pre><code class="lang-javascript">m.request({
+    method: "GET",
+    url: "/files/data.csv",
+    deserialize: parseCSV
+})
+.then(function(data) {
+    console.log(data)
+})
+
+function parseCSV(data) {
+    // このコードはサンプルを短くするための簡易実装です
+    return data.split("\n").map(function(row) {
+        return row.split(",")
+    })
+}
+</code></pre>
+<p>このparseCSV関数が、適切に実装されたCSVパーサーが行っていることをほぼ行っていない簡易実装であることに目をつぶれば、このを実行すると文字列の配列の配列がログ出力されます。</p>
+<p>このサンプルでは、カスタムヘッダーも役に立ちます。たとえば、SVGをリクエストする時は、適切なContent-Typeをセットしたいと考えるでしょう。デフォルトではJSONをリクエストしますが、これを上書きするには<code>options.headers</code>にリクエストヘッダーの名前と値が含まれているオブジェクトを渡します。</p>
+<pre><code class="lang-javascript">m.request({
+    method: "GET",
+    url: "/files/image.svg",
+    headers: {
+        "Content-Type": "image/svg+xml; charset=utf-8",
+        "Accept": "image/svg, text/*"
+    },
+    deserialize: function(value) {return value}
+})
+</code></pre>
+<hr>
+<h3 id="retrieving-response-details">レスポンスの詳細の取得</h3>
+<p>Mithrilはデフォルトでは<code>xhr.responseText</code>からレスポンスのデータを取得し、JSONとしてパースして返そうとします。カスタムの<code>options.extract</code>関数をオプションで渡すことで、サーバーのレスポンスの詳細を知ることができるます。</p>
+<pre><code class="lang-javascript">m.request({
+    method: "GET",
+    url: "/api/v1/users",
+    extract: function(xhr) {return {status: xhr.status, body: xhr.responseText}}
+})
+.then(function(response) {
+    console.log(response.status, response.body)
+})
+</code></pre>
+<p><code>options.extract</code>関数のパラメータは、送受信が完了した後のXMLHttpRequestオブジェクトです。この段階はまだPromiseチェーンに渡される前の状態なので、例外を投げるとPromiseは「リジェクト状態」で終了します。</p>
+<hr>
+<h3 id="why-json-instead-of-html">なぜHTMLではなくJSONなのか</h3>
+<p>多くのサーバーサイドフレームワークは、テンプレートエンジンを使って、データベースの値をテンプレートに挿入してHTMLを作成します。例えそのHTMLがページロードによるものでも、AJAXのためのものでも基本は同じです。その後jQueryを使ってユーザのインタラクションを取り扱います。</p>
+<p>これと比較すると、Mithrilは厚いクライアントアプリケーションレイヤーのためにデザインされているフレームワークです。テンプレートとデータは別々にダウンロードされ、JavaScriptを使ってブラウザ上で結合されます。テンプレートの実行をブラウザ側に寄せると、サーバーリソースが解放されるため、サーバーのオペレーションコストが下がるメリットがあります。また、テンプレートとデータを分離すると、テンプレートコードをより効率的にキャッシュしたり、デスクトップやモバイルなどの異なる種類のクライアント間でコードの再利用性が上がります。他のメリットとしては、Mithrilを使うと<a href="https://en.wikipedia.org/wiki/Retained_mode">retained mode</a>と呼ばれるUI開発のパラダイムが利用できるようになります。このパラダイムを使うと複雑なユーザーとのインタラクションの開発をシンプルにして、メンテナンス性も向上します。</p>
+<p>デフォルトでは<code>m.request</code>はレスポンスのデータはJSONであると想定しています。一般的なMithrilアプリケーションでは、このJSONデータはビューから利用されます。</p>
+<p>サーバーで動的に生成したHTMLをMithrilでレンダリングしようとするのは避けるべきです。サーバーサイドのテンプレートシステムを使う既存のアプリケーションを作り直す場合は、アーキテクチャを再構築してそのような作業が可能かどうか判断します。シック・サーバー・アーキテクチャから、シック・クライアント・アーキテクチャへの移行には多くの労力が必要となります。ロジックをテンプレートから取り出して、ロジックのデータサービスに入れる必要が発生したりします。それにともなってテストの修正も必要でしょう。</p>
+<p>データサービスの構造化は、アプリケーションの性質によって、さまざまな手法があります。API提供者の間では、<a href="https://ja.wikipedia.org/wiki/REST">RESTful</a>アーキテクチャが人気ですし、トランザクションを高度に扱う必要があれば<a href="https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E6%8C%87%E5%90%91%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3">サービス指向アーキテクチャ</a>が必要となるでしょう。</p>
+<hr>
+<h3 id="why-xhr-instead-of-fetch">なぜfetchではなくXHRなのか</h3>
+<p><a href="https://developer.mozilla.org/ja/docs/Web/API/Fetch_API"><code>fetch()</code></a>はサーバーからリソースを取得してくるための、新しいウェブのAPIです。<code>XMLHttpRequest</code>と似ています。</p>
+<p>Mithrilの <code>m.request</code>はいくつかの理由により、<code>fetch()</code>の代わりに<code>XMLHttpRequest</code>を使っています。</p>
+<ul>
+<li><code>fetch</code>はまだ十分に標準化が行われていません。そのため、仕様の変更の影響を受ける可能性があります。</li>
+<li><code>XMLHttpRequest</code>の呼び出しは、完了前に中断させられることがあります。例えば、簡易検索UIの複数リクエストの競合を避けるために必要となることがあります。</li>
+<li><code>XMLHttpRequest</code>は長時間かかる進捗情報を取得するためのフックを提供しています。</li>
+<li><code>XMLHttpRequest</code>はすべてのブラウザで対応していますが、<code>fetch()</code>はInternet Explorer, Safari, ChromiumでないAndroidではサポートされていません。</li>
+</ul>
+<p>現在<code>fetch()</code> を使うには、欠けているブラウザサポートをおぎなうために<a href="https://github.com/github/fetch">polyfill</a>が必要となりますが、これは無圧縮状態で11KBです。これはMithrilのXHRの三倍のサイズです。</p>
+<p>ファイルサイズは大きくありませんが、自動再描画システムとの統合に加えて、<a href="#dynamic-urls">URLの変数</a>, クエリー文字列のシリアライズ, <a href="jsonp.html">JSON-Pリクエスト</a>など、MithrilのXHRモジュールは重要かつ、実装が簡単ではないさまざまな機能を提供しています。<code>fetch</code>のpolyfillはこれらの昨日の一部をサポートしていなかったり、同じレベルの機能を提供しようとすると追加のライブラリやコードが必要になります。</p>
+<p>さらに、MithrilのXHRはJSONベースのエンドポイントを利用するのに最適化されており、一般的な用途でシンプルに利用できます。<code>m.request(url)</code>の代わりに<code>fetch</code>を使うと、レスポンスのJSONデータを変換するには、<code>fetch(url).then(function(response) {return response.json()})</code>などの追加の明示的なステップが必要となります。</p>
+<p><code>fetch()</code>APIは<code>XMLHttpRequest</code>と較べていくつかの技術的な利点がありますが、用途は限定されています。</p>
+<ul>
+<li>fetch()はストリーミングAPIを提供しています。これは「ビデオストリーミング」と同じ用法であって、リアクティブプログラミング用語とは異なります。この機能を使用すると、少ないコードの行数と複雑さで、よりレイテンシーが優れていて、消費メモリが少ないコードが書けます。</li>
+<li>また、これは <a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API">Service Worker API</a>と統合されています。これはネットワークリクエストを制御する追加のレイヤーです。このAPIを使うと、Push通知にアクセスしたり、バックグラウンドのデータの同期などが行えるようになります。</li>
+</ul>
+<p>しかし、メガバイトの単位のデータをダウンロードしない限りは、一般的な用途ではストリーミングのメリットが目に見えることはほぼありません。また小さいバッファを繰り返し利用することによるメモリの効率的な利用に関しても、再描画が頻繁になると打ち消されてしまいます。これらの理由により、<code>m.request</code>の代わりに<code>fetch()</code>ストリームが推奨されるのは大量のデータを扱うアプリケーションに限られるでしょう。</p>
+<hr>
+<h3 id="avoid-anti-patterns">アンチパターンを避ける</h3>
+<h4 id="promises-are-not-the-response-data">Promiseはレスポンスデータそのものではありません。</h4>
+<p><code>m.request</code>は<a href="promise.html">Promise</a>を返しますが、これはレスポンスそのものではありません。HTTP要求が完了するまでに長い時間待ちがかかることがあるため（ネットワーク待ち時間のため）、データを直接返すことはできません。また、JavaScript上で同期待ちをおkナウと、データが利用可能になるまでアプリケーションがフリーズします。</p>
+<pre><code class="lang-javascript">// 避けるべき実装
+var users = m.request("/api/v1/users")
+console.log("ユーザーのリスト:", users)
+// `users`はユーザーのリストではなく、Promise
+
+// 望ましい実装
+m.request("/api/v1/users").then(function(users) {
+    console.log("ユーザーのリスト:", users)
+})
+</code></pre>
+
+				<hr />
+				<small>License: MIT. © Leo Horie.</small>
+			</section>
+		</main>
+		<script src="lib/prism/prism.js"></script>
+		<script>
+		document.querySelector(".hamburger").onclick = function() {
+			document.body.className = document.body.className === "navigating" ? "" : "navigating"
+			document.querySelector("h1 + ul").onclick = function() {
+				document.body.className = ''
+			}
+		}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,94 @@
+<html>
+	<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="UTF-8" />
+		<title> リリース作業 - Mithril.js</title>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	</head>
+	<body>
+		<header>
+			<section>
+				<a class="hamburger" href="javascript:;">≡</a>
+				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<nav>
+					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
+				</nav>
+			</section>
+		</header>
+		<main>
+			<section>
+				<h1 id="releasing">リリース作業</h1>
+<ul>
+<li>コア<ul>
+<li><a href="hyperscript.html">m</a></li>
+<li><a href="render.html">m.render</a></li>
+<li><a href="mount.html">m.mount</a></li>
+<li><a href="route.html">m.route</a></li>
+<li><a href="request.html">m.request</a></li>
+<li><a href="jsonp.html">m.jsonp</a></li>
+<li><a href="parseQueryString.html">m.parseQueryString</a></li>
+<li><a href="buildQueryString.html">m.buildQueryString</a></li>
+<li><a href="withAttr.html">m.withAttr</a></li>
+<li><a href="trust.html">m.trust</a></li>
+<li><a href="fragment.html">m.fragment</a></li>
+<li><a href="redraw.html">m.redraw</a></li>
+<li><a href="version.html">m.version</a></li>
+<li><a href="promise.html">Promise</a></li>
+</ul>
+</li>
+<li>オプショナル<ul>
+<li><a href="stream.html">Stream</a></li>
+</ul>
+</li>
+<li>ツール<ul>
+<li><a href="https://github.com/lhorie/mithril.js/blob/rewrite/ospec">Ospec</a></li>
+</ul>
+</li>
+</ul>
+<p>Mithrilの新バージョンのリリースは<code>npm version</code>を使ってほぼ自動化されています。</p>
+<h2 id="publishing-to-npm">NPMへの公開</h2>
+<ol>
+<li><code>npm version &lt;major|minor|patch|semver&gt; -m "v%s"</code></li>
+</ol>
+<p>それ以降の手順はすべて自動化されています。次の手順で実行されます:</p>
+<ol>
+<li>テストと実行</li>
+<li>Lintの実行（ただしビルドを失敗させません）</li>
+<li>package.jsonのバージョン番号のインクリメント</li>
+<li>更新されたバージョンを使ったバンドルが作成</li>
+<li>バンドル出力に対する<code>git add</code>コマンド実行</li>
+<li><code>package.json</code>と更新されたバンドルがgitにコミットされる</li>
+<li>１つ前のコミットに対し、新しいバージョン番号でタグ付けを行う</li>
+<li><code>git push --follow-tags</code>を使って新しいバージョンのコミットとタグをgithubにプッシュ</li>
+<li>Travisが新しいリリースを見てビルドを開始</li>
+<li>Travisはテスト実行前に新しいバンドルを作成</li>
+<li>Travisがテストを実行</li>
+<li>TravisがLintを実行（ただしビルドを失敗させません）</li>
+<li>もしビルドが失敗ｓたら中断</li>
+<li>もし成功したら、Travisは何らかの変更があったらコミットして戻す（ないこともある）</li>
+<li>Travisがこのコミットがタグに関連したものであることを確認する</li>
+<li>Travisが<code>.travis.yml</code>内のnpmの暗号化クレデンシャルを使い、新しいバージョンをnpmに公開</li>
+</ol>
+<h2 id="publishing-a-github-release">GitHubにリリースを公開</h2>
+<p><strong>TODO</strong></p>
+<h2 id="updating-docschange-logmd"><code>docs/change-log.md</code>を更新する</h2>
+<p><strong>TODO</strong></p>
+
+				<hr />
+				<small>License: MIT. © Leo Horie.</small>
+			</section>
+		</main>
+		<script src="lib/prism/prism.js"></script>
+		<script>
+		document.querySelector(".hamburger").onclick = function() {
+			document.body.className = document.body.className === "navigating" ? "" : "navigating"
+			document.querySelector("h1 + ul").onclick = function() {
+				document.body.className = ''
+			}
+		}
+		</script>
+	</body>
+</html>

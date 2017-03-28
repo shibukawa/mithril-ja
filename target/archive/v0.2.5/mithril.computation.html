@@ -1,0 +1,287 @@
+<!doctype html>
+<html>
+	<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>m.startComputation / m.endComputation - Mithril</title>
+		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
+		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header>
+			<nav class="container">
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+			</nav>
+		</header>
+		<main>
+			<section class="content">
+				<div class="container">
+					<div class="row">
+						<div class="col(3,3,12)">
+							<h2 id="api">API (v0.2.5)</h2>
+							<h3 id="core">コア</h3>
+							<ul>
+								<li><a href="mithril.html" title="仮想エレメントを作るためのユーティリティ">m</a></li>
+								<li><a href="mithril.component.html" title="コンポーネントのパラメータ化">m.component</a></li>
+								<li><a href="mithril.mount.html" title="コンポーネントのレンダリング">m.mount</a></li>
+								<li><a href="mithril.prop.html" title="getter-setterユーティリティ">m.prop</a></li>
+								<li><a href="mithril.withAttr.html" title="イベントハンドラを生成するユーティリティ">m.withAttr</a></li>
+							</ul>
+							<h3 id="routing">ラウティング</h3>
+							<ul>
+								<li><a href="mithril.route.html" title="ラウティングユーティリティ">m.route</a>
+									<ul>
+										<li><a href="mithril.route.html#defining-routes" title="存在するラウトの定義">m.route(rootElement, defaultRoute, routes)</a></li>
+										<li><a href="mithril.route.html#redirecting" title="ラウトへリダイレクト">m.route(path, params, replaceHistory)</a></li>
+										<li><a href="mithril.route.html#reading-current-route" title="現在のラウトを取得">m.route()</a></li>
+										<li><a href="mithril.route.html#mode-abstraction" title="ラウティングモードの抽象化">m.route(element)</a></li>
+										<li><a href="mithril.route.html#mode" title="ラウティングがハッシュ、クエリー文字列、パス名のどのモードを使用するか">m.route.mode</a></li>
+										<li><a href="mithril.route.html#param" title="パラメータ化されたラウトから引数の読み込み">m.route.param</a></li>
+										<li><a href="mithril.route.html#buildQueryString" title="データをクエリー文字列フォーマットでシリアライズ">m.route.buildQueryString</a></li>
+										<li><a href="mithril.route.html#parseQueryString" title="パラメータ化されたラウトから引数の読み込み">m.route.parseQueryString</a></li>
+									</ul>
+								</li>
+							</ul>
+							<h3 id="data">データ</h3>
+							<ul>
+								<li><a href="mithril.request.html" title="高レベルなAJAXユーティリティ">m.request</a></li>
+								<li><a href="mithril.deferred.html" title="Promiseのファクトリ">m.deferred</a></li>
+								<li><a href="mithril.sync.html" title="Promiseを集約">m.sync</a></li>
+							</ul>
+							<h3 id="html">HTML</h3>
+							<ul>
+								<li><a href="mithril.trust.html" title="エスケープしないHTMLのためのメソッド">m.trust</a></li>
+							</ul>
+							<h3 id="rendering">レンダリング</h3>
+							<ul>
+								<li><a href="mithril.render.html" title="低レベルのレンダリングの方法">m.render</a></li>
+								<li><a href="mithril.redraw.html" title="高レベルな明示的なレンダリングメソッド">m.redraw</a>
+									<ul>
+										<li><a href="mithril.redraw.html#strategy" title="次の再描画をどのような戦略で行うかを決定するフラグ">m.redraw.strategy(strategy)</a></li>
+									</ul>
+								</li>
+								<li><a href="mithril.computation.html" title="非同期のコンテキストをMithrilのレンダリングシステムに統合するためのユーティリティ">m.startComputation / m.endComputation</a></li>
+							</ul>
+							<h3 id="data">テスト</h3>
+							<ul>
+								<li><a href="mithril.deps.html" title="依存性注入(Dependency Injection)">m.deps</a></li>
+							</ul>
+							
+							<h2 id="archive">履歴</h2>
+							<ul>
+								<li><a href="roadmap.html">ロードマップ</a></li>
+								<li><a href="change-log.html">変更履歴</a></li>
+							</ul>
+						</div>
+						<div class="col(9,9,12)">
+							<h2 id="m-startcomputation-m-endcomputation">m.startComputation / m.endComputation</h2>
+<hr>
+<ul>
+<li><a href="#how-auto-redrawing-works">どのように再描画が行われるか</a></li>
+<li><a href="#difference-between-computation-methods-and-m-redraw">computationメソッドとm.redrawの違い</a></li>
+<li><a href="#integrating-multiple-execution-threads">複数実行スレッドの統合</a></li>
+<li><a href="#integrating-to-legacy-code">レガシーコードとの統合</a></li>
+<li><a href="#signature">シグニチャ</a></li>
+</ul>
+<hr>
+<p>多くの場合、アプリケーション空間から<code>m.startComputation</code> / <code>m.endComputation</code>を呼ぶ必要はありません。これらのメソッドは非同期のタスクを実行するライブラリを作成したり、素のJavaScriptの非同期関数をテンプレートの<a href="mithril.html#accessing-the-real-dom"><code>config</code></a>関数から呼び出す人のみが使うことを想定しています。</p>
+<p>MithrilのAPIを使わないで、カスタムの非同期呼び出しを行った時に、ビューが更新されていない時は、<code>m.startComputation</code> / <code>m.endComputation</code>を使用することを検討してください。カスタムコードの処理が終わった時にMithrilが賢く自動再描画を行います。</p>
+<p>非同期のコードとMithrilの自動再描画システムを統合する時は、非同期処理を呼び出す「前に」<code>m.startComputation</code>を呼び出し、非同期のコールバックの最後で<code>m.endComputation</code>を呼び出してください。</p>
+<pre><code class="lang-javascript">//このサービスは1秒間待ってログに"hello"と出力し、その後ビューに
+//再描画を行うように知らせています (他の非同期処理により延期されないかぎり)
+var doStuff = function() {
+    m.startComputation(); //`startComputation`は非同期の`setTimeout`の前に呼び出す
+
+    setTimeout(function() {
+        console.log("hello");
+
+        m.endComputation(); //`endComputation`はコールバックの最後で呼び出す
+    }, 1000);
+};
+</code></pre>
+<p>同期処理のコードと統合する場合は、メソッドの先頭で<code>m.startComputation</code>を呼んで、最後に<code>m.endComputation</code>を呼んでください。</p>
+<pre><code class="lang-javascript">window.onfocus = function() {
+    m.startComputation(); //イベントハンドラの先頭で、他の処理よりも先に呼ぶ
+
+    doStuff();
+
+    m.endComputation(); //イベントハンドラの最後で、他の処理よりも後に呼ぶ
+}
+</code></pre>
+<p>ライブラリ内のそれぞれの<code>m.startComputation</code>呼び出しに対して、「かならず」「１回だけ」<code>m.endComputation</code>を呼んでください。</p>
+<p><code>setInterval</code>を使う場合など、コードが別々に呼ばれるような場合はこれらのメソッドは使わないでください。もし、ユーザの入力を待つことなく、繰り返し再描画を行いたい場合は、繰り返し可能なコンテキストの中で、手動で<a href="mithril.redraw.html"><code>m.redraw</code></a>を呼び出してください。</p>
+<p><code>startComputation</code>を呼んだ後に、対になる<code>endComputation</code>呼び出しをすると、再描画システム全体が動作しなくなるので注意してください。例外が発生する可能性のあるコードを<code>try</code>ブロックで囲み、対応する<code>m.endComputation</code>を<code>finally</code>ブロック内で呼ぶようにすると、再描画システムが停止することを防げます。</p>
+<pre><code class="lang-javascript">window.onfocus = function() {
+    m.startComputation();
+
+    try {
+        doStuff();
+    }
+    finally {
+        m.endComputation(); //`doStuff`が例外を投げたとしても再描画が行われる
+    }
+}
+</code></pre>
+<hr>
+<h3 id="how-auto-redrawing-works">どのように再描画が行われるか</h3>
+<p>Mithrilの自動再描画システムは、<code>m.prop</code> getter-setterの値の変更では何もしません。Mithrilは再描画のタイミングを、<code>m.startComputation</code>と<code>m.endComputation</code>の呼び出しで決めます。</p>
+<p>Mithrilは内部カウンタを持っています。このカウンタは<code>m.startComputation</code>が呼ばれるたびに増加し、<code>m.endComputation</code>が呼ばれると減少します。カウンタがゼロになるとMithrilは再描画を行います。Mithrilは、<a href="mithril.mount.html"><code>m.mount</code></a>、<a href="mithril.route.html"><code>m.route</code></a>、<a href="mithril.request.html"><code>m.request</code></a>の中と、<a href="mithril.html"><code>m()</code></a> で定義されたイベント呼び出しの中で、この関数のペアを呼びます。</p>
+<p><code>m.request</code>をコントローラのコンテキスト内で複数回呼ぶと、内部カウンターが増加します。リクエストが完了するたびにカウンタが減少します。すべてのリクエストが完了するのを待って、Mithrilは再描画を行おうとします。サードパーティのライブラリや、ネイティブJavaScriptのコードから非同期関数を使う時も、これらの関数のペアを呼ぶ場合は同じルールが適用されます。</p>
+<p>Mithrilがすべての非同期サービスの待ち合わせをするのは、何度もムダなブラウザ再描画を行わないようにしたり、テンプレート内でnull参照チェックを行う回数を減らす、という理由によるものです。</p>
+<p><code>m.request</code>の<code>background</code>オプションを使用したり、Mithril外の非同期関数を呼ぶ時は単に<code>m.startComputation</code> / <code>m.endComputation</code>の呼び出しをしなければ再描画のスケジューリングをやめ、再描画が積極的に行われます。</p>
+<pre><code class="lang-javascript">//`background`オプションのサンプル
+var component = m.component({
+    controller: function() {
+        //`background`を設定すると、リクエストの完了を待たずにすぐに再描画を行う
+        m.request({method: "GET", url: "/foo", background: true})
+    },
+    //...
+})
+</code></pre>
+<p><a href="mithril.redraw.html#changing-redraw-strategy"><code>m.redraw.strategy</code></a>を使うと、任意で行う再描画の戦略を変更することができます。再描画戦略の変更は次に計画されている再描画にのみ影響を与えます。再描画が完了すると、Mithrilは再描画がの原因が他のアクションにあるかどうかをを元にして、<code>m.redraw.strategy</code>の設定を"all"か"diff"に変更します。</p>
+<pre><code class="lang-javascript">//ゼロから再描画するのではなく、ラウト変更時にも差分検知をする
+//ラウト変更後も`&lt;input&gt;`エレメントと、それに追加されたサードパーティプラグインが維持される
+var Component1 = m.component({
+    controller: function() {
+        m.redraw.strategy("diff")
+    },
+    view: function() {
+        return m("div", [
+            m("h1", "Hello Foo"),
+            m("input", {config: plugin}) //`plugin`がサードパーティのライブラリを初期化するものとする
+        ])
+    }
+})
+
+var Component2 = m.component({
+    controller: function() {
+        m.redraw.strategy("diff")
+    },
+    view: function() {
+        return m("div", [
+            m("h1", "Hello Bar"),
+            m("input", {config: plugin}) //`plugin`がサードパーティのライブラリを初期化するものとする
+        ])
+    }
+})
+
+m.route(document.body, "/foo", {
+    "/foo": Component1,
+    "/bar": Component2,
+})
+</code></pre>
+<pre><code class="lang-javascript">//モデル
+var saved = false
+function save(e) {
+    if (e.keyCode == 13) {
+        //デフォルトでイベントハンドラは自動再描画を起動するため再描画が行われる
+        saved = true
+    }
+    else {
+        //他のキーについては無視したいので、再描画も行わない
+        m.redraw.strategy("none")
+    }
+}
+
+//ビュー
+var view = function() {
+    return m("div", [
+        m("button[type=button]", {onkeypress: save}, "保存"),
+        saved ?"Saved" : ""
+    ])
+}
+</code></pre>
+<hr>
+<h3 id="difference-between-computation-methods-and-m-redraw">computationメソッドとm.redrawの違い</h3>
+<p><code>m.startComputation</code> / <code>m.endComputation</code>のペアは「スタックされる」ように設計されています。例えば、複数の非同期サービスのそれぞれがこの呼出のペアを持っており、すべてのリクエストが完了するまで再描画を待たせることができます。これとは対照的に<code>m.redraw</code>は「アグレッシブ」です。このメソッドは、呼ばれた回数だけ再描画を行おうとします(実際には、同一フレーム内の呼び出しはまとめます)。<code>m.redraw</code>を使うと、AJAX呼び出しの完了前に再描画を実行させることができます。データの存在のチェックを行わないと、null参照例外が発生する恐れがあります。</p>
+<p>そのため、複数の非同期アクセスが完了する前に再描画が即座に行われないようにするために、computationメソッドを使うほうが推奨です。</p>
+<p>computationメソッドを使うと、未完了のデータをテンプレートが利用することがなくなります。しかし、テンプレート内でnullになりえる可能性がある場合は常にチェックコードを書くことが大切です。新しく導入したサードパーティライブラリが<code>m.redraw</code>を呼び出す可能性がありますし、何かしらの機能を実装する時に積極的な再描画を行う必要が出てくる可能性があるからです。</p>
+<p>nullになる可能性がある場合の対処法としては、<a href="mithril.request.html"><code>m.request</code></a>に<code>initialValue</code>オプションを指定するか、基本的なnullチェック(例: <code>data ?m("div", data) : null</code>)を行う方法があります。</p>
+<hr>
+<h3 id="integrating-multiple-execution-threads">複数実行スレッドの統合</h3>
+<p><a href="integration.html">サードパーティ製のライブラリを統合する時に</a>、MithrilのAPIの外で非同期メソッドが使っているものもあるでしょう。</p>
+<p>自明でない非同期処理のコードとMithrilの自動再描画システムを統合するときには、確実にすべてのスレッドで<code>m.startComputation</code> / <code>m.endComputation</code>を呼び出す必要があります。</p>
+<p>実行スレッドは基本的に、他の非同期スレッドが実行する前に、ある程度の量のコードを含んでいます。</p>
+<p>複数の実行スレッドのコードと統合を行うには2つの方法があります。階層に分けて行う方法と、統括的に行う方法です。</p>
+<h4 id="layered-integration">階層に分けて統合</h4>
+<p>たくさんのさまざまなAPIがアプリケーションレベルで使われている時は、階層に分けて統合する方法がおすすめです。</p>
+<p>次のサンプルは、多くのメソッドがサードパーティ製ライブラリを使っているコードを、階層に分けて統合したコードになります。メソッドの中には個別に使われるものもあれば、組み合わせて使われるものもあります。</p>
+<p><code>doBoth</code>は<code>doSomething</code>と<code>doAnother</code>から呼び出されるため、<code>m.startComputation</code>を何度も呼んでいます。このコードは完璧に正しいコードです。<code>jQuery.when</code>が呼ばれた後に、そこから3組の<code>m.startComputation</code> / <code>m.endComputation</code>呼び出しがあるため、3つの非同期描画が遅延されて、バッチ処理されます。</p>
+<pre><code class="lang-javascript">var doSomething = function(callback) {
+    m.startComputation(); //`startComputation`は非同期のAJAXリクエスト前に呼ぶ
+
+    return jQuery.ajax("/something").done(function() {
+        if (callback) callback();
+
+        m.endComputation(); //`endComputation`はコールバックの最後で呼び出す
+    });
+};
+var doAnother = function(callback) {
+    m.startComputation(); //`startComputation`は非同期のAJAXリクエスト前に呼ぶ
+
+    return jQuery.ajax("/another").done(function() {
+        if (callback) callback();
+        m.endComputation(); //`endComputation`はコールバックの最後で呼び出す
+    });
+};
+var doBoth = function(callback) {
+    m.startComputation(); //非同期の同期メソッドの前に`startComputation`を呼び出す
+
+    jQuery.when(doSomething(), doAnother()).then(function() {
+        if (callback) callback();
+
+        m.endComputation(); //`endComputation`はコールバックの最後で呼び出す
+    })
+};
+</code></pre>
+<h4 id="comprehensive-integration">統括的な統合</h4>
+<p>非同期の操作が、常に同じ手順で使われている場合には、統括的な統合がおすすめです。階層に分けた統合と比べると、<code>m.startComputation</code> / <code>m.endComputation</code>呼び出しが最小限になります。</p>
+<p>次のサンプルには、サードパーティライブラリを使った複雑に入り組んだAJAXリクエストのかたまりがあります。</p>
+<pre><code class="lang-javascript">var doSomething = function(callback) {
+    m.startComputation(); //すべての処理の前に`startComputation`を呼び出す
+
+    jQuery.ajax("/something").done(function() {
+        doStuff();
+        jQuery.ajax("/another").done(function() {
+            doMoreStuff();
+            jQuery.ajax("/more").done(function() {
+                if (callback) callback();
+
+                m.endComputation(); //すべての処理の後に`endComputation`を呼び出す
+            });
+        });
+    });
+};
+</code></pre>
+<hr>
+<h3 id="integrating-to-legacy-code">レガシーコードとの統合</h3>
+<p>もし、個別のウィジェットを同じページ内の異なる場所に置きたい場合には、通常のMithrilアプリケーションと同じように、<code>m.render</code>、<code>m.mount</code>、<code>m.route</code>などを使ってそれぞれのウィジェットを初期化することができます。</p>
+<p>１つだけ注意すべきことがあるとしたら、単純にこれら複数の「島」を初期化してしまった時に、それぞれの初期化呼び出しがお互いを認識せずに、再描画処理が想定上に発生してしまう、ということを避けなければならない、ということです。レンダリングを初期化するには、それぞれの実行スレッドの中で、最初のウィジェットの初期化の前に<code>m.startComputation</code>を呼び出し、最後のウィジェットの初期化の後に<code>m.endComputation</code>を呼び出すだけです。</p>
+<pre><code>m.startComputation()
+
+m.mount(document.getElementById("widget1-container"), Widget1)
+
+m.mount(document.getElementById("widget2-container"), Widget2)
+
+m.endComputation()
+</code></pre><hr>
+<h3 id="signature">シグニチャ</h3>
+<p><a href="how-to-read-signatures.html">シグニチャの読み方</a></p>
+<pre><code class="lang-clike">void startComputation()
+</code></pre>
+<pre><code class="lang-clike">void endComputation()
+</code></pre>
+
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<div class="container">
+				<a href="http://opensource.org/licenses/MIT" target="_blank">MITライセンス</a>でリリースされています<br />© 2014 Leo Horie
+			</div>
+		</footer>
+		<script src="lib/prism/prism.js"></script>
+	</body>
+</html>

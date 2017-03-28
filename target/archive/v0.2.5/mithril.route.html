@@ -1,0 +1,386 @@
+<!doctype html>
+<html>
+	<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>m.route - Mithril</title>
+		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
+		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header>
+			<nav class="container">
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+			</nav>
+		</header>
+		<main>
+			<section class="content">
+				<div class="container">
+					<div class="row">
+						<div class="col(3,3,12)">
+							<h2 id="api">API (v0.2.5)</h2>
+							<h3 id="core">コア</h3>
+							<ul>
+								<li><a href="mithril.html" title="仮想エレメントを作るためのユーティリティ">m</a></li>
+								<li><a href="mithril.component.html" title="コンポーネントのパラメータ化">m.component</a></li>
+								<li><a href="mithril.mount.html" title="コンポーネントのレンダリング">m.mount</a></li>
+								<li><a href="mithril.prop.html" title="getter-setterユーティリティ">m.prop</a></li>
+								<li><a href="mithril.withAttr.html" title="イベントハンドラを生成するユーティリティ">m.withAttr</a></li>
+							</ul>
+							<h3 id="routing">ラウティング</h3>
+							<ul>
+								<li><a href="mithril.route.html" title="ラウティングユーティリティ">m.route</a>
+									<ul>
+										<li><a href="mithril.route.html#defining-routes" title="存在するラウトの定義">m.route(rootElement, defaultRoute, routes)</a></li>
+										<li><a href="mithril.route.html#redirecting" title="ラウトへリダイレクト">m.route(path, params, replaceHistory)</a></li>
+										<li><a href="mithril.route.html#reading-current-route" title="現在のラウトを取得">m.route()</a></li>
+										<li><a href="mithril.route.html#mode-abstraction" title="ラウティングモードの抽象化">m.route(element)</a></li>
+										<li><a href="mithril.route.html#mode" title="ラウティングがハッシュ、クエリー文字列、パス名のどのモードを使用するか">m.route.mode</a></li>
+										<li><a href="mithril.route.html#param" title="パラメータ化されたラウトから引数の読み込み">m.route.param</a></li>
+										<li><a href="mithril.route.html#buildQueryString" title="データをクエリー文字列フォーマットでシリアライズ">m.route.buildQueryString</a></li>
+										<li><a href="mithril.route.html#parseQueryString" title="パラメータ化されたラウトから引数の読み込み">m.route.parseQueryString</a></li>
+									</ul>
+								</li>
+							</ul>
+							<h3 id="data">データ</h3>
+							<ul>
+								<li><a href="mithril.request.html" title="高レベルなAJAXユーティリティ">m.request</a></li>
+								<li><a href="mithril.deferred.html" title="Promiseのファクトリ">m.deferred</a></li>
+								<li><a href="mithril.sync.html" title="Promiseを集約">m.sync</a></li>
+							</ul>
+							<h3 id="html">HTML</h3>
+							<ul>
+								<li><a href="mithril.trust.html" title="エスケープしないHTMLのためのメソッド">m.trust</a></li>
+							</ul>
+							<h3 id="rendering">レンダリング</h3>
+							<ul>
+								<li><a href="mithril.render.html" title="低レベルのレンダリングの方法">m.render</a></li>
+								<li><a href="mithril.redraw.html" title="高レベルな明示的なレンダリングメソッド">m.redraw</a>
+									<ul>
+										<li><a href="mithril.redraw.html#strategy" title="次の再描画をどのような戦略で行うかを決定するフラグ">m.redraw.strategy(strategy)</a></li>
+									</ul>
+								</li>
+								<li><a href="mithril.computation.html" title="非同期のコンテキストをMithrilのレンダリングシステムに統合するためのユーティリティ">m.startComputation / m.endComputation</a></li>
+							</ul>
+							<h3 id="data">テスト</h3>
+							<ul>
+								<li><a href="mithril.deps.html" title="依存性注入(Dependency Injection)">m.deps</a></li>
+							</ul>
+							
+							<h2 id="archive">履歴</h2>
+							<ul>
+								<li><a href="roadmap.html">ロードマップ</a></li>
+								<li><a href="change-log.html">変更履歴</a></li>
+							</ul>
+						</div>
+						<div class="col(9,9,12)">
+							<h2 id="m-route">m.route</h2>
+<hr>
+<ul>
+<li><a href="#defining-routes">ラウトの定義</a></li>
+<li><a href="#variadic-routes">可変個引数のラウト</a></li>
+<li><a href="#routes-with-querystrings">ラウトとクエリー文字列</a></li>
+<li><a href="#running-clean-up-code-on-route-change">ラウト変更時に後処理コードを実行する</a></li>
+<li><a href="#redirecting">リダイレクト</a></li>
+<li><a href="#reading-the-currently-active-route">現在アクティブなラウトの取得</a></li>
+<li><a href="#mode-abstraction">モードの抽象化</a></li>
+</ul>
+<hr>
+<p>ラウティング(Routing = アメリカ英語読みはルーティングよりもラウティングが近い)は、シングルページアプリケーション(SPA)を作るための仕組みです。他のページに行く時に、フルにブラウザをリフレッシュしなくても済むアプリケーションを実現することができます。</p>
+<p>この機能を使うと、各ページをブックマークしたり、ブラウザの履歴の機能はそのままに、シームレスなナビゲーションが可能になります。</p>
+<p>このメソッドは4つの異なる機能をオーバーロードしています:</p>
+<ul>
+<li><p><code>m.route(rootElement, defaultRoute, routes)</code> - アプリケーションで使用できるURLとその時にロードされるコンポーネントの定義</p>
+</li>
+<li><p><code>m.route(path)</code> - 他のラウトへリダイレクト</p>
+</li>
+<li><p><code>m.route()</code> - 現在アクティブなラウトの取得</p>
+</li>
+<li><p><code>m.route(element)</code> - ラウトのモードを抽象化し、現在のモードで利用可能なエレメントの実リンクを取得</p>
+</li>
+</ul>
+<p>ラウトはシングルページアプリケーション(SPA)を実現しやすくする仕組みで、 <code>location.hash</code>、HTML5のURL書き換え、<code>location.querystring</code>のどれかの方法を使って実装できます。それぞれの実装方法の詳細については、<a href="#mode"><code>m.route.mode</code></a>を参照してください。</p>
+<hr>
+<h3 id="defining-routes">ラウトの定義</h3>
+<h4 id="usage">使用方法</h4>
+<p>ラウトを定義する時は、ホストとなるDOM要素と、デフォルトのラウト、あとは遷移する可能性のあるラウトとそれをレンダリングするための<a href="mithril.component.html">コンポーネント</a>のキー・バリューのマップが必要となります。ラウトのリストを定義した場合は、モジュールの初期化をするために<a href="mithril.mount.html"><code>m.mount</code></a>を呼ぶ必要はありません。<code>m.route</code>が代わりに呼んでくれます。</p>
+<p>次のサンプルは、&lt;body&gt;のレンダリングをする、3つのラウトを定義しています。<code>home</code>、<code>login</code>、<code>dashboard</code>はそれぞれコンポーネントです。どのようにコンポーネントを定義するか見ていきましょう。</p>
+<pre><code class="lang-javascript">m.route(document.body, "/", {
+    "/": Home,
+    "/login": Login,
+    "/dashboard": Dashboard,
+});
+</code></pre>
+<p><code>:</code>を前に付いた単語を書くことで、ラウトに引数を設定することができます。</p>
+<p>次のサンプルは<code>userID</code>パラメータを取るラウトです。</p>
+<pre><code class="lang-javascript">//サンプルコンポーネント
+var Dashboard = {
+    controller: function() {
+        return {id: m.route.param("userID")}
+    },
+    view: function(controller) {
+        return m("div", controller.id);
+    }
+}
+
+//#記号から始まるラウトを使用するための設定
+m.route.mode = "hash";
+
+//ラウトの定義
+m.route(document.body, "/dashboard/johndoe", {
+    "/dashboard/:userID": Dashboard
+});
+</code></pre>
+<p>これを実行すると、<code>http://server/#/dashboard/johndoe</code>にリダイレクトして、下記のタグを挿入します:</p>
+<pre><code class="lang-markup">&lt;body&gt;&lt;div&gt;johndoe&lt;/div&gt;&lt;/body&gt;
+</code></pre>
+<p>上記のサンプルの<code>dashboard</code>はコンポーネントです。モジュールは<code>controller</code>プロパティと<code>view</code>プロパティを持ちます。URLがラウトにマッチすると、対応するコンポーネントのコントローラがインスタンス化されて、引数としてビューに渡されます。</p>
+<p>この場合、ひとつのラウトしかないため、アプリケーションはデフォルトのラウトの<code>"/dashboard/johndoe"</code>にリダイレクトされます。。</p>
+<p><code>johndoe</code>という文字列が<code>:userID</code>パラメータに結び付けられます。このパラメータは、コントローラ内で<code>m.route.param("userID")</code>というAPI呼び出しをするとプログラムから参照できます。</p>
+<p><code>m.route.mode</code>は、URLのどの部分をラウトとして使うかを設定します。</p>
+<hr>
+<h4 id="variadic-routes">可変個引数のラウト</h4>
+<p>省略記号(<code>...</code>)をラウトの引数の名前に付けると、スラッシュを含むURLにマッチさせることができます:</p>
+<pre><code class="lang-javascript">m.route(document.body, "/files/pictures/pic1.jpg", {
+    "/files/:file...": gallery
+});
+
+m.route.param("file") === "pictures/pic1.jpg"
+</code></pre>
+<pre><code class="lang-javascript">m.route(document.body, "/blog/2014/01/20/articles", {
+    "/blog/:date.../articles": articleList
+});
+
+m.route.param("date") === "2014/01/20"
+</code></pre>
+<p>Mithrilはラウトのマッチを定義された順番に行っていきます。そのため、可変個の引数を持つラウトは末尾に書かないと、より範囲の狭いラウトのマッチが行われなくなります。</p>
+<pre><code>m.route(document.body, "/blog/archive/2014", {
+    "/blog/:date...": Component1, //上記のデフォルトパスはこのラウトに先にマッチします!
+    "/blog/archive/:year": Component2
+});
+
+m.route.param("date") === "archive/2014"
+
+//`m.route.param("year") == "2014"`が成立するように、ラウト定義の順番を変えること
+</code></pre><hr>
+<h4 id="routes-with-querystrings">ラウトとクエリー文字列</h4>
+<p>ラウトパラメータ以外にも、クエリー文字列を使って任意のデータを<code>m.route.param</code>に渡すことができます。</p>
+<pre><code class="lang-javascript">m.route("/grid?sortby=date&amp;dir=desc")
+
+var sortBy = m.route.param("sortby") // "date"
+var dir = m.route.param("dir") // "desc"
+</code></pre>
+<hr>
+<h4 id="running-clean-up-code-on-route-change">ラウト変更時に後処理コードを実行する</h4>
+<p>コンポーネントのコントローラが<code>onunload</code>インスタンスメソッドを定義している場合、ラウトが変更されるとこのメソッドが呼び出されます。</p>
+<pre><code class="lang-javascript">var Home = {
+    controller: function() {
+        return {
+            onunload: function() {
+                console.log("ホームをアンロード");
+            }
+        };
+    },
+    view: function() {
+        return m("div", "Home")
+    }
+};
+
+var Dashboard = {
+    controller: function() {},
+    view: function() {}
+};
+
+//デフォルトラウト(home)に移動
+m.route(document.body, "/", {
+    "/": Home,
+    "/dashboard": Dashboard,
+});
+
+//re-route to dashboard
+m.route("/dashboard"); // logs "unloading home component"
+</code></pre>
+<p>This mechanism is useful to clear timers and unsubscribe event handlers. コンポーネントが階層化されている場合は、階層の中のモジュールのすべての<code>onunload</code>を呼ぶこともできますし、特定のコンポーネントをアンロードするときには<a href="http://microjs.com/#pubsub">pubsub</a>ライブラリを呼ぶこともできます。</p>
+<hr>
+<h4 id="signature">シグニチャ</h4>
+<p><a href="how-to-read-signatures.html">シグニチャの読み方</a></p>
+<pre><code class="lang-clike">void route(DOMElement rootElement, String defaultRoute, Object&lt;Component&gt; routes) { String mode, String param(String key), String buildQueryString(Object data), Object parseQueryString(String data) }
+
+where:
+    Component :: Object { void controller(), void view(Object controllerInstance) }
+</code></pre>
+<ul>
+<li><p><strong>DOMElement root</strong></p>
+<p>ビューのテンプレートの結果が作成されるDOMエレメント。</p>
+</li>
+<li><p><strong>String defaultRoute</strong></p>
+<p>現在のURLが、どの定義されたラウトにもマッチしなかった時にリダイレクトされラウト</p>
+</li>
+<li><p><strong>Object<Component> routes</strong></p>
+<p>利用可能なラウトと、そのラウトに対応するコンポーネントの対応が格納されたキー・バリュー・マップ。キーは絶対パスを指定しますが、動的パラメータを含めることができます。動的パラメータはコロン(<code>:</code>)で始まっている単語です。</p>
+<p><code>{'/path/to/page/': pageComponent}</code> - 基本パス名のラウト</p>
+<p><code>{'/path/to/page/:id': pageComponent}</code> - <code>id</code>と呼ばれる動的パラメータを含むパス名のラウトこのラウとは、<code>/path/to/page/1</code>、<code>/path/to/page/test</code>といったURLが指定された場合に選択されます。</p>
+<p><code>{'/user/:userId/book/:bookId': userBookComponent}</code> - 2つのパラメータを含むパス名のラウト</p>
+<p>動的パラメータは、URLパターンに応じてコンポーネント選択する時に使用できるワイルドカードです。URLの中で動的パラメータを置き換えた値は、<code>m.route.param()</code>を通じて取得することができます。</p>
+<p>ラウトの解決に使うURLの部位は、<code>m.route.mode</code>によって決定されます。デフォルトではラウト集に対してクエリー文字列がURLの構成要素として解釈されます。</p>
+<p>現在のページのURLが、設定されたラウトにマッチした場合には、対応するコンポーネントがアクティブになります。コンポーネントに関しては<a href="mithril.component.html"><code>m.component</code></a>を参照してください。</p>
+</li>
+<li><p><a name="mode"></a></p>
+<h4 id="m-route-mode">m.route.mode</h4>
+<p><strong>String mode</strong></p>
+<p><code>m.route.mode</code>プロパティを使うと、どのURLに対してラウティングの仕組みを実装するかを定義できます。このプロパティには、"search"、"hash"、"pathname"のいづれかの文字列を設定できます。デフォルトは"search"です。この設定を変更する場合には、<code>m.route</code>を呼び出す<strong>前に</strong>行ってください。</p>
+<ul>
+<li><p><code>search</code>モードはクエリー文字列 (<code>?</code>以降)を利用します。このモードを使うと、名前付きのアンカー(例えば、<code>&lt;a href="#top"&gt;トップに戻る&lt;/a&gt;</code>、<code>&lt;a name="top"&gt;&lt;/a&gt;</code>)を使うことができますが、IE8の場合は<code>history.pushState</code>のサポートがないため、ページリフレッシュが発生してしまいます。</p>
+<p>サンプルURL: <code>http://server/?/path/to/page</code></p>
+</li>
+<li><p><code>hash</code>モードはハッシュ(<code>#以降</code>)を使います。このモードは唯一、どのブラウザでもページリフレッシュが発生しません。しかし、このモードでは名前付きアンカーが使えなくなります。</p>
+<p>サンプルURL: <code>http://server/#/path/to/page</code></p>
+</li>
+<li><p><code>pathname</code>モードは特別な文字を含まないURLを許可します。しかし、このモードでブックマークとページリフレッシュをサポートするためには、サーバ側にも手を加える必要があります。IE8上では、常にページリフレッシュが発生します。</p>
+<p>サンプルURL: <code>http://server/path/to/page</code></p>
+<p>pathnameモードを使用するためのサーバ設定の中で、一番簡単な方法は、どのURLが要求されても同じコンテンツを返すようにする方法です。Apacheを使っている場合は、mod_rewriteを使用してURLの書き換えを行うことでできます。</p>
+<p><code>pathname</code>モードを使う場合は、アプリケーションがルートのURLで実行するようにしてください。</p>
+</li>
+</ul>
+</li>
+<li><p><a name="param"></a></p>
+<h4 id="m-route-param">m.route.param</h4>
+<p><strong>String param(String key)</strong></p>
+<p>ラウトのパラメータは、現在アクティブなラウトのシグニチャを元にして、現在のURLから取り出された動的な値です。</p>
+<p>パラメータのないラウトは次のようなものです:</p>
+<p><code>"/path/to/page/"</code></p>
+<p>パラメータ付きのラウトは次のような文字列です:</p>
+<p><code>"/path/to/page/:id"</code> - ここでは、<code>id</code>がラウトパラメータの名前</p>
+<p>もし、現在アクティブなラウトが<code>/dashboard/:userID</code>で、現在のURLが<code>/dashboard/johndoe</code>だとすると、<code>m.route.param("userID")</code>は<code>"johndoe"</code>を返します。</p>
+<p>ラウト中のクエリー文字列のパラメータもこのコレクションに自動的に格納されます。</p>
+<p><code>"/grid?sortby=date"</code> - ここでは、<code>m.route.param("sortby")</code>は<code>"date"</code>を返す</p>
+<ul>
+<li><p><strong>String key</strong></p>
+<p>ラウトパラメータの名前</p>
+</li>
+<li><p><strong>returns String value</strong></p>
+<p><code>key</code>にマップされたパラメータの値</p>
+</li>
+</ul>
+<p><strong>Object param()</strong></p>
+<ul>
+<li><p><strong>returns Object params</strong></p>
+<p>ラウトのパラメータをすべて含むオブジェクト</p>
+</li>
+</ul>
+</li>
+<li><p><a name="buildQueryString"></a></p>
+<h4 id="m-route-buildquerystring">m.route.buildQueryString</h4>
+<p><strong>String buildQueryString(Object data)</strong></p>
+<p><a href="https://medialize.github.io/URI.js/">URI.js</a>と同じシリアライズ規約を使い、オブジェクトをURIでエンコードされたクエリー文字列にシリアライズします。</p>
+<ul>
+<li><p><strong>Object data</strong></p>
+<p>シリアライズしたいオブジェクト</p>
+</li>
+<li><p><strong>returns String querystring</strong></p>
+<p>入力データのシリアライズ化表現</p>
+</li>
+</ul>
+</li>
+<li><p><a name="parseQueryString"></a></p>
+<h4 id="m-route-parsequerystring">m.route.parseQueryString</h4>
+<p><strong>Object parseQueryString(String querystring)</strong></p>
+<p><a href="https://medialize.github.io/URI.js/">URI.js</a>のデシリアライズ規約を用いて、URIエンコードされたクエリー文字列表現されたオブジェクトをデシリアライズします。</p>
+<ul>
+<li><p><strong>String querystring</strong></p>
+<p>デシリアライズするURIエンコーディングされたクエリー文字列</p>
+</li>
+<li><p><strong>returns Object data</strong></p>
+<p>デシリアライズしたオブジェクト</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><a name="redirecting"></a></p>
+<h3 id="redirecting">リダイレクト</h3>
+<h4 id="usage">使用方法</h4>
+<p>APIを使用して他のページにリダイレクトすることもできます。ラウトの定義のセクションのサンプルですでに使っています:</p>
+<pre><code class="lang-javascript">m.route("/dashboard/marysue");
+</code></pre>
+<p>このコードを実行すると、<code>http://server/#/dashboard/marysue</code>にリダイレクトします。</p>
+<hr>
+<h4 id="signature">シグニチャ</h4>
+<p><a href="how-to-read-signatures.html">シグニチャの読み方</a></p>
+<pre><code class="lang-clike">void route(String path [, any params] [, Boolean shouldReplaceHistory])
+</code></pre>
+<ul>
+<li><p><strong>String path</strong></p>
+<p>リダイレクト先のラウト。もし、Mithrilのラウティングで取り扱っている範囲外のページにリダイレクトする場合は、<code>window.location</code>を使うべきです。</p>
+</li>
+<li><p><strong>any params</strong></p>
+<p>クエリー文字列として渡されるパラメータ</p>
+</li>
+<li><p><strong>Boolean shouldReplaceHistory</strong></p>
+<p>もしこのパラメータがtrueに設定されると、新しいページを追加するのではなく、現在のヒストリのエントリーを置き換えます。デフォルトはfalseです。</p>
+</li>
+</ul>
+<hr>
+<p><a name="reading-current-route"></a></p>
+<h3 id="reading-the-currently-active-route">現在アクティブなラウトの取得</h3>
+<h4 id="usage">使用方法</h4>
+<p>Mithrilはレンダリングの後に、ネイティブの<code>location</code>を更新して、<code>history.pushState</code> APIが正しい履歴のエントリーが表示されるようにします(Chromeの場合はCtrl+H page)。</p>
+<p>コントローラ内で、現在アクティブなラウトを取得するには、<code>m.route()</code>を使います。この関数は、<code>m.route.mode</code>で決定されるURLのパーツ(マイナス<code>?</code>もしくは<code>#</code>シンボル - それぞれ<code>search</code>モードと<code>hash</code> モード時)を返します。</p>
+<pre><code class="lang-javascript">//もしロケーションバーが"http://example.com/?/foo/bar"
+//で、m.route.modeが`search`の場合は、
+//`currentRoute == "/foo/bar"`
+var currentRoute = m.route();
+</code></pre>
+<hr>
+<h4 id="signature">シグニチャ</h4>
+<p><a href="how-to-read-signatures.html">シグニチャの読み方</a></p>
+<pre><code class="lang-clike">String route()
+</code></pre>
+<ul>
+<li><p><strong>returns String route</strong></p>
+<p>現在アクティブなラウトを返します。</p>
+</li>
+</ul>
+<hr>
+<p><a name="mode-abstraction"></a></p>
+<h3 id="mode-abstraction">モードの抽象化</h3>
+<h4 id="usage">使用方法</h4>
+<p>このメソッドを使うには、 <code>config</code>仮想エレメントのプロパティを使用します。サンプル:</p>
+<pre><code class="lang-javascript">//`config`の設定を使うことで、`href`内に'#'を書かなくてもよくなる。
+m("a[href='/dashboard/alicesmith']", {config: m.route});
+</code></pre>
+<p>この書き方を使用すると、どの<code>m.route.mode</code>が選択されていたとしても、期待通りの実行結果が得られます。href属性の中に<code>?</code>や<code>#</code>をハードコードするのではなく、常に上記のようなイディオムを使うのが良いプラクティスです。</p>
+<p>仮想エレメントについての詳細は、<a href="mithril.html"><code>m()</code></a>のドキュメントを参照してください。</p>
+<hr>
+<h4 id="signature">シグニチャ</h4>
+<p><a href="how-to-read-signatures.html">シグニチャの読み方</a></p>
+<pre><code class="lang-clike">void route(DOMElement element, Boolean isInitialized, Object context, Object vdom)
+</code></pre>
+<ul>
+<li><p><strong>DOMElement element</strong></p>
+<p>ラウトを指す<code>href</code>属性を持つ<code>&lt;a&gt;</code>エレメント。</p>
+</li>
+<li><p><strong>Boolean isInitialized</strong></p>
+<p>このフラグがtrueの場合はこのメソッドは実行されません。これは、仮想DOMエレメント<code>config</code>属性に対して、メソッドの互換性を維持するために使用します。<a href="mithril"><code>m()</code></a>を参照して下さい。</p>
+</li>
+<li><p><strong>Object context</strong></p>
+<p>再描画間で状態を保持するオブジェクトです。</p>
+</li>
+<li><p><strong>Object vdom</strong></p>
+<p>configが適用された仮想DOMデータ構造</p>
+</li>
+</ul>
+
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<div class="container">
+				<a href="http://opensource.org/licenses/MIT" target="_blank">MITライセンス</a>でリリースされています<br />© 2014 Leo Horie
+			</div>
+		</footer>
+		<script src="lib/prism/prism.js"></script>
+	</body>
+</html>

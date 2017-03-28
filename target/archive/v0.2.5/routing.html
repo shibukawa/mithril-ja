@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+	<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>ラウティング - Mithril</title>
+		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
+		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header>
+			<nav class="container">
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+			</nav>
+		</header>
+		<main>
+			<section class="content">
+				<div class="container">
+					<div class="row">
+						<div class="col(3,3,12)">
+							<h2 id="core-topics">基本トピック</h2>
+							<ul>
+								<li><a href="installation.html">インストール</a></li>
+								<li><a href="getting-started.html">はじめよう</a></li>
+								<li><a href="routing.html">ラウティング</a></li>
+								<li><a href="web-services.html">ウェブサービス</a></li>
+								<li><a href="components.html">コンポーネント</a></li>
+							</ul>
+							<h2 id="advanced-topics.html">上級トピック</h2>
+							<ul>
+								<li><a href="auto-redrawing.html">自動再描画システム</a></li>
+								<li><a href="integration.html">他のライブラリとの統合</a></li>
+								<li><a href="optimizing-performance.html">テンプレートのコンパイル</a></li>
+							</ul>
+							<h2 id="misc">その他</h2>
+							<ul>
+								<li><a href="comparison.html">他のMVCフレームワークとの違い</a></li>
+								<li><a href="benchmarks.html">ベンチマーク</a></li>
+								<li><a href="practices.html">良いプラクティス</a></li>
+								<li><a href="tools.html">便利なツール</a></li>
+							</ul>
+						</div>
+						<div class="col(9,9,12)">
+							<h2 id="routing">ラウティング</h2>
+<p>ラウティング(Routing = アメリカ英語読みはルーティングよりもラウティングが近い)は、シングルページアプリケーション(SPA)を作るための仕組みです。他のページに行く時に、フルにブラウザをリフレッシュしなくても済むアプリケーションを実現することができます。</p>
+<p>この機能を使うと、各ページをブックマークしたり、ブラウザの履歴の機能はそのままに、シームレスなナビゲーションが可能になります。</p>
+<p>Mithrilは、ラウティングに関して、3種類の異なるサポートを提供します:</p>
+<ul>
+<li>ラウトのリストの定義</li>
+<li>ソースコードによる、ラウト間のリダイレクト</li>
+<li>テンプレート内でリンクを作ると、透過的であまり主張しないリンクが作成できる</li>
+</ul>
+<hr>
+<h3 id="defining-routes">ラウトの定義</h3>
+<p>ラウトを定義する時は、ホストとなるDOM要素と、デフォルトのラウト、あとは遷移する可能性のあるラウトとそれをレンダリングするための<a href="mithril.mount.html">モジュール</a>のキー・バリューのマップが必要となります。</p>
+<p>次のサンプルは、&lt;body&gt;のレンダリングをする、3つのラウトを定義しています。<code>home</code>、<code>login</code>、<code>dashboard</code>はそれぞれモジュールです。どのようにモジュールを定義するか見ていきましょう。</p>
+<pre><code class="lang-javascript">m.route(document.body, "/", {
+    "/": home,
+    "/login": login,
+    "/dashboard": dashboard,
+});
+</code></pre>
+<p><code>:</code>を前に付いた単語を書くことで、ラウトに引数を設定することができます。</p>
+<p>次のサンプルは<code>userID</code>パラメータを取るラウトです。</p>
+<pre><code class="lang-javascript">//サンプルモジュール
+var dashboard = {
+    controller: function() {
+        return {id: m.route.param("userID")};
+    },
+    view: function(controller) {
+        return m("div", controller.id);
+    }
+}
+
+//#記号から始まるラウトを使用するための設定
+m.route.mode = "hash";
+
+//ラウトの定義
+m.route(document.body, "/dashboard/johndoe", {
+    "/dashboard/:userID": dashboard
+});
+</code></pre>
+<p>これを実行すると、<code>http://server/#/dashboard/johndoe</code>にリダイレクトして、下記のタグを挿入します:</p>
+<pre><code class="lang-markup">&lt;body&gt;johndoe&lt;/body&gt;
+</code></pre>
+<p>上記のサンプルの<code>dashboard</code>はモジュールです。モジュールは<code>controller</code>プロパティと<code>view</code>プロパティを持ちます。URLがラウトにマッチすると、対応するモジュールのコントローラがインスタンス化されて、引数としてビューに渡されます。</p>
+<p>この場合、ひとつのラウトしかないため、アプリケーションはデフォルトのラウトの<code>"/dashboard/johndoe"</code>にリダイレクトして、フレームワーク内で<code>m.mount(document.body, dashboard)</code>が呼ばれます。</p>
+<p><code>johndoe</code>という文字列が<code>:userID</code>パラメータに結び付けられます。このパラメータは、コントローラ内で<code>m.route.param("userID")</code>というAPI呼び出しをするとプログラムから参照できます。</p>
+<p><code>m.route.mode</code>プロパティを使うと、どのURLに対してラウティングの仕組みを実装するかを定義できます。これは必ず<code>m.route</code>呼び出しよりも先に設定しなければなりません。このプロパティには、"search"、"hash"、"pathname"のいづれかの文字列を設定できます。デフォルトは"search"です。</p>
+<ul>
+<li><p><code>search</code>モードはクエリー文字列を利用します。このモードを使うと、名前付きのアンカー(例えば、<code>&lt;a href="#top"&gt;トップに戻る&lt;/a&gt;</code>、<code>&lt;a name="top"&gt;&lt;/a&gt;</code>)を使うことができますが、IE8の場合は<code>history.pushState</code>のサポートがないため、ページリフレッシュが発生してしまいます。</p>
+<p>サンプルURL: <code>http://server/?/path/to/page</code></p>
+</li>
+<li><p><code>hash</code>モードはハッシュを使います。このモードは唯一、どのブラウザでもページリフレッシュが発生しません。しかし、このモードでは名前付きアンカーが使えなくなりますし、ブラウザの履歴のリストがサポートされません。</p>
+<p>サンプルURL: <code>http://server/#/path/to/page</code></p>
+</li>
+<li><p><code>pathname</code>モードは特別な文字を含まないURLを許可します。しかし、このモードでブックマークとページリフレッシュをサポートするためには、サーバ側にも手を加える必要があります。このモードも、IE8でページリフレッシュが発生します。</p>
+<p>サンプルURL: <code>http://server/path/to/page</code></p>
+<p>pathnameモードを使用するためのサーバ設定の中で、一番簡単な方法は、どのURLが要求されても同じコンテンツを返すようにする方法です。Apacheを使っている場合は、<a href="https://httpd.apache.org/docs/current/mod/mod_rewrite.html">mod_rewrite</a>を使用してURLの書き換えを行うことでできます。</p>
+</li>
+</ul>
+<hr>
+<h3 id="redirecting">リダイレクト</h3>
+<p>APIを使用して他のページにリダイレクトすることもできます。ラウトの定義のセクションのサンプルですでに使っています:</p>
+<pre><code class="lang-javascript">m.route("/dashboard/marysue");
+</code></pre>
+<p>このコードを実行すると、<code>http://server/#/dashboard/marysue</code>にリダイレクトします。</p>
+<hr>
+<h3 id="mode-abstraction">モードの抽象化</h3>
+<p>このメソッドを使うには、 <code>config</code>仮想エレメントのプロパティを使用します。サンプル:</p>
+<pre><code class="lang-javascript">//`config`の設定を使うことで、`href`内に'#'を書かなくてもよくなる。
+m("a[href='/dashboard/alicesmith']", {config: m.route});
+</code></pre>
+<p>この書き方を使用すると、どの<code>m.route.mode</code>が選択されていたとしても、期待通りの実行結果が得られます。href属性の中に<code>?</code>や<code>#</code>をハードコードするのではなく、常に上記のようなイディオムを使うのが良いプラクティスです。</p>
+<p>仮想エレメントについての詳細は、<a href="mithril.html"><code>m()</code></a>のドキュメントを参照してください。</p>
+<hr>
+<h3 id="redrawing-semantics-of-routing">ラウティングのおける再描画のセマンティクス</h3>
+<p>デフォルトでは、ラウトの変更時にはすべてを破棄してテンプレートの再描画が行われます。この動作は、<a href="mithril.html#persisting-dom-elements-across-route-changes">configのコンテキストオブジェクトのretainフラグ</a>、もしくは<a href="mithril.redraw.html#changing-redraw-strategy"><code>m.redraw.strategy("diff")</code>ヒント</a>を使って変更することができます。</p>
+
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<div class="container">
+				<a href="http://opensource.org/licenses/MIT" target="_blank">MITライセンス</a>でリリースされています<br />© 2014 Leo Horie
+			</div>
+		</footer>
+		<script src="lib/prism/prism.js"></script>
+	</body>
+</html>

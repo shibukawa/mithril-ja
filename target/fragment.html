@@ -1,0 +1,143 @@
+<html>
+	<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="UTF-8" />
+		<title>  fragment(attrs, children) - Mithril.js</title>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	</head>
+	<body>
+		<header>
+			<section>
+				<a class="hamburger" href="javascript:;">≡</a>
+				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<nav>
+					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
+				</nav>
+			</section>
+		</header>
+		<main>
+			<section>
+				<h1 id="fragmentattrs,-children">fragment(attrs, children)</h1>
+<ul>
+<li>コア<ul>
+<li><a href="hyperscript.html">m</a></li>
+<li><a href="render.html">m.render</a></li>
+<li><a href="mount.html">m.mount</a></li>
+<li><a href="route.html">m.route</a></li>
+<li><a href="request.html">m.request</a></li>
+<li><a href="jsonp.html">m.jsonp</a></li>
+<li><a href="parseQueryString.html">m.parseQueryString</a></li>
+<li><a href="buildQueryString.html">m.buildQueryString</a></li>
+<li><a href="withAttr.html">m.withAttr</a></li>
+<li><a href="trust.html">m.trust</a></li>
+<li><strong><a href="fragment.html">m.fragment</a></strong><ul>
+<li><a href="#description">説明</a></li>
+<li><a href="#signature">シグニチャ</a></li>
+<li><a href="#how-it-works">どのように動作するのか</a></li>
+</ul>
+</li>
+<li><a href="redraw.html">m.redraw</a></li>
+<li><a href="version.html">m.version</a></li>
+<li><a href="promise.html">Promise</a></li>
+</ul>
+</li>
+<li>オプショナル<ul>
+<li><a href="stream.html">Stream</a></li>
+</ul>
+</li>
+<li>ツール<ul>
+<li><a href="https://github.com/lhorie/mithril.js/blob/rewrite/ospec">Ospec</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="description">説明</h3>
+<p>フラグメント<a href="vnodes.html">vnode</a>にライフサイクルメソッドを追加します</p>
+<pre><code class="lang-javascript">var groupVisible = true
+var log = function() {
+    console.log("グループが表示されました")
+}
+
+m("ul", [
+    m("li", "子供 1"),
+    m("li", "子供 2"),
+    groupVisible ?m.fragment({oninit: log}, [
+        // フラグメントには2つの要素が含まれる
+        子供m("li", "子供 3"),
+        m("li", "child 4"),
+    ]) : null
+])
+</code></pre>
+<hr>
+<h3 id="signature">シグニチャ</h3>
+<p><a href="vnodes.html">vnode</a>フラグメントを生成します。</p>
+<p><code>vnode = m.fragment(attrs, children)</code></p>
+<table>
+<thead>
+<tr>
+<th>引数</th>
+<th>型</th>
+<th>必須</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>attrs</code></td>
+<td><code>Object</code></td>
+<td>Yes</td>
+<td>属性のマップ</td>
+</tr>
+<tr>
+<td><code>children</code></td>
+<td><code>Array&lt;Vnode&gt;|String|Number|Boolean</code></td>
+<td>Yes</td>
+<td>vnodeのリスト</td>
+</tr>
+<tr>
+<td><strong>returns</strong></td>
+<td><code>Vnode</code></td>
+<td></td>
+<td>フラグメント<a href="vnodes.html">vnode</a></td>
+</tr>
+</tbody>
+</table>
+<p><a href="signatures.html">シグニチャの読み方</a></p>
+<hr>
+<h3 id="how-it-works">どのように動作するのか</h3>
+<p><code>m.fragment()</code>は属性付きの<a href="vnodes.html">フラグメントvnode</a>を作成します。このメソッドは<a href="keys.html">キー</a>や<a href="lifecycle-methods.html">ライフサイクルメソッド</a>などの高度なユースケースで使います。</p>
+<p>フラグメントvnodeはDOM要素のリストを表現します。もし通常の1つのDOM要素を現すエレメントvnodeが必要であれば、このメソッドの代わりに<a href="hyperscript.html"><code>m()</code></a>を使用してください。</p>
+<p>通常であれば、ノードのリストを表現するには、単純に配列を使うことができます:</p>
+<pre><code class="lang-javascript">var groupVisible = true
+
+m("ul", [
+    m("li", "子供 1"),
+    m("li", "子供 2"),
+    groupVisible ?[
+        // フラグメントには2つの要素が含まれる
+        子供m("li", "子供 3"),
+        m("li", "child 4"),
+    ] : null
+])
+</code></pre>
+<p>しかし、JavaScriptの配列には、キーを関連付けたり、ライフサイクルメソッドを付与することができません。キーやライフサイクルメソッドを管理するラッパー要素を作るのも方法の１つですが、この方法を使うと新しい不要な要素ができてしまい、複雑なテーブル構造などをさらにわかりにくくします。このような時に代わりにフラグメントvnodeが使えます。</p>
+<p>vnodeによるオブジェクト構造を自作する代わりに<code>m.fragment</code>を使用するといくつかのメリットがあります。まず、m.fragmentが作るのは<a href="vnodes.html#monomorphic-class">単一構造のオブジェクト</a>であり、動的にオブジェクトを作成するのよりもパフォーマンスが優れています。これに加えて、<code>m.fragment</code>を使うことで、設計の意図を明確に他の開発者に伝えることができます。そして、<code>attrs</code>のマップ以外に間違ってvnodeオブジェクトの属性を追加してしまうことを減らすことができます。</p>
+
+				<hr />
+				<small>License: MIT. © Leo Horie.</small>
+			</section>
+		</main>
+		<script src="lib/prism/prism.js"></script>
+		<script>
+		document.querySelector(".hamburger").onclick = function() {
+			document.body.className = document.body.className === "navigating" ? "" : "navigating"
+			document.querySelector("h1 + ul").onclick = function() {
+				document.body.className = ''
+			}
+		}
+		</script>
+	</body>
+</html>

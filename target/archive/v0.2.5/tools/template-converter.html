@@ -1,0 +1,15 @@
+<!doctype html>
+<title>HTML→Mithrilテンプレートコンバータ</title>
+
+<h1>HTML→Mithrilテンプレートコンバータ</h1>
+<p>
+	もしすでにHTMLを作成済みで、それをMithirlのテンプレートに変換したい場合は、HTMLを下に貼り付けて"Convert"ボタンを押してください。これ自身もMithrilのアプリケーションです。
+</p>
+
+<div id="converter"></div>
+
+<script src="../mithril.min.js"></script>
+<script src="template-converter.js"></script>
+<script>
+m.mount(document.getElementById("converter"), templateConverter)
+</script>

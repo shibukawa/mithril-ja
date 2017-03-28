@@ -2,7 +2,7 @@
 	<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8" />
-		<title>  Installation - Mithril.js</title>
+		<title> インストール - Mithril.js</title>
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 		<link href="lib/prism/prism.css" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
@@ -12,7 +12,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg">  Mithril <small>1.0.0</small></h1>
+				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
 				<nav>
 					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
 				</nav>
@@ -62,63 +62,63 @@
 </li>
 </ul>
 <h3 id="cdn">CDN</h3>
-<p>If you're new to Javascript or just want a very simple setup to get your feet wet, you can get Mithril from a <a href="https://en.wikipedia.org/wiki/Content_delivery_network">CDN</a>:</p>
-<pre><code class="lang-markup">&lt;script src="http://unpkg.com/mithril/mithril.js"&gt;&lt;/script&gt;
+<p>もし、JavaScriptにまだ不慣れであったり、セットアップの作業をなるべく簡単に終わらせたいのであれば<a href="https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%B3%E3%83%86%E3%83%B3%E3%83%84%E3%83%87%E3%83%AA%E3%83%90%E3%83%AA%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF">CDN</a>からMithrilを取得できます:</p>
+<pre><code class="lang-markup">&lt;script src="https://unpkg.com/mithril/mithril.js"&gt;&lt;/script&gt;
 </code></pre>
 <hr>
 <h3 id="npm">NPM</h3>
-<h4 id="quick-start-with-webpack">Quick start with Webpack</h4>
-<pre><code class="lang-bash"># 1) install
+<h4 id="quick-start-with-webpack">WebPackを使ったクイックスタート</h4>
+<pre><code class="lang-bash"># 1) インストール
 npm install mithril --save
 
 npm install webpack --save
 
-# 2) add this line into the scripts section in package.json
+# 2) package.jsonのscriptsセクションに次の行を足す
 #    "scripts": {
 #        "start": "webpack src/index.js bin/app.js --watch"
 #    }
 
-# 3) create an `src/index.js` file
+# 3) `src/index.js` ファイルを作成する
 
-# 4) create an `index.html` file containing `&lt;script src="bin/app.js"&gt;&lt;/script&gt;`
+# 4) `&lt;script src="bin/app.js"&gt;&lt;/script&gt;` という内容を含む `index.html` ファイルを作成する 
 
-# 5) run bundler
+# 5) バンドラーを実行
 npm start
 
-# 6) open `index.html` in the (default) browser
+# 6) ブラウザで `index.html` を開く
 open index.html
 </code></pre>
-<h4 id="step-by-step">Step by step</h4>
-<p>For production-level projects, the recommended way of installing Mithril is to use NPM.</p>
-<p>NPM (Node package manager) is the default package manager that is bundled w/ Node.js. It is widely used as the package manager for both client-side and server-side libraries in the Javascript ecosystem. Download and install <a href="https://nodejs.org">Node.js</a>; NPM will be automatically installed as well.</p>
-<p>To use Mithril via NPM, go to your project folder, and run <code>npm init --yes</code> from the command line. This will create a file called <code>package.json</code>.</p>
+<h4 id="step-by-step">ステップ・バイ・ステップ</h4>
+<p>プロダクションのためのプロジェクトであれば、推奨はNPMを使ってMithrilをインストールする方法です。</p>
+<p>NPM (Node package manager)はNode.jsにバンドルされているデフォルトのパッケージマネージャーです。NPMは、JavaScriptのエコシステム内で、クライアントサイド、サーバーサイドの両方のライブラリのパッケージマネージャーとして使われています。<a href="https://nodejs.org">Node.js</a>をダウンロードしてインストールすると、NPMも自動的にインストールされます。</p>
+<p>NPM経由でMithrilを使うには、プロジェクトフォルダに行きコマンドラインから、<code>npm init --yes</code>を実行します。<code>package.json</code>という名前のファイルができます。</p>
 <pre><code class="lang-bash">npm init --yes
-# creates a file called package.json
+# package.jsonという名前のファイルができる
 </code></pre>
-<p>Then, to install Mithril, run:</p>
+<p>次のコマンドを実行するとMithrilがインストールされます:</p>
 <pre><code class="lang-bash">npm install mithril --save
 </code></pre>
-<p>This will create a folder called <code>node_modules</code>, and a <code>mithril</code> folder inside of it. It will also add an entry under <code>dependencies</code> in the <code>package.json</code> file</p>
-<p>You are now ready to start using Mithril. The recommended way to structure code is to modularize it via CommonJS modules:</p>
+<p>このコマンドを実行すると、<code>node_modules</code>というフォルダができ、その中に<code>mithril</code>フォルダができます。<code>package.json</code>ファイル内の<code>dependencies</code>にも、エントリーが追加されます。</p>
+<p>これでMithrilを使う準備ができました。CommonJSのモジュール形式を使ってコードを構成するスタイルが推奨です:</p>
 <pre><code class="lang-javascript">// index.js
 var m = require("mithril")
 
 m.render(document.body, "hello world")
 </code></pre>
-<p>Modularization is the practice of separating the code into files. Doing so makes it easier to find code, understand what code relies on what code, and test.</p>
-<p>CommonJS is a de-facto standard for modularizing Javascript code, and it's used by Node.js, as well as tools like <a href="http://browserify.org/">Browserify</a> and <a href="https://webpack.js.org/">Webpack</a>. It's a robust, battle-tested precursor to ES6 modules. Although the syntax for ES6 modules is specified in Ecmascript 6, the actual module loading mechanism is not. If you wish to use ES6 modules despite the non-standardized status of module loading, you can use tools like <a href="http://rollupjs.org/">Rollup</a>, <a href="https://babeljs.io/">Babel</a> or <a href="https://github.com/google/traceur-compiler">Traceur</a>.</p>
-<p>Most browser today do not natively support modularization systems (CommonJS or ES6), so modularized code must be bundled into a single Javascript file before running in a client-side application.</p>
-<p>A popular way for creating a bundle is to setup an NPM script for <a href="https://webpack.js.org/">Webpack</a>. To install Webpack, run this from the command line:</p>
+<p>モジュール化はコードを複数のファイルに分割するための方法です。モジュール化を行うことでコードを探しやすくなったり、コードの依存関係が分かりやすくなったり、テストしやすくなります。</p>
+<p>CommonJSはJavaScriptのコードをモジュール化するためのデファクトスタンダードです。Node.js、<a href="http://browserify.org/">Browserify</a>、<a href="https://webpack.js.org/">WebPack</a>といったツールでサポートされています。この方法はES6モジュールのさきがけとして、他のモジュール化の方式との競争で勝ち残ってきた信頼できる方式です。ECMAScript 6でES6モジュールの文法が策定されましたが、実際のモジュールロードのメカニズムとしてはまだ使えません。もしまだ標準的な実装として使用できる段階にないES6モジュールを使いたい場合は、<a href="http://rollupjs.org/">Rollup</a>, <a href="https://babeljs.io/">Babel</a>, <a href="https://github.com/google/traceur-compiler">Traceur</a>といったツールを使います。</p>
+<p>今日のほとんどのブラウザはネイティブではモジュールシステム(CommonJSあるいはES6)をサポートしていません。そのため、実行前にバンドル化して1つのJavaScriptファイルにする必要があります。</p>
+<p>バンドルを作成する方法として一般的な<a href="https://webpack.js.org/">WebPack</a>を使うNPMスクリプトのセットアップをしましょう。WebPackをインストールするには、次のようにコマンドラインから実行します:</p>
 <pre><code class="lang-bash">npm install webpack --save-dev
 </code></pre>
-<p>Open the <code>package.json</code> that you created earlier, and add an entry to the <code>scripts</code> section:</p>
+<p>以前作成した<code>package.json</code>ファイルを開き、<code>scripts</code>セクションに次の内容を追加します:</p>
 <pre><code>{
     "name": "my-project",
     "scripts": {
         "start": "webpack src/index.js bin/app.js -d --watch"
     }
 }
-</code></pre><p>Remember this is a JSON file, so object key names such as <code>"scripts"</code> and <code>"start"</code> must be inside of double quotes.</p>
+</code></pre><p>このファイルはJSONファイルなので、<code>"scripts"</code>や<code>"start"</code>といったキー名はダブルクオートで括る必要があります。</p>
 <p>The <code>-d</code> flag tells webpack to use development mode, which produces source maps for a better debugging experience.</p>
 <p>The <code>--watch</code> flag tells webpack to watch the file system and automatically recreate <code>app.js</code> if file changes are detected.</p>
 <p>Now you can run the script via <code>npm start</code> in your command line window. This looks up the <code>webpack</code> command in the NPM path, reads <code>index.js</code> and creates a file called <code>app.js</code> which includes both Mithril and the <code>hello world</code> code above. If you want to run the <code>webpack</code> command directly from the command line, you need to either add <code>node_modules/.bin</code> to your PATH, or install webpack globally via <code>npm install webpack -g</code>. It's, however, recommended that you always install webpack locally and use npm scripts, to ensure builds are reproducible in different computers.</p>
@@ -149,7 +149,7 @@ var MyComponent = require("./mycomponent")
 m.mount(document.body, MyComponent)
 </code></pre>
 <p>Note that in this example, we're using <code>m.mount</code>, which wires up the component to Mithril's autoredraw system. In most applications, you will want to use <code>m.mount</code> (or <code>m.route</code> if your application has multiple screens) instead of <code>m.render</code> to take advantage of the autoredraw system, rather than re-rendering manually every time a change occurs.</p>
-<h4 id="production-build">Production build</h4>
+<h4 id="production-build">本番ビルド</h4>
 <p>If you open bin/app.js, you'll notice that the Webpack bundle is not minified, so this file is not ideal for a live application. To generate a minified file, open <code>package.json</code> and add a new npm script:</p>
 <pre><code>{
     "name": "my-project",
@@ -158,7 +158,7 @@ m.mount(document.body, MyComponent)
         "build": "webpack src/index.js bin/app.js -p",
     }
 }
-</code></pre><p>You can use hooks in your production environment to run the production build script automatically. Here's an example for <a href="https://www.heroku.com/">Heroku</a>:</p>
+</code></pre><p>本番環境ではフックを使ってスクリプトの本番ビルドを自動でビルドさせることができます。次のコードは<a href="https://www.heroku.com/">Heroku</a>を使うサンプルです:</p>
 <pre><code>{
     "name": "my-project",
     "scripts": {
@@ -202,7 +202,7 @@ npm start
     &lt;title&gt;Hello world&lt;/title&gt;
   &lt;/head&gt;
   &lt;body&gt;
-    &lt;script src="http://cdn.rawgit.com/lhorie/mithril.js/rewrite/mithril.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cdn.rawgit.com/lhorie/mithril.js/rewrite/mithril.js"&gt;&lt;/script&gt;
     &lt;script src="index.js"&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;

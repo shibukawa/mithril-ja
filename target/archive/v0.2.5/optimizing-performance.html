@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+	<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>パフォーマンスの最適化 - Mithril</title>
+		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
+		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header>
+			<nav class="container">
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+			</nav>
+		</header>
+		<main>
+			<section class="content">
+				<div class="container">
+					<div class="row">
+						<div class="col(3,3,12)">
+							<h2 id="core-topics">基本トピック</h2>
+							<ul>
+								<li><a href="installation.html">インストール</a></li>
+								<li><a href="getting-started.html">はじめよう</a></li>
+								<li><a href="routing.html">ラウティング</a></li>
+								<li><a href="web-services.html">ウェブサービス</a></li>
+								<li><a href="components.html">コンポーネント</a></li>
+							</ul>
+							<h2 id="advanced-topics.html">上級トピック</h2>
+							<ul>
+								<li><a href="auto-redrawing.html">自動再描画システム</a></li>
+								<li><a href="integration.html">他のライブラリとの統合</a></li>
+								<li><a href="optimizing-performance.html">テンプレートのコンパイル</a></li>
+							</ul>
+							<h2 id="misc">その他</h2>
+							<ul>
+								<li><a href="comparison.html">他のMVCフレームワークとの違い</a></li>
+								<li><a href="benchmarks.html">ベンチマーク</a></li>
+								<li><a href="practices.html">良いプラクティス</a></li>
+								<li><a href="tools.html">便利なツール</a></li>
+							</ul>
+						</div>
+						<div class="col(9,9,12)">
+							<h2 id="optimizing-performance">パフォーマンスの最適化</h2>
+<p>ページがその機能を実装するために複雑すぎる状況になっているという状況は稀ですが、その場合にMithrilのパフォーマンスを改善する方法はいくつｋもあります。</p>
+<p>まず第一に、パフォーマンスの最適化が自分にとって最後の手段であるかどうかを真剣に考えてください。パフォーマンスの最適化でやりがちなこととしては、特殊なケースですぐに成り立たなくなるような思い込みを行い、コードの理解が極めて難しいコードを書いてしまうということがあります。一般的な方針として、他のソリューションがある場合には、<em>絶対に</em>パフォーマンスの最適化を行わないほうが良いでしょう。</p>
+<p>もし、数千行の行を持つテーブルの構築を行っていて、そのテンプレートの動作が遅いことが分かったとしても、まずはユーザビリティの観点から表示行数を少なくすることを検討すべきです。だれも数千行のレコードを実際に読み込もうとする人などいないからです。テーブルをページ分割したり、ソートやフィルタ可能にすると、ユーザエクスペリエンスが向上するだけでなく、再描画と初期のページロードの両方のパフォマンスの問題が解決します。</p>
+<hr>
+<h2 id="compiling-templates">テンプレートのコンパイル</h2>
+<p>オプションの機能としては、<a href="https://github.com/tivac/mithril-objectify/">mithril-objectify</a>を使用すると、<code>m()</code>を使ったテンプレートを事前にコンパイルすることができます。このステップはMithrilを使う上で必須のものではありませんが、コードを一切変更せずにアプリケーション外で簡単にパフォーマンスを少し向上させることができます。</p>
+<p>テンプレートをコンパイルすると、ネストされた関数呼び出しを生の仮想DOMツリーに変換します。これはネイティブのJavaScriptオブジェクトの集合体で、<a href="mithril.render.html"><code>m.render</code></a>を使って即座にレンダリングできます。コンパイルされたテンプレートを使用する時は、<code>m("div#foo")</code>といった文字列をパースする必要がなく、関数呼び出しのコストは発生しません。</p>
+<p>Mithrilでは、ブラウザの再描画の管理やDOMの更新などの、本物のボトルネック以外をあまり気にする必要はありません。Mithirilは <a href="http://lhorie.github.io/mithril/index.html#performance">トップページのパフォーマンスのセクション</a>で既にお見せしているように、コンパイルなどしなくてもすでに高速です。このオプションのコンパイルツールは、いわば「ケーキの上のデコレーション」です。</p>
+<p>このツールは下記のような通常のMithrilのテンプレートを受け取ります:</p>
+<pre><code class="lang-javascript">var view = function() {
+    return m("a", {href: "http://google.com"}, "test");
+}
+</code></pre>
+<p>このマクロは<code>m()</code>関数の呼び出しを事前に処理してし次のような関数を生成します:</p>
+<pre><code class="lang-javascript">var view = function() {
+    return {tag: "a", attrs: {href: "http://google.com"}, children: "test"};
+}
+</code></pre>
+<p>このコンパイル済みのテンプレートは自動ビルドプロセスの結果作られたものであって、人間がこのように書くべきという意味ではありません。</p>
+<hr>
+<h3 id="installing">インストール</h3>
+<p>Mithril-objectifyを実行するには<a href="http://nodejs.org">NodeJS</a>環境が必要になります。NodeJSをインストールするには、NodeJSのウェブサイトに行き、提供されているインストーラを使用します。</p>
+<p>mithril-objectifyをインストールするのに使うコマンドラインのパッケージマネージャは、NodeJSが提供しています。コマンドラインで次のようにタイプします:</p>
+<pre><code>npm install -g mithril-objectify
+</code></pre><p>インストールが終わって、ファイルをコンパイルするには次のようにタイプします:</p>
+<pre><code>mithril-objectify ./input-filename.js ./output-filename.js
+</code></pre>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<div class="container">
+				<a href="http://opensource.org/licenses/MIT" target="_blank">MITライセンス</a>でリリースされています<br />© 2014 Leo Horie
+			</div>
+		</footer>
+		<script src="lib/prism/prism.js"></script>
+	</body>
+</html>

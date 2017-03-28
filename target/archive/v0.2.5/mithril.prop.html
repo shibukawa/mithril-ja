@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+	<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>m.prop - Mithril</title>
+		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
+		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header>
+			<nav class="container">
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+			</nav>
+		</header>
+		<main>
+			<section class="content">
+				<div class="container">
+					<div class="row">
+						<div class="col(3,3,12)">
+							<h2 id="api">API (v0.2.5)</h2>
+							<h3 id="core">コア</h3>
+							<ul>
+								<li><a href="mithril.html" title="仮想エレメントを作るためのユーティリティ">m</a></li>
+								<li><a href="mithril.component.html" title="コンポーネントのパラメータ化">m.component</a></li>
+								<li><a href="mithril.mount.html" title="コンポーネントのレンダリング">m.mount</a></li>
+								<li><a href="mithril.prop.html" title="getter-setterユーティリティ">m.prop</a></li>
+								<li><a href="mithril.withAttr.html" title="イベントハンドラを生成するユーティリティ">m.withAttr</a></li>
+							</ul>
+							<h3 id="routing">ラウティング</h3>
+							<ul>
+								<li><a href="mithril.route.html" title="ラウティングユーティリティ">m.route</a>
+									<ul>
+										<li><a href="mithril.route.html#defining-routes" title="存在するラウトの定義">m.route(rootElement, defaultRoute, routes)</a></li>
+										<li><a href="mithril.route.html#redirecting" title="ラウトへリダイレクト">m.route(path, params, replaceHistory)</a></li>
+										<li><a href="mithril.route.html#reading-current-route" title="現在のラウトを取得">m.route()</a></li>
+										<li><a href="mithril.route.html#mode-abstraction" title="ラウティングモードの抽象化">m.route(element)</a></li>
+										<li><a href="mithril.route.html#mode" title="ラウティングがハッシュ、クエリー文字列、パス名のどのモードを使用するか">m.route.mode</a></li>
+										<li><a href="mithril.route.html#param" title="パラメータ化されたラウトから引数の読み込み">m.route.param</a></li>
+										<li><a href="mithril.route.html#buildQueryString" title="データをクエリー文字列フォーマットでシリアライズ">m.route.buildQueryString</a></li>
+										<li><a href="mithril.route.html#parseQueryString" title="パラメータ化されたラウトから引数の読み込み">m.route.parseQueryString</a></li>
+									</ul>
+								</li>
+							</ul>
+							<h3 id="data">データ</h3>
+							<ul>
+								<li><a href="mithril.request.html" title="高レベルなAJAXユーティリティ">m.request</a></li>
+								<li><a href="mithril.deferred.html" title="Promiseのファクトリ">m.deferred</a></li>
+								<li><a href="mithril.sync.html" title="Promiseを集約">m.sync</a></li>
+							</ul>
+							<h3 id="html">HTML</h3>
+							<ul>
+								<li><a href="mithril.trust.html" title="エスケープしないHTMLのためのメソッド">m.trust</a></li>
+							</ul>
+							<h3 id="rendering">レンダリング</h3>
+							<ul>
+								<li><a href="mithril.render.html" title="低レベルのレンダリングの方法">m.render</a></li>
+								<li><a href="mithril.redraw.html" title="高レベルな明示的なレンダリングメソッド">m.redraw</a>
+									<ul>
+										<li><a href="mithril.redraw.html#strategy" title="次の再描画をどのような戦略で行うかを決定するフラグ">m.redraw.strategy(strategy)</a></li>
+									</ul>
+								</li>
+								<li><a href="mithril.computation.html" title="非同期のコンテキストをMithrilのレンダリングシステムに統合するためのユーティリティ">m.startComputation / m.endComputation</a></li>
+							</ul>
+							<h3 id="data">テスト</h3>
+							<ul>
+								<li><a href="mithril.deps.html" title="依存性注入(Dependency Injection)">m.deps</a></li>
+							</ul>
+							
+							<h2 id="archive">履歴</h2>
+							<ul>
+								<li><a href="roadmap.html">ロードマップ</a></li>
+								<li><a href="change-log.html">変更履歴</a></li>
+							</ul>
+						</div>
+						<div class="col(9,9,12)">
+							<h2 id="m-prop">m.prop</h2>
+<hr>
+<ul>
+<li><a href="#usage">使用方法</a></li>
+<li><a href="#third-party-promise-library-support">サードパーティのPromiseライブラリのサポート</a></li>
+<li><a href="#serializing-getter-setters">getter-setterのシリアライズ</a></li>
+<li><a href="#signature">シグニチャ</a></li>
+</ul>
+<hr>
+<p>この関数は、getter-setterのファクトリ関数です。この関数は、情報を保持する関数を返します。</p>
+<p><code>m.prop</code>getter-setterの値を変更しても、再描画が起動されることはありません。Mithrilの再描画システムは、<a href="mithril.computation.html"><code>m.startComputation</code>と<code>m.endComputation</code></a>の呼び出しをトリガーとして実行されます。これらの関数は、<a href="mithril.mount.html"><code>m.mount</code></a>や<a href="mithril.route.html"><code>m.route</code></a>を通じてコンポーネントを初期化したり、<a href="mithril.html"><code>m()</code></a>を使って作られたテンプレート内のイベントハンドラを起動したときに呼ばれます。 </p>
+<hr>
+<h3 id="usage">使用方法</h3>
+<pre><code class="lang-javascript">/`John`という値でgetter-setterを初期化
+var name = m.prop("John");
+
+//値を取得する
+var a = name(); //a == "John"
+
+//値を`Mary`に設定する
+name("Mary"); //Mary
+
+//値を取得する
+var b = name(); //b == "Mary"
+</code></pre>
+<p>この関数を<a href="mithril.withAttr.html"><code>m.withAttr</code></a>と一緒に使うことで、ビューとモデル間のデータバインディングを作成し、モデルエンティティのプロパティのデータアクセス方法を平準化できます。</p>
+<pre><code class="lang-javascript">//双方向データバインディングのサンプル
+var User = {
+    model: function(name) {
+        this.name = m.prop(name);
+    },
+    controller: function() {
+        this.user = new User.model("John Doe");
+    },
+    view: function(controller) {
+        m.render("body", [
+            m("input", {onchange: m.withAttr("value", controller.user.name), value: controller.user.name()})
+        ]);
+    }
+};
+</code></pre>
+<p>上記のサンプルでは、<code>m.prop</code>を使うことで、コントローラとビュー内のコードを変更することなく、ユーザ名のgetter/setterの実装を変更できるようになっています。</p>
+<p><code>m.prop</code>は、<a href="mithril.request.html"><code>m.request</code></a>や<a href="mithril.deferred.html"><code>m.deferred</code></a>と組み合わせて、非同期操作の結果に対してデータを束縛することもできます。</p>
+<pre><code class="lang-javascript">var users = m.prop([]);
+var error = m.prop("");
+
+m.request({method: "GET", url: "/users"})
+    .then(users, error); //成功時には`users`が変更され、それ以外では`error`が変更される
+//レスポンスには`[{name: "John"}, {name: "Mary"}]`というデータが格納されると想定
+//そのため、ビューなどの中で解決されると、`users` getter-setterはユーザの配列を持ちます
+//例: users()[0].name() == "John"
+</code></pre>
+<hr>
+<h3 id="third-party-promise-library-support">サードパーティのPromiseライブラリのサポート</h3>
+<p>promiseが<code>m.prop()</code>Mithrilのpromiseが返されます。Mithrilのpromiseもまたgetter-setter関数で、promiseが果たされると、解決された値が格納されます。</p>
+<p>promiseが解決されるまでは、propの値は<code>undefined</code>になります。</p>
+<p><a href="https://github.com/kriskowal/q">Q</a>というpromiseライブラリを使うサンプルがこちらです:</p>
+<pre><code class="lang-javascript">var deferred = Q.defer()
+var users = m.prop(deferred.promise)
+
+users() // undefined
+
+deferred.resolve("Hello")
+
+//QのA+互換のPromiseが次のtickで解決するのを待つ
+setTimeout(function() {
+
+    users() // Hello
+    users.then(function(value) {
+        console.log(value) //Hello
+    })
+
+}, 1000)
+</code></pre>
+<hr>
+<h3 id="serializing-getter-setters">getter-setterのシリアライズ</h3>
+<p>getter-setterはJSONにシリアライズすることができます:</p>
+<pre><code class="lang-javascript">var data = {foo: m.prop("bar")};
+JSON.stringify(data); // '{"foo": "bar"}'
+</code></pre>
+<p>これにより、getter-setterはそのまま<a href="mithril.request.html"><code>m.request</code></a>などのパラメータとして渡すことができます。</p>
+<hr>
+<h3 id="signature">シグニチャ</h3>
+<p><a href="how-to-read-signatures.html">シグニチャの読み方</a></p>
+<pre><code class="lang-clike">GetterSetter prop([any initialValue])
+
+where:
+    GetterSetter :: any getterSetter([any value])
+</code></pre>
+<ul>
+<li><p><strong>any initialValue</strong> (optional)</p>
+<p>初期値。もし初期値が与えられなければ、getter-setterの内部ストアのデフォルト値は<code>undefined</code>になります。</p>
+</li>
+<li><p><strong>returns any getterSetter([any value])</strong></p>
+<p>getter-setterメソッド。</p>
+<ul>
+<li><p><strong>any value</strong> (optional)</p>
+<p>もし引数が渡された場合には、getter-setterの内部ストアの値を、渡された値に更新します。</p>
+<p>もし渡されなければ、現在の内部ストアの値を返します。</p>
+</li>
+<li><p><strong>returns any value</strong></p>
+<p>このメソッドは、値が更新されたかどうかにかかわらず、常に内部ストアの値を返します。</p>
+</li>
+</ul>
+</li>
+</ul>
+
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<div class="container">
+				<a href="http://opensource.org/licenses/MIT" target="_blank">MITライセンス</a>でリリースされています<br />© 2014 Leo Horie
+			</div>
+		</footer>
+		<script src="lib/prism/prism.js"></script>
+	</body>
+</html>

@@ -2,7 +2,7 @@
 	<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8" />
-		<title>  Components - Mithril.js</title>
+		<title> コンポーネント - Mithril.js</title>
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 		<link href="lib/prism/prism.css" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
@@ -12,7 +12,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg">  Mithril <small>1.0.0</small></h1>
+				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
 				<nav>
 					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
 				</nav>
@@ -40,10 +40,10 @@
 <li>重要なコンセプト<ul>
 <li><a href="vnodes.html">Vノード</a></li>
 <li><strong><a href="components.html">コンポーネント</a></strong><ul>
-<li><a href="#structure">Structure</a></li>
+<li><a href="#structure">構造</a></li>
 <li><a href="#lifecycle-methods">ライフサイクルメソッド</a></li>
-<li><a href="#state">State</a></li>
-<li><a href="#avoid-anti-patterns">Avoid-anti-patterns</a></li>
+<li><a href="#state">状態</a></li>
+<li><a href="#avoid-anti-patterns">アンチパターンを避ける</a></li>
 </ul>
 </li>
 <li><a href="lifecycle-methods.html">ライフサイクルメソッド</a></li>
@@ -63,9 +63,9 @@
 </ul>
 </li>
 </ul>
-<h3 id="structure">Structure</h3>
-<p>Components are a mechanism to encapsulate parts of a view to make code easier to organize and/or reuse.</p>
-<p>Any Javascript object that has a view method is a Mithril component. Components can be consumed via the <a href="hyperscript.html"><code>m()</code></a> utility:</p>
+<h3 id="structure">構造</h3>
+<p>コンポーネントはビューの部品をカプセル化することで、構造化しやすくしたり、再利用性を高めるための仕組みです。</p>
+<p>viewメソッドを持つJavaScriptのオブジェクトは、Mithrilのコンポーネントとして扱うことができます。コンポーネントを利用するには<a href="hyperscript.html"><code>m()</code></a>ユーティリティを使います:</p>
 <pre><code class="lang-javascript">var Example = {
     view: function() {
         return m("div", "Hello")
@@ -74,44 +74,44 @@
 
 m(Example)
 
-// equivalent HTML
+// 下記のHTMLが生成されます
 // &lt;div&gt;Hello&lt;/div&gt;
 </code></pre>
 <hr>
-<h3 id="passing-data-to-components">Passing data to components</h3>
-<p>Data can be passed to component instances by passing an <code>attrs</code> object as the second parameter in the hyperscript function:</p>
+<h3 id="passing-data-to-components">コンポーネントにデータを渡す</h3>
+<p>コンポーネントのインスタンスには、<code>attrs</code>オブジェクトをhyperscript関数の第二引数に渡すことでデータを渡すことができます:</p>
 <pre><code class="lang-javascript">m(Example, {name: "Floyd"})
 </code></pre>
-<p>This data can be accessed in the component's view or lifecycle methods via the <code>vnode.attrs</code>:</p>
+<p>このデータは、コンポーネントのビュー、あるいはライフサイクルメソッドの引数の<code>vnode.attrs</code>属性を通じて触ることができます:</p>
 <pre><code class="lang-javascript">var Example = {
     view: function (vnode) {
         return m("div", "Hello, " + vnode.attrs.name)
     }
 }
 </code></pre>
-<p>NOTE: Lifecycle methods can also be provided via the <code>attrs</code> object, so you should avoid using the lifecycle method names for your own callbacks as they would also be invoked by Mithril. Use lifecycle methods in <code>attrs</code> only when you specifically wish to create lifecycle hooks.</p>
+<p>NOTE: ライフサイクルメソッドもまた<code>attrs</code>オブジェクトを通じて提供されるため、その引数に規定の名前を使わないようにしてください。Mithrilが意図せずに呼び出すこととなります。<code>attrs</code>に格納されたライフサイクルメソッドを使うのは、ライフサイクルメソッドにフックをかけるという特別な意図がある時のみにしましょう。</p>
 <hr>
 <h3 id="lifecycle-methods">ライフサイクルメソッド</h3>
-<p>Components can have the same <a href="lifecycle-methods.html">lifecycle methods</a> as virtual DOM nodes: <code>oninit</code>, <code>oncreate</code>, <code>onupdate</code>, <code>onbeforeremove</code>, <code>onremove</code> and <code>onbeforeupdate</code>.</p>
+<p>コンポーネントは仮想DOMと同じ<a href="lifecycle-methods.html">ライフサイクルメソッド</a>を持っています。<code>oninit</code>, <code>oncreate</code>, <code>onupdate</code>, <code>onbeforeremove</code>, <code>onremove</code>, <code>onbeforeupdate</code>の各メソッドがあります。</p>
 <pre><code class="lang-javascript">var ComponentWithHooks = {
     oninit: function(vnode) {
-        console.log("initialized")
+        console.log("初期化しました")
     },
     oncreate: function(vnode) {
-        console.log("DOM created")
+        console.log("DOMが作成されました")
     },
     onupdate: function(vnode) {
-        console.log("DOM updated")
+        console.log("DOMが更新されました")
     },
     onbeforeremove: function(vnode) {
-        console.log("exit animation can start")
+        console.log("終了アニメーションが開始できます")
         return new Promise(function(resolve) {
-            // call after animation completes
+            // アニメーション完了後に呼ばれる
             resolve()
         })
     },
     onremove: function(vnode) {
-        console.log("removing DOM element")
+        console.log("DOM要素を削除します")
     },
     onbeforeupdate: function(vnode, old) {
         return true
@@ -121,25 +121,25 @@ m(Example)
     }
 }
 </code></pre>
-<p>Like other types of virtual DOM nodes, components may have additional lifecycle methods defined when consumed as vnode types.</p>
+<p>他の種類の仮想DOMノードと同じように、コンポーネントもビュー内のvnodeとして呼び出される追加のライフサイクルメソッドを持つことができます。</p>
 <pre><code class="lang-javascript">function initialize() {
-    console.log("initialized as vnode")
+    console.log("vnodeとして初期化されました")
 }
 
 m(ComponentWithHooks, {oninit: initialize})
 </code></pre>
-<p>Lifecycle methods in vnodes do not override component methods, nor vice versa. Component lifecycle methods are always run after the vnode's corresponding method.</p>
-<p>Take care not to use lifecycle method names for your own callback function names in vnodes.</p>
-<p>To learn more about lifecycle methods, <a href="lifecycle-methods.html">see the lifecycle methods page</a>.</p>
+<p>vnode内のライフサイクルメソッドはコンポーネントのライフサイクルメソッドを上書きすることはありませんし、その逆もありません。今ポー０ネントのライフサイクルメソッドは、常にvnodeの同名のメソッドの後に呼ばれます。</p>
+<p>vnode内に、ライフサイクルメソッドと同名の名前のコールバックを定義しないように気をつけましょう。</p>
+<p>ライフサイクルメソッドについて詳しく知りたい方は、<a href="lifecycle-methods.html">ライフサイクルメソッドのページを御覧ください。</a>.</p>
 <hr>
-<h3 id="state">State</h3>
-<p>Like all virtual DOM nodes, component vnodes can have state. Component state is useful for supporting object-oriented architectures, for encapsulation and for separation of concerns.</p>
-<p>The state of a component can be accessed three ways: as a blueprint at initialization, via <code>vnode.state</code> and via the <code>this</code> keyword in component methods.</p>
-<h4 id="at-initialization">At initialization</h4>
-<p>Any property attached to the component object is copied for every instance of the component. This allows simple state initialization.</p>
-<p>In the example below, <code>data</code> is a property of the <code>ComponentWithInitialState</code> component's state object.</p>
+<h3 id="state">状態</h3>
+<p>他の仮想DOMノードと同じように、コンポーネントのvnodeも状態を持つことができます。コンポーネントの状態はオブジェクト指向アーキテクチャをサポートするのに便利です。関心を分離してカプセル化を行うことができます。</p>
+<p>コンポーネントの状態にアクセスする方法は3つあります。初期化時にコンポーネントのオブジェクトの雛形経由、<code>vnode.state</code>経由、そして、コンポーネントのメソッドの<code>this</code>キーワードです。</p>
+<h4 id="at-initialization">初期化時</h4>
+<p>コンポーネントオブジェクトに付与されたプロパティはすべて、インスタンス作成時にコピーされます。これにより、シンプルに状態を初期化できます。</p>
+<p>次のサンプルの<code>data</code>は<code>ComponentWithInitialState</code>コンポーネントの状態オブジェクトのプロパティです。</p>
 <pre><code class="lang-javascript">var ComponentWithInitialState = {
-    data: "Initial content",
+    data: "初期データ",
     view: function(vnode) {
         return m("div", vnode.state.data)
     }
@@ -147,11 +147,11 @@ m(ComponentWithHooks, {oninit: initialize})
 
 m(ComponentWithInitialState)
 
-// Equivalent HTML
-// &lt;div&gt;Initial content&lt;/div&gt;
+// 下記のHTMLが生成されます
+// &lt;div&gt;初期データ&lt;/div&gt;
 </code></pre>
-<h4 id="via-vnode-state">Via vnode.state</h4>
-<p>State can also be accessed via the <code>vnode.state</code> property, which is available to all lifecycle methods as well as the <code>view</code> method of a component.</p>
+<h4 id="via-vnodestate">Via vnode.state</h4>
+<p><code>vnode.state</code>プロパティ経由でアクセスすることもできます。このプロパティはすべてのライフサイクルメソッドおよび、コンポーネントの<code>view</code>メソッドから利用できます。</p>
 <pre><code class="lang-javascript">var ComponentWithDynamicState = {
     oninit: function(vnode) {
         vnode.state.data = vnode.attrs.text
@@ -163,11 +163,11 @@ m(ComponentWithInitialState)
 
 m(ComponentWithDynamicState, {text: "Hello"})
 
-// Equivalent HTML
+// 次のHTMLを生成します
 // &lt;div&gt;Hello&lt;/div&gt;
 </code></pre>
-<h4 id="via-the-this-keyword">Via the this keyword</h4>
-<p>State can also be accessed via the <code>this</code> keyword, which is available to all lifecycle methods as well as the <code>view</code> method of a component.</p>
+<h4 id="via-the-this-keyword">thisキーワード経由</h4>
+<p><code>this</code>キーワード経由でアクセスすることもできます。このプロパティはすべてのライフサイクルメソッドおよび、コンポーネントの<code>view</code>メソッドから利用できます。</p>
 <pre><code class="lang-javascript">var ComponentUsingThis = {
     oninit: function(vnode) {
         this.data = vnode.attrs.text
@@ -179,19 +179,19 @@ m(ComponentWithDynamicState, {text: "Hello"})
 
 m(ComponentUsingThis, {text: "Hello"})
 
-// Equivalent HTML
+// 次のHTMLを生成します
 // &lt;div&gt;Hello&lt;/div&gt;
 </code></pre>
-<p>Be aware that when using ES5 functions, the value of <code>this</code> in nested anonymous functions is not the component instance. There are two recommended ways to get around this Javascript limitation, use ES6 arrow functions, or if ES6 is not available, use <code>vnode.state</code>.</p>
+<p>ES5の関数を使う時は注意が必要です。ネストされた無名関数の<code>this</code>はコンポーネントのインスタンスとは別のものを参照します。この問題を回避するための推奨される手法は2つあります。ひとつめはES6のアロー関数を使う方法です。もしES6が利用できないのであれば、<code>vnode.state</code>を使ってください。</p>
 <hr>
 <h3 id="avoid-anti-patterns">アンチパターンを避ける</h3>
-<p>Although Mithril is flexible, some code patterns are discouraged:</p>
-<h4 id="avoid-fat-components">Avoid fat components</h4>
-<p>Generally speaking, a "fat" component is a component that has custom instance methods. In other words, you should avoid attaching functions to <code>vnode.state</code> or <code>this</code>. It's exceedingly rare to have logic that logically fits in a component instance method and that can't be reused by other components. It's relatively common that said logic might be needed by a different component down the road.</p>
-<p>It's easier to refactor code if that logic is placed in the data layer than if it's tied to a component state.</p>
-<p>Consider this fat component:</p>
+<p>Mithrilは制約が少なく柔軟ですが、いつくか非推奨のコードパターンがあります。</p>
+<h4 id="avoid-fat-components">太ったコンポーネントを避ける</h4>
+<p>一般的に言えば、「太った」コンポーネントというのは、カスタムのインスタンスメソッドを持ったコンポーネントです。言い換えると、<code>vnode.state</code>や<code>this</code>にはメソッドを追加すべきではありません。論理的に考えると、とあるコンポーネントにはフィットするが、他のコンポーネントで再利用できないロジックというものは非常にまれです。いちど作ったロジックを別のコンポーネントでも利用したくなることはよくあります。</p>
+<p>コンポーネントの状態に強く関連したロジックだとしても、それをデータのレイヤーにリファクタリングして移動することは難しくありません。</p>
+<p>次の太ったコンポーネントについて考えてみましょう</p>
 <pre><code class="lang-javascript">// views/Login.js
-// AVOID
+// 避けるべきコード
 var Login = {
     username: "",
     password: "",
@@ -209,16 +209,16 @@ var Login = {
         return m(".login", [
             m("input[type=text]", {oninput: m.withAttr("value", this.setUsername.bind(this)), value: this.username}),
             m("input[type=password]", {oninput: m.withAttr("value", this.setPassword.bind(this)), value: this.password}),
-            m("button", {disabled: !this.canSubmit(), onclick: this.login}, "Login"),
+            m("button", {disabled: !this.canSubmit(), onclick: this.login}, "ログイン"),
         ])
     }
 }
 </code></pre>
-<p>Normally, in the context of a larger application, a login component like the one above exists alongside components for user registration and password recovery. Imagine that we want to be able to prepopulate the email field when navigating from the login screen to the registration or password recovery screens (or vice versa), so that the user doesn't need to re-type their email if they happened to fill the wrong page (or maybe you want to bump the user to the registration form if a username is not found).</p>
-<p>Right away, we see that sharing the <code>username</code> and <code>password</code> fields from this component to another is difficult. This is because the fat component encapsulates its our state, which by definition makes this state difficult to access from outside.</p>
-<p>It makes more sense to refactor this component and pull the state code out of the component and into the application's data layer. This can be as simple as creating a new module:</p>
+<p>通常、大きなアプリケーション開発では上記のようなコンポーネントが、ユーザー登録およびパスワードのリカバリーなどのさまざまなところで使われます。Eメールのフィールドはログインスクリーンから登録および、パスワード復旧画面（など）では予め埋めておきたいでしょう。なるべくユーザーがアドレスをタイプしなくてもすむようにしたいでしょう。また、ログイン時に未登録のメールアドレスであれば、ユーザーをアドレス入りのユーザー登録フォームに遷移させたいですよね。</p>
+<p>現在はこの<code>username</code>と<code>password</code>のフィールドを他のコンポーネントと共有するのはこんなんです。これは、太ったコンポーネントが状態をカプセル化してしまうため、基本的に外部から状態へのアクセスは難しくなります。</p>
+<p>共有するためには、コンポーネントをリファクタリングして、状態に関わるコードをコンポーネントから分離して、データレイヤーに移動する方が理にかなっています。これは新しいモジュールを作成するのと同じぐらい簡単に行えます。</p>
 <pre><code class="lang-javascript">// models/Auth.js
-// PREFER
+// 望ましいコード
 var Auth = {
     username: "",
     password: "",
@@ -236,9 +236,9 @@ var Auth = {
 
 module.exports = Auth
 </code></pre>
-<p>Then, we can clean up the component:</p>
+<p>これにより、コンポーネントをきれいに整理することができます:</p>
 <pre><code class="lang-javascript">// views/Login.js
-// PREFER
+// 望ましいコード
 var Auth = require("../models/Auth")
 
 var Login = {
@@ -246,40 +246,40 @@ var Login = {
         return m(".login", [
             m("input[type=text]", {oninput: m.withAttr("value", Auth.setUsername), value: Auth.username}),
             m("input[type=password]", {oninput: m.withAttr("value", Auth.setPassword), value: Auth.password}),
-            m("button", {disabled: !Auth.canSubmit(), onclick: Auth.login}, "Login"),
+            m("button", {disabled: !Auth.canSubmit(), onclick: Auth.login}, "ログイン"),
         ])
     }
 }
 </code></pre>
-<p>This way, the <code>Auth</code> module is now the source of truth for auth-related state, and a <code>Register</code> component can easily access this data, and even reuse methods like <code>canSubmit</code>, if needed. In addition, if validation code is required (for example, for the email field), you only need to modify <code>setEmail</code>, and that change will do email validation for any component that modifies an email field.</p>
-<p>As a bonus, notice that we no longer need to use <code>.bind</code> to keep a reference to the state for the component's event handlers.</p>
-<h4 id="avoid-restrictive-interfaces">Avoid restrictive interfaces</h4>
-<p>Try to keep component interfaces generic - using <code>attrs</code> and <code>children</code> directly - unless the component requires special logic to operate on input.</p>
-<p>In the example below, the <code>button</code> configuration is severely limited: it does not support any events other than <code>onclick</code>, it's not styleable and it only accepts text as children (but not elements, fragments or trusted HTML).</p>
-<pre><code class="lang-javascript">// AVOID
+<p>このコードでは、<code>Auth</code>モジュールは認証周りの状態の正しい情報を提供するモジュールとなりました。<code>Register</code>コンポーネントからも簡単にデータにアクセスできますし、必要であれば<code>canSubmit</code>を呼び出す事ができます。これに加えて、必要であれば（例えばEメールのフィールドなどで）バリデーションが必要であれば、<code>setEmail</code>メソッドを修正して、コンポーネント側でEメールが入力されたときにメールアドレスのバリデーションを行わせるようにすることができます。</p>
+<p>おまけの効果として、<code>.bind</code>を使ってコンポーネントのイベントハンドラーに状態の参照をわざわざ結びつけておく必要もなくなりました。</p>
+<h4 id="avoid-restrictive-interfaces">制限のあるインターフェースを避ける</h4>
+<p>コンポーネントのインタフェースの一般性を維持するために、もし、入力されたものに対して特別なロジックを実行するのでなければ、<code>attrs</code>と<code>children</code>を直接使うようにしてください。</p>
+<p>次のサンプルでは、<code>button</code>の設定が限られています。<code>onclick</code>以外のイベントハンドラが使えませんし、スタイルの設定もできません。また、子供の要素としてはテキストのみが利用できます。タグ要素、フラグメント、信頼されたHTMLは利用できません。</p>
+<pre><code class="lang-javascript">// 避けるべきコード
 var RestrictiveComponent = {
     view: function(vnode) {
         return m("button", {onclick: vnode.attrs.onclick}, [
-            "Click to " + vnode.attrs.text
+            "クリック:  " + vnode.attrs.text
         ])
     }
 }
 </code></pre>
-<p>If the required attributes are equivalent to generic DOM attributes, it's preferable to allow passing through parameters to a component's root node.</p>
-<pre><code class="lang-javascript">// PREFER
+<p>必要な属性が一般的なDOM属性とおなじであれば、コンポーネントのルートノードに直接パラメータを渡すのが推奨されるスタイルです。</p>
+<pre><code class="lang-javascript">// 望ましいコード
 var FlexibleComponent = {
     view: function(vnode) {
         return m("button", vnode.attrs, [
-            "Click to ", vnode.children
+            "クリック: ", vnode.children
         ])
     }
 }
 </code></pre>
-<h4 id="don-t-manipulate-children-">Don't manipulate <code>children</code></h4>
-<p>If a component is opinionated in how it applies attributes or children, you should switch to using custom attributes.</p>
-<p>Often it's desirable to define multiple sets of children, for example, if a component has a configurable title and body.</p>
-<p>Avoid destructuring the <code>children</code> property for this purpose.</p>
-<pre><code class="lang-javascript">// AVOID
+<h4 id="don&#39;t-manipulate-children"><code>children</code>を変更しない</h4>
+<p>コンポーネントが属性や子供の要素になにか手心を加える必要があれば、カスタム属性を代わりに使うべきです。</p>
+<p>例えば、設定可能なタイトルと本体があるコンポーネントの場合に、子供のコンポーネントを複数セット受け取りたいことがあります。</p>
+<p>この目的で使う場合に<code>children</code>プロパティを分離して使用することは避けるべきです。</p>
+<pre><code class="lang-javascript">// 避けるべきコード
 var Header = {
     view: function(vnode) {
         return m(".section", [
@@ -290,21 +290,21 @@ var Header = {
 }
 
 m(Header, [
-    m("h1", "My title"),
+    m("h1", "タイトル"),
     m("h2", "Lorem ipsum"),
 ])
 
-// awkward consumption use case
+// 使いにくいコンポーネントの使用例
 m(Header, [
     [
-        m("h1", "My title"),
-        m("small", "A small note"),
+        m("h1", "タイトル"),
+        m("small", "小ノート"),
     ],
     m("h2", "Lorem ipsum"),
 ])
 </code></pre>
-<p>The component above breaks the assumption that children will be output in the same contiguous format as they are received. It's difficult to understand the component without reading its implementation. Instead, use attributes as named parameters and reserve <code>children</code> for uniform child content:</p>
-<pre><code class="lang-javascript">// PREFER
+<p>このコンポーネントは、子供の要素は受け取ったのと同じ状態で出力されるはずだ、とする期待を裏切っています。実装を見ないでコンポーネントの挙動を理解するのは難しいでしょう。この場合は名前付きのパラメータを属性として使い、そのまま利用される子要素として<code>children</code>を使うべきです。</p>
+<pre><code class="lang-javascript">// 望ましいコード
 var BetterHeader = {
     view: function(vnode) {
         return m(".section", [
@@ -315,26 +315,26 @@ var BetterHeader = {
 }
 
 m(BetterHeader, {
-    title: m("h1", "My title"),
+    title: m("h1", "タイトル"),
     tagline: m("h2", "Lorem ipsum"),
 })
 
-// clearer consumption use case
+// 分かりやすいコンポーネントの使用例
 m(BetterHeader, {
     title: [
-        m("h1", "My title"),
-        m("small", "A small note"),
+        m("h1", "タイトル"),
+        m("small", "小ノート"),
     ],
     tagline: m("h2", "Lorem ipsum"),
 })
 </code></pre>
-<h4 id="define-components-statically-call-them-dynamically">Define components statically, call them dynamically</h4>
-<h5 id="avoid creating component definitions inside views">Avoid creating component definitions inside views</h5>
-<p>If you create a component from within a <code>view</code> method (either directly inline or by calling a function that does so), each redraw will have a different clone of the component. When diffing component vnodes, if the component referenced by the new vnode is not strictly equal to the one referenced by the old component, the two are assumed to be different components even if they ultimately run equivalent code. This means components created dynamically via a factory will always be re-created from scratch.</p>
-<p>For that reason you should avoid recreating components. Instead, consume components idiomatically.</p>
-<pre><code class="lang-javascript">// AVOID
+<h4 id="define-components-statically,-call-them-dynamically">静的にコンポーネントを定義して、動的に使う</h4>
+<h5 id="avoid-creating-component-definitions-inside-views">コンポーネントをビューの内部で定義するのは避けるべきです。</h5>
+<p>もしコンポーネントを<code>view</code>メソッドの中で作成している（直接生成するか、そこから呼び出している関数で生成しているかにかかわらず）場合、再描画のたびにコンポーネントの別のクローンが生成されることになります。コンポーネントのvnodeの差分検出時に、もしコンポーネントが新しいvnodeから参照されていて、それが古いvnodeから参照されているコンポーネントと違っていたら、同じコードで実行していたとしても、２つは異なるコンポーネントとみなされます。これは、コンポーネントが毎回スクラッチから動的に再生成されているという意味です。</p>
+<p>これがコンポーネントの再作成を避ける理由です。慣用的なコンポーネントの利用例です。</p>
+<pre><code class="lang-javascript">// 避けるべきコード
 var ComponentFactory = function(greeting) {
-    // creates a new component on every call
+    // 新しいコンポーネントが呼び出しごとに作成される
     return {
         view: function() {
             return m("div", greeting)
@@ -342,33 +342,33 @@ var ComponentFactory = function(greeting) {
     }
 }
 m.render(document.body, m(ComponentFactory("hello")))
-// calling a second time recreates div from scratch rather than doing nothing
+// 2回呼び出すと、divタグがスクラッチから作成される
 m.render(document.body, m(ComponentFactory("hello")))
 
-// PREFER
+// 望ましいコード
 var Component = {
     view: function(vnode) {
         return m("div", vnode.attrs.greeting)
     }
 }
 m.render(document.body, m(Component, {greeting: "hello"}))
-// calling a second time does not modify DOM
+// 2回呼び出してもDOMは変更されない
 m.render(document.body, m(Component, {greeting: "hello"}))
 </code></pre>
-<h5 id="avoid creating component instances outside views">Avoid creating component instances outside views</h5>
-<p>Conversely, for similar reasons, if a component instance is created outside of a view, future redraws will perform an equality check on the node and skip it. Therefore component instances should always be created inside views:</p>
-<pre><code class="lang-javascript">// AVOID
+<h5 id="avoid-creating-component-instances-outside-views">コンポーネントのインスタンスをビューの外で作成するのを避ける</h5>
+<p>逆に、同様の理由で、コンポーネントのインスタンスがビューの外部で作成された場合、再描画時のビューの呼び出しでは何も変更されないため、ノードの等価かどうかのチェックで常に等価になるため、更新がスキップされます。そのため、コンポーネントのインスタンスは常にビューの中で作成されるべきです:</p>
+<pre><code class="lang-javascript">// 避けるべきコード
 var Counter = {
     count: 0,
     view: function(vnode) {
         return m("div",
-            m("p", "Count: " + vnode.state.count ),
+            m("p", "カウント: " + vnode.state.count ),
 
             m("button", {
                 onclick: function() {
                     vnode.state.count++
                 }
-            }, "Increase count")
+            }, "野鳥カウント")
         )
     }
 }
@@ -378,25 +378,25 @@ var counter = m(Counter)
 m.mount(document.body, {
     view: function(vnode) {
         return [
-            m("h1", "My app"),
+            m("h1", "アプリケーション"),
             counter
         ]
     }
 })
 </code></pre>
-<p>In the example above, clicking the counter component button will increase its state count, but its view will not be triggered because the vnode representing the component shares the same reference, and therefore the render process doesn't diff them. You should always call components in the view to ensure a new vnode is created:</p>
-<pre><code class="lang-javascript">// PREFER
+<p>上記のサンプルでは、カウンターコンポーネントのボタンをクリックすると、カウントの状態がインクリメントされますが、vnode表現の参照が同じ為、採苗は実行されません。そのため、描画プロセスはそれらの差分を取ることもしません。新しいvnodeが作成されるように、かならずビューの中でコンポーネントを呼び出しましょう。</p>
+<pre><code class="lang-javascript">// 望ましいコード
 var Counter = {
     count: 0,
     view: function(vnode) {
         return m("div",
-            m("p", "Count: " + vnode.state.count ),
+            m("p", "カウント: " + vnode.state.count ),
 
             m("button", {
                 onclick: function() {
                     vnode.state.count++
                 }
-            }, "Increase count")
+            }, "野鳥カウント")
         )
     }
 }
@@ -404,7 +404,7 @@ var Counter = {
 m.mount(document.body, {
     view: function(vnode) {
         return [
-            m("h1", "My app"),
+            m("h1", "アプリケーション"),
             m(Counter)
         ]
     }

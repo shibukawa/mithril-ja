@@ -1,0 +1,120 @@
+<html>
+	<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="UTF-8" />
+		<title> 貢献 - Mithril.js</title>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	</head>
+	<body>
+		<header>
+			<section>
+				<a class="hamburger" href="javascript:;">≡</a>
+				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<nav>
+					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
+				</nav>
+			</section>
+		</header>
+		<main>
+			<section>
+				<h1 id="contributing">貢献</h1>
+<ul>
+<li>チュートリアル<ul>
+<li><a href="installation.html">インストール</a></li>
+<li><a href="index.html">イントロダクション</a></li>
+<li><a href="simple-application.html">チュートリアル</a></li>
+</ul>
+</li>
+<li>リソース<ul>
+<li><a href="jsx.html">JSX</a></li>
+<li><a href="es6.html">ES6</a></li>
+<li><a href="css.html">CSS</a></li>
+<li><a href="animation.html">アニメーション</a></li>
+<li><a href="testing.html">テスト</a></li>
+<li><a href="examples.html">サンプル</a></li>
+</ul>
+</li>
+<li>重要なコンセプト<ul>
+<li><a href="vnodes.html">Vノード</a></li>
+<li><a href="components.html">コンポーネント</a></li>
+<li><a href="lifecycle-methods.html">ライフサイクルメソッド</a></li>
+<li><a href="keys.html">キー</a></li>
+<li><a href="autoredraw.html">自動再描画システム</a></li>
+</ul>
+</li>
+<li>ソーシャル<ul>
+<li><a href="https://github.com/lhorie/mithril.js/wiki/JOBS">Mithrilの求人</a></li>
+<li><strong><a href="contributing.html">貢献の仕方</a></strong></li>
+<li><a href="credits.html">クレジット</a></li>
+</ul>
+</li>
+<li>その他<ul>
+<li><a href="framework-comparison.html">フレームワークの比較</a></li>
+<li><a href="change-log.html">変更履歴/移行</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="faq">FAQ</h1>
+<h2 id="how-do-i-go-about-contributing-ideas-or-new-features?">アイディアや新機能を投稿するにはどうすればいいでしょうか？</h2>
+<p><a href="https://github.com/lhorie/mithril.js/issues/new">GitHubに提案したい内容のissueスレッドを立てると</a>コミュニティ内で議論することができます。</p>
+<p>もし、そのアイディアががすばらしいものであるとコンセンサスが取れたら、Pull Requestを投げるのがリリースへの近道です。もしPull Requestがなければ、開発にかかる期間は開発チームの余裕と、開発の優先度により決定されます。</p>
+<h2 id="how-should-i-report-bugs?">どのようにバグを報告すればいいでしょうか？</h2>
+<p>理想的には、jsfiddle、jsbin、gistなどにバグを再現させる小さなコードを作成して報告するのが最良の方法です。もちろん、バグの修正と再現テストをPull Requestで送るのが最良の方法です。もしどのように修正コードをテストしたり、コードのスタイルの修正をすればいいのかわからないのであれば、まずは送信してください。私達がサポートします。</p>
+<h2 id="how-do-i-send-a-pull-request?">どのようにPull Requestを送信すればいいでしょうか？</h2>
+<p>Pull Requestを送信するには:</p>
+<ul>
+<li>リポジトリをフォークします（GitHubの右上のボタンを押します）</li>
+<li>フォークしたリポジトリを自分のコンピュータにcloneします（GitHubの右上のボタンです）</li>
+<li>フィーチャーブランチを作成します（<code>git checkout -b the-feature-branch-name</code>を実行します）</li>
+<li>変更を行います</li>
+<li>テストを行います（<code>npm t</code>を実行します）</li>
+<li>Pull Requestを送信します（GitHubのPull Requestタブに行き、緑のボタンを押して、フィーチャーブランチを選択します）</li>
+</ul>
+<h2 id="i&#39;m-submitting-a-pr-how-do-i-run-tests?">Pull Requestを送ろうとしています。どのようにテストを実行すればいいでしょうか？</h2>
+<p>このリポジトリをフォークしているものとして説明します。<code>tests</code>フォルダの中の<code>index.html</code>ファイルを開き、コンソール出力を見るとテスト結果を見ることができます。また、コマンドラインから<code>ospec/bin/ospec</code>を実行すると、すべてのテストが実行できます。</p>
+<p>テスト中は、テストを変更して<code>o(description, test)</code>の代わりに<code>o.only(description, test)</code>を使うと、特定のテストだけが実行されるのでデバッグ作業が高速になります。ただし、修正が終わったら<code>.only</code>を忘れずに削除してください。</p>
+<p>テストの実行にあたって<code>npm install</code>を実行する必要はありませんが、コマンドラインからテストを実行するにはNode.jsが必要となります。ただし、コードのlintやコードカバレッジのレポートを取得するには、<code>npm install</code>の実行する必要があります。</p>
+<h2 id="how-do-i-build-mithril?">どのようにMithrilをビルドするのでしょうか？</h2>
+<p>コードベースの中でサンプルを実行するには、ビルドする必要はありません。さまざまなHTMLファイルを開いて動作させるだけです。</p>
+<p>テストのためにバンドルされたファイルを生成するときは、コマンドラインから<code>npm run dev</code>を実行します。ミニファイされたファイルを作成するには、<code>npm run build</code>を実行します。<code>npm install</code>を実行する必要はありませんが、ビルドスクリプトの実行のためにはNode.jsが必要となります。</p>
+<h2 id="is-there-a-style-guide?">スタイルガイドはありますか？</h2>
+<p><code>eslint</code>の設定ファイルがありますが、フォーマッティングに関しては厳しくしていません。もし、変更したコードが<code>npm run lint</code>にパスすれば、Pull Requestしては十分です。なお、パスしなくてもPull Requestは受け入れます。</p>
+<p>スペースやフォーマットの不一致はそのうち修正されますが、そのような修正だけの貢献は余り歓迎しません。</p>
+<h2 id="why-do-tests-mock-the-browser-apis?">なぜテストではブラウザAPIのモックをしているのですか？</h2>
+<p>もっとも大きな理由は、ラウターとその副作用のテストがただしく行えないからです。また、モックがあるおかげで、Node.jsを使ってテストするときも、PhantomJS/ChromeDriver/JSDOMなどの重い依存が不要になります。</p>
+<p>モックのテストコードにより、ブラウザAPIの癖を文書化することができるのも大切な理由です。</p>
+<h2 id="why-does-mithril-use-its-own-testing-framework-and-not-mochajasminetape?">なぜMithrilはMocha/Jasmine/Tapeを使わずに、自前のテスティングフレームワークを使っているのでしょうか？</h2>
+<p>主な理由は必要な依存をなくすためです。<code>ospec</code>は一般的なテストのワークフローで必要なもののみに特化しています。通ったテストに対してはなにも表示せず、エラーと失敗だけをノイズなく表示します。</p>
+<h2 id="why-do-tests-use-modulemodulejs?-why-not-use-browserify,-webpack-or-rollup?">なぜ<code>module/module.js</code>を使ってテストしていますか？なぜBrowserify, Webpack, Rollupを使わないのですか？</h2>
+<p>これも必要な依存をなくすためです。Mithrilコードベースは、（ES6 modulesではなく）CommonJSのモジュール定義のサブセットを使って書かれています。この文法はES5と後方互換性があり、静的に解析可能な構文を使っています。そのため、ビルドツールやファイル監視ツールなどを使わずに、何も変更せずにブラウザで動作させることができます。</p>
+<p>これにより、バグ修正のワークフローが簡単になり、バグ修正が高速で行なえます。</p>
+<h2 id="why-doesn&#39;t-the-mithril-codebase-use-es6-via-babel?-would-a-pr-to-upgrade-be-welcome?">なぜMithrilのコードベースはBabelを利用してES6を使わないのですか？アップグレードのためのPull Requestは歓迎されますか？</h2>
+<p>リポジトリに含まれるすべてのブラウザ関連のモジュールが、変更せずにそのままIEで動作するのが必要条件です。</p>
+<p>また、ES6の機能を使ったコードは、同等のES5 のコードと比べるとパフォーマンスがやや劣り、トランスパイルされたコードのサイズはやや大きくなります。</p>
+<h2 id="why-doesn&#39;t-the-mithril-codebase-use-trailing-semi-colons?-would-a-pr-to-add-them-be-welcome?">なぜMithrilのコードベースは末尾のセミコロンを使わないのですか？それらを使うためのPull Requestは歓迎されますか？</h2>
+<p>私はそれを使いません。それらを追加していくと、コードベースの一貫性が崩れます。</p>
+<h2 id="why-does-the-mithril-codebase-use-a-mix-of-instanceof-and-typeof-checks-instead-of-objectprototypetostringcall,-arrayisarray,-etc?-would-a-pr-to-refactor-those-checks-be-welcome?">なぜMithrilのコードベースは<code>Object.prototype.toString.call</code>と<code>Array.isArray</code>を使わないで、<code>instanceof</code>と<code>typeof</code>によるチェックを行っていますか？それらのチェックコードをリファクタリングするPull Requestは歓迎されますか？</h2>
+<p>Mithrilはパフォーマンス上の理由から、オブジェクトの [[class]]文字列の取得を避けています。多くの型チェックは、ベンチマーク上では、他の手法と較べて、自分のコードがベストに見せるような構成で行っているため、奇妙な結果に見えます。</p>
+<p>型チェックは一般的にはこれ以上簡単にできない式であり、型チェックをサブルーチン化したマイクロモジュールを作るとメンテナンス上のオーバーヘッドが発生します。</p>
+<h2 id="what-should-i-know-in-advance-when-attempting-a-performance-related-contribution?">パフォーマンスに関連する貢献をしようとする時に、事前に知っておくべきことは何ですか？</h2>
+<p>DOM操作の数を減らすか、ホットスポットとなっているアルゴリズムの複雑さを軽減すべきです。それ以外は時間の無駄です。具体的に挙げると、配列の長さを変数にキャッシュするとか、オブジェクトのプロパティ値のキャッシュ、関数のインライン化などのミクロな最適化は、現代のjavaScriptエンジンで効果がありません。</p>
+<p>オブジェクトのプロパティの一貫性を保つと、JSエンジンはハッシュマップではなく、JIT化された構造体（hidden class）を使い、高速化できます。同じプロパティを持つ構造体は常に順序が同じになり、アクセスが高速になります。複合型のチェックでは、nullチェックを常に先頭に置くことで、JavaScriptエンジンが型に固有のコードパスの最適化が行えるようになります。Arrayのメソッドよりもforループを使ったり、ループの条件式をなるべくループの外に出します。</p>
+
+				<hr />
+				<small>License: MIT. © Leo Horie.</small>
+			</section>
+		</main>
+		<script src="lib/prism/prism.js"></script>
+		<script>
+		document.querySelector(".hamburger").onclick = function() {
+			document.body.className = document.body.className === "navigating" ? "" : "navigating"
+			document.querySelector("h1 + ul").onclick = function() {
+				document.body.className = ''
+			}
+		}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+	<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>推奨されるコード構成 - Mithril</title>
+		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
+		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header>
+			<nav class="container">
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+			</nav>
+		</header>
+		<main>
+			<section class="content">
+				<div class="container">
+					<div class="row">
+						<div class="col(3,3,12)">
+							<h2 id="core-topics">基本トピック</h2>
+							<ul>
+								<li><a href="installation.html">インストール</a></li>
+								<li><a href="getting-started.html">はじめよう</a></li>
+								<li><a href="routing.html">ラウティング</a></li>
+								<li><a href="web-services.html">ウェブサービス</a></li>
+								<li><a href="components.html">コンポーネント</a></li>
+							</ul>
+							<h2 id="advanced-topics.html">上級トピック</h2>
+							<ul>
+								<li><a href="auto-redrawing.html">自動再描画システム</a></li>
+								<li><a href="integration.html">他のライブラリとの統合</a></li>
+								<li><a href="optimizing-performance.html">テンプレートのコンパイル</a></li>
+							</ul>
+							<h2 id="misc">その他</h2>
+							<ul>
+								<li><a href="comparison.html">他のMVCフレームワークとの違い</a></li>
+								<li><a href="benchmarks.html">ベンチマーク</a></li>
+								<li><a href="practices.html">良いプラクティス</a></li>
+								<li><a href="tools.html">便利なツール</a></li>
+							</ul>
+						</div>
+						<div class="col(9,9,12)">
+							<h2 id="how-should-code-be-organized">推奨されるコード構成</h2>
+<p>Mithrilは、手取り足取りコードを構造化させることはありませんが、アプリケーションの構造として推奨していることがいくつかあります。</p>
+<p>経験則として、コントローラがモデルのプロパティを直接変更すべきではない、というものがあります。</p>
+<p>データ操作はモデルクラス内で行われるべきです。コントローラが一時的にとはいえ、不完全な状態のモデルを取り扱うべきではありません。</p>
+<p>Mithrilの設計としては、エンティティの状態の安定性を鑑みて、エンティティのロジックはモデルレイヤーのアトミックなメソッドで行うことを推奨しています。</p>
+<p>抽象化が漏れて、レイヤーを超えてコードが密結合してしまうコードというのはあります。例えばネットワークの非同期性を取り扱う場合にこのようなことがあります。この場合も、エンティティのロジックがコントローラの中に取り残されがちです。</p>
+<p>このデザインの原則は<a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a>と、リレーショナルモデル層の<a href="http://en.wikipedia.org/wiki/Bus_factor">トラックナンバー</a>の大きさから来ています。</p>
+<p>これは、他のフレームワークのActiveRecordパターンと大きく異なっています。ActiveRecordパターンのモデルエンティティは、データベースのエンティティのオブジェクト表現という側面が強く、アドホックにコントローラ内でフィード操作されて、最後に<code>save</code>メソッドでコミットされます。</p>
+<p>Mithrilでは、エンティティのロジックはすべてモデルレイヤ内に置かれるのが推奨されます。エンティティ間の関係を取り扱う必要が出てきたら、コントローラのレイヤーにコードを足すのではなく、新たに専門のモデルレベルのクラスを作ります。</p>
+<p>エンティティのリストのフィルタリングや、バリデーションもモデルの責務になります。モデルに定義することで、アプリケーション全体でこれらのメソッドが利用可能になります。</p>
+<p>DOM操作は、ビュー内の<a href="mithril"><code>m()</code>と、<code>config</code></a>でのみ行うべきです。コントローラで明示的に<a href="mithril.redraw.html"><code>m.redraw</code></a>を呼び出すことも出来ますが、操作を抽象化してMithrilの自動再描画システムと統合する方が望ましいです(<a href="mithril.computation.html"><code>m.startComputation</code> / <code>m.endComputation</code></a>参照)。ビューからコントr−ラのクラスのインスタンスを作成するのは避けましょう。</p>
+<hr>
+<h2 id="file-separation">ファイル分割</h2>
+<p>このサイトのサンプルは、読みやすさのために異なるMVCレイヤーを1つのファイルにまとめていますが、レイヤーごとにファイルを分割するのが推奨されるスタイルです。サンプル:</p>
+<pre><code class="lang-javascript">//app.model.js
+var app = {};
+
+app.PageList = function() {
+    return m.request({method: "GET", url: "pages.json"});
+};
+
+app.vm = {};
+app.vm.init = function() {
+    this.pages = new app.PageList();
+};
+</code></pre>
+<pre><code class="lang-javascript">//app.controller.js
+app.controller = function() {
+    app.vm.init();
+};
+</code></pre>
+<pre><code class="lang-javascript">//app.view.js
+app.view = function() {
+    return app.vm.pages().map(function(page) {
+        return m("a", {href: page.url}, page.title);
+    });
+};
+</code></pre>
+<p>GruntJSのようなタスク自動化ツールを使って、リリース環境向けにファイルを1つにまとめることができます。</p>
+<p>一般的に、MVCレイヤーを分割する場合は、モデルレイヤー内で名前空間を定義すべきです。モデルレイヤーは他の全てのレイヤーが依存するからです。</p>
+<p>ファイルごとに名前空間を用意するか、あるいはビルドシステムに名前空間を作らせるかは開発者の自由です。</p>
+<p>MVCレイヤーそのものでクラスをグループ化するのはやめましょう。model.js、controllers.js、views.jsという名前のファイルは作ってはいけません。</p>
+<p>このようなパターンでアプリケーションを分けてしまうと、レイヤー間で不必要なコードの密結合が起きてしまいます。モジュールによる、MVC縦断の縦のつながりがわかりにくくなります。</p>
+<hr>
+<h2 id="usage-of-m-redraw">m.redrawの使用方法</h2>
+<p><code>m.redraw</code>を使うと、Mithrilの自動再描画システムのスコープ外から、再描画を行わせることができます。</p>
+<p><code>m.mount</code>と<code>m.route</code>を使っている場合は、このメソッド呼び出しはsetIntervalを使っている場合など、非同期にビューを繰り返し更新したい場合に限定してください。</p>
+<p>setTimeoutなどの、繰り返し行われないサービスと統合する場合は、<a href="mithril.computation.html"><code>m.startComputation</code> / <code>m.endComputation</code></a>の方が推奨されます。</p>
+<p>m.redrawは、Mithrilの中でもっとも重い処理になりえる関数です。ネイティブの<code>requestAnimationFrame</code>メソッドが起動されるよりも早いペースで呼び出すべきではありません。このメソッドは、レンダリングに関するコードを実行するのに、ブラウザにとって一番快適なインターバルを提供します。通常は一秒間に60回呼ばれます。</p>
+<p>もしこれよりも早いペースで呼び出すと、Mithrilは関数呼び出しを無視して、次のブラウザの再描画のサイクルまで実行を遅らせます。</p>
+<p>もし、このメソッドの呼び出しコストがウィンドウの再描画よりも重くなると、フレーム落ちが発生して、アニメーションがなめらかに実行されなくなります。秒間60フレームを維持するために、この関数の単体の呼び出しのコストを16ミリ秒以下に抑えるのは開発者の責任です。</p>
+<p>また、Mithrilだけではなく他のテンプレートにも共通することとして、マークアップの複雑性がテンプレートのパフォーマンスに影響を与えます。そのため、テンプレートが大きくなりすぎないようにして、レンダリングを効率よく行うことが大切です。</p>
+<hr>
+<h2 id="usage-of-keys">キーの使用</h2>
+<p>リストをソートしたり、リストから要素を削除する場合や、スプライスを行う場合は、データとDOM間の参照を維持するために、 <a href="mithril.html#dealing-with-sorting-and-deleting-in-lists"><code>key</code>属性を使用してください</a>。</p>
+<p>キーを使用しなくても期待通りの動作をすることがありますが、再描画のアルゴリズムの効率が下がってコストが高くなる可能性があります。</p>
+
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<div class="container">
+				<a href="http://opensource.org/licenses/MIT" target="_blank">MITライセンス</a>でリリースされています<br />© 2014 Leo Horie
+			</div>
+		</footer>
+		<script src="lib/prism/prism.js"></script>
+	</body>
+</html>

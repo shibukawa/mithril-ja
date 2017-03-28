@@ -1,0 +1,550 @@
+<html>
+	<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="UTF-8" />
+		<title> シンプルなアプリケーション - Mithril.js</title>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	</head>
+	<body>
+		<header>
+			<section>
+				<a class="hamburger" href="javascript:;">≡</a>
+				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<nav>
+					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
+				</nav>
+			</section>
+		</header>
+		<main>
+			<section>
+				<h1 id="simple-application">シンプルなアプリケーション</h1>
+<ul>
+<li>チュートリアル<ul>
+<li><a href="installation.html">インストール</a></li>
+<li><a href="index.html">イントロダクション</a></li>
+<li><strong><a href="simple-application.html">チュートリアル</a></strong></li>
+</ul>
+</li>
+<li>リソース<ul>
+<li><a href="jsx.html">JSX</a></li>
+<li><a href="es6.html">ES6</a></li>
+<li><a href="css.html">CSS</a></li>
+<li><a href="animation.html">アニメーション</a></li>
+<li><a href="testing.html">テスト</a></li>
+<li><a href="examples.html">サンプル</a></li>
+</ul>
+</li>
+<li>重要なコンセプト<ul>
+<li><a href="vnodes.html">Vノード</a></li>
+<li><a href="components.html">コンポーネント</a></li>
+<li><a href="lifecycle-methods.html">ライフサイクルメソッド</a></li>
+<li><a href="keys.html">キー</a></li>
+<li><a href="autoredraw.html">自動再描画システム</a></li>
+</ul>
+</li>
+<li>ソーシャル<ul>
+<li><a href="https://github.com/lhorie/mithril.js/wiki/JOBS">Mithrilの求人</a></li>
+<li><a href="contributing.html">貢献の仕方</a></li>
+<li><a href="credits.html">クレジット</a></li>
+</ul>
+</li>
+<li>その他<ul>
+<li><a href="framework-comparison.html">フレームワークの比較</a></li>
+<li><a href="change-log.html">変更履歴/移行</a></li>
+</ul>
+</li>
+</ul>
+<p>シングルページアプリケーションを構成する主要な要素をカバーするシンプルなアプリケーションを開発してみましょう。</p>
+<p>まずはアプリケーションのエントリーポイントを作成してみましょう。<code>index.html</code>を作成します。</p>
+<pre><code class="lang-markup">&lt;!doctype html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8" /&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;
+        &lt;title&gt;Mithrilのアプリケーション&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;script src="bin/app.js"&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><code>&lt;!doctype html&gt;</code>行はHTML5のドキュメントであることを示しています。最初の<code>charset</code>メタタグはドキュメントのエンコーディングを指定します。<code>viewport</code>メタタグはモバイルブラウザがどのようにページを拡大して表示するかを指定します。<code>title</code>タグはブラウザのタブに表示されるアプリケーション名のテキストを含みます。<code>script</code>タグはアプリケーションを動かすJavaScriptファイルのパスを指定します。</p>
+<p>1つのJavaScriptファイルアプリケーション全体を作成することもできますが、将来、コードベースの中を探索するのが難しくなるでしょう。コードを複数の<em>モジュール</em>に分割し、それらのモジュールから<code>bin/app.js</code>という名前の<em>バンドル</em> を作成するようにしましょう。</p>
+<p>バンドラーツールのセットアップ方法はたくさんありますが、一番使われている方法はnpmでしょう。Mithrilも含めて、現代的なJavaScriptのライブラリとツールはnpm経由で配布されています。npmはNode.jsはNode.js Package Managerの省略形です。npmをインストールする場合は、 <a href="https://nodejs.org/en/">Node.jsをインストール</a>しましょう。npmはNode.jsと一緒にインストールされます。Node.jsとnpmがインストールされたら、コマンドラインを開き、次のコマンドを入力します:</p>
+<pre><code class="lang-bash">npm init -y
+</code></pre>
+<p>npmが正しくインストールされていれば、<code>package.json</code>が作成されます。このファイルは、プロジェクトのメタ説明の雛形です。このファイルを編集して、プロジェクト情報と作者名を自由に変更してください。</p>
+<hr>
+<p>Mithrilをインストールするには、<a href="installation.html">インストール</a>ページの解説に従ってください。Mithrilがインストールされたプロジェクトのスケルトンができると、アプリケーションを作成する準備が整いました。</p>
+<p>状態を保存するモジュールを作ってみましょう。<code>src/models/User.js</code>という名前のファイルを作ってみましょう。</p>
+<pre><code class="lang-javascript">// src/models/User.js
+var User = {
+    list: []
+}
+
+module.exports = User
+</code></pre>
+<p>サーバーから何らかのデータをロードしてくるコードを追加しましょう。サーバーとコミュニケーションするには、MithrilのXHRユーティリティである <code>m.request</code>が使用できます。まず、Mithrilをインクルードして取り込みましょう。</p>
+<pre><code class="lang-javascript">// src/models/User.js
+var m = require("mithril")
+
+var User = {
+    list: []
+}
+
+module.exports = User
+</code></pre>
+<p>次に、XHR呼び出しを行う関数を作ります。<code>loadList</code>という名前にしましょう。</p>
+<pre><code class="lang-javascript">// src/models/User.js
+var m = require("mithril")
+
+var User = {
+    list: [],
+    loadList: function() {
+        // TODO: XHR呼び出しをする
+    }
+}
+
+module.exports = User
+</code></pre>
+<p>それではXHRリクエストを行う<code>m.request</code>呼び出しを行いましょう。このチュートリアルでは、<a href="http://rem-rest-api.herokuapp.com/">REM</a> APIへの呼び出しを行います。これは高速なプロトタイピングのためにデザインされたのモックのREST APIです。このAPIを使って<code>GET http://rem-rest-api.herokuapp.com/api/users</code>エンドポイントにアクセスすると、ユーザーのリストが返ってきます。<code>m.request</code>を使ってXHRのリクエストを行い、そのエンドポイントのレスポンスを取得しましょう。</p>
+<pre><code class="lang-javascript">// src/models/User.js
+var m = require("mithril")
+
+var User = {
+    list: [],
+    loadList: function() {
+        return m.request({
+            method: "GET",
+            url: "http://rem-rest-api.herokuapp.com/api/users",
+            withCredentials: true,
+        })
+        .then(function(result) {
+            User.list = result.data
+        })
+    },
+}
+
+module.exports = User
+</code></pre>
+<p><code>method</code>オプションには<a href="https://ja.wikipedia.org/wiki/Hypertext_Transfer_Protocol#.E3.83.A1.E3.82.BD.E3.83.83.E3.83.89">HTTPメソッド</a>を指定します。サーバーに副作用をあたえずにデータを取得するので、<code>GET</code>メソッドを使う必要があります。<code>url</code>はAPIのエンドポイントのアドレスです。<code>withCredentials: true</code>はREM APIで必要となる、クッキーの送受信を有効化する設定です。</p>
+<p><code>m.request</code>を呼び出すとPromiseが返されます。このPromiseが解決すると、エンドポイントから返ってきたデータが渡されます。デフォルトではMithrilはHTTPレスポンスボディがJSONフォーマットであるとみなして、自動でJavaScriptのオブジェクトか配列に変換しようとします。<code>.then</code>コールバックは、XHRリクエストが完了すると呼び出されます。この場合、このコールバックは<code>result.data</code>の配列を<code>User.list</code>に代入します。</p>
+<p><code>loadList</code>の中に、<code>return</code>構文があることに気づかれたでしょうか？これはPromiseを使うときによく使われる良い習慣です。これにより、XHRのリクエストが完了した後に呼ばれるコールバックを追加で登録できるようになります。</p>
+<p>このシンプルなモデルは2つのメンバーを公開しています。<code>User.list</code>（ユーザーオブジェクトの配列）と、<code>User.loadList</code>（サーバーのデータを使って<code>User.list</code>を初期化する）です。</p>
+<hr>
+<p>それでは今作成したユーザーモデルモジュールのデータを表示できるように、ビューモジュールを作成しましょう。</p>
+<p><code>src/views/UserList.js</code>というファイルを作成しましょう。まず、これからすぐに必要になるMithrilとモデルをインクルードします。</p>
+<pre><code class="lang-javascript">// src/views/UserList.js
+var m = require("mithril")
+var User = require("../models/User")
+</code></pre>
+<p>次にMithrilコンポーネントを作りましょう。今回作成するコンポーネントは<code>view</code>関数を持つシンプルなオブジェクトです:</p>
+<pre><code class="lang-javascript">// src/views/UserList.js
+var m = require("mithril")
+var User = require("../models/User")
+
+module.exports = {
+    view: function() {
+        // TODO: ここにコードを追加する
+    }
+}
+</code></pre>
+<p>デフォルトでは、Mithrilのビューは<a href="hyperscript.html">hyperscript</a>を使って定義されています。Hyperscriptは、複雑なタグのHTMLよりも自然に字下げできる簡潔な構文を提供します。また、その構文は単純にJavascriptなので、Javascriptツールのエコシステムを多く活用することができます。例えばBabel、JSX（インラインHTML構文拡張 ）、eslint（linting）、uglifyjs（minification）、istanbul（コードカバレッジ）、flow（静的型分析）など。
+
+Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にインデントできる、完結な構文でテンプレートが記述できます。それに加えて、<a href="es6.html">Babel</a>, <a href="jsx.html">JSX</a> (インラインのHTML文法拡張), <a href="http://eslint.org/">eslint</a> (構文チェック), <a href="https://github.com/mishoo/UglifyJS2">uglifyjs</a> (コードサイズ縮小化), <a href="https://github.com/gotwarlost/istanbul">istanbul</a> (コードカバレッジ), <a href="https://flowtype.org/">flow</a> (静的な型解析) などのさまざまなJavaScriptのツールを活用することができます。</p>
+<p>それでは、MithrilのHyperscriptを使って要素のリストを作成してみましょう。HyperscriptはMithrilのビューを作成するもっとも一般的な手法ですが、基本的な書き方に慣れてきた後に使う<a href="jsx.html">代替手法として人気のあるJSX</a>にも挑戦してみてください。</p>
+<pre><code class="lang-javascript">var m = require("mithril")
+var User = require("../models/User")
+
+module.exports = {
+    view: function() {
+        return m(".user-list")
+    }
+}
+</code></pre>
+<p><code>".user-list"</code>文字列は、見た目で期待される通り、CSSセレクターです。<code>.user-list</code>はクラスを表しています。タグが指定されないと<code>div</code>がデフォルトで使用されます。このビューは<code>&lt;div class="user-list"&gt;&lt;/div&gt;</code>と等価です。</p>
+<p>それでは、以前作成したモデル (<code>User.list</code>) のユーザーのリストを参照し、各要素に対してループを回してみましょう:</p>
+<pre><code class="lang-javascript">// src/views/UserList.js
+var m = require("mithril")
+var User = require("../models/User")
+
+module.exports = {
+    view: function() {
+        return m(".user-list", User.list.map(function(user) {
+            return m(".user-list-item", user.firstName + " " + user.lastName)
+        }))
+    }
+}
+</code></pre>
+<p><code>User.list</code>はJavaScriptの配列ですし、hyperscriptのビューも単なるJavaScriptです。そのため、<code>.map</code>メソッドを使って配列をループすることができます。このコードはユーザー名を含む<code>div</code>のリストを表す、vnodeの配列を作成します。</p>
+<p>このコードには問題があります。それは<code>User.loadList</code>関数を呼んでいないことです。そのため、<code>User.list</code>は空の配列のままです。ビューをレンダリングしても何も表示されません。コンポーネントを描画するために<code>User.loadList</code>を呼ぶ必要がありますが、それにはコンポーネントの<a href="lifecycle-methods.html">ライフサイクルメソッド</a>の力を借ります:</p>
+<pre><code class="lang-javascript">// src/views/UserList.js
+var m = require("mithril")
+var User = require("../models/User")
+
+module.exports = {
+    oninit: User.loadList,
+    view: function() {
+        return m(".user-list", User.list.map(function(user) {
+            return m(".user-list-item", user.firstName + " " + user.lastName)
+        }))
+    }
+}
+</code></pre>
+<p>コンポーネントに<code>oninit</code>を追加しました。これには<code>User.loadList</code>の参照を持たせています。このコードは、コンポーネントの初期化時に、XHRのリクエストを行うUser.loadListが呼ばれることを意味しています。サーバーがレスポンスを返すと、<code>User.list</code>に値が設定されます。</p>
+<p>このコードでは<code>oninit: User.loadList()</code> (末尾にかっこ) とは<strong>しませんでした</strong>。これらの違いは、<code>oninit: User.loadList()</code>の場合はその場で実行されますが、<code>oninit: User.loadList</code>コンポーネントのレンダリング時にのみ呼び出されます。これは重大な違いであり、JavaScript初心者が陥りやすい落とし穴です。その場で関数を呼び出すと、コンポーネントがレンダリングされるかどうかに関わらず、ソースコードの評価後にすぐにXHRのリクエストが行われてしまいます。この場合、アプリケーション上で前後に移動した場合などにコンポーネントが再作成されたときには、期待に反して呼び出しが行われません。</p>
+<hr>
+<p>それでは最初に作成したエントリーポイントのファイル<code>src/index.js</code>からビューのレンダリングを行いましょう:</p>
+<pre><code class="lang-javascript">// src/index.js
+var m = require("mithril")
+
+var UserList = require("./views/UserList")
+
+m.mount(document.body, UserList)
+</code></pre>
+<p><code>m.mount</code>を呼び出すと、指定されたコンポーネント (<code>UserList</code>) をDOM要素 (<code>document.body</code>) 内にレンダリングされます。DOMに今まであった要素は削除されます。HTMLファイルをブラウザで開くと、人名のリストが表示されるはずです。</p>
+<hr>
+<p>この状態だと何もスタイルを設定されていません。</p>
+<p>現在は、アプリケーションのスタイルを整えるのに利用できる規約やライブラリがたくさんあります。<a href="http://getbootstrap.com/">Bootstrap</a>のように、HTMLの構造と、意味のあるクラス名の両方を指定する仕組みもあります。これはクラス名と意味が近いという利点がありますが、カスタマイズが難しいという欠点があります。一方で、<a href="http://tachyons.io/">Tachyons</a>のように、たくさんの自己記述型のアトミックではあるものの、意味を持たないクラス名にするというコストを支払っています。"CSS-in-JS"は最近人気を伸ばしている他のCSSシステムです。基本的にトランスパイルによってスコープを実現します。CSS-in-JSライブラリを使うと、問題となる領域を狭くすることができるため、メンテナンス性が向上しますが、複雑性のコストを払う必要があります。</p>
+<p>どのようなCSSの表記法やライブラリを使ったとしても、CSSのカスケーディング機能を避けることが大切です。チュートリアルでは単純に済ませるために、大げさなぐらい明示的なクラス名を使っています。クラス名自身がTachyonsが提供するようなアトミック性を持っているため、クラス名の衝突は起きないでしょう。プレーンなCSSでも複雑さの低いプロジェクト（例えば最初の実装工数が3-6人月でフェーズが少ない）では十分です。</p>
+<p>スタイルを追加したら、<code>styles.css</code>を作成し、<code>index.html</code>にリンクを追加しましょう。</p>
+<pre><code class="lang-markup">&lt;!doctype html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8" /&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;
+        &lt;title&gt;Mithrilのアプリケーション&lt;/title&gt;
+        &lt;link href="styles.css" rel="stylesheet" /&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;script src="bin/app.js"&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>これで<code>UserList</code>コンポーネントにスタイルを追加することができるようになりました:</p>
+<pre><code class="lang-css">.user-list {list-style:none;margin:0 0 10px;padding:0;}
+.user-list-item {background:#fafafa;border:1px solid #ddd;color:#333;display:block;margin:0 0 1px;padding:8px 15px;text-decoration:none;}
+.user-list-item:hover {text-decoration:underline;}
+</code></pre>
+<p>上記のCSSは、ルールのすべてのスタイルをアルファベット順に1行にまとめるという規約を使って書かれています。この表記法は、スクリーンサイズの横幅を最大限に活かすルールになっています。CSSセレクターを探す時は、論理的なグループで整列されて並んでいますし、予測可能で均一化されているため、簡単に要素を探すことができます。</p>
+<p>もちろん、スペースとインデントを使うルールが好みであればそれを使うこともできます。このサンプルが紹介しているルールはあまり広まっていはいませんが、強い理由付けがあるルールになっています。より広く使うルールもあります。</p>
+<p>ブラウザウィンドウをリロードすると、スタイルが設定された要素が表示されます。</p>
+<hr>
+<p>ラウティングをアプリケーションに追加しましょう。</p>
+<p>ラウティングはユニークなURLと画面の組を設定します。これにより、複数の「ページ」の間の移動ができるようになります。Mithrilはシングルページアプリケーションを念頭に設計されています。この「ページ」は古い価値観ではそれぞれ個別のHTMLファイルですが、シングルページアプリケーションではページごとにファイルを分ける必要はありません。シングルページアプリケーションのラウティングを使うと、同じHTMLファイルがブラウザを閉じられるまで継続して使われますが、JavaScriptを使ってアプリケーションの状態が変更されます。クライアント側でラウティングを行うと、ページ遷移中に画面がクリアされてブランクなページが見えてしまうのを避けることができます。また、ウェブサービス指向アーキテクチャ（サーバー側で生成されたHTMLを返すのではなく、JSONでデータをダウンロードさせるウェブアプリケーション）と組み合わせると、サーバーとの通信量を削減できます。</p>
+<p><code>m.mount</code>呼び出しを<code>m.route</code>に変更すると、ラウティングを使うことができます:</p>
+<pre><code class="lang-javascript">// src/index.js
+var m = require("mithril")
+
+var UserList = require("./views/UserList")
+
+m.route(document.body, "/list", {
+    "/list": UserList
+})
+</code></pre>
+<p><code>m.route</code>を呼ぶとアプリケーションが<code>document.body</code>の中にレンダリングされます。<code>"/list"</code>引数はデフォルトのラウトになります。ユーザーがラウト一覧にないURLを開こうとすると、このURLにリダイレクトされます。<code>{"/list": UserList}</code>オブジェクトは存在するラウトと、それぞれのラウトに対してどのコンポーネントが利用されるのかのマップを宣言します。</p>
+<p>ブラウザのページをリフレッシュするとURLに<code>#!/list</code>が付与されて、ラウティング機構が稼働していることが分かります。ラウトは同じUserListのレンダリングを行うため、前と同じユーザーのリストが見えます。</p>
+<p><code>#!</code>スニペットはハッシュバングと呼ばれています。これはクライアントサイドのラウティング実装で一般的に使われる文字列です。この文字列は<a href="route.html#mrouteprefix"><code>m.route.prefix</code></a>を使って設定できます。設定に寄ってはサーバー側の変更が必要となるため、このチュートリアル内ではこのまま進めます。</p>
+<hr>
+<p>それではユーザーを編集するための別のラウトをアプリケーションに追加しましょう。まず、<code>views/UserForm.js</code>というモジュールを作成します。</p>
+<pre><code class="lang-javascript">// src/views/UserForm.js
+
+module.exports = {
+    view: function() {
+        // TODO: ビューを実装する
+    }
+}
+</code></pre>
+<p>モジュールがでｋちあら<code>require</code>を使って<code>src/index.js</code>にこの新しいモジュールを追加します。</p>
+<pre><code class="lang-javascript">// src/index.js
+var m = require("mithril")
+
+var UserList = require("./views/UserList")
+var UserForm = require("./views/UserForm")
+
+m.route(document.body, "/list", {
+    "/list": UserList
+})
+</code></pre>
+<p>次に、このモジュールを参照するラウトを追加しましょう:</p>
+<pre><code class="lang-javascript">// src/index.js
+var m = require("mithril")
+
+var UserList = require("./views/UserList")
+var UserForm = require("./views/UserForm")
+
+m.route(document.body, "/list", {
+    "/list": UserList,
+    "/edit/:id": UserForm,
+})
+</code></pre>
+<p>新しいラウトの中に<code>:id</code>という文字列があります。これはラウトパラメータです。これは一種のワイルドカードでと考えることができます。<code>/edit/1</code>というURLがあると、<code>id</code>に<code>"1"</code>が代入され、<code>UserForm</code>が解決されます。<code>/edit/2</code>も<code>UserForm</code>を解決しますが、<code>id</code>は<code>"2"</code>となります。他にもあります。</p>
+<p>それではこれらのラウとパラメータを受け取れるように<code>UserForm</code>コンポーネントを実装しましょう。</p>
+<pre><code class="lang-javascript">// src/views/UserForm.js
+var m = require("mithril")
+
+module.exports = {
+    view: function() {
+        return m("form", [
+            m("label.label", "名前"),
+            m("input.input[type=text][placeholder=名前]"),
+            m("label.label", "名字"),
+            m("input.input[placeholder=名字]"),
+            m("button.button[type=submit]", "保存"),
+        ])
+    }
+}
+</code></pre>
+<p>新しいコンポーネントで使うスタイルも<code>styles.css</code>に追加しましょう:</p>
+<pre><code class="lang-css">/* styles.css */
+body,.input,.button {font:normal 16px Verdana;margin:0;}
+
+.user-list {list-style:none;margin:0 0 10px;padding:0;}
+.user-list-item {background:#fafafa;border:1px solid #ddd;color:#333;display:block;margin:0 0 1px;padding:8px 15px;text-decoration:none;}
+.user-list-item:hover {text-decoration:underline;}
+
+.label {display:block;margin:0 0 5px;}
+.input {border:1px solid #ddd;border-radius:3px;box-sizing:border-box;display:block;margin:0 0 10px;padding:10px 15px;width:100%;}
+.button {background:#eee;border:1px solid #ddd;border-radius:3px;color:#333;display:inline-block;margin:0 0 10px;padding:10px 15px;text-decoration:none;}
+.button:hover {background:#e8e8e8;}
+</code></pre>
+<p>この状態では表示はできますが、ユーザーイベントには反応するようになっていません。<code>src/models/User.js</code>に実装されている<code>User</code>にいくつかコードを追加しましょう。これが変更前のコードです。</p>
+<pre><code class="lang-javascript">// src/models/User.js
+var m = require("mithril")
+
+var User = {
+    list: [],
+    loadList: function() {
+        return m.request({
+            method: "GET",
+            url: "http://rem-rest-api.herokuapp.com/api/users",
+            withCredentials: true,
+        })
+        .then(function(result) {
+            User.list = result.data
+        })
+    },
+}
+
+module.exports = User
+</code></pre>
+<p>１人のユーザをロードできるようにコードを追加します。</p>
+<pre><code class="lang-javascript">// src/models/User.js
+var m = require("mithril")
+
+var User = {
+    list: [],
+    loadList: function() {
+        return m.request({
+            method: "GET",
+            url: "http://rem-rest-api.herokuapp.com/api/users",
+            withCredentials: true,
+        })
+        .then(function(result) {
+            User.list = result.data
+        })
+    },
+
+    current: {},
+    load: function(id) {
+        return m.request({
+            method: "GET",
+            url: "http://rem-rest-api.herokuapp.com/api/users/:id",
+            data: {id: id},
+            withCredentials: true,
+        })
+        .then(function(result) {
+            User.current = result
+        })
+    }
+}
+
+module.exports = User
+</code></pre>
+<p><code>User.current</code>プロパティが追加され、<code>User.load(id)</code>メソッドを呼び出すとこのプロパティに格納されます。<code>UserForm</code>ビューでこのメソッドを使うようにしましょう。</p>
+<pre><code class="lang-javascript">// src/views/UserForm.js
+var m = require("mithril")
+var User = require("../models/User")
+
+module.exports = {
+    oninit: function(vnode) {User.load(vnode.attrs.id)},
+    view: function() {
+        return m("form", [
+            m("label.label", "名前"),
+            m("input.input[type=text][placeholder=名前]", {value: User.current.firstName}),
+            m("label.label", "名字"),
+            m("input.input[placeholder=名字]", {value: User.current.lastName}),
+            m("button.button[type=submit]", "保存"),
+        ])
+    }
+}
+</code></pre>
+<p><code>UserList</code>コンポーネントと同様に、<code>oninit</code>から<code>User.load()</code>を呼び出します。<code>"/edit/:id": UserForm</code>というラウト定義には<code>:id</code>というパラメータがあったのを覚えているでしょうか？ラウとパラメータは<code>UserForm</code>コンポーネントのvnodeの属性となります。<code>/edit/1</code>というURLでアクセスされると、<code>vnode.attrs.id</code>に<code>"1"</code>が代入されます。</p>
+<p><code>UserList</code>ビューを修正し、<code>UserForm</code>のページに遷移できるようにしましょう:</p>
+<pre><code class="lang-javascript">// src/views/UserList.js
+var m = require("mithril")
+var User = require("../models/User")
+
+module.exports = {
+    oninit: User.loadList,
+    view: function() {
+        return m(".user-list", User.list.map(function(user) {
+            return m("a.user-list-item", {href: "/edit/" + user.id, oncreate: m.route.link}, user.firstName + " " + user.lastName)
+        }))
+    }
+}
+</code></pre>
+<p><code>.user-list-item</code>を<code>a.user-list-item</code>に修正しました。クリック時の移行先の参照を<code>href</code>に追加します。そしてSPAとして遷移を行うために、<code>oncreate: m.route.link</code>も追加します。これにより、このリンクは通常のリンクのように動作するのではなく、ラウトの切り替えのリンクとして動作するようになります。このリンクをクリックすると、現在のページをアンロードすることなく、ハッシュバング<code>#!</code>以降のURLだけが書き換わるようになります。</p>
+<p>ページをリフレッシュすると、人の行をクリックしてフォームに遷移できるようになります。ブラウザの戻るボタンを押すと人名のリストに戻ります。</p>
+<hr>
+<p>このフォーム自体はまだ未完成なので「保存」を押しても保存しません。この機能を完成させましょう:</p>
+<pre><code class="lang-javascript">// src/views/UserForm.js
+var m = require("mithril")
+var User = require("../models/User")
+
+module.exports = {
+    oninit: function(vnode) {User.load(vnode.attrs.id)},
+    view: function() {
+        return m("form", [
+            m("label.label", "名前"),
+            m("input.input[type=text][placeholder=名前]", {
+                oninput: m.withAttr("value", function(value) {User.current.firstName = value}),
+                value: User.current.firstName
+            }),
+            m("label.label", "名字"),
+            m("input.input[placeholder=名字]", {
+                oninput: m.withAttr("value", function(value) {User.current.lastName = value}),
+                value: User.current.lastName
+            }),
+            m("button.button[type=submit]", {onclick: User.save}, "保存"),
+        ])
+    }
+}
+</code></pre>
+<p>両方のinputタグに、ユーザーが入力をすると<code>User.current.firstName</code>と<code>User.current.lastName</code>プロパティを変更する<code>oninput</code> イベントを追加しました</p>
+<p>これに加えて、「保存」ボタンが押されたときに呼ばれる<code>User.save</code>メソッドを定義する必要があります。このメソッドを実装してみましょう:</p>
+<pre><code class="lang-javascript">// src/models/User.js
+var m = require("mithril")
+
+var User = {
+    list: [],
+    loadList: function() {
+        return m.request({
+            method: "GET",
+            url: "http://rem-rest-api.herokuapp.com/api/users",
+            withCredentials: true,
+        })
+        .then(function(result) {
+            User.list = result.data
+        })
+    },
+
+    current: {},
+    load: function(id) {
+        return m.request({
+            method: "GET",
+            url: "http://rem-rest-api.herokuapp.com/api/users/:id",
+            data: {id: id},
+            withCredentials: true,
+        })
+        .then(function(result) {
+            User.current = result
+        })
+    },
+
+    save: function() {
+        return m.request({
+            method: "PUT",
+            url: "http://rem-rest-api.herokuapp.com/api/users/:id",
+            data: User.current,
+            withCredentials: true,
+        })
+    }
+}
+
+module.exports = User
+</code></pre>
+<p>このソースの一番下にある<code>save</code>メソッドの中では、<code>PUT</code> HTTPメソッドを指定して、サーバーにデータの変更を行います。</p>
+<p>それでは、できあがったアプリケーションを使ってユーザーの名前を編集してみましょう。変更を保存すると、変更がユーザーリストに反映されるのを見ることができます。</p>
+<hr>
+<p>現在は、ブラウザの戻るボタンしか、元のリストに戻る手段がありません。理想的には、何らかのメニュー、あるいはさらに汎用化させて、グローバルなUI要素が配置されたレイアウトがある方が望ましいでしょう。</p>
+<p><code>src/views/Layout.js</code>というファイルを作成しましょう:</p>
+<pre><code class="lang-javascript">var m = require("mithril")
+
+module.exports = {
+    view: function(vnode) {
+        return m("main.layout", [
+            m("nav.menu", [
+                m("a[href='/list']", {oncreate: m.route.link}, "ユーザー一覧")
+            ]),
+            m("section", vnode.children)
+        ])
+    }
+}
+</code></pre>
+<p>このコンポーネントはきわめてシンプルです。ユーザー一覧へのリンクを持つ<code>&lt;nav&gt;</code>要素を持ちます。<code>/edit</code>リンクを作成したのと同じように、このリンクもラウティングの変更が行えるように<code>m.route.link</code>を使っています。</p>
+<p><code>&lt;section&gt;</code>エレメントには、子供の要素として<code>vnode.children</code>を渡しています。<code>vnode</code>Layoutコンポーネントのインスンタンスを表現しているvnodeの参照です。vnodeは<code>m(Layout)</code>という関数呼び出しで返されます。<code>vnode.children</code>はvnodeの子供を参照します。</p>
+<p>スタイルを追加しましょう:</p>
+<pre><code class="lang-css">/* styles.css */
+body,.input,.button {font:normal 16px Verdana;margin:0;}
+
+.layout {margin:10px auto;max-width:1000px;}
+.menu {margin:0 0 30px;}
+
+.user-list {list-style:none;margin:0 0 10px;padding:0;}
+.user-list-item {background:#fafafa;border:1px solid #ddd;color:#333;display:block;margin:0 0 1px;padding:8px 15px;text-decoration:none;}
+.user-list-item:hover {text-decoration:underline;}
+
+.label {display:block;margin:0 0 5px;}
+.input {border:1px solid #ddd;border-radius:3px;box-sizing:border-box;display:block;margin:0 0 10px;padding:10px 15px;width:100%;}
+.button {background:#eee;border:1px solid #ddd;border-radius:3px;color:#333;display:inline-block;margin:0 0 10px;padding:10px 15px;text-decoration:none;}
+.button:hover {background:#e8e8e8;}
+</code></pre>
+<p><code>src/index.js</code>のラウトを変更して、このレイアウトを追加してみましょう:</p>
+<pre><code class="lang-javascript">// src/index.js
+var m = require("mithril")
+
+var UserList = require("./views/UserList")
+var UserForm = require("./views/UserForm")
+var Layout = require("./views/Layout")
+
+m.route(document.body, "/list", {
+    "/list": {
+        render: function() {
+            return m(Layout, m(UserList))
+        }
+    },
+    "/edit/:id": {
+        render: function(vnode) {
+            return m(Layout, m(UserForm, vnode.attrs))
+        }
+    },
+})
+</code></pre>
+<p>それぞれのコンポーネントは<a href="route.html#routeresolver">ラウトリゾルバ</a>に置き換えられました。ラウトリゾルバは<code>render</code>メソッドを持つオブジェクトです。<code>render</code>メソッドは通常のコンポーネントのビュート同じように、ネストされた<code>m()</code>関数呼び出しを使って書くことができます。</p>
+<p><code>m()</code>関数呼び出しの中で、セレクター文字列の代わりにコンポーネントが使われている点が今までと違っていますよね？<code>/list</code>ラウトの中では、<code>m(Layout, m(UserList))</code>というコードが呼ばれています。このコードは、vnodeのルートは<code>Layout</code>のインスタンスとなり、子供として<code>UserList</code>vnodeを持つという意味になります。</p>
+<p><code>/edit/:id</code>ラウトでは、<code>vnode</code>引数を使ってラウトパラメータを<code>UserForm</code>コンポーネントに渡しています。URLがもし<code>/edit/1</code>であれば、<code>vnode.attrs</code>は<code>{id: 1}</code>となり、<code>m(UserForm, vnode.attrs)</code>は<code>m(UserForm, {id: 1})</code>と等価になります。等価なJSXコードは<code>&lt;UserForm id={vnode.attrs.id} /&gt;</code>となります。</p>
+<p>このページをリフレッシュすると、アプリケーション内のすべてのページにグローバルナビゲーションが表示されます。</p>
+<hr>
+<p>チュートリアルはここで終了です。</p>
+<p>このチュートリアルでは、サーバーからユーザーをリストして個別に編集できるシンプルなアプリケーションを順を追って作成してきました。ぜひ、追加のエクササイズとして、ユーザの新規作成と削除の実装にも挑戦してみてください。</p>
+<p>もしMithrilコードのサンプルをもっと見たいのであれば<a href="examples.html">サンプル</a>ページを参照してください。もし何か質問があれば<a href="https://gitter.im/lhorie/mithril.js">Mithrilのチャット（英語）</a>で自由に聞いてください。</p>
+
+				<hr />
+				<small>License: MIT. © Leo Horie.</small>
+			</section>
+		</main>
+		<script src="lib/prism/prism.js"></script>
+		<script>
+		document.querySelector(".hamburger").onclick = function() {
+			document.body.className = document.body.className === "navigating" ? "" : "navigating"
+			document.querySelector("h1 + ul").onclick = function() {
+				document.body.className = ''
+			}
+		}
+		</script>
+	</body>
+</html>

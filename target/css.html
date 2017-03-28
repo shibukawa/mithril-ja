@@ -1,0 +1,145 @@
+<html>
+	<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="UTF-8" />
+		<title>  CSS - Mithril.js</title>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	</head>
+	<body>
+		<header>
+			<section>
+				<a class="hamburger" href="javascript:;">≡</a>
+				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<nav>
+					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
+				</nav>
+			</section>
+		</header>
+		<main>
+			<section>
+				<h1 id="css">CSS</h1>
+<ul>
+<li>チュートリアル<ul>
+<li><a href="installation.html">インストール</a></li>
+<li><a href="index.html">イントロダクション</a></li>
+<li><a href="simple-application.html">チュートリアル</a></li>
+</ul>
+</li>
+<li>リソース<ul>
+<li><a href="jsx.html">JSX</a></li>
+<li><a href="es6.html">ES6</a></li>
+<li><strong><a href="css.html">CSS</a></strong><ul>
+<li><a href="#vanilla-css">バニラCSS</a></li>
+<li><a href="#tachyons">Tachyons</a></li>
+<li><a href="#css-in-js">CSS-in-JS</a></li>
+</ul>
+</li>
+<li><a href="animation.html">アニメーション</a></li>
+<li><a href="testing.html">テスト</a></li>
+<li><a href="examples.html">サンプル</a></li>
+</ul>
+</li>
+<li>重要なコンセプト<ul>
+<li><a href="vnodes.html">Vノード</a></li>
+<li><a href="components.html">コンポーネント</a></li>
+<li><a href="lifecycle-methods.html">ライフサイクルメソッド</a></li>
+<li><a href="keys.html">キー</a></li>
+<li><a href="autoredraw.html">自動再描画システム</a></li>
+</ul>
+</li>
+<li>ソーシャル<ul>
+<li><a href="https://github.com/lhorie/mithril.js/wiki/JOBS">Mithrilの求人</a></li>
+<li><a href="contributing.html">貢献の仕方</a></li>
+<li><a href="credits.html">クレジット</a></li>
+</ul>
+</li>
+<li>その他<ul>
+<li><a href="framework-comparison.html">フレームワークの比較</a></li>
+<li><a href="change-log.html">変更履歴/移行</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="vanilla-css">バニラCSS</h3>
+<p>CSSはさまざまな理由から評判が悪く、開発者の中にはスタイルを管理しやすくするために複雑なツールを使う人もいます。このセクションでは、その複雑なツールから一歩下がり、プレーンなCSSを書くためのtipsを紹介します。</p>
+<ul>
+<li><p><strong>空白演算子を避ける</strong> - CSSのメンテナンス性の問題の大部分はCSSの優先度（specificity）から来ています。空白演算子は親子関係を定義する（例: <code>.a .b</code>）とともに、セレクタに適用されるCSSルールの優先度を上げます。これにより、意図しないスタイルの上書きが発生することがあります。</p>
+<p>  代替手法として、要素の論理グループに属するすべてのクラス名に名前空間のプリフィックスを共有することをお勧めします。</p>
+<pre><code class="lang-css">  /* 避けるべきスタイル */
+  .chat.container {/*...*/}
+  .chat .item {/*...*/}
+  .chat .avatar {/*...*/}
+  .chat .text {/*...*/}
+
+  /* 望ましいスタイル */
+  .chat-container {/*...*/}
+  .chat-item {/*...*/}
+  .chat-avatar {/*...*/}
+  .chat-text {/*...*/}
+</code></pre>
+</li>
+<li><p><strong>シングルクラスセレクタを使う</strong> - この規約は前の規約と関連しています。<code>#foo</code>や<code>div.bar</code>といった優先度の高いセレクタを避けることで、優先度の衝突を減らせます。</p>
+<pre><code class="lang-css">  /* 避けるべきスタイル */
+  #home {}
+  input.highlighted {}
+
+  /* 望ましいスタイル */
+  .home {}
+  .input-highlighted {}
+</code></pre>
+</li>
+<li><p><strong>命名規則を開発する</strong> - UIエレメントの種類ごとのキーワードを定義することで、名前の衝突を減らすことができます。このスタイルはブランド名が関わる時に時に効果的です:</p>
+<pre><code class="lang-css">  /* 避けるべきスタイル */
+  .twitter {} /* フッター内のアイコンのリンク */
+  .facebook {} /* フッター内のアイコンリンク */
+  /* 略... */
+  .modal.twitter {} /* ツイートモーダル */
+  .modal.facebook {} /* シェアモーダル */
+
+  /* 望ましいスタイル */
+  .link-twitter {}
+  .link-facebook {}
+  /* 略... */
+  .modal-twitter {}
+  .modal-facebook {}
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3 id="tachyons">Tachyons</h3>
+<p><a href="https://github.com/tachyons-css/tachyons">Tachyons</a>はCSSフレームワークです。ライブラリがなくても使いやすいことを念頭に開発されています。</p>
+<p>基本的な考え方は、すべてのクラス名には１つのCSSルールのみを記述する点です。例えば、<code>bw1</code>は<code>border-width:1px;</code>を表します。複雑なスタイルを作るには、必要なCSSルールのクラス名を単純に組み合わせて使います。例えば、<code>.black.bg-dark-blue.br2</code>というスタイルは、青い背景色で、黒字で、4pxの角丸を持つ、という意味になります。</p>
+<p>すべてのクラスが小さくアトミックなので、CSSのコンフリクトを起こすことが難しくなっています。</p>
+<p>Tachyonsの規約はMithrilやJSXにとてもよくマッチします:</p>
+<pre><code class="lang-jsx">var Hero = ".black.bg-dark-blue.br2.pa3"
+
+m.mount(document.body, &lt;Hero&gt;Hello&lt;/Hero&gt;)
+// `m(".black.bg-dark.br2.pa3", "Hello")`と同じ
+</code></pre>
+<hr>
+<h3 id="css-in-js">CSS in JS</h3>
+<p>通常のCSSは、すべてのセレクターがグローバルなスコープの中にあるため、名前や空間のコンフリクトが発生します。CSS-in-JSはCSSのスコープの問題を解決しようとします。関連するスタイルをグローバルではないモジュールに分類します。モジュール同士は不可視です。CSS-in-JSは極めて巨大な開発チームがひとつのコードベース上で仕事をしている場合に役立ちますが、多くのチームではオーバーキルです。</p>
+<p>現在は、<a href="https://github.com/MicheleBertoli/css-in-js">たくさんのCSS-in-JSライブラリがあり、ロバスト性もそれぞれ異なります</a>。 </p>
+<p>これらのライブラリの問題は、少なくない量のトランスパイラツール群と、それらのための設定ファイルが必要になる点です。また、動作させるためにはコードの可読性を少し犠牲にする必要があります。例えば、<code>&lt;a class="button danger"&gt;&lt;/a&gt;</code>（あるいはhyperscriptを使っていたら<code>m("a.button.danger")</code>）という表記は、<code>&lt;a class={classnames(styles.button, styles.danger)}&gt;&lt;/a&gt;</code>となります。</p>
+<p>また、デバッグ時にも同じ犠牲を払う必要があります。マッピングされているクラス名とソースコードのマッピングを調べるのが簡単ではなくなります。ブラウザの開発者ツールを開いても、<code>button_fvp6zc2gdj35evhsl73ffzq_0 danger_fgdl0s2a5fmle5g56rbuax71_0</code>といったクラス名は役に立たないソースマップ名、もしくはより悪いケースでは暗号化されたクラス名となります。</p>
+<p>他によくある問題としては、<code>@keyframes</code>や<code>@font-face</code>といった基本的なCSS機能のサポートが欠けていることが多いです。</p>
+<p>もしCSS-in-JSライブラリの使用を検討しているのであれば、設定ファイルいらずで、<code>@keyframes</code>と<code>@font-face</code>の対応が実装されている<a href="https://github.com/j2css/j2c">J2C</a>を強く推奨します。</p>
+
+				<hr />
+				<small>License: MIT. © Leo Horie.</small>
+			</section>
+		</main>
+		<script src="lib/prism/prism.js"></script>
+		<script>
+		document.querySelector(".hamburger").onclick = function() {
+			document.body.className = document.body.className === "navigating" ? "" : "navigating"
+			document.querySelector("h1 + ul").onclick = function() {
+				document.body.className = ''
+			}
+		}
+		</script>
+	</body>
+</html>

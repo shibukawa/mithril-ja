@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+	<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>m.trust - Mithril</title>
+		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
+		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header>
+			<nav class="container">
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+			</nav>
+		</header>
+		<main>
+			<section class="content">
+				<div class="container">
+					<div class="row">
+						<div class="col(3,3,12)">
+							<h2 id="api">API (v0.2.5)</h2>
+							<h3 id="core">コア</h3>
+							<ul>
+								<li><a href="mithril.html" title="仮想エレメントを作るためのユーティリティ">m</a></li>
+								<li><a href="mithril.component.html" title="コンポーネントのパラメータ化">m.component</a></li>
+								<li><a href="mithril.mount.html" title="コンポーネントのレンダリング">m.mount</a></li>
+								<li><a href="mithril.prop.html" title="getter-setterユーティリティ">m.prop</a></li>
+								<li><a href="mithril.withAttr.html" title="イベントハンドラを生成するユーティリティ">m.withAttr</a></li>
+							</ul>
+							<h3 id="routing">ラウティング</h3>
+							<ul>
+								<li><a href="mithril.route.html" title="ラウティングユーティリティ">m.route</a>
+									<ul>
+										<li><a href="mithril.route.html#defining-routes" title="存在するラウトの定義">m.route(rootElement, defaultRoute, routes)</a></li>
+										<li><a href="mithril.route.html#redirecting" title="ラウトへリダイレクト">m.route(path, params, replaceHistory)</a></li>
+										<li><a href="mithril.route.html#reading-current-route" title="現在のラウトを取得">m.route()</a></li>
+										<li><a href="mithril.route.html#mode-abstraction" title="ラウティングモードの抽象化">m.route(element)</a></li>
+										<li><a href="mithril.route.html#mode" title="ラウティングがハッシュ、クエリー文字列、パス名のどのモードを使用するか">m.route.mode</a></li>
+										<li><a href="mithril.route.html#param" title="パラメータ化されたラウトから引数の読み込み">m.route.param</a></li>
+										<li><a href="mithril.route.html#buildQueryString" title="データをクエリー文字列フォーマットでシリアライズ">m.route.buildQueryString</a></li>
+										<li><a href="mithril.route.html#parseQueryString" title="パラメータ化されたラウトから引数の読み込み">m.route.parseQueryString</a></li>
+									</ul>
+								</li>
+							</ul>
+							<h3 id="data">データ</h3>
+							<ul>
+								<li><a href="mithril.request.html" title="高レベルなAJAXユーティリティ">m.request</a></li>
+								<li><a href="mithril.deferred.html" title="Promiseのファクトリ">m.deferred</a></li>
+								<li><a href="mithril.sync.html" title="Promiseを集約">m.sync</a></li>
+							</ul>
+							<h3 id="html">HTML</h3>
+							<ul>
+								<li><a href="mithril.trust.html" title="エスケープしないHTMLのためのメソッド">m.trust</a></li>
+							</ul>
+							<h3 id="rendering">レンダリング</h3>
+							<ul>
+								<li><a href="mithril.render.html" title="低レベルのレンダリングの方法">m.render</a></li>
+								<li><a href="mithril.redraw.html" title="高レベルな明示的なレンダリングメソッド">m.redraw</a>
+									<ul>
+										<li><a href="mithril.redraw.html#strategy" title="次の再描画をどのような戦略で行うかを決定するフラグ">m.redraw.strategy(strategy)</a></li>
+									</ul>
+								</li>
+								<li><a href="mithril.computation.html" title="非同期のコンテキストをMithrilのレンダリングシステムに統合するためのユーティリティ">m.startComputation / m.endComputation</a></li>
+							</ul>
+							<h3 id="data">テスト</h3>
+							<ul>
+								<li><a href="mithril.deps.html" title="依存性注入(Dependency Injection)">m.deps</a></li>
+							</ul>
+							
+							<h2 id="archive">履歴</h2>
+							<ul>
+								<li><a href="roadmap.html">ロードマップ</a></li>
+								<li><a href="change-log.html">変更履歴</a></li>
+							</ul>
+						</div>
+						<div class="col(9,9,12)">
+							<h2 id="m-trust">m.trust</h2>
+<p>もしビューのためにテンプレートを作成しているのであれば、<code>m()</code>を代わりに使用してください。</p>
+<p>このメソッドは文字列に対して信用できるHTMLであるとフラグを立てます。</p>
+<p>信用されたHTMLは、そのままレンダリングされます。そのソースは不正なマークアップであったり、そのままJavaScriptとして実行されるものである場合もありますが、この次の項目の責任は開発者が負います:</p>
+<ul>
+<li><p>サニタイズされたマークアップが文字列の中に含まれる、もしくは</p>
+</li>
+<li><p>文字列の中にどのような処理も可能なコードがある可能性があり、それに実行権限を与えることを認める。</p>
+</li>
+</ul>
+<p>ブラウザは、innerHTML経由でDOMに挿入された<code>&lt;script&gt;</code>タグは無視します。一度HTMLエレメントの読み込みが完了して、 <code>innerHTML</code> プロパティにアクセス可能になった後は、スクリプトが<code>document.write("&lt;/body&gt;")</code>といった関数呼び出しをしたとしても、パースの段階に戻ることはありません。</p>
+<p>このため、<code>m.trust</code>が自動的に<code>&lt;script&gt;</code>タグを実行することはありません。</p>
+<p>しかし、ブラウザが非同期でスクリプトの実行を行うポイントがいくつかあります。<code>&lt;img&gt;</code>と<code>&lt;iframe&gt;</code>に含まれる<code>onload</code>、<code>onerror</code>属性などです。</p>
+<p>IEはCSSの処理の中でのJavaScriptの実行を認めています。<code>&lt;link&gt;</code>/<code>&lt;style&gt;</code> タグと、<code>style</code>属性です。</p>
+<p>このような実行ポイントを羅列することは、malformed(奇形)なタグと<code>" onload="alert(1)</code>のようなクオートが揃ってない属性文字列の組み合わせによる攻撃に対しては意味がありません。</p>
+<p>Mithrilのテンプレートは、<code>m.trust</code>でマークアップを挿入するのを除けば、デフォルトではこのような攻撃を防ぐことができます。</p>
+<p>悪意をもってユーザが入力したデータを<code>m.trust</code>に通す責任は開発者にあります。</p>
+<hr>
+<h3 id="usage">使用方法</h3>
+<pre><code class="lang-javascript">//サーバから送られてきたコンテンツとする
+var content = "&lt;h1&gt;エラー: ユーザ名が違います&lt;/h1&gt;";
+
+m.render("body", [
+    m("div", m.trust(content))
+]);
+</code></pre>
+<p>生成される結果:</p>
+<pre><code class="lang-markup">&lt;body&gt;
+    &lt;div&gt;
+        &lt;h1&gt;エラー: ユーザ名が違います&lt;/h1&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<hr>
+<h3 id="signature">シグニチャ</h3>
+<p><a href="how-to-read-signatures.html">シグニチャの読み方</a></p>
+<pre><code class="lang-clike">String trust(String html)
+</code></pre>
+<ul>
+<li><p><strong>String html</strong></p>
+<p>HTMLマークアップを含む文字列。</p>
+</li>
+<li><p><strong>returns String trustedHtml</strong></p>
+<p>返される文字列は文字列オブジェクトのインスタンス(文字列プリミティブではない)で、同じHTMLコンテンツと、Mithril内部で使用するフラグ属性を持つ。信頼するフラグを手で作成したり変更しないでください。</p>
+<p>また、文字列を結合したり、分割すると、信頼フラグは削除されます。このような操作を行う場合には、最終的な文字列に対してこの関数を呼び出す必要があります。</p>
+</li>
+</ul>
+
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<div class="container">
+				<a href="http://opensource.org/licenses/MIT" target="_blank">MITライセンス</a>でリリースされています<br />© 2014 Leo Horie
+			</div>
+		</footer>
+		<script src="lib/prism/prism.js"></script>
+	</body>
+</html>

@@ -2,7 +2,7 @@
 	<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8" />
-		<title># Getting Started - Mithril.js</title>
+		<title># はじめよう - Mithril.js</title>
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 		<link href="lib/prism/prism.css" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
@@ -11,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg">  Mithril <small>1.0.0</small></h1>
+				<h1><img src="logo.svg"> Mithril <small>1.0.1</small></h1>
 				<nav>
 					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
 				</nav>
@@ -30,15 +30,15 @@
 <h2 id="a-simple-application">シンプルなアプリケーション</h2>
 <p><a href="installation.html">Mithrilのインストール</a>をしたらコーディングを開始しましょう。Mithrilは、決まり文句がとても少ない、小さなHTMLから開始することができます:</p>
 <pre><code class="lang-markup">&lt;!doctype html&gt;
-&lt;title&gt;Todo app&lt;/title&gt;
+&lt;title&gt;Todoアプリケーション&lt;/title&gt;
 &lt;script src="mithril.min.js"&gt;&lt;/script&gt;
 &lt;body&gt;
 &lt;script&gt;
-//app goes here
+//アプリケーションコードがここに追加されます
 &lt;/script&gt;
 &lt;/body&gt;
 </code></pre>
-<p>そうです。これは完全なHTML5です。According to the specs, the <code>&lt;html&gt;</code> and <code>&lt;head&gt;</code> tags can be omitted, but their respective DOM elements will still be there implicitly when a browser renders that markup.</p>
+<p>そうです。これは完全なHTML5です。HTMLの規格によると、<code>&lt;html&gt;</code>、<code>&lt;head&gt;</code>タグは省略できますが、ブラウザがマークアップをレンダリングするときに暗黙的にそれぞれのDOMエレメントを生成します。</p>
 <hr>
 <h3 id="model">モデル</h3>
 <p>Mithrilでは基本的に、アプリケーションは名前空間の中に作り、コンポーネントをその中に格納していきます。コンポーネントは見ることが可能な「ページ」もしくはページの一部を表す、単なる構造体です。アプリケーションはModel、Controller、Viewの大きく3つのレイヤーにきれいに分割することができます。</p>
@@ -127,7 +127,7 @@ todo.vm = {
     }
 };
 </code></pre>
-<p>上記のコードは、<code>vm</code>という名前のビュー・モデルオブジェクトを定義しています。It is simply a javascript object that has an <code>init</code> function. このコードは、3つのメンバーを持つ<code>vm</code>オブジェクトを初期化しています。単純な配列の<code>list</code>、初期値の文字列として空の文字列を渡された<code>m.prop</code>のgetter-setter関数である<code>description</code>、入力のdescription getter-setterが空の文字列でないときに、新しいTodoインスタンスを<code>list</code>に登録する<code>add</code>関数です。</p>
+<p>上記のコードは、<code>vm</code>という名前のビュー・モデルオブジェクトを定義しています。ビュー・モデルオブジェクトは、<code>init</code>関数を持つ、シンプルなJavaScriptのオブジェクトです。このコードは、3つのメンバーを持つ<code>vm</code>オブジェクトを初期化しています。単純な配列の<code>list</code>、初期値の文字列として空の文字列を渡された<code>m.prop</code>のgetter-setter関数である<code>description</code>、入力のdescription getter-setterが空の文字列でないときに、新しいTodoインスタンスを<code>list</code>に登録する<code>add</code>関数です。</p>
 <p>このガイドの後半では、<code>description</code>プロパティをこの関数の引数として渡します。準備が整ったところで、なぜこのサンプルではオブジェクト指向プログラミングのスタイルのメンバーの関連付けを行わずに、descriptionを引数として渡すのかを説明しましょう。</p>
 <p>ビュー・モデルは次のように使えます:</p>
 <pre><code class="lang-javascript">//ビュー・モデルの初期化
@@ -292,7 +292,7 @@ m("table", [
 </code></pre>
 <p>このテンプレートの大事なポイントを個別に説明していきます:</p>
 <ul>
-<li>The template is rendered as a child of the document's <code>&lt;body&gt;</code>.</li>
+<li>テンプレートはドキュメントの<code>&lt;body&gt;</code>要素の子供としてレンダリングされます。</li>
 <li>テキスト入力は、値を、以前定義した<code>todo.vm.description</code> getter-setter に保存します。</li>
 <li>ボタンが押されると、<code>todo.vm.add</code>メソッドが呼び出されます。</li>
 <li>もし既存のToDoがある場合は、既存のすべてのToDoが表形式で出力されます。</li>
@@ -302,7 +302,7 @@ m("table", [
 </ul>
 <hr>
 <p>最初に紹介したときは、データを変更した後に手動で<code>m.render</code>を呼び出して再描画を行わせていました。しかし、前に説明したとおり、<code>m.mount</code>を通じて<code>todo</code>コンポーネントを初期化すると、<a href="auto-redrawing.html">自動再描画システム</a>が有効になります。</p>
-<pre><code class="lang-javascript">//render the todo component inside the body DOM node
+<pre><code class="lang-javascript">//todoコンポーネントをbody DOMノード内にレンダリングします
 m.mount(document.body, {controller: todo.controller, view: todo.view});
 </code></pre>
 <p>Mithrilの自動再描画システムはコントローラの安定性を崩しません。ビューの再描画はコントローラの処理がすべて終わった時にのみ行われます。このコントローラの処理には、AJAXによるデータのロードも含まれます。同様に、このシステムはイベントハンドラ内部の非同期サービスについても、再描画前にきちんと完了することを賢く待ちます。</p>
@@ -314,12 +314,12 @@ m.mount(document.body, {controller: todo.controller, view: todo.view});
 &lt;script src="mithril.min.js"&gt;&lt;/script&gt;
 &lt;body&gt;
 &lt;script&gt;
-//this application only has one component: todo
+//このアプリケーションはtodoコンポーネントだけで構成されています
 var todo = {};
 
-//for simplicity, we use this component to namespace the model classes
+//サンプルを簡単にするために、このコンポーネントはモデルクラスの名前空間としても使います
 
-//the Todo class has two properties
+//Todoクラスは2つのプロパティを持ちます
 todo.Todo = function(data) {
     this.description = m.prop(data.description);
     this.done = m.prop(false);
@@ -376,7 +376,7 @@ todo.view = function() {
     ]
 };
 
-//initialize the application
+//アプリケーションを初期化します
 m.mount(document.body, {controller: todo.controller, view: todo.view});
 &lt;/script&gt;
 &lt;/body&gt;
