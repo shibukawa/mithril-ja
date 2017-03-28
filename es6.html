@@ -1,0 +1,166 @@
+<html>
+	<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="UTF-8" />
+		<title>  ES6 - Mithril.js</title>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	</head>
+	<body>
+		<header>
+			<section>
+				<a class="hamburger" href="javascript:;">≡</a>
+				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<nav>
+					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
+				</nav>
+			</section>
+		</header>
+		<main>
+			<section>
+				<h1 id="es6">ES6</h1>
+<ul>
+<li>チュートリアル<ul>
+<li><a href="installation.html">インストール</a></li>
+<li><a href="index.html">イントロダクション</a></li>
+<li><a href="simple-application.html">チュートリアル</a></li>
+</ul>
+</li>
+<li>リソース<ul>
+<li><a href="jsx.html">JSX</a></li>
+<li><strong><a href="es6.html">ES6</a></strong><ul>
+<li><a href="#setup">セットアップ</a></li>
+<li><a href="#using-babel-with-webpack">WebPackとBabelを使用する</a></li>
+</ul>
+</li>
+<li><a href="css.html">CSS</a></li>
+<li><a href="animation.html">アニメーション</a></li>
+<li><a href="testing.html">テスト</a></li>
+<li><a href="examples.html">サンプル</a></li>
+</ul>
+</li>
+<li>重要なコンセプト<ul>
+<li><a href="vnodes.html">Vノード</a></li>
+<li><a href="components.html">コンポーネント</a></li>
+<li><a href="lifecycle-methods.html">ライフサイクルメソッド</a></li>
+<li><a href="keys.html">キー</a></li>
+<li><a href="autoredraw.html">自動再描画システム</a></li>
+</ul>
+</li>
+<li>ソーシャル<ul>
+<li><a href="https://github.com/lhorie/mithril.js/wiki/JOBS">Mithrilの求人</a></li>
+<li><a href="contributing.html">貢献の仕方</a></li>
+<li><a href="credits.html">クレジット</a></li>
+</ul>
+</li>
+<li>その他<ul>
+<li><a href="framework-comparison.html">フレームワークの比較</a></li>
+<li><a href="change-log.html">変更履歴/移行</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>MithrilはES6とは完全に互換性があるES5で書かれています。ES6はよく使われる一般的なケースのために新しいシンタックスシュガーを導入するという方法でJavaScriptをアップデートしています。全ブラウザで完全にサポートされているわけではありませんし、アプリケーションを書くための必須要件となっているわけではありませんが、チームによっては使いたがるでしょう。</p>
+<p>IEをサポートしない内部向けのアプリケーションなど、限られた環境の中では、追加のツールを導入しないで、ES6のサブセットを直接使って開発することもできます。しかし、ほとんどのユースケースではES6のコードをコンパイルしてES5にダウングレードする<a href="https://babeljs.io">Babel</a>のようなコンパイラーツールチェーンが必要になります。</p>
+<h3 id="setup">セットアップ</h3>
+<p>ES6コンパイルツールチェーンをセットアップで一番簡単な方法は<a href="https://babeljs.io/">Babel</a>を使うことです。</p>
+<p>Babelは<a href="https://nodejs.org/en/">Node.js</a>をインストールすると維持でインストールされるnpmが必要です。npmがインストールされたら、プロジェクトフォルダを作り、次のコマンドを入力しましょう:</p>
+<pre><code class="lang-bash">npm init -y
+</code></pre>
+<p>もしWebPackとBabelを同時に使いたいのであれば、<a href="#using-babel-with-webpack">次のセクション</a>まで飛ばしてください。</p>
+<p>Babelをスタンドアロンツールとして導入するには次のコマンドを実行します:</p>
+<pre><code class="lang-bash">npm install babel-cli babel-preset-es2015 babel-plugin-transform-react-jsx --save-dev
+</code></pre>
+<p><code>.babelrc</code>ファイルを作成します:</p>
+<pre><code class="lang-json">{
+    "presets": ["es2015"],
+    "plugins": [
+        ["transform-react-jsx", {
+            "pragma": "m"
+        }]
+    ]
+}
+</code></pre>
+<p>スタンドアロンツールとしてBabelを実行するには、次のように起動します:</p>
+<pre><code class="lang-bash">babel src --out-dir bin --source-maps
+</code></pre>
+<h4 id="using-babel-with-webpack">WebPackとBabelを使用する</h4>
+<p>もしソースコードのバンドルにWebPackをすでに使っているのであれば、次のように設定することでBabelをWebPackに統合できます。</p>
+<pre><code class="lang-bash">npm install babel-core babel-loader babel-preset-es2015 babel-plugin-transform-react-jsx --save-dev
+</code></pre>
+<p><code>.babelrc</code>ファイルを作成します:</p>
+<pre><code class="lang-json">{
+    "presets": ["es2015"],
+    "plugins": [
+        ["transform-react-jsx", {
+            "pragma": "m"
+        }]
+    ]
+}
+</code></pre>
+<p>次に、<code>webpack.config.js</code>というファイルを作成します</p>
+<pre><code class="lang-javascript">module.exports = {
+    entry: './src/index.js',
+    output: {
+        path: './bin',
+        filename: 'app.js',
+    },
+    module: {
+        loaders: [{
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: 'babel-loader'
+        }]
+    }
+}
+</code></pre>
+<p>この設定ファイルでは、アプリケーションのエントリポイントが<code>src/index.js</code>にあり、出力先が<code>bin/app.js</code>にあることを想定しています。</p>
+<p>バンドラーを実行するにはnpmスクリプトの設定を行います。<code>package.json</code>ファイルを開き、<code>"scripts"</code>以下に次のstart節を追加します:</p>
+<pre><code class="lang-json">{
+    "name": "my-project",
+    "scripts": {
+        "start": "webpack -d --watch"
+    }
+}
+</code></pre>
+<p>これでバンドラーをコマンドラインツールから実行できるようになりました:</p>
+<pre><code class="lang-bash">npm start
+</code></pre>
+<h4 id="production-build">本番ビルド</h4>
+<p>ミニファイされたファイルを生成するには、<code>package.json</code>を開き、<code>build</code>という新しいnpmスクリプトの項目を追加します:</p>
+<pre><code class="lang-json">{
+    "name": "my-project",
+    "scripts": {
+        "start": "webpack -d --watch",
+        "build": "webpack -p"
+    }
+}
+</code></pre>
+<p>本番環境ではフックを使ってスクリプトの本番ビルドを自動でビルドさせることができます。次のコードは<a href="https://www.heroku.com/">Heroku</a>を使うサンプルです:</p>
+<pre><code class="lang-json">{
+    "name": "my-project",
+    "scripts": {
+        "start": "webpack -d --watch",
+        "build": "webpack -p",
+        "heroku-postbuild": "webpack -p"
+    }
+}
+</code></pre>
+
+				<hr />
+				<small>License: MIT. © Leo Horie.</small>
+			</section>
+		</main>
+		<script src="lib/prism/prism.js"></script>
+		<script>
+		document.querySelector(".hamburger").onclick = function() {
+			document.body.className = document.body.className === "navigating" ? "" : "navigating"
+			document.querySelector("h1 + ul").onclick = function() {
+				document.body.className = ''
+			}
+		}
+		</script>
+	</body>
+</html>

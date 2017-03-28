@@ -1,0 +1,738 @@
+<html>
+	<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="UTF-8" />
+		<title>  route(root, defaultRoute, routes) - Mithril.js</title>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	</head>
+	<body>
+		<header>
+			<section>
+				<a class="hamburger" href="javascript:;">≡</a>
+				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<nav>
+					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
+				</nav>
+			</section>
+		</header>
+		<main>
+			<section>
+				<h1 id="routeroot,-defaultroute,-routes">route(root, defaultRoute, routes)</h1>
+<ul>
+<li>コア<ul>
+<li><a href="hyperscript.html">m</a></li>
+<li><a href="render.html">m.render</a></li>
+<li><a href="mount.html">m.mount</a></li>
+<li><strong><a href="route.html">m.route</a></strong><ul>
+<li><a href="#description">説明</a></li>
+<li><a href="#signature">シグニチャ</a><ul>
+<li><a href="#static-members">静的メンバー</a><ul>
+<li><a href="#mrouteset">m.route.set</a></li>
+<li><a href="#mrouteget">m.route.get</a></li>
+<li><a href="#mrouteprefix">m.route.prefix</a></li>
+<li><a href="#mroutelink">m.route.link</a></li>
+</ul>
+</li>
+<li><a href="#routeresolver">ラウトリゾルバ</a><ul>
+<li><a href="#routeresolveronmatch">routeResolver.onmatch</a></li>
+<li><a href="#routeresolverrender">routeResolver.render</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#how-it-works">どのように動作するのか</a></li>
+<li><a href="#typical-usage">一般的な使用法</a></li>
+<li><a href="#navigating-to-different-routes">異なるラウトへのナビゲーション</a></li>
+<li><a href="#routing-parameters">ラウトのパラメータ</a><ul>
+<li><a href="#key-parameter">Keyパラメーター</a></li>
+<li><a href="#variadic-routes">可変個引数のラウト</a></li>
+<li><a href="#history-state">ヒストリー状態</a></li>
+</ul>
+</li>
+<li><a href="#changing-router-prefix">ラウタープリフィックスの変更</a></li>
+<li><a href="#advanced-component-resolution">高度なコンポーネントの解決</a><ul>
+<li><a href="#wrapping-a-layout-component">レイアウトコンポーネントのラッピング</a></li>
+<li><a href="#authentication">認証</a></li>
+<li><a href="#preloading-data">データのプリロード</a></li>
+<li><a href="#code-splitting">コード分割</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="request.html">m.request</a></li>
+<li><a href="jsonp.html">m.jsonp</a></li>
+<li><a href="parseQueryString.html">m.parseQueryString</a></li>
+<li><a href="buildQueryString.html">m.buildQueryString</a></li>
+<li><a href="withAttr.html">m.withAttr</a></li>
+<li><a href="trust.html">m.trust</a></li>
+<li><a href="fragment.html">m.fragment</a></li>
+<li><a href="redraw.html">m.redraw</a></li>
+<li><a href="version.html">m.version</a></li>
+<li><a href="promise.html">Promise</a></li>
+</ul>
+</li>
+<li>オプショナル<ul>
+<li><a href="stream.html">Stream</a></li>
+</ul>
+</li>
+<li>ツール<ul>
+<li><a href="https://github.com/lhorie/mithril.js/blob/rewrite/ospec">Ospec</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="description">説明</h3>
+<p>アプリケーション内の「ページ」間のナビゲーションを行います。</p>
+<pre><code class="lang-javascript">var Home = {
+    view: function() {
+        return "ようこそ"
+    }
+}
+
+m.route(document.body, "/home", {
+    "/home": Home, // `http://localhost/#!/home` の定義
+})
+</code></pre>
+<p>アプリケーションごとに1回だけ<code>m.route</code>呼び出しが行えます。</p>
+<hr>
+<h3 id="signature">シグニチャ</h3>
+<p><code>m.route(root, defaultRoute, routes)</code></p>
+<table>
+<thead>
+<tr>
+<th>引数</th>
+<th>型</th>
+<th>必須</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>root</code></td>
+<td><code>Element</code></td>
+<td>Yes</td>
+<td>サブツリーの親ノードとなるDOM要素</td>
+</tr>
+<tr>
+<td><code>defaultRoute</code></td>
+<td><code>String</code></td>
+<td>Yes</td>
+<td>現在のURLが、定義されたどのラウトにもマッチしなかった時にリダイレクトされる先のラウト</td>
+</tr>
+<tr>
+<td><code>routes</code></td>
+<td><code>Object<String,Component&#124;RouteResolver></code></td>
+<td>Yes</td>
+<td>キーがラウトのURL、値がコンポーネントか<a href="#routeresolver">ラウトリゾルバー</a>が格納されているオブジェクト</td>
+</tr>
+<tr>
+<td><strong>returns</strong></td>
+<td></td>
+<td></td>
+<td><code>undefined</code>を返す</td>
+</tr>
+</tbody>
+</table>
+<p><a href="signatures.html">シグニチャの読み方</a></p>
+<h4 id="static-members">静的メンバー</h4>
+<h5 id="mrouteset">m.route.set</h5>
+<p>マッチするラウト、もしくはマッチするラウトがなければデフォルトのラウトにリダイレクトします。</p>
+<p><code>m.route.set(path, data, options)</code></p>
+<table>
+<thead>
+<tr>
+<th>引数</th>
+<th>型</th>
+<th>必須</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>path</code></td>
+<td><code>String</code></td>
+<td>Yes</td>
+<td>移行先のラウト。ただしプリフィックスは含まない。パスにはラウとのパラメータを含めることができます。</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td><code>Object</code></td>
+<td>No</td>
+<td>ラウトのパラメータもし<code>path</code>はラウとのパラメータスロットを持っている時は、このオブジェクトのプロパティがパス文字列のパラメータ部として利用されます。</td>
+</tr>
+<tr>
+<td><code>options.replace</code></td>
+<td><code>Boolean</code></td>
+<td>No</td>
+<td>新しい履歴のエントリーを追加するか、今のエントリーを置き換えるか。デフォルトはfalseです。</td>
+</tr>
+<tr>
+<td><code>options.state</code></td>
+<td><code>Object</code></td>
+<td>No</td>
+<td><code>state</code>オブジェクトは、内部で呼び出される<code>history.pushState</code> / <code>history.replaceState</code>に渡されます。このstateオブジェクトは<code>history.state</code>プロパティを通じてアクセスできます。プロパティは<a href="#routing-parameters">ラウトパラメータ</a>オブジェクトにマージされます。このオプションはpushState APIを使っているときにのみ利用できます。pushState APIが利用できないときは、ラウターはハッシュ変更モードにフォールバックしますがこの時は無視されます。</td>
+</tr>
+<tr>
+<td><code>options.title</code></td>
+<td><code>String</code></td>
+<td>No</td>
+<td><code>title</code>文字列は、内部で呼び出される<code>history.pushState</code> / <code>history.replaceState</code>に渡されます。</td>
+</tr>
+<tr>
+<td><strong>returns</strong></td>
+<td></td>
+<td></td>
+<td><code>undefined</code>を返す</td>
+</tr>
+</tbody>
+</table>
+<h5 id="mrouteget">m.route.get</h5>
+<p>最後に解決されたラウトのパスをプリフィックスなしで返します。非同期で<a href="#code-splitting">解決が遅延</a>されている時は、ブラウザのロケーションバーに表示されているパスと異なることがあります。</p>
+<p><code>path = m.route.get()</code></p>
+<table>
+<thead>
+<tr>
+<th>引数</th>
+<th>型</th>
+<th>必須</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>returns</strong></td>
+<td>String</td>
+<td></td>
+<td>最後に解決されたラウトのパス</td>
+</tr>
+</tbody>
+</table>
+<h5 id="mrouteprefix">m.route.prefix</h5>
+<p>ラウターのプリフィックスを定義します。ラウタープリフィックはラウターが使用する<a href="#routing-strategies">戦略</a>を決定する文字列です。</p>
+<p><code>m.route.prefix(prefix)</code></p>
+<table>
+<thead>
+<tr>
+<th>引数</th>
+<th>型</th>
+<th>必須</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>prefix</code></td>
+<td><code>String</code></td>
+<td>Yes</td>
+<td>プリフィックスはMithrilが内部で使用する<a href="#routing-strategies">ラウト戦略</a>を制御します。</td>
+</tr>
+<tr>
+<td><strong>returns</strong></td>
+<td></td>
+<td></td>
+<td><code>undefined</code>を返す</td>
+</tr>
+</tbody>
+</table>
+<h5 id="mroutelink">m.route.link</h5>
+<p><code>eventHandler = m.route.link(vnode)</code></p>
+<table>
+<thead>
+<tr>
+<th>引数</th>
+<th>型</th>
+<th>必須</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>vnode</code></td>
+<td><code>Vnode</code></td>
+<td>Yes</td>
+<td>このメソッドは<code>&lt;a&gt;</code>タグと<a href="vnodes.html">vnode</a>の<a href="lifecycle-methods.html"><code>oncreate</code>フック</a>を結びつけるときに使います。</td>
+</tr>
+<tr>
+<td><strong>returns</strong></td>
+<td>Function(e)</td>
+<td></td>
+<td><code>href</code>のURLをMithrilのラウターの <code>パス</code>として<code>m.route.set</code>に渡すイベントハンドラの関数を作成して返します</td>
+</tr>
+</tbody>
+</table>
+<h4 id="routeresolver">ラウトリゾルバ</h4>
+<p>ラウとリゾルバは<code>onmatch</code>メソッドと<code>render</code>メソッドの両方、あるいはどちらかを持つオブジェクトです。メソッドはどちらもオプションですが、どちらか一方は必要です。ラウとリゾルバはコンポーネントではありません。そのため、ライフサイクルメソッドも持ちません。一般的な使い方は、ラウトリゾルバは<code>m.route</code>呼び出しと同じファイルに入れ、コンポーネントはそれぞれ別のファイルに入れる方法です。</p>
+<p><code>routeResolver = {onmatch, render}</code></p>
+<h5 id="routeresolveronmatch">routeResolver.onmatch</h5>
+<p><code>onmatch</code>フックはレンダリングするコンポーネントを探すときに呼ばれます。これはラウターのパスが一回変更されるたびに呼ばれます。ただし、同じパスに対して再帰的に子要素が呼び出されて行われる再描画では呼びされません。これはコンポーネントの初期化前位にロジックを実行することができます。例えば認証ロジックはデータのプリロード、リダイレクト分析とかです。</p>
+<p>このメソッドを使うと、どのコンポーネントをレンダリングすべきかを非同期に決めることができます。コードを分割して非同期のモジュールのロードを行うときに使えます。コンポーネントのレンダリングを非同期に行う時は、解決時にコンポーネントが格納されるPromiseを返します。</p>
+<p><code>onmatch</code>の詳細は、<a href="#advanced-component-resolution">応用的なコンポーネントの解決</a>のセクションを参照してください。</p>
+<p><code>routeResolver.onmatch(args, requestedPath)</code></p>
+<table>
+<thead>
+<tr>
+<th>引数</th>
+<th>型</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>args</code></td>
+<td><code>Object</code></td>
+<td><a href="#routing-parameters">ラウトパラメータ</a></td>
+</tr>
+<tr>
+<td><code>requestedPath</code></td>
+<td><code>String</code></td>
+<td>最後にラウト操作を行った時のラウターパスです。ラウターパラメータ値は入りますが、プリフィックスは含まれません。<code>onmatch</code>が呼ばれると、パスの解決は延期され、<code>m.route.get()</code>が返すパスも解決されて変更される前のままとなります。</td>
+</tr>
+<tr>
+<td><strong>returns</strong></td>
+<td><code>Component|Promise<Component></code></td>
+<td>コンポーネントまたは、解決時にコンポーネントが格納されるPromiseを返します。</td>
+</tr>
+</tbody>
+</table>
+<p>もし<code>onmatch</code>がコンポーネント、あるいはコンポーネントを解決するPromiseを返すと、このコンポーネントはラウトリゾルバーの <code>render</code> メソッドの最初の引数の<code>vnode.tag</code>として渡されます。返さない時は<code>vnode.tag</code>には<code>"div"</code>が設定されます。同様に、<code>onmatch</code>メソッドが省略されると、<code>vnode.tag</code>が<code>"div"</code>になります。</p>
+<p><code>onmatch</code>がPromiseを返し、それがrジジェクとされたら、ラウターのラウトは<code>defaultRoute</code>に戻ります。この動作を回避するには、Promiseのチェーンを返す前に<code>.catch</code>を呼び出して動作を変更してください。</p>
+<h5 id="routeresolverrender">routeResolver.render</h5>
+<p><code>render</code>はラウトがマッチしたときの再描画時に毎回呼ばれます。これはコンポーネントの<code>view</code>メソッドに似ていますが、<a href="#wrapping-a-layout-component">コンポーネント合成</a>をシンプルにおこなうために存在しています。</p>
+<p><code>vnode = routeResolve.render(vnode)</code></p>
+<table>
+<thead>
+<tr>
+<th>引数</th>
+<th>型</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>vnode</code></td>
+<td><code>Object</code></td>
+<td><a href="vnodes.html">vnode</a>ですが、このオブジェクトの属性は、ラウトパラメータを含んでいます。もしonmatchがコンポーネントも、コンポーネントを返すPromiseも返さなかった時は、<code>tag</code>　フィールドは<code>"div"</code>となります。</td>
+</tr>
+<tr>
+<td><code>vnode.attrs</code></td>
+<td><code>Object</code></td>
+<td>URLパラメータ値のマップ</td>
+</tr>
+<tr>
+<td><strong>returns</strong></td>
+<td><code>Vnode</code></td>
+<td>Vノードを返します</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="how-it-works">どのように動作するのか</h4>
+<p>ラウティング(Routing = アメリカ英語読みはルーティングよりもラウティングが近い)は、シングルページアプリケーション(SPA)を作るための仕組みです。他のページに行く時に、フルにブラウザをリフレッシュしなくても済むアプリケーションを実現することができます。</p>
+<p>この機能を使うと、各ページをブックマークしたり、ブラウザの履歴の機能はそのままに、シームレスなナビゲーションが可能になります。</p>
+<p>ページリフレッシュをしないラウティングの一部は<a href="https://developer.mozilla.org/ja/docs/Web/Guide/DOM/Manipulating_the_browser_history#pushState()_メソッド"><code>history.pushState()</code></a>APIによって実現されています。このAPIを使うと、ページがロードされた後に、プログラムによって新たなリロードを行わずに、ブラウザに表示されるURLを変更できます。しかし、プログラマはそのURLがそのままコピーされて、新しいタブなどの新しい状態で使用されたときにも、適切なマークアップが表示されることを保証しなければなりません。</p>
+<h4 id="routing-strategies">ラウト戦略</h4>
+<p>ラウと戦略は、ライブラリがどのようにラウトを取り扱うのかを決定します。SPAのラウティングシステムを実装するのに使える戦略は、一般的に3種類あります。それぞれ違った特性を持っています。</p>
+<ul>
+<li>URLの<a href="https://en.wikipedia.org/wiki/Fragment_identifier">フラグメント識別子</a>（別名：ハッシュ）部分を使う。この戦略を使った時のURLは一般的には<code>http://localhost/#!/page1</code>のような形式になります。</li>
+<li>クエリー文字列の使用この戦略を使ったURLは<code>http://localhost/?/page1</code>のような形式になります。</li>
+<li>パス名の使用この戦略を使ったURLは<code>http://localhost/page1</code>のような形式になります。</li>
+</ul>
+<p>ハッシュ戦略を使うと、<code>history.pushState</code>をサポートしていないブラウザ（名前を挙げるとならInternet Explorer 9）でも<code>onhashchange</code>にフォールバックするため使用することができます。もしIE9をサポートしたいのであればこの戦略を使用してください。</p>
+<p>クエリー文字列戦略も技術的にはIE9で動作しますが、ページのリロードが発生してしまいます。この戦略はアンカーを使ったリンクを使用したいが、サーバー側の都合でパス名戦略が使用できないときに使います。</p>
+<p>パス名戦略はもっともクリーンなURLを生成しますが、IE9をサポートしません。<em>なおかつ</em>アプリケーションのラウターで取りうるすべてのURLでシングルページアプリケーションのコードを返すようにサーバーを設定する必要があります。この戦略はIE9のサポートが必要でなく、なおかつURLの見た目をきれいにしたいときに使います。</p>
+<p>ハッシュ戦略を使うシングルページアプリケーションは、ハッシュの後に感嘆符（!）を付けてアンカーへのリンクではなく、ハッシュをラウティングメカニズムとして使用することを明示することがよくあります。<code>#!</code>文字列は<em>ハッシュバング</em>として知られています。</p>
+<p>デフォルトの戦略はハッシュバングです。</p>
+<hr>
+<h3 id="typical-usage">一般的な使用法</h3>
+<p>通常は、ラウトにマッピングする<a href="components.html">コンポーネント</a>をいくつか作成します:</p>
+<pre><code class="lang-javascript">var Home = {
+    view: function() {
+        return [
+            m(Menu),
+            m("h1", "ホーム")
+        ]
+    }
+}
+
+var Page1 = {
+    view: function() {
+        return [
+            m(Menu),
+            m("h1", "ページ 1")
+        ]
+    }
+}
+</code></pre>
+<p>このサンプルには、<code>Home</code>と<code>Page1</code>の2つのコンポーネントが含まれています。それぞれのコンポーネントはメニューとテキストを持っています。コードの重複を避けるためにメニューそのものもコンポーネントとなっています:</p>
+<pre><code class="lang-javascript">var Menu = {
+    view: function() {
+        return m("nav", [
+            m("a[href=/]", {oncreate: m.route.link}, "ホーム"),
+            m("a[href=/page1]", {oncreate: m.route.link}, "ページ 1"),
+        ])
+    }
+}
+</code></pre>
+<p>コンポーネントがそろったら、コンポーネントとラウトを対応付けます:</p>
+<pre><code class="lang-javascript">m.route(document.body, "/", {
+    "/": Home,
+    "/page1": Page1,
+})
+</code></pre>
+<p>このコードでは2つのラウト、<code>/</code>、<code>/page1</code>を定義しています。ユーザーがそれぞれのURLを訪れたら、それぞれ適切なコンポーネントをレンダリングします。デフォルトでは、SPAのラウターは<code>#!</code>をプリフィックスとして使用します。</p>
+<hr>
+<h3 id="navigating-to-different-routes">異なるラウトへのナビゲーション</h3>
+<p>上記のサンプルでは<code>Menu</code>コンポーネントは2つリンクを持っていました。<code>href</code>にはラウターURLを指定できます。<code>{oncreate: m.route.link}</code>を付与すると、通常のリンクではなく、現在のページから指定ページに遷移するナビゲーションになります。</p>
+<p>これ以外の方法では、<code>m.route.set(route)</code>を使うとソースコードを使ってページの遷移を行わせられます。<code>m.route.set("/page1")</code>のように使用します。</p>
+<p>ラウトにナビゲートする時はラウタープリフィックスを指定する必要はありません。むしろ、<code>m.route.link</code>やリダイレクトを行う時には、<code>#!</code>をラウトパスの前に追加してはいけません。</p>
+<hr>
+<h3 id="routing-parameters">ラウトのパラメータ</h3>
+<p>ラウトの中に、ID変数などのデータ表現を追加したいことがあります。もちろん、可能性のあるIDをすべて個別のラウトとして明示したくはありません。この機能を実現するために、Mithrilはパラメータ化したラウトをサポートしています。</p>
+<pre><code class="lang-javascript">var Edit = {
+    view: function(vnode) {
+        return [
+            m(Menu),
+            m("h1", vnode.attrs.id + "を編集中")
+        ]
+    }
+}
+m.route(document.body, "/edit/1", {
+    "/edit/:id": Edit,
+})
+</code></pre>
+<p>このサンプルでは<code>/edit/:id</code>というラウトを定義しています。この記法を使うと、<code>/edit/</code>から始まり、何らかのデータがその後に続く動的なラウトを定義できます。例えば、<code>/edit/1</code>, <code>edit/234</code>といったパスにマッチします。<code>id</code>値は、<code>vnode.attrs.id</code>のように、コンポーネントの<a href="vnodes.html">vnode</a>コンポーネントの属性にマップされます。</p>
+<p><code>/edit/:projectID/:userID</code>のように、複数の引数をラウトに持たせることができます。これらの引数も、コンポーネントのvnode属性オブジェクトの<code>projectID</code>、<code>userID</code>プロパティになります。</p>
+<p><code>attrs</code>には、ラウトのパラメータだけではなく、現在のラウトのパスを格納する<code>path</code>プロパティと、マッチしたラウトを含む<code>route</code>プロパティもあります。</p>
+<h4 id="key-parameter">Keyパラメーター</h4>
+<p>もし、ユーザーがパラメータ付きのラウトから、同じラウト定義（<code>/page/:id</code>）のパラメータ違いのラウト（<code>/page/1</code>から<code>/page/2</code>）に遷移しようとした時は、1.0からは同じコンポーネントでラウトの解決が行われるため、コンポーネントの破棄と再作成は行われません。フルスクラッチではなく、その場のdiffによる高速な仮想DOMの更新が行われます。これの副作用として、このケースでは<code>oninit</code>/<code>oncreate</code>のフックは呼ばれず、<code>onupdate</code>フックだけが呼び出されます。しかし、0.2.Xのように、ラウト変更イベントに対して、同期的なコンポーネントの再生成を行って欲しいという需要も、開発者の中では比較的一般的です。</p>
+<p>これらの両方のニーズを満たすために、ラウトのパラメータ化と仮想DOMの<a href="keys.html">key称号</a>機能を使います。</p>
+<pre><code class="lang-javascript">m.route(document.body, "/edit/1", {
+    "/edit/:key": Edit,
+})
+</code></pre>
+<p>このコードは、ルートのコンポーネントが、ラウトパラメータオブジェクトとして<code>key</code>属性を持つことを意味します。ラウとパラメータはvnodeの<code>attrs</code>プロパティとなります。この時、あるページから他のページに遷移すると、<code>key</code>が変更されます。この属性の違いから、仮想DOMエンジンは、既存のコンポーネントと新しいコンポーネントの内容がまったく異なると判断し、既存のコンポーネントを破棄して新コンポーネントを再作成します。</p>
+<p>この機能を使うと、リロード時に完全に再作成されるコンポーネントを作ることができます。</p>
+<p><code>m.route.set(m.route.get(), {key: Date.now()})</code></p>
+<p>あるいは、<a href="#history-state"><code>ヒストリー状態</code></a>の機能を使うと、URLを変更せずにリロード可能なコンポーネントを作ることができます。</p>
+<p><code>m.route.set(m.route.get(), null, {state: {key: Date.now()}})</code></p>
+<h4 id="variadic-routes">可変個引数のラウト</h4>
+<p>可変個引数をもったラウトを作ることもできます。例えば、スラッシュを含むURLのパス名を引数に取るラウトなどを実現することができます:</p>
+<pre><code class="lang-javascript">m.route(document.body, "/edit/pictures/image.jpg", {
+    "/files/:file...": Edit,
+})
+</code></pre>
+<h4 id="history-state">ヒストリー状態</h4>
+<p>ユーザのナビゲーションの使いやすさを向上させるために、裏で動作している<code>history.pushState</code> APIのすべての機能を使いこなせるようになっています。例えば、ユーザーがナビゲーションに従って別のページに遷移した時に、巨大な入力フォームの状態をアプリケーションに覚えさせておくこともできます。この機能を使うと、ユーザーがブラウザの「戻る」ボタンを押したときにフォームの状態を入力時の状態に維持しておくことができます。</p>
+<p>次のようなフォームを作ることができます:</p>
+<pre><code class="lang-javascript">var state = {
+    term: "",
+    search: function() {
+        // 現在のラウトの状態を保持しておく
+        // これは`history.replaceState({term: state.term}, null, location.href)`と同じ
+        m.route.set(m.route.get(), null, {replace: true, state: {term: state.term}})
+
+        // 別のページに遷移
+        location.href = "https://google.com/?q=" + state.term
+    }
+}
+
+var Form = {
+    oninit: function(vnode) {
+        state.term = vnode.attrs.term || "" // ユーザーが戻るボタンを操作したときは`history.state`プロパティを復元
+    },
+    view: function() {
+        return m("form", [
+            m("input[placeholder='Search']", {oninput: m.withAttr("value", function(v) {state.term = v}), value: state.term}),
+            m("button", {onclick: state.search}, "検索")
+        ])
+    }
+}
+
+m.route(document.body, "/", {
+    "/": Form,
+})
+</code></pre>
+<p>この方法を使うと、ユーザーが検索したあとに戻るボタンを押してアプリケーションに戻ってきたときに検索用語が表示されたままになります。このテクニックはユーザー体験を大きく改善することができます。ユーザーが入力した内容を消去してしまうアプリケーションはユーザーに面倒さを与えてしまいます。</p>
+<hr>
+<h3 id="changing-router-prefix">ラウタープリフィックスの変更</h3>
+<p>ラウタープリフィックはラウターが使用する<a href="#routing-strategies">戦略</a>を決定する文字列です。</p>
+<pre><code class="lang-javascript">// パス名戦略を使用
+m.route.prefix("")
+
+// クエリー文字列戦略を使用
+m.route.prefix("?")
+
+// 感嘆符なしのハッシュを使用
+m.route.prefix("#")
+
+// URLのルートで稼働しないパス名戦略を使うアプリケーションの設定
+// 他のページがhttp://localhostにあり、アプリケーションがhttp://localhost/my-app以下にある場合
+m.route.prefix("/my-app")
+</code></pre>
+<hr>
+<h3 id="advanced-component-resolution">高度なコンポーネントの解決</h3>
+<p>コンポーネントをラウトにマッピングする代わりに、ラウトリゾルバーオブジェクトを使うことができます。ラウトリゾルバーオブジェクトにはは<code>onmatch</code>メソッドと<code>render</code>メソッドの両方、あるいはどちらかが含まれます。メソッドはどちらもオプションですが、どちらか一方は必要です。</p>
+<pre><code class="lang-javascript">m.route(document.body, "/", {
+    "/": {
+        onmatch: function(args, requestedPath) {
+            return Home
+        },
+        render: function(vnode) {
+            return vnode // m(Home)と同じ
+        },
+    }
+})
+</code></pre>
+<p>ラウトリゾルバーは、さまざまな高度なルーティングのユースケースを実装するのに便利です。</p>
+<hr>
+<h4 id="wrapping-a-layout-component">レイアウトコンポーネントのラッピング</h4>
+<p>ラウトで選択されるコンポーネントであっても、レイアウトと呼ばれる再利用可能な枠組みでラップして使われることがよくあります。まずさまざまなコンポーネントをラップする、共通のマークアップを含むコンポーネントを作成します。</p>
+<pre><code class="lang-javascript">var Layout = {
+    view: function(vnode) {
+        return m(".layout", vnode.children)
+    }
+}
+</code></pre>
+<p>上記の例ではレイアウトの構成要素は、引数で渡された子供のコンポーネントをラップする<code>&lt;div class="layout"&gt;</code>しかありませんが、現実世界ではより複雑なコードになります。</p>
+<p>レイアウトでラップする方法の１つは、ラウトの定義のマップの中で無名コンポーネントを定義する方法です:</p>
+<pre><code class="lang-javascript">// 例 1
+m.route(document.body, "/", {
+    "/": {
+        view: function() {
+            return m(Layout, m(Home))
+        },
+    },
+    "/form": {
+        view: function() {
+            return m(Layout, m(Form))
+        },
+    }
+})
+</code></pre>
+<p>しかし、トップレベルコンポーネントが無名コンポーネントだと、<code>/</code>から<code>/form</code>などのラウトに遷移した時に、無名コンポーネント一度破棄されて、ゼロから再生成されます。もしレイアウトコンポーネントが<a href="lifecycle-methods.html">ライフサイクルメソッド</a>を持っていたとすると、ラウトの変更のたびに<code>oninit</code>と<code>oncreate</code>フックが呼び出されます。アプリケーションによりますが、この動作が望ましくないこともあるでしょう。</p>
+<p>Layoutコンポーネントをゼロから再作成するのではなく、そのままの状態で差分更新を有効にしたい場合は、代わりにラウトリゾルバーをルートオブジェクトとして使用します:</p>
+<pre><code class="lang-javascript">// 例 2
+m.route(document.body, "/", {
+    "/": {
+        render: function() {
+            return m(Layout, m(Home))
+        },
+    },
+    "/form": {
+        render: function() {
+            return m(Layout, m(Form))
+        },
+    }
+})
+</code></pre>
+<p>この場合、すべてのラウトで同じレイアウトが使われていると判断されるため、レイアウトコンポーネントの<code>oninit</code>、<code>oncreate</code>のライフサイクルメソッドは最初のラウトの遷移では呼ばれなくなります。</p>
+<p>これらのサンプルの違いを明確にするために、例 1と同じコードを作成してみます。</p>
+<pre><code class="lang-javascript">//例 1と機能的に同じ
+var Anon1 = {
+    view: function() {
+        return m(Layout, m(Home))
+    },
+}
+var Anon2 = {
+    view: function() {
+        return m(Layout, m(Form))
+    },
+}
+
+m.route(document.body, "/", {
+    "/": {
+        render: function() {
+            return m(Anon1)
+        }
+    },
+    "/form": {
+        render: function() {
+            return m(Anon2)
+        }
+    },
+})
+</code></pre>
+<p><code>Anon1</code>と<code>Anon2</code>は異なるコンポーネントなので、<code>Layout</code>を含むこれらのサブツリーはすべて、移行時に全部破棄されてから再作成されます。これは、ラウトリゾルバーを使わず、コンポーネントを直接使っていても起きます。</p>
+<p>例2では、どちらのラウトでも<code>Layout</code>がトップレベルコンポーネントでした。そのため、<code>Layout</code>コンポーネントでは完全再作成ではなく、差分検知が行われ、変更がない部分はそのまま残り、DOMの子要素の<code>Home</code>から<code>Form</code>への再作成だけが行われます。</p>
+<hr>
+<h4 id="authentication">認証</h4>
+<p>ラウトリゾルバーの<code>onmatch</code>フックはラウトのトップレベルコンポーネントが初期化される前になんらかのロジックを実行するときに使えます。次のサンプルは、ログインスクリーンを作成し、ログインしていないユーザーに<code>/secret</code>ページを見せないようにするサンプルです。</p>
+<pre><code class="lang-javascript">var isLoggedIn = false
+
+var Login = {
+    view: function() {
+        return m("form", [
+            m("button[type=button]", {
+                onclick: function() {
+                    isLoggedIn = true
+                    m.route.set("/secret")
+                }
+            }, "ログイン")
+        ])
+    }
+}
+
+m.route(document.body, "/secret", {
+    "/secret": {
+        onmatch: function() {
+            if (!isLoggedIn) m.route.set("/login")
+            else return Home
+        }
+    },
+    "/login": Login
+})
+</code></pre>
+<p>アプリケーションがロードされると、<code>onmatch</code>が呼ばれ、<code>isLoggedIn</code>がfalseになり、<code>/login</code>にリダイレクトされます。ユーザーがログインすると、<code>isLoggedIn</code>がtrueに設定され、アプリケーションは<code>/secret</code>にリダイレクトします。<code>onmatch</code>が再度実行されたときに<code>isLoggedIn</code>がtrueであれば、<code>Home</code>コンポーネントがレンダリングされます。</p>
+<p>サンプルコードを短くするためにユーザーのログイン状態はグローバル変数を使って保持しています。このフラグはユーザーががログインボタンを押すと単純に入れ替わる手抜き実装になっています。実際のアプリケーションでは、ユーザーは適切なログインクレデンシャルを持つ必要があるでしょう。ログインボタンを押すとサーバーにユーザーの認証リクエストを送る実装になるでしょう。</p>
+<pre><code class="lang-javascript">var Auth = {
+    username: "",
+    password: "",
+
+    setUsername: function(value) {
+        Auth.username = value
+    },
+    setPassword: function(value) {
+        Auth.password = value
+    },
+    login: function() {
+        m.request({
+            url: "/api/v1/auth",
+            data: {username: Auth.username, password: Auth.password}
+        }).then(function(data) {
+            localStorage.setItem("auth-token": data.token)
+            m.route.set("/secret")
+        })
+    }
+}
+
+var Login = {
+    view: function() {
+        return m("form", [
+            m("input[type=text]", {oninput: m.withAttr("value", Auth.setUsername), value: Auth.username}),
+            m("input[type=password]", {oninput: m.withAttr("value", Auth.setPassword), value: Auth.password}),
+            m("button[type=button]", {onclick: Auth.login, "ログイン")
+        ])
+    }
+}
+
+m.route(document.body, "/secret", {
+    "/secret": {
+        onmatch: function() {
+            if (!localStorage.getItem("auth-token")) m.route.set("/login")
+            else return Home
+        }
+    },
+    "/login": Login
+})
+</code></pre>
+<hr>
+<h4 id="preloading-data">データのプリロード</h4>
+<p>通常はコンポーネントの初期化時にデータをロードします。この方法でロードすると、コンポーネントはラウティング時と、リクエスト完了時の二回レンダリングされます。</p>
+<pre><code class="lang-javascript">var state = {
+    users: [],
+    loadUsers: function() {
+        return m.request("/api/v1/users").then(function(users) {
+            state.users = users
+        })
+    }
+}
+
+m.route(document.body, "/user/list", {
+    "/user/list": {
+        oninit: state.loadUsers,
+        view: function() {
+            return state.users.length &gt; 0 ?state.users.map(function(user) {
+                return m("div", user.id)
+            }) : "ロード中"
+        }
+    },
+})
+</code></pre>
+<p>上記のサンプルは、最初のレンダリングでは<code>state.users</code> が空配列なので、リクエストが完了するまでは<code>"ロード中"</code>と表示されます。データが利用可能にあると、UIが再描画され、ユーザーIDのリストが表示されます。</p>
+<p>ラウトリゾルバーを使って、UIのフリッカーを回避するためにコンポーネントのレンダリング前にデータのプリロードを行い、代わりにロード中のインジケーターを表示することができます。</p>
+<pre><code class="lang-javascript">var state = {
+    users: [],
+    loadUsers: function() {
+        return m.request("/api/v1/users").then(function(users) {
+            state.users = users
+        })
+    }
+}
+
+m.route(document.body, "/user/list", {
+    "/user/list": {
+        onmatch: state.loadUsers,
+        render: function() {
+            return state.users.map(function(user) {
+                return m("div", user.id)
+            })
+        }
+    },
+})
+</code></pre>
+<p>上記の<code>render</code>はリクエストが完了したときにのみ実行されます。</p>
+<hr>
+<h4 id="code-splitting">コード分割</h4>
+<p>巨大なアプリケーションでは、事前に全部のプログラムをダウンロードするのではなく、ラウトごとにオンデマンドでコードをダウンロードするほうが望ましいことがあります。このようなコードベースの分割は、コード分割、あるいは遅延ダウンロードと呼ばれます。Mithrilでは<code>onmatch</code>フックでPromiseを返すことで簡単に実現できます。</p>
+<p>もっとも基本的な形式は次のようになります:</p>
+<pre><code class="lang-javascript">// Home.js
+module.export = {
+    view: function() {
+        return [
+            m(Menu),
+            m("h1", "ホーム")
+        ]
+    }
+}
+</code></pre>
+<pre><code class="lang-javascript">// index.js
+function load(file) {
+    return m.request({
+        method: "GET",
+        url: file,
+        extract: function(xhr) {
+            return new Function("var module = {};" + xhr.responseText + ";return module.exports;")
+        }
+    })
+}
+
+m.route(document.body, "/", {
+    "/": {
+        onmatch: function() {
+            return load("Home.js")
+        },
+    },
+})
+</code></pre>
+<p>しかし、現実的にこの手法をプロダクションレベルで実現するには<code>Home.js</code>に必要なモジュールを、サーバーから返されるファイルにすべてバンドルする必要があります。</p>
+<p>幸い、遅延ダウンロードを実現するためにモジュールをバンドルする機能を持ったツールはいくつもあります。ここでは、<a href="https://webpack.github.io/docs/code-splitting.html">WebPackのコード分割システム</a>を使ってみましょう:</p>
+<pre><code class="lang-javascript">m.route(document.body, "/", {
+    "/": {
+        onmatch: function() {
+            // WebPackの非同期コード分割を使用
+            return new Promise(function(resolve) {
+                require(['./Home.js'], resolve)
+            })
+        },
+    },
+})
+</code></pre>
+
+				<hr />
+				<small>License: MIT. © Leo Horie.</small>
+			</section>
+		</main>
+		<script src="lib/prism/prism.js"></script>
+		<script>
+		document.querySelector(".hamburger").onclick = function() {
+			document.body.className = document.body.className === "navigating" ? "" : "navigating"
+			document.querySelector("h1 + ul").onclick = function() {
+				document.body.className = ''
+			}
+		}
+		</script>
+	</body>
+</html>

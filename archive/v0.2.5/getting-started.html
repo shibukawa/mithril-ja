@@ -1,25 +1,47 @@
+<!doctype html>
 <html>
 	<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<meta charset="UTF-8" />
-		<title># はじめよう - Mithril.js</title>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+		<title>はじめよう - Mithrilf</title>
+		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
 		<link href="lib/prism/prism.css" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 	</head>
 	<body>
 		<header>
-			<section>
-				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg"> Mithril <small>1.0.1</small></h1>
-				<nav>
-					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
-				</nav>
-			</section>
+			<nav class="container">
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+			</nav>
 		</header>
 		<main>
-			<section>
-				<h2 id="getting-started">はじめよう</h2>
+			<section class="content">
+				<div class="container">
+					<div class="row">
+						<div class="col(3,3,12)">
+							<h2 id="core-topics">基本トピック</h2>
+							<ul>
+								<li><a href="installation.html">インストール</a></li>
+								<li><a href="getting-started.html">はじめよう</a></li>
+								<li><a href="routing.html">ラウティング</a></li>
+								<li><a href="web-services.html">ウェブサービス</a></li>
+								<li><a href="components.html">コンポーネント</a></li>
+							</ul>
+							<h2 id="advanced-topics.html">上級トピック</h2>
+							<ul>
+								<li><a href="auto-redrawing.html">自動再描画システム</a></li>
+								<li><a href="integration.html">他のライブラリとの統合</a></li>
+								<li><a href="optimizing-performance.html">テンプレートのコンパイル</a></li>
+							</ul>
+							<h2 id="misc">その他</h2>
+							<ul>
+								<li><a href="comparison.html">他のMVCフレームワークとの違い</a></li>
+								<li><a href="benchmarks.html">ベンチマーク</a></li>
+								<li><a href="practices.html">良いプラクティス</a></li>
+								<li><a href="tools.html">便利なツール</a></li>
+							</ul>
+						</div>
+						<div class="col(9,9,12)">
+							<h2 id="getting-started">はじめよう</h2>
 <h3 id="what-is-mithril-">Mithrilとは？</h3>
 <p>MithrilはクライアントサイドのJavaScript MVCフレームワークです。このツールを使うと、アプリケーションのコードはデータレイヤ(<strong>M</strong>odel)、UIレイヤー(<strong>V</strong>iew)、接続レイヤー(<strong>C</strong>ontroller)に分割されます。</p>
 <p><a href="mithril.html">小さく、ムダのないAPI</a>のおかげで、Mithrilはgzipされた状態でたったの7.8kbしかありません。Mithrilは、ハイパフォーマンスなレンダリング速度を持つ、仮想DOMの差分更新機能を持ったテンプレートエンジンや、関数型によるハイレベルなモデリングのサポート、ルーティング機能、コンポーネント化をサポートしています。</p>
@@ -465,19 +487,16 @@ this.description(data.description)
 <li><a href="tools.html">便利なツール</a></li>
 </ul>
 
-				<hr />
-				<small>License: MIT. © Leo Horie.</small>
+						</div>
+					</div>
+				</div>
 			</section>
 		</main>
+		<footer>
+			<div class="container">
+				<a href="http://opensource.org/licenses/MIT" target="_blank">MITライセンス</a>でリリースされています<br />© 2014 Leo Horie
+			</div>
+		</footer>
 		<script src="lib/prism/prism.js"></script>
-		<script>
-		document.querySelector(".hamburger").onclick = function() {
-			document.body.className = 'navigating'
-			document.querySelector("h1 + ul").onclick = function() {
-				document.body.className = ''
-			}
-		}
-		</script>
 	</body>
-</html
->
+</html>

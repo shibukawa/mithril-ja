@@ -1,0 +1,555 @@
+<!doctype html>
+<html>
+	<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>コンポーネント - Mithril</title>
+		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
+		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header>
+			<nav class="container">
+				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
+			</nav>
+		</header>
+		<main>
+			<section class="content">
+				<div class="container">
+					<div class="row">
+						<div class="col(3,3,12)">
+							<h2 id="core-topics">基本トピック</h2>
+							<ul>
+								<li><a href="installation.html">インストール</a></li>
+								<li><a href="getting-started.html">はじめよう</a></li>
+								<li><a href="routing.html">ラウティング</a></li>
+								<li><a href="web-services.html">ウェブサービス</a></li>
+								<li><a href="components.html">コンポーネント</a></li>
+							</ul>
+							<h2 id="advanced-topics.html">上級トピック</h2>
+							<ul>
+								<li><a href="auto-redrawing.html">自動再描画システム</a></li>
+								<li><a href="integration.html">他のライブラリとの統合</a></li>
+								<li><a href="optimizing-performance.html">テンプレートのコンパイル</a></li>
+							</ul>
+							<h2 id="misc">その他</h2>
+							<ul>
+								<li><a href="comparison.html">他のMVCフレームワークとの違い</a></li>
+								<li><a href="benchmarks.html">ベンチマーク</a></li>
+								<li><a href="practices.html">良いプラクティス</a></li>
+								<li><a href="tools.html">便利なツール</a></li>
+							</ul>
+						</div>
+						<div class="col(9,9,12)">
+							<h2 id="components">コンポーネント</h2>
+<hr>
+<ul>
+<li><a href="#application-architecture-with-components">アプリケーションアーキテクチャとコンポーネント</a><ul>
+<li><a href="#aggregation-of-responsibility">責務の集約</a></li>
+<li><a href="#distribution-of-concrete-responsibilities">具体的な責務の分担</a></li>
+<li><a href="#cross-communication-in-single-purpose-components">単一目的のコンポーネント間のコミュニケーション</a></li>
+<li><a href="#the-observer-pattern">オブザーバパターン</a></li>
+<li><a href="#hybrid-architecture">ハイブリッドアーキテクチャ</a></li>
+<li><a href="#classic-mvc">クラシックなMVC</a></li>
+</ul>
+</li>
+<li><a href="#example-html5-drag-n-drop-file-uploader-component">サンプル: HTML5ドラッグ・アンド・ドロップでファイルアップロードするコンポーネント</a></li>
+</ul>
+<hr>
+<h2 id="application-architecture-with-components">アプリケーションアーキテクチャとコンポーネント</h2>
+<p>コンポーネントはコードを組織化するのに使える多目的なツールで、さまざまな用途があります。</p>
+<p>まずはシンプルなモデルのエンティティを作ってみます。これはさまざまなコンポーネントの使用方法を説明するアプリケーションで使用します:</p>
+<pre><code class="lang-javascript">var Contact = function(data) {
+    data = data || {}
+    this.id = m.prop(data.id || "")
+    this.name = m.prop(data.name || "")
+    this.email = m.prop(data.email || "")
+}
+Contact.list = function(data) {
+    return m.request({method: "GET", url: "/api/contact", type: Contact})
+}
+Contact.save = function(data) {
+    return m.request({method: "POST", url: "/api/contact", data: data})
+}
+</code></pre>
+<p><code>Contact</code>(連絡先)クラスを定義しました。この連絡先には、id、名前、eメールが含まれます。これらには、データのリストを取得する<code>list</code>メソッドと、単体の連絡先を取得する<code>save</code>メソッドという2つの静的メソッドがあります。このlistメソッドは、AJAXのレスポンスとして、クラスと同じ名前のフィールドを含むJSON形式で連絡先情報を返してくることを想定しています。</p>
+<h3 id="aggregation-of-responsibility">責務の集約</h3>
+<p>コンポーネントの組み立て方の１つの例としては、コンポーネントのパラメータリストを使ってデータを下流に流すと共に、モデルレイヤとのインタフェースとなっている中心のモジュールまでバブリングしてデータを上流に戻すイベントを定義するというものです。</p>
+<pre><code class="lang-javascript">var ContactsWidget = {
+    controller: function update() {
+        this.contacts = Contact.list()
+        this.save = function(contact) {
+            Contact.save(contact).then(update.bind(this))
+        }.bind(this)
+    },
+    view: function(ctrl) {
+        return [
+            m.component(ContactForm, {onsave: ctrl.save}),
+            m.component(ContactList, {contacts: ctrl.contacts})
+        ]
+    }
+}
+
+var ContactForm = {
+    controller: function(args) {
+        this.contact = m.prop(args.contact || new Contact())
+    },
+    view: function(ctrl, args) {
+        var contact = ctrl.contact()
+
+        return m("form", [
+            m("label", "名前"),
+            m("input", {oninput: m.withAttr("value", contact.name), value: contact.name()}),
+
+            m("label", "Eメール"),
+            m("input", {oninput: m.withAttr("value", contact.email), value: contact.email()}),
+
+            m("button[type=button]", {onclick: args.onsave.bind(this, contact)}, "保存")
+        ])
+    }
+}
+
+var ContactList = {
+    view: function(ctrl, args) {
+        return m("table", [
+            args.contacts().map(function(contact) {
+                return m("tr", [
+                    m("td", contact.id()),
+                    m("td", contact.name()),
+                    m("td", contact.email())
+                ])
+            })
+        ])
+    }
+}
+
+m.mount(document.body, ContactsWidget)
+</code></pre>
+<p>上記のサンプルには3つのコンポーネントが含まれています。<code>ContactsWidget</code>は<code>document.body</code>にレンダリングされる、最上位のモジュールです。また、これは先に定義していた<code>Contact</code>モデルのエンティティと話をする責務を持っています。</p>
+<p><code>ContactForm</code>コンポーネントは、名前から推測できる通りで、<code>Contact</code>エンティティのフィールドを編集するフォームを提供します。このモジュールは、フォーム上の保存ボタンが押された時に起動される<code>onsave</code>イベントを公開しています。それに加えて、未保存の連絡先情報をコンポーネント内に保管しています(<code>this.contact = m.prop(args.contact || new Contact())</code>)。</p>
+<p><code>ContactList</code>コンポーネントは、<code>contacts</code>引数で渡されたすべての連絡先のエンティティを表形式で表示します。</p>
+<p>もっとも興味深いコンポーネントは<code>ContactsWidget</code>です。</p>
+<ol>
+<li><p>初期化時に連絡先のリストを取得します(<code>this.contacts = Contact.list()</code>)。</p>
+</li>
+<li><p><code>save</code>が呼ばれると、連絡先を保存する(<code>Contact.save(contact)</code>)。</p>
+</li>
+<li><p>保存が完了したらリストのリロードをする(<code>.then(update.bind(this))</code>)。</p>
+</li>
+</ol>
+<p><code>update</code>はコントローラの関数そのものです。それをPromiseのコールバックとして定義するとということは、非同期操作(<code>Contact.save()</code>)が完了したあとにコントローラを再初期化しています。</p>
+<p>責務とトップレベルのコンポーネントで統合するという方法は、複数のモデルエンティティを持つ場合の管理を楽にします。多くのコンポーネントがサーバ側のデータを必要としても、AJAXアクセスをまとめて通信をシンプルにしたり、データのリフレッシュが行い易くなります。</p>
+<p>それに加えて、さまざまなコンテキストでコンポーネントを再利用しやすくなります。<code>ContactList</code>リストは<code>args.contacts</code>がデータベース内のすべての連絡先を参照しているか、フィルタリング条件でヒットしたものだけが渡されているのかどうかは知りません。同様に<code>ContactForm</code>も、新規の連絡先の作成と、既存の連絡先の編集の両方に利用できます。保存の操作については、親のコンポーネントに残してあります。</p>
+<p>このアーキテクチャにすることで、高い柔軟性と再利用性の高いコードが得られますが、柔軟性が高いということはシステムを理解する負荷が高まるということです。どのようにデータが表示されるかを知るには、トップレベルのモジュールと、<code>ContactList</code>の2つを見る必要があります。場合によってはどのようにフィルタされるかを知る必要もあります。それに加えて、ツリーのネストが深くなると、コンポーネント間の引数のパススルーや、イベントハンドラが増えることになります。</p>
+<hr>
+<h3 id="distribution-of-concrete-responsibilities">具体的な責務の分担</h3>
+<p>他のコードの構築方法としては、具体的な責務をモジュール間に分配する方法があります。</p>
+<p>以下のコードは上記のコードをリファクタリングしたものです:</p>
+<pre><code class="lang-javascript">var ContactForm = {
+    controller: function() {
+        this.contact = m.prop(new Contact())
+        this.save = function(contact) {
+            Contact.save(contact)
+        }
+    },
+    view: function(ctrl) {
+        var contact = ctrl.contact()
+
+        return m("form", [
+            m("label", "名前"),
+            m("input", {oninput: m.withAttr("value", contact.name), value: contact.name()}),
+
+            m("label", "Eメール"),
+            m("input", {oninput: m.withAttr("value", contact.email), value: contact.email()}),
+
+            m("button[type=button]", {onclick: ctrl.save.bind(this, contact)}, "保存")
+        ])
+    }
+}
+
+var ContactList = {
+    controller: function() {
+        this.contacts = Contact.list()
+    },
+    view: function(ctrl) {
+        return m("table", [
+            ctrl.contacts().map(function(contact) {
+                return m("tr", [
+                    m("td", contact.id()),
+                    m("td", contact.name()),
+                    m("td", contact.email())
+                ])
+            })
+        ])
+    }
+}
+
+m.route(document.body, "/", {
+    "/list": ContactList,
+    "/create": ContactForm
+})
+</code></pre>
+<p>これらのコンポーネントは機能別にまとまっています。それぞれ異なったラウターを持ち、それぞれのコンポーネントは1つのタスクだけを行います。これらのコンポーネントはお互いのコンポーネントとやりとりをするようには設計されていません。それぞれのコンポーネントは個別の目的のために提供されているため、動作を理解するのは簡単ですが、前述のサンプルのような柔軟性はありません。<code>ContactList</code>は全連絡先のリストを表示するのにしか使えず、サブセットの表示はできません。</p>
+<p>また、それぞれのコンポーネントの動作はカプセル化されているため、他のモジュールを外部から操作することは簡単にはできません。実際、<code>ContactsWidget</code>内にコンポーネントが2つあるとすると、何もコードを追加しなければリストが更新されることはありません。</p>
+<h4 id="cross-communication-in-single-purpose-components">単一目的のコンポーネント間のコミュニケーション</h4>
+<p>以下のコードは、上記の単一機能を提供するコンポーネント間のコミュニケーションを提供する方法です:</p>
+<pre><code class="lang-javascript">var Observable = function() {
+    var controllers = []
+    return {
+        register: function(controller) {
+            return function() {
+                var ctrl = new controller
+                ctrl.onunload = function() {
+                    controllers.splice(controllers.indexOf(ctrl), 1)
+                }
+                controllers.push({instance: ctrl, controller: controller})
+                return ctrl
+            }
+        },
+        trigger: function() {
+            controllers.map(function(c) {
+                ctrl = new c.controller
+                for (var i in ctrl) c.instance[i] = ctrl[i]
+            })
+        }
+    }
+}.call()
+
+
+var ContactsWidget = {
+    view: function(ctrl) {
+        return [
+            ContactForm,
+            ContactList
+        ]
+    }
+}
+
+var ContactForm = {
+    controller: function() {
+        this.contact = m.prop(new Contact())
+        this.save = function(contact) {
+            Contact.save(contact).then(Observable.trigger)
+        }
+    },
+    view: function(ctrl) {
+        var contact = ctrl.contact()
+
+        return m("form", [
+            m("label", "名前"),
+            m("input", {oninput: m.withAttr("value", contact.name), value: contact.name()}),
+
+            m("label", "Eメール"),
+            m("input", {oninput: m.withAttr("value", contact.email), value: contact.email()}),
+
+            m("button[type=button]", {onclick: ctrl.save.bind(this, contact)}, "保存")
+        ])
+    }
+}
+
+var ContactList = {
+    controller: Observable.register(function() {
+        this.contacts = Contact.list()
+    }),
+    view: function(ctrl) {
+        return m("table", [
+            ctrl.contacts().map(function(contact) {
+                return m("tr", [
+                    m("td", contact.id()),
+                    m("td", contact.name()),
+                    m("td", contact.email())
+                ])
+            })
+        ])
+    }
+}
+
+m.mount(document.body, ContactsWidget)
+</code></pre>
+<p>ここでは、<code>ContactForm</code>コンポーネントと<code>ContactList</code>コンポーネントは<code>ContactsWidget</code>コンポーネントの子供になっていて、どちらも同じページ内で表示されています。</p>
+<p><code>Observable</code>オブジェクトは2つのメソッドを提供しています。<code>register</code>はコントローラのエンティティを監視対象のエンティティとして登録します。<code>trigger</code>は<code>register</code>で登録されたコントローラをリロードします。<code>onunload</code>イベントが起動されるとコントローラの登録は解除されます。</p>
+<p><code>ContactList</code>コンポーネントのコントローラが監視対象としてマークして、その後<code>ContactForm</code>の<code>save</code>イベントハンドラの中で、保存後に<code>Observable.trigger</code>呼びます。</p>
+<p>この仕組みを使うと、状態を変更させるような操作に対して複数のコンポーネントをリロードさせることができます。</p>
+<p>このアーキテクチャの注意点としては、コンポーネントが内部状態をカプセル化しているため、AJAXアクセスが冗長になってしまうのを防ぐのが難しいということがあります。異なるコンポーネントがまったく同じAJAXアクセスを行うのを防ぐ方法はありません。</p>
+<h3 id="the-observer-pattern">オブザーバパターン</h3>
+<p><code>Observable</code>(監視可能)オブジェクトは<code>trigger</code>を使ってコントローラが購読している"channels"にブロードキャストするという方式にリファクタリングすることができます。これは<a href="http://ja.wikipedia.org/wiki/Observer_%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3">オブザーバパターン</a>と呼ばれています。</p>
+<pre><code class="lang-javascript">var Observable = function() {
+    var channels = {}
+    return {
+        register: function(subscriptions, controller) {
+            return function self() {
+                var ctrl = new controller
+                var reload = controller.bind(ctrl)
+                Observable.on(subscriptions, reload)
+                ctrl.onunload = function() {
+                    Observable.off(reload)
+                }
+                return ctrl
+            }
+        },
+        on: function(subscriptions, callback) {
+            subscriptions.forEach(function(subscription) {
+                if (!channels[subscription]) channels[subscription] = []
+                channels[subscription].push(callback)
+            })
+        },
+        off: function(callback) {
+            for (var channel in channels) {
+                var index = channels[channel].indexOf(callback)
+                if (index &gt; -1) channels[channel].splice(index, 1)
+            }
+        },
+        trigger: function(channel, args) {
+            console.log("triggered: " + channel)
+            channels[channel].map(function(callback) {
+                callback(args)
+            })
+        }
+    }
+}.call()
+</code></pre>
+<p>このパターンは依存関係の鎖を分離するのに役立ちます。しかし、数多くの内部依存関係を持つことによって、イベントの連鎖を追いかけるのが難しくなる「地獄からやってくる」ケースに陥らないように注意する必要があります。</p>
+<h3 id="hybrid-architecture">ハイブリッドアーキテクチャ</h3>
+<p>もちろん、責務の統合と、オブザーバパターンを同時に使うことができます。</p>
+<p>次のサンプルは、連絡先アプリの別バージョンで、<code>ContactForm</code>が保存の責務を担っているバージョンです。</p>
+<pre><code class="lang-javascript">var ContactsWidget = {
+    controller: Observable.register(["updateContact"], function() {
+        this.contacts = Contact.list()
+    }),
+    view: function(ctrl) {
+        return [
+            m.component(ContactForm),
+            m.component(ContactList, {contacts: ctrl.contacts})
+        ]
+    }
+}
+
+var ContactForm = {
+    controller: function(args) {
+        this.contact = m.prop(new Contact())
+        this.save = function(contact) {
+            Contact.save(contact).then(Observable.trigger("updateContact"))
+        }
+    },
+    view: function(ctrl, args) {
+        var contact = ctrl.contact()
+
+        return m("form", [
+            m("label", "名前"),
+            m("input", {oninput: m.withAttr("value", contact.name), value: contact.name()}),
+
+            m("label", "Eメール"),
+            m("input", {oninput: m.withAttr("value", contact.email), value: contact.email()}),
+
+            m("button[type=button]", {onclick: ctrl.save.bind(this, contact)}, "保存")
+        ])
+    }
+}
+
+var ContactList = {
+    view: function(ctrl, args) {
+        return m("table", [
+            args.contacts().map(function(contact) {
+                return m("tr", [
+                    m("td", contact.id()),
+                    m("td", contact.name()),
+                    m("td", contact.email())
+                ])
+            })
+        ])
+    }
+}
+
+m.mount(document.body, ContactsWidget)
+</code></pre>
+<p>この場合データの取得コードはトップレーベルモジュールに集約されています。これによりAJAXリクエストを何度も行うことを避けられるようになっています。</p>
+<p>また、保存の責務を<code>ContactForm</code>コンポーネントに移動したことで、コンポーネントツリーをさかのぼってデータを渡す必要は軽減されています。 引数を使ってパススルーするノイズも減らしています。</p>
+<hr>
+<h3 id="classic-mvc">クラシックなMVC</h3>
+<p>次は最後のパターンです。上記で説明したものの変形バージョンです。</p>
+<pre><code class="lang-javascript">//モデルレイヤのオブザーバ
+Observable.on(["saveContact"], function(data) {
+    Contact.save(data.contact).then(Observable.trigger("updateContact"))
+})
+
+//ContactsWidgetは以前と同じ
+var ContactsWidget = {
+    controller: Observable.register(["updateContact"], function() {
+        this.contacts = Contact.list()
+    }),
+    view: function(ctrl) {
+        return [
+            m.component(ContactForm),
+            ctrl.contacts() === undefined
+              ?m("div", "連絡先をロード中...") //Promiseが解決されるのを待つ
+              : m.component(ContactList, {contacts: ctrl.contacts})
+        ]
+    }
+}
+
+//ContactForm no longer calls `Contact.save`
+var ContactForm = {
+    controller: function(args) {
+            var ctrl = this
+        ctrl.contact = m.prop(new Contact())
+        ctrl.save = function(contact) {
+            Observable.trigger("saveContact", {contact: contact})
+            ctrl.contact = m.prop(new Contact()) //連絡先を空にリセットする
+        }
+        return ctrl
+    },
+    view: function(ctrl, args) {
+        var contact = ctrl.contact()
+
+        return m("form", [
+            m("label", "名前"),
+            m("input", {oninput: m.withAttr("value", contact.name), value: contact.name()}),
+
+            m("label", "Eメール"),
+            m("input", {oninput: m.withAttr("value", contact.email), value: contact.email()}),
+
+            m("button[type=button]", {onclick: ctrl.save.bind(this, contact)}, "保存")
+        ])
+    }
+}
+
+//ContactListは前の実装と同じ
+var ContactList = {
+    view: function(ctrl, args) {
+        return m("table", [
+            args.contacts().map(function(contact) {
+                return m("tr", [
+                    m("td", contact.id()),
+                    m("td", contact.name()),
+                    m("td", contact.email())
+                ])
+            })
+        ])
+    }
+}
+
+m.mount(document.body, ContactsWidget)
+</code></pre>
+<p>このコードでは、<code>Contact.save(contact).then(Observable.trigger("updateContact"))</code>を<code>ContactForm</code>コンポーネントの中から、モデルレイヤの中に移動しています。<code>ContactForm</code>では単に、アクションを送信しています。これはモデルレイヤーのオブザーバが受け取って処理をします。</p>
+<p>これにより、<code>ContactForm</code>コンポーネントを変更することなく、<code>saveContact</code>ハンドラの実装を変更することができます。</p>
+<hr>
+<h3 id="example-html5-drag-n-drop-file-uploader-component">サンプル: HTML5ドラッグ・アンド・ドロップでファイルアップロードするコンポーネント</h3>
+<p>１つ面白いサンプルを紹介します。ドラッグ・アンド・ドロップでファイルをアップロードするコンポーネントです。<code>Uploader</code>オブジェクトをそのままコンポーネントとして使えるように<code>controller</code>と<code>view</code>プロパティを提供しています。また、それに追加して基本的なアップロードの機能を提供する<code>upload</code>関数もモデルのメソッドとして提供しています。また、通常はJSONでシリアライズされるサーバリクエストで、<code>application/x-www-form-urlencoded</code>エンコードでファイル送信ができるようにする<code>serialize</code>関数も提供しています。</p>
+<p>これらの2つの関数は、コンポーネント利用者にAPIを公開することで、コンポーネントのインタフェースを補完できることを示しています。コンポーネントにモデルメソッドをバンドルするときは、どのようにファイルを取り扱うかをハードコーディングするのを避けます。アプリケーションの需要に応じて柔軟に使用できる関数ライブラリを提供します。</p>
+<pre><code class="lang-javascript">var Uploader = {
+    upload: function(options) {
+        var formData = new FormData
+        for (var key in options.data) {
+            for (var i = 0; i &lt; options.data[key].length; i++) {
+                formData.append(key, options.data[key][i])
+            }
+        }
+
+        //JSON.stringifyをしないで、FormDataをそのままバックエンドのXMLHttpRequestに渡す
+        options.serialize = function(value) {return value}
+        options.data = formData
+
+        return m.request(options)
+    },
+    serialize: function(files) {
+        var promises = files.map(function(file) {
+            var deferred = m.deferred()
+
+            var reader = new FileReader
+            reader.readAsDataURL()
+            reader.onloadend = function(e) {
+                deferred.resolve(e.result)
+            }
+            reader.onerror = deferred.reject
+            return deferred.promise
+        })
+        return m.sync(promises)
+    },
+    controller: function(args) {
+        this.noop = function(e) {
+            e.preventDefault()
+        }
+        this.update = function(e) {
+            e.preventDefault()
+            if (typeof args.onchange == "function") {
+                args.onchange([].slice.call((e.dataTransfer || e.target).files))
+            }
+        }
+    },
+    view: function(ctrl, args) {
+        return m(".uploader", {ondragover: ctrl.noop, ondrop: ctrl.update})
+    }
+}
+</code></pre>
+<p>次のコードは<code>Uploader</code>コンポーネントの使用例です:</p>
+<pre><code class="lang-javascript">//デモ1: コンポーネントにファイルがドロップされた時にmultipart/form-dataでアップロード
+var Demo1 = {
+    controller: function() {
+        return {
+            upload: function(files) {
+                Uploader.upload({method: "POST", url: "/api/files", data: {files: files}}).then(function() {
+                    alert("uploaded!")
+                })
+            }
+        }
+    },
+    view: function(ctrl) {
+        return [
+            m("h1", "アップローダデモ"),
+            m.component(Uploader, {onchange: ctrl.upload})
+        ]
+    }
+}
+</code></pre>
+<p><a href="http://jsfiddle.net/vL22kjvs/5/">デモ</a></p>
+<pre><code class="lang-javascript">//デモ2: base64のデータURLとしてデータをアップロード
+var Demo2 = {
+    Asset: {
+        save: function(data) {
+            return m.request({method: "POST", url: "/api/assets", data: data})
+        }
+    },
+
+    controller: function() {
+        var files = m.prop([])
+        return {
+            files: files,
+            save: function() {
+                Uploader.serialize(files()).then(function(files) {
+                    Demo2.Asset.save({files: files}).then(function() {
+                        alert("アップロード完了!")
+                    })
+                })
+            }
+        }
+    },
+    view: function(ctrl) {
+        return [
+            m("h1", "アップローダデモ"),
+            m("p", "ファイルをここにドロップしてください。アップロードが完了するとアラートボックスが表示されます。"),
+            m("form", [
+                m.component(Uploader, {onchange: ctrl.files}),
+                ctrl.files().map(function(file) {
+                    return file.name
+                }).join(),
+                m("button[type=button]", {onclick: ctrl.save}, "アップロード")
+            ])
+        ]
+    }
+}
+</code></pre>
+<p><a href="http://jsfiddle.net/vL22kjvs/6/">デモ</a></p>
+
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<div class="container">
+				<a href="http://opensource.org/licenses/MIT" target="_blank">MITライセンス</a>でリリースされています<br />© 2014 Leo Horie
+			</div>
+		</footer>
+		<script src="lib/prism/prism.js"></script>
+	</body>
+</html>

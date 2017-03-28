@@ -1,119 +1,230 @@
-<!doctype html>
 <html>
 	<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<title>インストール - Mithril</title>
-		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
+		<meta charset="UTF-8" />
+		<title> インストール - Mithril.js</title>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 		<link href="lib/prism/prism.css" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
 	<body>
 		<header>
-			<nav class="container">
-				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
-			</nav>
+			<section>
+				<a class="hamburger" href="javascript:;">≡</a>
+				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<nav>
+					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
+				</nav>
+			</section>
 		</header>
 		<main>
-			<section class="content">
-				<div class="container">
-					<div class="row">
-						<div class="col(3,3,12)">
-							<h2 id="core-topics">基本トピック</h2>
-							<ul>
-								<li><a href="installation.html">インストール</a></li>
-								<li><a href="getting-started.html">はじめよう</a></li>
-								<li><a href="routing.html">ラウティング</a></li>
-								<li><a href="web-services.html">ウェブサービス</a></li>
-								<li><a href="components.html">コンポーネント</a></li>
-							</ul>
-							<h2 id="advanced-topics.html">上級トピック</h2>
-							<ul>
-								<li><a href="auto-redrawing.html">自動再描画システム</a></li>
-								<li><a href="integration.html">他のライブラリとの統合</a></li>
-								<li><a href="optimizing-performance.html">テンプレートのコンパイル</a></li>
-							</ul>
-							<h2 id="misc">その他</h2>
-							<ul>
-								<li><a href="comparison.html">他のMVCフレームワークとの違い</a></li>
-								<li><a href="benchmarks.html">ベンチマーク</a></li>
-								<li><a href="practices.html">良いプラクティス</a></li>
-								<li><a href="tools.html">便利なツール</a></li>
-							</ul>
-						</div>
-						<div class="col(9,9,12)">
-							<h2 id="installation">インストール</h2>
-<p>Mithrilはさまざまなインストール手段を提供しています:</p>
-<hr>
-<h3 id="direct-download">直接ダウンロード</h3>
-<p><a href="mithril.min.zip">ここから</a>最新バージョンのzipアーカイブをダウンロードできます。</p>
-<p><a href="change-log.html">変更履歴</a>のページ内に、古いバージョンへのリンクがあります。</p>
-<p>Mithrilを使用する場合は、zipファイルを展開し、その中の<code>.js</code>ファイルをscriptタグを使って指定してください。</p>
-<pre><code class="lang-markup">&lt;script src="mithril.min.js"&gt;&lt;/script&gt;
-</code></pre>
-<p>古いバージョンのIEをサポートする場合は、<a href="tools.html#internet-explorer-compatibility">互換性を向上させるライブラリ</a>をいくつか読み込む必要があります。</p>
-<hr>
-<h3 id="cdns-content-delivery-networks-">CDN (コンテンツデリバリネットワーク)</h3>
-<p><a href="http://cdnjs.com/libraries/mithril/">cdnjs</a>と<a href="http://www.jsdelivr.com/#!mithril">jsDelivr</a>の中から取得することもできます。</p>
-<p>CDNを使うと、同じバージョンのフレームワーク使用する、さまざまなウェブサイト間でライブラリの共有が可能になります。また、ユーザの場所から物理的に近いサーバからダウンロードが行われるため、表示の遅延を減らすのに役立ちます。</p>
-<h4 id="cdnjs">cdnjs</h4>
-<pre><code class="lang-markup">&lt;script src="//cdnjs.cloudflare.com/ajax/libs/mithril/0.2.4/mithril.min.js"&gt;&lt;/script&gt;
-</code></pre>
-<h4 id="jsdelivr">jsDelivr</h4>
-<pre><code class="lang-markup">&lt;script src="//cdn.jsdelivr.net/mithril/0.2.4/mithril.min.js"&gt;&lt;/script&gt;
+			<section>
+				<h1 id="installation">インストール</h1>
+<ul>
+<li>チュートリアル<ul>
+<li><strong><a href="installation.html">インストール</a></strong><ul>
+<li><a href="#cdn">CDN</a></li>
+<li><a href="#npm">NPM</a></li>
+</ul>
+</li>
+<li><a href="index.html">イントロダクション</a></li>
+<li><a href="simple-application.html">チュートリアル</a></li>
+</ul>
+</li>
+<li>リソース<ul>
+<li><a href="jsx.html">JSX</a></li>
+<li><a href="es6.html">ES6</a></li>
+<li><a href="css.html">CSS</a></li>
+<li><a href="animation.html">アニメーション</a></li>
+<li><a href="testing.html">テスト</a></li>
+<li><a href="examples.html">サンプル</a></li>
+</ul>
+</li>
+<li>重要なコンセプト<ul>
+<li><a href="vnodes.html">Vノード</a></li>
+<li><a href="components.html">コンポーネント</a></li>
+<li><a href="lifecycle-methods.html">ライフサイクルメソッド</a></li>
+<li><a href="keys.html">キー</a></li>
+<li><a href="autoredraw.html">自動再描画システム</a></li>
+</ul>
+</li>
+<li>ソーシャル<ul>
+<li><a href="https://github.com/lhorie/mithril.js/wiki/JOBS">Mithrilの求人</a></li>
+<li><a href="contributing.html">貢献の仕方</a></li>
+<li><a href="credits.html">クレジット</a></li>
+</ul>
+</li>
+<li>その他<ul>
+<li><a href="framework-comparison.html">フレームワークの比較</a></li>
+<li><a href="change-log.html">変更履歴/移行</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="cdn">CDN</h3>
+<p>もし、JavaScriptにまだ不慣れであったり、セットアップの作業をなるべく簡単に終わらせたいのであれば<a href="https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%B3%E3%83%86%E3%83%B3%E3%83%84%E3%83%87%E3%83%AA%E3%83%90%E3%83%AA%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF">CDN</a>からMithrilを取得できます:</p>
+<pre><code class="lang-markup">&lt;script src="https://unpkg.com/mithril/mithril.js"&gt;&lt;/script&gt;
 </code></pre>
 <hr>
 <h3 id="npm">NPM</h3>
-<p>NPMは<a href="http://nodejs.org/">NodeJS</a>標準のパッケージマネージャです。もしすでにNodeJSを使っていていたり、<a href="http://gruntjs.com/">Grunt</a>を使ったビルドシステムを作ろうとしているのであれば、NPMを使うとMithrilを最新に保つのが簡単になります。</p>
-<p>NodeJSがインストールされているものとすると，次のようにタイプすることでMithrilをダウンロードできます。</p>
-<pre><code>npm install mithril
-</code></pre><p>Mithrilを使う場合には、scriptタグを使って、ダウンロードしたファイルを参照します:</p>
-<pre><code class="lang-markup">&lt;script src="/node_modules/mithril/mithril.min.js"&gt;&lt;/script&gt;
+<h4 id="quick-start-with-webpack">WebPackを使ったクイックスタート</h4>
+<pre><code class="lang-bash"># 1) インストール
+npm install mithril --save
+
+npm install webpack --save
+
+# 2) package.jsonのscriptsセクションに次の行を足す
+#    "scripts": {
+#        "start": "webpack src/index.js bin/app.js --watch"
+#    }
+
+# 3) `src/index.js` ファイルを作成する
+
+# 4) `&lt;script src="bin/app.js"&gt;&lt;/script&gt;` という内容を含む `index.html` ファイルを作成する 
+
+# 5) バンドラーを実行
+npm start
+
+# 6) ブラウザで `index.html` を開く
+open index.html
 </code></pre>
-<hr>
-<h3 id="bower">Bower</h3>
-<p><a href="http://bower.io">Bower</a>は<a href="http://nodejs.org/">NodeJS</a>で作成されたパッケージマネージャです。もしすでにNodeJSを使っていていたり、<a href="http://gruntjs.com/">Grunt</a>を使ったビルドシステムを作ろうとしているのであれば、Bowerを使うとMithrilを最新に保つのが簡単になります。</p>
-<p>NodeJSがインストールされているものとすると，次のようにタイプすることでBowerをダウンロードできます。</p>
-<pre><code>npm install -g bower
-</code></pre><p>このあと、次のようにタイプするとMithrilをダウンロードすることができます:</p>
-<pre><code>bower install mithril
-</code></pre><p>Mithrilを使う場合には、scriptタグを使って、ダウンロードしたファイルを参照します:</p>
-<pre><code class="lang-markup">&lt;script src="/bower_components/mithril/mithril.min.js"&gt;&lt;/script&gt;
+<h4 id="step-by-step">ステップ・バイ・ステップ</h4>
+<p>プロダクションのためのプロジェクトであれば、推奨はNPMを使ってMithrilをインストールする方法です。</p>
+<p>NPM (Node package manager)はNode.jsにバンドルされているデフォルトのパッケージマネージャーです。NPMは、JavaScriptのエコシステム内で、クライアントサイド、サーバーサイドの両方のライブラリのパッケージマネージャーとして使われています。<a href="https://nodejs.org">Node.js</a>をダウンロードしてインストールすると、NPMも自動的にインストールされます。</p>
+<p>NPM経由でMithrilを使うには、プロジェクトフォルダに行きコマンドラインから、<code>npm init --yes</code>を実行します。<code>package.json</code>という名前のファイルができます。</p>
+<pre><code class="lang-bash">npm init --yes
+# package.jsonという名前のファイルができる
 </code></pre>
-<hr>
-<h3 id="component">Component</h3>
-<p><a href="http://component.github.io">Component</a>も、<a href="http://nodejs.org/">NodeJS</a>向けのパッケージマネージャです。もしすでにNodeJSを使っていていたり、<a href="http://gruntjs.com/">Grunt</a>を使ったビルドシステムを作ろうとしているのであれば、Componentを使うとMithrilを最新に保つのが簡単になります。</p>
-<p>NodeJSがインストールされているものとすると，次のようにタイプすることでComponentをダウンロードできます。</p>
-<pre><code>npm install -g component
-</code></pre><p>このあと、次のようにタイプするとMithrilをダウンロードすることができます:</p>
-<pre><code>component install lhorie/mithril
-</code></pre><p>Mithrilを使う場合には、scriptタグを使って、ダウンロードしたファイルを参照します:</p>
-<pre><code class="lang-markup">&lt;script src="/components/lhorie/mithril/master/mithril.js"&gt;&lt;/script&gt;
+<p>次のコマンドを実行するとMithrilがインストールされます:</p>
+<pre><code class="lang-bash">npm install mithril --save
 </code></pre>
-<hr>
-<h3 id="rails">Rails</h3>
-<p>Jordan Humphreysが、Railsと統合できるようにするgemを作成しています:</p>
-<p><a href="https://github.com/mrsweaters/mithril-rails">Mithril-Rails</a></p>
-<p>これは、Jonathan Buchananが作成した、HTMLテンプレートの文法の<a href="https://github.com/insin/msx">MSX</a>も含んでいます。</p>
-<hr>
-<h3 id="github">Github</h3>
-<p><a href="https://github.com/lhorie/mithril">Githubから直接</a>、最新の安定版のプロジェクトをフォークすることもできます。</p>
-<p>もし、最先端のバージョンを使いたいのであれば、<a href="https://github.com/lhorie/mithril.js">開発版のリポジトリをフォーク</a>することもできます。</p>
-<p>Mithrilは継続的インテグレーション環境を使ってテストされていますが、最先端のバージョンは頻繁に機能しなくなる可能性がありますので注意してください。もし、Mithrilを改善することに興味があるのであれば、最先端バージョンを使用して、見つけたバグを報告してください。</p>
-<p>フォークしたMithrilを更新したい場合は、<a href="https://help.github.com/articles/syncing-a-fork">このページの説明(英語)</a>.に従ってください。</p>
-<h4 id="using-bleeding-edge-from-npm">NPMで最先端のバージョンを使用する</h4>
-<p>npmを使って最先端のバージョンをインストールするには、次のコマンドを使用してください:</p>
-<pre><code>npm install git://github.com/lhorie/mithril.js#next --save
+<p>このコマンドを実行すると、<code>node_modules</code>というフォルダができ、その中に<code>mithril</code>フォルダができます。<code>package.json</code>ファイル内の<code>dependencies</code>にも、エントリーが追加されます。</p>
+<p>これでMithrilを使う準備ができました。CommonJSのモジュール形式を使ってコードを構成するスタイルが推奨です:</p>
+<pre><code class="lang-javascript">// index.js
+var m = require("mithril")
+
+m.render(document.body, "hello world")
 </code></pre>
-						</div>
-					</div>
-				</div>
+<p>モジュール化はコードを複数のファイルに分割するための方法です。モジュール化を行うことでコードを探しやすくなったり、コードの依存関係が分かりやすくなったり、テストしやすくなります。</p>
+<p>CommonJSはJavaScriptのコードをモジュール化するためのデファクトスタンダードです。Node.js、<a href="http://browserify.org/">Browserify</a>、<a href="https://webpack.js.org/">WebPack</a>といったツールでサポートされています。この方法はES6モジュールのさきがけとして、他のモジュール化の方式との競争で勝ち残ってきた信頼できる方式です。ECMAScript 6でES6モジュールの文法が策定されましたが、実際のモジュールロードのメカニズムとしてはまだ使えません。もしまだ標準的な実装として使用できる段階にないES6モジュールを使いたい場合は、<a href="http://rollupjs.org/">Rollup</a>, <a href="https://babeljs.io/">Babel</a>, <a href="https://github.com/google/traceur-compiler">Traceur</a>といったツールを使います。</p>
+<p>今日のほとんどのブラウザはネイティブではモジュールシステム(CommonJSあるいはES6)をサポートしていません。そのため、実行前にバンドル化して1つのJavaScriptファイルにする必要があります。</p>
+<p>バンドルを作成する方法として一般的な<a href="https://webpack.js.org/">WebPack</a>を使うNPMスクリプトのセットアップをしましょう。WebPackをインストールするには、次のようにコマンドラインから実行します:</p>
+<pre><code class="lang-bash">npm install webpack --save-dev
+</code></pre>
+<p>以前作成した<code>package.json</code>ファイルを開き、<code>scripts</code>セクションに次の内容を追加します:</p>
+<pre><code>{
+    "name": "my-project",
+    "scripts": {
+        "start": "webpack src/index.js bin/app.js -d --watch"
+    }
+}
+</code></pre><p>このファイルはJSONファイルなので、<code>"scripts"</code>や<code>"start"</code>といったキー名はダブルクオートで括る必要があります。</p>
+<p>The <code>-d</code> flag tells webpack to use development mode, which produces source maps for a better debugging experience.</p>
+<p>The <code>--watch</code> flag tells webpack to watch the file system and automatically recreate <code>app.js</code> if file changes are detected.</p>
+<p>Now you can run the script via <code>npm start</code> in your command line window. This looks up the <code>webpack</code> command in the NPM path, reads <code>index.js</code> and creates a file called <code>app.js</code> which includes both Mithril and the <code>hello world</code> code above. If you want to run the <code>webpack</code> command directly from the command line, you need to either add <code>node_modules/.bin</code> to your PATH, or install webpack globally via <code>npm install webpack -g</code>. It's, however, recommended that you always install webpack locally and use npm scripts, to ensure builds are reproducible in different computers.</p>
+<pre><code>npm start
+</code></pre><p>Now that you have created a bundle, you can then reference the <code>bin/app.js</code> file from an HTML file:</p>
+<pre><code class="lang-markup">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Hello world&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;script src="bin/app.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>As you've seen above, importing a module in CommonJS is done via the <code>require</code> function. You can reference NPM modules by their library names (e.g. <code>require("mithril")</code> or <code>require("jquery")</code>), and you can reference your own modules via relative paths minus the file extension (e.g. if you have a file called <code>mycomponent.js</code> in the same folder as the file you're importing to, you can import it by calling <code>require("./mycomponent")</code>).</p>
+<p>To export a module, assign what you want to export to the special <code>module.exports</code> object:</p>
+<pre><code class="lang-javascript">// mycomponent.js
+module.exports = {
+    view: function() {return "hello from a module"}
+}
+</code></pre>
+<p>In the <code>index.js</code>, you would then write this code to import that module:</p>
+<pre><code class="lang-javascript">// index.js
+var m = require("mithril")
+
+var MyComponent = require("./mycomponent")
+
+m.mount(document.body, MyComponent)
+</code></pre>
+<p>Note that in this example, we're using <code>m.mount</code>, which wires up the component to Mithril's autoredraw system. In most applications, you will want to use <code>m.mount</code> (or <code>m.route</code> if your application has multiple screens) instead of <code>m.render</code> to take advantage of the autoredraw system, rather than re-rendering manually every time a change occurs.</p>
+<h4 id="production-build">本番ビルド</h4>
+<p>If you open bin/app.js, you'll notice that the Webpack bundle is not minified, so this file is not ideal for a live application. To generate a minified file, open <code>package.json</code> and add a new npm script:</p>
+<pre><code>{
+    "name": "my-project",
+    "scripts": {
+        "start": "webpack src/index.js bin/app.js -d --watch",
+        "build": "webpack src/index.js bin/app.js -p",
+    }
+}
+</code></pre><p>本番環境ではフックを使ってスクリプトの本番ビルドを自動でビルドさせることができます。次のコードは<a href="https://www.heroku.com/">Heroku</a>を使うサンプルです:</p>
+<pre><code>{
+    "name": "my-project",
+    "scripts": {
+        "start": "webpack -d --watch",
+        "build": "webpack -p",
+        "heroku-postbuild": "webpack -p"
+    }
+}
+</code></pre><hr>
+<h3 id="alternate-ways-to-use-mithril">Alternate ways to use Mithril</h3>
+<h4 id="live-reload-development-environment">Live reload development environment</h4>
+<p>Live reload is a feature where code changes automatically trigger the page to reload. <a href="https://github.com/mattdesl/budo">Budo</a> is one tool that enables live reloading.</p>
+<pre><code class="lang-bash"># 1) install
+npm install mithril --save
+npm install budo -g
+
+# 2) add this line into the scripts section in package.json
+#    "scripts": {
+#        "start": "budo --live --open index.js"
+#    }
+
+# 3) create an `index.js` file
+
+# 4) run budo
+npm start
+</code></pre>
+<p>The source file <code>index.js</code> will be compiled (bundled) and a browser window opens showing the result. Any changes in the source files will instantly get recompiled and the browser will refresh reflecting the changes.</p>
+<h4 id="mithril-bundler">Mithril bundler</h4>
+<p>Mithril comes with a bundler tool of its own. It is sufficient for ES5-based projects that have no other dependencies other than Mithril, but it's currently considered experimental for projects that require other NPM dependencies. It produces smaller bundles than webpack, but you should not use it in production yet.</p>
+<p>If you want to try it and give feedback, you can open <code>package.json</code> and change the npm script for webpack to this:</p>
+<pre><code>{
+    "name": "my-project",
+    "scripts": {
+        "build": "bundle index.js --output app.js --watch"
+    }
+}
+</code></pre><h4 id="vanilla">Vanilla</h4>
+<p>If you don't have the ability to run a bundler script due to company security policies, there's an options to not use a module system at all:</p>
+<pre><code class="lang-markup">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Hello world&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;script src="https://cdn.rawgit.com/lhorie/mithril.js/rewrite/mithril.js"&gt;&lt;/script&gt;
+    &lt;script src="index.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<pre><code class="lang-javascript">// index.js
+
+// if a CommonJS environment is not detected, Mithril will be created in the global scope
+m.render(document.body, "hello world")
+</code></pre>
+
+				<hr />
+				<small>License: MIT. © Leo Horie.</small>
 			</section>
 		</main>
-		<footer>
-			<div class="container">
-				<a href="http://opensource.org/licenses/MIT" target="_blank">MITライセンス</a>でリリースされています<br />© 2014 Leo Horie
-			</div>
-		</footer>
 		<script src="lib/prism/prism.js"></script>
+		<script>
+		document.querySelector(".hamburger").onclick = function() {
+			document.body.className = document.body.className === "navigating" ? "" : "navigating"
+			document.querySelector("h1 + ul").onclick = function() {
+				document.body.className = ''
+			}
+		}
+		</script>
 	</body>
 </html>

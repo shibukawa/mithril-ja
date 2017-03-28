@@ -1,0 +1,173 @@
+<html>
+	<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="UTF-8" />
+		<title>  jsonp(options) - Mithril.js</title>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	</head>
+	<body>
+		<header>
+			<section>
+				<a class="hamburger" href="javascript:;">≡</a>
+				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<nav>
+					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
+				</nav>
+			</section>
+		</header>
+		<main>
+			<section>
+				<h1 id="jsonpoptions">jsonp(options)</h1>
+<ul>
+<li>コア<ul>
+<li><a href="hyperscript.html">m</a></li>
+<li><a href="render.html">m.render</a></li>
+<li><a href="mount.html">m.mount</a></li>
+<li><a href="route.html">m.route</a></li>
+<li><a href="request.html">m.request</a></li>
+<li><strong><a href="jsonp.html">m.jsonp</a></strong><ul>
+<li><a href="#description">説明</a></li>
+<li><a href="#signature">シグニチャ</a></li>
+<li><a href="#how-it-works">どのように動作するのか</a></li>
+<li><a href="#typical-usage">一般的な使用法</a></li>
+</ul>
+</li>
+<li><a href="parseQueryString.html">m.parseQueryString</a></li>
+<li><a href="buildQueryString.html">m.buildQueryString</a></li>
+<li><a href="withAttr.html">m.withAttr</a></li>
+<li><a href="trust.html">m.trust</a></li>
+<li><a href="fragment.html">m.fragment</a></li>
+<li><a href="redraw.html">m.redraw</a></li>
+<li><a href="version.html">m.version</a></li>
+<li><a href="promise.html">Promise</a></li>
+</ul>
+</li>
+<li>オプショナル<ul>
+<li><a href="stream.html">Stream</a></li>
+</ul>
+</li>
+<li>ツール<ul>
+<li><a href="https://github.com/lhorie/mithril.js/blob/rewrite/ospec">Ospec</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="description">説明</h3>
+<p>Makes JSON-P requests. Typically, it's useful to interact with servers that allow JSON-P but that don't have CORS enabled.</p>
+<pre><code class="lang-javascript">m.jsonp({
+    url: "/api/v1/users/:id",
+    data: {id: 1},
+    callbackKey: "callback",
+})
+.then(function(result) {
+    console.log(result)
+})
+</code></pre>
+<hr>
+<h3 id="signature">シグニチャ</h3>
+<p><code>promise = m.jsonp([url,] options)</code></p>
+<table>
+<thead>
+<tr>
+<th>引数</th>
+<th>型</th>
+<th>必須</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>url</code></td>
+<td><code>String</code></td>
+<td>No</td>
+<td>If present, it's equivalent to having the option <code>{url: url}</code>. <code>options</code>引数に渡されたオプションは、この短縮形式のデフォルトオプションを上書きします。</td>
+</tr>
+<tr>
+<td><code>options.url</code></td>
+<td><code>String</code></td>
+<td>Yes</td>
+<td>リクエストを送る先のURLです。。URLは絶対パスでも相対パスでも使用できますし、 <a href="#dynamic-urls">変数（interpolation）</a>を含むことも可能です。</td>
+</tr>
+<tr>
+<td><code>options.data</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>The data to be interpolated into the URL and serialized into the querystring.</td>
+</tr>
+<tr>
+<td><code>options.type</code></td>
+<td><code>any = Function(any)</code></td>
+<td>No</td>
+<td>レスポンスの中でオブジェクトごとに適用されるコンストラクタです。デフォルトは<a href="https://ja.wikipedia.org/wiki/%E6%81%92%E7%AD%89%E5%86%99%E5%83%8F">恒等写像（入力をそのまま返す関数）</a>です。</td>
+</tr>
+<tr>
+<td><code>options.callbackName</code></td>
+<td><code>String</code></td>
+<td>No</td>
+<td>The name of the function that will be called as the callback. Defaults to a randomized string (e.g. <code>_mithril_6888197422121285_0({a: 1})</code></td>
+</tr>
+<tr>
+<td><code>options.callbackKey</code></td>
+<td><code>String</code></td>
+<td>No</td>
+<td>The name of the querystring parameter name that specifies the callback name. Defaults to <code>callback</code> (e.g. <code>/someapi?callback=_mithril_6888197422121285_0</code>)</td>
+</tr>
+<tr>
+<td><strong>returns</strong></td>
+<td><code>Promise</code></td>
+<td></td>
+<td>A promise that resolves to the response data, after it has been piped through <code>type</code> method</td>
+</tr>
+</tbody>
+</table>
+<p><a href="signatures.html">シグニチャの読み方</a></p>
+<hr>
+<h4 id="how-it-works">どのように動作するのか</h4>
+<p>The <code>m.jsonp</code> utility is useful for third party APIs that can return data in <a href="https://en.wikipedia.org/wiki/JSONP">JSON-P</a> format.</p>
+<p>In a nutshell, JSON-P consists of creating a <code>script</code> tag whose <code>src</code> attribute points to a script that lives in the server outside of your control. Typically, you are required to define a global function and specify its name in the querystring of the script's URL. The response will return code that calls your global function, passing the server's data as the first parameter.</p>
+<p>JSON-P has several limitations: it can only use GET requests, it implicitly trusts that the third party server won't serve malicious code and it requires polluting the global Javascript scope. Nonetheless, it is sometimes the only available way to retrieve data from a service (for example, if the service doesn't support <a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a>).</p>
+<hr>
+<h3 id="typical-usage">一般的な使用法</h3>
+<p>Some services follow the de-facto convention of responding with JSON-P if a <code>callback</code> querystring key is provided, thus making <code>m.jsonp</code> automatically work without any effort:</p>
+<pre><code class="lang-javascript">m.jsonp({url: "https://api.github.com/users/lhorie"}).then(function(response) {
+    console.log(response.data.login) // logs "lhorie"
+})
+</code></pre>
+<p>Some services do not follow conventions and therefore you must specify the callback key that the service expects:</p>
+<pre><code class="lang-javascript">m.jsonp({
+    url: "https://api.flickr.com/services/feeds/photos_public.gne?tags=kitten&amp;format=json",
+    callbackKey: "jsoncallback",
+})
+.then(function(response) {
+    console.log(response.link) // logs "https://www.flickr.com/photos/tags/kitten/"
+})
+</code></pre>
+<p>And sometimes, you just want to take advantage of HTTP caching for GET requests for rarely-modified data:</p>
+<pre><code class="lang-javascript">// this request is always called with the same querystring, and therefore it is cached
+m.jsonp({
+    url: "https://api.github.com/users/lhorie",
+    callbackName: "__callback",
+})
+.then(function(response) {
+    console.log(response.data.login) // logs "lhorie"
+})
+</code></pre>
+
+				<hr />
+				<small>License: MIT. © Leo Horie.</small>
+			</section>
+		</main>
+		<script src="lib/prism/prism.js"></script>
+		<script>
+		document.querySelector(".hamburger").onclick = function() {
+			document.body.className = document.body.className === "navigating" ? "" : "navigating"
+			document.querySelector("h1 + ul").onclick = function() {
+				document.body.className = ''
+			}
+		}
+		</script>
+	</body>
+</html>

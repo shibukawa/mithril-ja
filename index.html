@@ -1,267 +1,257 @@
-<!doctype html>
 <html>
 	<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<title>Mithril</title>
-		<meta name="description" value="Mithril.js - a Javascript Framework for Building Brilliant Applications" />
+		<meta charset="UTF-8" />
+		<title> イントロダクション - Mithril.js</title>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 		<link href="lib/prism/prism.css" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
 	<body>
 		<header>
-			<nav class="container">
-				<a href="index.html" class="logo"><span>○</span> Mithril</a> <a href="getting-started.html">ガイド</a> <a href="mithril.html">API</a> <a href="community.html">コミュニティ</a> <a href="http://lhorie.github.io/mithril-blog">もっと知る</a> <a href="installation.html">ダウンロード</a> <a href="http://github.com/lhorie/mithril.js" target="_blank">Github</a>
-			</nav>
+			<section>
+				<a class="hamburger" href="javascript:;">≡</a>
+				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<nav>
+					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
+				</nav>
+			</section>
 		</header>
-		
 		<main>
-			<section class="cta">
-				<div class="container">
-					<h1 class="logo"><span>○</span> Mithril</h1>
+			<section>
+				<h1 id="introduction">イントロダクション</h1>
+<ul>
+<li>チュートリアル<ul>
+<li><a href="installation.html">インストール</a></li>
+<li><strong><a href="index.html">イントロダクション</a></strong><ul>
+<li><a href="#what-is-mithril">Mithrilとは？</a></li>
+<li><a href="#getting-started">はじめよう</a></li>
+<li><a href="#hello-world">Hello world</a></li>
+<li><a href="#dom-elements">DOMエレメント</a></li>
+<li><a href="#components">コンポーネント</a></li>
+<li><a href="#routing">ラウティング</a></li>
+<li><a href="#xhr">XHR</a></li>
+</ul>
+</li>
+<li><a href="simple-application.html">チュートリアル</a></li>
+</ul>
+</li>
+<li>リソース<ul>
+<li><a href="jsx.html">JSX</a></li>
+<li><a href="es6.html">ES6</a></li>
+<li><a href="css.html">CSS</a></li>
+<li><a href="animation.html">アニメーション</a></li>
+<li><a href="testing.html">テスト</a></li>
+<li><a href="examples.html">サンプル</a></li>
+</ul>
+</li>
+<li>重要なコンセプト<ul>
+<li><a href="vnodes.html">Vノード</a></li>
+<li><a href="components.html">コンポーネント</a></li>
+<li><a href="lifecycle-methods.html">ライフサイクルメソッド</a></li>
+<li><a href="keys.html">キー</a></li>
+<li><a href="autoredraw.html">自動再描画システム</a></li>
+</ul>
+</li>
+<li>ソーシャル<ul>
+<li><a href="https://github.com/lhorie/mithril.js/wiki/JOBS">Mithrilの求人</a></li>
+<li><a href="contributing.html">貢献の仕方</a></li>
+<li><a href="credits.html">クレジット</a></li>
+</ul>
+</li>
+<li>その他<ul>
+<li><a href="framework-comparison.html">フレームワークの比較</a></li>
+<li><a href="change-log.html">変更履歴/移行</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-mithril?">Mithrilとは？</h3>
+<p>Mithrilはシングルページアプリケーションを構築するためのモダンなクライアントサイドのJavaScriptフレームワークです。<br>サイズは小さく（&lt; 8kb gzip）高速で、ラウティングやXHRといったユーティリティもパッケージ内に内蔵しています。</p>
+<div style="display:flex;margin:0 0 30px;">
+    <div style="width:50%;">
+        <h5>ダウンロードサイズの比較</h5>
+        <small>Mithril (8kb)</small>
+        <div style="animation:grow 0.08s;background:#1e5799;height:3px;margin:0 10px 10px 0;transform-origin:0;width:4%;"></div>
+        <small style="color:#aaa;">Vue + Vue-Router + Vuex + fetch (40kb)</small>
+        <div style="animation:grow 0.4s;background:#1e5799;height:3px;margin:0 10px 10px 0;transform-origin:0;width:20%"></div>
+        <small style="color:#aaa;">React + React-Router + Redux + fetch (64kb)</small>
+        <div style="animation:grow 0.64s;background:#1e5799;height:3px;margin:0 10px 10px 0;transform-origin:0;width:32%"></div>
+        <small style="color:#aaa;">Angular (135kb)</small>
+        <div style="animation:grow 1.35s;background:#1e5799;height:3px;margin:0 10px 10px 0;transform-origin:0;width:68%"></div>
+    </div>
+    <div style="width:50%;">
+        <h5>パフォーマンス</h5>
+        <small>Mithril (6.4ms)</small>
+        <div style="animation:grow 0.64s;background:#1e5799;height:3px;margin:0 10px 10px 0;transform-origin:0;width:24%;"></div>
+        <small style="color:#aaa;">Vue (9.8ms)</small>
+        <div style="animation:grow 0.98s;background:#1e5799;height:3px;margin:0 10px 10px 0;transform-origin:0;width:40%"></div>
+        <small style="color:#aaa;">React (12.1ms)</small>
+        <div style="animation:grow 1.21s;background:#1e5799;height:3px;margin:0 10px 10px 0;transform-origin:0;width:48%"></div>
+        <small style="color:#aaa;">Angular (11.5ms)</small>
+        <div style="animation:grow 1.15s;background:#1e5799;height:3px;margin:0 10px 10px 0;transform-origin:0;width:44%"></div>
+    </div>
+</div>
 
-					<p>輝かしいアプリケーションを構築するためのJavaScriptフレームワーク</p>
+<p>MithrilはVimeoやNikeといった企業や、Lichessのようなオープンソースプラットフォームで利用されています。</p>
+<p>もし、すでにJavaScriptのフレームワークでの開発経験があり、他のフレームワークとなにが違うのかを知りたければ、<a href="framework-comparison.html">フレームワークの比較</a>のページを見てください。</p>
+<p>MithrilはPolyfillなしでIE9以降のすべてのブラウザに対応しています。</p>
+<hr>
+<h3 id="getting-started">はじめよう</h3>
+<p>CDNを使ってMithrilを読み込んで、これから説明するチュートリアルをなぞるのが、Mithrilを試すもっとも簡単な方法です。このチュートリアルはラウティングやXHRも含めて、主要なAPIを紹介しますが、10分程度しかかかりません。</p>
+<p>それでは次のようなHTMLファイルを作ってみましょう:</p>
+<pre><code class="lang-markup">&lt;body&gt;
+    &lt;script src="//unpkg.com/mithril/mithril.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+    var root = document.body
 
-					<p>
-						<a class="button" href="getting-started.html">ガイド</a> <a class="button" href="installation.html">ダウンロード v0.2.4</a>
-					</p>
-					
-					<iframe src="ghbtns.html?user=lhorie&amp;repo=mithril.js&amp;type=watch&amp;count=true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
-					
-					<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lhorie.github.io/mithril" data-via="LeoHorie">Tweet</a>
-					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-					
-					<a href="http://flattr.com/thing/2778375/lhoriemithril-js-on-GitHub" target="_blank"><img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr" title="Flattr" border="0" /></a>
-					<a class="changelog" href="change-log.html"><small>変更履歴</small></a>
-				</div>
-			</section>
-			
-			<section class="features">
-				<div class="container">
-					<h2>Mithrilとは？</h2>
-					<p>MithrilはクライアントサイドMVCフレームワークです。コードをきれいに構成して、構造について考えるのを簡単にしたり、メンテナンスしやすくします。</p>
-				</div>
-				<div class="container row">
-					<div class="feature col(4,4,12)">
-						<h2>軽量</h2>
-						<ul>
-							<li>gzip圧縮時でたったの7.8KBで、他への依存がない</li>
-							<li>小さくシンプルなAPIと、低い学習コスト</li>
-						</ul>
-					</div>
+    // ここにコードを追加していきます
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<hr>
+<h3 id="hello-world">Hello world</h3>
+<p>まずはなるべく小さなステップから始めましょう。スクリーンにテキストを表示してみます。次のコードをコピーして、最初に作ったファイルにコピーしてみましょう（コピーと言いましたが、タイピングした方が学習効果は高いでしょう）。</p>
+<pre><code class="lang-javascript">var root = document.body
 
-					<div class="feature col(4,4,12)">
-						<h2>信頼性</h2>
-						<ul>
-							<li>デフォルト設定が安全側に振られたテンプレート</li>
-							<li>コンポーネントによる階層型MVC</li>
-						</ul>
-					</div>
+m.render(root, "Hello world")
+</code></pre>
+<p>別のテキストに変えてみましょう。次の行を前のサンプルに追加してください。</p>
+<pre><code class="lang-javascript">m.render(root, "最初のMithrilアプリケーション")
+</code></pre>
+<p>このコードを見ればおわかりの通りに、同じコードをつかってHTMLの作成と更新を行うことができます。Mithrilは自動的にテキストを更新するためのもっとも効率的な方法を判断して実行します。盲目的にすべてを再作成することはありません。</p>
+<hr>
+<h3 id="dom-elements">DOMエレメント</h3>
+<p>次に、テキストを<code>&lt;h1&gt;</code>タグでくくってみましょう。</p>
+<pre><code class="lang-javascript">m.render(root, m("h1", "最初のMithrilアプリケーション"))
+</code></pre>
+<p><code>m()</code>関数を使うと、あらゆるHTML構造が表現できます。<code>&lt;h1&gt;</code>タグにクラスを追加してみます:</p>
+<pre><code class="lang-javascript">m("h1", {class: "title"}, "最初のMithrilアプリケーション")
+</code></pre>
+<p>複数のエレメントを追加してみましょう:</p>
+<pre><code class="lang-javascript">[
+    m("h1", {class: "title"}, "最初のMithrilアプリケーション"),
+    m("button", "ボタン"),
+]
+</code></pre>
+<p>さらにタグで囲って階層化してみます:</p>
+<pre><code class="lang-javascript">m("main", [
+    m("h1", {class: "title"}, "最初のMithrilアプリケーション"),
+    m("button", "ボタン"),
+])
+</code></pre>
+<p>Note: もし<code>&lt;html&gt;</code>という文法を使いたい時は、<a href="jsx.html">Babelプラグイン</a>を使うと利用できます。</p>
+<pre><code class="lang-jsx">// BabelのJSXをプラグインを使ったHTML文法
+&lt;main&gt;
+    &lt;h1 class="title"&gt;最初のMithrilアプリケーション&lt;/h1&gt;
+    &lt;button&gt;ボタン&lt;/button&gt;
+&lt;/main&gt;
+</code></pre>
+<hr>
+<h3 id="components">コンポーネント</h3>
+<p>Mithrilのコンポーネントは<code>view</code>関数を持つ単なるオブジェクトです。上記のコードをコンポーネント化してみましょう。</p>
+<pre><code class="lang-javascript">var Hello = {
+    view: function() {
+        return m("main", [
+            m("h1", {class: "title"}, "最初のMithrilアプリケーション"),
+            m("button", "ボタン"),
+        ])
+    }
+}
+</code></pre>
+<p>コンポーネントをアクティベート化するには<code>m.mount()</code>関数を使います。</p>
+<pre><code class="lang-javascript">m.mount(root, Hello)
+</code></pre>
+<p>期待されるように、次のマークアップが生成されます:</p>
+<pre><code class="lang-markup">&lt;main&gt;
+    &lt;h1 class="title"&gt;最初のMithrilアプリケーション&lt;/h1&gt;
+    &lt;button&gt;ボタン&lt;/button&gt;
+&lt;/main&gt;
+</code></pre>
+<p><code>m.mount()</code>関数は<code>m.render()</code>関数と似ていますが、後者は一度しかHTMLをレンダリング（DOMの生成）を行いません。前者はMithrilの自動再描画システムを起動します。この意味を理解するために、イベントを追加してみましょう:</p>
+<pre><code class="lang-javascript">var count = 0 // 変数を追加
+var Hello = {
+    view: function() {
+        return m("main", [
+            m("h1", {class: "title"}, "最初のMithrilアプリケーション"),
+            // この行を変更
+            m("button", {onclick: function() {count++}}, count + " クリック"),
+        ])
+    }
+}
 
-					<div class="feature col(4,4,12)">
-						<h2>高速</h2>
-						<ul>
-							<li>Virtual DOM差分更新と、コンパイル可能なテンプレート</li>
-							<li>インテリジェントな自動再描画システム</li>
-						</ul>
-					</div>
-				</div>
-			</section>
+m.mount(root, Hello)
+</code></pre>
+<p>ボタンに対して<code>onclick</code>イベントを追加しました。このイベントは、コードの先頭で宣言されている<code>count</code>変数をインクリメントします。そして、この変数の値をボタンのラベルとして表示するようにしました。</p>
+<p>ボタンをクリックすると、ボタンのラベルが更新されるようになります。<code>m.mount()</code>を使うと、<code>m.render()</code>をマニュアルで呼び出さなくても<code>count</code>変数の変更をMithrilがHTMLに反映します。</p>
+<p>パフォーマンスについて気になる方もいるでしょう。Mithrilは、本当に必要なDOMの部分にしか触れないため、レンダリングの更新時を非常に高速に行います。上記のサンプルでは、ボタンをクリックしたときには、MithrilはボタンのテキストのDOM部分だけを更新します。</p>
+<hr>
+<h3 id="routing">ラウティング</h3>
+<p>ラウティングは、アプリケーション内のいくつかのスクリーン間で移動することです。</p>
+<p>クリックカウンターの前に、スプラッシュページを追加してみましょう。まず次のコンポーネントを作成します:</p>
+<pre><code class="lang-javascript">var Splash = {
+    view: function() {
+        return m("a", {href: "#!/hello"}, "ようこそ!")
+    }
+}
+</code></pre>
+<p>このコンポーネントは、<code>#!/hello</code>へのリンクをレンダリングするだけのシンプルなものです。<code>#!</code>部分はハッシュバング（hashbang）と言われています。これはシングルページアプリケーションで一般的にみられる慣習です。このハッシュバングの後の部分（<code>/hello</code>パート）がラウトのパスです。</p>
+<p>アプリケーションが複数のスクリーンを扱う時は<code>m.mount()</code>の代わりに<code>m.route()</code>を使います。</p>
+<pre><code class="lang-javascript">m.route(root, "/splash", {
+    "/splash": Splash,
+    "/hello": Hello,
+})
+</code></pre>
+<p><code>m.route</code>関数は<code>m.mount</code>と同じ自動再描画機能を持っています。これに加えて、URLの変更に対応することができます。URLに<code>#!</code>の文字を見つけたら、Mithrilに何をするか教えます。</p>
+<p><code>root</code>のすぐ右にある<code>"/splash"</code>はデフォルトのラウトです。ハッシュバングのあとのURLが、定義されているラウト（このサンプルでは<code>/splash</code>、<code>/hello</code>）、MithrilはこのURLにリダイレクトします。もしブラウザを開いて、そのページのURLが<code>http://localhost</code>だったら、<code>http://localhost/#!/splash</code>にリダイレクトします。</p>
+<p>スプラッシュページのなかのリンクをクリックすると、以前作ったクリックカウンターに移動します。新しいページに移動するとURLは<code>http://localhost/#!/hello</code>になります。ブラウザの「戻る」「進む」ボタンを使って、スプラッシュページにいったりきたりナビゲーションできます。</p>
+<hr>
+<h3 id="xhr">XHR</h3>
+<p>基本的にXHRはサーバーと話をするための方法です。</p>
+<p>クリックカウンターを修正して、サーバーにデータを保存できるようにしましょう。サーバーには、チュートリアルのようなおもちゃアプリケーションのために作られた、モックのREST APIを提供する<a href="http://rem-rest-api.herokuapp.com">REM</a>を使います。</p>
+<p>まず、<code>m.request</code>を呼び出す関数を作ってみましょう。<code>url</code>はリソースを表すエンドポイントを指定します。<code>method</code>は話をするアクションの種類を指定します（<a href="https://en.wiktionary.org/wiki/upsert">upserts</a>には通常<code>PUT</code>メソッドを使います）。<code>data</code>はエンドポイントに送付するペイロードです。<code>withCredentials</code>はクッキーを有効化する（REM APを動作させるのに必要）ために指定します。</p>
+<pre><code class="lang-javascript">var count = 0
+var increment = function() {
+    m.request({
+        method: "PUT",
+        url: "//rem-rest-api.herokuapp.com/api/tutorial/1",
+        data: {count: count + 1},
+        withCredentials: true,
+    })
+    .then(function(data) {
+        count = parseInt(data.count)
+    })
+}
+</code></pre>
+<p><code>{count: 1}</code>オブジェクトを付けて、<code>/api/tutorial/1</code>のエンドポイントで公開されているインクリメントをする<a href="https://en.wiktionary.org/wiki/upsert">upserts</a>関数を呼び出しています。このエンドポイントは、送信したときと同じ<code>count</code>値のオブジェクトを返します。<code>count</code>変数はリクエストの完了後にのみアップデートされます。そして、この値はサーバーからのレスポンス値で更新されます。</p>
+<p>それではコンポーネントのイベントハンドラーを修正しましょう。今までは<code>count</code>変数を直接扱っていましたが、<code>increment</code>関数を代わりに呼びだします。</p>
+<pre><code class="lang-javascript">var Hello = {
+    view: function() {
+        return m("main", [
+            m("h1", {class: "title"}, "最初のMithrilアプリケーション"),
+            m("button", {onclick: increment}, count + " クリック"),
+        ])
+    }
+}
+</code></pre>
+<p>ボタンをクリックするとカウントが更新されます。</p>
+<hr>
+<p>本チュートリアルではHTMLの作成と更新方法、コンポーネントの作成方法、シングルページアプリケーションのためのラウト。サーバーとのインタラクションを説明してきました。</p>
+<p>これらの内容は、本物のアプリケーションのフロントエンドを書き始めるには十分でしょう。Mithril APIの基本についてはここまでの説明で触れたところで十分に快適に使えます。<a href="simple-application.html">シンプルなアプリケーションを作成するチュートリアル</a>は、より実践的なアプリケーションの構築方法について説明しています。</p>
 
-			<section class="sample">
-				<div class="container">
-					<div class="col(8,8,12)">
-						<h2>サンプルコード</h2>
-						
-<pre><code class="language-javascript">
-//モデル
-var Page = {
-	list: function() {
-		return m.request({method: "GET", url: "pages.json"});
-	}
-};
-
-var Demo = {
-	//controller
-	controller: function() {
-		var pages = Page.list();
-		return {
-			pages: pages,
-			rotate: function() {
-				pages().push(pages().shift());
-			}
-		}
-	},
-
-	//view
-	view: function(ctrl) {
-		return m("div", [
-			ctrl.pages().map(function(page) {
-				return m("a", {href: page.url}, page.title);
-			}),
-			m("button", {onclick: ctrl.rotate}, "Rotate links")
-		]);
-	}
-};
-
-
-//初期化
-m.mount(document.getElementById("example"), Demo);</code></pre>
-
-					</div>
-					<div class="col(4,4,12)">
-						<h2>出力</h2>
-						<div id="example" class="example output">
-							<script src="mithril.min.js"></script>
-							<script>
-//model
-var Page = {
-	list: function() {
-		return m.request({method: "GET", url: "pages.json"});
-	}
-};
-
-var Demo = {
-	//controller
-	controller: function() {
-		var pages = Page.list();
-		return {
-			pages: pages,
-			rotate: function() {
-				pages().push(pages().shift());
-			}
-		}
-	},
-
-	//view
-	view: function(ctrl) {
-		return m("div", [
-			ctrl.pages().map(function(page) {
-				return m("a", {href: page.url}, page.title);
-			}),
-			m("button", {onclick: ctrl.rotate}, "Rotate links")
-		]);
-	}
-};
-
-
-//initialize
-m.mount(document.getElementById("example"), Demo);
-							</script>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<section class="performance">
-				<div class="container">
-					<h2 id="performance">パフォーマンス</h2>
-					<p>下記の実行時間のテストを行う場合は、それぞれのリンクをクリックして、好きなブラウザの開発者ツールのプロファイラを起動してページリフレッシュの実行時間を計測してください(数値が少ないほうが良い)。<a href="benchmarks.html">より詳しい説明</a></p>
-					<div class="row">
-						<div class="col(4,4,6)">
-							<h3>ロード</h3>
-							<table>
-								<tr><td><a href="comparisons/mithril.parsing.html">Mithril</a></td><td><span class="bar" style="background:#161;width:1%;"></span>  0.28ms</td></tr>
-								<tr><td><a href="comparisons/jquery.parsing.html">jQuery</a></td><td><span class="bar" style="background:#66c;width:26%;"></span>  13.11ms</td></tr>
-								<tr><td><a href="comparisons/backbone.parsing.html">Backbone</a></td><td><span class="bar" style="background:#33c;width:37%;"></span>  18.54ms</td></tr>
-								<tr><td><a href="comparisons/angular.parsing.html">Angular</a></td><td><span class="bar" style="background:#c33;width:14%;"></span>  7.49ms</td></tr>
-								<tr><td><a href="comparisons/react.parsing.html">React</a></td><td><span class="bar" style="background:#6af;width:50%;"></span>  24.99ms</td></tr>
-							</table>
-						</div>
-						<div class="col(8,8,12)">
-							<h3>レンダリング</h3>
-							<table>
-								<tr><td><a href="comparisons/mithril.rendering.html">Mithril</a></td><td><span class="bar" style="background:#161;width:4%;"></span>  9.44ms (uncompiled)</td></tr>
-								<tr><td><a href="comparisons/jquery.rendering.html">jQuery</a></td><td><span class="bar" style="background:#66c;width:17%;"></span>  40.27ms</td></tr>
-								<tr><td><a href="comparisons/backbone.rendering.html">Backbone</a></td><td><span class="bar" style="background:#33c;width:10%;"></span>  23.05ms</td></tr>
-								<tr><td><a href="comparisons/angular.rendering.html">Angular</a></td><td><span class="bar" style="background:#c33;width:50%;"></span>  118.63ms</td></tr>
-								<tr><td><a href="comparisons/react.rendering.html">React</a></td><td><span class="bar" style="background:#6af;width:33%;"></span>  79.65ms</td></tr>
-							</table>
-						</div>
-					</div>
-				</div>
-			</section>
-			
-			<section class="security">
-				<div class="container">
-					<div class="row">
-						<div class="col(8,8,12)">
-							<h2>安全性</h2>
-							<p>Mithrilのテンプレートはデフォルトで安全な動作をするようになっています。無理やり作ろうとしなければセキュリティホールを作ることはできません。</p>
-							<p>各々のフレームワークのテストを実行する場合は、それぞれのリンクをクリックしてください。もしアラートボックスが表示された場合には、そのフレームワーク上ではセキュリティを維持するための仕事がたくさんあるということです。</p>
-						</div>
-						<div class="col(4,4,12)">
-							<h3>テスト結果</h3>
-							<a href="comparisons/mithril.safety.html">Mithril</a> <em class="success">(pass) ✓</em><br />
-							<a href="comparisons/jquery.safety.html">jQuery</a> <em class="error">(fail) ✗</em><br />
-							<a href="comparisons/backbone.safety.html">Backbone</a> <em class="error">(fail) ✗</em><br />
-							<a href="comparisons/angular.safety.html">Angular</a> <em class="success">(pass) ✓</em><br />
-							<a href="comparisons/react.safety.html">React</a> <em class="success">(pass) ✓</em><br />
-						</div>
-					</div>
-				</div>
-			</section>
-			
-			<section class="more">
-				<div class="container row">
-					<div class="col(3,6,12)">
-						<div style="padding:0 2em 0 0;">
-							<h2>ガイド</h2>
-							<p>小さなアプリケーションを作ります。コツを覚えましょう。</p>
-							<p><a href="getting-started.html">ガイドを読む</a></p>
-						</div>
-					</div>
-
-					<div class="col(3,6,12)">
-						<div style="padding:0 2em 0 0;">
-							<h2>API</h2>
-							<p>参照用のドキュメントとコードサンプルです。</p>
-							<p><a href="mithril.html">ドキュメントを読む</a></p>
-						</div>
-					</div>
-
-					<div class="col(3,6,12)">
-						<div style="padding:0 2em 0 0;">
-							<h2>Mithrilについて知る</h2>
-							<p>Mithrilのポテンシャルを引き出す使い方を紹介するブログです。</p>
-							<p><a href="http://lhorie.github.io/mithril-blog">記事を読む</a></p>
-						</div>
-					</div>
-
-					<div class="col(3,6,12)">
-						<div style="padding:0 2em 0 0;">
-							<h2>メーリングリスト</h2>
-							<p>質問を投稿したり、Mithril関連の話題について議論をするメーリングリストです。</p>
-							<p><a href="https://groups.google.com/forum/#!forum/mithriljs">メーリングリストへ飛ぶ(英語)</a></p>
-						</div>
-					</div>
-				</div>
-			</section>
-			
-			<section class="socialmedia">
-				<div class="container row">
-					<h2>ソーシャルメディア</h2>
-					<div class="col(6,12,12)">
-						<div style="padding:0 1em 0 0;">
-						<blockquote class="twitter-tweet" lang="en"><p>Just converted the MELPA site from Angular to <a href="https://twitter.com/LeoHorie">@LeoHorie</a>'s tiny mithril.js: very pleasant. <a href="http://t.co/R7JKfo9vJ1">http://t.co/R7JKfo9vJ1</a> <a href="https://t.co/7IrR3L84OY">https://t.co/7IrR3L84OY</a></p>— Steve Purcell (@sanityinc) <a href="https://twitter.com/sanityinc/statuses/471358494101504000">May 27, 2014</a></blockquote>
-						
-						<blockquote class="twitter-tweet" lang="en"><p><a href="https://twitter.com/LeoHorie">@<b>LeoHorie</b></a> I've long opposed JS frameworks, but I *really* dig Mithril! Major major kudos for making my life easier!</p>— i80and (@i80and) <a href="https://twitter.com/i80and/status/586170085691252736">Apr 9, 2015</a></blockquote>
-						</div>
-					</div>	
-					<div class="col(6,12,12)">
-						<blockquote class="twitter-tweet" lang="en"><p>Mithril.js m.prop feature is plain brilliant. I spent years yearning for an approach that lightweight <a href="http://t.co/KgzOxoa2WR">http://t.co/KgzOxoa2WR</a></p>— Xavier Via (@xaviervia) <a href="https://twitter.com/xaviervia/statuses/454635992360554497">April 11, 2014</a></blockquote>
-						
-						<blockquote class="twitter-tweet" lang="en"><p>Ported my angularjs based WebGL ui editor to mithril and got a big speed boost. <a href="https://twitter.com/hashtag/mithriljs">#<b>mithriljs</b></a> love the small api and docs!</p>  — geekrelief (@geekrelief) <a href="https://twitter.com/geekrelief/status/554214299460435969">January 11, 2015</a></blockquote>
-						
-						<script async src="//platform.twitter.com/widgets.js"></script>
-					</div>
-				</div>
+				<hr />
+				<small>License: MIT. © Leo Horie.</small>
 			</section>
 		</main>
-		<footer>
-			<div class="container">
-				<a href="http://opensource.org/licenses/MIT" target="_blank">MITライセンス</a>でリリースされています<br />© 2014 Leo Horie
-			</div>
-		</footer>
 		<script src="lib/prism/prism.js"></script>
+		<script>
+		document.querySelector(".hamburger").onclick = function() {
+			document.body.className = document.body.className === "navigating" ? "" : "navigating"
+			document.querySelector("h1 + ul").onclick = function() {
+				document.body.className = ''
+			}
+		}
+		</script>
 	</body>
 </html>

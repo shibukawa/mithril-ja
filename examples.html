@@ -1,0 +1,84 @@
+<html>
+	<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="UTF-8" />
+		<title> サンプル - Mithril.js</title>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	</head>
+	<body>
+		<header>
+			<section>
+				<a class="hamburger" href="javascript:;">≡</a>
+				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<nav>
+					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
+				</nav>
+			</section>
+		</header>
+		<main>
+			<section>
+				<h1 id="examples">サンプル</h1>
+<ul>
+<li>チュートリアル<ul>
+<li><a href="installation.html">インストール</a></li>
+<li><a href="index.html">イントロダクション</a></li>
+<li><a href="simple-application.html">チュートリアル</a></li>
+</ul>
+</li>
+<li>リソース<ul>
+<li><a href="jsx.html">JSX</a></li>
+<li><a href="es6.html">ES6</a></li>
+<li><a href="css.html">CSS</a></li>
+<li><a href="animation.html">アニメーション</a></li>
+<li><a href="testing.html">テスト</a></li>
+<li><strong><a href="examples.html">サンプル</a></strong></li>
+</ul>
+</li>
+<li>重要なコンセプト<ul>
+<li><a href="vnodes.html">Vノード</a></li>
+<li><a href="components.html">コンポーネント</a></li>
+<li><a href="lifecycle-methods.html">ライフサイクルメソッド</a></li>
+<li><a href="keys.html">キー</a></li>
+<li><a href="autoredraw.html">自動再描画システム</a></li>
+</ul>
+</li>
+<li>ソーシャル<ul>
+<li><a href="https://github.com/lhorie/mithril.js/wiki/JOBS">Mithrilの求人</a></li>
+<li><a href="contributing.html">貢献の仕方</a></li>
+<li><a href="credits.html">クレジット</a></li>
+</ul>
+</li>
+<li>その他<ul>
+<li><a href="framework-comparison.html">フレームワークの比較</a></li>
+<li><a href="change-log.html">変更履歴/移行</a></li>
+</ul>
+</li>
+</ul>
+<p>実践的なMithrilのサンプルです。</p>
+<ul>
+<li><a href="http://cdn.rawgit.com/lhorie/mithril.js/rewrite/examples/animation/mosaic.html">アニメーション</a></li>
+<li><a href="http://cdn.rawgit.com/lhorie/mithril.js/rewrite/examples/dbmonster/mithril/index.html">DBMonster</a></li>
+<li><a href="http://cdn.rawgit.com/lhorie/mithril.js/rewrite/examples/editor/index.html">Markdownエディター</a></li>
+<li>SVG: <a href="http://cdn.rawgit.com/lhorie/mithril.js/rewrite/examples/svg/clock.html">Clock</a>, <a href="http://cdn.rawgit.com/lhorie/mithril.js/rewrite/examples/svg/ring.html">Ring</a>, <a href="http://cdn.rawgit.com/lhorie/mithril.js/rewrite/examples/svg/tiger.html">Tiger</a></li>
+<li><a href="http://cdn.rawgit.com/lhorie/mithril.js/rewrite/examples/threaditjs/index.html">ThreadItJS</a></li>
+<li><a href="http://cdn.rawgit.com/lhorie/mithril.js/rewrite/examples/todomvc/index.html">TodoMVC</a></li>
+</ul>
+
+				<hr />
+				<small>License: MIT. © Leo Horie.</small>
+			</section>
+		</main>
+		<script src="lib/prism/prism.js"></script>
+		<script>
+		document.querySelector(".hamburger").onclick = function() {
+			document.body.className = document.body.className === "navigating" ? "" : "navigating"
+			document.querySelector("h1 + ul").onclick = function() {
+				document.body.className = ''
+			}
+		}
+		</script>
+	</body>
+</html>
