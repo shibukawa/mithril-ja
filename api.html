@@ -50,11 +50,11 @@
 </ul>
 <h3 id="cheatsheet">チートシート</h3>
 <p>次のサンプルはもっとも頻繁に使われるメソッドのサンプルです。ここに書かれていないメソッドは上級向けです。</p>
-<h4 id="mselector,-attrs,-children---">m(selector, attrs, children) - <a href="hyperscript.html">docs</a></h4>
+<h4 id="mselector,-attrs,-children---">m(selector, attrs, children) - <a href="hyperscript.html">ドキュメント</a></h4>
 <pre><code class="lang-javascript">m("div.class#id", {title: "title"}, ["children"])
 </code></pre>
 <hr>
-<h4 id="mmountelement,-component---">m.mount(element, component) - <a href="mount.html">docs</a></h4>
+<h4 id="mmountelement,-component---">m.mount(element, component) - <a href="mount.html">ドキュメント</a></h4>
 <pre><code class="lang-javascript">var state = {
     count: 0,
     inc: function() {state.count++}
@@ -69,7 +69,7 @@ var Counter = {
 m.mount(document.body, Counter)
 </code></pre>
 <hr>
-<h4 id="mrouteroot,-defaultroute,-routes---">m.route(root, defaultRoute, routes) - <a href="route.html">docs</a></h4>
+<h4 id="mrouteroot,-defaultroute,-routes---">m.route(root, defaultRoute, routes) - <a href="route.html">ドキュメント</a></h4>
 <pre><code class="lang-javascript">var Home = {
     view: function() {
         return "ようこそ"
@@ -80,21 +80,21 @@ m.route(document.body, "/home", {
     "/home": Home, // `http://localhost/#!/home` の定義
 })
 </code></pre>
-<h4 id="mroutesetpath---">m.route.set(path) - <a href="route.html#mrouteset">docs</a></h4>
+<h4 id="mroutesetpath---">m.route.set(path) - <a href="route.html#mrouteset">ドキュメント</a></h4>
 <pre><code class="lang-javascript">m.route.set("/home")
 </code></pre>
-<h4 id="mrouteget---">m.route.get() - <a href="route.html#mrouteget">docs</a></h4>
+<h4 id="mrouteget---">m.route.get() - <a href="route.html#mrouteget">ドキュメント</a></h4>
 <pre><code class="lang-javascript">var currentRoute = m.route.get()
 </code></pre>
-<h4 id="mrouteprefixprefix---">m.route.prefix(prefix) - <a href="route.html#mrouteprefix">docs</a></h4>
+<h4 id="mrouteprefixprefix---">m.route.prefix(prefix) - <a href="route.html#mrouteprefix">ドキュメント</a></h4>
 <p><code>m.route()</code>の前に実行してください</p>
 <pre><code class="lang-javascript">m.route.prefix("#!")
 </code></pre>
-<h4 id="mroutelink---">m.route.link() - <a href="route.html#mroutelink">docs</a></h4>
+<h4 id="mroutelink---">m.route.link() - <a href="route.html#mroutelink">ドキュメント</a></h4>
 <pre><code class="lang-javascript">m("a[href='/Home']", {oncreate: m.route.link}, "ホームに戻る")
 </code></pre>
 <hr>
-<h4 id="mrequestoptions---">m.request(options) - <a href="request.html">docs</a></h4>
+<h4 id="mrequestoptions---">m.request(options) - <a href="request.html">ドキュメント</a></h4>
 <pre><code class="lang-javascript">m.request({
     method: "PUT",
     url: "/api/v1/users/:id",
@@ -105,7 +105,7 @@ m.route(document.body, "/home", {
 })
 </code></pre>
 <hr>
-<h4 id="mjsonpoptions---">m.jsonp(options) - <a href="jsonp.html">docs</a></h4>
+<h4 id="mjsonpoptions---">m.jsonp(options) - <a href="jsonp.html">ドキュメント</a></h4>
 <pre><code class="lang-javascript">m.jsonp({
     url: "/api/v1/users/:id",
     data: {id: 1},
@@ -116,17 +116,17 @@ m.route(document.body, "/home", {
 })
 </code></pre>
 <hr>
-<h4 id="mparsequerystringquerystring---">m.parseQueryString(querystring) - <a href="parseQueryString.html">docs</a></h4>
+<h4 id="mparsequerystringquerystring---">m.parseQueryString(querystring) - <a href="parseQueryString.html">ドキュメント</a></h4>
 <pre><code class="lang-javascript">var object = m.parseQueryString("a=1&amp;b=2")
 // {a: "1", b: "2"}
 </code></pre>
 <hr>
-<h4 id="mbuildquerystringobject---">m.buildQueryString(object) - <a href="buildQueryString.html">docs</a></h4>
+<h4 id="mbuildquerystringobject---">m.buildQueryString(object) - <a href="buildQueryString.html">ドキュメント</a></h4>
 <pre><code class="lang-javascript">var querystring = m.buildQueryString({a: "1", b: "2"})
 // "a=1&amp;b=2"
 </code></pre>
 <hr>
-<h4 id="mwithattrattrname,-callback---">m.withAttr(attrName, callback) - <a href="withAttr.html">docs</a></h4>
+<h4 id="mwithattrattrname,-callback---">m.withAttr(attrName, callback) - <a href="withAttr.html">ドキュメント</a></h4>
 <pre><code class="lang-javascript">var state = {
     value: "",
     setValue: function(v) {state.value = v}
@@ -144,11 +144,11 @@ var Component = {
 m.mount(document.body, Component)
 </code></pre>
 <hr>
-<h4 id="mtrusthtmlstring---">m.trust(htmlString) - <a href="trust.html">docs</a></h4>
+<h4 id="mtrusthtmlstring---">m.trust(htmlString) - <a href="trust.html">ドキュメント</a></h4>
 <pre><code class="lang-javascript">m.render(document.body, m.trust("&lt;h1&gt;Hello&lt;/h1&gt;"))
 </code></pre>
 <hr>
-<h4 id="mredraw---">m.redraw() - <a href="redraw.html">docs</a></h4>
+<h4 id="mredraw---">m.redraw() - <a href="redraw.html">ドキュメント</a></h4>
 <pre><code class="lang-javascript">var count = 0
 function inc() {
     setInterval(function() {
