@@ -119,11 +119,11 @@ m.render(document.body, "hello world")
     }
 }
 </code></pre><p>このファイルはJSONファイルなので、<code>"scripts"</code>や<code>"start"</code>といったキー名はダブルクオートで括る必要があります。</p>
-<p>The <code>-d</code> flag tells webpack to use development mode, which produces source maps for a better debugging experience.</p>
-<p>The <code>--watch</code> flag tells webpack to watch the file system and automatically recreate <code>app.js</code> if file changes are detected.</p>
-<p>Now you can run the script via <code>npm start</code> in your command line window. This looks up the <code>webpack</code> command in the NPM path, reads <code>index.js</code> and creates a file called <code>app.js</code> which includes both Mithril and the <code>hello world</code> code above. If you want to run the <code>webpack</code> command directly from the command line, you need to either add <code>node_modules/.bin</code> to your PATH, or install webpack globally via <code>npm install webpack -g</code>. It's, however, recommended that you always install webpack locally and use npm scripts, to ensure builds are reproducible in different computers.</p>
+<p><code>-d</code>フラグを使うと、WebPackに開発者モードで実行するように指示できます。ソースマップが生成されて、デバッグがやりやすくなります。</p>
+<p><code>--watch</code>フラグを使うと、ファイルシステムの変更を監視し、変更を検知すると<code>app.js</code>が自動生成されるようになります。</p>
+<p>コマンドラインウインドウで<code>npm start</code>と入力するとこのスクリプトが実行できます。NPMのパスにある<code>webpack</code>コマンドが実行され、<code>index.js</code>ファイルを読み込んで<code>app.js</code>ファイルが生成されます。このファイルには、Mithrilと上記の<code>hello world</code>の両方のコードが含まれます。コマンドラインから直接<code>webpack</code>コマンドを実行するには、<code>node_modules/.bin</code>をパスに追加するか、<code>npm install webpack -g</code>を使ってWebPackをグローバルにインストールする必要があります。しかし、ローカルにインストールして、npmスクリプトを使って実行する方法が推奨です。この方法であれば、他のコンピューターでも同じ環境を再現して実行しやすいからです。</p>
 <pre><code>npm start
-</code></pre><p>Now that you have created a bundle, you can then reference the <code>bin/app.js</code> file from an HTML file:</p>
+</code></pre><p>バンドルファイルが作成されると、HTMLファイルから<code>bin/app.js</code>というパスで参照できます。</p>
 <pre><code class="lang-markup">&lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;Hello world&lt;/title&gt;
@@ -133,14 +133,14 @@ m.render(document.body, "hello world")
   &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<p>As you've seen above, importing a module in CommonJS is done via the <code>require</code> function. You can reference NPM modules by their library names (e.g. <code>require("mithril")</code> or <code>require("jquery")</code>), and you can reference your own modules via relative paths minus the file extension (e.g. if you have a file called <code>mycomponent.js</code> in the same folder as the file you're importing to, you can import it by calling <code>require("./mycomponent")</code>).</p>
-<p>To export a module, assign what you want to export to the special <code>module.exports</code> object:</p>
+<p>すでに説明したとおり、CommonJSでは<code>require</code>関数を使うとモジュールのインポートが行えます。NPMモジュールはライブラリ名（例えば、<code>require("mithril")</code>、<code>require("jquery")</code>）で参照できます。また、自分自身のモジュールは、拡張子なしの現在のパスからの相対パス（例えば、同じフォルダにある<code>mycomponent.js</code>というファイルであれば、<code>require("./mycomponent")</code>呼び出しで）参照できます。</p>
+<p>モジュールの要素をエクスポートするには、特別な<code>module.exports</code>オブジェクトにアサインします。</p>
 <pre><code class="lang-javascript">// mycomponent.js
 module.exports = {
     view: function() {return "hello from a module"}
 }
 </code></pre>
-<p>In the <code>index.js</code>, you would then write this code to import that module:</p>
+<p><code>index.js</code>では、次のようなコードを書いて、エクスポートされた要素をインポートします:</p>
 <pre><code class="lang-javascript">// index.js
 var m = require("mithril")
 
@@ -148,9 +148,9 @@ var MyComponent = require("./mycomponent")
 
 m.mount(document.body, MyComponent)
 </code></pre>
-<p>Note that in this example, we're using <code>m.mount</code>, which wires up the component to Mithril's autoredraw system. In most applications, you will want to use <code>m.mount</code> (or <code>m.route</code> if your application has multiple screens) instead of <code>m.render</code> to take advantage of the autoredraw system, rather than re-rendering manually every time a change occurs.</p>
+<p>このサンプルでは<code>m.mount</code>を使っています。この関数を使うとMithrilの自動再描画システムが有効化されます。ほとんどのMithrilアプリケーションでは、<code>m.mount</code>（複数スクリーンを扱うときは<code>m.route</code>）を使うことになります。これらの関数を使うと、変更が必要な時に手動で再描画を実行しなくても、自動再描画システムのメリットが享受できます。</p>
 <h4 id="production-build">本番ビルド</h4>
-<p>If you open bin/app.js, you'll notice that the Webpack bundle is not minified, so this file is not ideal for a live application. To generate a minified file, open <code>package.json</code> and add a new npm script:</p>
+<p>bin/app.jsを開くと、WebPackが生成したバンドルファイルがミニファイされていないことが分かります。これはアプリケーションをこのまま実際にリリースするには最適化の余地があります。ミニファイしたファイルを生成するには、<code>package.json</code>を開いて新しいnpmスクリプトを追加します:</p>
 <pre><code>{
     "name": "my-project",
     "scripts": {
@@ -168,35 +168,35 @@ m.mount(document.body, MyComponent)
     }
 }
 </code></pre><hr>
-<h3 id="alternate-ways-to-use-mithril">Alternate ways to use Mithril</h3>
-<h4 id="live-reload-development-environment">Live reload development environment</h4>
-<p>Live reload is a feature where code changes automatically trigger the page to reload. <a href="https://github.com/mattdesl/budo">Budo</a> is one tool that enables live reloading.</p>
-<pre><code class="lang-bash"># 1) install
+<h3 id="alternate-ways-to-use-mithril">Mithrilを使う別の方法</h3>
+<h4 id="live-reload-development-environment">ライブリロードを行う開発環境</h4>
+<p>ライブリロードは、コードの変更時に自動で画面のリロードを行う機能です。<a href="https://github.com/mattdesl/budo">Budo</a>はライブリロードを可能にしてくれるツールの１つです。</p>
+<pre><code class="lang-bash"># 1) インストール
 npm install mithril --save
 npm install budo -g
 
-# 2) add this line into the scripts section in package.json
+# 2) 次の行をpackage.jsonのscriptsセクションに追加する
 #    "scripts": {
 #        "start": "budo --live --open index.js"
 #    }
 
-# 3) create an `index.js` file
+# 3) `index.js` ファイルを作成する
 
-# 4) run budo
+# 4) budoを実行する
 npm start
 </code></pre>
-<p>The source file <code>index.js</code> will be compiled (bundled) and a browser window opens showing the result. Any changes in the source files will instantly get recompiled and the browser will refresh reflecting the changes.</p>
-<h4 id="mithril-bundler">Mithril bundler</h4>
-<p>Mithril comes with a bundler tool of its own. It is sufficient for ES5-based projects that have no other dependencies other than Mithril, but it's currently considered experimental for projects that require other NPM dependencies. It produces smaller bundles than webpack, but you should not use it in production yet.</p>
-<p>If you want to try it and give feedback, you can open <code>package.json</code> and change the npm script for webpack to this:</p>
+<p><code>index.js</code>がコンパイル（バンドル化）されて、ブラウザウィンドウが開いてそのファイルが表示されます。ソースファイルが変更されると再コンパイルされて、ブラウザがリフレッシュし、その変更が表示されます。</p>
+<h4 id="mithril-bundler">Mithrilバンドラー</h4>
+<p>Mithrilにはバンドラーツールが添付されています。これはMithril以外に依存を持たないES5ベースのプロジェクトでのみ使えますが、他のNPMの依存が必要な場合にはまだexperimentalです。このツールはWebPackよりも小さいバンドルを生成しますが、まだ本番環境では使わないでください。</p>
+<p>もし、このツールを試用してみてフィードバックをコミュニティに提供していただけるのであれば、<code>package.json</code>ファイルを開き、WebPackを使うスクリプトの部分を次のように変更します:</p>
 <pre><code>{
     "name": "my-project",
     "scripts": {
         "build": "bundle index.js --output app.js --watch"
     }
 }
-</code></pre><h4 id="vanilla">Vanilla</h4>
-<p>If you don't have the ability to run a bundler script due to company security policies, there's an options to not use a module system at all:</p>
+</code></pre><h4 id="vanilla">バニラJS</h4>
+<p>会社のセキュリティポリシーが理由でバンドルスクリプトを実行できない場合は、モジュールシステムをまったく使用しないで使うこともできます:</p>
 <pre><code class="lang-markup">&lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;Hello world&lt;/title&gt;
@@ -209,7 +209,7 @@ npm start
 </code></pre>
 <pre><code class="lang-javascript">// index.js
 
-// if a CommonJS environment is not detected, Mithril will be created in the global scope
+// もしCommonJS環境外でロードされると、Mithrilはグローバルスコープに登録されます
 m.render(document.body, "hello world")
 </code></pre>
 

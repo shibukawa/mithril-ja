@@ -420,7 +420,7 @@ m.route(document.body, "/edit/1", {
 <p><code>m.route.set(m.route.get(), null, {state: {key: Date.now()}})</code></p>
 <h4 id="variadic-routes">可変個引数のラウト</h4>
 <p>可変個引数をもったラウトを作ることもできます。例えば、スラッシュを含むURLのパス名を引数に取るラウトなどを実現することができます:</p>
-<pre><code class="lang-javascript">m.route(document.body, "/edit/pictures/image.jpg", {
+<pre><code class="lang-javascript">m.route(document.body, "/files/pictures/image.jpg", {
     "/files/:file...": Edit,
 })
 </code></pre>

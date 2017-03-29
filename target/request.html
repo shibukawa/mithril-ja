@@ -500,7 +500,7 @@ function parseCSV(data) {
 <p>Mithrilの <code>m.request</code>はいくつかの理由により、<code>fetch()</code>の代わりに<code>XMLHttpRequest</code>を使っています。</p>
 <ul>
 <li><code>fetch</code>はまだ十分に標準化が行われていません。そのため、仕様の変更の影響を受ける可能性があります。</li>
-<li><code>XMLHttpRequest</code>の呼び出しは、完了前に中断させられることがあります。例えば、簡易検索UIの複数リクエストの競合を避けるために必要となることがあります。</li>
+<li><code>XMLHttpRequest</code> calls can be aborted before they resolve (e.g. to avoid race conditions in for instance search UIs).</li>
 <li><code>XMLHttpRequest</code>は長時間かかる進捗情報を取得するためのフックを提供しています。</li>
 <li><code>XMLHttpRequest</code>はすべてのブラウザで対応していますが、<code>fetch()</code>はInternet Explorer, Safari, ChromiumでないAndroidではサポートされていません。</li>
 </ul>

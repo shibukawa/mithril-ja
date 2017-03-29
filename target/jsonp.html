@@ -56,7 +56,7 @@
 </ul>
 <hr>
 <h3 id="description">説明</h3>
-<p>Makes JSON-P requests. Typically, it's useful to interact with servers that allow JSON-P but that don't have CORS enabled.</p>
+<p>JSON-Pリクエストを行います。この機能はCORSが有効化されておらず、JSON-Pだけが行えるサーバーとのインタラクションを行うときに有用です。</p>
 <pre><code class="lang-javascript">m.jsonp({
     url: "/api/v1/users/:id",
     data: {id: 1},
@@ -83,7 +83,7 @@
 <td><code>url</code></td>
 <td><code>String</code></td>
 <td>No</td>
-<td>If present, it's equivalent to having the option <code>{url: url}</code>. <code>options</code>引数に渡されたオプションは、この短縮形式のデフォルトオプションを上書きします。</td>
+<td>これが指定されると<code>{url: url}</code>というオプションが指定されるのと同じです。<code>options</code>引数に渡されたオプションは、この短縮形式のデフォルトオプションを上書きします。</td>
 </tr>
 <tr>
 <td><code>options.url</code></td>
@@ -95,7 +95,7 @@
 <td><code>options.data</code></td>
 <td><code>any</code></td>
 <td>No</td>
-<td>The data to be interpolated into the URL and serialized into the querystring.</td>
+<td>このデータはURLの変数に挿入されたり、クエリー文字列としてシリアライズされます。</td>
 </tr>
 <tr>
 <td><code>options.type</code></td>
@@ -107,52 +107,52 @@
 <td><code>options.callbackName</code></td>
 <td><code>String</code></td>
 <td>No</td>
-<td>The name of the function that will be called as the callback. Defaults to a randomized string (e.g. <code>_mithril_6888197422121285_0({a: 1})</code></td>
+<td>コールバックとして呼び出される関数名です。デフォルトでは、<code>_mithril_6888197422121285_0({a: 1})</code>のような乱数を含む文字列が設定されます。</td>
 </tr>
 <tr>
 <td><code>options.callbackKey</code></td>
 <td><code>String</code></td>
 <td>No</td>
-<td>The name of the querystring parameter name that specifies the callback name. Defaults to <code>callback</code> (e.g. <code>/someapi?callback=_mithril_6888197422121285_0</code>)</td>
+<td>コールバック名を渡すためのクエリーパラメータ名です。デフォルト値は<code>callback</code>で、<code>/someapi?callback=_mithril_6888197422121285_0</code>のようになります。</td>
 </tr>
 <tr>
 <td><strong>returns</strong></td>
 <td><code>Promise</code></td>
 <td></td>
-<td>A promise that resolves to the response data, after it has been piped through <code>type</code> method</td>
+<td>レスポンスのデータが解決された時に呼び出されるPromiseです。<code>type</code>メソッドの実行後に解決します。</td>
 </tr>
 </tbody>
 </table>
 <p><a href="signatures.html">シグニチャの読み方</a></p>
 <hr>
 <h4 id="how-it-works">どのように動作するのか</h4>
-<p>The <code>m.jsonp</code> utility is useful for third party APIs that can return data in <a href="https://en.wikipedia.org/wiki/JSONP">JSON-P</a> format.</p>
-<p>In a nutshell, JSON-P consists of creating a <code>script</code> tag whose <code>src</code> attribute points to a script that lives in the server outside of your control. Typically, you are required to define a global function and specify its name in the querystring of the script's URL. The response will return code that calls your global function, passing the server's data as the first parameter.</p>
-<p>JSON-P has several limitations: it can only use GET requests, it implicitly trusts that the third party server won't serve malicious code and it requires polluting the global Javascript scope. Nonetheless, it is sometimes the only available way to retrieve data from a service (for example, if the service doesn't support <a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a>).</p>
+<p><code>m.jsonp</code>ユーティリティは<a href="https://en.wikipedia.org/wiki/JSONP">JSON-P</a>フォーマットでデータを返すサードパーティAPIに対して使います。</p>
+<p>簡単に説明すると、JSON-Pは<code>src</code>属性が自分でCORSの制御ができないサーバーを向いている<code>script</code>タグを生成します。通常であれば、グローバル関数を定義して、その名前をスクリプトのURLのクエリー文字列に定義します。このHTTPレスポンスはクライアントで用意したグローバル関数を呼び出す形式のソースコードを返します。サーバーで返したいデータはこの関数の最初のパラメータとして返ってきます。</p>
+<p>JSON-Pにはいくつか制限があります。まず、GETリクエストしか使用できません。また、サードパーティサーバーが悪意のあるコードを提供しないと信用する必要があります。また、グローバルのJavaScriptのスコープに関数を設置する必要があり、名前空間の汚染があります。そのような欠点があっても、サーバーが<a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a>をサポートしていない場合などには、これしかサービスからデータ取得する方法がないことがあります。</p>
 <hr>
 <h3 id="typical-usage">一般的な使用法</h3>
-<p>Some services follow the de-facto convention of responding with JSON-P if a <code>callback</code> querystring key is provided, thus making <code>m.jsonp</code> automatically work without any effort:</p>
+<p><code>callback</code>クエリー文字列があった場合には、その関数に対するコールバックを生成する、デファクトスタンダードに従ったサービスを使うのであれば、特に設定しなくても<code>m.jsonp</code>を使用できます。</p>
 <pre><code class="lang-javascript">m.jsonp({url: "https://api.github.com/users/lhorie"}).then(function(response) {
-    console.log(response.data.login) // logs "lhorie"
+    console.log(response.data.login) // 出力: "lhorie"
 })
 </code></pre>
-<p>Some services do not follow conventions and therefore you must specify the callback key that the service expects:</p>
+<p>この規約に従わず、サービスが指定するコールバック関数を使う必要がある時はコールバック関数のキーを指定する必要があります:</p>
 <pre><code class="lang-javascript">m.jsonp({
     url: "https://api.flickr.com/services/feeds/photos_public.gne?tags=kitten&amp;format=json",
     callbackKey: "jsoncallback",
 })
 .then(function(response) {
-    console.log(response.link) // logs "https://www.flickr.com/photos/tags/kitten/"
+    console.log(response.link) // 出力: "https://www.flickr.com/photos/tags/kitten/"
 })
 </code></pre>
-<p>And sometimes, you just want to take advantage of HTTP caching for GET requests for rarely-modified data:</p>
-<pre><code class="lang-javascript">// this request is always called with the same querystring, and therefore it is cached
+<p>あまり更新されないデータに対しては、同一のキー名を使うように指定するとHTTPのキャッシュのメリットが享受できます:</p>
+<pre><code class="lang-javascript">// このリクエストは同じクエリー文字列で毎回呼び出されるため、キャッシュ可能
 m.jsonp({
     url: "https://api.github.com/users/lhorie",
     callbackName: "__callback",
 })
 .then(function(response) {
-    console.log(response.data.login) // logs "lhorie"
+    console.log(response.data.login) // 出力: "lhorie"
 })
 </code></pre>
 
