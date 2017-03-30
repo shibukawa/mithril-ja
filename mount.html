@@ -29,8 +29,8 @@
 <li><a href="#description">説明</a></li>
 <li><a href="#signature">シグニチャ</a></li>
 <li><a href="#how-it-works">どのように動作するのか</a></li>
-<li><a href="#performance-considerations">Performance considerations</a></li>
-<li><a href="#differences-from-mrender">Differences from m.render</a></li>
+<li><a href="#performance-considerations">パフォーマンスに関する考察</a></li>
+<li><a href="#differences-from-mrender">m.renderとの違い</a></li>
 </ul>
 </li>
 <li><a href="route.html">m.route</a></li>
@@ -57,7 +57,7 @@
 </ul>
 <hr>
 <h3 id="description">説明</h3>
-<p>Activates a component, enabling it to autoredraw on user events</p>
+<p>コンポーネントを有効にし、ユーザーイベントに反応して自動再描画が起動するようにします。</p>
 <pre><code class="lang-javascript">var state = {
     count: 0,
     inc: function() {state.count++}
@@ -94,34 +94,34 @@ m.mount(document.body, Counter)
 <td><code>component</code></td>
 <td><code>Component|null</code></td>
 <td>Yes</td>
-<td>The <a href="components.html">component</a> to be rendered. <code>null</code> unmounts the tree and cleans up internal state.</td>
+<td>レンダリングする<a href="components.html">コンポーネント</a><code>null</code>を指定するとツリーをアンマウントし、内部状態を片付けます。</td>
 </tr>
 <tr>
 <td><strong>returns</strong></td>
 <td></td>
 <td></td>
-<td>Returns nothing</td>
+<td>何も返しません</td>
 </tr>
 </tbody>
 </table>
 <p><a href="signatures.html">シグニチャの読み方</a></p>
 <hr>
 <h3 id="how-it-works">どのように動作するのか</h3>
-<p>Similar to <a href="render.html"><code>m.render()</code></a>, the <code>m.mount()</code> method takes a component and mounts a corresponding DOM tree into <code>element</code>. If <code>element</code> already has a DOM tree mounted via a previous <code>m.mount()</code> call, the component is diffed against the previous vnode tree and the existing DOM tree is modified only where needed to reflect the changes. Unchanged DOM nodes are not touched at all.</p>
-<h4 id="replace-a-component">Replace a component</h4>
-<p>Running <code>mount(element, OtherComponent)</code> where <code>element</code> is a current mount point replaces the component previously mounted with <code>OtherComponent</code>.</p>
-<h4 id="unmount">Unmount</h4>
-<p>Using <code>m.mount(element, null)</code> on an element with a previously mounted component unmounts it and cleans up Mithril internal state. This can be useful to prevent memory leaks when removing the <code>root</code> node manually from the DOM.</p>
+<p><a href="render.html"><code>m.render()</code></a>と煮ていますが、<code>m.mount()</code>はコンポーネントを受け取って<code>element</code>で指定されるDOMツリーにマウントします。もし<code>element</code>に対して以前<code>m.mount()</code>が呼ばれていてマウント済みだった場合は、その以前のvnodeと現在のDOMツリーの差分を取り、変更が必要な個所だけ更新します。変更がないDOMは触れられません。</p>
+<h4 id="replace-a-component">コンポーネントの置き換え</h4>
+<p>すでにマウント済みの<code>element</code>に対して<code>mount(element, OtherComponent)</code>を実行すると、以前マウントされたコンポーネントと<code>OtherComponent</code>を置き換えます。</p>
+<h4 id="unmount">アンマウント</h4>
+<p>以前にマウントされたコンポーネントを持つエレメントに対して<code>m.mount(element, null)</code>を使用すると、そのコンポーネントがアンマウントされ、Mithrilの内部状態が片付けられます。これは<code>root</code>ノードをDOMから取り除く的にメモリリークを防ぐのに役立ちます。</p>
 <hr>
-<h3 id="performance-considerations">Performance considerations</h3>
-<p>It may seem wasteful to generate a vnode tree on every redraw, but as it turns out, creating and comparing Javascript data structures is surprisingly cheap compared to reading and modifying the DOM.</p>
-<p>Touching the DOM can be extremely expensive for a couple of reasons. Alternating reads and writes can adversely affect performance by causing several browser repaints to occur in quick succession, whereas comparing virtual dom trees allows writes to be batched into a single repaint. Also, the performance characteristics of various DOM operations vary between implementations and can be difficult to learn and optimize for all browsers. For example, in some implementations, reading <code>childNodes.length</code> has a complexity of O(n); in some, reading <code>parentNode</code> causes a repaint, etc.</p>
-<p>In contrast, traversing a javascript data structure has a much more predictable and sane performance profile, and in addition, a vnode tree is implemented in such a way that enables modern javascript engines to apply aggressive optimizations such as hidden classes for even better performance.</p>
+<h3 id="performance-considerations">パフォーマンスに関する考察</h3>
+<p>すべての再描画でvnodeツリーを生成するのは無駄に思えるかもしれませんが、JavaScriptのデータ構造の作成と比較は、DOMの読み取りと変更に比べてかなりコストに差があり、メリットがあります。</p>
+<p>DOMを触るのはいくつかの理由により高コストになります。読取りと書込みを交互に行うと、ブラウザに寄っては再表示が連続して発生しパフォーマンスに悪影響を及ぼします。一方、仮想DOMツリーでは再描画1回のコストで済みます。また、DOM操作のパフォーマンス特性はブラウザ実装によって異なるため、すべてのブラウザで最適化するのが簡単ではありません。例えば、<code>childNodes.length</code>にアクセスするだけO(n)のコストがかかり、<code>parentNode</code>にアクセスすると再描画が行われるブラウザもあります。</p>
+<p>JavaScriptのデータ構造のトラバースでは、割り込みが入ることもなく予測可能で安定したパフォーマンス特性を発揮します。これに加えて、モダンなJavaScriptエンジンではhidden classのような積極的な最適化を行います。</p>
 <hr>
-<h3 id="differences-from-mrender">Differences from m.render</h3>
-<p>A component rendered via <code>m.mount</code> automatically auto-redraws in response to view events, <code>m.redraw()</code> calls or <code>m.request()</code> calls. Vnodes rendered via <code>m.render()</code> do not. Note that calls to <code>m.prop()</code> do not trigger auto-redraws.</p>
-<p><code>m.mount()</code> is suitable for application developers integrating Mithril widgets into existing codebases where routing is handled by another library or framework, while still enjoying Mithril's auto-redrawing facilities.</p>
-<p><code>m.render()</code> is suitable for library authors who wish to manually control rendering (e.g. when hooking to a third party router, or using third party data-layer libraries like Redux).</p>
+<h3 id="differences-from-mrender">m.renderとの違い</h3>
+<p><code>m.mount </code>によってレンダリングされたコンポーネントは、ビューイベント、&lt;m1&gt;m.redraw()</code>呼び出し、または<code>m.request()</code>イベントに応答して再描画を自動で行います。<code>m.render()</code>でレンダリングしたvnodeはそうではありません。<code>m.prop()</code>の呼び出しは自動再描画のトリガーにはなりません。</p>
+<p><code>m.mount()</code>は、Mithrilの自動再描画機能を利用しながら、Mithrilウィジェットを既存のコードベースに統合するアプリケーション開発者に適しています。</p>
+<p><code>m.render()</code>は、レンダリングを手動で制御したい（例えば、サードパーティのラウターに接続する場合、や、Reduxのようなサードパーティのデータレイヤーライブラリを使用する場合など）ライブラリ作成者に適しています。</p>
 
 				<hr />
 				<small>License: MIT. © Leo Horie.</small>

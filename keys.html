@@ -2,7 +2,7 @@
 	<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8" />
-		<title>  Keys - Mithril.js</title>
+		<title> キー - Mithril.js</title>
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 		<link href="lib/prism/prism.css" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
@@ -42,9 +42,9 @@
 <li><a href="components.html">コンポーネント</a></li>
 <li><a href="lifecycle-methods.html">ライフサイクルメソッド</a></li>
 <li><strong><a href="keys.html">キー</a></strong><ul>
-<li><a href="#what-are-keys">What are keys</a></li>
-<li><a href="#how-to-use">How to use</a></li>
-<li><a href="#debugging-key-related-issues">Debugging key related issues</a></li>
+<li><a href="#what-are-keys">キーとは何か？</a></li>
+<li><a href="#how-to-use">どのように使うか？</a></li>
+<li><a href="#debugging-key-related-issues">キーにまつわる問題のデバッグ</a></li>
 </ul>
 </li>
 <li><a href="autoredraw.html">自動再描画システム</a></li>
@@ -63,10 +63,10 @@
 </li>
 </ul>
 <hr>
-<h3 id="what-are-keys">What are keys</h3>
-<p>Keys are a mechanism that allows re-ordering DOM elements within a NodeList, and mapping specific data items in a list to the respective DOM elements that are derived from them, as the data items move within the list.</p>
-<p>In other words, a <code>key</code> is a way of saying "this DOM element is for the data object with this id".</p>
-<p>Typically, a <code>key</code> property should be the unique identifier field of the objects in the data array.</p>
+<h3 id="what-are-keys">キーとは何か？</h3>
+<p>キーはノードのリスト内のDOMエレメントを並び替えをサポートする機能です。データ項目のリストを元にしてDOMエレメントを作る時に、そのリストないでの順番の変更をサポートします。</p>
+<p>いいかえると、<code>キー</code>は「このDOMエレメントは、このIDを持つデータオブジェクトを表しているデータだ」と説明するための機能です。</p>
+<p>通常、<code>キー</code>プロパティはデータの配列の中で、ユニークな識別子が格納されているオブジェクトのフィールドを使います。</p>
 <pre><code class="lang-javascript">var users = [
     {id: 1, name: "ジョン"},
     {id: 2, name: "メアリー"},
@@ -82,29 +82,29 @@ m.render(document.body, userInputs(users))
 </code></pre>
 <p>キーを持つと、<code>users</code>配列がシャッフルされてビューが再描画されても、inputタグも同じ順序で正しくシャッフルされ、フォーカスとDOMの状態が維持されます。</p>
 <hr>
-<h3 id="how-to-use">How to use</h3>
-<p>A common pattern is to have data comprised of an array of objects and to generate a list of vnodes that map to each object in the array. For example, consider the following code:</p>
+<h3 id="how-to-use">どのように使うか？</h3>
+<p>オブジェクトの配列で構成されるデータを元に、配列内の各オブジェクトと対応するvnodeのリストを生成するのが一般的な使用方法です。例えば、次のようなコードについて見てみましょう:</p>
 <pre><code class="lang-javascript">var people = [
     {id: 1, name: "ジョン"},
-    {id: 2, name: "Mary"},
+    {id: 2, name: "メアリー"},
 ]
 
 function userList(users) {
     return users.map(function(u) {
-        return m("button", u.name) // &lt;button&gt;John&lt;/button&gt;
-                                   // &lt;button&gt;Mary&lt;/button&gt;
+        return m("button", u.name) // &lt;button&gt;ジョン&lt;/button&gt;
+                                   // &lt;button&gt;メアリー&lt;/button&gt;
     })
 }
 
 m.render(document.body, userList(people))
 </code></pre>
-<p>Let's suppose the <code>people</code> variable was changed to this:</p>
-<pre><code class="lang-javascript">people = [{id: 2, name: "Mary"}]
+<p><code>people</code>配列を次のように変更してみましょう:</p>
+<pre><code class="lang-javascript">people = [{id: 2, name: "メアリー"}]
 </code></pre>
-<p>The problem is that from the point of view of the <code>userList</code> function, there's no way to tell if it was the first object that was removed, or if it was the second object that was removed <em>in addition to the first object's properties being modified</em>. If the first button was focused and the rendering engine removes it, then focus goes back to <code>&lt;body&gt;</code> as expected, but if the rendering engine removes the second button and modifies the text content of the first, then the focus will be on the wrong button after the update.</p>
-<p>Worse still, if there were stateful jQuery plugins attached to these buttons, they could potentially have incorrect internal state after the update.</p>
-<p>Even though in this particular example, we humans intuitively guess that the first item in the list was the one being removed, it's actually impossible for a computer to automatically solve this problem for all possible inputs.</p>
-<p>Therefore, in the cases when a list of vnodes is derived from a dynamic array of data, you should add a <code>key</code> property to each virtual node that maps to a uniquely identifiable field in the source data. This will allow Mithril to intelligently re-order the DOM to maintain each DOM element correctly mapped to its respective item in the data source.</p>
+<p><code>userList</code>関数の立場からこの問題を見ると、果たして最初のオブジェクトが削除されたのか、<em>最初のオブジェクトの要素のプロパティが変更されて</em>から二番目のオブジェクトが削除されたのか、区別がつきません。もし最初のボタンにフォーカスがあった時にレンダリングエンジンがこの要素を削除すると、フォーカスは<code>&lt;body&gt;</code>に戻ることが期待されますが、二番目の要素を削除した上で最初の要素のテキストを修正してしまうと、更新後にフォーカスが間違ったボタンに残ってしまいます。</p>
+<p>これらのボタンにステートフルなjQueryプラグインが適用されていた場合には、更新後に内部状態が不正確になる可能性があります。</p>
+<p>この例の場合、人間は直感的にリストの最初の項目が削除されたものと推測しますが、すべてのケースに対してこの問題を正しく解決することは不可能です。</p>
+<p>動的なデータの配列を元にvnodeのリストを作っている場合には、それぞれの仮想ノードに、元のデータを識別するための<code>key</code>プロパティを追加することで解決することができます。これを設定すると、MithrilはDOMの要素とその元となるデータソースをきちんと関連付けたまま、DOMを賢く並び替えることができるようになります。</p>
 <pre><code class="lang-javascript">function correctUserList(users) {
     return users.map(function(u) {
         return m("button", {key: u.id}, u.name)
@@ -112,77 +112,77 @@ m.render(document.body, userList(people))
 }
 </code></pre>
 <hr>
-<h3 id="debugging-key-related-issues">Debugging key related issues</h3>
-<p>Keys can cause confusing issues if they are misunderstood. A typical symptom of key related issues is that application state appears to become corrupted after a few user interactions (usually involving a deletion).</p>
-<h4 id="avoid-wrapper-elements-around-keyed-elements">Avoid wrapper elements around keyed elements</h4>
-<p>Keys must be placed on the virtual node that is an immediate child of the array. This means that if you wrap the <code>button</code> in an <code>div</code> in the example above, the key must be moved to the <code>div</code>.</p>
-<pre><code class="lang-javascript">// AVOID
+<h3 id="debugging-key-related-issues">キーにまつわる問題のデバッグ</h3>
+<p>キーを誤解したまま使うと、分かりにくい問題を引き起こすことがあります。キーにまつわる良くある症状は、ユーザーのインタラクションを何度か実行すると（削除が関係することが多い）、アプリケーションの状態が壊れて見えることです。</p>
+<h4 id="avoid-wrapper-elements-around-keyed-elements">キーが付与されたエレメントをラップしない</h4>
+<p>キーは配列の直下の子要素の仮想nodeに付与する必要があります。もし、上記のサンプルで<code>button</code>を<code>div</code>タグでラップしていたのであれば、キーをこの親の<code>div</code>に移動します。</p>
+<pre><code class="lang-javascript">// 避けるべきコード
 users.map(function(u) {
-    return m("div", [ // key should be in `div`
+    return m("div", [ // キーは `div` に書かなければならない
         m("button", {key: u.id}, u.name)
     ])
 })
 </code></pre>
-<h4 id="avoid-hiding-keys-in-component-root-elements">Avoid hiding keys in component root elements</h4>
-<p>If you refactor the code and put the button inside a component, the key must be moved out of the component and placed back where the component took the place of the button.</p>
-<pre><code class="lang-javascript">// AVOID
+<h4 id="avoid-hiding-keys-in-component-root-elements">コンポーネントのルート要素のキーを隠さない</h4>
+<p>もしコードをリファクタリングしてボタンをコンポーネント内にまとめた時は、キーをコンポーネントの外側に移動し、コンポーネントとボタンが入れ替わった位置に適切に戻します。</p>
+<pre><code class="lang-javascript">// 避けるべきコード
 var Button = {
     view: function(vnode) {
         return m("button", {key: vnode.attrs.id}, u.name)
     }
 }
 
-// PREFER
+// 望ましいコード
 users.map(function(u) {
     return m("div", [
-        m(Button, {key: u.id}, u.name) // key should be here, not in component
+        m(Button, {key: u.id}, u.name) // キーはコンポーネントではなくここに書く
     ])
 })
 </code></pre>
-<h4 id="avoid-wrapping-keyed-elements-in-arrays">Avoid wrapping keyed elements in arrays</h4>
-<p>Arrays are <a href="vnodes.html">vnodes</a>, and therefore keyable. You should not wrap arrays around keyed elements</p>
-<pre><code class="lang-javascript">// AVOID
+<h4 id="avoid-wrapping-keyed-elements-in-arrays">キーが設定されたエレメントを配列でラップしない</h4>
+<p>配列は<a href="vnodes.html">vnode</a>のリストで、これ自身にキーを設定できます。キーを付与したエレメントを配列でラップしてはいけません</p>
+<pre><code class="lang-javascript">// 避けるべきコード
 users.map(function(u) {
-    return [ // fragment is a vnode, and therefore keyable
+    return [ // フラグメントはvnodeで、それ自身にキーが設定できる
         m("button", {key: u.id}, u.name)
     ]
 })
 
-// PREFER
+// 望ましいコード
 users.map(function(u) {
     return m("button", {key: u.id}, u.name)
 })
 
-// PREFER
+// 望ましいコード
 users.map(function(u) {
     return m.fragment({key: u.id}, m("button", u.name))
 })
 </code></pre>
-<h4 id="avoid-variable-types">Avoid variable types</h4>
-<p>Keys must be strings if present or they will be cast to strings if they are not. Therefore, <code>"1"</code> (string) and <code>1</code> (number) are considered the same key.</p>
-<p>You should use either strings or numbers as keys in one array, but not mix both.</p>
-<pre><code class="lang-javascript">// AVOID
+<h4 id="avoid-variable-types">型を統一する</h4>
+<p>キーは文字列でなければなりません。もし文字列でなければ、文字列にキャストされます。そのため、<code>"1"</code>（文字列）と<code>1</code>（数値）は同じキーとみなされます。</p>
+<p>ひとつの配列の中では文字列か数値のどちらもキーとして使えますが、混ぜてはいけません。</p>
+<pre><code class="lang-javascript">// 避けるべきコード
 var things = [
-    {id: "1", name: "Book"},
-    {id: 1, name: "Cup"},
+    {id: "1", name: "本"},
+    {id: 1, name: "カップ"},
 ]
 </code></pre>
-<h4 id="avoid-mixing-keyed-and-non-keyed-vnodes-in-the-same-array">Avoid mixing keyed and non-keyed vnodes in the same array</h4>
-<p>An array of vnodes must have only keyed vnodes or non-keyed vnodes, but not both. If you need to mix them, create a nested array.</p>
-<pre><code class="lang-javascript">// AVOID
+<h4 id="avoid-mixing-keyed-and-non-keyed-vnodes-in-the-same-array">同じ配列で、キー付きの要素とキーなしのvnodeを混ぜない</h4>
+<p>１つのvnode配列では、キーありのvnodeのみ、あるいはキーなしのvnodeのみのどちらかが許されます。両方を混ぜることはできません。もし混ぜる必要があるのであれば、ネストした配列を作ります。</p>
+<pre><code class="lang-javascript">// 避けるべきコード
 m("div", [
     m("div", "a"),
     m("div", {key: 1}, "b"),
 ])
 
-// PREFER
+// 望ましいコード
 m("div", [
     m("div", {key: 0}, "a"),
     m("div", {key: 1}, "b"),
 ])
 
 
-// PREFER
+// 望ましいコード
 m("div", [
     m("div", "a"),
     [

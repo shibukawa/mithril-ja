@@ -54,12 +54,12 @@
 </ul>
 </li>
 <li><a href="#how-it-works">どのように動作するのか</a></li>
-<li><a href="#promise-chaining">Promise chaining</a></li>
-<li><a href="#promise-absorption">Promise absorption</a></li>
-<li><a href="#error-handling">Error handling</a></li>
-<li><a href="#shorthands">Shorthands</a></li>
-<li><a href="#multiple-promises">Multiple promises</a></li>
-<li><a href="#why-not-callbacks">Why not callbacks</a></li>
+<li><a href="#promise-chaining">Promiseチェーン</a></li>
+<li><a href="#promise-absorption">Promiseの吸収</a></li>
+<li><a href="#error-handling">エラーハンドリング</a></li>
+<li><a href="#shorthands">短縮表記</a></li>
+<li><a href="#multiple-promises">複数のPromise</a></li>
+<li><a href="#why-not-callbacks">なぜコールバックではないのか</a></li>
 </ul>
 </li>
 </ul>
@@ -334,7 +334,7 @@ promise.then(function(value) {
 <p>Asynchronous APIs are those which typically take a long time to run, and therefore would take too long to return a value using the <code>return</code> statement of a function. Instead, they do their work in the background, allowing other Javascript code to run in the meantime. When they are done, they call a function with their results.</p>
 <p>The <code>m.request</code> function takes time to run because it makes an HTTP request to a remote server and has to wait for a response, which may take several milliseconds due to network latency.</p>
 <hr>
-<h3 id="promise-chaining">Promise chaining</h3>
+<h3 id="promise-chaining">Promiseチェーン</h3>
 <p>Promises can be chained. Returning a value from a <code>then</code> callback makes it available as the argument to the next <code>then</code> callback. This allows refactoring code into smaller functions</p>
 <pre><code class="lang-javascript">function getUsers() {return m.request("/api/v1/users")}
 
@@ -359,7 +359,7 @@ getUsers()
 <p>In the original code above, it's very difficult to test the god function since you must make an HTTP request to run the code, and there's an <code>alert()</code> call at the end of the function</p>
 <p>In the refactored version, it's trivial to test whether <code>getFirstTen</code> has any off-by-one errors, or whether we forgot to add a space between the first and last names in <code>getUserName</code>.</p>
 <hr>
-<h3 id="promise-absorption">Promise absorption</h3>
+<h3 id="promise-absorption">Promiseの吸収</h3>
 <p>Promises absorb other promises. Basically, this means you can never receive a Promise as an argument to <code>onFulfilled</code> or <code>onRejected</code> callbacks for <code>then</code> and <code>catch</code> methods. This feature allows us to flatten nested promises to make code more manageable.</p>
 <pre><code class="lang-javascript">function searchUsers(q) {return m.request("/api/v1/users/search", {data: {q: q}})}
 function getUserProjects(id) {return m.request("/api/v1/users/" + id + "/projects")}
@@ -385,7 +385,7 @@ searchUsers("John")
 </code></pre>
 <p>In the refactored code, <code>getFirstId</code> returns an id, which is passed as the first argument to <code>getUserProjects</code>. That, in turn, returns a promise that resolves to a list of projects. This promise is absorbed, so the first argument to <code>getProjectTitles</code> is not a promise, but the list of projects. <code>getProjectTitles</code> returns a list of titles, and that list is finally alerted.</p>
 <hr>
-<h3 id="error-handling">Error handling</h3>
+<h3 id="error-handling">エラーハンドリング</h3>
 <p>Promises can propagate errors to appropriate handlers.</p>
 <pre><code class="lang-javascript">searchUsers("John")
   .then(getFirstId)
@@ -401,7 +401,7 @@ searchUsers("John")
 <p>The error handler would also catch a null reference exception if <code>searchUsers</code> returned no results, and <code>getFirstId</code> attempted to access the <code>id</code> property of a non-existent array item.</p>
 <p>Thanks to these error propagation semantics, it's easy to keep each function small and testable without sprinkling <code>try</code>/<code>catch</code> blocks everywhere.</p>
 <hr>
-<h3 id="shorthands">Shorthands</h3>
+<h3 id="shorthands">短縮表記</h3>
 <p>Sometimes, you already have a value, but want to wrap it in a Promise. It's for this purpose that <code>Promise.resolve</code> and <code>Promise.reject</code> exist.</p>
 <pre><code class="lang-javascript">// suppose this list came from localStorage
 var users = [{id: 1, firstName: "John", lastName: "Doe"}]
@@ -414,7 +414,7 @@ promise
   .then(alert)
 </code></pre>
 <hr>
-<h3 id="multiple-promises">Multiple promises</h3>
+<h3 id="multiple-promises">複数のPromise</h3>
 <p>In some occasions, you may need to make HTTP requests in parallel, and run code after all requests complete. This can be accomplished by <code>Promise.all</code></p>
 <pre><code class="lang-javascript">Promise.all([
   searchUsers("John"),
@@ -435,7 +435,7 @@ promise
 <p>In the example above, there are two user searches happening in parallel. Once they both complete, we take the names of all the users and alert them.</p>
 <p>This example also illustrates another benefit of smaller functions: we reused the <code>getUserNames</code> function we had created above.</p>
 <hr>
-<h3 id="why-not-callbacks">Why not callbacks</h3>
+<h3 id="why-not-callbacks">なぜコールバックではないのか</h3>
 <p>Callbacks are another mechanism for working with asynchrounous computations, and are indeed more adequate to use if an asynchronous computation may occur more than one time (for example, an <code>onscroll</code> event handler).</p>
 <p>However, for asynchronous computations that only occur once in response to an action, promises can be refactored more effectively, reducing code smells known as pyramids of doom (deeply nested series of callbacks with unmanaged state being used across several closure levels).</p>
 <p>In addition, promises can considerably reduce boilerplate related to error handling.</p>
