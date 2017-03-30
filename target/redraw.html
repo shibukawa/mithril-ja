@@ -55,10 +55,10 @@
 </ul>
 <hr>
 <h3 id="description">説明</h3>
-<p>Updates the DOM after a change in the application data layer.</p>
-<p>You DON'T need to call it if data is modified within the execution context of an event handler defined in a Mithril view, or after request completion when using <code>m.request</code>/<code>m.jsonp</code>.</p>
-<p>You DO need to call it in <code>setTimeout</code>/<code>setInterval</code>/<code>requestAnimationFrame</code> callbacks, or callbacks from 3rd party libraries.</p>
-<p>Typically, <code>m.redraw</code> triggers an asynchronous redraws, but it may trigger synchronously if Mithril detects it's possible to improve performance by doing so (i.e. if no redraw was requested within the last animation frame). You should write code assuming that it always redraws asynchronously.</p>
+<p>アプリケーションのデータレイヤーの変更後にDOMを更新します。</p>
+<p>このメソッドは、Mithrilのビューで定義されたイベントハンドラのコンテキスト内、あるいは<code>m.request</code>/<code>m.jsonp</code>の処理が終わった後のコールバックなどの中でデータを変更したあとは、この目sっどを呼ぶ必要はありません。</p>
+<p>このメソッドを使うべきは、<code>setTimeout</code>/<code>setInterval</code>/<code>requestAnimationFrame</code>のコールバック、もしくはサードパーティーライブラリのコールバック内だけです。</p>
+<p>通常、<code>m.redraw</code>は非同期の再描画を開始しますが、最後のアニメーションフレーム内で再描画がリクエストされなかった場合などに、パフォーマンスの向上を目的として同期的に再描画を行う可能性があります。それでも、常に描画が非同期に行われるものとしてコードを書かなければなりません。</p>
 <hr>
 <h3 id="signature">シグニチャ</h3>
 <p><code>m.redraw()</code></p>
@@ -82,9 +82,9 @@
 </table>
 <hr>
 <h3 id="how-it-works">どのように動作するのか</h3>
-<p>When callbacks outside of Mithril run, you need to notify Mithril's rendering engine that a redraw is needed. External callbacks could be <code>setTimeout</code>/<code>setInterval</code>/<code>requestAnimationFrame</code> callbacks, web socket library callbacks, event handlers in jQuery plugins, third party XHR request callbacks, etc.</p>
-<p>To trigger a redraw, call <code>m.redraw()</code>. Note that <code>m.redraw</code> only works if you used <code>m.mount</code> or <code>m.route</code>. If you rendered via <code>m.render</code>, you should use <code>m.render</code> to redraw.</p>
-<p>You should not call m.redraw from a <a href="lifecycle-methods.html">lifecycle method</a>. Doing so will result in undefined behavior.</p>
+<p>もしMithrilの外でコールバックが実行されてデータが変更されたら、プログラマーが手動でMithrilのレンダリングエンジンに再描画が必要なことを知らせる必要があります。<code>setTimeout</code>/<code>setInterval</code>/<code>requestAnimationFrame</code>などの外部のコールバック、WebSocketライブラリのコールバック、jQueryプラグインのイベントハンドラ、サードパーティライブラリのXHRリクエストのコールバックなどが該当します。</p>
+<p>再描画をリクエストするには<code>m.redraw()</code>を呼び出す必要があります。<code>m.redraw</code>は<code>m.mount</code>あるいは<code>m.route</code>を使用した時しか動作しない点に注意してください。<code>m.render</code>を使った時は、再描画を行わせるには再度<code>m.render</code>を呼び出す必要があります。</p>
+<p><a href="lifecycle-methods.html">ライフサイクルメソッド</a>からm.redrawを呼んではいけません。呼んだ時の結果は未定義です。</p>
 
 				<hr />
 				<small>License: MIT. © Leo Horie.</small>

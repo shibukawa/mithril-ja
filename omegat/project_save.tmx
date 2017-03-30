@@ -1248,6 +1248,14 @@ npm start</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>#differences-from-other-api-methods</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T170240Z" creationid="shibukawa.yoshiki" creationdate="20170330T170240Z">
+        <seg>#differences-from-other-api-methods</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>#differences-from-promises-a-</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T003745Z" creationid="shibukawa.yoshiki" creationdate="20170328T003745Z">
@@ -2128,6 +2136,14 @@ npm start</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>#standalone-usage</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T170250Z" creationid="shibukawa.yoshiki" creationdate="20170330T170250Z">
+        <seg>#standalone-usage</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>#state</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170223T121118Z" creationid="shibukawa.yoshiki" creationdate="20170223T121118Z">
@@ -2528,6 +2544,14 @@ npm start</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>#why-virtual-dom</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T170230Z" creationid="shibukawa.yoshiki" creationdate="20170330T170230Z">
+        <seg>#why-virtual-dom</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>#why-xhr-instead-of-fetch</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T000137Z" creationid="shibukawa.yoshiki" creationdate="20170222T000137Z">
@@ -2592,6 +2616,14 @@ npm start</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T135558Z" creationid="shibukawa.yoshiki" creationdate="20150412T135548Z">
         <seg>(実行スレッドは基本的に、他の非同期スレッドが実行する前に、ある程度の量のコードを含んでいます。)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>(Function, Function) -&gt; any</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T013252Z" creationid="shibukawa.yoshiki" creationdate="20170330T013252Z">
+        <seg>(Function, Function) -&gt; any</seg>
       </tuv>
     </tu>
     <tu>
@@ -2810,6 +2842,14 @@ npm start</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>.then(alert)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T114519Z" creationid="shibukawa.yoshiki" creationdate="20170330T114519Z">
+        <seg>.then(alert)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>.then(function(data) {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170221T235951Z" creationid="shibukawa.yoshiki" creationdate="20170221T235951Z">
@@ -2878,6 +2918,46 @@ npm start</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T014432Z" creationid="shibukawa.yoshiki" creationdate="20170222T014432Z">
         <seg>.then(function(value) {return value + " world"})</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>.then(getFirstId)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T142334Z" creationid="shibukawa.yoshiki" creationdate="20170330T142334Z">
+        <seg>.then(getFirstId)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>.then(getFirstTen)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T114517Z" creationid="shibukawa.yoshiki" creationdate="20170330T114517Z">
+        <seg>.then(getFirstTen)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>.then(getProjectTitles)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T142336Z" creationid="shibukawa.yoshiki" creationdate="20170330T142336Z">
+        <seg>.then(getProjectTitles)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>.then(getUserNames)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T114518Z" creationid="shibukawa.yoshiki" creationdate="20170330T114518Z">
+        <seg>.then(getUserNames)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>.then(getUserProjects)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T142335Z" creationid="shibukawa.yoshiki" creationdate="20170330T142335Z">
+        <seg>.then(getUserProjects)</seg>
       </tuv>
     </tu>
     <tu>
@@ -3098,6 +3178,22 @@ body,.input,.button {font:normal 16px Verdana;margin:0;}
 // m("ul", users.map(u =&gt;
 //   m("li", u.name)
 // ))</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>//   getUserNames(data[0]),</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T155441Z" creationid="shibukawa.yoshiki" creationdate="20170330T155441Z">
+        <seg>//   getUserNames(data[0]),</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>//   getUserNames(data[1]),</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T155442Z" creationid="shibukawa.yoshiki" creationdate="20170330T155442Z">
+        <seg>//   getUserNames(data[1]),</seg>
       </tuv>
     </tu>
     <tu>
@@ -3518,6 +3614,14 @@ m("a", {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>// ]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T155443Z" creationid="shibukawa.yoshiki" creationdate="20170330T155443Z">
+        <seg>// ]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>// a fragment containing two elements</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170313T123002Z" creationid="shibukawa.yoshiki" creationdate="20170313T123002Z">
@@ -3588,6 +3692,22 @@ var vnode = {tag: "div", attrs: {id: "box"}, children: [ /*...*/ ]}</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170302T044103Z" creationid="shibukawa.yoshiki" creationdate="20170302T044103Z">
         <seg>// 新しいコンポーネントが呼び出しごとに作成される</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>// data[0] is an array of users whose names are John</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T155403Z" creationid="shibukawa.yoshiki" creationdate="20170330T155403Z">
+        <seg>// data[0]には名前がジョンのユーザーが入る</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>// data[1] is an array of users whose names are Mary</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T155418Z" creationid="shibukawa.yoshiki" creationdate="20170330T155418Z">
+        <seg>// data[1]には名前がメアリーのユーザーが入る</seg>
       </tuv>
     </tu>
     <tu>
@@ -3702,6 +3822,14 @@ m.mount(document.body, MyComponent)</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T035051Z" creationid="shibukawa.yoshiki" creationdate="20170131T035051Z">
         <seg>// isInitializedはブール値で、ノードがDOMに追加されるときにtrueになる</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>// logs "hello" after one second</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T113720Z" creationid="shibukawa.yoshiki" creationdate="20170330T113720Z">
+        <seg>// 1秒後に "hello" と出力</seg>
       </tuv>
     </tu>
     <tu>
@@ -4032,6 +4160,22 @@ module.exports = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>// suppose this list came from localStorage
+var users = [{id: 1, firstName: "John", lastName: "Doe"}]
+
+// in that case, `users` may or may not exist depending on whether there was data in localStorage
+var promise = users ?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T153501Z" creationid="shibukawa.yoshiki" creationdate="20170330T153501Z">
+        <seg>// localStorageから来たリストをサポート
+var users = [{id: 1, firstName: "John", lastName: "Doe"}]
+
+// この場合localStorageにデータが有るかどうかで `users` が存在するか決まる
+var promise = users ?</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>// the `href` attribute is namespaced automatically</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170201T050508Z" creationid="shibukawa.yoshiki" creationdate="20170201T050508Z">
@@ -4040,10 +4184,28 @@ module.exports = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>// the returned value is equivalent to [</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T155440Z" creationid="shibukawa.yoshiki" creationdate="20170330T155440Z">
+        <seg>// 返り値は次の値と同じ: [</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>// this is equivalent to `history.replaceState({term: state.term}, null, location.href)`</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170208T061843Z" creationid="shibukawa.yoshiki" creationdate="20170208T061843Z">
         <seg>// これは`history.replaceState({term: state.term}, null, location.href)`と同じ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>// this promise resolves after one second
+var promise = new Promise(function(resolve, reject) {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T113651Z" creationid="shibukawa.yoshiki" creationdate="20170330T113651Z">
+        <seg>// 1秒後に解決するPromise
+var promise = new Promise(function(resolve, reject) {</seg>
       </tuv>
     </tu>
     <tu>
@@ -6931,6 +7093,14 @@ var root = document.body
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;c0&gt;m.render()&lt;/c0&gt; method is internally called by &lt;a1&gt;&lt;c2&gt;m.mount()&lt;/c2&gt;&lt;/a1&gt;, &lt;a3&gt;&lt;c4&gt;m.route()&lt;/c4&gt;&lt;/a3&gt;, &lt;a5&gt;&lt;c6&gt;m.redraw()&lt;/c6&gt;&lt;/a5&gt; and &lt;a7&gt;&lt;c8&gt;m.request()&lt;/c8&gt;&lt;/a7&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T170536Z" creationid="shibukawa.yoshiki" creationdate="20170330T170536Z">
+        <seg>&lt;c0&gt;m.render()&lt;/c0&gt;メソッドは&lt;a1&gt;&lt;c2&gt;m.mount()&lt;/c2&gt;&lt;/a1&gt;, &lt;a3&gt;&lt;c4&gt;m.route()&lt;/c4&gt;&lt;/a3&gt;, &lt;a5&gt;&lt;c6&gt;m.redraw()&lt;/c6&gt;&lt;/a5&gt;, &lt;a7&gt;&lt;c8&gt;m.request()&lt;/c8&gt;&lt;/a7&gt;から内部的に呼ばれる関数です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;c0&gt;m.render&lt;/c0&gt; accepts a special low level SubtreeDirective object as a node in a virtual DOM tree: if a tree contains a node that looks exactly like the object below, Mithril will abort the diff algorithm for that node.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T123617Z" creationid="shibukawa.yoshiki" creationdate="20150416T123617Z">
@@ -7279,6 +7449,22 @@ var root = document.body
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170221T145024Z" creationid="shibukawa.yoshiki" creationdate="20170221T145024Z">
         <seg>&lt;c2&gt;vnode&lt;/c2&gt;Layoutコンポーネントのインスンタンスを表現しているvnodeの参照です。vnodeは&lt;c3&gt;m(Layout)&lt;/c3&gt;という関数呼び出しで返されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;c3&gt;getProjectTitles&lt;/c3&gt; returns a list of titles, and that list is finally alerted.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T145329Z" creationid="shibukawa.yoshiki" creationdate="20170330T145329Z">
+        <seg>&lt;c3&gt;getProjectTitles&lt;/c3&gt;関数はタイトルのリストを返し、このリストが最終的に表示されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;c3&gt;getUserNames&lt;/c3&gt; returns a list of names for the 10 items that were passed as the argument to it.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T131727Z" creationid="shibukawa.yoshiki" creationdate="20170330T131727Z">
+        <seg>&lt;c3&gt;getUserNames&lt;/c3&gt;は、引数で渡されたユーザーのリストから名前だけを抽出して返します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7907,6 +8093,14 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A &lt;a0&gt;ES6 Promise&lt;/a0&gt; polyfill.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T013219Z" creationid="shibukawa.yoshiki" creationdate="20170330T013219Z">
+        <seg>&lt;a0&gt;ES6 Promise&lt;/a0&gt;のPolyfillです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A &lt;a0&gt;vnode&lt;/a0&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170327T120451Z" creationid="shibukawa.yoshiki" creationdate="20170327T120451Z">
@@ -8011,10 +8205,26 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A Promise is a mechanism for working with asynchronous computations.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T013245Z" creationid="shibukawa.yoshiki" creationdate="20170330T013245Z">
+        <seg>Promiseは非同期処理とともに使う機構です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A Promise is an object that represents a value which may be available in the future</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T113613Z" creationid="shibukawa.yoshiki" creationdate="20170330T113613Z">
+        <seg>Promiseは将来得られる値を表現するオブジェクトです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A RouteResolver is not a component, and therefore it does NOT have lifecycle methods.</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170207T084556Z" creationid="shibukawa.yoshiki" creationdate="20170207T084556Z">
-        <seg>ラウとリゾルバはコンポーネントではありません。そのため、ライフサイクルメソッドも持ちません。</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T153036Z" creationid="shibukawa.yoshiki" creationdate="20170207T084556Z">
+        <seg>ラウトリゾルバはコンポーネントではありません。そのため、ライフサイクルメソッドも持ちません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -8227,6 +8437,30 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A function that determines how the promise will be resolved or rejected</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T020936Z" creationid="shibukawa.yoshiki" creationdate="20170330T013341Z">
+        <seg>Promiseがどういった理由で解決・破棄されるのかを決定する関数</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A function that is called if the promise is resolved.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T020903Z" creationid="shibukawa.yoshiki" creationdate="20170330T020903Z">
+        <seg>Promiseが解決されたときに呼び出される関数。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A function that is called when the promise is rejected.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T030245Z" creationid="shibukawa.yoshiki" creationdate="20170330T030245Z">
+        <seg>Promiseが拒絶されたときに呼び出される関数。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A getter-setter method.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T135818Z" creationid="shibukawa.yoshiki" creationdate="20150414T135818Z">
@@ -8311,6 +8545,14 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150415T180752Z" creationid="shibukawa.yoshiki" creationdate="20150415T180718Z">
         <seg>同期を取りたいpromiseの配列。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A list of promises to wait for.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T015302Z" creationid="shibukawa.yoshiki" creationdate="20170330T015254Z">
+        <seg>解決を待つPromiseのリスト</seg>
       </tuv>
     </tu>
     <tu>
@@ -8459,6 +8701,30 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A promise resolved to &lt;c0&gt;value&lt;/c0&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T015045Z" creationid="shibukawa.yoshiki" creationdate="20170330T015045Z">
+        <seg>解決して&lt;c0&gt;value&lt;/c0&gt;を返すPromise</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A promise that resolves as soon as one of the &lt;c0&gt;promises&lt;/c0&gt; is resolved or rejected.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T020831Z" creationid="shibukawa.yoshiki" creationdate="20170330T020831Z">
+        <seg>&lt;c0&gt;promises&lt;/c0&gt;のうちのどれか１つが解決・破棄されたときに解決されるPromise</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A promise that resolves only after all &lt;c0&gt;promises&lt;/c0&gt; resolve, or rejects if any of them are rejected.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T015534Z" creationid="shibukawa.yoshiki" creationdate="20170330T015534Z">
+        <seg>引数に渡されたすべての&lt;c0&gt;promises&lt;/c0&gt;が解決した時、あるいはどれか１つでも破棄したときに解決されるPromise</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A promise that resolves to the response data, after it has been piped through &lt;c0&gt;type&lt;/c0&gt; method</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T011943Z" creationid="shibukawa.yoshiki" creationdate="20170329T011943Z">
@@ -8475,10 +8741,26 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A promise whose value depends on the status of the current promise</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T030831Z" creationid="shibukawa.yoshiki" creationdate="20170330T030831Z">
+        <seg>現在のPromiseの状態に依存した値を持つPromise</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A querystring</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T003836Z" creationid="shibukawa.yoshiki" creationdate="20170330T003836Z">
         <seg>クエリー文字列</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A rejected promise with &lt;c0&gt;value&lt;/c0&gt; as its reason</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T015232Z" creationid="shibukawa.yoshiki" creationdate="20170330T015232Z">
+        <seg>&lt;c0&gt;value&lt;/c0&gt;を破棄理由として渡されるPromise</seg>
       </tuv>
     </tu>
     <tu>
@@ -8567,6 +8849,22 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T153122Z" creationid="shibukawa.yoshiki" creationdate="20150412T153122Z">
         <seg>仮想エレメントを作るためのユーティリティ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A value to reject as</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T015157Z" creationid="shibukawa.yoshiki" creationdate="20170330T015157Z">
+        <seg>破棄される時に通知される値</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A value to resolve to</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T014455Z" creationid="shibukawa.yoshiki" creationdate="20170330T014455Z">
+        <seg>解決したPromsieが提供する値</seg>
       </tuv>
     </tu>
     <tu>
@@ -8839,6 +9137,14 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T144914Z" creationid="shibukawa.yoshiki" creationdate="20170329T144914Z">
         <seg>繰り返しになりますが、&lt;s0&gt;&lt;c1&gt;onbeforeupdate&lt;/c1&gt;フックは最後の手段としてのみ使用してください。&lt;/s0&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Again, the &lt;c3&gt;.catch&lt;/c3&gt; callback would log the error.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T145924Z" creationid="shibukawa.yoshiki" creationdate="20170330T145924Z">
+        <seg>&lt;c3&gt;.catch&lt;/c3&gt;コールバックは呼ばれてエラーがログに表示されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9371,6 +9677,14 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Another difference is that &lt;c0&gt;m.render&lt;/c0&gt; method expects a &lt;a1&gt;vnode&lt;/a1&gt; (or a array of vnodes) as its second parameter, whereas &lt;c2&gt;m.mount()&lt;/c2&gt; and &lt;c3&gt;m.route()&lt;/c3&gt; expect components.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T171941Z" creationid="shibukawa.yoshiki" creationdate="20170330T171941Z">
+        <seg>&lt;c0&gt;m.render&lt;/c0&gt;が&lt;a1&gt;vnode&lt;/a1&gt;（やその配列）を第二引数として取り、&lt;c2&gt;m.mount()&lt;/c2&gt;と&lt;c3&gt;m.route()&lt;/c3&gt;がコンポーネントを引数に取る点も異なります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Another difference is that Mithril, being an MVC framework, rather than a templating engine, provides an auto-redrawing system that is aware of network asynchrony and that can render views efficiently without cluttering application code with redraw calls, and without letting the developer unintentionally bleed out of the MVC pattern.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150420T105303Z" creationid="shibukawa.yoshiki" creationdate="20150420T105303Z">
@@ -9531,10 +9845,26 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Array&lt;Promise|any&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T015240Z" creationid="shibukawa.yoshiki" creationdate="20170330T015240Z">
+        <seg>Array&lt;Promise|any&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Array&lt;Vnode&gt;|String|Number|Boolean</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170313T123106Z" creationid="shibukawa.yoshiki" creationdate="20170313T123106Z">
         <seg>Array&lt;Vnode&gt;|String|Number|Boolean</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Array&lt;Vnode&gt;|Vnode</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T170323Z" creationid="shibukawa.yoshiki" creationdate="20170330T170323Z">
+        <seg>Array&lt;Vnode&gt;|Vnode</seg>
       </tuv>
     </tu>
     <tu>
@@ -9843,6 +10173,14 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Asynchronous APIs are those which typically take a long time to run, and therefore would take too long to return a value using the &lt;c0&gt;return&lt;/c0&gt; statement of a function.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T113946Z" creationid="shibukawa.yoshiki" creationdate="20170330T113946Z">
+        <seg>一般的に、非同期APIは実行の長い時間がかかります。通常の関数の&lt;c0&gt;return&lt;/c0&gt;文で値を返すのは現実的ではありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>At a glance it may seem like we're doing something very expensive by redrawing, but as it turns out, calling the &lt;c0&gt;todo.view&lt;/c0&gt; method multiple times does not actually re-render the entire template.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150408T015426Z" creationid="shibukawa.yoshiki" creationdate="20150408T015426Z">
@@ -10143,6 +10481,14 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170204T143505Z" creationid="shibukawa.yoshiki" creationdate="20170204T143505Z">
         <seg>基本的にXHRはサーバーと話をするための方法です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Basically, this means you can never receive a Promise as an argument to &lt;c0&gt;onFulfilled&lt;/c0&gt; or &lt;c1&gt;onRejected&lt;/c1&gt; callbacks for &lt;c2&gt;then&lt;/c2&gt; and &lt;c3&gt;catch&lt;/c3&gt; methods.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T134213Z" creationid="shibukawa.yoshiki" creationdate="20170330T134213Z">
+        <seg>基本的には、これは&lt;c2&gt;then&lt;/c2&gt;や&lt;c3&gt;catch&lt;/c3&gt;の&lt;c0&gt;onFulfilled&lt;/c0&gt;や&lt;c1&gt;onRejected&lt;/c1&gt; &lt;c2&gt;onFulfilled&lt;/c0&gt;のコールバックの引数としてPromiseを受け渡すことができないということです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -10823,6 +11169,30 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170206T112118Z" creationid="shibukawa.yoshiki" creationdate="20170206T112118Z">
         <seg>&lt;c0&gt;m.route()&lt;/c0&gt;の前に実行してください</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Call this function to reject the promise</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T014419Z" creationid="shibukawa.yoshiki" creationdate="20170330T014419Z">
+        <seg>呼び出すとPromiseが破棄する関数</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Call this function to resolve the promise</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T014407Z" creationid="shibukawa.yoshiki" creationdate="20170330T014407Z">
+        <seg>呼び出すとPromiseが解決する関数</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Callbacks are another mechanism for working with asynchrounous computations, and are indeed more adequate to use if an asynchronous computation may occur more than one time (for example, an &lt;c0&gt;onscroll&lt;/c0&gt; event handler).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T164528Z" creationid="shibukawa.yoshiki" creationdate="20170330T164528Z">
+        <seg>コールバックは非同期計算を行うための別のメカニズムです。 &lt;c0&gt;onscroll&lt;/c0&gt;などのように、複数回実行される前提であればこちらの方が適切でしょう。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12379,6 +12749,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Despite being incredibly small, the render module is fully functional and self-suficient.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T172414Z" creationid="shibukawa.yoshiki" creationdate="20170330T172414Z">
+        <seg>コードサイズが極めて小さいにもかかわらず、完全な機能を備えており、外部依存がなく独立しています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Despite being much smaller, Mithril's XHR module supports many important and not-so-trivial-to-implement features like &lt;a0&gt;URL interpolation&lt;/a0&gt;, querystring serialization and &lt;a1&gt;JSON-P requests&lt;/a1&gt;, in addition to its ability to integrate seamlessly to Mithril's autoredrawing subsystem.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170220T033532Z" creationid="shibukawa.yoshiki" creationdate="20170220T033407Z">
@@ -12431,6 +12809,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T160758Z" creationid="shibukawa.yoshiki" creationdate="20170329T144949Z">
         <seg>m.renderとの違い</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Differences from other API methods</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T170248Z" creationid="shibukawa.yoshiki" creationdate="20170330T170248Z">
+        <seg>他のAPIメソッドとの違い</seg>
       </tuv>
     </tu>
     <tu>
@@ -12535,6 +12921,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170219T190656Z" creationid="shibukawa.yoshiki" creationdate="20170219T190656Z">
         <seg>複数ファイルを同時にアップロードすると、その通信はアトミックになります。そのため、アップロード中にエラーがひとつでもあると、すべてのファイルのアップロードが無効になります。一部だけを保存することはできません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Doing so will result in undefined behavior.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T170221Z" creationid="shibukawa.yoshiki" creationdate="20170330T170221Z">
+        <seg>呼んだ時の結果は未定義です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12895,6 +13289,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>External callbacks could be &lt;c0&gt;setTimeout&lt;/c0&gt;/&lt;c1&gt;setInterval&lt;/c1&gt;/&lt;c2&gt;requestAnimationFrame&lt;/c2&gt; callbacks, web socket library callbacks, event handlers in jQuery plugins, third party XHR request callbacks, etc.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T165934Z" creationid="shibukawa.yoshiki" creationdate="20170330T165934Z">
+        <seg>&lt;c0&gt;setTimeout&lt;/c0&gt;/&lt;c1&gt;setInterval&lt;/c1&gt;/&lt;c2&gt;requestAnimationFrame&lt;/c2&gt;などの外部のコールバック、WebSocketライブラリのコールバック、jQueryプラグインのイベントハンドラ、サードパーティライブラリのXHRリクエストのコールバックなどが該当します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Extracting Metadata from the Response</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T174624Z" creationid="shibukawa.yoshiki" creationdate="20150414T174624Z">
@@ -12955,6 +13357,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T174538Z" creationid="shibukawa.yoshiki" creationdate="20150414T174538Z">
         <seg>FormDataによるファイルのアップロード</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Finally, the list of names is alerted.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T131818Z" creationid="shibukawa.yoshiki" creationdate="20170330T131818Z">
+        <seg>最終的にユーザー名のリストが表示されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14011,6 +14421,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Here's the previous example with error handling.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T145421Z" creationid="shibukawa.yoshiki" creationdate="20170330T145421Z">
+        <seg>これは先ほどのコードにエラーハンドリングを追加したものです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Here, &lt;c0&gt;Data.todos.list&lt;/c0&gt; is &lt;c1&gt;null&lt;/c1&gt; at the beginning.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170219T144627Z" creationid="shibukawa.yoshiki" creationdate="20170219T144627Z">
@@ -14211,6 +14629,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>How to read signatures - Mithril.js</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T153127Z" creationid="shibukawa.yoshiki" creationdate="20170330T153127Z">
+        <seg>シグニチャの読み方 - Mithril.js</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>How to use</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123827Z" creationid="shibukawa.yoshiki" creationdate="20170329T123827Z">
@@ -14263,6 +14689,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T004853Z" creationid="shibukawa.yoshiki" creationdate="20150414T004853Z">
         <seg>しかし、コントローラの寿命を細かくコントロールしたい場合は、コントローラはオブジェクトを返すこともあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>However, for asynchronous computations that only occur once in response to an action, promises can be refactored more effectively, reducing code smells known as pyramids of doom (deeply nested series of callbacks with unmanaged state being used across several closure levels).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T164819Z" creationid="shibukawa.yoshiki" creationdate="20170330T164819Z">
+        <seg>しかし、一回のアクションに対して一度しか実行されないのであれば、こちらのほうが有用です。状態が十分に管理されておらず、さまざまなネストの深さのクロージャーがあるような、深い一連のコールバックをもたらす悪夢のピラミッドと呼ばれるコードの臭いをリファクタリングによって効率的に解決できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14525,6 +14959,22 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If &lt;c3&gt;onFulfilled&lt;/c3&gt; is &lt;c4&gt;null&lt;/c4&gt;, it's ignored</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T030232Z" creationid="shibukawa.yoshiki" creationdate="20170330T030232Z">
+        <seg>&lt;c3&gt;onFulfilled&lt;/c3&gt;が&lt;c4&gt;null&lt;/c4&gt;なら無視されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If &lt;c3&gt;onRejected&lt;/c3&gt; is &lt;c4&gt;null&lt;/c4&gt;, it's ignored</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T030753Z" creationid="shibukawa.yoshiki" creationdate="20170330T030753Z">
+        <seg>&lt;c3&gt;onRejected&lt;/c3&gt;が&lt;c4&gt;null&lt;/c4&gt;なら無視されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If &lt;c4&gt;element&lt;/c4&gt; already has a DOM tree mounted via a previous &lt;c5&gt;m.mount()&lt;/c5&gt; call, the component is diffed against the previous vnode tree and the existing DOM tree is modified only where needed to reflect the changes.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T160612Z" creationid="shibukawa.yoshiki" creationdate="20170329T160612Z">
@@ -14697,6 +15147,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150413T012442Z" creationid="shibukawa.yoshiki" creationdate="20150413T012442Z">
         <seg>JavaScriptとHTMLで同じ名前の属性があった場合は、MithrilはJavaScript側の属性を優先します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If an item is not a promise, it's equivalent to calling &lt;c0&gt;Promise.resolve&lt;/c0&gt; on it</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T015452Z" creationid="shibukawa.yoshiki" creationdate="20170330T015452Z">
+        <seg>もし要素がPromiseでなければ、その値に対して即座に&lt;c0&gt;Promise.resolve&lt;/c0&gt;を呼び出すPromiseと等価</seg>
       </tuv>
     </tu>
     <tu>
@@ -14957,6 +15415,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If the request in &lt;c0&gt;getUserProjects&lt;/c0&gt; failed, then similarly, &lt;c1&gt;getProjectTitles&lt;/c1&gt; and &lt;c2&gt;alert&lt;/c2&gt; would not be called.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T145905Z" creationid="shibukawa.yoshiki" creationdate="20170330T145905Z">
+        <seg>もし&lt;c0&gt;getUserProjects&lt;/c0&gt;内のリクエストが失敗すると&lt;c1&gt;getProjectTitles&lt;/c1&gt;と&lt;c2&gt;alert&lt;/c2&gt;も呼ばれません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If the required attributes are equivalent to generic DOM attributes, it's preferable to allow passing through parameters to a component's root node.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170302T031324Z" creationid="shibukawa.yoshiki" creationdate="20170302T031324Z">
@@ -14969,6 +15435,30 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170220T004441Z" creationid="shibukawa.yoshiki" creationdate="20170220T004441Z">
         <seg>もしレスポンスが配列ではなくてオブジェクトだった時も、このオブジェクトを&lt;c3&gt;data&lt;/c3&gt;引数に渡してインスタンスが1つ作られます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If the return value of this function is not a Promise, it is used as the value for resolving &lt;c0&gt;nextPromise&lt;/c0&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T030026Z" creationid="shibukawa.yoshiki" creationdate="20170330T030026Z">
+        <seg>もし関数の返り値がPromiseでなければ、その値は&lt;c0&gt;nextPromise&lt;/c0&gt;の解決のために使われます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If the returned value is a Promise, the value of &lt;c1&gt;nextPromise&lt;/c1&gt; depends on the inner Promise's status.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T030148Z" creationid="shibukawa.yoshiki" creationdate="20170330T030148Z">
+        <seg>もしPromiseだった場合には、&lt;c1&gt;nextPromise&lt;/c1&gt;の受け取る結果はその内部のPromiseに依存します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If the returned value is a Promise, then value of &lt;c1&gt;nextPromise&lt;/c1&gt; depends on the inner Promise's status.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T030723Z" creationid="shibukawa.yoshiki" creationdate="20170330T030723Z">
+        <seg>もしPromiseだった場合には、&lt;c1&gt;nextPromise&lt;/c1&gt;の受け取る結果はその内部のPromiseに依存します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15033,6 +15523,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150415T175859Z" creationid="shibukawa.yoshiki" creationdate="20150415T175859Z">
         <seg>もしこの関数がundefinedを返してきたら、値がどんなでものであろうと、&lt;c0&gt;value&lt;/c0&gt;引数がthennableキューの次のキューに渡されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If this function throws, &lt;c2&gt;nextPromise&lt;/c2&gt; is rejected with the error as its reason.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T030219Z" creationid="shibukawa.yoshiki" creationdate="20170330T030219Z">
+        <seg>もし関数が例外を投げると、&lt;c2&gt;nextPromise&lt;/c2&gt;は拒絶され、理由としてその例外が渡されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15353,6 +15851,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170221T135741Z" creationid="shibukawa.yoshiki" creationdate="20170221T135741Z">
         <seg>ページをリフレッシュすると、人の行をクリックしてフォームに遷移できるようになります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you rendered via &lt;c4&gt;m.render&lt;/c4&gt;, you should use &lt;c5&gt;m.render&lt;/c5&gt; to redraw.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T170140Z" creationid="shibukawa.yoshiki" creationdate="20170330T170140Z">
+        <seg>&lt;c4&gt;m.render&lt;/c4&gt;を使った時は、再描画を行わせるには再度&lt;c5&gt;m.render&lt;/c5&gt;を呼び出す必要があります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16069,6 +16575,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In addition, promises can considerably reduce boilerplate related to error handling.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T164901Z" creationid="shibukawa.yoshiki" creationdate="20170330T164901Z">
+        <seg>さらに、Promiseを使うとエラーハンドリングのための定型文を減らすことができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In addition, requests no longer have &lt;c0&gt;m.startComputation&lt;/c0&gt;/&lt;c1&gt;m.endComputation&lt;/c1&gt; semantics.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170201T045320Z" creationid="shibukawa.yoshiki" creationdate="20170201T045320Z">
@@ -16629,6 +17143,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In some occasions, you may need to make HTTP requests in parallel, and run code after all requests complete.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T153604Z" creationid="shibukawa.yoshiki" creationdate="20170330T153604Z">
+        <seg>複数のHTTPリクエストを並行で投げ、すべてが完了したことを待って何かコードを実行したいことがあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In such a case, it's the view-model's responsibility to track the current state of the input vs the original state and to apply a cancellation, if required.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T160811Z" creationid="shibukawa.yoshiki" creationdate="20150407T160650Z">
@@ -16657,6 +17179,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T150228Z" creationid="shibukawa.yoshiki" creationdate="20150416T150228Z">
         <seg>この場合、&lt;c0&gt;m.redraw.strategy("none")&lt;/c0&gt;を呼ぶことで、再描画をスキップできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In that case, none of the &lt;c1&gt;.then&lt;/c1&gt; callbacks would be triggered, and the &lt;c2&gt;.catch&lt;/c2&gt; callback would log the error to console.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T145614Z" creationid="shibukawa.yoshiki" creationdate="20170330T145614Z">
+        <seg>この時は、&lt;c1&gt;.then&lt;/c1&gt;コールバックが呼ばれることはなく、&lt;c2&gt;.catch&lt;/c2&gt;コールバックが呼ばれてコンソールにエラーが表示されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16925,6 +17455,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In the example above, there are two user searches happening in parallel.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T155607Z" creationid="shibukawa.yoshiki" creationdate="20170330T155607Z">
+        <seg>上記のコードでは２つの検索が平行して行われます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In the example above, we defined a route &lt;c0&gt;/edit/:id&lt;/c0&gt;.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170208T053744Z" creationid="shibukawa.yoshiki" creationdate="20170208T053744Z">
@@ -17037,10 +17575,42 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In the original code above, it's very difficult to test the god function since you must make an HTTP request to run the code, and there's an &lt;c0&gt;alert()&lt;/c0&gt; call at the end of the function</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T132648Z" creationid="shibukawa.yoshiki" creationdate="20170330T132648Z">
+        <seg>最初のオリジナルコードではHTTPリクエストを送信しないと動かせませんし、最後に&lt;c0&gt;alert()&lt;/c0&gt;を使うため、テストが簡単ではありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In the rare case that it is not, rinse and repeat, but you should be increasingly wary of each new &lt;c1&gt;onbeforeupdate&lt;/c1&gt; declaration.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T144530Z" creationid="shibukawa.yoshiki" creationdate="20170329T144530Z">
         <seg>たまにこのケースに合わせないこともありますが、&lt;c1&gt;onbeforeupdate&lt;/c1&gt;宣言は注意深く使わなければなりません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In the refactored code, &lt;c0&gt;getFirstId&lt;/c0&gt; returns an id, which is passed as the first argument to &lt;c1&gt;getUserProjects&lt;/c1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T143527Z" creationid="shibukawa.yoshiki" creationdate="20170330T143527Z">
+        <seg>リファクタリングしたコードでは&lt;c0&gt;getFirstId&lt;/c0&gt;はIDを返します。これは&lt;c1&gt;getUserProjects&lt;/c1&gt;の最初の引数として渡されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In the refactored code, &lt;c0&gt;getUsers()&lt;/c0&gt; returns a promise, and we chain three callbacks.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T114551Z" creationid="shibukawa.yoshiki" creationdate="20170330T114551Z">
+        <seg>リファクタリングしたコードでは、&lt;c0&gt;getUsers()&lt;/c0&gt;はPromiseを返しています。それに対して、3つの関数をチェーンさせています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In the refactored version, it's trivial to test whether &lt;c0&gt;getFirstTen&lt;/c0&gt; has any off-by-one errors, or whether we forgot to add a space between the first and last names in &lt;c1&gt;getUserName&lt;/c1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T133623Z" creationid="shibukawa.yoshiki" creationdate="20170330T133623Z">
+        <seg>リファクタリングしたバージョンは&lt;c0&gt;getFirstTen&lt;/c0&gt;が、位置ずれのエラーがないか、&lt;c1&gt;getUserName&lt;/c1&gt;が姓と名の間にスペースがあるかどうかのテストがしやすくなっています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -17453,6 +18023,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Instead, they do their work in the background, allowing other Javascript code to run in the meantime.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T114030Z" creationid="shibukawa.yoshiki" creationdate="20170330T114030Z">
+        <seg>その代わりに、それらのAPIはバックグラウンドで動作するため、その間に他のJavaScriptのコードが実行できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Instead, use attributes as named parameters and reserve &lt;c0&gt;children&lt;/c0&gt; for uniform child content:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170302T035044Z" creationid="shibukawa.yoshiki" creationdate="20170302T035044Z">
@@ -17805,6 +18383,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It has no dependencies on other parts of Mithril and can be used as a standalone library.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T172310Z" creationid="shibukawa.yoshiki" creationdate="20170330T172304Z">
+        <seg>このコードは他のMthrilのコードには依存しておらず、単独のライブラリとして使用できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It includes support for the &lt;a0&gt;MSX&lt;/a0&gt; HTML templating syntax from Jonathan Buchanan.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150408T000150Z" creationid="shibukawa.yoshiki" creationdate="20150408T000150Z">
@@ -17817,6 +18403,22 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150413T124614Z" creationid="shibukawa.yoshiki" creationdate="20150413T124614Z">
         <seg>この機能は「自由に脱獄できるカード」ではありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It is a low level mechanism suitable for library authors who wish to manually control rendering instead of relying on Mithril's built-in auto-redrawing system.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T170833Z" creationid="shibukawa.yoshiki" creationdate="20170330T170833Z">
+        <seg>このメソッドは、Mithrilに組み込みの自動再描画システムではなく、手動でレンダリングを制御したいと思えるライブラリ作者にマッチするような、低レベルのメカニズムです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It is approximately 500 lines of code (3kb min+gzip) and implements a virtual DOM diffing engine with a modern search space reduction algorithm and DOM recycling, which translate to top-of-class performance, both in terms of initial page load and re-rendering.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T172240Z" creationid="shibukawa.yoshiki" creationdate="20170330T172240Z">
+        <seg>これは、約500行のコード（gzipすると3kb未満）で、初期ページの読み込みと再描画の両方において、最新の検索スペース削減アルゴリズムとDOMリサイクルを備えたバーチャルDOM差分検知エンジンを実装されています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -17873,6 +18475,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150420T105504Z" creationid="shibukawa.yoshiki" creationdate="20150420T105504Z">
         <seg>これは伝統的な意味でのMVCフレームワークではありませんが、Knockoutが推奨しているスタイルに従ったコードは、ビュー・モデルと似たコンセプトを持ちます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It is not called after &lt;a9&gt;stream updates&lt;/a9&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T170554Z" creationid="shibukawa.yoshiki" creationdate="20170330T170554Z">
+        <seg>&lt;a9&gt;ストリームの更新&lt;/a9&gt;後には呼ばれません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18093,6 +18703,15 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It supports everything you might expect: SVG, custom elements, and all valid attributes and events - without any weird case-sensitive edge cases or exceptions.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T172511Z" creationid="shibukawa.yoshiki" creationdate="20170330T172511Z">
+        <seg>この関数はSVG、カスタム要素、およびすべての有効な属性とイベントをサポートしています。大文字と小文字を区別することはありません。例外もありません。
+</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It will also add an entry under &lt;c2&gt;dependencies&lt;/c2&gt; in the &lt;c3&gt;package.json&lt;/c3&gt; file</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T023509Z" creationid="shibukawa.yoshiki" creationdate="20170328T023509Z">
@@ -18217,6 +18836,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170302T015457Z" creationid="shibukawa.yoshiki" creationdate="20170302T015457Z">
         <seg>論理的に考えると、とあるコンポーネントにはフィットするが、他のコンポーネントで再利用できないロジックというものは非常にまれです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It's for this purpose that &lt;c0&gt;Promise.resolve&lt;/c0&gt; and &lt;c1&gt;Promise.reject&lt;/c1&gt; exist.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T153244Z" creationid="shibukawa.yoshiki" creationdate="20170330T153244Z">
+        <seg>&lt;c0&gt;Promise.resolve&lt;/c0&gt;と&lt;c1&gt;Promise.reject&lt;/c1&gt;を使うと、これが実現できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20699,6 +21326,14 @@ m.request({method: "GET", url: "/foo/bar.x", extract: nonJsonErrors})</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Note that &lt;c1&gt;m.redraw&lt;/c1&gt; only works if you used &lt;c2&gt;m.mount&lt;/c2&gt; or &lt;c3&gt;m.route&lt;/c3&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T170106Z" creationid="shibukawa.yoshiki" creationdate="20170330T170106Z">
+        <seg>&lt;c1&gt;m.redraw&lt;/c1&gt;は&lt;c2&gt;m.mount&lt;/c2&gt;あるいは&lt;c3&gt;m.route&lt;/c3&gt;を使用した時しか動作しない点に注意してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Note that Mithril always considers the model layer data to be canonical.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150413T015108Z" creationid="shibukawa.yoshiki" creationdate="20150413T015108Z">
@@ -21455,6 +22090,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Of course, it also fully supports &lt;a0&gt;components&lt;/a0&gt; and &lt;a1&gt;lifecycle methods&lt;/a1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T172618Z" creationid="shibukawa.yoshiki" creationdate="20170330T172609Z">
+        <seg>もちろん、この関数は &lt;a0&gt;コンポーネント&lt;/a0&gt;と&lt;a1&gt;ライフサイクルメソッドも完全にサポートしています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Often all you get in browser developer tools is a class like &lt;c0&gt;button_fvp6zc2gdj35evhsl73ffzq_0 danger_fgdl0s2a5fmle5g56rbuax71_0&lt;/c0&gt; with useless source maps (or worse, entirely criptic class names).</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170307T123023Z" creationid="shibukawa.yoshiki" creationdate="20170307T123023Z">
@@ -21595,6 +22238,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170208T075323Z" creationid="shibukawa.yoshiki" creationdate="20170208T075323Z">
         <seg>ユーザーがログインすると、&lt;c3&gt;isLoggedIn&lt;/c3&gt;がtrueに設定され、アプリケーションは&lt;c4&gt;/secret&lt;/c4&gt;にリダイレクトします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Once they both complete, we take the names of all the users and alert them.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T155648Z" creationid="shibukawa.yoshiki" creationdate="20170330T155648Z">
+        <seg>両方が完了するとすべてのユーザー名が表示されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22273,8 +22924,8 @@ where:</seg>
       <tuv lang="EN-US">
         <seg>Promise.all</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004429Z" creationid="shibukawa.yoshiki" creationdate="20170330T004429Z">
-        <seg>Promise.all</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T015233Z" creationid="shibukawa.yoshiki" creationdate="20170330T004429Z">
+        <seg>'Promise.all</seg>
       </tuv>
     </tu>
     <tu>
@@ -22311,6 +22962,24 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Promise.resolve(users) : getUsers()
+promise</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T153502Z" creationid="shibukawa.yoshiki" creationdate="20170330T153502Z">
+        <seg>Promise.resolve(users) : getUsers()
+promise</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Promises absorb other promises.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T133648Z" creationid="shibukawa.yoshiki" creationdate="20170330T133648Z">
+        <seg>Promiseは他のPromiseを吸収します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Promises also have a method called &lt;c0&gt;catch&lt;/c0&gt;, which is equivalent to calling &lt;c1&gt;then(null, errorCallback)&lt;/c1&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160423T050924Z" creationid="shibukawa.yoshiki" creationdate="20160423T050924Z">
@@ -22323,6 +22992,30 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170220T034426Z" creationid="shibukawa.yoshiki" creationdate="20170220T034426Z">
         <seg>Promiseはレスポンスデータそのものではありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Promises are useful for working with asynchronous APIs, such as &lt;a0&gt;&lt;c1&gt;m.request&lt;/c1&gt;&lt;/a0&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T113750Z" creationid="shibukawa.yoshiki" creationdate="20170330T113750Z">
+        <seg>Promiseは&lt;a0&gt;&lt;c1&gt;m.request&lt;/c1&gt;&lt;/a0&gt;などの非同期APIとともに使うと便利です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Promises can be chained.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T114316Z" creationid="shibukawa.yoshiki" creationdate="20170330T114316Z">
+        <seg>Promiseは繋げてチェーンさせることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Promises can propagate errors to appropriate handlers.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T145348Z" creationid="shibukawa.yoshiki" creationdate="20170330T145348Z">
+        <seg>Promiseは適切なハンドラーにエラーを伝搬させることができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22767,6 +23460,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Renders a template to the DOM</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T170312Z" creationid="shibukawa.yoshiki" creationdate="20170330T170312Z">
+        <seg>テンプレートをDOMにレンダリングします</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Replace a component</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T160636Z" creationid="shibukawa.yoshiki" creationdate="20170329T160636Z">
@@ -22831,6 +23532,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Returning a value from a &lt;c0&gt;then&lt;/c0&gt; callback makes it available as the argument to the next &lt;c1&gt;then&lt;/c1&gt; callback.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T114359Z" creationid="shibukawa.yoshiki" creationdate="20170330T114359Z">
+        <seg>&lt;c0&gt;then&lt;/c0&gt;コールバックから値を返すと、次の&lt;c1&gt;then&lt;/c1&gt;コールバックで引数として受け取れます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Returning an array, a string, a number, boolean, falsy value, etc will result in an error.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T095709Z" creationid="shibukawa.yoshiki" creationdate="20150502T095709Z">
@@ -22851,6 +23560,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170207T090102Z" creationid="shibukawa.yoshiki" creationdate="20170207T090102Z">
         <seg>コンポーネントまたは、解決時にコンポーネントが格納されるPromiseを返します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Returns a promise</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T013350Z" creationid="shibukawa.yoshiki" creationdate="20170330T013350Z">
+        <seg>Promiseを返します</seg>
       </tuv>
     </tu>
     <tu>
@@ -23807,6 +24524,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Sometimes, you already have a value, but want to wrap it in a Promise.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T153208Z" creationid="shibukawa.yoshiki" creationdate="20170330T153208Z">
+        <seg>時々、すでに解決する値はあるが、Promiseでこれをラップしたいことがあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Spacing and formatting inconsistencies may be fixed after the fact, and we don't want that kind of stuff getting in the way of contributing.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170306T082838Z" creationid="shibukawa.yoshiki" creationdate="20170306T082838Z">
@@ -23859,6 +24584,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T011054Z" creationid="shibukawa.yoshiki" creationdate="20170329T011054Z">
         <seg>StackOverflow</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Standalone usage</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T170258Z" creationid="shibukawa.yoshiki" creationdate="20170330T170258Z">
+        <seg>単独での使用方法</seg>
       </tuv>
     </tu>
     <tu>
@@ -24399,6 +25132,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Thanks to these error propagation semantics, it's easy to keep each function small and testable without sprinkling &lt;c0&gt;try&lt;/c0&gt;/&lt;c1&gt;catch&lt;/c1&gt; blocks everywhere.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T152958Z" creationid="shibukawa.yoshiki" creationdate="20170330T152958Z">
+        <seg>このエラー伝達のセマンティクスにより、&lt;c0&gt;try&lt;/c0&gt;/&lt;c1&gt;catch&lt;/c1&gt;ブロックをいろいろなところに挟み込まなくても良くなるため、各関数が小さく、テスト可能になります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>That means the user will be redirected to that route if they land in a route that does not exist.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170221T115308Z" creationid="shibukawa.yoshiki" creationdate="20170221T115308Z">
@@ -24411,6 +25152,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150421T015746Z" creationid="shibukawa.yoshiki" creationdate="20150421T015746Z">
         <seg>このようなパターンでアプリケーションを分けてしまうと、レイヤー間で不必要なコードの密結合が起きてしまいます。モジュールによる、MVC縦断の縦のつながりがわかりにくくなります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>That, in turn, returns a promise that resolves to a list of projects.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T145217Z" creationid="shibukawa.yoshiki" creationdate="20170330T145217Z">
+        <seg>順番としては、まず解決するとプロジェクトのリストとなるPromiseを返します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -24435,6 +25184,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170207T085715Z" creationid="shibukawa.yoshiki" creationdate="20170207T085715Z">
         <seg>&lt;a0&gt;ラウトパラメータ&lt;/a0&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;a0&gt;vnodes&lt;/a0&gt; to be rendered</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T170343Z" creationid="shibukawa.yoshiki" creationdate="20170330T170343Z">
+        <seg>レンダリング対象の&lt;a0&gt;vnode&lt;/a0&gt;</seg>
       </tuv>
     </tu>
     <tu>
@@ -24743,10 +25500,26 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The &lt;c0&gt;m.render&lt;/c0&gt; module is similar in scope to view libraries like Knockout, React and Vue.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T172047Z" creationid="shibukawa.yoshiki" creationdate="20170330T172036Z">
+        <seg>&lt;c0&gt;m.render&lt;/c0&gt;モジュールはKnockout、React, VueといったViewライブラリと似たスコープを持ちます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The &lt;c0&gt;m.request&lt;/c0&gt; call returns a Promise that resolves to the data from the endpoint.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170220T120606Z" creationid="shibukawa.yoshiki" creationdate="20170220T120606Z">
         <seg>&lt;c0&gt;m.request&lt;/c0&gt;を呼び出すとPromiseが返されます。このPromiseが解決すると、エンドポイントから返ってきたデータが渡されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;c0&gt;m.request&lt;/c0&gt; function takes time to run because it makes an HTTP request to a remote server and has to wait for a response, which may take several milliseconds due to network latency.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T114256Z" creationid="shibukawa.yoshiki" creationdate="20170330T114256Z">
+        <seg>&lt;c0&gt;m.request&lt;/c0&gt;関数はリモートサーバーに対してHTTPリクエストをを送り、その結果を待つ必要があります。ネットワークのレイテンシーによって数ミリ秒単位の遅延が発生します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -24955,6 +25728,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170207T090708Z" creationid="shibukawa.yoshiki" creationdate="20170207T090708Z">
         <seg>&lt;c0&gt;render&lt;/c0&gt;はラウトがマッチしたときの再描画時に毎回呼ばれます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The &lt;c0&gt;searchUsers&lt;/c0&gt; function could fail if the network was offline, resulting in an error.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T145512Z" creationid="shibukawa.yoshiki" creationdate="20170330T145512Z">
+        <seg>&lt;c0&gt;searchUsers&lt;/c0&gt;関数は、例えばネットワークがオフラインの場合に失敗し、エラーを返します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -25695,6 +26476,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The error handler would also catch a null reference exception if &lt;c0&gt;searchUsers&lt;/c0&gt; returned no results, and &lt;c1&gt;getFirstId&lt;/c1&gt; attempted to access the &lt;c2&gt;id&lt;/c2&gt; property of a non-existent array item.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T152837Z" creationid="shibukawa.yoshiki" creationdate="20170330T152837Z">
+        <seg>&lt;c0&gt;searchUsers&lt;/c0&gt;に該当する結果がない時は空の配列が帰り、&lt;c1&gt;getFirstId&lt;/c1&gt;が存在しない配列要素の&lt;c2&gt;id&lt;/c2&gt;プロパティを取得しにいくためにnull参照例外が発生しますが、エラーハンドラーはこれもキャッチできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The example above is just an illustration of a not-so-widespread convention that has strong rationales behind it, but deviate from the more widespread cosmetic-oriented spacing conventions.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170221T050710Z" creationid="shibukawa.yoshiki" creationdate="20170221T050710Z">
@@ -25843,6 +26632,22 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T080026Z" creationid="shibukawa.yoshiki" creationdate="20150502T080026Z">
         <seg>コンポーネントオブジェクトの後の最初のパラメータは属性のマップで、&lt;c0&gt;{name: "world"}&lt;/c0&gt;などのオブジェクトを指定する必要があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The first parameter of this function is a value that represents the reason why the promise was rejected.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T030301Z" creationid="shibukawa.yoshiki" creationdate="20170330T030301Z">
+        <seg>この関数の最初の引数はこのPromiseが拒絶したときに決定する（次のPromiseに渡る）値です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The first parameter of this function is the value that this promise was resolved with.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T025930Z" creationid="shibukawa.yoshiki" creationdate="20170330T025930Z">
+        <seg>この関数の最初の引数はこのPromiseが解決したときに決定する（次のPromiseに渡る）値です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -26353,6 +27158,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150408T153535Z" creationid="shibukawa.yoshiki" creationdate="20150408T153535Z">
         <seg>残りのコードは、これまで説明してきたテクニックで書くことができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The return value is ignored</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T014428Z" creationid="shibukawa.yoshiki" creationdate="20170330T014428Z">
+        <seg>返り値は無視されます</seg>
       </tuv>
     </tu>
     <tu>
@@ -27293,6 +28106,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This allows refactoring code into smaller functions</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T114427Z" creationid="shibukawa.yoshiki" creationdate="20170330T114427Z">
+        <seg>これにより、長いコールバックを使ったコードを、小さな単位の複数の関数にリファクタリングできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This allows simple state initialization.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170302T011122Z" creationid="shibukawa.yoshiki" creationdate="20170302T011122Z">
@@ -27393,6 +28214,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150408T014947Z" creationid="shibukawa.yoshiki" creationdate="20150408T014947Z">
         <seg>このコードにより、&lt;c0&gt;description&lt;/c0&gt; getter-setterとテキスト入力が接続されました。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This can be accomplished by &lt;c0&gt;Promise.all&lt;/c0&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T155340Z" creationid="shibukawa.yoshiki" creationdate="20170330T155340Z">
+        <seg>&lt;c0&gt;Promise.all&lt;/c0&gt;を使うとこれが実現できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -27557,6 +28386,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This feature allows us to flatten nested promises to make code more manageable.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T142159Z" creationid="shibukawa.yoshiki" creationdate="20170330T134432Z">
+        <seg>この機能により、ネストされたPromisがフラットになり、管理しやすくなります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This file will contain a skeleton project meta-description file.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170207T071514Z" creationid="shibukawa.yoshiki" creationdate="20170207T071514Z">
@@ -27585,6 +28422,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T160616Z" creationid="shibukawa.yoshiki" creationdate="20150416T160616Z">
         <seg>この関数を使うと、Mithril内部で使われる&lt;c0&gt;window&lt;/c0&gt;オブジェクトを置き換えます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This function returns a list of ten items.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T130704Z" creationid="shibukawa.yoshiki" creationdate="20170330T130704Z">
+        <seg>この関数は10ユーザー分抜き出してリストを返します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -28357,6 +29202,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This promise is absorbed, so the first argument to &lt;c2&gt;getProjectTitles&lt;/c2&gt; is not a promise, but the list of projects.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T145304Z" creationid="shibukawa.yoshiki" creationdate="20170330T145304Z">
+        <seg>このPromiseは吸収されるため、&lt;c2&gt;getProjectTitles&lt;/c2&gt;の最初の引数はPromiseではなく、プロジェクトのリストとなります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This redirects to the URL &lt;c0&gt;http://server/#/dashboard/johndoe&lt;/c0&gt; and yields:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150410T003359Z" creationid="shibukawa.yoshiki" creationdate="20150410T003359Z">
@@ -29013,6 +29866,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>To trigger a redraw, call &lt;c0&gt;m.redraw()&lt;/c0&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T165950Z" creationid="shibukawa.yoshiki" creationdate="20170330T165950Z">
+        <seg>再描画をリクエストするには&lt;c0&gt;m.redraw()&lt;/c0&gt;を呼び出す必要があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To understand what that means, let's add some events:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030838Z" creationid="shibukawa.yoshiki" creationdate="20170131T030838Z">
@@ -29317,6 +30178,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Typically, &lt;c0&gt;m.redraw&lt;/c0&gt; triggers an asynchronous redraws, but it may trigger synchronously if Mithril detects it's possible to improve performance by doing so (i.e. if no redraw was requested within the last animation frame).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T165408Z" creationid="shibukawa.yoshiki" creationdate="20170330T165408Z">
+        <seg>通常、&lt;c0&gt;m.redraw&lt;/c0&gt;は非同期の再描画を開始しますが、最後のアニメーションフレーム内で再描画がリクエストされなかった場合などに、パフォーマンスの向上を目的として同期的に再描画を行う可能性があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Typically, &lt;c0&gt;m.startComputation&lt;/c0&gt; / &lt;c1&gt;m.endComputation&lt;/c1&gt; don't need to be called from application space.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T152936Z" creationid="shibukawa.yoshiki" creationdate="20150416T152936Z">
@@ -29453,6 +30322,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Unlike with &lt;c0&gt;m.mount()&lt;/c0&gt; and &lt;c1&gt;m.route()&lt;/c1&gt;, a vnode tree rendered via &lt;c2&gt;m.render()&lt;/c2&gt; does not auto-redraw in response to view events, &lt;c3&gt;m.redraw()&lt;/c3&gt; calls or &lt;c4&gt;m.request()&lt;/c4&gt; calls.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T170724Z" creationid="shibukawa.yoshiki" creationdate="20170330T170724Z">
+        <seg>&lt;c0&gt;m.mount()&lt;/c0&gt;、&lt;c1&gt;m.route()&lt;/c1&gt;と異なり、&lt;c2&gt;m.render()&lt;/c2&gt;を使ったvnodeツリーのレンダリングは、ビューイベント、&lt;c3&gt;m.redraw()&lt;/c3&gt;呼び出し、&lt;c4&gt;m.request()&lt;/c4&gt;呼び出しに対して自動的に行われることはありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>UnloadEvent :: Object {void preventDefault()}</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T003614Z" creationid="shibukawa.yoshiki" creationdate="20170328T003614Z">
@@ -29513,6 +30390,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150410T170850Z" creationid="shibukawa.yoshiki" creationdate="20150410T170850Z">
         <seg>レスポンスデータの展開</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Updates the DOM after a change in the application data layer.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T164954Z" creationid="shibukawa.yoshiki" creationdate="20170330T164954Z">
+        <seg>アプリケーションのデータレイヤーの変更後にDOMを更新します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -30313,6 +31198,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>When &lt;c1&gt;getUsers()&lt;/c1&gt; resolves, the &lt;c2&gt;getFirstTen&lt;/c2&gt; function is called with a list of users as its first argument.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T130642Z" creationid="shibukawa.yoshiki" creationdate="20170330T130642Z">
+        <seg>&lt;c1&gt;getUsers()&lt;/c1&gt;が解決されると、&lt;c2&gt;getFirstTen&lt;/c2&gt;関数の最初の引数にユーザーのリストがアサインされて呼ばれます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>When Mithril does not redraw</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170206T121320Z" creationid="shibukawa.yoshiki" creationdate="20170206T121320Z">
@@ -30357,6 +31250,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170208T055109Z" creationid="shibukawa.yoshiki" creationdate="20170208T054500Z">
         <seg>もし、ユーザーがパラメータ付きのラウトから、同じラウト定義（&lt;c2&gt;/page/:id&lt;/c2&gt;）のパラメータ違いのラウト（&lt;c0&gt;/page/1&lt;/c0&gt;から&lt;c1&gt;/page/2&lt;/c1&gt;）に遷移しようとした時は、1.0からは同じコンポーネントでラウトの解決が行われるため、コンポーネントの破棄と再作成は行われません。フルスクラッチではなく、その場のdiffによる高速な仮想DOMの更新が行われます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>When callbacks outside of Mithril run, you need to notify Mithril's rendering engine that a redraw is needed.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T165842Z" creationid="shibukawa.yoshiki" creationdate="20170330T165842Z">
+        <seg>もしMithrilの外でコールバックが実行されてデータが変更されたら、プログラマーが手動でMithrilのレンダリングエンジンに再描画が必要なことを知らせる必要があります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -30485,6 +31386,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170220T145750Z" creationid="shibukawa.yoshiki" creationdate="20170220T145750Z">
         <seg>サーバーがレスポンスを返すと、&lt;c2&gt;User.list&lt;/c2&gt;に値が設定されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>When they are done, they call a function with their results.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T114123Z" creationid="shibukawa.yoshiki" creationdate="20170330T114123Z">
+        <seg>それらのAPIが完了すると、取得した値をパラメータに乗せて指定された関数を実行するのが良くある形態です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -30685,6 +31594,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170219T161038Z" creationid="shibukawa.yoshiki" creationdate="20170219T161038Z">
         <seg>なぜHTMLではなくJSONなのか</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Why Virtual DOM</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T170239Z" creationid="shibukawa.yoshiki" creationdate="20170330T170239Z">
+        <seg>なぜ仮想DOMか</seg>
       </tuv>
     </tu>
     <tu>
@@ -30945,6 +31862,22 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T142725Z" creationid="shibukawa.yoshiki" creationdate="20150407T142725Z">
         <seg>そうです。これは完全なHTML5です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You DO need to call it in &lt;c0&gt;setTimeout&lt;/c0&gt;/&lt;c1&gt;setInterval&lt;/c1&gt;/&lt;c2&gt;requestAnimationFrame&lt;/c2&gt; callbacks, or callbacks from 3rd party libraries.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T165210Z" creationid="shibukawa.yoshiki" creationdate="20170330T165210Z">
+        <seg>このメソッドを使うべきは、&lt;c0&gt;setTimeout&lt;/c0&gt;/&lt;c1&gt;setInterval&lt;/c1&gt;/&lt;c2&gt;requestAnimationFrame&lt;/c2&gt;のコールバック、もしくはサードパーティーライブラリのコールバック内だけです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You DON'T need to call it if data is modified within the execution context of an event handler defined in a Mithril view, or after request completion when using &lt;c0&gt;m.request&lt;/c0&gt;/&lt;c1&gt;m.jsonp&lt;/c1&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T165137Z" creationid="shibukawa.yoshiki" creationdate="20170330T165137Z">
+        <seg>このメソッドは、Mithrilのビューで定義されたイベントハンドラのコンテキスト内、あるいは&lt;c0&gt;m.request&lt;/c0&gt;/&lt;c1&gt;m.jsonp&lt;/c1&gt;の処理が終わった後のコールバックなどの中でデータを変更したあとは、この目sっどを呼ぶ必要はありません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -31637,6 +32570,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>You should not call m.redraw from a &lt;a0&gt;lifecycle method&lt;/a0&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T170209Z" creationid="shibukawa.yoshiki" creationdate="20170330T170209Z">
+        <seg>&lt;a0&gt;ライフサイクルメソッド&lt;/a0&gt;からm.redrawを呼んではいけません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>You should not modify model data synchronously from this method.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T141629Z" creationid="shibukawa.yoshiki" creationdate="20170329T141629Z">
@@ -31689,6 +32630,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T140631Z" creationid="shibukawa.yoshiki" creationdate="20150414T140631Z">
         <seg>Mithrilを使う場合には、このメソッドを使うか似たような機能を実装して、ブラウザのイベントオブジェクトからプログラムに使う値を取り出す操作を、コントローラやモデルにハードコードしないコーディングをしてください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You should write code assuming that it always redraws asynchronously.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T165437Z" creationid="shibukawa.yoshiki" creationdate="20170330T165437Z">
+        <seg>それでも、常に描画が非同期に行われるものとしてコードを書かなければなりません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -32238,6 +33187,38 @@ m("div", {config: alertsRedrawCount})</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>alert(firstTenNames)
+})
+
+// PREFER: easy to test small functions
+function getFirstTen(items) {return items.slice(0, 9)}
+function getUserName(user) {return user.firstName + " " + user.lastName}
+function getUserNames(users) {return users.map(getUserName)}
+
+getUsers()</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T114515Z" creationid="shibukawa.yoshiki" creationdate="20170330T114515Z">
+        <seg>alert(firstTenNames)
+})
+
+// 望ましいコード: 小さい関数のテストはしやすい
+function getFirstTen(items) {return items.slice(0, 9)}
+function getUserName(user) {return user.firstName + " " + user.lastName}
+function getUserNames(users) {return users.map(getUserName)}
+
+getUsers()</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>alert(titles)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T142311Z" creationid="shibukawa.yoshiki" creationdate="20170330T142311Z">
+        <seg>alert(titles)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>alert(value);
 })</seg>
       </tuv>
@@ -32276,6 +33257,22 @@ m("div", {config: alertsRedrawCount})</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T000251Z" creationid="shibukawa.yoshiki" creationdate="20170222T000251Z">
         <seg>any</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>any -&gt; (any|Promise)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T020845Z" creationid="shibukawa.yoshiki" creationdate="20170330T020845Z">
+        <seg>any -&gt; (any|Promise)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>any -&gt; any</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T014244Z" creationid="shibukawa.yoshiki" creationdate="20170330T014244Z">
+        <seg>any -&gt; any</seg>
       </tuv>
     </tu>
     <tu>
@@ -33188,6 +34185,14 @@ function parseCSV(data) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>console.log(e)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T145359Z" creationid="shibukawa.yoshiki" creationdate="20170330T145359Z">
+        <seg>console.log(e)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>console.log(e)
 }
 
@@ -33302,6 +34307,16 @@ m("div", {onclick: doSomething})</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T004020Z" creationid="shibukawa.yoshiki" creationdate="20170328T004020Z">
         <seg>console.log(value)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>console.log(value)
+})</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T113722Z" creationid="shibukawa.yoshiki" creationdate="20170330T113722Z">
+        <seg>console.log(value)
+})</seg>
       </tuv>
     </tu>
     <tu>
@@ -34206,6 +35221,22 @@ m.request({method: "POST", url: "/foo", extract: extract});</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>executor</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T013248Z" creationid="shibukawa.yoshiki" creationdate="20170330T013248Z">
+        <seg>executor</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>executor(resolve, reject)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T014234Z" creationid="shibukawa.yoshiki" creationdate="20170330T014234Z">
+        <seg>executor(resolve, reject)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>extract: function(xhr) {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T001918Z" creationid="shibukawa.yoshiki" creationdate="20170222T001918Z">
@@ -34554,6 +35585,20 @@ m.request({method: "POST", url: "/foo", extract: extract});</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>function getUsers() {return m.request("/api/v1/users")}
+
+// AVOID: hard to test god functions
+getUsers().then(function(users) {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T114449Z" creationid="shibukawa.yoshiki" creationdate="20170330T114449Z">
+        <seg>function getUsers() {return m.request("/api/v1/users")}
+
+// 避けるべきコード: god関数のテストが難しい
+getUsers().then(function(users) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>function initialize() {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170223T130236Z" creationid="shibukawa.yoshiki" creationdate="20170223T130236Z">
@@ -34566,6 +35611,22 @@ m.request({method: "POST", url: "/foo", extract: extract});</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170327T171506Z" creationid="shibukawa.yoshiki" creationdate="20170327T171506Z">
         <seg>function initialize(vnode) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>function searchUsers(q) {return m.request("/api/v1/users/search", {data: {q: q}})}
+function getUserProjects(id) {return m.request("/api/v1/users/" + id + "/projects")}
+
+// AVOID: pyramid of doom
+searchUsers("John").then(function(users) {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T142308Z" creationid="shibukawa.yoshiki" creationdate="20170330T142308Z">
+        <seg>function searchUsers(q) {return m.request("/api/v1/users/search", {data: {q: q}})}
+function getUserProjects(id) {return m.request("/api/v1/users/" + id + "/projects")}
+
+// 避けるべきコード: 悪夢のピラミッド
+searchUsers("John").then(function(users) {</seg>
       </tuv>
     </tu>
     <tu>
@@ -34598,6 +35659,14 @@ m.request({method: "POST", url: "/foo", extract: extract});</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T000418Z" creationid="shibukawa.yoshiki" creationdate="20170222T000418Z">
         <seg>function upload(e) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>getUserProjects(users[0].id).then(function(projects) {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T142310Z" creationid="shibukawa.yoshiki" creationdate="20170330T142310Z">
+        <seg>getUserProjects(users[0].id).then(function(projects) {</seg>
       </tuv>
     </tu>
     <tu>
@@ -35592,6 +36661,14 @@ m.request({method: "POST", url: "/foo", extract: extract});</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170219T155526Z" creationid="shibukawa.yoshiki" creationdate="20170219T155526Z">
         <seg>https://developer.mozilla.org/ja/docs/Web/API/FormData</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T013208Z" creationid="shibukawa.yoshiki" creationdate="20170330T013140Z">
+        <seg>https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise</seg>
       </tuv>
     </tu>
     <tu>
@@ -39969,6 +41046,16 @@ m.route(element, '/', {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>m.render(document.body, "hello")
+// &lt;body&gt;hello&lt;/body&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T170316Z" creationid="shibukawa.yoshiki" creationdate="20170330T170316Z">
+        <seg>m.render(document.body, "hello")
+// &lt;body&gt;hello&lt;/body&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>m.render(document.body, [</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T000411Z" creationid="shibukawa.yoshiki" creationdate="20170222T000411Z">
@@ -40007,6 +41094,14 @@ m.route(element, '/', {</seg>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T000442Z" creationid="shibukawa.yoshiki" creationdate="20170222T000442Z">
         <seg>m.render(document.body, m.trust(svg))
 })</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>m.render(element, vnodes)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T170317Z" creationid="shibukawa.yoshiki" creationdate="20170330T170317Z">
+        <seg>m.render(element, vnodes)</seg>
       </tuv>
     </tu>
     <tu>
@@ -40217,6 +41312,14 @@ var dir = m.route.param("dir") // "desc"</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T001520Z" creationid="shibukawa.yoshiki" creationdate="20170222T001520Z">
         <seg>m.route(document.body, "/edit/pictures/image.jpg", {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>m.route(document.body, "/files/pictures/image.jpg", {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T153109Z" creationid="shibukawa.yoshiki" creationdate="20170330T153109Z">
+        <seg>m.route(document.body, "/files/pictures/image.jpg", {</seg>
       </tuv>
     </tu>
     <tu>
@@ -41037,6 +42140,22 @@ m.endComputation()</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>nextPromise = promise.catch(onRejected)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T030834Z" creationid="shibukawa.yoshiki" creationdate="20170330T030834Z">
+        <seg>nextPromise = promise.catch(onRejected)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>nextPromise = promise.then(onFulfilled, onRejected)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T020834Z" creationid="shibukawa.yoshiki" creationdate="20170330T020834Z">
+        <seg>nextPromise = promise.then(onFulfilled, onRejected)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>npm init --yes
 # creates a file called package.json</seg>
       </tuv>
@@ -41187,6 +42306,22 @@ m.endComputation()</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T002853Z" creationid="shibukawa.yoshiki" creationdate="20170328T002853Z">
         <seg>on: function(subscriptions, callback) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>onFulfilled</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T020843Z" creationid="shibukawa.yoshiki" creationdate="20170330T020843Z">
+        <seg>onFulfilled</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>onRejected</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T030233Z" creationid="shibukawa.yoshiki" creationdate="20170330T030233Z">
+        <seg>onRejected</seg>
       </tuv>
     </tu>
     <tu>
@@ -41979,6 +43114,38 @@ m.endComputation()</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>promise = Promise.all(promises)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T015234Z" creationid="shibukawa.yoshiki" creationdate="20170330T015234Z">
+        <seg>promise = Promise.all(promises)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>promise = Promise.race(promises)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T020749Z" creationid="shibukawa.yoshiki" creationdate="20170330T020749Z">
+        <seg>promise = Promise.race(promises)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>promise = Promise.reject(value)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T015047Z" creationid="shibukawa.yoshiki" creationdate="20170330T015047Z">
+        <seg>promise = Promise.reject(value)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>promise = Promise.resolve(value)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T014430Z" creationid="shibukawa.yoshiki" creationdate="20170330T014430Z">
+        <seg>promise = Promise.resolve(value)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>promise = m.jsonp([url,] options)</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T011536Z" creationid="shibukawa.yoshiki" creationdate="20170329T011536Z">
@@ -41991,6 +43158,14 @@ m.endComputation()</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T000243Z" creationid="shibukawa.yoshiki" creationdate="20170222T000243Z">
         <seg>promise = m.request([url,] options)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>promise = new Promise(executor)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T013246Z" creationid="shibukawa.yoshiki" creationdate="20170330T013246Z">
+        <seg>promise = new Promise(executor)</seg>
       </tuv>
     </tu>
     <tu>
@@ -42015,6 +43190,14 @@ m.endComputation()</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004434Z" creationid="shibukawa.yoshiki" creationdate="20170330T004434Z">
         <seg>promise.then</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>promises</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T015237Z" creationid="shibukawa.yoshiki" creationdate="20170330T015237Z">
+        <seg>promises</seg>
       </tuv>
     </tu>
     <tu>
@@ -42067,6 +43250,22 @@ m.endComputation()</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>redraw()</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T164908Z" creationid="shibukawa.yoshiki" creationdate="20170330T164908Z">
+        <seg>redraw()</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>redraw() - Mithril.js</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T164907Z" creationid="shibukawa.yoshiki" creationdate="20170330T164907Z">
+        <seg>redraw() - Mithril.js</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>redraw.html</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T000151Z" creationid="shibukawa.yoshiki" creationdate="20170222T000151Z">
@@ -42087,6 +43286,30 @@ m.endComputation()</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T002850Z" creationid="shibukawa.yoshiki" creationdate="20170328T002850Z">
         <seg>register: function(subscriptions, controller) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>reject</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T014408Z" creationid="shibukawa.yoshiki" creationdate="20170330T014408Z">
+        <seg>reject</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>render(element, vnodes)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T170227Z" creationid="shibukawa.yoshiki" creationdate="20170330T170227Z">
+        <seg>render(element, vnodes)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>render(element, vnodes) - Mithril.js</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T170225Z" creationid="shibukawa.yoshiki" creationdate="20170330T170225Z">
+        <seg>render(element, vnodes) - Mithril.js</seg>
       </tuv>
     </tu>
     <tu>
@@ -42159,6 +43382,14 @@ m.endComputation()</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T001924Z" creationid="shibukawa.yoshiki" creationdate="20170222T001924Z">
         <seg>require(['./Home.js'], resolve)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>resolve</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T014243Z" creationid="shibukawa.yoshiki" creationdate="20170330T014243Z">
+        <seg>resolve</seg>
       </tuv>
     </tu>
     <tu>
@@ -42319,6 +43550,18 @@ m.endComputation()</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T004105Z" creationid="shibukawa.yoshiki" creationdate="20170328T004105Z">
         <seg>return ctrl.users().map(function(user) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>return data.map(getUserNames)
+})
+.then(alert)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T155444Z" creationid="shibukawa.yoshiki" creationdate="20170330T155444Z">
+        <seg>return data.map(getUserNames)
+})
+.then(alert)</seg>
       </tuv>
     </tu>
     <tu>
@@ -44130,6 +45373,34 @@ demo.view = function(ctrl) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>searchUsers("John")</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T145354Z" creationid="shibukawa.yoshiki" creationdate="20170330T145354Z">
+        <seg>searchUsers("ジョン")</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>searchUsers("John"),</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T155344Z" creationid="shibukawa.yoshiki" creationdate="20170330T155344Z">
+        <seg>searchUsers("ジョン"),</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>searchUsers("Mary"),
+])
+.then(function(data) {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T155347Z" creationid="shibukawa.yoshiki" creationdate="20170330T155347Z">
+        <seg>searchUsers("メアリー"),
+])
+.then(function(data) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>searchXHR = null
 }</seg>
       </tuv>
@@ -45486,6 +46757,14 @@ m.render(document, todo.view()); // テキスト入力に「コードを書く�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>value</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T014433Z" creationid="shibukawa.yoshiki" creationdate="20170330T014433Z">
+        <seg>value</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>value: "",</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T005457Z" creationid="shibukawa.yoshiki" creationdate="20170329T005457Z">
@@ -46183,6 +47462,22 @@ m.request({method: "GET", url: "/user/:id", data: {id: 1}})</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>var firstTen = users.slice(0, 9)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T114451Z" creationid="shibukawa.yoshiki" creationdate="20170330T114451Z">
+        <seg>var firstTen = users.slice(0, 9)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>var firstTenNames = firstTen.map(function(user) {return user.firstName + " " + user.lastName})</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T114453Z" creationid="shibukawa.yoshiki" creationdate="20170330T114453Z">
+        <seg>var firstTenNames = firstTen.map(function(user) {return user.firstName + " " + user.lastName})</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>var formData = new FormData</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T002933Z" creationid="shibukawa.yoshiki" creationdate="20170328T002933Z">
@@ -46549,6 +47844,14 @@ var obj = m.route.parseQueryString("a=1");</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>var render = require("mithril/render")</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T172315Z" creationid="shibukawa.yoshiki" creationdate="20170330T172315Z">
+        <seg>var render = require("mithril/render")</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>var root = document.body</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170221T235817Z" creationid="shibukawa.yoshiki" creationdate="20170221T235817Z">
@@ -46607,6 +47910,14 @@ function search() {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T001522Z" creationid="shibukawa.yoshiki" creationdate="20170222T001522Z">
         <seg>var state = {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>var titles = projects.map(function(project) {return project.title})</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T142311Z" creationid="shibukawa.yoshiki" creationdate="20170330T142311Z">
+        <seg>var titles = projects.map(function(project) {return project.title})</seg>
       </tuv>
     </tu>
     <tu>
@@ -47172,6 +48483,14 @@ m.route(document.body, "/", {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T002301Z" creationid="shibukawa.yoshiki" creationdate="20170222T002301Z">
         <seg>vnode.state.height = vnode.dom.offsetHeight</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>vnodes</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T170321Z" creationid="shibukawa.yoshiki" creationdate="20170330T170321Z">
+        <seg>vnodes</seg>
       </tuv>
     </tu>
     <tu>
@@ -49148,6 +50467,30 @@ function abortPreviousSearch() {</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>})
+})
+
+// PREFER: flat code flow
+function getFirstId(items) {return items[0].id}
+function getProjectTitles(projects) {return projects.map(getProjectTitle)}
+function getProjectTitle(project) {return project.title}
+
+searchUsers("John")</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T142328Z" creationid="shibukawa.yoshiki" creationdate="20170330T142328Z">
+        <seg>})
+})
+
+// 望ましいコード: フラットなフローのコード
+function getFirstId(items) {return items[0].id}
+function getProjectTitles(projects) {return projects.map(getProjectTitle)}
+function getProjectTitle(project) {return project.title}
+
+searchUsers("John")</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>})
 };</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T031722Z" creationid="shibukawa.yoshiki" creationdate="20170222T031722Z">
@@ -49387,6 +50730,20 @@ greetAsync()</seg>
 })
 
 greetAsync()</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>}, 1000)
+})
+
+promise.then(function(value) {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T113702Z" creationid="shibukawa.yoshiki" creationdate="20170330T113702Z">
+        <seg>}, 1000)
+})
+
+promise.then(function(value) {</seg>
       </tuv>
     </tu>
     <tu>
