@@ -28,9 +28,9 @@
 <li><a href="#description">説明</a></li>
 <li><a href="#signature">シグニチャ</a></li>
 <li><a href="#how-it-works">どのように動作するのか</a></li>
-<li><a href="#why-virtual-dom">Why Virtual DOM</a></li>
-<li><a href="#differences-from-other-api-methods">Differences from other API methods</a></li>
-<li><a href="#standalone-usage">Standalone usage</a></li>
+<li><a href="#why-virtual-dom">なぜ仮想DOMか</a></li>
+<li><a href="#differences-from-other-api-methods">他のAPIメソッドとの違い</a></li>
+<li><a href="#standalone-usage">単独での使用方法</a></li>
 </ul>
 </li>
 <li><a href="mount.html">m.mount</a></li>
@@ -58,7 +58,7 @@
 </ul>
 <hr>
 <h3 id="description">説明</h3>
-<p>Renders a template to the DOM</p>
+<p>テンプレートをDOMにレンダリングします</p>
 <pre><code class="lang-javascript">m.render(document.body, "hello")
 // &lt;body&gt;hello&lt;/body&gt;
 </code></pre>
@@ -85,7 +85,7 @@
 <td><code>vnodes</code></td>
 <td><code>Array&lt;Vnode&gt;|Vnode</code></td>
 <td>Yes</td>
-<td>The <a href="vnodes.html">vnodes</a> to be rendered</td>
+<td>レンダリング対象の<a href="vnodes.html">vnode</a></td>
 </tr>
 <tr>
 <td><strong>returns</strong></td>
@@ -101,20 +101,21 @@
 <p>The <code>m.render(element, vnodes)</code> method takes a virtual DOM tree (typically generated via the <a href="hyperscript.html"><code>m()</code> hyperscript function</a>, generates a DOM tree and mounts it on <code>element</code>. If <code>element</code> already has a DOM tree mounted via a previous <code>m.render()</code> call, <code>vnodes</code> is diffed against the previous <code>vnodes</code> tree and the existing DOM tree is modified only where needed to reflect the changes. 変更がないDOMは触れられません。 </p>
 <p><code>m.render</code> is synchronous.</p>
 <hr>
-<h3 id="why-virtual-dom">Why Virtual DOM</h3>
+<h3 id="why-virtual-dom">なぜ仮想DOMか</h3>
 <p>すべての再描画でvnodeツリーを生成するのは無駄に思えるかもしれませんが、JavaScriptのデータ構造の作成と比較は、DOMの読み取りと変更に比べてかなりコストに差があり、メリットがあります。</p>
 <p>DOMを触るのはいくつかの理由により高コストになります。読取りと書込みを交互に行うと、ブラウザに寄っては再表示が連続して発生しパフォーマンスに悪影響を及ぼします。一方、仮想DOMツリーでは再描画1回のコストで済みます。また、DOM操作のパフォーマンス特性はブラウザ実装によって異なるため、すべてのブラウザで最適化するのが簡単ではありません。例えば、<code>childNodes.length</code>にアクセスするだけO(n)のコストがかかり、<code>parentNode</code>にアクセスすると再描画が行われるブラウザもあります。</p>
 <p>JavaScriptのデータ構造のトラバースでは、割り込みが入ることもなく予測可能で安定したパフォーマンス特性を発揮します。これに加えて、モダンなJavaScriptエンジンではhidden classのような積極的な最適化を行います。</p>
 <hr>
-<h3 id="differences-from-other-api-methods">Differences from other API methods</h3>
-<p><code>m.render()</code> method is internally called by <a href="mount.html"><code>m.mount()</code></a>, <a href="route.html"><code>m.route()</code></a>, <a href="redraw.html"><code>m.redraw()</code></a> and <a href="request.html"><code>m.request()</code></a>. It is not called after <a href="stream.html">stream updates</a></p>
-<p>Unlike with <code>m.mount()</code> and <code>m.route()</code>, a vnode tree rendered via <code>m.render()</code> does not auto-redraw in response to view events, <code>m.redraw()</code> calls or <code>m.request()</code> calls. It is a low level mechanism suitable for library authors who wish to manually control rendering instead of relying on Mithril's built-in auto-redrawing system.</p>
-<p>Another difference is that <code>m.render</code> method expects a <a href="vnodes.html">vnode</a> (or a array of vnodes) as its second parameter, whereas <code>m.mount()</code> and <code>m.route()</code> expect components.</p>
+<h3 id="differences-from-other-api-methods">他のAPIメソッドとの違い</h3>
+<p><code>m.render()</code>メソッドは<a href="mount.html"><code>m.mount()</code></a>, <a href="route.html"><code>m.route()</code></a>, <a href="redraw.html"><code>m.redraw()</code></a>, <a href="request.html"><code>m.request()</code></a>から内部的に呼ばれる関数です。<a href="stream.html">ストリームの更新</a>後には呼ばれません。</p>
+<p><code>m.mount()</code>、<code>m.route()</code>と異なり、<code>m.render()</code>を使ったvnodeツリーのレンダリングは、ビューイベント、<code>m.redraw()</code>呼び出し、<code>m.request()</code>呼び出しに対して自動的に行われることはありません。このメソッドは、Mithrilに組み込みの自動再描画システムではなく、手動でレンダリングを制御したいと思えるライブラリ作者にマッチするような、低レベルのメカニズムです。</p>
+<p><code>m.render</code>が<a href="vnodes.html">vnode</a>（やその配列）を第二引数として取り、<code>m.mount()</code>と<code>m.route()</code>がコンポーネントを引数に取る点も異なります。</p>
 <hr>
-<h3 id="standalone-usage">Standalone usage</h3>
+<h3 id="standalone-usage">単独での使用方法</h3>
 <p><code>var render = require("mithril/render")</code></p>
-<p>The <code>m.render</code> module is similar in scope to view libraries like Knockout, React and Vue. It is approximately 500 lines of code (3kb min+gzip) and implements a virtual DOM diffing engine with a modern search space reduction algorithm and DOM recycling, which translate to top-of-class performance, both in terms of initial page load and re-rendering. It has no dependencies on other parts of Mithril and can be used as a standalone library.</p>
-<p>Despite being incredibly small, the render module is fully functional and self-suficient. It supports everything you might expect: SVG, custom elements, and all valid attributes and events - without any weird case-sensitive edge cases or exceptions. Of course, it also fully supports <a href="components.html">components</a> and <a href="lifecycle-methods.html">lifecycle methods</a>.</p>
+<p><code>m.render</code>モジュールはKnockout、React, VueといったViewライブラリと似たスコープを持ちます。これは、約500行のコード（gzipすると3kb未満）で、初期ページの読み込みと再描画の両方において、最新の検索スペース削減アルゴリズムとDOMリサイクルを備えたバーチャルDOM差分検知エンジンを実装されています。このコードは他のMthrilのコードには依存しておらず、単独のライブラリとして使用できます。</p>
+<p>コードサイズが極めて小さいにもかかわらず、完全な機能を備えており、外部依存がなく独立しています。この関数はSVG、カスタム要素、およびすべての有効な属性とイベントをサポートしています。大文字と小文字を区別することはありません。例外もありません。
+もちろん、この関数は <a href="components.html">コンポーネント</a>と<a href="lifecycle-methods.html">ライフサイクルメソッドも完全にサポートしています。</p>
 
 				<hr />
 				<small>License: MIT. © Leo Horie.</small>
