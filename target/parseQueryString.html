@@ -55,7 +55,7 @@
 </ul>
 <hr>
 <h3 id="description">説明</h3>
-<p>Turns a string of the form <code>?a=1&amp;b=2</code> to an object</p>
+<p><code>?a=1&amp;b=2</code>という形式の文字列をオブジェクトにします。</p>
 <pre><code class="lang-javascript">var object = m.parseQueryString("a=1&amp;b=2")
 // {a: "1", b: "2"}
 </code></pre>
@@ -76,41 +76,41 @@
 <td><code>string</code></td>
 <td><code>String</code></td>
 <td>Yes</td>
-<td>A querystring</td>
+<td>クエリー文字列</td>
 </tr>
 <tr>
 <td><strong>returns</strong></td>
 <td><code>Object</code></td>
 <td></td>
-<td>A key-value map</td>
+<td>キー・バリューのマップ</td>
 </tr>
 </tbody>
 </table>
 <p><a href="signatures.html">シグニチャの読み方</a></p>
 <hr>
 <h3 id="how-it-works">どのように動作するのか</h3>
-<p>The <code>m.parseQueryString</code> method creates an object from a querystring. It is useful for handling data from URL</p>
+<p><code>m.parseQueryString</code>はクエリー文字列からオブジェクトを作ります。この関数はURLからデータを取得するのに使います。</p>
 <pre><code class="lang-javascript">var data = m.parseQueryString("a=hello&amp;b=world")
 
 // data is {a: "hello", b: "world"}
 </code></pre>
-<h4 id="boolean-type-casting">Boolean type casting</h4>
-<p>This method attempts to cast boolean values if possible. This helps prevents bugs related to loose truthiness and unintended type casts.</p>
+<h4 id="boolean-type-casting">ブール型キャスト</h4>
+<p>このメソッドはブール値をなるべくキャストしようとします。これは真値が失われるケースや、予期しない型キャストによるバグを防ぎます。</p>
 <pre><code class="lang-javascript">var data = m.parseQueryString("a=true&amp;b=false")
 
-// data is {a: true, b: false}
+// dataは {a: true, b: false}
 </code></pre>
-<h4 id="leading-question-mark-tolerance">Leading question mark tolerance</h4>
-<p>For convenience, the <code>m.parseQueryString</code> method ignores a leading question mark, if present:</p>
+<h4 id="leading-question-mark-tolerance">先頭の？マークの許容</h4>
+<p>よく使うケースを考慮して、<code>m.parseQueryString</code>メソッドは先頭に？マークがあっても無視します:</p>
 <pre><code class="lang-javascript">var data = m.parseQueryString("?a=hello&amp;b=world")
 
-// data is {a: "hello", b: "world"}
+// dataは {a: "hello", b: "world"}
 </code></pre>
 <h4 id="deep-data-structures">深いデータ構造</h4>
-<p>Querystrings that contain bracket notation are correctly parsed into deep data structures</p>
+<p>クエリー文字列に角かっこがあった時は、構造化されたデータ構造にパースします</p>
 <pre><code class="lang-javascript">m.parseQueryString("a[0]=hello&amp;a[1]=world")
 
-// data is {a: ["hello", "world"]}
+// dataは {a: ["hello", "world"]}
 </code></pre>
 
 				<hr />

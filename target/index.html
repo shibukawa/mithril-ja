@@ -210,7 +210,7 @@ m.mount(root, Hello)
 <h3 id="xhr">XHR</h3>
 <p>基本的にXHRはサーバーと話をするための方法です。</p>
 <p>クリックカウンターを修正して、サーバーにデータを保存できるようにしましょう。サーバーには、チュートリアルのようなおもちゃアプリケーションのために作られた、モックのREST APIを提供する<a href="http://rem-rest-api.herokuapp.com">REM</a>を使います。</p>
-<p>まず、<code>m.request</code>を呼び出す関数を作ってみましょう。<code>url</code>はリソースを表すエンドポイントを指定します。<code>method</code>は話をするアクションの種類を指定します（<a href="https://en.wiktionary.org/wiki/upsert">upserts</a>には通常<code>PUT</code>メソッドを使います）。<code>data</code>はエンドポイントに送付するペイロードです。<code>withCredentials</code>はクッキーを有効化する（REM APを動作させるのに必要）ために指定します。</p>
+<p>まず、<code>m.request</code>を呼び出す関数を作ってみましょう。<code>url</code>はリソースを表すエンドポイントを指定します。<code>method</code>は話をするアクションの種類を指定します（<a href="https://en.wiktionary.org/wiki/upsert">upserts</a>には通常<code>PUT</code>メソッドを使います）。<code>data</code>はエンドポイントに送付するペイロードです。<code>withCredentials</code>はクッキーを有効化する（REM APIを動作させるのに必要）ために指定します。</p>
 <pre><code class="lang-javascript">var count = 0
 var increment = function() {
     m.request({

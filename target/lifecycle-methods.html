@@ -2,7 +2,7 @@
 	<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8" />
-		<title>  Lifecycle methods - Mithril.js</title>
+		<title> ライフサイクルメソッド - Mithril.js</title>
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 		<link href="lib/prism/prism.css" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
@@ -42,7 +42,7 @@
 <li><a href="components.html">コンポーネント</a></li>
 <li><strong><a href="lifecycle-methods.html">ライフサイクルメソッド</a></strong><ul>
 <li><a href="#usage">使用方法</a></li>
-<li><a href="#the-dom-element-lifecycle">The DOM element lifecycle</a></li>
+<li><a href="#the-dom-element-lifecycle">DOMエレメントのライフサイクル</a></li>
 <li><a href="#oninit">oninit</a></li>
 <li><a href="#oncreate">oncreate</a></li>
 <li><a href="#onupdate">onupdate</a></li>
@@ -70,77 +70,77 @@
 </ul>
 <hr>
 <h3 id="usage">使用方法</h3>
-<p><a href="components.html">Components</a> and <a href="vnodes.html">virtual DOM nodes</a> can have lifecycle methods, also known as <em>hooks</em>, which are called at various points during the lifetime of a DOM element.</p>
-<pre><code class="lang-javascript">// Sample hook in component
+<p><a href="components.html">コンポーネント</a>と<a href="vnodes.html">仮想DOMノード</a>はライフサイクルメソッドを持つことができます。これは<em>フック</em>とも呼ばれ、DOM要素の生存期間のさまざまなポイントで呼ばれます。</p>
+<pre><code class="lang-javascript">// コンポーネントのフックのサンプル
 var ComponentWithHook = {
     oninit: function(vnode) {
-        console.log("initialize component")
+        console.log("コンポーネントを初期化")
     },
     view: function() {
         return "hello"
     }
 }
 
-// Sample hook in vnode
+// vnodeのフックのサンプル
 function initializeVnode() {
-    console.log("initialize vnode")
+    console.log("vnodeを初期化")
 }
 
 m(ComponentWithHook, {oninit: initializeVnode})
 </code></pre>
-<p>All lifecyle methods receive the vnode as their first arguments, and have their <code>this</code> keyword bound to <code>vnode.state</code>.</p>
-<p>Lifecycle methods are only called as a side effect of a <a href="render.html"><code>m.render()</code></a> call. They are not called if the DOM is modified outside of Mithril.</p>
+<p>すべてのライフサイクルメソッドはvnodeを最初の引数として受け取ります。また、<code>this</code>キーワードは<code>vnode.state</code>に束縛されます。</p>
+<p>ライフサイクロメソッドは<a href="render.html"><code>m.render()</code></a>呼び出しの副作用として呼び出されます。Mithrilの外側でDOMを変更してもライフサイクロメソッドは呼び出されません。</p>
 <hr>
-<h3 id="the-dom-element-lifecycle">The DOM element lifecycle</h3>
-<p>A DOM element is typically created and appended to the document. It may then have attributes or child nodes updated when a UI event is triggered and data is changed; and the element may alternatively be removed from the document.</p>
-<p>After an element is removed, it may be temporarily retained in a memory pool. The pooled element may be reused in a subsequent update (in a process called <em>DOM recycling</em>). Recycling an element avoids incurring the performance cost of recreating a copy of an element that existed recently.</p>
+<h3 id="the-dom-element-lifecycle">DOMエレメントのライフサイクル</h3>
+<p>DOMエレメントは作成されてからドキュメントに追加されます。DOMエレメントは属性や子ノードを持ちます。UIイベントがトリガーされると、それらが変更されるでしょう。また、ドキュメントから取り除かれることもあります。</p>
+<p>エレメントが取り除かれると、一時的にメモリプールの中に保持されます。プールされた要素は、その後の更新時の<em>DOMリサイクリング</em>と呼ばれるプロセスの中で再利用される可能性があります。エレメントを再作成するとパフォーマンスに影響を与えるコストが発生します。最近存在した要素をリサイクルすると、このコストを減らすことができます。</p>
 <hr>
 <h3 id="oninit">oninit</h3>
-<p>The <code>oninit(vnode)</code> hook is called before a vnode is touched by the virtual DOM engine. <code>oninit</code> is guaranteed to run before its DOM element is attached to the document, and it is guaranteed to run on parent vnodes before their children, but it does not offer any guarantees regarding the existence of ancestor or descendant DOM elements. You should never access the <code>vnode.dom</code> from the <code>oninit</code> method.</p>
-<p>This hook does not get called when an element is updated, but it does get called if an element is recycled.</p>
-<p>Like in other hooks, the <code>this</code> keyword in the <code>oninit</code> callback points to <code>vnode.state</code>.</p>
-<p>The <code>oninit</code> hook is useful for initializing component state based on arguments passed via <code>vnode.attrs</code> or <code>vnode.children</code>.</p>
+<p><code>oninit(vnode)</code>フックはvnodeが仮想DOMエンジンから触れる前に呼び出されます。<code>oninit</code>はDOMエレメントがドキュメントに追加される前に呼ばれることが保証されています。また、親のvnodeは子供のvnodeよりも先に呼ばれることが保証されています。しかし、親や子孫のDOM要素が存在する保証はありません。<code>oninit</code>メソッドの中から、<code>vnode.dom</code>にアクセスしてはいけません。</p>
+<p>このフックはエレメントが更新されるときには呼ばれませんが、エレメントがリサイクルされる時には呼ばれます。</p>
+<p>他のフックと同じように<code>oninit</code>コールバック内では、<code>this</code>は<code>vnode.state</code>を指します。</p>
+<p><code>oninit</code>フックは<code>vnode.attrs</code>や<code>vnode.children</code>に渡された引数を元にコンポーネントを初期化するのに便利です。</p>
 <pre><code class="lang-javascript">var ComponentWithState = {
     oninit: function(vnode) {
         this.data = vnode.attrs.data
     },
     view: function() {
-        return m("div", this.data) // displays data from initialization time
+        return m("div", this.data) // 初期化時に保存したデータを表示
     }
 }
 
 m(ComponentWithState, {data: "Hello"})
 
-// Equivalent HTML
+// 次のHTMLと同等
 // &lt;div&gt;Hello&lt;/div&gt;
 </code></pre>
-<p>You should not modify model data synchronously from this method. Since <code>oninit</code> makes no guarantees regarding the status of other elements, model changes created from this method may not be reflected in all parts of the UI until the next render cycle.</p>
+<p>このメソッド内から同期的にモデルのデータを変更すべきではありません。<code>oninit</code>は他の要素の状態を保証しないため、このメソッドからモデルを変更しても次のレンダリングサイクルまで、他のUI部品ではこの変更が反映されない可能性があります。</p>
 <hr>
 <h3 id="oncreate">oncreate</h3>
-<p>The <code>oncreate(vnode)</code> hook is called after a DOM element is created and attached to the document. <code>oncreate</code> is guaranteed to run at the end of the render cycle, so it is safe to read layout values such as <code>vnode.dom.offsetHeight</code> and <code>vnode.dom.getBoundingClientRect()</code> from this method.</p>
-<p>This hook does not get called when an element is updated.</p>
-<p>Like in other hooks, the <code>this</code> keyword in the <code>oncreate</code> callback points to <code>vnode.state</code>. DOM elements whose vnodes have an <code>oncreate</code> hook do not get recycled.</p>
-<p>The <code>oncreate</code> hook is useful for reading layout values that may trigger a repaint, starting animations and for initializing third party libraries that require a reference to the DOM element.</p>
+<p><code>oncreate(vnode)</code>フックはDOMエレメントがドキュメントに追加された時に呼ばれます。<code>oncreate</code>はレンダリングサイクルの最後に呼ばれることが保証されています。そのため、<code>vnode.dom.offsetHeight</code>といったレイアウトに関する属性値にアクセスしたり、<code>vnode.dom.getBoundingClientRect()</code>といったメソッドを正常に利用できます。</p>
+<p>このフックはエレメントが更新される時には呼ばれません。</p>
+<p>他のフックと同じように<code>oncreate</code>コールバック内では、<code>this</code>は<code>vnode.state</code>を指します。<code>oncreate</code>フックを持つvnodeに関連するDOMエレメントはリサイクルされません。</p>
+<p><code>oncreate</code>フックは、再描画を誘発するような属性へのアクセスをしたり、アニメーションを開始したり、DOM要素を必要とするサードパーティライブラリを初期化するのに使えます。</p>
 <pre><code class="lang-javascript">var HeightReporter = {
     oncreate: function(vnode) {
-        console.log("Initialized with height of: ", vnode.dom.offsetHeight)
+        console.log("初期化中。DOMの高さは: ", vnode.dom.offsetHeight)
     },
     view: function() {}
 }
 
 m(HeightReporter, {data: "Hello"})
 </code></pre>
-<p>You should not modify model data synchronously from this method. Since <code>oncreate</code> is run at the end of the render cycle, model changes created from this method will not be reflected in the UI until the next render cycle.</p>
+<p>このメソッド内から同期的にモデルのデータを変更すべきではありません。<code>oncreate</code>はレンダリングサイクルの最後に実行されるため、このメソッドからモデルを変更しても次のレンダリングサイクルまで、他のUI部品ではこの変更が反映されません。</p>
 <hr>
 <h3 id="onupdate">onupdate</h3>
-<p>The <code>onupdate(vnode)</code> hook is called after a DOM element is updated, while attached to the document. <code>onupdate</code> is guaranteed to run at the end of the render cycle, so it is safe to read layout values such as <code>vnode.dom.offsetHeight</code> and <code>vnode.dom.getBoundingClientRect()</code> from this method.</p>
-<p>This hook is only called if the element existed in the previous render cycle. It is not called when an element is created or when it is recycled.</p>
-<p>Like in other hooks, the <code>this</code> keyword in the <code>onupdate</code> callback points to <code>vnode.state</code>. DOM elements whose vnodes have an <code>onupdate</code> hook do not get recycled.</p>
-<p>The <code>onupdate</code> hook is useful for reading layout values that may trigger a repaint, and for dynamically updating UI-affecting state in third party libraries after model data has been changed.</p>
+<p><code>onupdate(vnode)</code>フックはDOMエレメントがドキュメントに追加されている間に更新がかかると呼ばれます。<code>onupdate</code>はレンダリングサイクルの最後に呼ばれることが保証されています。そのため、<code>vnode.dom.offsetHeight</code>といったレイアウトに関する属性値にアクセスしたり、<code>vnode.dom.getBoundingClientRect()</code>といったメソッドを正常に利用できます。</p>
+<p>このフックは、以前のレンダリングのサイクル時にすでにノードが存在している時にのみ呼ばれます。このフックはエレメントが作成されたり、エレメントがリサイクルされる時には呼ばれません。</p>
+<p>他のフックと同じように<code>onupdate</code>コールバック内では、<code>this</code>は<code>vnode.state</code>を指します。<code>onupdate</code>フックを持つvnodeに関連するDOMエレメントはリサイクルされません。</p>
+<p><code>onupdate</code>フックは再描画を誘発するような属性にアクセスしたり、モデルデータが変更された時にサードパーティーライブラリにその変更を反映して動的にUIを更新する時に使います。</p>
 <pre><code class="lang-javascript">var RedrawReporter = {
     count: 0,
     onupdate: function(vnode) {
-        console.log("Redraws so far: ", ++vnode.state.count)
+        console.log("再描画回数: ", ++vnode.state.count)
     },
     view: function() {}
 }
@@ -149,9 +149,9 @@ m(RedrawReporter, {data: "Hello"})
 </code></pre>
 <hr>
 <h3 id="onbeforeremove">onbeforeremove</h3>
-<p>The <code>onbeforeremove(vnode)</code> hook is called before a DOM element is detached from the document. もしPromiseが返されると、MithrilはそのPromiseが完了されたあとに取り除きます。</p>
-<p>This hook is only called on the DOM element that loses its <code>parentNode</code>, but it does not get called in its child elements.</p>
-<p>Like in other hooks, the <code>this</code> keyword in the <code>onbeforeremove</code> callback points to <code>vnode.state</code>. DOM elements whose vnodes have an <code>onbeforeremove</code> hook do not get recycled.</p>
+<p><code>onbeforeremove(vnode)</code>フックはDOMエレメントがドキュメントから取り外される前に呼ばれます。もしPromiseが返されると、MithrilはそのPromiseが完了されたあとに取り除きます。</p>
+<p>このフックはDOMエレメントが<code>parentNode</code>を失う時にのみ呼ばれます。その子要素に対しては呼ばれません。</p>
+<p>他のフックと同じように<code>onbeforeremove</code>コールバック内では、<code>this</code>は<code>vnode.state</code>を指します。<code>onbeforeremove</code>フックを持つvnodeに関連するDOMエレメントはリサイクルされません。</p>
 <pre><code class="lang-javascript">var Fader = {
     onbeforeremove: function(vnode) {
         vnode.dom.classList.add("fade-out")
@@ -166,14 +166,14 @@ m(RedrawReporter, {data: "Hello"})
 </code></pre>
 <hr>
 <h3 id="onremove">onremove</h3>
-<p>The <code>onremove(vnode)</code> hook is called before a DOM element is removed from the document. If a <code>onbeforeremove</code> hook is also defined, the <code>onremove</code> hook runs after the promise returned from <code>onbeforeremove</code> is completed.</p>
-<p>This hook is called on any element that is removed from the document, regardless of whether it was directly detached from its parent or whether it is a child of another element that was detached.</p>
-<p>Like in other hooks, the <code>this</code> keyword in the <code>onremove</code> callback points to <code>vnode.state</code>. DOM elements whose vnodes have an <code>onremove</code> hook do not get recycled.</p>
-<p>The <code>onremove</code> hook is useful for running clean up tasks.</p>
+<p><code>onremove(vnode)</code>フックはDOMエレメントがドキュメントから取り外される時に呼ばれます。もし<code>onbeforeremove</code>フックが定義されていると、<code>onremove</code>は<code>onbeforeremove</code>が完了した後に呼び出されます。</p>
+<p>このフックはその要素が親から直接削除される要素であったり、他の削除されるエレメントの子供であっても、ドキュメントから削除されるときに呼び出されます。</p>
+<p>他のフックと同じように<code>onremove</code>コールバック内では、<code>this</code>は<code>vnode.state</code>を指します。<code>onremove</code>フックを持つvnodeに関連するDOMエレメントはリサイクルされません。</p>
+<p><code>onremove</code>は後片付けを行うタスクに最適です。</p>
 <pre><code class="lang-javascript">var Timer = {
     oninit: function(vnode) {
         this.timeout = setTimeout(function() {
-            console.log("timed out")
+            console.log("タイムアウト")
         }, 1000)
     },
     onremove: function(vnode) {
@@ -184,20 +184,20 @@ m(RedrawReporter, {data: "Hello"})
 </code></pre>
 <hr>
 <h3 id="onbeforeupdate">onbeforeupdate</h3>
-<p>The <code>onbeforeupdate(vnode, old)</code> hook is called before a vnode is diffed in a update. If this function is defined and returns false, Mithril prevents a diff from happening to the vnode, and consequently to the vnode's children.</p>
-<p>This hook by itself does not prevent a virtual DOM subtree from being generated unless the subtree is encapsulated within a component.</p>
-<p>Like in other hooks, the <code>this</code> keyword in the <code>onbeforeupdate</code> callback points to <code>vnode.state</code>.</p>
-<p>This hook is useful to reduce lag in updates in cases where there is a overly large DOM tree.</p>
+<p><code>onbeforeupdate(vnode, old)</code>は更新時にvnodeの差分比較の前に呼び出されます。もしこの関数が定義されてfalseを返すと、Mithrilは差分検知をスキップします。その子要素もスキップされます。</p>
+<p>このフック自体は、サブツリーがコンポーネント内にカプセル化されていない限り、仮想DOMサブツリーが生成されることを抑制しません。</p>
+<p>他のフックと同じように<code>onbeforeupdate</code>コールバック内では、<code>this</code>は<code>vnode.state</code>を指します。</p>
+<p>このフックは、とても巨大なDOMツリーの更新時のラグを減らすのに役立ちます。</p>
 <hr>
 <h3 id="avoid-anti-patterns">アンチパターンを避ける</h3>
 <p>Mithrilは制約が少なく柔軟ですが、いつくか非推奨のコードパターンがあります。</p>
-<h4 id="avoid-premature-optimizations">Avoid premature optimizations</h4>
-<p>You should only use <code>onbeforeupdate</code> to skip diffing as a last resort. Avoid using it unless you have a noticeable performance issue.</p>
-<p>Typically performance problems that can be fixed via <code>onbeforeupdate</code> boil down to one large array of items. In this context, typically "large" means any array that contains a large number of nodes, be it in a wide spread (the infamous 5000 row table), or in a deep, dense tree.</p>
-<p>If you do have a performance issue, first consider whether the UI presents a good user experience and change it if it doesn't. For example, it's highly unlikely that a user would ever sift through 5000 rows of raw table data, and highly likely that it would be easier for a user to use a search feature that returns only the top few most relevant items.</p>
-<p>If a design-based solution is not feasible, and you must optimize a UI with a large number of DOM element, apply <code>onbeforeupdate</code> on the parent node of the largest array and re-evaluate performance. In the vast majority of cases, a single check should be sufficient. In the rare case that it is not, rinse and repeat, but you should be increasingly wary of each new <code>onbeforeupdate</code> declaration. Multiple <code>onbeforeupdate</code>s are a code smell that indicates prioritization problems in the design workflow.</p>
-<p>Avoid applying the optimization to other areas of your application "just-in-case". Remember that, generally speaking, more code incurs a higher maintenance cost than less code, and <code>onbeforeupdate</code> related bugs can be especially difficult to troubleshoot if you rely on object identity for its conditional checks.</p>
-<p>Again, <strong>the <code>onbeforeupdate</code> hook should only be used as a last resort.</strong></p>
+<h4 id="avoid-premature-optimizations">早すぎる最適化を避ける</h4>
+<p><code>onbeforeupdate</code>による差分検知のスキップは最終手段です。パフォーマンスの問題が最優先出ない限りは使うのを避けましょう。</p>
+<p>通常、<code>onbeforeupdate</code>で修正できるパフォーマンス上の問題は、要素が多すぎる巨大な配列が原因です。この文脈では「大きな」とは、多数のノードを含む巨大なスプレッドシート（悪名高い5000行のテーブル）か、深くて密なツリーの配列のことです。</p>
+<p>パフォーマンス上の問題がある場合は、最初にUIが提供するユーザーエクスペリエンスが適切かどうかを検討し、そうでない場合は変更してください。たとえば、ユーザーが5000行の表を調べる可能性は非常に低く、ユーザーに最も関連性の高い項目のみを常時する検索機能を使用する方が良いでしょう。</p>
+<p>設計の改善で解決できず、多数のDOM要素を持つUIを最適化する必要がある時は、最大配列の親ノードで<code> onbeforeupdate</code>を適用し、パフォーマンスを検証してください。ほとんどの場合、1回のチェックで十分です。たまにこのケースに合わせないこともありますが、<code>onbeforeupdate</code>宣言は注意深く使わなければなりません。<code>onbeforeupdate</code>がいくつも登場するのであれば、デザインワークフローに重大な問題が発生しているはずです。</p>
+<p>その場限りの最適化をアプリケーション内で流用してもいけません。コードが多くなればなるほど保守コストが上がります。<code> onbeforeupdate</code>関連のバグは、オブジェクトIDで条件チェックを行う必要があるため、トラブルの解決が特に難しくなります。</p>
+<p>繰り返しになりますが、<strong><code>onbeforeupdate</code>フックは最後の手段としてのみ使用してください。</strong></p>
 
 				<hr />
 				<small>License: MIT. © Leo Horie.</small>

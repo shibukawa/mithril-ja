@@ -1118,6 +1118,14 @@ npm start</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>#debugging-key-related-issues</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123827Z" creationid="shibukawa.yoshiki" creationdate="20170329T123827Z">
+        <seg>#debugging-key-related-issues</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>#defining-routes</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T004205Z" creationid="shibukawa.yoshiki" creationdate="20170328T004205Z">
@@ -1146,6 +1154,14 @@ npm start</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T003721Z" creationid="shibukawa.yoshiki" creationdate="20170328T003721Z">
         <seg>#difference-between-computation-methods-and-m-redraw</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>#differences-from-mrender</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T144948Z" creationid="shibukawa.yoshiki" creationdate="20170329T144948Z">
+        <seg>#differences-from-mrender</seg>
       </tuv>
     </tu>
     <tu>
@@ -1186,6 +1202,14 @@ npm start</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T000051Z" creationid="shibukawa.yoshiki" creationdate="20170222T000051Z">
         <seg>#dynamic-urls</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>#error-handling</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004517Z" creationid="shibukawa.yoshiki" creationdate="20170330T004517Z">
+        <seg>#error-handling</seg>
       </tuv>
     </tu>
     <tu>
@@ -1294,10 +1318,26 @@ npm start</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>#how-to-use</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123822Z" creationid="shibukawa.yoshiki" creationdate="20170329T123822Z">
+        <seg>#how-to-use</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>#hybrid-architecture</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T002759Z" creationid="shibukawa.yoshiki" creationdate="20170328T002759Z">
         <seg>#hybrid-architecture</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>#instance-members</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004431Z" creationid="shibukawa.yoshiki" creationdate="20170330T004431Z">
+        <seg>#instance-members</seg>
       </tuv>
     </tu>
     <tu>
@@ -1510,6 +1550,14 @@ npm start</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>#multiple-promises</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004534Z" creationid="shibukawa.yoshiki" creationdate="20170330T004534Z">
+        <seg>#multiple-promises</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>#navigating-to-different-routes</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T000605Z" creationid="shibukawa.yoshiki" creationdate="20170222T000605Z">
@@ -1574,6 +1622,54 @@ npm start</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>#onbeforeremove</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132824Z" creationid="shibukawa.yoshiki" creationdate="20170329T132824Z">
+        <seg>#onbeforeremove</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>#onbeforeupdate</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132826Z" creationid="shibukawa.yoshiki" creationdate="20170329T132826Z">
+        <seg>#onbeforeupdate</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>#oncreate</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132821Z" creationid="shibukawa.yoshiki" creationdate="20170329T132821Z">
+        <seg>#oncreate</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>#oninit</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132820Z" creationid="shibukawa.yoshiki" creationdate="20170329T132820Z">
+        <seg>#oninit</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>#onremove</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132825Z" creationid="shibukawa.yoshiki" creationdate="20170329T132825Z">
+        <seg>#onremove</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>#onupdate</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132822Z" creationid="shibukawa.yoshiki" creationdate="20170329T132822Z">
+        <seg>#onupdate</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>#opting-out-of-the-auto-redrawing-system</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T003505Z" creationid="shibukawa.yoshiki" creationdate="20170328T003505Z">
@@ -1630,6 +1726,14 @@ npm start</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>#performance-considerations</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T144946Z" creationid="shibukawa.yoshiki" creationdate="20170329T144946Z">
+        <seg>#performance-considerations</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>#persisting-config-data</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T003824Z" creationid="shibukawa.yoshiki" creationdate="20170328T003824Z">
@@ -1674,6 +1778,70 @@ npm start</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T004006Z" creationid="shibukawa.yoshiki" creationdate="20170328T004006Z">
         <seg>#processing-web-service-data</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>#promise-absorption</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004450Z" creationid="shibukawa.yoshiki" creationdate="20170330T004450Z">
+        <seg>#promise-absorption</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>#promise-chaining</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004440Z" creationid="shibukawa.yoshiki" creationdate="20170330T004440Z">
+        <seg>#promise-chaining</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>#promiseall</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004428Z" creationid="shibukawa.yoshiki" creationdate="20170330T004428Z">
+        <seg>#promiseall</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>#promisecatch</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004435Z" creationid="shibukawa.yoshiki" creationdate="20170330T004435Z">
+        <seg>#promisecatch</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>#promiserace</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004430Z" creationid="shibukawa.yoshiki" creationdate="20170330T004430Z">
+        <seg>#promiserace</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>#promisereject</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004426Z" creationid="shibukawa.yoshiki" creationdate="20170330T004426Z">
+        <seg>#promisereject</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>#promiseresolve</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004424Z" creationid="shibukawa.yoshiki" creationdate="20170330T004424Z">
+        <seg>#promiseresolve</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>#promisethen</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004433Z" creationid="shibukawa.yoshiki" creationdate="20170330T004433Z">
+        <seg>#promisethen</seg>
       </tuv>
     </tu>
     <tu>
@@ -1858,6 +2026,14 @@ npm start</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T003452Z" creationid="shibukawa.yoshiki" creationdate="20170328T003452Z">
         <seg>#shorthand-syntax</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>#shorthands</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004526Z" creationid="shibukawa.yoshiki" creationdate="20170330T004526Z">
+        <seg>#shorthands</seg>
       </tuv>
     </tu>
     <tu>
@@ -2062,6 +2238,14 @@ npm start</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>#the-dom-element-lifecycle</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132808Z" creationid="shibukawa.yoshiki" creationdate="20170329T132808Z">
+        <seg>#the-dom-element-lifecycle</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>#the-exception-monitor</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T003746Z" creationid="shibukawa.yoshiki" creationdate="20170328T003746Z">
@@ -2206,6 +2390,14 @@ npm start</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>#what-are-keys</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123816Z" creationid="shibukawa.yoshiki" creationdate="20170329T123816Z">
+        <seg>#what-are-keys</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>#what-is-fantasy-land</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T030559Z" creationid="shibukawa.yoshiki" creationdate="20170222T030559Z">
@@ -2226,6 +2418,14 @@ npm start</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T000136Z" creationid="shibukawa.yoshiki" creationdate="20170222T000136Z">
         <seg>#why-json-instead-of-html</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>#why-not-callbacks</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004549Z" creationid="shibukawa.yoshiki" creationdate="20170330T004549Z">
+        <seg>#why-not-callbacks</seg>
       </tuv>
     </tu>
     <tu>
@@ -2820,6 +3020,34 @@ body,.input,.button {font:normal 16px Verdana;margin:0;}
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>// &lt;button&gt;Mary&lt;/button&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T124906Z" creationid="shibukawa.yoshiki" creationdate="20170329T124906Z">
+        <seg>// &lt;button&gt;メアリー&lt;/button&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>// AVOID
+m("div", [</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132711Z" creationid="shibukawa.yoshiki" creationdate="20170329T132711Z">
+        <seg>// 避けるべきコード
+m("div", [</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>// AVOID
+users.map(function(u) {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T131614Z" creationid="shibukawa.yoshiki" creationdate="20170329T131614Z">
+        <seg>// 避けるべきコード
+users.map(function(u) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>// AVOID
 var BadInput = {</seg>
       </tuv>
@@ -2836,6 +3064,16 @@ var BadListComponent = {</seg>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T015924Z" creationid="shibukawa.yoshiki" creationdate="20170328T015924Z">
         <seg>// 避けるべきコード
 var BadListComponent = {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>// AVOID
+var Button = {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132013Z" creationid="shibukawa.yoshiki" creationdate="20170329T132013Z">
+        <seg>// 避けるべきコード
+var Button = {</seg>
       </tuv>
     </tu>
     <tu>
@@ -2876,6 +3114,16 @@ var RestrictiveComponent = {</seg>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170302T031118Z" creationid="shibukawa.yoshiki" creationdate="20170302T031118Z">
         <seg>// 避けるべきコード
 var RestrictiveComponent = {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>// AVOID
+var things = [</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132530Z" creationid="shibukawa.yoshiki" creationdate="20170329T132530Z">
+        <seg>// 避けるべきコード
+var things = [</seg>
       </tuv>
     </tu>
     <tu>
@@ -3046,6 +3294,16 @@ var BetterInput = {</seg>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T015441Z" creationid="shibukawa.yoshiki" creationdate="20170328T015441Z">
         <seg>// 望ましい明示的なコード
 var BetterInput = {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>// Sample hook in component
+var ComponentWithHook = {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T134553Z" creationid="shibukawa.yoshiki" creationdate="20170329T134553Z">
+        <seg>// コンポーネントのフックのサンプル
+var ComponentWithHook = {</seg>
       </tuv>
     </tu>
     <tu>
@@ -3778,6 +4036,16 @@ m.mount(document.body, MyComponent)</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T132050Z" creationid="shibukawa.yoshiki" creationdate="20160101T132050Z">
         <seg>//SELECTエレメントの拡張であるSelect2を作成します</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>//JSX
+var BigComponent = {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123421Z" creationid="shibukawa.yoshiki" creationdate="20170329T123421Z">
+        <seg>//JSX
+var BigComponent = {</seg>
       </tuv>
     </tu>
     <tu>
@@ -5060,6 +5328,14 @@ todo.Todo = function(data) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;/main&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T115623Z" creationid="shibukawa.yoshiki" creationdate="20170329T115623Z">
+        <seg>&lt;/main&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;/script&gt;
 &lt;/body&gt;</seg>
       </tuv>
@@ -5204,6 +5480,14 @@ todo.Todo = function(data) {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170327T165055Z" creationid="shibukawa.yoshiki" creationdate="20170327T165055Z">
         <seg>コンポーネントを使うとロジックを1つの塊にカプセル化し、1つのエレメントのように使えるようになります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Components and virtual DOM nodes can have lifecycle methods, also known as hooks, which are called at various points during the lifetime of a DOM element.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T134540Z" creationid="shibukawa.yoshiki" creationdate="20170329T134540Z">
+        <seg>コンポーネントと仮想DOMノードはライフサイクルメソッドを持つことができます。これはフックとも呼ばれ、DOM要素の生存期間のさまざまなポイントで呼ばれます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -5834,6 +6118,14 @@ todo.Todo = function(data) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>m.mount() is suitable for application developers integrating Mithril widgets into existing codebases where routing is handled by another library or framework, while still enjoying Mithril's auto-redrawing facilities.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T003212Z" creationid="shibukawa.yoshiki" creationdate="20170330T003212Z">
+        <seg>m.mount()は、Mithrilの自動再描画機能を利用しながら、Mithrilウィジェットを既存のコードベースに統合するアプリケーション開発者に適しています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>m.prop can also be used in conjunction with m.request and m.deferred to bind data on completion of an asynchronous operation.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T134821Z" creationid="shibukawa.yoshiki" creationdate="20150414T134821Z">
@@ -5854,6 +6146,14 @@ todo.Todo = function(data) {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150421T015835Z" creationid="shibukawa.yoshiki" creationdate="20150421T015835Z">
         <seg>m.redrawを使うと、Mithrilの自動再描画システムのスコープ外から、再描画を行わせることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>m.render() is suitable for library authors who wish to manually control rendering (e.g. when hooking to a third party router, or using third party data-layer libraries like Redux).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T003311Z" creationid="shibukawa.yoshiki" creationdate="20170330T003311Z">
+        <seg>m.render()は、レンダリングを手動で制御したい（例えば、サードパーティのラウターに接続する場合、や、Reduxのようなサードパーティのデータレイヤーライブラリを使用する場合など）ライブラリ作成者に適しています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6114,6 +6414,38 @@ todo.Todo = function(data) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>null unmounts the tree and cleans up internal state.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T160327Z" creationid="shibukawa.yoshiki" creationdate="20170329T160327Z">
+        <seg>nullを指定するとツリーをアンマウントし、内部状態を片付けます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>oncreate is guaranteed to run at the end of the render cycle, so it is safe to read layout values such as vnode.dom.offsetHeight and vnode.dom.getBoundingClientRect() from this method.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T141929Z" creationid="shibukawa.yoshiki" creationdate="20170329T141929Z">
+        <seg>oncreateはレンダリングサイクルの最後に呼ばれることが保証されています。そのため、vnode.dom.offsetHeightといったレイアウトに関する属性値にアクセスしたり、vnode.dom.getBoundingClientRect()といったメソッドを正常に利用できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>oninit is guaranteed to run before its DOM element is attached to the document, and it is guaranteed to run on parent vnodes before their children, but it does not offer any guarantees regarding the existence of ancestor or descendant DOM elements.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T141042Z" creationid="shibukawa.yoshiki" creationdate="20170329T141042Z">
+        <seg>oninitはDOMエレメントがドキュメントに追加される前に呼ばれることが保証されています。また、親のvnodeは子供のvnodeよりも先に呼ばれることが保証されています。しかし、親や子孫のDOM要素が存在する保証はありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>onupdate is guaranteed to run at the end of the render cycle, so it is safe to read layout values such as vnode.dom.offsetHeight and vnode.dom.getBoundingClientRect() from this method.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T142552Z" creationid="shibukawa.yoshiki" creationdate="20170329T142552Z">
+        <seg>onupdateはレンダリングサイクルの最後に呼ばれることが保証されています。そのため、vnode.dom.offsetHeightといったレイアウトに関する属性値にアクセスしたり、vnode.dom.getBoundingClientRect()といったメソッドを正常に利用できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>e.target.files is a list of File objects.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170219T155506Z" creationid="shibukawa.yoshiki" creationdate="20170219T155506Z">
@@ -6170,6 +6502,14 @@ todo.Todo = function(data) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;div</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123429Z" creationid="shibukawa.yoshiki" creationdate="20170329T123429Z">
+        <seg>&lt;div</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;div&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T004339Z" creationid="shibukawa.yoshiki" creationdate="20170328T004339Z">
@@ -6190,6 +6530,14 @@ todo.Todo = function(data) {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T015426Z" creationid="shibukawa.yoshiki" creationdate="20150416T015426Z">
         <seg>エラー: ユーザ名が違います</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Hello world</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T115622Z" creationid="shibukawa.yoshiki" creationdate="20170329T115622Z">
+        <seg>Hello world</seg>
       </tuv>
     </tu>
     <tu>
@@ -6700,6 +7048,14 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&gt;&lt;/div&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123433Z" creationid="shibukawa.yoshiki" creationdate="20170329T123433Z">
+        <seg>&gt;&lt;/div&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>?</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T002925Z" creationid="shibukawa.yoshiki" creationdate="20170328T002925Z">
@@ -6760,6 +7116,14 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170327T120304Z" creationid="shibukawa.yoshiki" creationdate="20170327T120304Z">
         <seg>CSSセレクター、もしくはコンポーネント</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A DOM element is typically created and appended to the document.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T135734Z" creationid="shibukawa.yoshiki" creationdate="20170329T135734Z">
+        <seg>DOMエレメントは作成されてからドキュメントに追加されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -6900,6 +7264,14 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A common pattern is to have data comprised of an array of objects and to generate a list of vnodes that map to each object in the array.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T124834Z" creationid="shibukawa.yoshiki" creationdate="20170329T124834Z">
+        <seg>オブジェクトの配列で構成されるデータを元に、配列内の各オブジェクトと対応するvnodeのリストを生成するのが一般的な使用方法です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A component can be re-initialized from scratch by changing the key associated with it.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T085454Z" creationid="shibukawa.yoshiki" creationdate="20150502T085454Z">
@@ -6936,6 +7308,14 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T100430Z" creationid="shibukawa.yoshiki" creationdate="20150502T100430Z">
         <seg>コンポーネントは、controllerとviewのキーを持つオブジェクトです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A component rendered via m.mount automatically auto-redraws in response to view events, m.redraw() calls or m.request() calls.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T170619Z" creationid="shibukawa.yoshiki" creationdate="20170329T170619Z">
+        <seg>m.mount によってレンダリングされたコンポーネントは、ビューイベント、m.redraw()呼び出し、またはm.request()イベントに応答して再描画を自動で行います。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7064,6 +7444,14 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170219T074515Z" creationid="shibukawa.yoshiki" creationdate="20170219T074515Z">
         <seg>XMLHttpRequestのレスポンスをどのように読み込むかを指定するフック関数です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A key-value map</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T003843Z" creationid="shibukawa.yoshiki" creationdate="20170330T003843Z">
+        <seg>キー・バリューのマップ</seg>
       </tuv>
     </tu>
     <tu>
@@ -7244,6 +7632,14 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A querystring</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T003836Z" creationid="shibukawa.yoshiki" creationdate="20170330T003836Z">
+        <seg>クエリー文字列</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A route with parameters might look like this:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T170600Z" creationid="shibukawa.yoshiki" creationdate="20150414T170600Z">
@@ -7296,6 +7692,14 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170206T133222Z" creationid="shibukawa.yoshiki" creationdate="20170206T133222Z">
         <seg>入力されたオブジェクトの文字列表現</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A typical symptom of key related issues is that application state appears to become corrupted after a few user interactions (usually involving a deletion).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T131406Z" creationid="shibukawa.yoshiki" creationdate="20170329T131406Z">
+        <seg>キーにまつわる良くある症状は、ユーザーのインタラクションを何度か実行すると（削除が関係することが多い）、アプリケーションの状態が壊れて見えることです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7436,6 +7840,14 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Activates a component, enabling it to autoredraw on user events</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T160239Z" creationid="shibukawa.yoshiki" creationdate="20170329T160239Z">
+        <seg>コンポーネントを有効にし、ユーザーイベントに反応して自動再描画が起動するようにします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Add this line of code under the previous one:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T025814Z" creationid="shibukawa.yoshiki" creationdate="20170131T025814Z">
@@ -7516,6 +7928,14 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>After an element is removed, it may be temporarily retained in a memory pool.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T140357Z" creationid="shibukawa.yoshiki" creationdate="20170329T140357Z">
+        <seg>エレメントが取り除かれると、一時的にメモリプールの中に保持されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>After event handlers</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170206T120721Z" creationid="shibukawa.yoshiki" creationdate="20170206T120721Z">
@@ -7552,6 +7972,14 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T140302Z" creationid="shibukawa.yoshiki" creationdate="20150416T140302Z">
         <seg>再描画が完了すると、Mithrilは再描画がラウトの変更に起因するものかどうかによって、この設定を"all"か"diff"に変更します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Again, the onbeforeupdate hook should only be used as a last resort.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T144914Z" creationid="shibukawa.yoshiki" creationdate="20170329T144914Z">
+        <seg>繰り返しになりますが、onbeforeupdateフックは最後の手段としてのみ使用してください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7608,6 +8036,14 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170220T054155Z" creationid="shibukawa.yoshiki" creationdate="20170220T054155Z">
         <seg>それ以降の手順はすべて自動化されています。次の手順で実行されます:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>All lifecyle methods receive the vnode as their first arguments, and have their this keyword bound to vnode.state.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T135615Z" creationid="shibukawa.yoshiki" creationdate="20170329T135615Z">
+        <seg>すべてのライフサイクルメソッドはvnodeを最初の引数として受け取ります。また、thisキーワードはvnode.stateに束縛されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7700,6 +8136,14 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Also, the performance characteristics of various DOM operations vary between implementations and can be difficult to learn and optimize for all browsers.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T165906Z" creationid="shibukawa.yoshiki" creationdate="20170329T165906Z">
+        <seg>また、DOM操作のパフォーマンス特性はブラウザ実装によって異なるため、すべてのブラウザで最適化するのが簡単ではありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Also, there's an extra field error for holding an error message, and the view of the Todos component was modified to displays an error message if one exists, or display a loading icon if Data.todos.list is not an array.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170219T145113Z" creationid="shibukawa.yoshiki" creationdate="20170219T145113Z">
@@ -7712,6 +8156,14 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T002845Z" creationid="shibukawa.yoshiki" creationdate="20170329T002845Z">
         <seg>Mithrilを使う別の方法</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Alternating reads and writes can adversely affect performance by causing several browser repaints to occur in quick succession, whereas comparing virtual dom trees allows writes to be batched into a single repaint.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T165817Z" creationid="shibukawa.yoshiki" creationdate="20170329T165817Z">
+        <seg>読取りと書込みを交互に行うと、ブラウザに寄っては再表示が連続して発生しパフォーマンスに悪影響を及ぼします。一方、仮想DOMツリーでは再描画1回のコストで済みます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -7760,6 +8212,14 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T034917Z" creationid="shibukawa.yoshiki" creationdate="20150502T034917Z">
         <seg>アップロードが完了するとアラートボックスが表示されます。"),</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>An array of vnodes must have only keyed vnodes or non-keyed vnodes, but not both.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132652Z" creationid="shibukawa.yoshiki" creationdate="20170329T132652Z">
+        <seg>１つのvnode配列では、キーありのvnodeのみ、あるいはキーなしのvnodeのみのどちらかが許されます。両方を混ぜることはできません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -8196,6 +8656,14 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Arrays are vnodes, and therefore keyable.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132202Z" creationid="shibukawa.yoshiki" creationdate="20170329T132202Z">
+        <seg>配列はvnodeのリストで、これ自身にキーを設定できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Arrays now represent fragments, which are structurally significant in v1.x virtual DOM. Whereas nested arrays in v0.2.x would be flattened into one continuous list of virtual nodes for the purposes of diffing, v1.x preserves the array structure - the children of any given array are not considered siblings of those of adjacent arrays.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170201T050850Z" creationid="shibukawa.yoshiki" creationdate="20170201T050850Z">
@@ -8572,6 +9040,14 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Avoid applying the optimization to other areas of your application "just-in-case".</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T144654Z" creationid="shibukawa.yoshiki" creationdate="20170329T144654Z">
+        <seg>その場限りの最適化をアプリケーション内で流用してもいけません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Avoid creating component definitions inside views</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170302T035234Z" creationid="shibukawa.yoshiki" creationdate="20170302T035234Z">
@@ -8620,6 +9096,30 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Avoid hiding keys in component root elements</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T131829Z" creationid="shibukawa.yoshiki" creationdate="20170329T131829Z">
+        <seg>コンポーネントのルート要素のキーを隠さない</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Avoid mixing keyed and non-keyed vnodes in the same array</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132612Z" creationid="shibukawa.yoshiki" creationdate="20170329T132612Z">
+        <seg>同じ配列で、キー付きの要素とキーなしのvnodeを混ぜない</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Avoid premature optimizations</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T143910Z" creationid="shibukawa.yoshiki" creationdate="20170329T143910Z">
+        <seg>早すぎる最適化を避ける</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Avoid restrictive interfaces</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170302T025912Z" creationid="shibukawa.yoshiki" creationdate="20170302T025912Z">
@@ -8632,6 +9132,38 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T015631Z" creationid="shibukawa.yoshiki" creationdate="20170328T015631Z">
         <seg>ビューメソッド内で文を避ける</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Avoid using it unless you have a noticeable performance issue.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T144014Z" creationid="shibukawa.yoshiki" creationdate="20170329T144014Z">
+        <seg>パフォーマンスの問題が最優先出ない限りは使うのを避けましょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Avoid variable types</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132339Z" creationid="shibukawa.yoshiki" creationdate="20170329T132339Z">
+        <seg>型を統一する</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Avoid wrapper elements around keyed elements</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T131745Z" creationid="shibukawa.yoshiki" creationdate="20170329T131453Z">
+        <seg>キーが付与されたエレメントをラップしない</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Avoid wrapping keyed elements in arrays</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132125Z" creationid="shibukawa.yoshiki" creationdate="20170329T132125Z">
+        <seg>キーが設定されたエレメントを配列でラップしない</seg>
       </tuv>
     </tu>
     <tu>
@@ -8864,6 +9396,14 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T004240Z" creationid="shibukawa.yoshiki" creationdate="20170328T004240Z">
         <seg>Boolean shouldReplaceHistory</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Boolean type casting</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T003938Z" creationid="shibukawa.yoshiki" creationdate="20170330T003920Z">
+        <seg>ブール型キャスト</seg>
       </tuv>
     </tu>
     <tu>
@@ -9888,6 +10428,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Components can be used by using a convention of uppercasing the first letter of the component name:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T121044Z" creationid="shibukawa.yoshiki" creationdate="20170329T121044Z">
+        <seg>コンポーネント名の最初の文字を大文字にすることで、コンポーネントも使用できます:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Components can have arguments "preloaded".</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T075023Z" creationid="shibukawa.yoshiki" creationdate="20150502T075023Z">
@@ -9932,6 +10480,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T000648Z" creationid="shibukawa.yoshiki" creationdate="20170222T000648Z">
         <seg>Component|Promise</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Component|null</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T160247Z" creationid="shibukawa.yoshiki" creationdate="20170329T160247Z">
+        <seg>Component|null</seg>
       </tuv>
     </tu>
     <tu>
@@ -10288,6 +10844,38 @@ var ContactsWidget = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>DOM elements whose vnodes have an onbeforeremove hook do not get recycled.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T143126Z" creationid="shibukawa.yoshiki" creationdate="20170329T143126Z">
+        <seg>onbeforeremoveフックを持つvnodeに関連するDOMエレメントはリサイクルされません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>DOM elements whose vnodes have an oncreate hook do not get recycled.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T142107Z" creationid="shibukawa.yoshiki" creationdate="20170329T142107Z">
+        <seg>oncreateフックを持つvnodeに関連するDOMエレメントはリサイクルされません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>DOM elements whose vnodes have an onremove hook do not get recycled.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T143436Z" creationid="shibukawa.yoshiki" creationdate="20170329T143436Z">
+        <seg>onremoveフックを持つvnodeに関連するDOMエレメントはリサイクルされません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>DOM elements whose vnodes have an onupdate hook do not get recycled.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T142731Z" creationid="shibukawa.yoshiki" creationdate="20170329T142731Z">
+        <seg>onupdateフックを持つvnodeに関連するDOMエレメントはリサイクルされません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>DOM manipulation should be done in the view via m() and config.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150421T021348Z" creationid="shibukawa.yoshiki" creationdate="20150421T021246Z">
@@ -10460,6 +11048,14 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T050550Z" creationid="shibukawa.yoshiki" creationdate="20150502T050550Z">
         <seg>状態の取り扱い</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Debugging key related issues</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123838Z" creationid="shibukawa.yoshiki" creationdate="20170329T123838Z">
+        <seg>キーにまつわる問題のデバッグ</seg>
       </tuv>
     </tu>
     <tu>
@@ -10804,6 +11400,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Differences from m.render</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T160758Z" creationid="shibukawa.yoshiki" creationdate="20170329T144949Z">
+        <seg>m.renderとの違い</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Different DOM elements have different attributes, and often different behaviors.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T014916Z" creationid="shibukawa.yoshiki" creationdate="20170328T014916Z">
@@ -11100,10 +11704,26 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Error handling</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004522Z" creationid="shibukawa.yoshiki" creationdate="20170330T004522Z">
+        <seg>エラーハンドリング</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Even better would be to submit a pull request with a fix and tests.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170306T014234Z" creationid="shibukawa.yoshiki" creationdate="20170306T014234Z">
         <seg>もちろん、バグの修正と再現テストをPull Requestで送るのが最良の方法です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Even though in this particular example, we humans intuitively guess that the first item in the list was the one being removed, it's actually impossible for a computer to automatically solve this problem for all possible inputs.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T130109Z" creationid="shibukawa.yoshiki" creationdate="20170329T130109Z">
+        <seg>この例の場合、人間は直感的にリストの最初の項目が削除されたものと推測しますが、すべてのケースに対してこの問題を正しく解決することは不可能です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11352,6 +11972,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For convenience, the m.parseQueryString method ignores a leading question mark, if present:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004243Z" creationid="shibukawa.yoshiki" creationdate="20170330T004243Z">
+        <seg>よく使うケースを考慮して、m.parseQueryStringメソッドは先頭に？マークがあっても無視します:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For developer convenience, Mithril makes an exception for the class attribute: if there are classes defined in both parameters, they are concatenated as a space separated list.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150413T153249Z" creationid="shibukawa.yoshiki" creationdate="20150413T153249Z">
@@ -11424,6 +12052,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For example, consider the following code:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T124851Z" creationid="shibukawa.yoshiki" creationdate="20170329T124851Z">
+        <seg>例えば、次のようなコードについて見てみましょう:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For example, if type is the following class:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150415T013847Z" creationid="shibukawa.yoshiki" creationdate="20150415T013847Z">
@@ -11488,10 +12124,26 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For example, in some implementations, reading childNodes.length has a complexity of O(n); in some, reading parentNode causes a repaint, etc.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T170023Z" creationid="shibukawa.yoshiki" creationdate="20170329T170023Z">
+        <seg>例えば、childNodes.lengthにアクセスするだけO(n)のコストがかかり、parentNodeにアクセスすると再描画が行われるブラウザもあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For example, in the Javascript API, the readonly attribute is called element.readOnly (notice the uppercase).</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170327T162130Z" creationid="shibukawa.yoshiki" creationdate="20170327T162130Z">
         <seg>例えば、readonly属性は、JavaScriptのAPIでは大文字混じりのelement.readOnlyとなります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For example, it's highly unlikely that a user would ever sift through 5000 rows of raw table data, and highly likely that it would be easier for a user to use a search feature that returns only the top few most relevant items.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T144320Z" creationid="shibukawa.yoshiki" creationdate="20170329T144320Z">
+        <seg>たとえば、ユーザーが5000行の表を調べる可能性は非常に低く、ユーザーに最も関連性の高い項目のみを常時する検索機能を使用する方が良いでしょう。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11716,6 +12368,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170206T105746Z" creationid="shibukawa.yoshiki" creationdate="20170206T105746Z">
         <seg>幸い、Mithril 1.0以降ではonbeforeremoveフックを提供しており、要素の削除を遅延させるのが簡単に行えるようになりました。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Fortunately, Mithril supports standard HTML attribute names, and thus, this example can be written like regular HTML: &lt;div class="test"&gt;&lt;/div&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T122511Z" creationid="shibukawa.yoshiki" creationdate="20170329T122511Z">
+        <seg>幸い、Mithrilは標準のHTML属性名をサポートしているため、このサンプルは通常のHTMLと同じく、&lt;div class="test"&gt;&lt;/div&gt;と書くことができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12388,6 +13048,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>How to use</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123827Z" creationid="shibukawa.yoshiki" creationdate="20170329T123827Z">
+        <seg>どのように使うか？</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>However, Javascript arrays cannot be keyed or hold lifecycle methods.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170327T115240Z" creationid="shibukawa.yoshiki" creationdate="20170327T115240Z">
@@ -12516,6 +13184,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Hyperscript is the compiled representation of JSX.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T122904Z" creationid="shibukawa.yoshiki" creationdate="20170329T122904Z">
+        <seg>HyperscriptはJSXをコンパイルした後の表現です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Hyperscript is the most idiomatic way of writing Mithril views, but JSX is another popular alternative that you could explore once you're more comfortable with the basics:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170220T123449Z" creationid="shibukawa.yoshiki" creationdate="20170220T123449Z">
@@ -12530,6 +13206,14 @@ where:</seg>
         <seg>Hyperscriptは、複雑なタグのHTMLよりも自然に字下げできる簡潔な構文を提供します。また、その構文は単純にJavascriptなので、Javascriptツールのエコシステムを多く活用することができます。例えばBabel、JSX（インラインHTML構文拡張 ）、eslint（linting）、uglifyjs（minification）、istanbul（コードカバレッジ）、flow（静的型分析）など。
 
 Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にインデントできる、完結な構文でテンプレートが記述できます。それに加えて、Babel, JSX (インラインのHTML文法拡張), eslint (構文チェック), uglifyjs (コードサイズ縮小化), istanbul (コードカバレッジ), flow (静的な型解析) などのさまざまなJavaScriptのツールを活用することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Hyperscript tends to be terser than JSX for a couple of reasons:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123243Z" creationid="shibukawa.yoshiki" creationdate="20170329T123243Z">
+        <seg>次の理由により、HyperscriptはJSXよりもシンプルになる傾向があります:</seg>
       </tuv>
     </tu>
     <tu>
@@ -12662,6 +13346,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If element already has a DOM tree mounted via a previous m.mount() call, the component is diffed against the previous vnode tree and the existing DOM tree is modified only where needed to reflect the changes.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T160612Z" creationid="shibukawa.yoshiki" creationdate="20170329T160612Z">
+        <seg>もしelementに対して以前m.mount()が呼ばれていてマウント済みだった場合は、その以前のvnodeと現在のDOMツリーの差分を取り、変更が必要な個所だけ更新します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If NPM is installed correctly, a file package.json will be created.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170207T071426Z" creationid="shibukawa.yoshiki" creationdate="20170207T071426Z">
@@ -12674,6 +13366,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170327T230650Z" creationid="shibukawa.yoshiki" creationdate="20170327T230650Z">
         <seg>もしonbeforeremoveフックが定義されていると、onremoveはdoneが呼ばれた後に呼び出されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If a onbeforeremove hook is also defined, the onremove hook runs after the promise returned from onbeforeremove is completed.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T143317Z" creationid="shibukawa.yoshiki" creationdate="20170329T143317Z">
+        <seg>もしonbeforeremoveフックが定義されていると、onremoveはonbeforeremoveが完了した後に呼び出されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12738,6 +13438,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170219T075012Z" creationid="shibukawa.yoshiki" creationdate="20170219T075012Z">
         <seg>もし、カスタムのextractコールバックがセットされると、options.deserializeは無視されます。extractコールバックが返す文字列は自動でJSONにパースされなくなります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If a design-based solution is not feasible, and you must optimize a UI with a large number of DOM element, apply onbeforeupdate on the parent node of the largest array and re-evaluate performance.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T144417Z" creationid="shibukawa.yoshiki" creationdate="20170329T144417Z">
+        <seg>設計の改善で解決できず、多数のDOM要素を持つUIを最適化する必要がある時は、最大配列の親ノードで onbeforeupdateを適用し、パフォーマンスを検証してください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13022,6 +13730,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If the first button was focused and the rendering engine removes it, then focus goes back to &lt;body&gt; as expected, but if the rendering engine removes the second button and modifies the text content of the first, then the focus will be on the wrong button after the update.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T125904Z" creationid="shibukawa.yoshiki" creationdate="20170329T125817Z">
+        <seg>もし最初のボタンにフォーカスがあった時にレンダリングエンジンがこの要素を削除すると、フォーカスは&lt;body&gt;に戻ることが期待されますが、二番目の要素を削除した上で最初の要素のテキストを修正してしまうと、更新後にフォーカスが間違ったボタンに残ってしまいます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If the method is run more than once with the same root element, it diffs the new tree against the existing one and intelligently modifies only the portions that have changed.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T020105Z" creationid="shibukawa.yoshiki" creationdate="20150416T020105Z">
@@ -13074,6 +13790,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150413T155516Z" creationid="shibukawa.yoshiki" creationdate="20150413T155516Z">
         <seg>この属性が文字列の場合は、テキストノードとしてレンダリングされます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If this function is defined and returns false, Mithril prevents a diff from happening to the vnode, and consequently to the vnode's children.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T143641Z" creationid="shibukawa.yoshiki" creationdate="20170329T143641Z">
+        <seg>もしこの関数が定義されてfalseを返すと、Mithrilは差分検知をスキップします。その子要素もスキップされます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13162,6 +13886,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170302T043141Z" creationid="shibukawa.yoshiki" creationdate="20170302T043141Z">
         <seg>もしコンポーネントをviewメソッドの中で作成している（直接生成するか、そこから呼び出している関数で生成しているかにかかわらず）場合、再描画のたびにコンポーネントの別のクローンが生成されることになります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you do have a performance issue, first consider whether the UI presents a good user experience and change it if it doesn't.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T144233Z" creationid="shibukawa.yoshiki" creationdate="20170329T144233Z">
+        <seg>パフォーマンス上の問題がある場合は、最初にUIが提供するユーザーエクスペリエンスが適切かどうかを検討し、そうでない場合は変更してください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13278,6 +14010,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If you need to mix them, create a nested array.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132706Z" creationid="shibukawa.yoshiki" creationdate="20170329T132706Z">
+        <seg>もし混ぜる必要があるのであれば、ネストした配列を作ります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If you need to persist DOM state across route changes, it's recommended that you use the ctx.retain flag instead of m.redraw.strategy("diff").</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T133349Z" creationid="shibukawa.yoshiki" creationdate="20150502T133349Z">
@@ -13314,6 +14054,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T002800Z" creationid="shibukawa.yoshiki" creationdate="20170329T002800Z">
         <seg>bin/app.jsを開くと、WebPackが生成したバンドルファイルがミニファイされていないことが分かります。これはアプリケーションをこのまま実際にリリースするには最適化の余地があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you refactor the code and put the button inside a component, the key must be moved out of the component and placed back where the component took the place of the button.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132007Z" creationid="shibukawa.yoshiki" creationdate="20170329T132007Z">
+        <seg>もしコードをリファクタリングしてボタンをコンポーネント内にまとめた時は、キーをコンポーネントの外側に移動し、コンポーネントとボタンが入れ替わった位置に適切に戻します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13998,6 +14746,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In addition, since hyperscript is plain Javascript, it's often more natural to indent than JSX:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123414Z" creationid="shibukawa.yoshiki" creationdate="20170329T123414Z">
+        <seg>それに加えて、HyperscriptはプレーンなJavaScriptなので、JSXよりも自然にインデントができます:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In addition, this guide section covers topics related to how to fit all the pieces together.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150417T114636Z" creationid="shibukawa.yoshiki" creationdate="20150417T114636Z">
@@ -14110,6 +14866,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In contrast, traversing a javascript data structure has a much more predictable and sane performance profile, and in addition, a vnode tree is implemented in such a way that enables modern javascript engines to apply aggressive optimizations such as hidden classes for even better performance.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T170443Z" creationid="shibukawa.yoshiki" creationdate="20170329T170406Z">
+        <seg>JavaScriptのデータ構造のトラバースでは、割り込みが入ることもなく予測可能で安定したパフォーマンス特性を発揮します。これに加えて、モダンなJavaScriptエンジンではhidden classのような積極的な最適化を行います。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In example 2, since Layout is the top-level component in both routes, the DOM for the Layout component is diffed (i.e. left intact if it has no changes), and only the change from Home to Form triggers a recreation of that subsection of the DOM.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170208T074619Z" creationid="shibukawa.yoshiki" creationdate="20170208T074619Z">
@@ -14194,6 +14958,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T001711Z" creationid="shibukawa.yoshiki" creationdate="20170329T001607Z">
         <seg>ほとんどのMithrilアプリケーションでは、m.mount（複数スクリーンを扱うときはm.route）を使うことになります。これらの関数を使うと、変更が必要な時に手動で再描画を実行しなくても、自動再描画システムのメリットが享受できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In non-trivial applications, it's possible for components to have more control flow and component configuration code than markup, making a Javascript-first approach more readable than an HTML-first approach.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123717Z" creationid="shibukawa.yoshiki" creationdate="20170329T123717Z">
+        <seg>重要なアプリケーションでは、コンポーネントがマークアップよりも多くの制御フローとコンポーネント設定コードを持つことがあるため、JavaScriptファーストのアプローチの方が、HTMLファーストアプローチよりも読みやすくなります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14346,6 +15118,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T164806Z" creationid="shibukawa.yoshiki" creationdate="20150407T164806Z">
         <seg>Mithrilを使用する場合は、zipファイルを展開し、その中の.jsファイルをscriptタグを使って指定してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In other words, a key is a way of saying "this DOM element is for the data object with this id".</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T124620Z" creationid="shibukawa.yoshiki" creationdate="20170329T124620Z">
+        <seg>いいかえると、キーは「このDOMエレメントは、このIDを持つデータオブジェクトを表しているデータだ」と説明するための機能です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14854,6 +15634,22 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In the rare case that it is not, rinse and repeat, but you should be increasingly wary of each new onbeforeupdate declaration.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T144530Z" creationid="shibukawa.yoshiki" creationdate="20170329T144530Z">
+        <seg>たまにこのケースに合わせないこともありますが、onbeforeupdate宣言は注意深く使わなければなりません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In the vast majority of cases, a single check should be sufficient.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T144432Z" creationid="shibukawa.yoshiki" creationdate="20170329T144432Z">
+        <seg>ほとんどの場合、1回のチェックで十分です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In the view-model, we aliased the native Array class for TodoList.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150409T002657Z" creationid="shibukawa.yoshiki" creationdate="20150409T002628Z">
@@ -14906,6 +15702,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150408T152219Z" creationid="shibukawa.yoshiki" creationdate="20150408T152219Z">
         <seg>上記の例の場合は、Cのポインタのような機能を実現しています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In this context, typically "large" means any array that contains a large number of nodes, be it in a wide spread (the infamous 5000 row table), or in a deep, dense tree.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T144152Z" creationid="shibukawa.yoshiki" creationdate="20170329T144152Z">
+        <seg>この文脈では「大きな」とは、多数のノードを含む巨大なスプレッドシート（悪名高い5000行のテーブル）か、深くて密なツリーの配列のことです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15582,6 +16386,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It is not called when an element is created or when it is recycled.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T142709Z" creationid="shibukawa.yoshiki" creationdate="20170329T142709Z">
+        <seg>このフックはエレメントが作成されたり、エレメントがリサイクルされる時には呼ばれません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It is similar to the view method in components and it exists to simplify component composition.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170207T090826Z" creationid="shibukawa.yoshiki" creationdate="20170207T090826Z">
@@ -15618,6 +16430,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T015328Z" creationid="shibukawa.yoshiki" creationdate="20150416T015328Z">
         <seg>悪意をもってユーザが入力したデータをm.trustに通す責任は開発者にあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It is useful for handling data from URL</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T003907Z" creationid="shibukawa.yoshiki" creationdate="20170330T003907Z">
+        <seg>この関数はURLからデータを取得するのに使います。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15678,10 +16498,26 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It may seem wasteful to generate a vnode tree on every redraw, but as it turns out, creating and comparing Javascript data structures is surprisingly cheap compared to reading and modifying the DOM.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T165623Z" creationid="shibukawa.yoshiki" creationdate="20170329T165623Z">
+        <seg>すべての再描画でvnodeツリーを生成するのは無駄に思えるかもしれませんが、JavaScriptのデータ構造の作成と比較は、DOMの読み取りと変更に比べてかなりコストに差があり、メリットがあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It may sound expensive to recompute an entire view any time there's a change to be displayed, but this operation actually turns out to be quite fast, compared to rendering strategies used by older frameworks.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T074725Z" creationid="shibukawa.yoshiki" creationdate="20150502T074725Z">
         <seg>一見、変更を表示するたびに、このビュー全体に対する再計算を行うのは高コストな処理に見えるかもしれませんが、以前からあったフレームワークが使うレンダリングの方法論に比べると極めて高速です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It may then have attributes or child nodes updated when a UI event is triggered and data is changed; and the element may alternatively be removed from the document.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T140335Z" creationid="shibukawa.yoshiki" creationdate="20170329T140335Z">
+        <seg>DOMエレメントは属性や子ノードを持ちます。UIイベントがトリガーされると、それらが変更されるでしょう。また、ドキュメントから取り除かれることもあります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15846,6 +16682,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It's designed to be readable and can also be used as-is, instead of JSX (as is done in most of the documentation).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123209Z" creationid="shibukawa.yoshiki" creationdate="20170329T123209Z">
+        <seg>すでに他のドキュメントで説明したとおり、Hyperscriptはそのまま読めるようにデザインされており、JSXの代わりに使えるようになっています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It's difficult to understand the component without reading its implementation.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170302T032249Z" creationid="shibukawa.yoshiki" creationdate="20170302T032249Z">
@@ -15866,6 +16710,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170302T015457Z" creationid="shibukawa.yoshiki" creationdate="20170302T015457Z">
         <seg>論理的に考えると、とあるコンポーネントにはフィットするが、他のコンポーネントで再利用できないロジックというものは非常にまれです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It's not part of any Javascript standards and it's not required for building applications, but it may be more pleasing to use depending on your team's preferences.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T115557Z" creationid="shibukawa.yoshiki" creationdate="20170329T115557Z">
+        <seg>これはJavaScript標準の一部でもなければ、アプリケーションの構築に必要なわけでもありませんが、チームの好みによっては使用した方が良いでしょう。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16140,6 +16992,38 @@ m.request({method: "GET", url: "/foo/bar.x", extract: nonJsonErrors})</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>JSX - Mithril.js</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T115344Z" creationid="shibukawa.yoshiki" creationdate="20170329T115344Z">
+        <seg>JSX - Mithril.js</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>JSX is a syntax extension that enables you to write HTML tags interspersed with Javascript.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T115447Z" creationid="shibukawa.yoshiki" creationdate="20170329T115447Z">
+        <seg>JSXは、JavaScriptの中にHTMLタグを書けるようにする文法拡張です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>JSX is essentially a trade-off: it introduces a non-standard syntax that cannot be run without appropriate tooling, in order to allow a developer to write HTML code using curly braces.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T121835Z" creationid="shibukawa.yoshiki" creationdate="20170329T121835Z">
+        <seg>JSXにはトレードオフがあります。中括弧でコードの入ったHTMLなど、適切なツールなしでは実行できないような非標準の文法でコードを書く必要があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>JSX is useful for teams where HTML is primarily written by someone without Javascript experience, but it requires a significant amount of tooling to maintain (whereas plain HTML can, for the most part, simply be opened in a browser)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T122844Z" creationid="shibukawa.yoshiki" creationdate="20170329T122844Z">
+        <seg>JSXはJavaScriptの経験があまりないがHTMLを頻繁に書くようなチームには有用です。しかし、JSX環境を維持するために数多くのツールが必要となります。通常のHTMLであればブラウザで開くだけです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>JSX vs hyperscript</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T014107Z" creationid="shibukawa.yoshiki" creationdate="20170329T014107Z">
@@ -16228,10 +17112,50 @@ m.request({method: "GET", url: "/foo/bar.x", extract: nonJsonErrors})</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Keys - Mithril.js</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123808Z" creationid="shibukawa.yoshiki" creationdate="20170329T123808Z">
+        <seg>キー - Mithril.js</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Keys are a mechanism that allows re-ordering DOM elements within a NodeList, and mapping specific data items in a list to the respective DOM elements that are derived from them, as the data items move within the list.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T124525Z" creationid="shibukawa.yoshiki" creationdate="20170329T124525Z">
+        <seg>キーはノードのリスト内のDOMエレメントを並び替えをサポートする機能です。データ項目のリストを元にしてDOMエレメントを作る時に、そのリストないでの順番の変更をサポートします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Keys are expected to be absolute pathnames, but can include dynamic parameters.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T155928Z" creationid="shibukawa.yoshiki" creationdate="20150414T155928Z">
         <seg>キーは絶対パスを指定しますが、動的パラメータを含めることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Keys can cause confusing issues if they are misunderstood.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T131053Z" creationid="shibukawa.yoshiki" creationdate="20170329T131053Z">
+        <seg>キーを誤解したまま使うと、分かりにくい問題を引き起こすことがあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Keys must be placed on the virtual node that is an immediate child of the array.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T131518Z" creationid="shibukawa.yoshiki" creationdate="20170329T131518Z">
+        <seg>キーは配列の直下の子要素の仮想nodeに付与する必要があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Keys must be strings if present or they will be cast to strings if they are not.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132419Z" creationid="shibukawa.yoshiki" creationdate="20170329T132419Z">
+        <seg>キーは文字列でなければなりません。もし文字列でなければ、文字列にキャストされます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16296,6 +17220,14 @@ m.request({method: "GET", url: "/foo/bar.x", extract: nonJsonErrors})</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T005008Z" creationid="shibukawa.yoshiki" creationdate="20150412T005008Z">
         <seg>たくさんのさまざまなAPIがアプリケーションレベルで使われている時は、階層に分けて統合する方法がおすすめです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Leading question mark tolerance</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004221Z" creationid="shibukawa.yoshiki" creationdate="20170330T004221Z">
+        <seg>先頭の？マークの許容</seg>
       </tuv>
     </tu>
     <tu>
@@ -16532,6 +17464,14 @@ m.request({method: "GET", url: "/foo/bar.x", extract: nonJsonErrors})</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Let's suppose the people variable was changed to this:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T124927Z" creationid="shibukawa.yoshiki" creationdate="20170329T124927Z">
+        <seg>people配列を次のように変更してみましょう:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Let's use m.request to make an XHR request and populate our data with the response of that endpoint.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170220T060532Z" creationid="shibukawa.yoshiki" creationdate="20170220T060532Z">
@@ -16572,10 +17512,26 @@ m.request({method: "GET", url: "/foo/bar.x", extract: nonJsonErrors})</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Lifecycle methods - Mithril.js</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132742Z" creationid="shibukawa.yoshiki" creationdate="20170329T132742Z">
+        <seg>ライフサイクルメソッド - Mithril.js</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Lifecycle methods are defined in the same way as DOM event handlers, but receive the vnode as an argument, instead of an Event object:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170327T171504Z" creationid="shibukawa.yoshiki" creationdate="20170327T171504Z">
         <seg>ライフサイクルメソッドはDOMイベントハンドラーと同じように定義しますが、メソッドの引数はイベントオブジェクトではなく、vnodeです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Lifecycle methods are only called as a side effect of a m.render() call.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T135646Z" creationid="shibukawa.yoshiki" creationdate="20170329T135646Z">
+        <seg>ライフサイクロメソッドはm.render()呼び出しの副作用として呼び出されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16600,6 +17556,54 @@ m.request({method: "GET", url: "/foo/bar.x", extract: nonJsonErrors})</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170223T130636Z" creationid="shibukawa.yoshiki" creationdate="20170223T130636Z">
         <seg>他の仮想DOMノードと同じように、コンポーネントのvnodeも状態を持つことができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Like in other hooks, the this keyword in the onbeforeremove callback points to vnode.state.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T143117Z" creationid="shibukawa.yoshiki" creationdate="20170329T143117Z">
+        <seg>他のフックと同じようにonbeforeremoveコールバック内では、thisはvnode.stateを指します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Like in other hooks, the this keyword in the onbeforeupdate callback points to vnode.state.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T143818Z" creationid="shibukawa.yoshiki" creationdate="20170329T143818Z">
+        <seg>他のフックと同じようにonbeforeupdateコールバック内では、thisはvnode.stateを指します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Like in other hooks, the this keyword in the oncreate callback points to vnode.state.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T142005Z" creationid="shibukawa.yoshiki" creationdate="20170329T142005Z">
+        <seg>他のフックと同じようにoncreateコールバック内では、thisはvnode.stateを指します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Like in other hooks, the this keyword in the oninit callback points to vnode.state.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T141243Z" creationid="shibukawa.yoshiki" creationdate="20170329T141243Z">
+        <seg>他のフックと同じようにoninitコールバック内では、thisはvnode.stateを指します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Like in other hooks, the this keyword in the onremove callback points to vnode.state.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T143426Z" creationid="shibukawa.yoshiki" creationdate="20170329T143426Z">
+        <seg>他のフックと同じようにonremoveコールバック内では、thisはvnode.stateを指します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Like in other hooks, the this keyword in the onupdate callback points to vnode.state.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T142720Z" creationid="shibukawa.yoshiki" creationdate="20170329T142720Z">
+        <seg>他のフックと同じようにonupdateコールバック内では、thisはvnode.stateを指します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -17668,10 +18672,26 @@ m.request({method: "GET", url: "/foo/bar.x", extract: nonJsonErrors})</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Multiple onbeforeupdates are a code smell that indicates prioritization problems in the design workflow.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T144616Z" creationid="shibukawa.yoshiki" creationdate="20170329T144616Z">
+        <seg>onbeforeupdateがいくつも登場するのであれば、デザインワークフローに重大な問題が発生しているはずです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Multiple file uploads</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170219T160147Z" creationid="shibukawa.yoshiki" creationdate="20170219T160147Z">
         <seg>複数ファイルのアップロード</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Multiple promises</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004548Z" creationid="shibukawa.yoshiki" creationdate="20170330T004548Z">
+        <seg>複数のPromise</seg>
       </tuv>
     </tu>
     <tu>
@@ -17752,6 +18772,14 @@ m.request({method: "GET", url: "/foo/bar.x", extract: nonJsonErrors})</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170207T101226Z" creationid="shibukawa.yoshiki" creationdate="20170207T101226Z">
         <seg>異なるラウトへのナビゲーション</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Needless to say, since hyperscript is pure Javascript, there's no need to run a compilation step to produce runnable code.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123759Z" creationid="shibukawa.yoshiki" creationdate="20170329T123748Z">
+        <seg>言うまでもなく、Hyperscriptは純粋なJavaScriptなので、実行可能なコードを生成するためにコンパイルする必要はありません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18024,6 +19052,14 @@ m.request({method: "GET", url: "/foo/bar.x", extract: nonJsonErrors})</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T014130Z" creationid="shibukawa.yoshiki" creationdate="20150416T014130Z">
         <seg>ブラウザは、innerHTML経由でDOMに挿入された&lt;script&gt;タグは無視します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Note that calls to m.prop() do not trigger auto-redraws.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T003118Z" creationid="shibukawa.yoshiki" creationdate="20170330T003118Z">
+        <seg>m.prop()の呼び出しは自動再描画のトリガーにはなりません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -19224,6 +20260,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Performance considerations</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T160749Z" creationid="shibukawa.yoshiki" creationdate="20170329T144947Z">
+        <seg>パフォーマンスに関する考察</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Persisting DOM elements across route changes</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T121529Z" creationid="shibukawa.yoshiki" creationdate="20150502T121529Z">
@@ -19360,6 +20404,22 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Promise absorption</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004516Z" creationid="shibukawa.yoshiki" creationdate="20170330T004510Z">
+        <seg>Promiseの吸収</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Promise chaining</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004448Z" creationid="shibukawa.yoshiki" creationdate="20170330T004448Z">
+        <seg>Promiseチェーン</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Promise request(Options options)
 
 where:</seg>
@@ -19392,10 +20452,58 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Promise(executor)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004421Z" creationid="shibukawa.yoshiki" creationdate="20170330T004421Z">
+        <seg>Promise(executor)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Promise(executor) - Mithril.js</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004418Z" creationid="shibukawa.yoshiki" creationdate="20170330T004418Z">
+        <seg>Promise(executor) - Mithril.js</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Promise.all</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004429Z" creationid="shibukawa.yoshiki" creationdate="20170330T004429Z">
+        <seg>Promise.all</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Promise.all([</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T014455Z" creationid="shibukawa.yoshiki" creationdate="20170222T014455Z">
         <seg>Promise.all([</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Promise.race</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004431Z" creationid="shibukawa.yoshiki" creationdate="20170330T004431Z">
+        <seg>Promise.race</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Promise.reject</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004427Z" creationid="shibukawa.yoshiki" creationdate="20170330T004427Z">
+        <seg>Promise.reject</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Promise.resolve</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004425Z" creationid="shibukawa.yoshiki" creationdate="20170330T004425Z">
+        <seg>Promise.resolve</seg>
       </tuv>
     </tu>
     <tu>
@@ -19452,6 +20560,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T170737Z" creationid="shibukawa.yoshiki" creationdate="20150414T170737Z">
         <seg>ラウト中のクエリー文字列のパラメータもこのコレクションに自動的に格納されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Querystrings that contain bracket notation are correctly parsed into deep data structures</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004323Z" creationid="shibukawa.yoshiki" creationdate="20170330T004323Z">
+        <seg>クエリー文字列に角かっこがあった時は、構造化されたデータ構造にパースします</seg>
       </tuv>
     </tu>
     <tu>
@@ -19588,6 +20704,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034257Z" creationid="shibukawa.yoshiki" creationdate="20170131T034257Z">
         <seg>現在のラウトの読み込み/書き込み</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Recycling an element avoids incurring the performance cost of recreating a copy of an element that existed recently.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T140648Z" creationid="shibukawa.yoshiki" creationdate="20170329T140648Z">
+        <seg>エレメントを再作成するとパフォーマンスに影響を与えるコストが発生します。最近存在した要素をリサイクルすると、このコストを減らすことができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -19752,6 +20876,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Remember that, generally speaking, more code incurs a higher maintenance cost than less code, and onbeforeupdate related bugs can be especially difficult to troubleshoot if you rely on object identity for its conditional checks.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T144832Z" creationid="shibukawa.yoshiki" creationdate="20170329T144832Z">
+        <seg>コードが多くなればなるほど保守コストが上がります。 onbeforeupdate関連のバグは、オブジェクトIDで条件チェックを行う必要があるため、トラブルの解決が特に難しくなります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Remember this is a JSON file, so object key names such as "scripts" and "start" must be inside of double quotes.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T030547Z" creationid="shibukawa.yoshiki" creationdate="20170328T030547Z">
@@ -19804,6 +20936,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T045812Z" creationid="shibukawa.yoshiki" creationdate="20150502T045812Z">
         <seg>コンポーネントのレンダリング</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Replace a component</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T160636Z" creationid="shibukawa.yoshiki" creationdate="20170329T160636Z">
+        <seg>コンポーネントの置き換え</seg>
       </tuv>
     </tu>
     <tu>
@@ -19900,6 +21040,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170207T084431Z" creationid="shibukawa.yoshiki" creationdate="20170207T084357Z">
         <seg>hrefのURLをMithrilのラウターの パスとしてm.route.setに渡すイベントハンドラの関数を作成して返します</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Returns nothing</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T160335Z" creationid="shibukawa.yoshiki" creationdate="20170329T160328Z">
+        <seg>何も返しません</seg>
       </tuv>
     </tu>
     <tu>
@@ -20148,6 +21296,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T034520Z" creationid="shibukawa.yoshiki" creationdate="20170131T034520Z">
         <seg>コンポーネント削除時にコードを実行</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Running mount(element, OtherComponent) where element is a current mount point replaces the component previously mounted with OtherComponent.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T161245Z" creationid="shibukawa.yoshiki" creationdate="20170329T161245Z">
+        <seg>すでにマウント済みのelementに対してmount(element, OtherComponent)を実行すると、以前マウントされたコンポーネントとOtherComponentを置き換えます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20416,10 +21572,26 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Shorthands</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004533Z" creationid="shibukawa.yoshiki" creationdate="20170330T004533Z">
+        <seg>短縮表記</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Signature</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T235059Z" creationid="shibukawa.yoshiki" creationdate="20150412T235059Z">
         <seg>シグニチャ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Similar to m.render(), the m.mount() method takes a component and mounts a corresponding DOM tree into element.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T160421Z" creationid="shibukawa.yoshiki" creationdate="20170329T160421Z">
+        <seg>m.render()と煮ていますが、m.mount()はコンポーネントを受け取ってelementで指定されるDOMツリーにマウントします。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20508,6 +21680,22 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170220T144545Z" creationid="shibukawa.yoshiki" creationdate="20170220T144545Z">
         <seg>User.listはJavaScriptの配列ですし、hyperscriptのビューも単なるJavaScriptです。そのため、.mapメソッドを使って配列をループすることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Since oncreate is run at the end of the render cycle, model changes created from this method will not be reflected in the UI until the next render cycle.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T142506Z" creationid="shibukawa.yoshiki" creationdate="20170329T142506Z">
+        <seg>oncreateはレンダリングサイクルの最後に実行されるため、このメソッドからモデルを変更しても次のレンダリングサイクルまで、他のUI部品ではこの変更が反映されません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Since oninit makes no guarantees regarding the status of other elements, model changes created from this method may not be reflected in all parts of the UI until the next render cycle.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T141802Z" creationid="shibukawa.yoshiki" creationdate="20170329T141802Z">
+        <seg>oninitは他の要素の状態を保証しないため、このメソッドからモデルを変更しても次のレンダリングサイクルまで、他のUI部品ではこの変更が反映されない可能性があります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -21368,6 +22556,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The component to be rendered.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T160303Z" creationid="shibukawa.yoshiki" creationdate="20170329T160303Z">
+        <seg>レンダリングするコンポーネント</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The routing parameters</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170207T085715Z" creationid="shibukawa.yoshiki" creationdate="20170207T085715Z">
@@ -21640,6 +22836,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The m.parseQueryString method creates an object from a querystring.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T003857Z" creationid="shibukawa.yoshiki" creationdate="20170330T003857Z">
+        <seg>m.parseQueryStringはクエリー文字列からオブジェクトを作ります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The m.redraw.strategy getter-setter indicates how the next component redraw will occur.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T133408Z" creationid="shibukawa.yoshiki" creationdate="20150502T133408Z">
@@ -21744,6 +22948,38 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The onbeforeremove(vnode) hook is called before a DOM element is detached from the document.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T142950Z" creationid="shibukawa.yoshiki" creationdate="20170329T142950Z">
+        <seg>onbeforeremove(vnode)フックはDOMエレメントがドキュメントから取り外される前に呼ばれます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The onbeforeupdate(vnode, old) hook is called before a vnode is diffed in a update.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T143543Z" creationid="shibukawa.yoshiki" creationdate="20170329T143543Z">
+        <seg>onbeforeupdate(vnode, old)は更新時にvnodeの差分比較の前に呼び出されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The oncreate(vnode) hook is called after a DOM element is created and attached to the document.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T141826Z" creationid="shibukawa.yoshiki" creationdate="20170329T141826Z">
+        <seg>oncreate(vnode)フックはDOMエレメントがドキュメントに追加された時に呼ばれます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The oncreate hook is useful for reading layout values that may trigger a repaint, starting animations and for initializing third party libraries that require a reference to the DOM element.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T161609Z" creationid="shibukawa.yoshiki" creationdate="20170329T142408Z">
+        <seg>oncreateフックは、再描画を誘発するような属性へのアクセスをしたり、アニメーションを開始したり、DOM要素を必要とするサードパーティライブラリを初期化するのに使えます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The onerror function can be safely replaced if the default error monitoring semantics are not desired.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150415T174815Z" creationid="shibukawa.yoshiki" creationdate="20150415T174815Z">
@@ -21752,10 +22988,58 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The oninit(vnode) hook is called before a vnode is touched by the virtual DOM engine.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T140728Z" creationid="shibukawa.yoshiki" creationdate="20170329T140728Z">
+        <seg>oninit(vnode)フックはvnodeが仮想DOMエンジンから触れる前に呼び出されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The oninit hook is useful for initializing component state based on arguments passed via vnode.attrs or vnode.children.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T141318Z" creationid="shibukawa.yoshiki" creationdate="20170329T141318Z">
+        <seg>oninitフックはvnode.attrsやvnode.childrenに渡された引数を元にコンポーネントを初期化するのに便利です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The onmatch hook is called when the router needs to find a component to render.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170207T084948Z" creationid="shibukawa.yoshiki" creationdate="20170207T084948Z">
         <seg>onmatchフックはレンダリングするコンポーネントを探すときに呼ばれます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The onremove(vnode) hook is called before a DOM element is removed from the document.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T143149Z" creationid="shibukawa.yoshiki" creationdate="20170329T143149Z">
+        <seg>onremove(vnode)フックはDOMエレメントがドキュメントから取り外される時に呼ばれます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The onremove hook is useful for running clean up tasks.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T143454Z" creationid="shibukawa.yoshiki" creationdate="20170329T143454Z">
+        <seg>onremoveは後片付けを行うタスクに最適です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The onupdate(vnode) hook is called after a DOM element is updated, while attached to the document.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T142536Z" creationid="shibukawa.yoshiki" creationdate="20170329T142536Z">
+        <seg>onupdate(vnode)フックはDOMエレメントがドキュメントに追加されている間に更新がかかると呼ばれます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The onupdate hook is useful for reading layout values that may trigger a repaint, and for dynamically updating UI-affecting state in third party libraries after model data has been changed.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T142858Z" creationid="shibukawa.yoshiki" creationdate="20170329T142858Z">
+        <seg>onupdateフックは再描画を誘発するような属性にアクセスしたり、モデルデータが変更された時にサードパーティーライブラリにその変更を反映して動的にUIを更新する時に使います。</seg>
       </tuv>
     </tu>
     <tu>
@@ -21866,8 +23150,8 @@ where:</seg>
       <tuv lang="EN-US">
         <seg>The url specifies an endpoint that represents a resource, the method specifies the type of action we're taking (typically the PUT method upserts), data is the payload that we're sending to the endpoint and withCredentials means to enable cookies (a requirement for the REM API to work)</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170221T235942Z" creationid="shibukawa.yoshiki" creationdate="20170221T235942Z">
-        <seg>urlはリソースを表すエンドポイントを指定します。methodは話をするアクションの種類を指定します（upsertsには通常PUTメソッドを使います）。dataはエンドポイントに送付するペイロードです。withCredentialsはクッキーを有効化する（REM APを動作させるのに必要）ために指定します。</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T160200Z" creationid="shibukawa.yoshiki" creationdate="20170221T235942Z">
+        <seg>urlはリソースを表すエンドポイントを指定します。methodは話をするアクションの種類を指定します（upsertsには通常PUTメソッドを使います）。dataはエンドポイントに送付するペイロードです。withCredentialsはクッキーを有効化する（REM APIを動作させるのに必要）ために指定します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -21988,6 +23272,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150413T001946Z" creationid="shibukawa.yoshiki" creationdate="20150413T001946Z">
         <seg>a#google.external[href='http://google.com'])のようなCSSセレクタ文法は、エレメントの静的なアトリビュートの定義で使用します。静的というのはアプリケーションの中で動的に変更されることがない要素になるという意味です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The DOM element lifecycle</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132819Z" creationid="shibukawa.yoshiki" creationdate="20170329T132819Z">
+        <seg>DOMエレメントのライフサイクル</seg>
       </tuv>
     </tu>
     <tu>
@@ -22656,6 +23948,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The former compiles to m("div", {className: "test"}) and the latter compiles to m("div", {classname: "test"}), which is not a valid way of creating a class attribute.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T122429Z" creationid="shibukawa.yoshiki" creationdate="20170329T122429Z">
+        <seg>前者はm("div", {className: "test"})に、後者はm("div", {classname: "test"})となり、後者はクラス属性の指定方法としては正しくありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The goal of the framework is to make application code discoverable, readable and maintainable, and hopefully help you become an even better developer.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T141806Z" creationid="shibukawa.yoshiki" creationdate="20150407T141806Z">
@@ -22732,6 +24032,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T153918Z" creationid="shibukawa.yoshiki" creationdate="20150412T153918Z">
         <seg>低レベルのレンダリングの方法</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The main benefit of using JSX instead of regular HTML is that the JSX specification is much stricter and yields syntax errors when appropriate, whereas HTML is far too forgiving and can make syntax issues difficult to spot.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T122147Z" creationid="shibukawa.yoshiki" creationdate="20170329T122147Z">
+        <seg>JSXを使う主なメリットとしては、構文に寛容で問題を特定するのが難しい通常のHTMLとは異なり、JSXの仕様は遥かに厳しく、構文エラーを出してくれる点があります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22968,10 +24276,26 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The pooled element may be reused in a subsequent update (in a process called DOM recycling).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T140502Z" creationid="shibukawa.yoshiki" creationdate="20170329T140502Z">
+        <seg>プールされた要素は、その後の更新時のDOMリサイクリングと呼ばれるプロセスの中で再利用される可能性があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The prefix that controls the underlying routing strategy used by Mithril.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170207T083122Z" creationid="shibukawa.yoshiki" creationdate="20170207T083016Z">
         <seg>プリフィックスはMithrilが内部で使用するラウト戦略を制御します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The problem is that from the point of view of the userList function, there's no way to tell if it was the first object that was removed, or if it was the second object that was removed in addition to the first object's properties being modified.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T125648Z" creationid="shibukawa.yoshiki" creationdate="20170329T125648Z">
+        <seg>userList関数の立場からこの問題を見ると、果たして最初のオブジェクトが削除されたのか、最初のオブジェクトの要素のプロパティが変更されてから二番目のオブジェクトが削除されたのか、区別がつきません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -23244,6 +24568,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170309T032735Z" creationid="shibukawa.yoshiki" creationdate="20170309T032735Z">
         <seg>ES6コンパイルツールチェーンをセットアップで一番簡単な方法はBabelを使うことです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The simplest way to use JSX is via a Babel plugin.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T121441Z" creationid="shibukawa.yoshiki" creationdate="20170329T121441Z">
+        <seg>JSXを使用するもっとも簡単な方法は、Babelプラグインを使うことです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -23720,6 +25052,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Therefore, "1" (string) and 1 (number) are considered the same key.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132442Z" creationid="shibukawa.yoshiki" creationdate="20170329T132442Z">
+        <seg>そのため、"1"（文字列）と1（数値）は同じキーとみなされます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Therefore, User.list is still an empty array, and thus this view would render a blank page.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170220T144811Z" creationid="shibukawa.yoshiki" creationdate="20170220T144811Z">
@@ -23732,6 +25072,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170221T145043Z" creationid="shibukawa.yoshiki" creationdate="20170221T145043Z">
         <seg>vnode.childrenはvnodeの子供を参照します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Therefore, in the cases when a list of vnodes is derived from a dynamic array of data, you should add a key property to each virtual node that maps to a uniquely identifiable field in the source data.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T130413Z" creationid="shibukawa.yoshiki" creationdate="20170329T130413Z">
+        <seg>動的なデータの配列を元にvnodeのリストを作っている場合には、それぞれの仮想ノードに、元のデータを識別するためのkeyプロパティを追加することで解決することができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -23820,6 +25168,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T121550Z" creationid="shibukawa.yoshiki" creationdate="20170131T121550Z">
         <seg>これらの関数はさまざまなエッジケースの問題を発生させてきたため、アンチパターンと判断されました。v1.xからは除外されました。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>They are not called if the DOM is modified outside of Mithril.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T135706Z" creationid="shibukawa.yoshiki" creationdate="20170329T135706Z">
+        <seg>Mithrilの外側でDOMを変更してもライフサイクロメソッドは呼び出されません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -24040,6 +25396,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This can be useful to prevent memory leaks when removing the root node manually from the DOM.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T161811Z" creationid="shibukawa.yoshiki" creationdate="20170329T161811Z">
+        <seg>これはrootノードをDOMから取り除く的にメモリリークを防ぐのに役立ちます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This can get noticeably bulky when you look at thing like collections: you often need to implement insertion code and deletion code, in addition to a "draw everything" routine for performance.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150420T014351Z" creationid="shibukawa.yoshiki" creationdate="20150420T014351Z">
@@ -24236,6 +25600,70 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170208T054815Z" creationid="shibukawa.yoshiki" creationdate="20170208T054815Z">
         <seg>これの副作用として、このケースではoninit/oncreateのフックは呼ばれず、onupdateフックだけが呼び出されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This helps prevents bugs related to loose truthiness and unintended type casts.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004140Z" creationid="shibukawa.yoshiki" creationdate="20170330T004140Z">
+        <seg>これは真値が失われるケースや、予期しない型キャストによるバグを防ぎます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This hook by itself does not prevent a virtual DOM subtree from being generated unless the subtree is encapsulated within a component.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T143807Z" creationid="shibukawa.yoshiki" creationdate="20170329T143807Z">
+        <seg>このフック自体は、サブツリーがコンポーネント内にカプセル化されていない限り、仮想DOMサブツリーが生成されることを抑制しません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This hook does not get called when an element is updated, but it does get called if an element is recycled.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T141208Z" creationid="shibukawa.yoshiki" creationdate="20170329T141208Z">
+        <seg>このフックはエレメントが更新されるときには呼ばれませんが、エレメントがリサイクルされる時には呼ばれます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This hook does not get called when an element is updated.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T141944Z" creationid="shibukawa.yoshiki" creationdate="20170329T141944Z">
+        <seg>このフックはエレメントが更新される時には呼ばれません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This hook is called on any element that is removed from the document, regardless of whether it was directly detached from its parent or whether it is a child of another element that was detached.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T143416Z" creationid="shibukawa.yoshiki" creationdate="20170329T143416Z">
+        <seg>このフックはその要素が親から直接削除される要素であったり、他の削除されるエレメントの子供であっても、ドキュメントから削除されるときに呼び出されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This hook is only called if the element existed in the previous render cycle.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T142636Z" creationid="shibukawa.yoshiki" creationdate="20170329T142636Z">
+        <seg>このフックは、以前のレンダリングのサイクル時にすでにノードが存在している時にのみ呼ばれます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This hook is only called on the DOM element that loses its parentNode, but it does not get called in its child elements.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T143108Z" creationid="shibukawa.yoshiki" creationdate="20170329T143108Z">
+        <seg>このフックはDOMエレメントがparentNodeを失う時にのみ呼ばれます。その子要素に対しては呼ばれません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This hook is useful to reduce lag in updates in cases where there is a overly large DOM tree.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T143855Z" creationid="shibukawa.yoshiki" creationdate="20170329T143855Z">
+        <seg>このフックは、とても巨大なDOMツリーの更新時のラグを減らすのに役立ちます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -24536,6 +25964,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This means &lt;div className="test"&gt;&lt;/div&gt; is different from &lt;div classname="test"&gt;&lt;/div&gt; (all lower case).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T122231Z" creationid="shibukawa.yoshiki" creationdate="20170329T122231Z">
+        <seg>&lt;div className="test"&gt;&lt;/div&gt;と、すべてが小文字の&lt;div classname="test"&gt;&lt;/div&gt;が違う意味になります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This means components created dynamically via a factory will always be re-created from scratch.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170302T043622Z" creationid="shibukawa.yoshiki" creationdate="20170302T043622Z">
@@ -24564,6 +26000,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T144404Z" creationid="shibukawa.yoshiki" creationdate="20150412T144404Z">
         <seg>コンパイルされたテンプレートを使用する時は、m("div#foo")といった文字列をパースする必要がなく、関数呼び出しのコストは発生しません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This means that if you wrap the button in an div in the example above, the key must be moved to the div.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T131607Z" creationid="shibukawa.yoshiki" creationdate="20170329T131607Z">
+        <seg>もし、上記のサンプルでbuttonをdivタグでラップしていたのであれば、キーをこの親のdivに移動します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -24692,6 +26136,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T140011Z" creationid="shibukawa.yoshiki" creationdate="20150414T140011Z">
         <seg>このメソッドは、値が更新されたかどうかにかかわらず、常に内部ストアの値を返します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This method attempts to cast boolean values if possible.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004057Z" creationid="shibukawa.yoshiki" creationdate="20170330T003934Z">
+        <seg>このメソッドはブール値をなるべくキャストしようとします。</seg>
       </tuv>
     </tu>
     <tu>
@@ -25036,6 +26488,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170302T025622Z" creationid="shibukawa.yoshiki" creationdate="20170302T025256Z">
         <seg>このコードでは、Authモジュールは認証周りの状態の正しい情報を提供するモジュールとなりました。Registerコンポーネントからも簡単にデータにアクセスできますし、必要であればcanSubmitを呼び出す事ができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This will allow Mithril to intelligently re-order the DOM to maintain each DOM element correctly mapped to its respective item in the data source.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T130536Z" creationid="shibukawa.yoshiki" creationdate="20170329T130536Z">
+        <seg>これを設定すると、MithrilはDOMの要素とその元となるデータソースをきちんと関連付けたまま、DOMを賢く並び替えることができるようになります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -25560,6 +27020,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Touching the DOM can be extremely expensive for a couple of reasons.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T165643Z" creationid="shibukawa.yoshiki" creationdate="20170329T165643Z">
+        <seg>DOMを触るのはいくつかの理由により高コストになります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Travis generates new bundles before running tests</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170220T054501Z" creationid="shibukawa.yoshiki" creationdate="20170220T054501Z">
@@ -25628,6 +27096,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170302T030423Z" creationid="shibukawa.yoshiki" creationdate="20170302T030423Z">
         <seg>コンポーネントのインタフェースの一般性を維持するために、もし、入力されたものに対して特別なロジックを実行するのでなければ、attrsとchildrenを直接使うようにしてください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Turns a string of the form ?a=1&amp;b=2 to an object</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T003826Z" creationid="shibukawa.yoshiki" creationdate="20170330T003826Z">
+        <seg>?a=1&amp;b=2という形式の文字列をオブジェクトにします。</seg>
       </tuv>
     </tu>
     <tu>
@@ -25712,6 +27188,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Typically performance problems that can be fixed via onbeforeupdate boil down to one large array of items.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T161639Z" creationid="shibukawa.yoshiki" creationdate="20170329T144100Z">
+        <seg>通常、onbeforeupdateで修正できるパフォーマンス上の問題は、要素が多すぎる巨大な配列が原因です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Typically this is required in three situations:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150410T125458Z" creationid="shibukawa.yoshiki" creationdate="20150410T125447Z">
@@ -25732,6 +27216,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T152936Z" creationid="shibukawa.yoshiki" creationdate="20150416T152936Z">
         <seg>多くの場合、アプリケーション空間からm.startComputation / m.endComputationを呼ぶ必要はありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Typically, a key property should be the unique identifier field of the objects in the data array.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T124720Z" creationid="shibukawa.yoshiki" creationdate="20170329T124720Z">
+        <seg>通常、キープロパティはデータの配列の中で、ユニークな識別子が格納されているオブジェクトのフィールドを使います。</seg>
       </tuv>
     </tu>
     <tu>
@@ -25808,10 +27300,26 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Unchanged DOM nodes are not touched at all.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T160628Z" creationid="shibukawa.yoshiki" creationdate="20170329T160628Z">
+        <seg>変更がないDOMは触れられません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Unchecked Error Handling</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150415T141001Z" creationid="shibukawa.yoshiki" creationdate="20150415T141001Z">
         <seg>チェックしていないエラーのハンドリング</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Unlike HTML, JSX is case-sensitive.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T122201Z" creationid="shibukawa.yoshiki" creationdate="20170329T122201Z">
+        <seg>HTMLと異なり、JSXは大文字と小文字を区別します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -25852,6 +27360,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T134534Z" creationid="shibukawa.yoshiki" creationdate="20160101T134534Z">
         <seg>コンポーネントのアンロード/アンマウント</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Unmount</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T160812Z" creationid="shibukawa.yoshiki" creationdate="20170329T160812Z">
+        <seg>アンマウント</seg>
       </tuv>
     </tu>
     <tu>
@@ -26028,6 +27544,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170221T233753Z" creationid="shibukawa.yoshiki" creationdate="20170221T233753Z">
         <seg>User.list = result.data</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Using m.mount(element, null) on an element with a previously mounted component unmounts it and cleans up Mithril internal state.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T161404Z" creationid="shibukawa.yoshiki" creationdate="20170329T161404Z">
+        <seg>以前にマウントされたコンポーネントを持つエレメントに対してm.mount(element, null)を使用すると、そのコンポーネントがアンマウントされ、Mithrilの内部状態が片付けられます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -26340,6 +27864,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Vnodes rendered via m.render() do not.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T170708Z" creationid="shibukawa.yoshiki" creationdate="20170329T170708Z">
+        <seg>m.render()でレンダリングしたvnodeはそうではありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Vue</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170327T115848Z" creationid="shibukawa.yoshiki" creationdate="20170327T115848Z">
@@ -26536,6 +28068,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T135705Z" creationid="shibukawa.yoshiki" creationdate="20150407T135705Z">
         <seg>Mithrilのポテンシャルを引き出す使い方を紹介するブログです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>What are keys</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123821Z" creationid="shibukawa.yoshiki" creationdate="20170329T123821Z">
+        <seg>キーとは何か？</seg>
       </tuv>
     </tu>
     <tu>
@@ -26796,6 +28336,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>When using JSX, it's possible to interpolate Javascript expressions within JSX tags by using curly braces:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T120956Z" creationid="shibukawa.yoshiki" creationdate="20170329T120956Z">
+        <seg>JSXを使うときは、中括弧を使って、JavaScriptの式を中に書くことができます:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>When using a file input, you can get a list of files by adding the multiple attribute to the input:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170219T190905Z" creationid="shibukawa.yoshiki" creationdate="20170219T190905Z">
@@ -26806,8 +28354,8 @@ where:</seg>
       <tuv lang="EN-US">
         <seg>When using hyperscript, it's necessary to convert HTML to hyperscript syntax before the code can be run.</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T005721Z" creationid="shibukawa.yoshiki" creationdate="20170328T005721Z">
-        <seg>hyperscriptを使う時は、実行前にHTMLからhyperscriptの文法に変換する必要があります。When using hyperscript, it's necessary to convert HTML to hyperscript syntax before the code can be run.</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123458Z" creationid="shibukawa.yoshiki" creationdate="20170328T005721Z">
+        <seg>hyperscriptを使う時は、実行前にHTMLからhyperscriptの文法に変換する必要があります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -27020,6 +28568,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Why not callbacks</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004556Z" creationid="shibukawa.yoshiki" creationdate="20170330T004556Z">
+        <seg>なぜコールバックではないのか</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Why not use Browserify, Webpack or Rollup?</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170306T084240Z" creationid="shibukawa.yoshiki" creationdate="20170306T084240Z">
@@ -27084,6 +28640,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T143519Z" creationid="shibukawa.yoshiki" creationdate="20160412T143519Z">
         <seg>ワードラップ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Worse still, if there were stateful jQuery plugins attached to these buttons, they could potentially have incorrect internal state after the update.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T125957Z" creationid="shibukawa.yoshiki" creationdate="20170329T125957Z">
+        <seg>これらのボタンにステートフルなjQueryプラグインが適用されていた場合には、更新後に内部状態が不正確になる可能性があります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -27776,6 +29340,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>You should never access the vnode.dom from the oninit method.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T141105Z" creationid="shibukawa.yoshiki" creationdate="20170329T141105Z">
+        <seg>oninitメソッドの中から、vnode.domにアクセスしてはいけません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>You should not add the callback querystring parameter; Mithril already does that internally.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T234856Z" creationid="shibukawa.yoshiki" creationdate="20150414T234818Z">
@@ -27784,10 +29356,42 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>You should not modify model data synchronously from this method.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T141629Z" creationid="shibukawa.yoshiki" creationdate="20170329T141629Z">
+        <seg>このメソッド内から同期的にモデルのデータを変更すべきではありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>You should not use these methods if your code is intended to run repeatedly (e.g. by using setInterval).</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150411T193428Z" creationid="shibukawa.yoshiki" creationdate="20150411T193428Z">
         <seg>setIntervalを使う場合など、コードが別々に呼ばれるような場合はこれらのメソッドは使わないでください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You should not wrap arrays around keyed elements</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132220Z" creationid="shibukawa.yoshiki" creationdate="20170329T132220Z">
+        <seg>キーを付与したエレメントを配列でラップしてはいけません</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You should only use onbeforeupdate to skip diffing as a last resort.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T143935Z" creationid="shibukawa.yoshiki" creationdate="20170329T143935Z">
+        <seg>onbeforeupdateによる差分検知のスキップは最終手段です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You should use either strings or numbers as keys in one array, but not mix both.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132525Z" creationid="shibukawa.yoshiki" creationdate="20170329T132525Z">
+        <seg>ひとつの配列の中では文字列か数値のどちらもキーとして使えますが、混ぜてはいけません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -27937,11 +29541,37 @@ where:</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>]
+])</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132732Z" creationid="shibukawa.yoshiki" creationdate="20170329T132732Z">
+        <seg>]
+])</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>]
 }</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170309T032958Z" creationid="shibukawa.yoshiki" creationdate="20170309T032958Z">
         <seg>]
 }</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>]
+})
+
+// PREFER
+users.map(function(u) {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132304Z" creationid="shibukawa.yoshiki" creationdate="20170329T132304Z">
+        <seg>]
+})
+
+// 望ましいコード
+users.map(function(u) {</seg>
       </tuv>
     </tu>
     <tu>
@@ -28034,6 +29664,16 @@ function persistent(el, isInit, context) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>])
+})</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T131630Z" creationid="shibukawa.yoshiki" creationdate="20170329T131630Z">
+        <seg>])
+})</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>]) : null
 ])</seg>
       </tuv>
@@ -28116,6 +29756,14 @@ function persistent(el, isInit, context) {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T014058Z" creationid="shibukawa.yoshiki" creationdate="20150416T014058Z">
         <seg>文字列の中にどのような処理も可能なコードがある可能性があり、それに実行権限を与えることを認める。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>activate: function() {/*...*/},</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123423Z" creationid="shibukawa.yoshiki" creationdate="20170329T123423Z">
+        <seg>activate: function() {/*...*/},</seg>
       </tuv>
     </tu>
     <tu>
@@ -28590,6 +30238,14 @@ m("div", {config: alertsRedrawCount})</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>clearTimeout(this.timeout)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T143505Z" creationid="shibukawa.yoshiki" creationdate="20170329T143505Z">
+        <seg>clearTimeout(this.timeout)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>clone the forked repo to your computer (green button in Github)</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170306T014528Z" creationid="shibukawa.yoshiki" creationdate="20170306T014528Z">
@@ -28734,6 +30390,14 @@ m("div", {config: alertsRedrawCount})</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>component</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T160245Z" creationid="shibukawa.yoshiki" creationdate="20170329T160245Z">
+        <seg>component</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>component install lhorie/mithril</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T003257Z" creationid="shibukawa.yoshiki" creationdate="20170328T003257Z">
@@ -28858,6 +30522,22 @@ m("div", {config: alertsRedrawCount})</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>console.log("Initialized with height of: ", vnode.dom.offsetHeight)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T142429Z" creationid="shibukawa.yoshiki" creationdate="20170329T142429Z">
+        <seg>console.log("初期化中。DOMの高さは: ", vnode.dom.offsetHeight)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>console.log("Redraws so far: ", ++vnode.state.count)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T142912Z" creationid="shibukawa.yoshiki" creationdate="20170329T142912Z">
+        <seg>console.log("再描画回数: ", ++vnode.state.count)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>console.log("exit animation can start")</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170223T130017Z" creationid="shibukawa.yoshiki" creationdate="20170223T130017Z">
@@ -28884,6 +30564,28 @@ m("ul", [</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T031714Z" creationid="shibukawa.yoshiki" creationdate="20170222T031714Z">
         <seg>console.log("hello");</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>console.log("initialize component")</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T135418Z" creationid="shibukawa.yoshiki" creationdate="20170329T135418Z">
+        <seg>console.log("コンポーネントを初期化")</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>console.log("initialize vnode")
+}
+
+m(ComponentWithHook, {oninit: initializeVnode})</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T135447Z" creationid="shibukawa.yoshiki" creationdate="20170329T135447Z">
+        <seg>console.log("vnodeを初期化")
+}
+
+m(ComponentWithHook, {oninit: initializeVnode})</seg>
       </tuv>
     </tu>
     <tu>
@@ -28924,6 +30626,14 @@ m(ComponentWithHooks, {oninit: initialize})</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170223T130104Z" creationid="shibukawa.yoshiki" creationdate="20170223T130104Z">
         <seg>console.log("DOM要素を削除します")</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>console.log("timed out")</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T143503Z" creationid="shibukawa.yoshiki" creationdate="20170329T143503Z">
+        <seg>console.log("タイムアウト")</seg>
       </tuv>
     </tu>
     <tu>
@@ -29746,6 +31456,14 @@ setTimeout(function() {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>deactivate: function() {/*...*/},</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123424Z" creationid="shibukawa.yoshiki" creationdate="20170329T123424Z">
+        <seg>deactivate: function() {/*...*/},</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>defaultRoute</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T000631Z" creationid="shibukawa.yoshiki" creationdate="20170222T000631Z">
@@ -29892,6 +31610,14 @@ setTimeout(function() {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T003357Z" creationid="shibukawa.yoshiki" creationdate="20170328T003357Z">
         <seg>el.val(ctrl.value().id).trigger("change");</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>element</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T160244Z" creationid="shibukawa.yoshiki" creationdate="20170329T160244Z">
+        <seg>element</seg>
       </tuv>
     </tu>
     <tu>
@@ -30324,6 +32050,14 @@ m.request({method: "POST", url: "/foo", extract: extract});</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>function correctUserList(users) {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T130538Z" creationid="shibukawa.yoshiki" creationdate="20170329T130538Z">
+        <seg>function correctUserList(users) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>function doSomething(e) {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170327T164315Z" creationid="shibukawa.yoshiki" creationdate="20170327T164315Z">
@@ -30466,6 +32200,14 @@ m.request({method: "POST", url: "/foo", extract: extract});</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170307T011056Z" creationid="shibukawa.yoshiki" creationdate="20170307T011056Z">
         <seg>http://arthurclemens.github.io/mithril-template-converter/index.html</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>http://blog.kissmetrics.com/loading-time/</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T003507Z" creationid="shibukawa.yoshiki" creationdate="20170330T003507Z">
+        <seg>http://blog.kissmetrics.com/loading-time/</seg>
       </tuv>
     </tu>
     <tu>
@@ -30722,6 +32464,14 @@ m.request({method: "POST", url: "/foo", extract: extract});</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T003017Z" creationid="shibukawa.yoshiki" creationdate="20170328T003017Z">
         <seg>http://jsfiddle.net/vL22kjvs/6/</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>http://jsperf.com/angular-vs-knockout-vs-ember/308</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T003512Z" creationid="shibukawa.yoshiki" creationdate="20170330T003512Z">
+        <seg>http://jsperf.com/angular-vs-knockout-vs-ember/308</seg>
       </tuv>
     </tu>
     <tu>
@@ -33227,6 +34977,14 @@ setTimeout(function() {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>it does not require repeating the tag name in closing tags (e.g. m("div") vs &lt;div&gt;&lt;/div&gt;)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123311Z" creationid="shibukawa.yoshiki" creationdate="20170329T123311Z">
+        <seg>終了タグで同じタグ名を繰り返す必要がない（例 m("div") vs &lt;div&gt;&lt;/div&gt;）</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>it integrates to the Service Worker API, which provides an extra layer of control over how and when network requests happen.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170220T034051Z" creationid="shibukawa.yoshiki" creationdate="20170220T034051Z">
@@ -33819,6 +35577,14 @@ m("div", {class: "container"}, "Hello"); //&lt;div class="container"&gt;Hello&lt
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>m("button", {key: u.id}, u.name)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T131629Z" creationid="shibukawa.yoshiki" creationdate="20170329T131629Z">
+        <seg>m("button", {key: u.id}, u.name)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>m("button", {onclick: function() {count++}}, count + " clicks"),</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T030925Z" creationid="shibukawa.yoshiki" creationdate="20170131T030907Z">
@@ -33977,6 +35743,14 @@ m.render(document.body, view);</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>m("div", "a"),</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132715Z" creationid="shibukawa.yoshiki" creationdate="20170329T132715Z">
+        <seg>m("div", "a"),</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>m("div", "loading contacts...") //waiting for promise to resolve</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T142023Z" creationid="shibukawa.yoshiki" creationdate="20160412T142023Z">
@@ -34097,6 +35871,56 @@ m("input", {readonly: false}); //&lt;input readonly="false" /&gt;は属性が存
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>m("div", {key: 0}, "a"),</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132722Z" creationid="shibukawa.yoshiki" creationdate="20170329T132722Z">
+        <seg>m("div", {key: 0}, "a"),</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>m("div", {key: 1}, "b"),</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132731Z" creationid="shibukawa.yoshiki" creationdate="20170329T132731Z">
+        <seg>m("div", {key: 1}, "b"),</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>m("div", {key: 1}, "b"),
+])
+
+
+// PREFER
+m("div", [</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132729Z" creationid="shibukawa.yoshiki" creationdate="20170329T132723Z">
+        <seg>m("div", {key: 1}, "b"),
+])
+
+
+// 望ましいコード
+m("div", [</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>m("div", {key: 1}, "b"),
+])
+
+// PREFER
+m("div", [</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132721Z" creationid="shibukawa.yoshiki" creationdate="20170329T132721Z">
+        <seg>m("div", {key: 1}, "b"),
+])
+
+// 望ましいコード
+m("div", [</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>m("div", {style: "background:red;"})
 m("div", {style: {background: "red"}})
 m("div[style=background:red]")</seg>
@@ -34207,6 +36031,14 @@ m("a#exit.external[href='http://example.com']", "Leave")
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T003730Z" creationid="shibukawa.yoshiki" creationdate="20170328T003730Z">
         <seg>m("h1", "Hello Foo"),</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>m("h1", "Hello world"),</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T115558Z" creationid="shibukawa.yoshiki" creationdate="20170329T115558Z">
+        <seg>m("h1", "Hello world"),</seg>
       </tuv>
     </tu>
     <tu>
@@ -34965,6 +36797,14 @@ m("ul",               // &lt;ul&gt;</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>m(Button, {key: u.id}, u.name) // key should be here, not in component</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132109Z" creationid="shibukawa.yoshiki" creationdate="20170329T132109Z">
+        <seg>m(Button, {key: u.id}, u.name) // キーはコンポーネントではなくここに書く</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>m(Counter)</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170302T162455Z" creationid="shibukawa.yoshiki" creationdate="20170302T162455Z">
@@ -35325,6 +37165,16 @@ m("ul",               // &lt;ul&gt;</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>m.mount(document.body, &lt;MyComponent /&gt;)
+// equivalent to m.mount(document.body, m(MyComponent))</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T121051Z" creationid="shibukawa.yoshiki" creationdate="20170329T121051Z">
+        <seg>m.mount(document.body, &lt;MyComponent /&gt;)
+// m.mount(document.body, m(MyComponent))と同じ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>m.mount(document.body, Toggler)</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170221T235617Z" creationid="shibukawa.yoshiki" creationdate="20170221T235617Z">
@@ -35337,6 +37187,14 @@ m("ul",               // &lt;ul&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T013842Z" creationid="shibukawa.yoshiki" creationdate="20170222T013842Z">
         <seg>m.mount(document.body, {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>m.mount(element, component)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T160241Z" creationid="shibukawa.yoshiki" creationdate="20170329T160241Z">
+        <seg>m.mount(element, component)</seg>
       </tuv>
     </tu>
     <tu>
@@ -35397,6 +37255,18 @@ m.route(element, '/', {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T000143Z" creationid="shibukawa.yoshiki" creationdate="20170222T000143Z">
         <seg>m.parseQueryString</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>m.parseQueryString("a[0]=hello&amp;a[1]=world")
+
+// data is {a: ["hello", "world"]}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004348Z" creationid="shibukawa.yoshiki" creationdate="20170330T004324Z">
+        <seg>m.parseQueryString("a[0]=hello&amp;a[1]=world")
+
+// dataは {a: ["hello", "world"]}</seg>
       </tuv>
     </tu>
     <tu>
@@ -36597,6 +38467,22 @@ m.endComputation()</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>mount(root, component)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T144939Z" creationid="shibukawa.yoshiki" creationdate="20170329T144939Z">
+        <seg>mount(root, component)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>mount(root, component) - Mithril.js</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T144937Z" creationid="shibukawa.yoshiki" creationdate="20170329T144937Z">
+        <seg>mount(root, component) - Mithril.js</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>mount.html</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T000041Z" creationid="shibukawa.yoshiki" creationdate="20170222T000041Z">
@@ -36719,6 +38605,14 @@ m.endComputation()</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>object = m.parseQueryString(string)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T003828Z" creationid="shibukawa.yoshiki" creationdate="20170330T003828Z">
+        <seg>object = m.parseQueryString(string)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>off: function(callback) {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T002856Z" creationid="shibukawa.yoshiki" creationdate="20170328T002856Z">
@@ -36751,6 +38645,14 @@ m.endComputation()</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>onbeforeremove</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132824Z" creationid="shibukawa.yoshiki" creationdate="20170329T132824Z">
+        <seg>onbeforeremove</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>onbeforeremove : function(vnode) { /*...*/ },</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T013838Z" creationid="shibukawa.yoshiki" creationdate="20170222T013838Z">
@@ -36775,6 +38677,14 @@ m.endComputation()</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>onbeforeupdate</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132827Z" creationid="shibukawa.yoshiki" creationdate="20170329T132827Z">
+        <seg>onbeforeupdate</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>onbeforeupdate : function(vnode, old) { /*...*/ },</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T013836Z" creationid="shibukawa.yoshiki" creationdate="20170222T013836Z">
@@ -36795,6 +38705,22 @@ m.endComputation()</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170223T130108Z" creationid="shibukawa.yoshiki" creationdate="20170223T130108Z">
         <seg>onbeforeupdate: function(vnode, old) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>onblur: this.deactivate,</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123446Z" creationid="shibukawa.yoshiki" creationdate="20170329T123446Z">
+        <seg>onblur: this.deactivate,</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>onblur={this.deactivate}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123432Z" creationid="shibukawa.yoshiki" creationdate="20170329T123432Z">
+        <seg>onblur={this.deactivate}</seg>
       </tuv>
     </tu>
     <tu>
@@ -36847,6 +38773,14 @@ m.endComputation()</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>oncreate</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132822Z" creationid="shibukawa.yoshiki" creationdate="20170329T132822Z">
+        <seg>oncreate</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>oncreate : function(vnode) { /*...*/ },</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T013835Z" creationid="shibukawa.yoshiki" creationdate="20170222T013835Z">
@@ -36877,6 +38811,78 @@ m.endComputation()</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T002301Z" creationid="shibukawa.yoshiki" creationdate="20170222T002301Z">
         <seg>oncreate: function(vnode) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>ondragend: this.deactivate,</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123445Z" creationid="shibukawa.yoshiki" creationdate="20170329T123445Z">
+        <seg>ondragend: this.deactivate,</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>ondragend={this.deactivate}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123431Z" creationid="shibukawa.yoshiki" creationdate="20170329T123431Z">
+        <seg>ondragend={this.deactivate}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>ondragleave: this.deactivate,</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123444Z" creationid="shibukawa.yoshiki" creationdate="20170329T123444Z">
+        <seg>ondragleave: this.deactivate,</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>ondragleave={this.deactivate}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123430Z" creationid="shibukawa.yoshiki" creationdate="20170329T123430Z">
+        <seg>ondragleave={this.deactivate}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>ondragover: this.activate,</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123443Z" creationid="shibukawa.yoshiki" creationdate="20170329T123443Z">
+        <seg>ondragover: this.activate,</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>ondragover={this.activate}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123430Z" creationid="shibukawa.yoshiki" creationdate="20170329T123430Z">
+        <seg>ondragover={this.activate}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>ondrop: this.update,</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123445Z" creationid="shibukawa.yoshiki" creationdate="20170329T123445Z">
+        <seg>ondrop: this.update,</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>ondrop={this.update}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123432Z" creationid="shibukawa.yoshiki" creationdate="20170329T123432Z">
+        <seg>ondrop={this.update}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>oninit</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132821Z" creationid="shibukawa.yoshiki" creationdate="20170329T132821Z">
+        <seg>oninit</seg>
       </tuv>
     </tu>
     <tu>
@@ -37001,6 +39007,14 @@ m.endComputation()</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>onremove</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132825Z" creationid="shibukawa.yoshiki" creationdate="20170329T132825Z">
+        <seg>onremove</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>onremove : function() {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T014351Z" creationid="shibukawa.yoshiki" creationdate="20170222T014351Z">
@@ -37047,6 +39061,14 @@ m.endComputation()</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T003557Z" creationid="shibukawa.yoshiki" creationdate="20170328T003557Z">
         <seg>onunload: function(e) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>onupdate</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132823Z" creationid="shibukawa.yoshiki" creationdate="20170329T132823Z">
+        <seg>onupdate</seg>
       </tuv>
     </tu>
     <tu>
@@ -37275,6 +39297,22 @@ m.endComputation()</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>parseQueryString(string)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T003805Z" creationid="shibukawa.yoshiki" creationdate="20170330T003805Z">
+        <seg>parseQueryString(string)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>parseQueryString(string) - Mithril.js</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T003803Z" creationid="shibukawa.yoshiki" creationdate="20170330T003803Z">
+        <seg>parseQueryString(string) - Mithril.js</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>parseQueryString.html</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T000142Z" creationid="shibukawa.yoshiki" creationdate="20170222T000142Z">
@@ -37311,6 +39349,14 @@ m.endComputation()</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170309T033152Z" creationid="shibukawa.yoshiki" creationdate="20170309T033152Z">
         <seg>path: './bin',</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>people = [{id: 2, name: "Mary"}]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T124932Z" creationid="shibukawa.yoshiki" creationdate="20170329T124932Z">
+        <seg>people = [{id: 2, name: "メアリー"}]</seg>
       </tuv>
     </tu>
     <tu>
@@ -37403,10 +39449,26 @@ m.endComputation()</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>promise.catch</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004436Z" creationid="shibukawa.yoshiki" creationdate="20170330T004436Z">
+        <seg>promise.catch</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>promise.html</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170221T235616Z" creationid="shibukawa.yoshiki" creationdate="20170221T235616Z">
         <seg>promise.html</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>promise.then</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004434Z" creationid="shibukawa.yoshiki" creationdate="20170330T004434Z">
+        <seg>promise.then</seg>
       </tuv>
     </tu>
     <tu>
@@ -37595,10 +39657,26 @@ m.endComputation()</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>return (</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T115620Z" creationid="shibukawa.yoshiki" creationdate="20170329T115620Z">
+        <seg>return (</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>return (9 / 5 * (value - 273.15)) + 32</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T003541Z" creationid="shibukawa.yoshiki" creationdate="20170328T003541Z">
         <seg>return (9 / 5 * (value - 273.15)) + 32</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>return &lt;div&gt;{item.name}&lt;/div&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123427Z" creationid="shibukawa.yoshiki" creationdate="20170329T123427Z">
+        <seg>return &lt;div&gt;{item.name}&lt;/div&gt;</seg>
       </tuv>
     </tu>
     <tu>
@@ -37663,6 +39741,14 @@ m.endComputation()</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170221T235541Z" creationid="shibukawa.yoshiki" creationdate="20170221T235541Z">
         <seg>return [</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>return [ // fragment is a vnode, and therefore keyable</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132253Z" creationid="shibukawa.yoshiki" creationdate="20170329T132253Z">
+        <seg>return [ // フラグメントはvnodeで、それ自身にキーが設定できる</seg>
       </tuv>
     </tu>
     <tu>
@@ -38025,10 +40111,50 @@ this.description(data.description)</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>return m("button", u.name) // &lt;button&gt;John&lt;/button&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T124902Z" creationid="shibukawa.yoshiki" creationdate="20170329T124902Z">
+        <seg>return m("button", u.name) // &lt;button&gt;ジョン&lt;/button&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>return m("button", vnode.attrs, [</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170302T031332Z" creationid="shibukawa.yoshiki" creationdate="20170302T031332Z">
         <seg>return m("button", vnode.attrs, [</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>return m("button", {key: u.id}, u.name)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T130541Z" creationid="shibukawa.yoshiki" creationdate="20170329T130541Z">
+        <seg>return m("button", {key: u.id}, u.name)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>return m("button", {key: u.id}, u.name)
+})
+
+// PREFER
+users.map(function(u) {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132319Z" creationid="shibukawa.yoshiki" creationdate="20170329T132319Z">
+        <seg>return m("button", {key: u.id}, u.name)
+})
+
+// 望ましいコード
+users.map(function(u) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>return m("button", {key: vnode.attrs.id}, u.name)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132015Z" creationid="shibukawa.yoshiki" creationdate="20170329T132015Z">
+        <seg>return m("button", {key: vnode.attrs.id}, u.name)</seg>
       </tuv>
     </tu>
     <tu>
@@ -38045,6 +40171,14 @@ this.description(data.description)</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170302T162110Z" creationid="shibukawa.yoshiki" creationdate="20170302T162110Z">
         <seg>return m("div",</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>return m("div", "Bye")</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T143132Z" creationid="shibukawa.yoshiki" creationdate="20170329T143132Z">
+        <seg>return m("div", "Bye")</seg>
       </tuv>
     </tu>
     <tu>
@@ -38105,6 +40239,14 @@ this.description(data.description)</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>return m("div", [ // key should be in `div`</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T131627Z" creationid="shibukawa.yoshiki" creationdate="20170329T131627Z">
+        <seg>return m("div", [ // キーは `div` に書かなければならない</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>return m("div", controller.id);</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T004211Z" creationid="shibukawa.yoshiki" creationdate="20170328T004211Z">
@@ -38129,6 +40271,14 @@ this.description(data.description)</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>return m("div", item.name)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123442Z" creationid="shibukawa.yoshiki" creationdate="20170329T123442Z">
+        <seg>return m("div", item.name)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>return m("div", item.title)</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T000352Z" creationid="shibukawa.yoshiki" creationdate="20170222T000352Z">
@@ -38141,6 +40291,14 @@ this.description(data.description)</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170302T011550Z" creationid="shibukawa.yoshiki" creationdate="20170302T011550Z">
         <seg>return m("div", this.data)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>return m("div", this.data) // displays data from initialization time</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T141341Z" creationid="shibukawa.yoshiki" creationdate="20170329T141341Z">
+        <seg>return m("div", this.data) // 初期化時に保存したデータを表示</seg>
       </tuv>
     </tu>
     <tu>
@@ -38539,6 +40697,16 @@ input(name)</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T003534Z" creationid="shibukawa.yoshiki" creationdate="20170328T003534Z">
         <seg>return m.component(MyComponent, {message: "Hello " + item, key: item})</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>return m.fragment({key: u.id}, m("button", u.name))
+})</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132325Z" creationid="shibukawa.yoshiki" creationdate="20170329T132325Z">
+        <seg>return m.fragment({key: u.id}, m("button", u.name))
+})</seg>
       </tuv>
     </tu>
     <tu>
@@ -39424,6 +41592,14 @@ demo.view = function(ctrl) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>setTimeout(resolve, 1000)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T143130Z" creationid="shibukawa.yoshiki" creationdate="20170329T143130Z">
+        <seg>setTimeout(resolve, 1000)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>setTimeout(resolve, 500)</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170221T235615Z" creationid="shibukawa.yoshiki" creationdate="20170221T235615Z">
@@ -39510,6 +41686,14 @@ var Component = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>static attributes can be written using CSS selector syntax (i.e. m("a.button") vs &lt;div class="button"&gt;&lt;/div&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123341Z" creationid="shibukawa.yoshiki" creationdate="20170329T123341Z">
+        <seg>静的な属性はCSSセレクター文法を使って書くことができる（例 m("a.button") vs &lt;div class="button"&gt;&lt;/div&gt;）</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>stream()</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T030317Z" creationid="shibukawa.yoshiki" creationdate="20170222T030317Z">
@@ -39570,6 +41754,14 @@ var Component = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T030341Z" creationid="shibukawa.yoshiki" creationdate="20170222T030341Z">
         <seg>stream["fantasy-land/of"]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>string</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T003830Z" creationid="shibukawa.yoshiki" creationdate="20170330T003830Z">
+        <seg>string</seg>
       </tuv>
     </tu>
     <tu>
@@ -39740,6 +41932,14 @@ m(BetterHeader, {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T002809Z" creationid="shibukawa.yoshiki" creationdate="20170328T002809Z">
         <seg>this.contacts = Contact.list()</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>this.data = vnode.attrs.data</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T141320Z" creationid="shibukawa.yoshiki" creationdate="20170329T141320Z">
+        <seg>this.data = vnode.attrs.data</seg>
       </tuv>
     </tu>
     <tu>
@@ -39958,6 +42158,14 @@ User.list = function() {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T002810Z" creationid="shibukawa.yoshiki" creationdate="20170328T002810Z">
         <seg>this.save = function(contact) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>this.timeout = setTimeout(function() {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T143456Z" creationid="shibukawa.yoshiki" creationdate="20170329T143456Z">
+        <seg>this.timeout = setTimeout(function() {</seg>
       </tuv>
     </tu>
     <tu>
@@ -40282,6 +42490,14 @@ m.render(document, todo.view()); // テキスト入力に「コードを書く�
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T004024Z" creationid="shibukawa.yoshiki" creationdate="20170328T004024Z">
         <seg>unwrapSuccess: function(response) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>update: function() {/*...*/},</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123425Z" creationid="shibukawa.yoshiki" creationdate="20170329T123425Z">
+        <seg>update: function() {/*...*/},</seg>
       </tuv>
     </tu>
     <tu>
@@ -40728,6 +42944,14 @@ m.render(document, todo.view()); // テキスト入力に「コードを書く�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>var ComponentWithState = {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T141319Z" creationid="shibukawa.yoshiki" creationdate="20170329T141319Z">
+        <seg>var ComponentWithState = {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>var Contact = function(data) {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T002802Z" creationid="shibukawa.yoshiki" creationdate="20170328T002802Z">
@@ -40776,10 +43000,26 @@ m.render(document, todo.view()); // テキスト入力に「コードを書く�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>var Fader = {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T143127Z" creationid="shibukawa.yoshiki" creationdate="20170329T143127Z">
+        <seg>var Fader = {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>var FancyComponent = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170221T235526Z" creationid="shibukawa.yoshiki" creationdate="20170221T235526Z">
         <seg>var FancyComponent = {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>var HeightReporter = {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T142408Z" creationid="shibukawa.yoshiki" creationdate="20170329T142408Z">
+        <seg>var HeightReporter = {</seg>
       </tuv>
     </tu>
     <tu>
@@ -40854,6 +43094,14 @@ m.mount(document.body, &lt;Hero&gt;Hello&lt;/Hero&gt;)
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>var RedrawReporter = {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T142859Z" creationid="shibukawa.yoshiki" creationdate="20170329T142859Z">
+        <seg>var RedrawReporter = {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>var RoutedComponent = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T002025Z" creationid="shibukawa.yoshiki" creationdate="20170222T002025Z">
@@ -40882,6 +43130,14 @@ m.mount(document.body, &lt;Hero&gt;Hello&lt;/Hero&gt;)
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T002300Z" creationid="shibukawa.yoshiki" creationdate="20170222T002300Z">
         <seg>var StableComponent = {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>var Timer = {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T143455Z" creationid="shibukawa.yoshiki" creationdate="20170329T143455Z">
+        <seg>var Timer = {</seg>
       </tuv>
     </tu>
     <tu>
@@ -41051,6 +43307,42 @@ m.request({</seg>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T014356Z" creationid="shibukawa.yoshiki" creationdate="20170222T014356Z">
         <seg>var data = []
 m.request({</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>var data = m.parseQueryString("?a=hello&amp;b=world")
+
+// data is {a: "hello", b: "world"}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004343Z" creationid="shibukawa.yoshiki" creationdate="20170330T004244Z">
+        <seg>var data = m.parseQueryString("?a=hello&amp;b=world")
+
+// dataは {a: "hello", b: "world"}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>var data = m.parseQueryString("a=hello&amp;b=world")
+
+// data is {a: "hello", b: "world"}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T003911Z" creationid="shibukawa.yoshiki" creationdate="20170330T003911Z">
+        <seg>var data = m.parseQueryString("a=hello&amp;b=world")
+
+// data is {a: "hello", b: "world"}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>var data = m.parseQueryString("a=true&amp;b=false")
+
+// data is {a: true, b: false}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004332Z" creationid="shibukawa.yoshiki" creationdate="20170330T004149Z">
+        <seg>var data = m.parseQueryString("a=true&amp;b=false")
+
+// dataは {a: true, b: false}</seg>
       </tuv>
     </tu>
     <tu>
@@ -41249,6 +43541,20 @@ m.request({method: "GET", url: "/user/:id", data: {id: 1}})</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T014433Z" creationid="shibukawa.yoshiki" creationdate="20170222T014433Z">
         <seg>var greetAsync = new Promise(function(resolve){</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>var greeting = "Hello"
+var url = "http://google.com"
+var link = &lt;a href={url}&gt;{greeting + "!"}&lt;/a&gt;
+// yields &lt;a href="http://google.com"&gt;Hello&lt;/a&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T121012Z" creationid="shibukawa.yoshiki" creationdate="20170329T121012Z">
+        <seg>var greeting = "Hello"
+var url = "http://google.com"
+var link = &lt;a href={url}&gt;{greeting + "!"}&lt;/a&gt;
+// &lt;a href="http://google.com"&gt;Hello&lt;/a&gt;となる</seg>
       </tuv>
     </tu>
     <tu>
@@ -41931,6 +44237,34 @@ m("button", {onclick: vm.add.bind(vm, vm.description)}, "追加")</seg>
     <tu>
       <tuv lang="EN-US">
         <seg>view: function() {}
+}
+
+m(HeightReporter, {data: "Hello"})</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T142431Z" creationid="shibukawa.yoshiki" creationdate="20170329T142431Z">
+        <seg>view: function() {}
+}
+
+m(HeightReporter, {data: "Hello"})</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>view: function() {}
+}
+
+m(RedrawReporter, {data: "Hello"})</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T142913Z" creationid="shibukawa.yoshiki" creationdate="20170329T142913Z">
+        <seg>view: function() {}
+}
+
+m(RedrawReporter, {data: "Hello"})</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>view: function() {}
 };
 
 //go to the default route (home)
@@ -42090,6 +44424,14 @@ m.route(document.body, "/", {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>vnode.attrs.items.map(function(item) {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123439Z" creationid="shibukawa.yoshiki" creationdate="20170329T123439Z">
+        <seg>vnode.attrs.items.map(function(item) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>vnode.children,</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T015527Z" creationid="shibukawa.yoshiki" creationdate="20170328T015527Z">
@@ -42102,6 +44444,14 @@ m.route(document.body, "/", {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170221T235613Z" creationid="shibukawa.yoshiki" creationdate="20170221T235613Z">
         <seg>vnode.dom.classList.add("exit")</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>vnode.dom.classList.add("fade-out")</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T143129Z" creationid="shibukawa.yoshiki" creationdate="20170329T143129Z">
+        <seg>vnode.dom.classList.add("fade-out")</seg>
       </tuv>
     </tu>
     <tu>
@@ -42474,6 +44824,24 @@ m("li", {class: selected ?</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>{id: "1", name: "Book"},</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132539Z" creationid="shibukawa.yoshiki" creationdate="20170329T132531Z">
+        <seg>{id: "1", name: "本"},</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{id: 1, name: "Cup"},
+]</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132542Z" creationid="shibukawa.yoshiki" creationdate="20170329T132532Z">
+        <seg>{id: 1, name: "カップ"},
+]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>{id: 1, name: "John"},</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170327T234244Z" creationid="shibukawa.yoshiki" creationdate="20170327T234244Z">
@@ -42522,6 +44890,20 @@ function userInputs(users) {</seg>
 ]
 
 function userInputs(users) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>{id: 2, name: "Mary"},
+]
+
+function userList(users) {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T124856Z" creationid="shibukawa.yoshiki" creationdate="20170329T124856Z">
+        <seg>{id: 2, name: "メアリー"},
+]
+
+function userList(users) {</seg>
       </tuv>
     </tu>
     <tu>
@@ -42608,6 +44990,14 @@ m.render(document.body, [</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>{vnode.attrs.items.map(function(item) {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123427Z" creationid="shibukawa.yoshiki" creationdate="20170329T123427Z">
+        <seg>{vnode.attrs.items.map(function(item) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>{{item.name}}</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T004826Z" creationid="shibukawa.yoshiki" creationdate="20170328T004826Z">
@@ -42637,6 +45027,22 @@ m.render(document.body, [</seg>
         <seg>}
 }
 
+// PREFER
+users.map(function(u) {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132050Z" creationid="shibukawa.yoshiki" creationdate="20170329T132050Z">
+        <seg>}
+}
+
+// 望ましいコード
+users.map(function(u) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>}
+}
+
 // PREFER refactor variability out
 var BetterLabeledComponent = {</seg>
       </tuv>
@@ -42646,6 +45052,38 @@ var BetterLabeledComponent = {</seg>
 
 // 可変部分を外に出した望ましいコード
 var BetterLabeledComponent = {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>}
+}
+
+// Sample hook in vnode
+function initializeVnode() {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T135437Z" creationid="shibukawa.yoshiki" creationdate="20170329T135437Z">
+        <seg>}
+}
+
+// vnodeのフックのサンプル
+function initializeVnode() {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>}
+}
+
+// can be written as:
+var MyComponent = {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T115618Z" creationid="shibukawa.yoshiki" creationdate="20170329T115618Z">
+        <seg>}
+}
+
+// 次のように書ける:
+var MyComponent = {</seg>
       </tuv>
     </tu>
     <tu>
@@ -42668,6 +45106,22 @@ m(Greeter, {style: "color:red;"}, "world")
 
 // 等価なHTML
 // &lt;div style="color:red;"&gt;Hello world&lt;/div&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>}
+}
+
+// hyperscript
+var BigComponent = {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123434Z" creationid="shibukawa.yoshiki" creationdate="20170329T123434Z">
+        <seg>}
+}
+
+// hyperscript
+var BigComponent = {</seg>
       </tuv>
     </tu>
     <tu>
@@ -42928,6 +45382,26 @@ m(ComponentWithInitialState)
 
 // 下記のHTMLが生成されます
 // &lt;div&gt;初期データ&lt;/div&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>}
+}
+
+m(ComponentWithState, {data: "Hello"})
+
+// Equivalent HTML
+// &lt;div&gt;Hello&lt;/div&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T141355Z" creationid="shibukawa.yoshiki" creationdate="20170329T141355Z">
+        <seg>}
+}
+
+m(ComponentWithState, {data: "Hello"})
+
+// 次のHTMLと同等
+// &lt;div&gt;Hello&lt;/div&gt;</seg>
       </tuv>
     </tu>
     <tu>
@@ -43853,6 +46327,20 @@ m.render(document.body, userInputs(users))</seg>
         <seg>})
 }
 
+m.render(document.body, userList(people))</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T124908Z" creationid="shibukawa.yoshiki" creationdate="20170329T124908Z">
+        <seg>})
+}
+
+m.render(document.body, userList(people))</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>})
+}
+
 m.route(document.body, "/", {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T001919Z" creationid="shibukawa.yoshiki" creationdate="20170222T001919Z">
@@ -43984,10 +46472,28 @@ var doBoth = function(callback) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>})}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T123428Z" creationid="shibukawa.yoshiki" creationdate="20170329T123428Z">
+        <seg>})}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>},</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170221T233755Z" creationid="shibukawa.yoshiki" creationdate="20170221T233755Z">
         <seg>},</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>},
+}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T143133Z" creationid="shibukawa.yoshiki" creationdate="20170329T143133Z">
+        <seg>},
+}</seg>
       </tuv>
     </tu>
     <tu>
