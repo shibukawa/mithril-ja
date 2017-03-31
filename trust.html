@@ -3,8 +3,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8" />
 		<title>  trust(html) - Mithril.js</title>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
@@ -12,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<h1><img src="logo.svg">  Mithril <small>1.1.0</small></h1>
 				<nav>
 					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
 				</nav>
@@ -20,7 +19,7 @@
 		</header>
 		<main>
 			<section>
-				<h1 id="trusthtml">trust(html)</h1>
+				<h1 id="trusthtml"><a href="#trusthtml">trust(html)</a></h1>
 <ul>
 <li>コア<ul>
 <li><a href="hyperscript.html">m</a></li>
@@ -36,9 +35,9 @@
 <li><a href="#description">説明</a></li>
 <li><a href="#signature">シグニチャ</a></li>
 <li><a href="#how-it-works">どのように動作するのか</a></li>
-<li><a href="#security-considerations">Security considerations</a></li>
-<li><a href="#scripts-that-do-not-run">Scripts that do not run</a></li>
-<li><a href="#avoid-trusting-html">Avoid trusting HTML</a></li>
+<li><a href="#security-considerations">セキュリティの懸念</a></li>
+<li><a href="#scripts-that-do-not-run">実行しないスクリプト</a></li>
+<li><a href="#avoid-trusting-html">HTMLを信用しない</a></li>
 </ul>
 </li>
 <li><a href="fragment.html">m.fragment</a></li>
@@ -57,11 +56,11 @@
 </li>
 </ul>
 <hr>
-<h3 id="description">説明</h3>
-<p>Turns an HTML string into unescaped HTML. <strong>Do not use <code>m.trust</code> on unsanitized user input.</strong></p>
-<p>Always try to use an <a href="#avoid-trusting-html">alternative method</a> first, before considering using <code>m.trust</code>.</p>
+<h3 id="description"><a href="#description">説明</a></h3>
+<p>HTML文字列をエスケープしないHTMLとして出力します。<strong><code>m.trust</code>はサニタイズしていないユーザー入力に対して使わないでください。</strong></p>
+<p><code>m.trust</code>の使用を検討するまえに<a href="#avoid-trusting-html">他の手段</a>で代替できないかまず検討してください。</p>
 <hr>
-<h3 id="signature">シグニチャ</h3>
+<h3 id="signature"><a href="#signature">シグニチャ</a></h3>
 <p><code>vnode = m.trust(html)</code></p>
 <table>
 <thead>
@@ -77,82 +76,82 @@
 <td><code>html</code></td>
 <td><code>String</code></td>
 <td>Yes</td>
-<td>A string containing HTML text</td>
+<td>HTMLテキストを含む文字列</td>
 </tr>
 <tr>
-<td><strong>returns</strong></td>
+<td><strong>返り値</strong></td>
 <td><code>Vnode</code></td>
 <td></td>
-<td>A trusted HTML <a href="vnodes.html">vnode</a> that represents the input string</td>
+<td>入力文字列を表現するための、信用できるHTML<a href="vnodes.html">vnode</a></td>
 </tr>
 </tbody>
 </table>
 <p><a href="signatures.html">シグニチャの読み方</a></p>
 <hr>
-<h3 id="how-it-works">どのように動作するのか</h3>
-<p>By default, Mithril escapes all values in order to prevent a class of security problems called <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">XSS injections</a>.</p>
+<h3 id="how-it-works"><a href="#how-it-works">どのように動作するのか</a></h3>
+<p>デフォルトでは、Mithrilは、<a href="https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%82%B9%E3%82%B5%E3%82%A4%E3%83%88%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0">XSSインジェクション</a>と呼ばれる種類のセキュリティの問題を防ぐために、すべての入力値をエスケープしようとします。</p>
 <pre><code class="lang-javascript">var userContent = "&lt;script&gt;alert('evil')&lt;/script&gt;"
 var view = m("div", userContent)
 
 m.render(document.body, view)
 
-// equivalent HTML
+// 同等のHTML
 // &lt;div&gt;&amp;lt;script&amp;gt;alert('evil')&amp;lt;/script&amp;gt;&lt;/div&gt;
 </code></pre>
-<p>However, sometimes it is desirable to render rich text and formatting markup. To fill that need, <code>m.trust</code> creates trusted HTML <a href="vnodes.html">vnodes</a> which are rendered as HTML.</p>
+<p>しかし、すでにレンダリングされたリッチテキストや、マークアップでフォーマットが整えられたHTMLを表示したいこともあります。<code>m.trust</code>は、入力されたHTMLと等価な信用された<a href="vnodes.html">vnodes</a>を出力します。</p>
 <pre><code class="lang-javascript">var view = m("div", [
-    m.trust("&lt;h1&gt;Here's some &lt;em&gt;HTML&lt;/em&gt;&lt;/h1&gt;")
+    m.trust("&lt;h1&gt;ここに生の&lt;em&gt;HTML&lt;/em&gt;が書けます&lt;/h1&gt;")
 ])
 
 m.render(document.body, view)
 
-// equivalent HTML
-// &lt;div&gt;&lt;h1&gt;Here's some &lt;em&gt;HTML&lt;/em&gt;&lt;/h1&gt;&lt;/div&gt;
+// 等価なHTML
+// &lt;div&gt;&lt;h1&gt;ここに生の&lt;em&gt;HTML&lt;/em&gt;が書けます&lt;/h1&gt;&lt;/div&gt;
 </code></pre>
-<p>Trusted HTML vnodes are objects, not strings; therefore they cannot be concatenated with regular strings.</p>
+<p>出力の信用済みHTMLのvnodeはオブジェクトであって文字列でないため、通常の文字列と接合することはできません。</p>
 <hr>
-<h3 id="security-considerations">Security considerations</h3>
-<p>You <strong>must sanitize the input</strong> of <code>m.trust</code> to ensure there's no user-generated malicious code in the HTML string. If you don't sanitize an HTML string and mark it as a trusted string, any asynchronous javascript call points within the HTML string will be triggered and run with the authorization level of the user viewing the page.</p>
-<p>There are many ways in which an HTML string may contain executable code. The most common ways to inject security attacks are to add an <code>onload</code> or <code>onerror</code> attributes in <code>&lt;img&gt;</code> or <code>&lt;iframe&gt;</code> tags, and to use unbalanced quotes such as <code>" onerror="alert(1)</code> to inject executable contexts in unsanitized string interpolations.</p>
+<h3 id="security-considerations"><a href="#security-considerations">セキュリティの懸念</a></h3>
+<p><code>m.trust</code>の<strong>入力は必ずサニタイズ</strong>しましょう。ユーザーが生成した悪意を持ったコードがHTMLに入り込まないようにしましょう。HTML文字列をサニタイズしないまま、信頼できる文字列としてマークてしまうと、ページを表示しているユーザーの権限で、JavaScriptを使って任意の非同期呼び出しが可能となってしまいます。</p>
+<p>HTMLには、実行可能なコードを書くことができるポイントがたくさんあります。一般的なXSS攻撃では、<code>&lt;img&gt;</code>タグや<code>&lt;iframe&gt;</code>タグの<code>onload</code>、<code>onerror</code>属性を使ったり、<code>" onerror="alert(1)</code>といった不揃いのダブルクオートを使って攻撃コードをもぐりこませます。</p>
 <pre><code class="lang-javascript">var data = {}
 
-// Sample vulnerable HTML string
+// 脆弱なHTML文字列
 var description = "&lt;img alt='" + data.title + "'&gt; &lt;span&gt;" + data.description + "&lt;/span&gt;"
 
-// An attack using javascript-related attributes
+// JavaScriptが書ける属性を使った攻撃
 data.description = "&lt;img onload='alert(1)'&gt;"
 
-// An attack using unbalanced tags
+// 不揃いのタグを使った攻撃
 data.description = "&lt;/span&gt;&lt;img onload='alert(1)'&gt;&lt;span"
 
-// An attack using unbalanced quotes
+// 不揃いのクオートを使った攻撃
 data.title = "' onerror='alert(1)"
 
-// An attack using a different attribute
+// 他の属性を使った攻撃
 data.title = "' onmouseover='alert(1)"
 
-// An attack that does not use javascript
+// JavaScriptを使わない攻撃
 data.description = "&lt;a href='http://evil.com/login-page-that-steals-passwords.html'&gt;Click here to read more&lt;/a&gt;"
 </code></pre>
-<p>There are countless non-obvious ways of creating malicious code, so it is highly recommended that you use a <a href="https://en.wikipedia.org/wiki/Whitelist">whitelist</a> of permitted HTML tags, attributes and attribute values, as opposed to a <a href="https://en.wikipedia.org/wiki/Blacklisting">blacklist</a> to sanitize the user input. It's also highly recommended that you use a proper HTML parser, instead of regular expressions for sanitization, because regular expressions are extremely difficult to test for all edge cases.</p>
+<p>悪意をもったコードを作成する方法は数え切れないほどあります。<a href="https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%88">ブラックリスト</a>を使ってユーザー入力をサニタイズする方法もありますが、一番推奨されるのは、許可できるタグ、属性、属性値の<a href="https://ja.wikipedia.org/wiki/%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88%E3%83%AA%E3%82%B9%E3%83%88">ホワイトリスト</a>を使う方法です。また、すべてのケースを網羅する正規表現を作るのは難しいため、正規表現を使ってサニタイズするではなく、適切なHTMLパーサを使用することを強くお勧めします。</p>
 <hr>
-<h3 id="scripts-that-do-not-run">Scripts that do not run</h3>
-<p>Even though there are many obscure ways to make an HTML string run Javascript, <code>&lt;script&gt;</code> tags are one thing that does not run when it appears in an HTML string.</p>
-<p>For historical reasons, browsers ignore <code>&lt;script&gt;</code> tags that are inserted into the DOM via innerHTML. They do this because once the element is ready (and thus, has an accessible innerHTML property), the rendering engines cannot backtrack to the parsing-stage if the script calls something like document.write("</body>").</p>
-<p>This browser behavior may seem surprising to a developer coming from jQuery, because jQuery implements code specifically to find script tags and run them in this scenario. Mithril follows the browser behavior. If jQuery behavior is desired, you should consider either moving the code out of the HTML string and into an <code>oncreate</code> <a href="lifecycle-methods.html">lifecycle method</a>, or use jQuery (or re-implement its script parsing code).</p>
+<h3 id="scripts-that-do-not-run"><a href="#scripts-that-do-not-run">実行しないスクリプト</a></h3>
+<p>HTML文字列にJavascriptを実行させるためのあいまいな方法はたくさんありますが、<code>&lt;script&gt;</code>タグはHTML文字列に現れるときには実行されません。</p>
+<p>歴史的な理由により、ブラウザはinnerHTMLを使ってDOMに挿入された<code>&lt;script&gt;</code>タグを無視します。一度エレメントが準備可能状態になり、innerHTMLプロパティなどが利用できるようになったら、document.write("</body>")といった呼び出しをしても、レンダリングエンジンがパースのステージにもどることはありません。</p>
+<p>jQueryがスクリプトタグを特定してこのシナリオでも実行されるような実装になっているため、jQueryの経験者はこのブラウザの動作を見て驚かれるかもしれません。Mithrilはブラウザの動作の方に従います。もしjQueryの方の挙動が望ましいのであれば、HTML文字列からコードを除外して<code>oncreate</code><a href="lifecycle-methods.html">ライフサイクルメソッド</a>に移動するか、jQueryを使用するか、スクリプトのパースコードを自作する必要があります。</p>
 <hr>
-<h3 id="avoid-trusting-html">Avoid trusting HTML</h3>
-<p>As a general rule of thumb, you should avoid using <code>m.trust</code> unless you are explicitly rendering rich text and there's no other way to get the results that you want.</p>
-<pre><code class="lang-javascript">// AVOID
+<h3 id="avoid-trusting-html"><a href="#avoid-trusting-html">HTMLを信用しない</a></h3>
+<p>一般的なルールとして、明示的にレンダリングされたHTMLを使い、なおかつ他に自分が望む手法が一切無い時以外は<code>m.trust</code>は使わないようにしましょう。</p>
+<pre><code class="lang-javascript">// 避けるべきコード
 m("div", m.trust("hello world"))
 
-// PREFER
+// 望ましいコード
 m("div", "hello world")
 </code></pre>
-<h4 id="avoid-blind-copying-and-pasting">Avoid blind copying and pasting</h4>
-<p>One common way to misuse <code>m.trust</code> is when working with third party services whose tutorials include HTML code to be copied and pasted. In most cases, HTML should be written using vnodes (typically via the <a href="hyperscript.html"><code>m()</code></a> utility)</p>
-<p>Here's the example snippet for the <a href="https://developers.facebook.com/docs/plugins/like-button">Facebook Like button</a>:</p>
-<pre><code class="lang-markup">&lt;!-- Load Facebook SDK for JavaScript --&gt;
+<h4 id="avoid-blind-copying-and-pasting"><a href="#avoid-blind-copying-and-pasting">盲目的なコピー＆ペーストを避ける</a></h4>
+<p><code>m.trust</code>の良くある誤用は、サードパーティーのサービスのチュートリアルで、コードを含むHTMLコードが表示されていて、それをコピー＆ペーストしてしまうことです。ほとんどの場合、HTMLはvnode（<a href="hyperscript.html"><code>m()</code></a>ユーティリティ）を使って書かなければなりません。</p>
+<p>これが<a href="https://developers.facebook.com/docs/plugins/like-button">Facebookのいいねボタン</a>のサンプルです:</p>
+<pre><code class="lang-markup">&lt;!-- Facebook SDK for JavaScriptのロード --&gt;
 &lt;div id="fb-root"&gt;&lt;/div&gt;
 &lt;script&gt;(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -162,7 +161,7 @@ m("div", "hello world")
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));&lt;/script&gt;
 
-&lt;!-- Your like button code --&gt;
+&lt;!-- いいねボタンのコード --&gt;
 &lt;div class="fb-like"
     data-href="http://www.your-domain.com/your-page.html"
     data-layout="standard"
@@ -170,7 +169,7 @@ m("div", "hello world")
     data-show-faces="true"&gt;
 &lt;/div&gt;
 </code></pre>
-<p>And here's how to refactor into a Mithril component in a way that avoids <code>m.trust</code>:</p>
+<p>次のコードは<code>m.trust</code>を避けるためにMithrilのコンポーネントとしてリファクタリングしたコードです:</p>
 <pre><code class="lang-javascript">var FacebookLikeButton = {
     oncreate: function() {
         (function(d, s, id) {
@@ -189,24 +188,25 @@ m("div", "hello world")
     }
 }
 </code></pre>
-<p>The Mithril component above simply copies the script tag's code into the <code>oncreate</code> hook and declares the remaining HTML tags using Mithril's <code>m()</code> syntax.</p>
-<h4 id="avoid-html-entities">Avoid HTML entities</h4>
-<p>A common way to misuse <code>m.trust</code> is to use it for HTML entities. A better approach is to use the corresponding unicode characters:</p>
-<pre><code class="lang-javascript">// AVOID
+<p>上記のMithrilコンポーネントでは、scriptタグのコードはそのままシンプルに<code>oncreate</code>フックにコピーして、HTMLタグはMithrilの<code>m()</code>構文で表現しています。</p>
+<h4 id="avoid-html-entities"><a href="#avoid-html-entities">HTML文字参照を避ける</a></h4>
+<p>他のよくある<code>m.trust</code>の誤用はHTML文字参照です。望ましい方法はUnicode文字を使う方法です:</p>
+<pre><code class="lang-javascript">// 避けるべきコード
 m("h1", "Coca-Cola", m.trust("&amp;trade;"))
 
-// PREFER
+// 望ましいコード
 m("h1", "Coca-Cola™")
 </code></pre>
-<p>Unicode characters for accented characters can be typed using a keyboard layout for an applicable language, and one may also choose to memorize keyboard shortcuts to produce commonly used symbols (e.g. <code>Alt+0153</code> in Windows, or <code>Option+2</code> on Mac for the ™ symbol). Another simple method to produce them is to simply copy and paste the desired character from a <a href="https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references">unicode character table</a>. Yet another related method is to type an escaped unicode codepoint (e.g. <code>"\u2122"</code> for the ™ symbol).</p>
-<p>All characters that are representable as HTML entities have unicode counterparts, including non-visible characters such as <code>&amp;nbsp;</code> and <code>&amp;shy;</code>.</p>
-<p>To avoid encoding issues, you should set the file encoding to UTF-8 on the Javascript file, as well as add the <code>&lt;meta charset="utf-8"&gt;</code> meta tag in the host HTML file.</p>
+<p>アクセント文字はキーボードを使って入力することができます。また、キーボードのショートカットを覚えて入力することもできます（™文字はWindowsでは<code>Alt+0153</code>、macでは<code>Option+2</code>で入力できる）。他のシンプルな方法は、<a href="https://ja.wikipedia.org/wiki/%E6%96%87%E5%AD%97%E5%8F%82%E7%85%A7">Unicode文字列テーブル</a>からコピー＆ペーストする方法です。他には、Unicodeのコードポイントを使って入力する方法（™シンボルは<code>"\u2122"</code>）もあります。</p>
+<p><code>&amp;nbsp;</code>や<code>&amp;shy;</code>といった非表示のものまで含めて、すべてのHTML文字参照には、対応するUnicode文字が存在します。</p>
+<p>エンコーディングの問題を避けるためには、JavaScriptのファイルのエンコーディングをUTF-8にしたり、ホストとなるHTMLファイルに<code>&lt;meta charset="utf-8"&gt;</code>メタタグを追加する必要があります。</p>
 
 				<hr />
 				<small>License: MIT. © Leo Horie.</small>
 			</section>
 		</main>
-		<script src="lib/prism/prism.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-jsx.min.js"></script>
 		<script>
 		document.querySelector(".hamburger").onclick = function() {
 			document.body.className = document.body.className === "navigating" ? "" : "navigating"

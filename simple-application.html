@@ -3,8 +3,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8" />
 		<title> シンプルなアプリケーション - Mithril.js</title>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
@@ -12,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<h1><img src="logo.svg">  Mithril <small>1.1.0</small></h1>
 				<nav>
 					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
 				</nav>
@@ -20,7 +19,7 @@
 		</header>
 		<main>
 			<section>
-				<h1 id="simple-application">シンプルなアプリケーション</h1>
+				<h1 id="simple-application"><a href="#simple-application">シンプルなアプリケーション</a></h1>
 <ul>
 <li>チュートリアル<ul>
 <li><a href="installation.html">インストール</a></li>
@@ -110,7 +109,7 @@ var User = {
 
 module.exports = User
 </code></pre>
-<p>それではXHRリクエストを行う<code>m.request</code>呼び出しを行いましょう。このチュートリアルでは、<a href="http://rem-rest-api.herokuapp.com/">REM</a> APIへの呼び出しを行います。これは高速なプロトタイピングのためにデザインされたのモックのREST APIです。このAPIを使って<code>GET http://rem-rest-api.herokuapp.com/api/users</code>エンドポイントにアクセスすると、ユーザーのリストが返ってきます。<code>m.request</code>を使ってXHRのリクエストを行い、そのエンドポイントのレスポンスを取得しましょう。</p>
+<p>それではXHRリクエストを行う<code>m.request</code>呼び出しを行いましょう。このチュートリアルでは、<a href="http://rem-rest-api.herokuapp.com/">REM</a> APIへの呼び出しを行います。これは高速なプロトタイピングのためにデザインされたのモックのREST APIです。このAPIを使って<code>GET https://rem-rest-api.herokuapp.com/api/users</code>エンドポイントにアクセスすると、ユーザーのリストが返ってきます。<code>m.request</code>を使ってXHRのリクエストを行い、そのエンドポイントのレスポンスを取得しましょう。</p>
 <pre><code class="lang-javascript">// src/models/User.js
 var m = require("mithril")
 
@@ -119,7 +118,7 @@ var User = {
     loadList: function() {
         return m.request({
             method: "GET",
-            url: "http://rem-rest-api.herokuapp.com/api/users",
+            url: "https://rem-rest-api.herokuapp.com/api/users",
             withCredentials: true,
         })
         .then(function(result) {
@@ -293,7 +292,7 @@ module.exports = {
             m("input.input[type=text][placeholder=名前]"),
             m("label.label", "名字"),
             m("input.input[placeholder=名字]"),
-            m("button.button[type=submit]", "保存"),
+            m("button.button[type=button]", "保存"),
         ])
     }
 }
@@ -320,7 +319,7 @@ var User = {
     loadList: function() {
         return m.request({
             method: "GET",
-            url: "http://rem-rest-api.herokuapp.com/api/users",
+            url: "https://rem-rest-api.herokuapp.com/api/users",
             withCredentials: true,
         })
         .then(function(result) {
@@ -340,7 +339,7 @@ var User = {
     loadList: function() {
         return m.request({
             method: "GET",
-            url: "http://rem-rest-api.herokuapp.com/api/users",
+            url: "https://rem-rest-api.herokuapp.com/api/users",
             withCredentials: true,
         })
         .then(function(result) {
@@ -352,7 +351,7 @@ var User = {
     load: function(id) {
         return m.request({
             method: "GET",
-            url: "http://rem-rest-api.herokuapp.com/api/users/:id",
+            url: "https://rem-rest-api.herokuapp.com/api/users/:id",
             data: {id: id},
             withCredentials: true,
         })
@@ -377,7 +376,7 @@ module.exports = {
             m("input.input[type=text][placeholder=名前]", {value: User.current.firstName}),
             m("label.label", "名字"),
             m("input.input[placeholder=名字]", {value: User.current.lastName}),
-            m("button.button[type=submit]", "保存"),
+            m("button.button[type=button]", "保存"),
         ])
     }
 }
@@ -408,7 +407,12 @@ var User = require("../models/User")
 module.exports = {
     oninit: function(vnode) {User.load(vnode.attrs.id)},
     view: function() {
-        return m("form", [
+        return m("form", {
+                onsubmit: function(e) {
+                    e.preventDefault()
+                    User.save()
+                }
+            }, [
             m("label.label", "名前"),
             m("input.input[type=text][placeholder=名前]", {
                 oninput: m.withAttr("value", function(value) {User.current.firstName = value}),
@@ -419,7 +423,7 @@ module.exports = {
                 oninput: m.withAttr("value", function(value) {User.current.lastName = value}),
                 value: User.current.lastName
             }),
-            m("button.button[type=submit]", {onclick: User.save}, "保存"),
+            m("button.button[type=button]", "保存"),
         ])
     }
 }
@@ -434,7 +438,7 @@ var User = {
     loadList: function() {
         return m.request({
             method: "GET",
-            url: "http://rem-rest-api.herokuapp.com/api/users",
+            url: "https://rem-rest-api.herokuapp.com/api/users",
             withCredentials: true,
         })
         .then(function(result) {
@@ -446,7 +450,7 @@ var User = {
     load: function(id) {
         return m.request({
             method: "GET",
-            url: "http://rem-rest-api.herokuapp.com/api/users/:id",
+            url: "https://rem-rest-api.herokuapp.com/api/users/:id",
             data: {id: id},
             withCredentials: true,
         })
@@ -458,7 +462,7 @@ var User = {
     save: function() {
         return m.request({
             method: "PUT",
-            url: "http://rem-rest-api.herokuapp.com/api/users/:id",
+            url: "https://rem-rest-api.herokuapp.com/api/users/:id",
             data: User.current,
             withCredentials: true,
         })
@@ -537,7 +541,8 @@ m.route(document.body, "/list", {
 				<small>License: MIT. © Leo Horie.</small>
 			</section>
 		</main>
-		<script src="lib/prism/prism.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-jsx.min.js"></script>
 		<script>
 		document.querySelector(".hamburger").onclick = function() {
 			document.body.className = document.body.className === "navigating" ? "" : "navigating"

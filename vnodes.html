@@ -2,9 +2,8 @@
 	<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8" />
-		<title>  Virtual DOM nodes - Mithril.js</title>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<title> 仮想DOMノード - Mithril.js</title>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
@@ -12,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<h1><img src="logo.svg">  Mithril <small>1.1.0</small></h1>
 				<nav>
 					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
 				</nav>
@@ -20,7 +19,7 @@
 		</header>
 		<main>
 			<section>
-				<h1 id="virtual-dom-nodes">Virtual DOM nodes</h1>
+				<h1 id="virtual-dom-nodes"><a href="#virtual-dom-nodes">仮想DOMノード</a></h1>
 <ul>
 <li>チュートリアル<ul>
 <li><a href="installation.html">インストール</a></li>
@@ -39,11 +38,11 @@
 </li>
 <li>重要なコンセプト<ul>
 <li><strong><a href="vnodes.html">Vノード</a></strong><ul>
-<li><a href="#what-is-virtual-dom">What is virtual DOM</a></li>
-<li><a href="#basics">Basics</a></li>
+<li><a href="#what-is-virtual-dom">仮想DOMとは何か</a></li>
+<li><a href="#basics">基礎</a></li>
 <li><a href="#structure">構造</a></li>
-<li><a href="#vnode-types">Vnode types</a></li>
-<li><a href="#monomorphic-class">Monomorphic class</a></li>
+<li><a href="#vnode-types">Vnodeタイプ</a></li>
+<li><a href="#monomorphic-class">単相クラス</a></li>
 <li><a href="#avoid-anti-patterns">アンチパターンを避ける</a></li>
 </ul>
 </li>
@@ -66,43 +65,43 @@
 </li>
 </ul>
 <hr>
-<h3 id="what-is-virtual-dom">What is virtual DOM</h3>
-<p>A virtual DOM tree is a Javascript data structure that describes a DOM tree. It consists of nested virtual DOM nodes, also known as <em>vnodes</em>.</p>
-<p>The first time a virtual DOM tree is rendered, it is used as a blueprint to create a DOM tree that matches its structure.</p>
-<p>Typically, virtual DOM trees are then recreated every render cycle, which normally occurs in response to event handlers or to data changes. Mithril <em>diffs</em> a vnode tree against its previous version and only modifies DOM elements in spots where there are changes.</p>
-<p>It may seem wasteful to recreate vnodes so frequently, but as it turns out, modern Javascript engines can create hundreds of thousands of objects in less than a millisecond. On the other hand, modifying the DOM is several orders of magnitude more expensive than creating vnodes.</p>
-<p>For that reason, Mithril uses a sophisticated and highly optimized virtual DOM diffing algorithm to minimize the amount of DOM updates. Mithril <em>also</em> generates carefully crafted vnode data structures that are compiled by Javascript engines for near-native data structure access performance. In addition, Mithril aggressively optimizes the function that creates vnodes as well.</p>
-<p>The reason Mithril goes to such great lengths to support a rendering model that recreates the entire virtual DOM tree on every render is to provide <a href="https://en.wikipedia.org/wiki/Retained_mode">retained mode rendering</a>, a style of rendering that makes it drastically easier to manage UI complexity.</p>
-<p>To illustrate why retained mode is so important, consider the DOM API and HTML. The DOM API is an <a href="https://en.wikipedia.org/wiki/Immediate_mode_(computer_graphics">immediate mode</a>) rendering system and requires writing out exact instructions to assemble a DOM tree procedurally. The imperative nature of the DOM API means you have many opportunities to micro-optimize your code, but it also means that you have more chances of introducing bugs and more chances to make code harder to understand.</p>
-<p>In contrast, HTML is a retained mode rendering system. With HTML, you can write a DOM tree in a far more natural and readable way, without worrying about forgetting to append a child to a parent, running into stack overflows when rendering extremely deep trees, etc.</p>
-<p>Virtual DOM goes one step further than HTML by allowing you to write <em>dynamic</em> DOM trees without having to manually write multiple sets of DOM API calls to efficiently synchronize the UI to arbitrary data changes.</p>
+<h3 id="what-is-virtual-dom"><a href="#what-is-virtual-dom">仮想DOMとは何か</a></h3>
+<p>仮想DOMツリーはDOMツリーを表現するJavaScriptデータ構造です。ネストした仮想DOMノードは<em>vnodes</em>と呼ばれます。</p>
+<p>仮想DOMが最初にレンダリングされる時はDOMツリーを作るためのブループリントとして使われます。</p>
+<p>通常、仮想DOMツリーはレンダリングのサイクルのたびに再生成されます。レンダリングはイベントハンドラやデータの変更時に発生します。Mithrilは以前のバージョンのvnodeとの<em>差分検知</em>を行い、変更が必要なDOM要素に対してのみ変更を行います。</p>
+<p>頻繁にvnodeを再作成するのは無駄に思えるかもしれませんが、現代のJavaScriptエンジンは1ミリ秒未満で数十万のオブジェクトを作成できます。一方、DOMを変更すると、vnodeを作成するよりも数桁上のコストがかかります。</p>
+<p>そのため、Mithrilは高度に最適化された仮想DOMの差分検知アルゴリズムを使用し、DOMアップデートの量を最小限に抑えます。Mithrilは<em>また&lt;/ e0&gt;、JavaScriptエンジンがJITコンパイルしてネイティブに近いデータ構造アクセスのパフォーマンスが出せるように、慎重に設計されたvnodeデータ構造を使用しています。さらに、Mithrilはvnodeを作成する機能を積極的に最適化します。</p>
+<p>Mithrilがこのように仮想DOMツリーを毎回生成するようなレンダリングモデルを採用するのは、<a href="https://en.wikipedia.org/wiki/Retained_mode">保持モードレンダリング（retained mode rendering）</a>をサポートするためです。このスタイルを採用することで、UIの複雑さを著しく下げます。</p>
+<p>なぜ保持モードが大事なのかを説明するために、DOM APIとHTMLについてみてみましょう。DOM APIは<a href="https://en.wikipedia.org/wiki/Immediate_mode_(computer_graphics)">直接モード（immediate mode）</a>のレンダリングシステムとなっていて、DOMツリーを逐次構築するための命令を正確に組み立てる必要があります。DOM APIの特性としては、マイクロ最適化の機会はたくさんありますが、バグを作り込んでしまったり、理解しにくいコードになってしまうリスクもあります。</p>
+<p>対象的に、HTMLのレンダリングシステムは保持モードです。HTMLではより自然で読みやすい方法でDOMツリーを書くことができます。子を親に追加し忘れたりもなく、とても深いツリーを書き出そうとしてスタックオーバーフローすることもありません。</p>
+<p>仮想DOMはHTMLと非常に近い方法で、<em>動的に</em>DOMツリーを構築できます。データの変更に対して効率よくUIを更新するためにDOM API呼び出しを駆使する必要はありません。</p>
 <hr>
-<h3 id="basics">Basics</h3>
-<p>Virtual DOM nodes, or <em>vnodes</em>, are javascript objects that represent DOM elements (or parts of the DOM). Mithril's virtual DOM engine consumes a tree of vnodes to produce a DOM tree.</p>
-<p>Vnodes are created via the <a href="hyperscript.html"><code>m()</code></a> hyperscript utility:</p>
+<h3 id="basics"><a href="#basics">基礎</a></h3>
+<p>仮想DOMノード、あるいは<em>vnode</em>はDOMエレメント、あるいはDOMの一部を現すJavaScriptのオブジェクトです。Mithrilの仮想DOMエンジンはvnodeのツリーを受け取って、DOMツリーを生成します。</p>
+<p>vnodeは<a href="hyperscript.html"><code>m()</code></a> hyperscriptユーティリティを使って作られます:</p>
 <pre><code class="lang-javascript">m("div", {id: "test"}, "hello")
 </code></pre>
-<p>Hyperscript can also consume <a href="components.html">components</a>:</p>
-<pre><code class="lang-javascript">// define a component
+<p>hyperscriptの入力には<a href="components.html">component</a>を与えることができます:</p>
+<pre><code class="lang-javascript">// コンポーネント定義
 var ExampleComponent = {
     view: function(vnode) {
         return m("div", vnode.attrs, ["Hello ", vnode.children])
     }
 }
 
-// consume it
+// 利用する
 m(ExampleComponent, {style: "color:red;"}, "world")
 
-// equivalent HTML:
+// 等価なHTML:
 // &lt;div style="color:red;"&gt;Hello world&lt;/div&gt;
 </code></pre>
 <hr>
-<h3 id="structure">構造</h3>
-<p>Virtual DOM nodes, or <em>vnodes</em>, are Javascript objects that represent an element (or parts of the DOM) and have the following properties:</p>
+<h3 id="structure"><a href="#structure">構造</a></h3>
+<p>仮想DOMノード、あるいは<em>vnode</em>はDOMエレメント、あるいはDOMの一部を現すJavaScriptのオブジェクトで、次のようなプロパティを持っています:</p>
 <table>
 <thead>
 <tr>
-<th>Property</th>
+<th>プロパティ</th>
 <th>型</th>
 <th>説明</th>
 </tr>
@@ -111,58 +110,73 @@ m(ExampleComponent, {style: "color:red;"}, "world")
 <tr>
 <td><code>tag</code></td>
 <td><code>String|Object</code></td>
-<td>The <code>nodeName</code> of a DOM element. It may also be the string <code>[</code> if a vnode is a fragment, <code>#</code> if it's a text vnode, or <code>&lt;</code> if it's a trusted HTML vnode. Additionally, it may be a component.</td>
+<td>DOMエレメントの<code>ノード名（nodeName）</code>。vnodeがフラグメントの時はこの名前が<code>[</code>に、テキストvnodeでは<code>#</code>に、信頼されたHTMLだと<code>&lt;</code>となります。さらにコンポーネントを設定することもできます。</td>
 </tr>
 <tr>
 <td><code>key</code></td>
 <td><code>String?</code></td>
-<td>The value used to map a DOM element to its respective item in a array of data.</td>
+<td>配列のデータの中のアイテムを表現するためのDOMエレメントと、元のデータを関連付けるためのデータです。</td>
 </tr>
 <tr>
 <td><code>attrs</code></td>
 <td><code>Object?</code></td>
-<td>A hashmap of <a href="hyperscript.html#dom-attributes">DOM attributes</a>, <a href="hyperscript.html#events">events</a>, <a href="hyperscript.html#properties">properties</a> and <a href="hyperscript.html#lifecycle-methods">lifecycle methods</a>.</td>
+<td><a href="hyperscript.html#dom-attributes">DOM属性</a>, <a href="hyperscript.html#events">イベント</a>, <a href="hyperscript.html#properties">プロパティ</a>, <a href="hyperscript.html#lifecycle-methods">ライフサイクルメソッド</a>を保持するハッシュマップです。</td>
 </tr>
 <tr>
 <td><code>children</code></td>
 <td><code>(Array|String|Number|Boolean)?</code></td>
-<td>In most vnode types, the <code>children</code> property is an array of vnodes. For text and trusted HTML vnodes, The <code>children</code> property is either a string, a number or a boolean.</td>
+<td>ほとんどのvnodeのタイプでは、<code>children</code>プロパティはvnodeの配列です。テキストや信頼されたHTMLのvnodeでは、<code>children</code>プロパティは文字列や数値、bool値です。</td>
 </tr>
 <tr>
 <td><code>text</code></td>
 <td><code>(String|Number|Boolean)?</code></td>
-<td>This is used instead of <code>children</code> if a vnode contains a text node as its only child. This is done for performance reasons. Component vnodes never use the <code>text</code> property even if they have a text node as their only child.</td>
+<td>vnodeがテキストノードのみを子供として持つ時は、<code>children</code>の代わりに使用されます。これはパフォーマンス上の理由からこのようになっています。Componentのvnodeの場合は、テキストノードの子しか持っていなくても<code>text</code>プロパティが使われることはありません。</td>
 </tr>
 <tr>
 <td><code>dom</code></td>
 <td><code>Element?</code></td>
-<td>Points to the element that corresponds to the vnode. This property is <code>undefined</code> in the <code>oninit</code> lifecycle method. In fragments and trusted HTML vnodes, <code>dom</code> points to the first element in the range.</td>
+<td>vnodeに関連するエレメントの参照を保持します。<code>oninit</code>ライフサイクルメソッドではこのプロパティは<code>undefined</code>です。フラグメントや信頼されたHTMLのvnodeでは<code>dom</code>は関連する範囲のノードの最初のエレメントです。</td>
 </tr>
 <tr>
 <td><code>domSize</code></td>
 <td><code>Number?</code></td>
-<td>This is only set in fragment and trusted HTML vnodes, and it's <code>undefined</code> in all other vnode types. It defines the number of DOM elements that the vnode represents (starting from the element referenced by the <code>dom</code> property).</td>
+<td>これはフラグメントや信頼されたHTMLのvnodeでのみセットされます。他のノードでは<code>undefined</code>です。このプロパティは<code>dom</code>プロパティを含めて、vnodeが表現するDOMエレメントがいくつあるのかを示します。</td>
 </tr>
 <tr>
 <td><code>state</code></td>
-<td><code>Object</code></td>
-<td>An object that is persisted between redraws. In component vnodes, <code>state</code> is a shallow clone of the component object.</td>
+<td><code>Object?</code></td>
+<td>再描画のサイクル間でステータスを永続化するオブジェクトです。It is provided by the core engine when needed. In POJO component vnodes, the <code>state</code> inherits prototypically from the component object/class. In class component vnodes it is an instance of the class. In closure components it is the object returned by the closure.</td>
+</tr>
+<tr>
+<td><code>_state</code></td>
+<td><code>Object?</code></td>
+<td>For components, a reference to the original <code>vnode.state</code> object, used to lookup the <code>view</code> and hooks. This property is only used internally by Mithril, do not use or modify it.</td>
 </tr>
 <tr>
 <td><code>events</code></td>
 <td><code>Object?</code></td>
-<td>An object that is persisted between redraws and that stores event handlers so that they can be removed using the DOM API. The <code>events</code> property is <code>undefined</code> if there are no event handlers defined. This property is only used internally by Mithril, do not use it.</td>
+<td>このオブジェクトは再描画間で、DOM APIを使って削除される可能性のあるイベントハンドラを永続化します。イベントハンドラを持たない型の場合は、<code>events</code>プロパティは<code>undefined</code>です。This property is only used internally by Mithril, do not use or modify it.</td>
+</tr>
+<tr>
+<td><code>instance</code></td>
+<td><code>Object?</code></td>
+<td>For components, a storage location for the value returned by the <code>view</code>. This property is only used internally by Mithril, do not use or modify it.</td>
+</tr>
+<tr>
+<td><code>skip</code></td>
+<td><code>Boolean</code></td>
+<td>This property is only used internally by Mithril when diffing keyed lists, do not use or modify it.</td>
 </tr>
 </tbody>
 </table>
 <hr>
-<h3 id="vnode-types">Vnode types</h3>
-<p>The <code>tag</code> property of a vnode determines its type. There are five vnode types:</p>
+<h3 id="vnode-types"><a href="#vnode-types">Vnodeタイプ</a></h3>
+<p>vnodeの<code>tag</code>プロパティは型を決定します。5種類のvnodeの型があります:</p>
 <table>
 <thead>
 <tr>
-<th>Vnode type</th>
-<th>Example</th>
+<th>vnode種類</th>
+<th>サンプル</th>
 <th>説明</th>
 </tr>
 </thead>
@@ -170,47 +184,48 @@ m(ExampleComponent, {style: "color:red;"}, "world")
 <tr>
 <td>Element</td>
 <td><code>{tag: "div"}</code></td>
-<td>Represents a DOM element.</td>
+<td>DOMエレメント表現</td>
 </tr>
 <tr>
 <td>Fragment</td>
 <td><code>{tag: "[", children: []}</code></td>
-<td>Represents a list of DOM elements whose parent DOM element may also contain other elements that are not in the fragment. When using the <a href="hyperscript.html"><code>m()</code></a> helper function, fragment vnodes can only be created by nesting arrays into the <code>children</code> parameter of <code>m()</code>. <code>m("[")</code> does not create a valid vnode.  </td>
+<td>DOMエレメントのリストです。このリストの親はフラグメント以外のエレメントを含む可能性があります。<a href="hyperscript.html"><code>m()</code></a>ヘルパー関数を使うと、入れ子になった<code>children</code>パラメーターが<code>m()</code>にあるとフラグメントvnodeが作られる可能性があります。<code>m("[")</code>は不正なvnodeを作ります。 </td>
 </tr>
 <tr>
 <td>Text</td>
 <td><code>{tag: "#", children: ""}</code></td>
-<td>Represents a DOM text node.</td>
+<td>DOMテキストノードを表現します。</td>
 </tr>
 <tr>
-<td>Trusted HTML</td>
+<td>信頼されたHTML</td>
 <td><code>{tag: "&lt;", children: "&lt;br&gt;"}</code></td>
-<td>Represents a list of DOM elements from an HTML string.</td>
+<td>HTML文字列を含むDOMエレメントのリストを表現します。</td>
 </tr>
 <tr>
 <td>Component</td>
 <td><code>{tag: ExampleComponent}</code></td>
-<td>If <code>tag</code> is a Javascript object with a <code>view</code> method, the vnode represents the DOM generated by rendering the component.</td>
+<td><code>tag</code>が<code>view</code>メソッドを持つJavaScriptオブジェクトであれば、vnodeはコンポーネントによってレンダリングされたDOMを表現します。</td>
 </tr>
 </tbody>
 </table>
-<p>Everything in a virtual DOM tree is a vnode, including text. The <code>m()</code> utility automatically normalizes its <code>children</code> argument and turns strings into text vnodes and nested arrays into fragment vnodes.</p>
-<p>Only element tag names and components can be the first argument of the <code>m()</code> function. In other words, <code>[</code>, <code>#</code> and <code>&lt;</code> are not valid <code>selector</code> arguments for <code>m()</code>. Trusted HTML vnodes can be created via <a href="trust.html"><code>m.trust()</code></a></p>
+<p>仮想DOMツリーに格納されているすべてのものは、テキストも含めてvnodeです。<code>m()</code>ユーティリティは自動的に<code>children</code>引数を正規化し、テキストはテキストノードに、ネストされた配列はフラグメントvnodeにします。</p>
+<p><code>m()</code>関数の最初の引数には、タグ名かコンポーネントだけが設定可能です。いいかえると、<code>[</code>, <code>#</code>, <code>&lt;</code>は<code>m()</code>の<code>selector</code>引数として正しくありません。信頼されたHTMLのvnodeは<a href="trust.html"><code>m.trust()</code></a>を使って作られます。</p>
 <hr>
-<h3 id="monomorphic-class">Monomorphic class</h3>
-<p>The <code>mithril/render/vnode</code> module is used by Mithril to generate all vnodes. This ensures modern Javascript engines can optimize virtual dom diffing by always compiling vnodes to the same hidden class.</p>
-<p>When creating libraries that emit vnodes, you should use this module instead of writing naked Javascript objects in order to ensure a high level of rendering performance.</p>
+<h3 id="monomorphic-class"><a href="#monomorphic-class">単相クラス</a></h3>
+<p><code>mithril/render/vnode</code>モジュールはMithrilがすべてのvnodeを作る時に使用するメソッドです。これにより、現代のJavaScriptエンジンは、vnodeを常に同じ隠しクラスにコンパイルすることによって、仮想DOMの差分計算を最適化できます。</p>
+<p>vnodeを発行するライブラリを作成するときは、裸のJavaScriptオブジェクトを記述するのではなく、このモジュールを使うことで、高いレベルのレンダリングパフォーマンスを維持できます。</p>
 <hr>
-<h3 id="avoid-anti-patterns">アンチパターンを避ける</h3>
-<h4 id="avoid-memoizing-mutable-vnodes">Avoid memoizing mutable vnodes</h4>
-<p>Vnodes are supposed to represent the state of the DOM at a certain point in time. Mithril's rendering engine assumes a reused vnode is unchanged, so modifying a vnode that was used in a previous render will result in undefined behavior.</p>
-<p>It is possible to reuse vnodes to prevent a diff, but it's preferable to use the <code>onbeforeupdate</code> hook to make your intent clear to other developers (or your future self).</p>
+<h3 id="avoid-anti-patterns"><a href="#avoid-anti-patterns">アンチパターンを避ける</a></h3>
+<h4 id="avoid-memoizing-mutable-vnodes"><a href="#avoid-memoizing-mutable-vnodes">変更可能なvnodeをメモリ中に保存するのを避ける</a></h4>
+<p>vnodeはある特定の瞬間のDOMの状態を表現するスナップショットです。Mithrilのレンダリングエンジンは、vnodeは再利用の有無にかかわらず変更されていないものとして扱います。前のレンダリングで使ったvnodeを変更した時の動作は未定義です。</p>
+<p>vnodeを再利用することで差分検知を抑制することができますが、<code>onbeforeupdate</code>フックを使った方が他のプログラマーや自分自身に対して明確に意図を伝えることができます。</p>
 
 				<hr />
 				<small>License: MIT. © Leo Horie.</small>
 			</section>
 		</main>
-		<script src="lib/prism/prism.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-jsx.min.js"></script>
 		<script>
 		document.querySelector(".hamburger").onclick = function() {
 			document.body.className = document.body.className === "navigating" ? "" : "navigating"

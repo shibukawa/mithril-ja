@@ -3,8 +3,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8" />
 		<title>  m(selector, attributes, children) - Mithril.js</title>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
@@ -12,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<h1><img src="logo.svg">  Mithril <small>1.1.0</small></h1>
 				<nav>
 					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
 				</nav>
@@ -20,7 +19,7 @@
 		</header>
 		<main>
 			<section>
-				<h1 id="mselector,-attributes,-children">m(selector, attributes, children)</h1>
+				<h1 id="mselector,-attributes,-children"><a href="#mselector,-attributes,-children">m(selector, attributes, children)</a></h1>
 <ul>
 <li>コア<ul>
 <li><strong><a href="hyperscript.html">m</a></strong><ul>
@@ -67,7 +66,7 @@
 </li>
 </ul>
 <hr>
-<h3 id="description">説明</h3>
+<h3 id="description"><a href="#description">説明</a></h3>
 <p>Mithrilのビュー内でHTML要素を表現するのに使います。</p>
 <pre><code class="lang-javascript">m("div", {class: "foo"}, "hello")
 // &lt;div class="foo"&gt;hello&lt;/div&gt;と表現しています
@@ -77,7 +76,7 @@
 &lt;div class="foo"&gt;hello&lt;/div&gt;
 </code></pre>
 <hr>
-<h3 id="signature">シグニチャ</h3>
+<h3 id="signature"><a href="#signature">シグニチャ</a></h3>
 <p><code>vnode = m(selector, attributes, children)</code></p>
 <table>
 <thead>
@@ -108,7 +107,7 @@
 <td>子供の<a href="vnodes.html#structure">vnode</a>。<a href="signatures.html#splats">フラットな引数</a>として書くこともできます。</td>
 </tr>
 <tr>
-<td><strong>returns</strong></td>
+<td><strong>返り値</strong></td>
 <td><code>Vnode</code></td>
 <td></td>
 <td><a href="vnodes.html#structure">vnode</a></td>
@@ -117,7 +116,7 @@
 </table>
 <p><a href="signatures.html">シグニチャの読み方</a></p>
 <hr>
-<h3 id="how-it-works">どのように動作するのか</h3>
+<h3 id="how-it-works"><a href="#how-it-works">どのように動作するのか</a></h3>
 <p>Mithrilはhyperscript関数<code>m()</code>を提供しています。これを使うと、あらゆるHTML構造をJavaScriptの文法を使って表現できます。この関数は<code>selector</code>文字列（必須）、<code>attributes</code>オブジェクト（オプション）、<code>children</code>配列（オプション）を受け取ることができます。</p>
 <pre><code class="lang-javascript">m("div", {id: "box"}, "hello")
 
@@ -133,7 +132,7 @@ var vnode = {tag: "div", attrs: {id: "box"}, children: [ /*...*/ ]}
 </code></pre>
 <p><code>m.render()</code>を何度か呼ぶと、DOMツリーがすべて破棄されて毎回作られるわけでは<strong>ありません</strong>。その代わりに、呼び出しごとに関数に渡された仮想DOMツリーを反映させるのに必要な時にだけ、DOMツリーが変更されます。DOMの再作成は極めてコストが高い操作であるため、このような設計になっています。しかし、これによって入力フォーカスが失われるなど、他の問題も発生する可能性があります。これと比較すると、必要なところだけ更新をかける方法の方がはるかに高速で、数多くのユーザ機能を満たす必要があるような複雑なUIを管理するのも簡単になります。</p>
 <hr>
-<h3 id="flexibility">柔軟性</h3>
+<h3 id="flexibility"><a href="#flexibility">柔軟性</a></h3>
 <p><code>m()</code>関数はポリモーフィック<em>（型によって動作が変わる）</em>とともに<em>引数の数も可変</em>です。言い換えると、受け取れる入力パラメータが非常に柔軟であるということです。</p>
 <pre><code class="lang-javascript">// シンプルなタグ
 m("div") // &lt;div&gt;&lt;/div&gt;
@@ -155,7 +154,7 @@ m("ul",               // &lt;ul&gt;
 )                     // &lt;/ul&gt;
 </code></pre>
 <hr>
-<h3 id="css-selectors">CSSセレクター</h3>
+<h3 id="css-selectors"><a href="#css-selectors">CSSセレクター</a></h3>
 <p><code>m()</code>の最初の引数にはHTMLエレメントを説明するためのCSSセレクターを指定できます。<code>#</code>（ID）、<code>.</code>（クラス）、<code>[]</code>（属性）などを組み合わせた、CSSとしてルールに従った表記を解釈します。</p>
 <pre><code class="lang-javascript">m("div#hello")
 // &lt;div id="hello"&gt;&lt;/div&gt;
@@ -184,7 +183,7 @@ m("a.link[href=/]", {
 </code></pre>
 <p><code>m()</code>の第一引数と第二引数の両方にクラス名があった時は、両方のクラス名のリストがマージされ、期待どおりに動作します。</p>
 <hr>
-<h3 id="dom-attributes">DOM属性</h3>
+<h3 id="dom-attributes"><a href="#dom-attributes">DOM属性</a></h3>
 <p>Mithrilでは属性の解決にJavaScriptのAPIとDOMのAPI（<code>setAttribute</code>）の両方が使えます。これは、属性の参照のために両方の文法が使えることを意味します。</p>
 <p>例えば、<code>readonly</code>属性は、JavaScriptのAPIでは大文字混じりの<code>element.readOnly</code>となります。Mithrilでは下記の全ての形式をサポートしています:</p>
 <pre><code class="lang-javascript">m("input", {readonly: true}) // 小文字
@@ -193,7 +192,7 @@ m("input[readonly]")
 m("input[readOnly]")
 </code></pre>
 <hr>
-<h3 id="style-attribute">スタイル属性</h3>
+<h3 id="style-attribute"><a href="#style-attribute">スタイル属性</a></h3>
 <p>Mithrilは<code>スタイル</code>の設定として、文字列とオブジェクトの両方をサポートしています。別の言い方をすると、次の表記法はすべて動作します。</p>
 <pre><code class="lang-javascript">m("div", {style: "background:red;"})
 m("div", {style: {background: "red"}})
@@ -202,7 +201,7 @@ m("div[style=background:red]")
 <p>文字列形式の<code>style</code>はCSSルールの値の変更時だけではなく、再描画時にエレメントのすべてのインラインのスタイルを上書きします。.</p>
 <p>Mithrilは数値に単位は付与しません。</p>
 <hr>
-<h3 id="events">イベント</h3>
+<h3 id="events"><a href="#events">イベント</a></h3>
 <p>Mithrilは、<code>touchstart</code>のように、<code>on${event}</code>という形式ではないものも含めて、すべてのDOMイベントへのイベントハンドラーのバインディングをサポートしています。</p>
 <pre><code class="lang-javascript">function doSomething(e) {
     console.log(e)
@@ -211,7 +210,7 @@ m("div[style=background:red]")
 m("div", {onclick: doSomething})
 </code></pre>
 <hr>
-<h3 id="properties">プロパティ</h3>
+<h3 id="properties"><a href="#properties">プロパティ</a></h3>
 <p>Mithrilは<code>&lt;select&gt;</code>の<code>selectedIndex</code>や<code>value</code>属税のように、プロパティでアクセスできる属性にアクセスできるDOMの機能をサポートしています。.</p>
 <pre><code class="lang-javascript">m("select", {selectedIndex: 0}, [
     m("option", "オプションA"),
@@ -219,7 +218,7 @@ m("div", {onclick: doSomething})
 ])
 </code></pre>
 <hr>
-<h3 id="components">コンポーネント</h3>
+<h3 id="components"><a href="#components">コンポーネント</a></h3>
 <p><a href="components.html">コンポーネント</a>を使うとロジックを1つの塊にカプセル化し、1つのエレメントのように使えるようになります。コンポーネントは、巨大でスケーラブルなアプリケーションを作るための基本となります。</p>
 <p><code>view</code>メソッドを持つJavaScriptのオブジェクトであれば何でも、コンポーネントとなることができます。コンポーネントを利用する時は、CSSセレクター文字列の代わりに<code>m()</code>の最初の引数にコンポーネントを渡します。次のサンプルのように、属性や子要素を定義することで、コンポーネントに引数を渡すことができます。</p>
 <pre><code class="lang-javascript">// コンポーネントの定義
@@ -237,7 +236,7 @@ m(Greeter, {style: "color:red;"}, "world")
 </code></pre>
 <p>コンポーネントについて詳しく知りたい方は、<a href="components.html">コンポーネントだけを扱った章をご覧ください。</a>.</p>
 <hr>
-<h3 id="lifecycle-methods">ライフサイクルメソッド</h3>
+<h3 id="lifecycle-methods"><a href="#lifecycle-methods">ライフサイクルメソッド</a></h3>
 <p>vnodeとコンポーネントは（<em>フック</em>とも呼ばれる）ライフサイクルメソッドを持つことができます。 これらのメソッドは、DOM要素のさまざまなタイミングで呼び出されます。Mithrilでサポートされているライフサイクルメソッドには、<code>oninit</code>, <code>oncreate</code>, <code>onupdate</code>, <code>onbeforeremove</code>, <code>onremove</code>, and <code>onbeforeupdate</code>があります。</p>
 <p>ライフサイクルメソッドはDOMイベントハンドラーと同じように定義しますが、メソッドの引数はイベントオブジェクトではなく、vnodeです。</p>
 <pre><code class="lang-javascript">function initialize(vnode) {
@@ -282,7 +281,7 @@ m("div", {oninit: initialize})
 </table>
 <p>ライフサイクルメソッドについて詳しく知りたい方は、<a href="lifecycle-methods.html">ライフサイクルメソッドのページを御覧ください。</a>.</p>
 <hr>
-<h3 id="keys">キー</h3>
+<h3 id="keys"><a href="#keys">キー</a></h3>
 <p>リスト内のvnodeは<code>key</code>と呼ばれる特別な属性を持つことができます。この属性はvnodeと、それを生成するのに使用したモデルデータを識別するのに使えます。</p>
 <p><code>key</code>はデータのリストの中でオブジェクトを一意に識別するユニークな識別子でなければなりません。</p>
 <pre><code class="lang-javascript">var users = [
@@ -301,7 +300,7 @@ m.render(document.body, userInputs(users))
 <p>キーを持つと、<code>users</code>配列がシャッフルされてビューが再描画されても、inputタグも同じ順序で正しくシャッフルされ、フォーカスとDOMの状態が維持されます。</p>
 <p>キーについてより詳しく知りたい方は、<a href="keys.html">キーのページ</a>を参照してください。</p>
 <hr>
-<h3 id="svg-and-mathml">SVGとMathML</h3>
+<h3 id="svg-and-mathml"><a href="#svg-and-mathml">SVGとMathML</a></h3>
 <p>MithrilはSVGを完全にサポートしています。Xlinkもサポートしていますが、v1.0以前のMithrilとは異なり、名前空間を明示的に定義しなければなりません:</p>
 <pre><code class="lang-javascript">m("svg", [
     m("image[xlink:href='image.gif']")
@@ -309,14 +308,14 @@ m.render(document.body, userInputs(users))
 </code></pre>
 <p>MathMLも完全にサポートしています。</p>
 <hr>
-<h3 id="making-templates-dynamic">動的なテンプレートの作成</h3>
+<h3 id="making-templates-dynamic"><a href="#making-templates-dynamic">動的なテンプレートの作成</a></h3>
 <p>ネストされたvnodeもJavaScriptの式でしかないため、JavaScriptの機能を活用して操作することができます。</p>
-<h4 id="dynamic-text">動的なテキスト</h4>
+<h4 id="dynamic-text"><a href="#dynamic-text">動的なテキスト</a></h4>
 <pre><code class="lang-javascript">var user = {name: "ジョン"}
 
 m(".name", user.name) // &lt;div class="name"&gt;ジョン&lt;/div&gt;
 </code></pre>
-<h4 id="loops">ループ</h4>
+<h4 id="loops"><a href="#loops">ループ</a></h4>
 <p><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/map"><code>map</code></a>などの<code>Array</code>のメソッドを使い、データのリストの各項目に対するループが行えます</p>
 <pre><code class="lang-javascript">var users = [
     {name: "ジョン"},
@@ -333,7 +332,7 @@ m("ul", users.map(function(u) { // &lt;ul&gt;
 //   m("li", u.name)
 // ))
 </code></pre>
-<h4 id="conditionals">条件分岐</h4>
+<h4 id="conditionals"><a href="#conditionals">条件分岐</a></h4>
 <p>三項演算子を使って、条件によってビューの内容を変えることができます。</p>
 <pre><code class="lang-javascript">var isError = false
 
@@ -341,13 +340,13 @@ m("div", isError ?"エラーが発生しました" : "保存しました") // &l
 </code></pre>
 <p>JavaScriptの式の中では、<code>if</code>や<code>for</code>といったJavaScriptの文は使えません。テンプレートの形を線形で宣言に保ち、最適化がはずれないようにするために、これらの文を使うのを避けましょう。</p>
 <hr>
-<h3 id="converting-html">HTMLの変換</h3>
+<h3 id="converting-html"><a href="#converting-html">HTMLの変換</a></h3>
 <p>Mithrilでは、正しく書かれたHTMLはJSXとしてそのまま使えます。コピーアンドペースト程度の労力を払えば、独立して作られたHTMLファイルを元にしてJSXを使ってプロジェクトに組み込むことができます。</p>
 <p>hyperscriptを使う時は、実行前にHTMLからhyperscriptの文法に変換する必要があります。<a href="http://arthurclemens.github.io/mithril-template-converter/index.html">HTML-to-Mithrilテンプレートコンバーター</a>を使って変換できます。</p>
 <hr>
-<h3 id="avoid-anti-patterns">アンチパターンを避ける</h3>
+<h3 id="avoid-anti-patterns"><a href="#avoid-anti-patterns">アンチパターンを避ける</a></h3>
 <p>Mithrilは制約が少なく柔軟ですが、いつくか非推奨のコードパターンがあります。</p>
-<h4 id="avoid-dynamic-selectors">動的なセレクターを避ける</h4>
+<h4 id="avoid-dynamic-selectors"><a href="#avoid-dynamic-selectors">動的なセレクターを避ける</a></h4>
 <p>異なるDOM要素は異なる属性を持ち、多くの場合は異なる挙動をします。セレクターを変更可能にすると、コンポーネントの実装の詳細がその単位から抜け落ちてしまいます。</p>
 <pre><code class="lang-javascript">// 避けるべきコード
 var BadInput = {
@@ -388,7 +387,7 @@ var BetterLabeledComponent = {
     }
 }
 </code></pre>
-<h4 id="avoid-statements-in-view-methods">ビューメソッド内で文を避ける</h4>
+<h4 id="avoid-statements-in-view-methods"><a href="#avoid-statements-in-view-methods">ビューメソッド内で文を避ける</a></h4>
 <p>JavaScriptの文を使うと、HTMLのツリー構造を変えたほうがスムーズに書けることがあり、結果的にツリー構造に影響をあたえることがあります。それによりコード量が増えたり、理解が難しくなることがあります。仮想DOMツリーを手続き的に構築することは、テンプレート全体を最初から再作成するなどの最適化が外れて、高価なペナルティを負うことがあります。</p>
 <pre><code class="lang-javascript">// 避けるべきコード
 var BadListComponent = {
@@ -412,7 +411,7 @@ var BetterListComponent = {
     }
 }
 </code></pre>
-<h4 id="avoid-creating-vnodes-outside-views">viewの外でvnodeを作るのを避ける</h4>
+<h4 id="avoid-creating-vnodes-outside-views"><a href="#avoid-creating-vnodes-outside-views">viewの外でvnodeを作るのを避ける</a></h4>
 <p>再描画時に、以前のレンダリング時と完全に同じvnodeが見つかると、レンダリングがスキップされ、内容は更新されません。これはパフォーマンスの最適化に使えるように見えるかもしれませんが、ノードのツリーの動的な変更が行われなくなります。これにより、下流のライフサイクルメソッドが再描画時にトリガされないなどの副作用が発生します。新しいvnodeは古いものと比較され、vnodeそのものへの変更が保存されないため、この意味でMithrilのvnodeはイミュータブルです。</p>
 <p>コンポーネントのドキュメントには<a href="components.html#avoid-creating-component-instances-outside-views">この問題に関する詳細情報とアンチパターン</a>が含まれています。</p>
 
@@ -420,7 +419,8 @@ var BetterListComponent = {
 				<small>License: MIT. © Leo Horie.</small>
 			</section>
 		</main>
-		<script src="lib/prism/prism.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-jsx.min.js"></script>
 		<script>
 		document.querySelector(".hamburger").onclick = function() {
 			document.body.className = document.body.className === "navigating" ? "" : "navigating"

@@ -3,8 +3,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8" />
 		<title>  Promise(executor) - Mithril.js</title>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
@@ -12,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<h1><img src="logo.svg">  Mithril <small>1.1.0</small></h1>
 				<nav>
 					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
 				</nav>
@@ -20,7 +19,7 @@
 		</header>
 		<main>
 			<section>
-				<h1 id="promiseexecutor">Promise(executor)</h1>
+				<h1 id="promiseexecutor"><a href="#promiseexecutor">Promise(executor)</a></h1>
 <ul>
 <li>コア<ul>
 <li><a href="hyperscript.html">m</a></li>
@@ -74,11 +73,11 @@
 </li>
 </ul>
 <hr>
-<h3 id="description">説明</h3>
+<h3 id="description"><a href="#description">説明</a></h3>
 <p><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise">ES6 Promise</a>のPolyfillです。</p>
 <p>Promiseは非同期処理とともに使う機構です。</p>
 <hr>
-<h3 id="signature">シグニチャ</h3>
+<h3 id="signature"><a href="#signature">シグニチャ</a></h3>
 <p><code>promise = new Promise(executor)</code></p>
 <table>
 <thead>
@@ -97,7 +96,7 @@
 <td>Promiseがどういった理由で解決・破棄されるのかを決定する関数</td>
 </tr>
 <tr>
-<td><strong>returns</strong></td>
+<td><strong>返り値</strong></td>
 <td><code>Promise</code></td>
 <td></td>
 <td>Promiseを返します</td>
@@ -106,7 +105,7 @@
 </table>
 <p><a href="signatures.html">シグニチャの読み方</a></p>
 <hr>
-<h5 id="executor">executor</h5>
+<h5 id="executor"><a href="#executor">executor</a></h5>
 <p><code>executor(resolve, reject)</code></p>
 <table>
 <thead>
@@ -131,7 +130,7 @@
 <td>呼び出すとPromiseが破棄する関数</td>
 </tr>
 <tr>
-<td><strong>returns</strong></td>
+<td><strong>返り値</strong></td>
 <td></td>
 <td></td>
 <td>返り値は無視されます</td>
@@ -140,8 +139,8 @@
 </table>
 <p><a href="signatures.html">シグニチャの読み方</a></p>
 <hr>
-<h4 id="static-members">静的メンバー</h4>
-<h5 id="promiseresolve">Promise.resolve</h5>
+<h4 id="static-members"><a href="#static-members">静的メンバー</a></h4>
+<h5 id="promiseresolve"><a href="#promiseresolve">Promise.resolve</a></h5>
 <p><code>promise = Promise.resolve(value)</code></p>
 <table>
 <thead>
@@ -160,7 +159,7 @@
 <td>解決したPromsieが提供する値</td>
 </tr>
 <tr>
-<td><strong>returns</strong></td>
+<td><strong>返り値</strong></td>
 <td><code>Promise</code></td>
 <td></td>
 <td>解決して<code>value</code>を返すPromise</td>
@@ -169,7 +168,7 @@
 </table>
 <p><a href="signatures.html">シグニチャの読み方</a></p>
 <hr>
-<h5 id="promisereject">Promise.reject</h5>
+<h5 id="promisereject"><a href="#promisereject">Promise.reject</a></h5>
 <p><code>promise = Promise.reject(value)</code></p>
 <table>
 <thead>
@@ -188,7 +187,7 @@
 <td>破棄される時に通知される値</td>
 </tr>
 <tr>
-<td><strong>returns</strong></td>
+<td><strong>返り値</strong></td>
 <td><code>Promise</code></td>
 <td></td>
 <td><code>value</code>を破棄理由として渡されるPromise</td>
@@ -197,7 +196,7 @@
 </table>
 <p><a href="signatures.html">シグニチャの読み方</a></p>
 <hr>
-<h5 id="promiseall">'Promise.all</h5>
+<h5 id="promiseall"><a href="#promiseall">'Promise.all</a></h5>
 <p><code>promise = Promise.all(promises)</code></p>
 <table>
 <thead>
@@ -216,7 +215,7 @@
 <td>解決を待つPromiseのリストもし要素がPromiseでなければ、その値に対して即座に<code>Promise.resolve</code>を呼び出すPromiseと等価</td>
 </tr>
 <tr>
-<td><strong>returns</strong></td>
+<td><strong>返り値</strong></td>
 <td><code>Promise</code></td>
 <td></td>
 <td>引数に渡されたすべての<code>promises</code>が解決した時、あるいはどれか１つでも破棄したときに解決されるPromise</td>
@@ -225,7 +224,7 @@
 </table>
 <p><a href="signatures.html">シグニチャの読み方</a></p>
 <hr>
-<h5 id="promiserace">Promise.race</h5>
+<h5 id="promiserace"><a href="#promiserace">Promise.race</a></h5>
 <p><code>promise = Promise.race(promises)</code></p>
 <table>
 <thead>
@@ -244,7 +243,7 @@
 <td>解決を待つPromiseのリストもし要素がPromiseでなければ、その値に対して即座に<code>Promise.resolve</code>を呼び出すPromiseと等価</td>
 </tr>
 <tr>
-<td><strong>returns</strong></td>
+<td><strong>返り値</strong></td>
 <td><code>Promise</code></td>
 <td></td>
 <td><code>promises</code>のうちのどれか１つが解決・破棄されたときに解決されるPromise</td>
@@ -253,8 +252,8 @@
 </table>
 <p><a href="signatures.html">シグニチャの読み方</a></p>
 <hr>
-<h4 id="instance-members">インスタンスメンバー</h4>
-<h5 id="promisethen">promise.then</h5>
+<h4 id="instance-members"><a href="#instance-members">インスタンスメンバー</a></h4>
+<h5 id="promisethen"><a href="#promisethen">promise.then</a></h5>
 <p><code>nextPromise = promise.then(onFulfilled, onRejected)</code></p>
 <table>
 <thead>
@@ -279,7 +278,7 @@
 <td>Promiseが拒絶されたときに呼び出される関数。この関数の最初の引数はこのPromiseが拒絶したときに決定する（次のPromiseに渡る）値です。もし関数の返り値がPromiseでなければ、その値は<code>nextPromise</code>の解決のために使われます。もしPromiseだった場合には、<code>nextPromise</code>の受け取る結果はその内部のPromiseに依存します。もし関数が例外を投げると、<code>nextPromise</code>は拒絶され、理由としてその例外が渡されます。<code>onRejected</code>が<code>null</code>なら無視されます。</td>
 </tr>
 <tr>
-<td><strong>returns</strong></td>
+<td><strong>返り値</strong></td>
 <td><code>Promise</code></td>
 <td></td>
 <td>現在のPromiseの状態に依存した値を持つPromise</td>
@@ -288,7 +287,7 @@
 </table>
 <p><a href="signatures.html">シグニチャの読み方</a></p>
 <hr>
-<h5 id="promisecatch">promise.catch</h5>
+<h5 id="promisecatch"><a href="#promisecatch">promise.catch</a></h5>
 <p><code>nextPromise = promise.catch(onRejected)</code></p>
 <table>
 <thead>
@@ -307,7 +306,7 @@
 <td>Promiseが拒絶されたときに呼び出される関数。この関数の最初の引数はこのPromiseが拒絶したときに決定する（次のPromiseに渡る）値です。もし関数の返り値がPromiseでなければ、その値は<code>nextPromise</code>の解決のために使われます。もしPromiseだった場合には、<code>nextPromise</code>の受け取る結果はその内部のPromiseに依存します。もし関数が例外を投げると、<code>nextPromise</code>は拒絶され、理由としてその例外が渡されます。<code>onRejected</code>が<code>null</code>なら無視されます。</td>
 </tr>
 <tr>
-<td><strong>returns</strong></td>
+<td><strong>返り値</strong></td>
 <td><code>Promise</code></td>
 <td></td>
 <td>現在のPromiseの状態に依存した値を持つPromise</td>
@@ -316,7 +315,7 @@
 </table>
 <p><a href="signatures.html">シグニチャの読み方</a></p>
 <hr>
-<h3 id="how-it-works">どのように動作するのか</h3>
+<h3 id="how-it-works"><a href="#how-it-works">どのように動作するのか</a></h3>
 <p>Promiseは将来得られる値を表現するオブジェクトです。</p>
 <pre><code class="lang-javascript">// 1秒後に解決するPromise
 var promise = new Promise(function(resolve, reject) {
@@ -334,7 +333,7 @@ promise.then(function(value) {
 <p>一般的に、非同期APIは実行の長い時間がかかります。通常の関数の<code>return</code>文で値を返すのは現実的ではありません。その代わりに、それらのAPIはバックグラウンドで動作するため、その間に他のJavaScriptのコードが実行できます。それらのAPIが完了すると、取得した値をパラメータに乗せて指定された関数を実行するのが良くある形態です。</p>
 <p><code>m.request</code>関数はリモートサーバーに対してHTTPリクエストをを送り、その結果を待つ必要があります。ネットワークのレイテンシーによって数ミリ秒単位の遅延が発生します。</p>
 <hr>
-<h3 id="promise-chaining">Promiseチェーン</h3>
+<h3 id="promise-chaining"><a href="#promise-chaining">Promiseチェーン</a></h3>
 <p>Promiseは繋げてチェーンさせることができます。<code>then</code>コールバックから値を返すと、次の<code>then</code>コールバックで引数として受け取れます。これにより、長いコールバックを使ったコードを、小さな単位の複数の関数にリファクタリングできます。</p>
 <pre><code class="lang-javascript">function getUsers() {return m.request("/api/v1/users")}
 
@@ -359,7 +358,7 @@ getUsers()
 <p>最初のオリジナルコードではHTTPリクエストを送信しないと動かせませんし、最後に<code>alert()</code>を使うため、テストが簡単ではありません。</p>
 <p>リファクタリングしたバージョンは<code>getFirstTen</code>が、位置ずれのエラーがないか、<code>getUserName</code>が姓と名の間にスペースがあるかどうかのテストがしやすくなっています。</p>
 <hr>
-<h3 id="promise-absorption">Promiseの吸収</h3>
+<h3 id="promise-absorption"><a href="#promise-absorption">Promiseの吸収</a></h3>
 <p>Promiseは他のPromiseを吸収します。基本的には、これは<code>then</code>や<code>catch</code>の<code>onFulfilled</code>や<code>onRejected</code> <code>onFulfilled</code>のコールバックの引数としてPromiseを受け渡すことができないということです。この機能により、ネストされたPromisがフラットになり、管理しやすくなります。</p>
 <pre><code class="lang-javascript">function searchUsers(q) {return m.request("/api/v1/users/search", {data: {q: q}})}
 function getUserProjects(id) {return m.request("/api/v1/users/" + id + "/projects")}
@@ -385,7 +384,7 @@ searchUsers("John")
 </code></pre>
 <p>リファクタリングしたコードでは<code>getFirstId</code>はIDを返します。これは<code>getUserProjects</code>の最初の引数として渡されます。順番としては、まず解決するとプロジェクトのリストとなるPromiseを返します。このPromiseは吸収されるため、<code>getProjectTitles</code>の最初の引数はPromiseではなく、プロジェクトのリストとなります。<code>getProjectTitles</code>関数はタイトルのリストを返し、このリストが最終的に表示されます。</p>
 <hr>
-<h3 id="error-handling">エラーハンドリング</h3>
+<h3 id="error-handling"><a href="#error-handling">エラーハンドリング</a></h3>
 <p>Promiseは適切なハンドラーにエラーを伝搬させることができます。</p>
 <pre><code class="lang-javascript">searchUsers("ジョン")
   .then(getFirstId)
@@ -401,7 +400,7 @@ searchUsers("John")
 <p><code>searchUsers</code>に該当する結果がない時は空の配列が帰り、<code>getFirstId</code>が存在しない配列要素の<code>id</code>プロパティを取得しにいくためにnull参照例外が発生しますが、エラーハンドラーはこれもキャッチできます。</p>
 <p>このエラー伝達のセマンティクスにより、<code>try</code>/<code>catch</code>ブロックをいろいろなところに挟み込まなくても良くなるため、各関数が小さく、テスト可能になります。</p>
 <hr>
-<h3 id="shorthands">短縮表記</h3>
+<h3 id="shorthands"><a href="#shorthands">短縮表記</a></h3>
 <p>時々、すでに解決する値はあるが、Promiseでこれをラップしたいことがあります。<code>Promise.resolve</code>と<code>Promise.reject</code>を使うと、これが実現できます。</p>
 <pre><code class="lang-javascript">// localStorageから来たリストをサポート
 var users = [{id: 1, firstName: "John", lastName: "Doe"}]
@@ -414,7 +413,7 @@ promise
   .then(alert)
 </code></pre>
 <hr>
-<h3 id="multiple-promises">複数のPromise</h3>
+<h3 id="multiple-promises"><a href="#multiple-promises">複数のPromise</a></h3>
 <p>複数のHTTPリクエストを並行で投げ、すべてが完了したことを待って何かコードを実行したいことがあります。<code>Promise.all</code>を使うとこれが実現できます。</p>
 <pre><code class="lang-javascript">Promise.all([
   searchUsers("ジョン"),
@@ -433,9 +432,9 @@ promise
 .then(alert)
 </code></pre>
 <p>上記のコードでは２つの検索が平行して行われます。両方が完了するとすべてのユーザー名が表示されます。</p>
-<p>This example also illustrates another benefit of smaller functions: we reused the <code>getUserNames</code> function we had created above.</p>
+<p>上記のサンプルには他のメリットも説明されています。上記で作った<code>getUserNames</code>関数を再利用することができます。</p>
 <hr>
-<h3 id="why-not-callbacks">なぜコールバックではないのか</h3>
+<h3 id="why-not-callbacks"><a href="#why-not-callbacks">なぜコールバックではないのか</a></h3>
 <p>コールバックは非同期計算を行うための別のメカニズムです。 <code>onscroll</code>などのように、複数回実行される前提であればこちらの方が適切でしょう。</p>
 <p>しかし、一回のアクションに対して一度しか実行されないのであれば、こちらのほうが有用です。状態が十分に管理されておらず、さまざまなネストの深さのクロージャーがあるような、深い一連のコールバックをもたらす悪夢のピラミッドと呼ばれるコードの臭いをリファクタリングによって効率的に解決できます。</p>
 <p>さらに、Promiseを使うとエラーハンドリングのための定型文を減らすことができます。</p>
@@ -444,7 +443,8 @@ promise
 				<small>License: MIT. © Leo Horie.</small>
 			</section>
 		</main>
-		<script src="lib/prism/prism.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-jsx.min.js"></script>
 		<script>
 		document.querySelector(".hamburger").onclick = function() {
 			document.body.className = document.body.className === "navigating" ? "" : "navigating"

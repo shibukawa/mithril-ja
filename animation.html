@@ -3,8 +3,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8" />
 		<title> アニメーション - Mithril.js</title>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
@@ -12,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<h1><img src="logo.svg">  Mithril <small>1.1.0</small></h1>
 				<nav>
 					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
 				</nav>
@@ -20,7 +19,7 @@
 		</header>
 		<main>
 			<section>
-				<h1 id="animations">アニメーション</h1>
+				<h1 id="animations"><a href="#animations">アニメーション</a></h1>
 <ul>
 <li>チュートリアル<ul>
 <li><a href="installation.html">インストール</a></li>
@@ -64,11 +63,11 @@
 </li>
 </ul>
 <hr>
-<h3 id="technology-choices">技術の選択</h3>
+<h3 id="technology-choices"><a href="#technology-choices">技術の選択</a></h3>
 <p>アニメーションはアプリケーションのいきいきとさせるためによく利用されます。今日のブラウザはCSSアニメーションをサポートしていますし、JavaScriptベースの高速なアニメーションをサポートする<a href="https://greensock.com/gsap">さまざまな</a><a href="http://velocityjs.org/">ライブラリ</a>もあります。また、最先端のものが好きであれば、これから登場する<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API">Web API</a>とその<a href="https://github.com/web-animations/web-animations-js">polyfill</a>もあります。</p>
 <p>Mithrilそのものはアニメーションのための　APIを提供していませんが、これらのさまざまなライブラリを活用することで、よりリッチで複雑なアニメーションが実現できます。Mithril自身は、以前はアニメーションが扱いにくかったいくつかのケースに対して、とても簡単に扱えるようなフックを提供しています。</p>
 <hr>
-<h3 id="animation-on-element-creation">エレメント作成時のアニメーション</h3>
+<h3 id="animation-on-element-creation"><a href="#animation-on-element-creation">エレメント作成時のアニメーション</a></h3>
 <p>要素作成時にCSSを使って要素をアニメーションさせるのは、これ以上簡単にはできないでしょう。CSSクラスにアニメーションを追加するだけです。</p>
 <pre><code class="lang-css">.fancy {animation:fade-in 0.5s;}
 @keyframes fade-in {
@@ -85,7 +84,7 @@
 m.mount(document.body, FancyComponent)
 </code></pre>
 <hr>
-<h3 id="animation-on-element-removal">要素の削除時のアニメーション</h3>
+<h3 id="animation-on-element-removal"><a href="#animation-on-element-removal">要素の削除時のアニメーション</a></h3>
 <p>以前のバージョンでは、要素の削除時にアニメーションさせるのは、本当の削除が行われるまで実際の削除を遅延させるというややこしい実装が必要でした。幸い、Mithril 1.0以降では<a href="lifecycle-methods.html#onbeforeremove"><code>onbeforeremove</code></a>フックを提供しており、要素の削除を遅延させるのが簡単に行えるようになりました。</p>
 <p>それでは<code>opacity</code>を1から0までフェードさせる<code>exit</code>アニメーションを作成してみましょう。</p>
 <pre><code class="lang-css">.exit {animation:fade-out 0.5s;}
@@ -126,7 +125,7 @@ var Toggler = {
 </code></pre>
 <p>注意点としては、<code>onbeforeremove</code>フックは、DOMから要素が切り離されて<code>parentNode</code>がいなくなる要素に対してのみトリガーされます。この動作は設計上意図されたものです。ラウトの変更などで、ページ上のすべての要素の終了アニメーションが実行されてしまってユーザ経験が悪化するのを防ぐためです。終了アニメーションが実行されない場合は、ツリーの上位の削除される要素に<code>onbeforeremove</code>ハンドラーを移動して、アニメーションが実行されるようにしてください。</p>
 <hr>
-<h3 id="performance">パフォーマンス</h3>
+<h3 id="performance"><a href="#performance">パフォーマンス</a></h3>
 <p>アニメーションを作成する場合は、<code>opacity</code>と<code>transform</code>のCSSルールだけを使うことをおすすめします。現代のブラウザであればハードウェアアクセラレーションが行えるため、<code>top</code>、<code>left</code>、<code>width</code>、<code>height</code>を操作するよりも良いパフォーマンスが得られます。</p>
 <p>また、<code>box-shadow</code>ルールや、<code>:nth-child</code>などのセレクターを使うとパフォーマンスに大きな影響があります。もし<code>box-shadow</code>をアニメーションさせたいのであれば、<a href="http://tobiasahlin.com/blog/how-to-animate-box-shadow/">疑似要素に<code>box-shadow</code>のルールを適用し、その疑似要素のopacityをアニメーションさせる</a>方法を検討してください。それ以外では巨大な画像を使ったり、ダイナミックに画像をスケールさせたり、<code>position</code>の値が異なる要素同士のオーバーラップ（fixedに対してabsoluteが重なる）も高コストになります。</p>
 
@@ -134,7 +133,8 @@ var Toggler = {
 				<small>License: MIT. © Leo Horie.</small>
 			</section>
 		</main>
-		<script src="lib/prism/prism.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-jsx.min.js"></script>
 		<script>
 		document.querySelector(".hamburger").onclick = function() {
 			document.body.className = document.body.className === "navigating" ? "" : "navigating"

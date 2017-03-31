@@ -3,8 +3,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8" />
 		<title>  fragment(attrs, children) - Mithril.js</title>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
@@ -12,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<h1><img src="logo.svg">  Mithril <small>1.1.0</small></h1>
 				<nav>
 					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
 				</nav>
@@ -20,7 +19,7 @@
 		</header>
 		<main>
 			<section>
-				<h1 id="fragmentattrs,-children">fragment(attrs, children)</h1>
+				<h1 id="fragmentattrs,-children"><a href="#fragmentattrs,-children">fragment(attrs, children)</a></h1>
 <ul>
 <li>コア<ul>
 <li><a href="hyperscript.html">m</a></li>
@@ -54,7 +53,7 @@
 </li>
 </ul>
 <hr>
-<h3 id="description">説明</h3>
+<h3 id="description"><a href="#description">説明</a></h3>
 <p>フラグメント<a href="vnodes.html">vnode</a>にライフサイクルメソッドを追加します</p>
 <pre><code class="lang-javascript">var groupVisible = true
 var log = function() {
@@ -72,7 +71,7 @@ m("ul", [
 ])
 </code></pre>
 <hr>
-<h3 id="signature">シグニチャ</h3>
+<h3 id="signature"><a href="#signature">シグニチャ</a></h3>
 <p><a href="vnodes.html">vnode</a>フラグメントを生成します。</p>
 <p><code>vnode = m.fragment(attrs, children)</code></p>
 <table>
@@ -93,12 +92,12 @@ m("ul", [
 </tr>
 <tr>
 <td><code>children</code></td>
-<td><code>Array&lt;Vnode&gt;|String|Number|Boolean</code></td>
+<td><code>Array&lt;Vnode|String|Number|Boolean|null|undefined&gt;</code></td>
 <td>Yes</td>
 <td>vnodeのリスト</td>
 </tr>
 <tr>
-<td><strong>returns</strong></td>
+<td><strong>返り値</strong></td>
 <td><code>Vnode</code></td>
 <td></td>
 <td>フラグメント<a href="vnodes.html">vnode</a></td>
@@ -107,7 +106,7 @@ m("ul", [
 </table>
 <p><a href="signatures.html">シグニチャの読み方</a></p>
 <hr>
-<h3 id="how-it-works">どのように動作するのか</h3>
+<h3 id="how-it-works"><a href="#how-it-works">どのように動作するのか</a></h3>
 <p><code>m.fragment()</code>は属性付きの<a href="vnodes.html">フラグメントvnode</a>を作成します。このメソッドは<a href="keys.html">キー</a>や<a href="lifecycle-methods.html">ライフサイクルメソッド</a>などの高度なユースケースで使います。</p>
 <p>フラグメントvnodeはDOM要素のリストを表現します。もし通常の1つのDOM要素を現すエレメントvnodeが必要であれば、このメソッドの代わりに<a href="hyperscript.html"><code>m()</code></a>を使用してください。</p>
 <p>通常であれば、ノードのリストを表現するには、単純に配列を使うことができます:</p>
@@ -130,7 +129,8 @@ m("ul", [
 				<small>License: MIT. © Leo Horie.</small>
 			</section>
 		</main>
-		<script src="lib/prism/prism.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-jsx.min.js"></script>
 		<script>
 		document.querySelector(".hamburger").onclick = function() {
 			document.body.className = document.body.className === "navigating" ? "" : "navigating"
