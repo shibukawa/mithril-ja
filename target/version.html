@@ -3,8 +3,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8" />
 		<title>  version - Mithril.js</title>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
@@ -12,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<h1><img src="logo.svg">  Mithril <small>1.1.0</small></h1>
 				<nav>
 					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
 				</nav>
@@ -20,7 +19,7 @@
 		</header>
 		<main>
 			<section>
-				<h1 id="version">version</h1>
+				<h1 id="version"><a href="#version">version</a></h1>
 <ul>
 <li>コア<ul>
 <li><a href="hyperscript.html">m</a></li>
@@ -53,7 +52,7 @@
 </li>
 </ul>
 <hr>
-<h3 id="signature">シグニチャ</h3>
+<h3 id="signature"><a href="#signature">シグニチャ</a></h3>
 <p><code>m.version</code></p>
 <table>
 <thead>
@@ -66,7 +65,7 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>returns</strong></td>
+<td><strong>返り値</strong></td>
 <td>String</td>
 <td></td>
 <td>バージョン番号を返します</td>
@@ -74,7 +73,7 @@
 </tbody>
 </table>
 <hr>
-<h3 id="how-it-works">どのように動作するのか</h3>
+<h3 id="how-it-works"><a href="#how-it-works">どのように動作するのか</a></h3>
 <p><code>m.version</code>は現在のリリースの<a href="http://semver.org/">semver</a>文字列が入ったプロパティです。</p>
 <p>Semver（またはセマンティックバージョニング）ではバージョン番号は"0.0.0"という文法に従わなければなりません。最初の数値がメジャー、次がマイナー、３番目がパッチ番号です。</p>
 <ul>
@@ -87,7 +86,8 @@
 				<small>License: MIT. © Leo Horie.</small>
 			</section>
 		</main>
-		<script src="lib/prism/prism.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-jsx.min.js"></script>
 		<script>
 		document.querySelector(".hamburger").onclick = function() {
 			document.body.className = document.body.className === "navigating" ? "" : "navigating"

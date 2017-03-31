@@ -3,8 +3,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8" />
 		<title> リリース作業 - Mithril.js</title>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
@@ -12,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<h1><img src="logo.svg">  Mithril <small>1.1.0</small></h1>
 				<nav>
 					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
 				</nav>
@@ -20,7 +19,7 @@
 		</header>
 		<main>
 			<section>
-				<h1 id="releasing">リリース作業</h1>
+				<h1 id="releasing"><a href="#releasing">リリース作業</a></h1>
 <ul>
 <li>コア<ul>
 <li><a href="hyperscript.html">m</a></li>
@@ -48,17 +47,18 @@
 </ul>
 </li>
 </ul>
-<p>Mithrilの新バージョンのリリースは<code>npm version</code>を使ってほぼ自動化されています。</p>
-<h2 id="publishing-to-npm">NPMへの公開</h2>
+<h2 id="publishing-to-npm"><a href="#publishing-to-npm">NPMへの公開</a></h2>
+<p>Mithrilの新バージョンのリリースは<code>npm run release</code>を使ってほぼ自動化されています。</p>
 <ol>
-<li><code>npm version &lt;major|minor|patch|semver&gt; -m "v%s"</code></li>
+<li><code>docs/change-log.md</code>の情報を、現状やリリースしようとする新しいバージョンに合うように更新します。</li>
+<li><code>npm run release &lt;major|minor|patch|semver&gt;</code></li>
 </ol>
 <p>それ以降の手順はすべて自動化されています。次の手順で実行されます:</p>
 <ol>
+<li>更新されたバージョンを使ったバンドルが作成</li>
 <li>テストと実行</li>
 <li>Lintの実行（ただしビルドを失敗させません）</li>
 <li>package.jsonのバージョン番号のインクリメント</li>
-<li>更新されたバージョンを使ったバンドルが作成</li>
 <li>バンドル出力に対する<code>git add</code>コマンド実行</li>
 <li><code>package.json</code>と更新されたバンドルがgitにコミットされる</li>
 <li>１つ前のコミットに対し、新しいバージョン番号でタグ付けを行う</li>
@@ -72,16 +72,29 @@
 <li>Travisがこのコミットがタグに関連したものであることを確認する</li>
 <li>Travisが<code>.travis.yml</code>内のnpmの暗号化クレデンシャルを使い、新しいバージョンをnpmに公開</li>
 </ol>
-<h2 id="publishing-a-github-release">GitHubにリリースを公開</h2>
-<p><strong>TODO</strong></p>
-<h2 id="updating-docschange-logmd"><code>docs/change-log.md</code>を更新する</h2>
-<p><strong>TODO</strong></p>
+<h2 id="publishing-a-github-release"><a href="#publishing-a-github-release">GitHubにリリースを公開</a></h2>
+<p>すでに紹介した<a href="#publishing-to-npm">NPMに公開</a>のプロセスの一部として自動的に行なえます。</p>
+<p>自動で生成する説明は面白みに欠けるため、手動で説明を書く必要があります。ビルドのエントリーとして、面白いタイトルを考えて、<code>docs/change-log.md</code>にコピーするのをおすすめします。</p>
+<h2 id="updating-docschange-logmd"><a href="#updating-docschange-logmd"><code>docs/change-log.md</code>を更新する</a></h2>
+<p>もうしわけありませんが、まだまだマニュアルのプロセスです。</p>
+<h2 id="updating-docs-outside-of-a-new-version"><a href="#updating-docs-outside-of-a-new-version">新バージョン以外のドキュメントの更新</a></h2>
+<p>ドキュメントの修正は、リリースに関係なく、更新次第Travisによってウェブサイトに公開されます。</p>
+<ol>
+<li><code>git co next</code></li>
+<li><code>git pull lhorie next</code></li>
+<li><code>git co master</code></li>
+<li><code>git co next -- ./docs</code></li>
+<li>新しい機能が追加されていることを確認してください</li>
+<li><code>git push lhorie</code></li>
+<li>Travisがビルドに成功してから3分以内に新しいドキュメントが公開されます。</li>
+</ol>
 
 				<hr />
 				<small>License: MIT. © Leo Horie.</small>
 			</section>
 		</main>
-		<script src="lib/prism/prism.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-jsx.min.js"></script>
 		<script>
 		document.querySelector(".hamburger").onclick = function() {
 			document.body.className = document.body.className === "navigating" ? "" : "navigating"

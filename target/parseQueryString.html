@@ -3,8 +3,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8" />
 		<title>  parseQueryString(string) - Mithril.js</title>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
@@ -12,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<h1><img src="logo.svg">  Mithril <small>1.1.0</small></h1>
 				<nav>
 					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
 				</nav>
@@ -20,7 +19,7 @@
 		</header>
 		<main>
 			<section>
-				<h1 id="parsequerystringstring">parseQueryString(string)</h1>
+				<h1 id="parsequerystringstring"><a href="#parsequerystringstring">parseQueryString(string)</a></h1>
 <ul>
 <li>コア<ul>
 <li><a href="hyperscript.html">m</a></li>
@@ -54,13 +53,13 @@
 </li>
 </ul>
 <hr>
-<h3 id="description">説明</h3>
+<h3 id="description"><a href="#description">説明</a></h3>
 <p><code>?a=1&amp;b=2</code>という形式の文字列をオブジェクトにします。</p>
 <pre><code class="lang-javascript">var object = m.parseQueryString("a=1&amp;b=2")
 // {a: "1", b: "2"}
 </code></pre>
 <hr>
-<h3 id="signature">シグニチャ</h3>
+<h3 id="signature"><a href="#signature">シグニチャ</a></h3>
 <p><code>object = m.parseQueryString(string)</code></p>
 <table>
 <thead>
@@ -79,7 +78,7 @@
 <td>クエリー文字列</td>
 </tr>
 <tr>
-<td><strong>returns</strong></td>
+<td><strong>返り値</strong></td>
 <td><code>Object</code></td>
 <td></td>
 <td>キー・バリューのマップ</td>
@@ -88,25 +87,25 @@
 </table>
 <p><a href="signatures.html">シグニチャの読み方</a></p>
 <hr>
-<h3 id="how-it-works">どのように動作するのか</h3>
+<h3 id="how-it-works"><a href="#how-it-works">どのように動作するのか</a></h3>
 <p><code>m.parseQueryString</code>はクエリー文字列からオブジェクトを作ります。この関数はURLからデータを取得するのに使います。</p>
 <pre><code class="lang-javascript">var data = m.parseQueryString("a=hello&amp;b=world")
 
 // data is {a: "hello", b: "world"}
 </code></pre>
-<h4 id="boolean-type-casting">ブール型キャスト</h4>
+<h4 id="boolean-type-casting"><a href="#boolean-type-casting">ブール型キャスト</a></h4>
 <p>このメソッドはブール値をなるべくキャストしようとします。これは真値が失われるケースや、予期しない型キャストによるバグを防ぎます。</p>
 <pre><code class="lang-javascript">var data = m.parseQueryString("a=true&amp;b=false")
 
 // dataは {a: true, b: false}
 </code></pre>
-<h4 id="leading-question-mark-tolerance">先頭の？マークの許容</h4>
+<h4 id="leading-question-mark-tolerance"><a href="#leading-question-mark-tolerance">先頭の？マークの許容</a></h4>
 <p>よく使うケースを考慮して、<code>m.parseQueryString</code>メソッドは先頭に？マークがあっても無視します:</p>
 <pre><code class="lang-javascript">var data = m.parseQueryString("?a=hello&amp;b=world")
 
 // dataは {a: "hello", b: "world"}
 </code></pre>
-<h4 id="deep-data-structures">深いデータ構造</h4>
+<h4 id="deep-data-structures"><a href="#deep-data-structures">深いデータ構造</a></h4>
 <p>クエリー文字列に角かっこがあった時は、構造化されたデータ構造にパースします</p>
 <pre><code class="lang-javascript">m.parseQueryString("a[0]=hello&amp;a[1]=world")
 
@@ -117,7 +116,8 @@
 				<small>License: MIT. © Leo Horie.</small>
 			</section>
 		</main>
-		<script src="lib/prism/prism.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-jsx.min.js"></script>
 		<script>
 		document.querySelector(".hamburger").onclick = function() {
 			document.body.className = document.body.className === "navigating" ? "" : "navigating"

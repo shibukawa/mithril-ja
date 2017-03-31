@@ -3,8 +3,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8" />
 		<title> シグニチャの読み方 - Mithril.js</title>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
@@ -12,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<h1><img src="logo.svg">  Mithril <small>1.1.0</small></h1>
 				<nav>
 					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
 				</nav>
@@ -20,7 +19,7 @@
 		</header>
 		<main>
 			<section>
-				<h1 id="how-to-read-signatures">シグニチャの読み方</h1>
+				<h1 id="how-to-read-signatures"><a href="#how-to-read-signatures">シグニチャの読み方</a></h1>
 <ul>
 <li>コア<ul>
 <li><a href="hyperscript.html">m</a></li>
@@ -48,7 +47,7 @@
 </ul>
 </li>
 </ul>
-<p>Signature sections typically look like this:</p>
+<p>シグニチャのセクションは次のような形式になっています:</p>
 <p><code>vnode = m(selector, attributes, children)</code></p>
 <table>
 <thead>
@@ -64,7 +63,7 @@
 <td><code>selector</code></td>
 <td><code>String|Object</code></td>
 <td>Yes</td>
-<td>A CSS selector or a component</td>
+<td>CSSセレクター、もしくはコンポーネント</td>
 </tr>
 <tr>
 <td><code>attributes</code></td>
@@ -79,40 +78,41 @@
 <td>子供の<a href="vnodes.html">vnode</a>。<a href="signatures.html#splats">フラットな引数</a>として書くこともできます。</td>
 </tr>
 <tr>
-<td><strong>returns</strong></td>
+<td><strong>返り値</strong></td>
 <td><code>Vnode</code></td>
 <td></td>
 <td><a href="vnodes.html">vnode</a></td>
 </tr>
 </tbody>
 </table>
-<p>The signature line above the table indicates the general syntax of the method, showing the name of the method, the order of its arguments and a suggested variable name for its return value.</p>
-<p>The <strong>Argument</strong> column in the table indicates which part of the signature is explained by the respective table row. The <code>returns</code> row displays information about the return value of the method.</p>
-<p>The <strong>Type</strong> column indicates the expected type for the argument.</p>
-<p>A pipe (<code>|</code>) indicates that an argument is valid if it has any of the listed types. For example, <code>String|Object</code> indicates that <code>selector</code> can be a string OR an object.</p>
-<p>Angled brackets (<code>&lt; &gt;</code>) after an <code>Array</code> indicate the expected type for array items. For exampe, <code>Array&lt;String&gt;</code> indicates that the argument must be an array and that all items in that array must be strings. Angled brackets after an <code>Object</code> indicate a map. For example, <code>Object&lt;String,Component&gt;</code> indicates that the argument must be an object, whose keys are strings and values are <a href="components.html">components</a></p>
-<p>Sometimes non-native types may appear to indicate that a specific object signature is required. For example, <code>Vnode</code> is an object that has a <a href="vnodes.html">virtual DOM node</a> structure.</p>
-<p>The <strong>Required</strong> column indicates whether an argument is required or optional. If an argument is optional, you may set it to <code>null</code> or <code>undefined</code>, or omit it altogether, such that the next argument appears in its place.</p>
+<p>上記の表のシグニチャ行では、メソッドの一般的な文法を使い、メソッド名、引数の順序、推奨される返り値の名前を表示しています。</p>
+<p>表の<strong>引数</strong>カラムではシグニチャのどの項目に対応するかを示しています。<code>返り値</code>の行はメソッドの返り値の型を表示しています。</p>
+<p><strong>型</strong>カラムは引数の型を説明しています。</p>
+<p>パイプ（<code>|</code>）はリスト内のどの型であっても受け取れることを示しています。例えば、<code>String|Object</code>という表現は、<code>selector</code>には文字列、あるいはオブジェクトを指定できることを指名しています。</p>
+<p><code>Array</code>の後の不等号のかっこ（<code>&lt; &gt;</code>）は、期待する配列の要素の型を示しています。例えば、<code>Array&lt;String&gt;</code>は引数の型が配列で、配列の要素はすべて文字列であることを示しています。<code>Object</code>の後の不等号のかっこはマップを表しています。例えば、<code>Object&lt;String,Component&gt;</code>は引数の型がオブジェクトで、キーが文字列で値が<a href="components.html">Component</a>であることを示しています。</p>
+<p>ネイティブではない型は、特別なシグニチャを持つオブジェクトが必要なことを示しています。例えば、<code>Vnode</code>は、<a href="vnodes.html">仮想DOMノード</a>構造を持つオブジェクトです。</p>
+<p><strong>必須</strong>カラムはその引数が必須かオプションかを表示します。もし引数がオプションであれば、<code>null</code>か<code>undefined</code>をセットするか、省略して次の引数をその場に書くことができます。</p>
 <hr>
-<h3 id="optional-arguments">Optional arguments</h3>
-<p>Function arguments surrounded by square brackets <code>[ ]</code> are optional. In the example below, <code>url</code> is an optional argument:</p>
+<h3 id="optional-arguments"><a href="#optional-arguments">オプション引数</a></h3>
+<p>角かっこ（<code>[ ]</code>）で囲まれた引数はオプションです。次のサンプルでは、<code>url</code>がオプション引数です:</p>
 <p><code>m.request([url,] options)</code></p>
 <hr>
-<h3 id="splats">Splats</h3>
-<p>A splat argument means that if the argument is an array, you can omit the square brackets and have a variable number of arguments in the method instead.</p>
-<p>In the example at the top, this means that <code>m("div", {id: "foo"}, ["a", "b", "c"])</code> can also be written as <code>m("div", {id: "foo"}, "a", "b", "c")</code>.</p>
-<p>Splats are useful in some compile-to-js languages such as Coffeescript, and also allow helpful shorthands for some common use cases.</p>
+<h3 id="splats"><a href="#splats">可変長のフラット化可能な引数（Splats）</a></h3>
+<p>可変長でフラット化が可能な引数は配列で引数を渡すこともできるし、角かっこを省略して通常の引数としても渡すことができる引数です。</p>
+<p>上記のサンプルは<code>m("div", {id: "foo"}, ["a", "b", "c"])</code>という形態の説明になっていますが、<code>m("div", {id: "foo"}, "a", "b", "c")</code>とも書くことができます。</p>
+<p>この形式はCoffeeScriptのようなJavaScriptにコンパイルするトランスパイラでも便利ですが、省略記法として一般のケースでも便利です。</p>
 <hr>
-<h3 id="function-signatures">Function signatures</h3>
-<p>Functions are denoted with an arrow (<code>-&gt;</code>). The left side of the arrow indicates the types of the input arguments and the right side indicates the type for the return value.</p>
-<p>For example, <code>parseFloat</code> has the signature <code>String -&gt; Number</code>, i.e. it takes a string as input and returns a number as output.</p>
-<p>Functions with multiple arguments are denoted with parenthesis: <code>(String, Array) -&gt; Number</code></p>
+<h3 id="function-signatures"><a href="#function-signatures">関数シグニチャ</a></h3>
+<p>関数はアロー形式（<code>-&gt;</code>）で示します。矢の左側は入力引数の型を示していて、右側は返り値の型を示しています。</p>
+<p>例えば、<code>parseFloat</code>は<code>String -&gt; Number</code>となります。これは１つの文字列を引数として取り、返り値が数値になることを示しています。</p>
+<p>複数の引数を持つ場合は、かっこを使います: <code>(String, Array) -&gt; Number</code></p>
 
 				<hr />
 				<small>License: MIT. © Leo Horie.</small>
 			</section>
 		</main>
-		<script src="lib/prism/prism.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-jsx.min.js"></script>
 		<script>
 		document.querySelector(".hamburger").onclick = function() {
 			document.body.className = document.body.className === "navigating" ? "" : "navigating"

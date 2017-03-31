@@ -3,8 +3,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8" />
 		<title> イントロダクション - Mithril.js</title>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
@@ -12,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<h1><img src="logo.svg">  Mithril <small>1.1.0</small></h1>
 				<nav>
 					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
 				</nav>
@@ -20,7 +19,7 @@
 		</header>
 		<main>
 			<section>
-				<h1 id="introduction">イントロダクション</h1>
+				<h1 id="introduction"><a href="#introduction">イントロダクション</a></h1>
 <ul>
 <li>チュートリアル<ul>
 <li><a href="installation.html">インストール</a></li>
@@ -67,8 +66,8 @@
 </li>
 </ul>
 <hr>
-<h3 id="what-is-mithril?">Mithrilとは？</h3>
-<p>Mithrilはシングルページアプリケーションを構築するためのモダンなクライアントサイドのJavaScriptフレームワークです。<br>サイズは小さく（&lt; 8kb gzip）高速で、ラウティングやXHRといったユーティリティもパッケージ内に内蔵しています。</p>
+<h3 id="what-is-mithril?"><a href="#what-is-mithril?">Mithrilとは？</a></h3>
+<p>Mithrilはシングルページアプリケーションを構築するためのモダンなクライアントサイドのJavaScriptフレームワークです。サイズは小さく（&lt; 8kb gzip）高速で、ラウティングやXHRといったユーティリティもパッケージ内に内蔵しています。</p>
 <div style="display:flex;margin:0 0 30px;">
     <div style="width:50%;">
         <h5>ダウンロードサイズの比較</h5>
@@ -98,7 +97,7 @@
 <p>もし、すでにJavaScriptのフレームワークでの開発経験があり、他のフレームワークとなにが違うのかを知りたければ、<a href="framework-comparison.html">フレームワークの比較</a>のページを見てください。</p>
 <p>MithrilはPolyfillなしでIE9以降のすべてのブラウザに対応しています。</p>
 <hr>
-<h3 id="getting-started">はじめよう</h3>
+<h3 id="getting-started"><a href="#getting-started">はじめよう</a></h3>
 <p>CDNを使ってMithrilを読み込んで、これから説明するチュートリアルをなぞるのが、Mithrilを試すもっとも簡単な方法です。このチュートリアルはラウティングやXHRも含めて、主要なAPIを紹介しますが、10分程度しかかかりません。</p>
 <p>それでは次のようなHTMLファイルを作ってみましょう:</p>
 <pre><code class="lang-markup">&lt;body&gt;
@@ -111,7 +110,7 @@
 &lt;/body&gt;
 </code></pre>
 <hr>
-<h3 id="hello-world">Hello world</h3>
+<h3 id="hello-world"><a href="#hello-world">Hello world</a></h3>
 <p>まずはなるべく小さなステップから始めましょう。スクリーンにテキストを表示してみます。次のコードをコピーして、最初に作ったファイルにコピーしてみましょう（コピーと言いましたが、タイピングした方が学習効果は高いでしょう）。</p>
 <pre><code class="lang-javascript">var root = document.body
 
@@ -122,11 +121,11 @@ m.render(root, "Hello world")
 </code></pre>
 <p>このコードを見ればおわかりの通りに、同じコードをつかってHTMLの作成と更新を行うことができます。Mithrilは自動的にテキストを更新するためのもっとも効率的な方法を判断して実行します。盲目的にすべてを再作成することはありません。</p>
 <hr>
-<h3 id="dom-elements">DOMエレメント</h3>
+<h3 id="dom-elements"><a href="#dom-elements">DOMエレメント</a></h3>
 <p>次に、テキストを<code>&lt;h1&gt;</code>タグでくくってみましょう。</p>
 <pre><code class="lang-javascript">m.render(root, m("h1", "最初のMithrilアプリケーション"))
 </code></pre>
-<p><code>m()</code>関数を使うと、あらゆるHTML構造が表現できます。<code>&lt;h1&gt;</code>タグにクラスを追加してみます:</p>
+<p><code>m()</code>関数を使うと、あらゆるHTML構造が表現できます。<code>&lt;h1&gt;</code>タグにクラスを追加するには次のようにします:</p>
 <pre><code class="lang-javascript">m("h1", {class: "title"}, "最初のMithrilアプリケーション")
 </code></pre>
 <p>複数のエレメントを追加してみましょう:</p>
@@ -149,7 +148,7 @@ m.render(root, "Hello world")
 &lt;/main&gt;
 </code></pre>
 <hr>
-<h3 id="components">コンポーネント</h3>
+<h3 id="components"><a href="#components">コンポーネント</a></h3>
 <p>Mithrilのコンポーネントは<code>view</code>関数を持つ単なるオブジェクトです。上記のコードをコンポーネント化してみましょう。</p>
 <pre><code class="lang-javascript">var Hello = {
     view: function() {
@@ -187,7 +186,7 @@ m.mount(root, Hello)
 <p>ボタンをクリックすると、ボタンのラベルが更新されるようになります。<code>m.mount()</code>を使うと、<code>m.render()</code>をマニュアルで呼び出さなくても<code>count</code>変数の変更をMithrilがHTMLに反映します。</p>
 <p>パフォーマンスについて気になる方もいるでしょう。Mithrilは、本当に必要なDOMの部分にしか触れないため、レンダリングの更新時を非常に高速に行います。上記のサンプルでは、ボタンをクリックしたときには、MithrilはボタンのテキストのDOM部分だけを更新します。</p>
 <hr>
-<h3 id="routing">ラウティング</h3>
+<h3 id="routing"><a href="#routing">ラウティング</a></h3>
 <p>ラウティングは、アプリケーション内のいくつかのスクリーン間で移動することです。</p>
 <p>クリックカウンターの前に、スプラッシュページを追加してみましょう。まず次のコンポーネントを作成します:</p>
 <pre><code class="lang-javascript">var Splash = {
@@ -207,7 +206,7 @@ m.mount(root, Hello)
 <p><code>root</code>のすぐ右にある<code>"/splash"</code>はデフォルトのラウトです。ハッシュバングのあとのURLが、定義されているラウト（このサンプルでは<code>/splash</code>、<code>/hello</code>）、MithrilはこのURLにリダイレクトします。もしブラウザを開いて、そのページのURLが<code>http://localhost</code>だったら、<code>http://localhost/#!/splash</code>にリダイレクトします。</p>
 <p>スプラッシュページのなかのリンクをクリックすると、以前作ったクリックカウンターに移動します。新しいページに移動するとURLは<code>http://localhost/#!/hello</code>になります。ブラウザの「戻る」「進む」ボタンを使って、スプラッシュページにいったりきたりナビゲーションできます。</p>
 <hr>
-<h3 id="xhr">XHR</h3>
+<h3 id="xhr"><a href="#xhr">XHR</a></h3>
 <p>基本的にXHRはサーバーと話をするための方法です。</p>
 <p>クリックカウンターを修正して、サーバーにデータを保存できるようにしましょう。サーバーには、チュートリアルのようなおもちゃアプリケーションのために作られた、モックのREST APIを提供する<a href="http://rem-rest-api.herokuapp.com">REM</a>を使います。</p>
 <p>まず、<code>m.request</code>を呼び出す関数を作ってみましょう。<code>url</code>はリソースを表すエンドポイントを指定します。<code>method</code>は話をするアクションの種類を指定します（<a href="https://en.wiktionary.org/wiki/upsert">upserts</a>には通常<code>PUT</code>メソッドを使います）。<code>data</code>はエンドポイントに送付するペイロードです。<code>withCredentials</code>はクッキーを有効化する（REM APIを動作させるのに必要）ために指定します。</p>
@@ -244,7 +243,8 @@ var increment = function() {
 				<small>License: MIT. © Leo Horie.</small>
 			</section>
 		</main>
-		<script src="lib/prism/prism.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-jsx.min.js"></script>
 		<script>
 		document.querySelector(".hamburger").onclick = function() {
 			document.body.className = document.body.className === "navigating" ? "" : "navigating"

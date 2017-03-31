@@ -3,8 +3,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8" />
 		<title> 自動再描画システム - Mithril.js</title>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
@@ -12,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<h1><img src="logo.svg">  Mithril <small>1.1.0</small></h1>
 				<nav>
 					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
 				</nav>
@@ -20,7 +19,7 @@
 		</header>
 		<main>
 			<section>
-				<h1 id="the-auto-redraw-system">自動再描画システム</h1>
+				<h1 id="the-auto-redraw-system"><a href="#the-auto-redraw-system">自動再描画システム</a></h1>
 <ul>
 <li>チュートリアル<ul>
 <li><a href="installation.html">インストール</a></li>
@@ -60,7 +59,7 @@
 <p>Mithrilは、高速なレンダリングのために仮想DOM差分システムを実装しています。また、それに加えてアプリケーションがレンダリングをコントロールできるように、適切な粒度のさまざまなメカニズムを提供しています。</p>
 <p>慣用的な表現をすると、Mithrilはデータレイヤーの変更をDOMに同期するために、自動再描画システムを利用しています。自動再描画システムは<code>m.mount()</code>、もしくは<code>m.route()</code>関数を使うと有効化されます。<code>m.render()</code>呼び出しを使って画面更新を行うとこの機能は無効なままです。</p>
 <p>自動再描画システムは単純に、特定の関数の実行が完了したら再描画関数が実行されるようになっています。</p>
-<h3 id="after-event-handlers">イベントハンドラ後</h3>
+<h3 id="after-event-handlers"><a href="#after-event-handlers">イベントハンドラ後</a></h3>
 <p>Mithrilは、Mithrilのビューで定義されたDOMイベントハンドラの実行後に再描画を自動で行います:</p>
 <pre><code class="lang-javascript">var MyComponent = {
     view: function() {
@@ -88,7 +87,7 @@ function doSomething(e) {
 
 m.mount(document.body, MyComponent)
 </code></pre>
-<h3 id="after-mrequest">m.request後</h3>
+<h3 id="after-mrequest"><a href="#after-mrequest">m.request後</a></h3>
 <p>Mithrilは<a href="request.html"><code>m.request</code></a>の処理が完了した後に自動で再描画を行います:</p>
 <pre><code class="lang-javascript">m.request("/api/v1/users").then(function() {
     // この関数の実行後に再描画が発生
@@ -99,7 +98,7 @@ m.mount(document.body, MyComponent)
     // 再描画は行われない
 })
 </code></pre>
-<h3 id="after-route-changes">ラウトの変更後</h3>
+<h3 id="after-route-changes"><a href="#after-route-changes">ラウトの変更後</a></h3>
 <p>Mithrilは<a href="route.html#mrouteset"><code>m.route.set()</code></a>を呼び出したり、<a href="route.html#mroutelink"><code>m.route.link</code></a>を使用したリンクをクリックした後に再描画を自動で行います:</p>
 <pre><code class="lang-javascript">var RoutedComponent = {
     view: function() {
@@ -120,7 +119,7 @@ m.route(document.body, "/", {
 })
 </code></pre>
 <hr>
-<h3 id="when-mithril-does-not-redraw">Mithrilが再描画を行わない時</h3>
+<h3 id="when-mithril-does-not-redraw"><a href="#when-mithril-does-not-redraw">Mithrilが再描画を行わない時</a></h3>
 <p>Mithrilは<code>setTimeout</code>, <code>setInterval</code>, <code>requestAnimationFrame</code>の呼び出し、Promise、サードパーティーライブラリが提供するイベントハンドラ（例: Socket.ioのコールバック）では再描画を行いません。この場合は、手動で&lt;a3&gt;&lt;c4&gt;m.redraw()&lt;/c4&gt;&lt;/a3&gt;を呼び出す必要があります。</p>
 <p>Mithrilはライフサイクルメソッド後にも再描画は行いません。UIの一部は<code>oninit</code>ハンドラの後に再描画されますが、UIの他の部分は指定の<code>oninit</code>ハンドラが起動した時にすでに再描画されているでしょう。<code>oncreate</code>と<code>onupdate</code>ハンドラはUIが再描画された後に呼ばれます。</p>
 <p>ライフサイクルメソッド内で再描画を明示的に行う時は<code>m.redraw()</code>を呼びます。この関数は非同期で再描画を行います。</p>
@@ -148,7 +147,8 @@ m.mount(document.body, MyComponent)
 				<small>License: MIT. © Leo Horie.</small>
 			</section>
 		</main>
-		<script src="lib/prism/prism.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-jsx.min.js"></script>
 		<script>
 		document.querySelector(".hamburger").onclick = function() {
 			document.body.className = document.body.className === "navigating" ? "" : "navigating"

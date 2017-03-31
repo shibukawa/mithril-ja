@@ -2,9 +2,8 @@
 	<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8" />
-		<title>  Testing - Mithril.js</title>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<title> テスト - Mithril.js</title>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
@@ -12,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<h1><img src="logo.svg">  Mithril <small>1.1.0</small></h1>
 				<nav>
 					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
 				</nav>
@@ -20,7 +19,7 @@
 		</header>
 		<main>
 			<section>
-				<h1 id="testing">テスト</h1>
+				<h1 id="testing"><a href="#testing">テスト</a></h1>
 <ul>
 <li>チュートリアル<ul>
 <li><a href="installation.html">インストール</a></li>
@@ -57,16 +56,16 @@
 </ul>
 </li>
 </ul>
-<p>Mithril comes with a testing framework called <a href="https://github.com/lhorie/mithril.js/tree/rewrite/ospec">ospec</a>. What makes it different from most test frameworks is that it avoids all configurability for the sake of avoiding <a href="http://catb.org/jargon/html/Y/yak-shaving.html">yak shaving</a> and <a href="https://en.wikipedia.org/wiki/Analysis_paralysis">analysis paralysis</a>.</p>
-<p>The easist way to setup the test runner is to create an NPM script for it. Open your project's <code>package.json</code> file and edit the <code>test</code> line under the <code>scripts</code> section:</p>
+<p>Mithrilには<a href="https://github.com/lhorie/mithril.js/tree/rewrite/ospec">ospec</a>と呼ばれるテストフレームワークが付属しています。このテストフレームワークと他のフレームワークが異なる点は、<a href="http://catb.org/jargon/html/Y/yak-shaving.html">yak shaving</a>や<a href="https://en.wikipedia.org/wiki/Analysis_paralysis">analysis paralysis</a>に繋がるような、設定可能な要素をすべて排除した点です。</p>
+<p>テストランナーのもっとも簡単なセットアップ方法はNPM scriptを使う方法です。プロジェクトの<code>package.json</code>ファイルを開き、<code>scripts</code>セクションの<code>test</code>の項目を編集します:</p>
 <pre><code>{
     "name": "my-project",
     "scripts": {
         "test": "ospec"
     }
 }
-</code></pre><p>Remember this is a JSON file, so object key names such as <code>"test"</code> must be inside of double quotes.</p>
-<p>To setup a test suite, create a <code>tests</code> folder and inside of it, create a test file:</p>
+</code></pre><p>これはJSONファイルなので、<code>"test"</code>はダブルクオートでくくる必要があります。</p>
+<p>テストスイートをセットアップする時は、<code>tests</code>フォルダを作り、その中にテストファイルを作っていきます。</p>
 <pre><code class="lang-javascript">// file: tests/math-test.js
 var o = require("mithril/ospec/ospec")
 
@@ -76,17 +75,26 @@ o.spec("math", function() {
     })
 })
 </code></pre>
-<p>To run the test, use the command <code>npm test</code>. Ospec considers any Javascript file inside of a <code>tests</code> folder (anywhere in the project) to be a test.</p>
+<p>テストを実行するには<code>npm test</code>コマンドを使います。Ospecはプロジェクトフォルダ内の<code>tests</code>フォルダに入っているJavaScriptファイルはすべてテストコードだとみなします。</p>
 <pre><code>npm test
 </code></pre><hr>
-<h3 id="good-testing-practices">Good testing practices</h3>
-<p>Generally speaking, there are two ways to write tests: upfront and after the fact.</p>
-<p>Writing tests upfront requires specifications to be frozen. Upfront tests are a great way of codifying the rules that a yet-to-be-implemented API must obey. However, writing tests upfront may not be a suitable strategy if you don't have a reasonable idea of what your project will look like, if the scope of the API is not well known or if it's likely to change (e.g. based on previous history at the company).</p>
-<p>Writing tests after the fact is a way to document the behavior of a system and avoid regressions. They are useful to ensure that obscure corner cases are not inadvertedly broken and that previously fixed bugs do not get re-introduced by unrelated changes.</p>
+<h3 id="running-mithril-in-a-non-browser-environment"><a href="#running-mithril-in-a-non-browser-environment">Running mithril in a non-browser environment</a></h3>
+<p>Mithril has a few dependencies on globals that exist in all its supported browser environments but are missing in all non-browser environments. To work around this you can use the browser mocks that ship with the mithril npm package.</p>
+<p>The simplest way to do this is ensure the following snippet of code runs <strong>before</strong> you include mithril itself in your project.</p>
+<pre><code class="lang-js">// Polyfill DOM env for mithril
+global.window = require("mithril/test-utils/browserMock.js")();
+global.document = window.document;
+</code></pre>
+<p>Once that snippet has been run you can <code>require("mithril")</code> and it should be quite happy.</p>
 <hr>
-<h3 id="unit-testing">Unit testing</h3>
-<p>Unit testing is the practice of isolating a part of an application (typically a single module), and asserting that, given some inputs, it produces the expected outputs.</p>
-<p>Testing a Mithril component is easy. Let's assume we have a simple component like this:</p>
+<h3 id="good-testing-practices"><a href="#good-testing-practices">良いテストプラクティス</a></h3>
+<p>一般的にはテストを書く方法には2つあります。事前と事後です。</p>
+<p>事前にテストを書くには仕様を決定する必要があります。事前に書くテストはこれから実装するAPIが従わなければならないルールをコード化するすぐれた方法です。しかし、APIのスコープがよく分からない場合や、変更する可能性がある場合（または過去の経緯からよく変更が行われる場合）、プロジェクトの要件がまだ妥当だと考えられない場合は、テストを先に書くことは適切な戦略ではないかもしれません。</p>
+<p>事後に書くテストはシステムの挙動をドキュメント化し、リグレッションを防ぐための方法です。あいまいなコーナーケースでエラーが発生しないこたおを保証したり、すでに修正されたバグが無関係な変更によって再導入されないようにする効果があります。</p>
+<hr>
+<h3 id="unit-testing"><a href="#unit-testing">ユニットテスト</a></h3>
+<p>ユニットテストは、アプリケーションを小さな部品（通常は単体のモジュール）に分け、指定された入力に対して期待される出力が返ってくることを表明形式で書くプラクティスです。</p>
+<p>Mithrilコンポーネントのテストを書くのは簡単です。単体のコンポーネントが次の形式になっていると想定します:</p>
 <pre><code class="lang-javascript">// MyComponent.js
 var m = require("mithril")
 
@@ -96,7 +104,7 @@ module.exports = {
     }
 }
 </code></pre>
-<p>We can then create a <code>tests/MyComponent.js</code> file and create a test for this component like this:</p>
+<p>まず<code>tests/MyComponent.js</code>ファイルを作成し、このコンポーネントに対するテストを次のように作成します:</p>
 <pre><code class="lang-javascript">var MyComponent = require("MyComponent")
 
 o.spec("MyComponent", function() {
@@ -110,14 +118,15 @@ o.spec("MyComponent", function() {
     })
 })
 </code></pre>
-<p>Typically, you wouldn't test the structure of the vnode tree so granularly, and you would instead only test non-trivial, dynamic aspects of the view. A tool that can help making testing easier with deep vnode trees is <a href="https://github.com/StephanHoyer/mithril-query">Mithril Query</a>.</p>
-<p>Sometimes, you need to mock the dependencies of a module in order to test the module in isolation. <a href="https://github.com/mfncooper/mockery">Mockery</a> is one tool that allows you to do that.</p>
+<p>通常は、vnodeツリーの構造をきめ細かくテストするのではなく、外部の入力によって変化するような動的な側面のみをテストします。<a href="https://github.com/StephanHoyer/mithril-query">Mithril Query</a>を使うと、深いvnodeツリーのテストが簡単になります。</p>
+<p>場合によっては、モジュールを独立してテストするためにモジュールの依存のモックが必要となります。いくつかツールがありますが、<a href="https://github.com/mfncooper/mockery">Mockery</a>はそのうちの１つです。</p>
 
 				<hr />
 				<small>License: MIT. © Leo Horie.</small>
 			</section>
 		</main>
-		<script src="lib/prism/prism.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-jsx.min.js"></script>
 		<script>
 		document.querySelector(".hamburger").onclick = function() {
 			document.body.className = document.body.className === "navigating" ? "" : "navigating"

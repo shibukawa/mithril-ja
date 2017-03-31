@@ -3,8 +3,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8" />
 		<title> ライフサイクルメソッド - Mithril.js</title>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
@@ -12,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg"> Mithril <small>1.0.1</small></h1>
+				<h1><img src="logo.svg">  Mithril <small>1.1.0</small></h1>
 				<nav>
 					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
 				</nav>
@@ -20,7 +19,7 @@
 		</header>
 		<main>
 			<section>
-				<h1 id="lifecycle-methods">ライフサイクルメソッド</h1>
+				<h1 id="lifecycle-methods"><a href="#lifecycle-methods">ライフサイクルメソッド</a></h1>
 <ul>
 <li>チュートリアル<ul>
 <li><a href="installation.html">インストール</a></li>
@@ -69,7 +68,7 @@
 </li>
 </ul>
 <hr>
-<h3 id="usage">使用方法</h3>
+<h3 id="usage"><a href="#usage">使用方法</a></h3>
 <p><a href="components.html">コンポーネント</a>と<a href="vnodes.html">仮想DOMノード</a>はライフサイクルメソッドを持つことができます。これは<em>フック</em>とも呼ばれ、DOM要素の生存期間のさまざまなポイントで呼ばれます。</p>
 <pre><code class="lang-javascript">// コンポーネントのフックのサンプル
 var ComponentWithHook = {
@@ -91,11 +90,11 @@ m(ComponentWithHook, {oninit: initializeVnode})
 <p>すべてのライフサイクルメソッドはvnodeを最初の引数として受け取ります。また、<code>this</code>キーワードは<code>vnode.state</code>に束縛されます。</p>
 <p>ライフサイクロメソッドは<a href="render.html"><code>m.render()</code></a>呼び出しの副作用として呼び出されます。Mithrilの外側でDOMを変更してもライフサイクロメソッドは呼び出されません。</p>
 <hr>
-<h3 id="the-dom-element-lifecycle">DOMエレメントのライフサイクル</h3>
+<h3 id="the-dom-element-lifecycle"><a href="#the-dom-element-lifecycle">DOMエレメントのライフサイクル</a></h3>
 <p>DOMエレメントは作成されてからドキュメントに追加されます。DOMエレメントは属性や子ノードを持ちます。UIイベントがトリガーされると、それらが変更されるでしょう。また、ドキュメントから取り除かれることもあります。</p>
 <p>エレメントが取り除かれると、一時的にメモリプールの中に保持されます。プールされた要素は、その後の更新時の<em>DOMリサイクリング</em>と呼ばれるプロセスの中で再利用される可能性があります。エレメントを再作成するとパフォーマンスに影響を与えるコストが発生します。最近存在した要素をリサイクルすると、このコストを減らすことができます。</p>
 <hr>
-<h3 id="oninit">oninit</h3>
+<h3 id="oninit"><a href="#oninit">oninit</a></h3>
 <p><code>oninit(vnode)</code>フックはvnodeが仮想DOMエンジンから触れる前に呼び出されます。<code>oninit</code>はDOMエレメントがドキュメントに追加される前に呼ばれることが保証されています。また、親のvnodeは子供のvnodeよりも先に呼ばれることが保証されています。しかし、親や子孫のDOM要素が存在する保証はありません。<code>oninit</code>メソッドの中から、<code>vnode.dom</code>にアクセスしてはいけません。</p>
 <p>このフックはエレメントが更新されるときには呼ばれませんが、エレメントがリサイクルされる時には呼ばれます。</p>
 <p>他のフックと同じように<code>oninit</code>コールバック内では、<code>this</code>は<code>vnode.state</code>を指します。</p>
@@ -116,7 +115,7 @@ m(ComponentWithState, {data: "Hello"})
 </code></pre>
 <p>このメソッド内から同期的にモデルのデータを変更すべきではありません。<code>oninit</code>は他の要素の状態を保証しないため、このメソッドからモデルを変更しても次のレンダリングサイクルまで、他のUI部品ではこの変更が反映されない可能性があります。</p>
 <hr>
-<h3 id="oncreate">oncreate</h3>
+<h3 id="oncreate"><a href="#oncreate">oncreate</a></h3>
 <p><code>oncreate(vnode)</code>フックはDOMエレメントがドキュメントに追加された時に呼ばれます。<code>oncreate</code>はレンダリングサイクルの最後に呼ばれることが保証されています。そのため、<code>vnode.dom.offsetHeight</code>といったレイアウトに関する属性値にアクセスしたり、<code>vnode.dom.getBoundingClientRect()</code>といったメソッドを正常に利用できます。</p>
 <p>このフックはエレメントが更新される時には呼ばれません。</p>
 <p>他のフックと同じように<code>oncreate</code>コールバック内では、<code>this</code>は<code>vnode.state</code>を指します。<code>oncreate</code>フックを持つvnodeに関連するDOMエレメントはリサイクルされません。</p>
@@ -132,7 +131,7 @@ m(HeightReporter, {data: "Hello"})
 </code></pre>
 <p>このメソッド内から同期的にモデルのデータを変更すべきではありません。<code>oncreate</code>はレンダリングサイクルの最後に実行されるため、このメソッドからモデルを変更しても次のレンダリングサイクルまで、他のUI部品ではこの変更が反映されません。</p>
 <hr>
-<h3 id="onupdate">onupdate</h3>
+<h3 id="onupdate"><a href="#onupdate">onupdate</a></h3>
 <p><code>onupdate(vnode)</code>フックはDOMエレメントがドキュメントに追加されている間に更新がかかると呼ばれます。<code>onupdate</code>はレンダリングサイクルの最後に呼ばれることが保証されています。そのため、<code>vnode.dom.offsetHeight</code>といったレイアウトに関する属性値にアクセスしたり、<code>vnode.dom.getBoundingClientRect()</code>といったメソッドを正常に利用できます。</p>
 <p>このフックは、以前のレンダリングのサイクル時にすでにノードが存在している時にのみ呼ばれます。このフックはエレメントが作成されたり、エレメントがリサイクルされる時には呼ばれません。</p>
 <p>他のフックと同じように<code>onupdate</code>コールバック内では、<code>this</code>は<code>vnode.state</code>を指します。<code>onupdate</code>フックを持つvnodeに関連するDOMエレメントはリサイクルされません。</p>
@@ -148,7 +147,7 @@ m(HeightReporter, {data: "Hello"})
 m(RedrawReporter, {data: "Hello"})
 </code></pre>
 <hr>
-<h3 id="onbeforeremove">onbeforeremove</h3>
+<h3 id="onbeforeremove"><a href="#onbeforeremove">onbeforeremove</a></h3>
 <p><code>onbeforeremove(vnode)</code>フックはDOMエレメントがドキュメントから取り外される前に呼ばれます。もしPromiseが返されると、MithrilはそのPromiseが完了されたあとに取り除きます。</p>
 <p>このフックはDOMエレメントが<code>parentNode</code>を失う時にのみ呼ばれます。その子要素に対しては呼ばれません。</p>
 <p>他のフックと同じように<code>onbeforeremove</code>コールバック内では、<code>this</code>は<code>vnode.state</code>を指します。<code>onbeforeremove</code>フックを持つvnodeに関連するDOMエレメントはリサイクルされません。</p>
@@ -165,7 +164,7 @@ m(RedrawReporter, {data: "Hello"})
 }
 </code></pre>
 <hr>
-<h3 id="onremove">onremove</h3>
+<h3 id="onremove"><a href="#onremove">onremove</a></h3>
 <p><code>onremove(vnode)</code>フックはDOMエレメントがドキュメントから取り外される時に呼ばれます。もし<code>onbeforeremove</code>フックが定義されていると、<code>onremove</code>は<code>onbeforeremove</code>が完了した後に呼び出されます。</p>
 <p>このフックはその要素が親から直接削除される要素であったり、他の削除されるエレメントの子供であっても、ドキュメントから削除されるときに呼び出されます。</p>
 <p>他のフックと同じように<code>onremove</code>コールバック内では、<code>this</code>は<code>vnode.state</code>を指します。<code>onremove</code>フックを持つvnodeに関連するDOMエレメントはリサイクルされません。</p>
@@ -183,15 +182,15 @@ m(RedrawReporter, {data: "Hello"})
 }
 </code></pre>
 <hr>
-<h3 id="onbeforeupdate">onbeforeupdate</h3>
+<h3 id="onbeforeupdate"><a href="#onbeforeupdate">onbeforeupdate</a></h3>
 <p><code>onbeforeupdate(vnode, old)</code>は更新時にvnodeの差分比較の前に呼び出されます。もしこの関数が定義されてfalseを返すと、Mithrilは差分検知をスキップします。その子要素もスキップされます。</p>
 <p>このフック自体は、サブツリーがコンポーネント内にカプセル化されていない限り、仮想DOMサブツリーが生成されることを抑制しません。</p>
 <p>他のフックと同じように<code>onbeforeupdate</code>コールバック内では、<code>this</code>は<code>vnode.state</code>を指します。</p>
 <p>このフックは、とても巨大なDOMツリーの更新時のラグを減らすのに役立ちます。</p>
 <hr>
-<h3 id="avoid-anti-patterns">アンチパターンを避ける</h3>
+<h3 id="avoid-anti-patterns"><a href="#avoid-anti-patterns">アンチパターンを避ける</a></h3>
 <p>Mithrilは制約が少なく柔軟ですが、いつくか非推奨のコードパターンがあります。</p>
-<h4 id="avoid-premature-optimizations">早すぎる最適化を避ける</h4>
+<h4 id="avoid-premature-optimizations"><a href="#avoid-premature-optimizations">早すぎる最適化を避ける</a></h4>
 <p><code>onbeforeupdate</code>による差分検知のスキップは最終手段です。パフォーマンスの問題が最優先出ない限りは使うのを避けましょう。</p>
 <p>通常、<code>onbeforeupdate</code>で修正できるパフォーマンス上の問題は、要素が多すぎる巨大な配列が原因です。この文脈では「大きな」とは、多数のノードを含む巨大なスプレッドシート（悪名高い5000行のテーブル）か、深くて密なツリーの配列のことです。</p>
 <p>パフォーマンス上の問題がある場合は、最初にUIが提供するユーザーエクスペリエンスが適切かどうかを検討し、そうでない場合は変更してください。たとえば、ユーザーが5000行の表を調べる可能性は非常に低く、ユーザーに最も関連性の高い項目のみを常時する検索機能を使用する方が良いでしょう。</p>
@@ -203,7 +202,8 @@ m(RedrawReporter, {data: "Hello"})
 				<small>License: MIT. © Leo Horie.</small>
 			</section>
 		</main>
-		<script src="lib/prism/prism.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-jsx.min.js"></script>
 		<script>
 		document.querySelector(".hamburger").onclick = function() {
 			document.body.className = document.body.className === "navigating" ? "" : "navigating"

@@ -3,8 +3,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8" />
 		<title> インストール - Mithril.js</title>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
@@ -12,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<h1><img src="logo.svg">  Mithril <small>1.1.0</small></h1>
 				<nav>
 					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
 				</nav>
@@ -20,7 +19,7 @@
 		</header>
 		<main>
 			<section>
-				<h1 id="installation">インストール</h1>
+				<h1 id="installation"><a href="#installation">インストール</a></h1>
 <ul>
 <li>チュートリアル<ul>
 <li><strong><a href="installation.html">インストール</a></strong><ul>
@@ -61,13 +60,13 @@
 </ul>
 </li>
 </ul>
-<h3 id="cdn">CDN</h3>
+<h3 id="cdn"><a href="#cdn">CDN</a></h3>
 <p>もし、JavaScriptにまだ不慣れであったり、セットアップの作業をなるべく簡単に終わらせたいのであれば<a href="https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%B3%E3%83%86%E3%83%B3%E3%83%84%E3%83%87%E3%83%AA%E3%83%90%E3%83%AA%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF">CDN</a>からMithrilを取得できます:</p>
 <pre><code class="lang-markup">&lt;script src="https://unpkg.com/mithril/mithril.js"&gt;&lt;/script&gt;
 </code></pre>
 <hr>
-<h3 id="npm">NPM</h3>
-<h4 id="quick-start-with-webpack">WebPackを使ったクイックスタート</h4>
+<h3 id="npm"><a href="#npm">NPM</a></h3>
+<h4 id="quick-start-with-webpack"><a href="#quick-start-with-webpack">WebPackを使ったクイックスタート</a></h4>
 <pre><code class="lang-bash"># 1) インストール
 npm install mithril --save
 
@@ -88,7 +87,7 @@ npm start
 # 6) ブラウザで `index.html` を開く
 open index.html
 </code></pre>
-<h4 id="step-by-step">ステップ・バイ・ステップ</h4>
+<h4 id="step-by-step"><a href="#step-by-step">ステップ・バイ・ステップ</a></h4>
 <p>プロダクションのためのプロジェクトであれば、推奨はNPMを使ってMithrilをインストールする方法です。</p>
 <p>NPM (Node package manager)はNode.jsにバンドルされているデフォルトのパッケージマネージャーです。NPMは、JavaScriptのエコシステム内で、クライアントサイド、サーバーサイドの両方のライブラリのパッケージマネージャーとして使われています。<a href="https://nodejs.org">Node.js</a>をダウンロードしてインストールすると、NPMも自動的にインストールされます。</p>
 <p>NPM経由でMithrilを使うには、プロジェクトフォルダに行きコマンドラインから、<code>npm init --yes</code>を実行します。<code>package.json</code>という名前のファイルができます。</p>
@@ -149,7 +148,7 @@ var MyComponent = require("./mycomponent")
 m.mount(document.body, MyComponent)
 </code></pre>
 <p>このサンプルでは<code>m.mount</code>を使っています。この関数を使うとMithrilの自動再描画システムが有効化されます。ほとんどのMithrilアプリケーションでは、<code>m.mount</code>（複数スクリーンを扱うときは<code>m.route</code>）を使うことになります。これらの関数を使うと、変更が必要な時に手動で再描画を実行しなくても、自動再描画システムのメリットが享受できます。</p>
-<h4 id="production-build">本番ビルド</h4>
+<h4 id="production-build"><a href="#production-build">本番ビルド</a></h4>
 <p>bin/app.jsを開くと、WebPackが生成したバンドルファイルがミニファイされていないことが分かります。これはアプリケーションをこのまま実際にリリースするには最適化の余地があります。ミニファイしたファイルを生成するには、<code>package.json</code>を開いて新しいnpmスクリプトを追加します:</p>
 <pre><code>{
     "name": "my-project",
@@ -168,8 +167,8 @@ m.mount(document.body, MyComponent)
     }
 }
 </code></pre><hr>
-<h3 id="alternate-ways-to-use-mithril">Mithrilを使う別の方法</h3>
-<h4 id="live-reload-development-environment">ライブリロードを行う開発環境</h4>
+<h3 id="alternate-ways-to-use-mithril"><a href="#alternate-ways-to-use-mithril">Mithrilを使う別の方法</a></h3>
+<h4 id="live-reload-development-environment"><a href="#live-reload-development-environment">ライブリロードを行う開発環境</a></h4>
 <p>ライブリロードは、コードの変更時に自動で画面のリロードを行う機能です。<a href="https://github.com/mattdesl/budo">Budo</a>はライブリロードを可能にしてくれるツールの１つです。</p>
 <pre><code class="lang-bash"># 1) インストール
 npm install mithril --save
@@ -186,7 +185,7 @@ npm install budo -g
 npm start
 </code></pre>
 <p><code>index.js</code>がコンパイル（バンドル化）されて、ブラウザウィンドウが開いてそのファイルが表示されます。ソースファイルが変更されると再コンパイルされて、ブラウザがリフレッシュし、その変更が表示されます。</p>
-<h4 id="mithril-bundler">Mithrilバンドラー</h4>
+<h4 id="mithril-bundler"><a href="#mithril-bundler">Mithrilバンドラー</a></h4>
 <p>Mithrilにはバンドラーツールが添付されています。これはMithril以外に依存を持たないES5ベースのプロジェクトでのみ使えますが、他のNPMの依存が必要な場合にはまだexperimentalです。このツールはWebPackよりも小さいバンドルを生成しますが、まだ本番環境では使わないでください。</p>
 <p>もし、このツールを試用してみてフィードバックをコミュニティに提供していただけるのであれば、<code>package.json</code>ファイルを開き、WebPackを使うスクリプトの部分を次のように変更します:</p>
 <pre><code>{
@@ -195,7 +194,7 @@ npm start
         "build": "bundle index.js --output app.js --watch"
     }
 }
-</code></pre><h4 id="vanilla">バニラJS</h4>
+</code></pre><h4 id="vanilla"><a href="#vanilla">バニラJS</a></h4>
 <p>会社のセキュリティポリシーが理由でバンドルスクリプトを実行できない場合は、モジュールシステムをまったく使用しないで使うこともできます:</p>
 <pre><code class="lang-markup">&lt;html&gt;
   &lt;head&gt;
@@ -217,7 +216,8 @@ m.render(document.body, "hello world")
 				<small>License: MIT. © Leo Horie.</small>
 			</section>
 		</main>
-		<script src="lib/prism/prism.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-jsx.min.js"></script>
 		<script>
 		document.querySelector(".hamburger").onclick = function() {
 			document.body.className = document.body.className === "navigating" ? "" : "navigating"

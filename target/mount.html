@@ -3,8 +3,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8" />
 		<title>  mount(root, component) - Mithril.js</title>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
@@ -12,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<h1><img src="logo.svg">  Mithril <small>1.1.0</small></h1>
 				<nav>
 					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
 				</nav>
@@ -20,7 +19,7 @@
 		</header>
 		<main>
 			<section>
-				<h1 id="mountroot,-component">mount(root, component)</h1>
+				<h1 id="mountroot,-component"><a href="#mountroot,-component">mount(root, component)</a></h1>
 <ul>
 <li>コア<ul>
 <li><a href="hyperscript.html">m</a></li>
@@ -56,7 +55,7 @@
 </li>
 </ul>
 <hr>
-<h3 id="description">説明</h3>
+<h3 id="description"><a href="#description">説明</a></h3>
 <p>コンポーネントを有効にし、ユーザーイベントに反応して自動再描画が起動するようにします。</p>
 <pre><code class="lang-javascript">var state = {
     count: 0,
@@ -72,7 +71,7 @@ var Counter = {
 m.mount(document.body, Counter)
 </code></pre>
 <hr>
-<h3 id="signature">シグニチャ</h3>
+<h3 id="signature"><a href="#signature">シグニチャ</a></h3>
 <p><code>m.mount(element, component)</code></p>
 <table>
 <thead>
@@ -97,7 +96,7 @@ m.mount(document.body, Counter)
 <td>レンダリングする<a href="components.html">コンポーネント</a><code>null</code>を指定するとツリーをアンマウントし、内部状態を片付けます。</td>
 </tr>
 <tr>
-<td><strong>returns</strong></td>
+<td><strong>返り値</strong></td>
 <td></td>
 <td></td>
 <td>何も返しません</td>
@@ -106,20 +105,20 @@ m.mount(document.body, Counter)
 </table>
 <p><a href="signatures.html">シグニチャの読み方</a></p>
 <hr>
-<h3 id="how-it-works">どのように動作するのか</h3>
+<h3 id="how-it-works"><a href="#how-it-works">どのように動作するのか</a></h3>
 <p><a href="render.html"><code>m.render()</code></a>と煮ていますが、<code>m.mount()</code>はコンポーネントを受け取って<code>element</code>で指定されるDOMツリーにマウントします。もし<code>element</code>に対して以前<code>m.mount()</code>が呼ばれていてマウント済みだった場合は、その以前のvnodeと現在のDOMツリーの差分を取り、変更が必要な個所だけ更新します。変更がないDOMは触れられません。</p>
-<h4 id="replace-a-component">コンポーネントの置き換え</h4>
+<h4 id="replace-a-component"><a href="#replace-a-component">コンポーネントの置き換え</a></h4>
 <p>すでにマウント済みの<code>element</code>に対して<code>mount(element, OtherComponent)</code>を実行すると、以前マウントされたコンポーネントと<code>OtherComponent</code>を置き換えます。</p>
-<h4 id="unmount">アンマウント</h4>
+<h4 id="unmount"><a href="#unmount">アンマウント</a></h4>
 <p>以前にマウントされたコンポーネントを持つエレメントに対して<code>m.mount(element, null)</code>を使用すると、そのコンポーネントがアンマウントされ、Mithrilの内部状態が片付けられます。これは<code>root</code>ノードをDOMから取り除く的にメモリリークを防ぐのに役立ちます。</p>
 <hr>
-<h3 id="performance-considerations">パフォーマンスに関する考察</h3>
+<h3 id="performance-considerations"><a href="#performance-considerations">パフォーマンスに関する考察</a></h3>
 <p>すべての再描画でvnodeツリーを生成するのは無駄に思えるかもしれませんが、JavaScriptのデータ構造の作成と比較は、DOMの読み取りと変更に比べてかなりコストに差があり、メリットがあります。</p>
 <p>DOMを触るのはいくつかの理由により高コストになります。読取りと書込みを交互に行うと、ブラウザに寄っては再表示が連続して発生しパフォーマンスに悪影響を及ぼします。一方、仮想DOMツリーでは再描画1回のコストで済みます。また、DOM操作のパフォーマンス特性はブラウザ実装によって異なるため、すべてのブラウザで最適化するのが簡単ではありません。例えば、<code>childNodes.length</code>にアクセスするだけO(n)のコストがかかり、<code>parentNode</code>にアクセスすると再描画が行われるブラウザもあります。</p>
 <p>JavaScriptのデータ構造のトラバースでは、割り込みが入ることもなく予測可能で安定したパフォーマンス特性を発揮します。これに加えて、モダンなJavaScriptエンジンではhidden classのような積極的な最適化を行います。</p>
 <hr>
-<h3 id="differences-from-mrender">m.renderとの違い</h3>
-<p><code>m.mount </code>によってレンダリングされたコンポーネントは、ビューイベント、&lt;m1&gt;m.redraw()</code>呼び出し、または<code>m.request()</code>イベントに応答して再描画を自動で行います。<code>m.render()</code>でレンダリングしたvnodeはそうではありません。<code>m.prop()</code>の呼び出しは自動再描画のトリガーにはなりません。</p>
+<h3 id="differences-from-mrender"><a href="#differences-from-mrender">m.renderとの違い</a></h3>
+<p><code>m.mount </code>によってレンダリングされたコンポーネントは、ビューイベント、&lt;m1&gt;m.redraw()</code>呼び出し、または<code>m.request()</code>イベントに応答して再描画を自動で行います。<code>m.render()</code>でレンダリングしたvnodeはそうではありません。</p>
 <p><code>m.mount()</code>は、Mithrilの自動再描画機能を利用しながら、Mithrilウィジェットを既存のコードベースに統合するアプリケーション開発者に適しています。</p>
 <p><code>m.render()</code>は、レンダリングを手動で制御したい（例えば、サードパーティのラウターに接続する場合、や、Reduxのようなサードパーティのデータレイヤーライブラリを使用する場合など）ライブラリ作成者に適しています。</p>
 
@@ -127,7 +126,8 @@ m.mount(document.body, Counter)
 				<small>License: MIT. © Leo Horie.</small>
 			</section>
 		</main>
-		<script src="lib/prism/prism.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-jsx.min.js"></script>
 		<script>
 		document.querySelector(".hamburger").onclick = function() {
 			document.body.className = document.body.className === "navigating" ? "" : "navigating"

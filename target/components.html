@@ -3,8 +3,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8" />
 		<title> コンポーネント - Mithril.js</title>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
@@ -12,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<h1><img src="logo.svg">  Mithril <small>1.1.0</small></h1>
 				<nav>
 					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
 				</nav>
@@ -20,7 +19,7 @@
 		</header>
 		<main>
 			<section>
-				<h1 id="components">コンポーネント</h1>
+				<h1 id="components"><a href="#components">コンポーネント</a></h1>
 <ul>
 <li>チュートリアル<ul>
 <li><a href="installation.html">インストール</a></li>
@@ -42,6 +41,7 @@
 <li><strong><a href="components.html">コンポーネント</a></strong><ul>
 <li><a href="#structure">構造</a></li>
 <li><a href="#lifecycle-methods">ライフサイクルメソッド</a></li>
+<li><a href="#syntactic-variants">文法のバリエーション</a></li>
 <li><a href="#state">状態</a></li>
 <li><a href="#avoid-anti-patterns">アンチパターンを避ける</a></li>
 </ul>
@@ -63,7 +63,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="structure">構造</h3>
+<h3 id="structure"><a href="#structure">構造</a></h3>
 <p>コンポーネントはビューの部品をカプセル化することで、構造化しやすくしたり、再利用性を高めるための仕組みです。</p>
 <p>viewメソッドを持つJavaScriptのオブジェクトは、Mithrilのコンポーネントとして扱うことができます。コンポーネントを利用するには<a href="hyperscript.html"><code>m()</code></a>ユーティリティを使います:</p>
 <pre><code class="lang-javascript">var Example = {
@@ -78,7 +78,7 @@ m(Example)
 // &lt;div&gt;Hello&lt;/div&gt;
 </code></pre>
 <hr>
-<h3 id="passing-data-to-components">コンポーネントにデータを渡す</h3>
+<h3 id="passing-data-to-components"><a href="#passing-data-to-components">コンポーネントにデータを渡す</a></h3>
 <p>コンポーネントのインスタンスには、<code>attrs</code>オブジェクトをhyperscript関数の第二引数に渡すことでデータを渡すことができます:</p>
 <pre><code class="lang-javascript">m(Example, {name: "Floyd"})
 </code></pre>
@@ -91,7 +91,7 @@ m(Example)
 </code></pre>
 <p>NOTE: ライフサイクルメソッドもまた<code>attrs</code>オブジェクトを通じて提供されるため、その引数に規定の名前を使わないようにしてください。Mithrilが意図せずに呼び出すこととなります。<code>attrs</code>に格納されたライフサイクルメソッドを使うのは、ライフサイクルメソッドにフックをかけるという特別な意図がある時のみにしましょう。</p>
 <hr>
-<h3 id="lifecycle-methods">ライフサイクルメソッド</h3>
+<h3 id="lifecycle-methods"><a href="#lifecycle-methods">ライフサイクルメソッド</a></h3>
 <p>コンポーネントは仮想DOMと同じ<a href="lifecycle-methods.html">ライフサイクルメソッド</a>を持っています。<code>oninit</code>, <code>oncreate</code>, <code>onupdate</code>, <code>onbeforeremove</code>, <code>onremove</code>, <code>onbeforeupdate</code>の各メソッドがあります。</p>
 <pre><code class="lang-javascript">var ComponentWithHooks = {
     oninit: function(vnode) {
@@ -132,11 +132,92 @@ m(ComponentWithHooks, {oninit: initialize})
 <p>vnode内に、ライフサイクルメソッドと同名の名前のコールバックを定義しないように気をつけましょう。</p>
 <p>ライフサイクルメソッドについて詳しく知りたい方は、<a href="lifecycle-methods.html">ライフサイクルメソッドのページを御覧ください。</a>.</p>
 <hr>
-<h3 id="state">状態</h3>
+<h3 id="syntactic-variants"><a href="#syntactic-variants">文法のバリエーション</a></h3>
+<h4 id="es6-classes"><a href="#es6-classes">ES6クラス</a></h4>
+<p>コンポーネントはES6クラス文法を使って作成することもできます:</p>
+<pre><code class="lang-javascript">class ES6ClassComponent {
+    constructor(vnode) {
+        // vnode.stateはこの時点では未定義
+        this.kind = "ES6クラス"
+    }
+    view() {
+        return m("div", `${this.kind} からこんにちわ`)
+    }
+    oncreate() {
+        console.log(`${this.kind} コンポーネントが作成されました`)
+    }
+}
+</code></pre>
+<p>コンポーネントクラスはツリーをレンダリングできるように、<code>.prototype.view</code>としてアクセス形式で<code>view()</code>メソッドを定義する必要があります。</p>
+<p>通常の方法で作ったコンポーネントと同じように使用できます。</p>
+<pre><code class="lang-javascript">// サンプル: m.renderから使用
+m.render(document.body, m(ES6ClassComponent))
+
+// サンプル: m.mountから使用
+m.mount(document.body, ES6ClassComponent)
+
+// サンプル: m.routeから使用
+m.route(document.body, "/", {
+    "/": ES6ClassComponent
+})
+
+// サンプル: コンポーネントの合成
+class AnotherES6ClassComponent {
+    view() {
+        return m("main", [
+            m(ES6ClassComponent)
+        ])
+    }
+}
+</code></pre>
+<h4 id="closure-components"><a href="#closure-components">クロージャーコンポーネント</a></h4>
+<p>関数型が好きな開発者は「クロージャーコンポーネント」記法の方を気に入るでしょう:</p>
+<pre><code class="lang-javascript">function closureComponent(vnode) {
+    // vnode.stateはこの時点では未定義
+    var kind = "クロージャコンポーネント"
+
+    return {
+        view: function() {
+            return m("div", kind + "からこんにちわ")
+        },
+        oncreate: function() {
+            console.log(kind + "が作成されました")
+        }
+    }
+}
+</code></pre>
+<p>返すオブジェクトはツリーレンダリングするために<code>view</code>関数を保持する必要があります。</p>
+<p>通常の方法で作ったコンポーネントと同じように使用できます。</p>
+<pre><code class="lang-javascript">// サンプル: m.renderから使用
+m.render(document.body, m(closureComponent))
+
+// サンプル: m.mountから使用
+m.mount(document.body, closureComponent)
+
+// サンプル: m.routeから使用
+m.route(document.body, "/", {
+    "/": closureComponent
+})
+
+// サンプル: componentの合成
+function anotherClosureComponent() {
+    return {
+        view: function() {
+            return m("main", [
+                m(closureComponent)
+            ])
+        }
+    }
+}
+</code></pre>
+<h4 id="mixing-component-kinds"><a href="#mixing-component-kinds">コンポーネントの種類を混ぜる</a></h4>
+<p>コンポーネントは自由に混ぜることができます。クラスコンポーネントはクロージャー、POJOコンポーネントを子供に持たせられますし、他の組み合わせもできます。</p>
+<hr>
+<h3 id="state"><a href="#state">状態</a></h3>
 <p>他の仮想DOMノードと同じように、コンポーネントのvnodeも状態を持つことができます。コンポーネントの状態はオブジェクト指向アーキテクチャをサポートするのに便利です。関心を分離してカプセル化を行うことができます。</p>
 <p>コンポーネントの状態にアクセスする方法は3つあります。初期化時にコンポーネントのオブジェクトの雛形経由、<code>vnode.state</code>経由、そして、コンポーネントのメソッドの<code>this</code>キーワードです。</p>
-<h4 id="at-initialization">初期化時</h4>
-<p>コンポーネントオブジェクトに付与されたプロパティはすべて、インスタンス作成時にコピーされます。これにより、シンプルに状態を初期化できます。</p>
+<h4 id="at-initialization"><a href="#at-initialization">初期化時</a></h4>
+<p>POJOコンポーネントでは、コンポーネントオブジェクトはそれぞれのコンポーネントのインスタンスのプロトタイプとなります。そのため、コンポーネントオブジェクトで定義したプロパティは、<code>vnode.state</code>のプロパティとしてアクセスできます。これにより、シンプルに状態を初期化できます。</p>
 <p>次のサンプルの<code>data</code>は<code>ComponentWithInitialState</code>コンポーネントの状態オブジェクトのプロパティです。</p>
 <pre><code class="lang-javascript">var ComponentWithInitialState = {
     data: "初期データ",
@@ -150,7 +231,9 @@ m(ComponentWithInitialState)
 // 下記のHTMLが生成されます
 // &lt;div&gt;初期データ&lt;/div&gt;
 </code></pre>
-<h4 id="via-vnodestate">Via vnode.state</h4>
+<p>クラスコンポーネントの場合は、状態はクラスのインスタンスになるため、コンストラクタが呼ばれた後に正しく設定する必要があります。</p>
+<p>クロージャーコンポーネントは、状態はクロージャーが返すオブジェクトになるため、クロージャーが返された後に正しく設定する必要があります。状態オブジェクトは、クロージャスコープ内で定義された変数を代わりに使用できるので、クロージャコンポーネントとは重複しています。</p>
+<h4 id="via-vnodestate"><a href="#via-vnodestate">Via vnode.state</a></h4>
 <p><code>vnode.state</code>プロパティ経由でアクセスすることもできます。このプロパティはすべてのライフサイクルメソッドおよび、コンポーネントの<code>view</code>メソッドから利用できます。</p>
 <pre><code class="lang-javascript">var ComponentWithDynamicState = {
     oninit: function(vnode) {
@@ -166,7 +249,7 @@ m(ComponentWithDynamicState, {text: "Hello"})
 // 次のHTMLを生成します
 // &lt;div&gt;Hello&lt;/div&gt;
 </code></pre>
-<h4 id="via-the-this-keyword">thisキーワード経由</h4>
+<h4 id="via-the-this-keyword"><a href="#via-the-this-keyword">thisキーワード経由</a></h4>
 <p><code>this</code>キーワード経由でアクセスすることもできます。このプロパティはすべてのライフサイクルメソッドおよび、コンポーネントの<code>view</code>メソッドから利用できます。</p>
 <pre><code class="lang-javascript">var ComponentUsingThis = {
     oninit: function(vnode) {
@@ -184,9 +267,9 @@ m(ComponentUsingThis, {text: "Hello"})
 </code></pre>
 <p>ES5の関数を使う時は注意が必要です。ネストされた無名関数の<code>this</code>はコンポーネントのインスタンスとは別のものを参照します。この問題を回避するための推奨される手法は2つあります。ひとつめはES6のアロー関数を使う方法です。もしES6が利用できないのであれば、<code>vnode.state</code>を使ってください。</p>
 <hr>
-<h3 id="avoid-anti-patterns">アンチパターンを避ける</h3>
+<h3 id="avoid-anti-patterns"><a href="#avoid-anti-patterns">アンチパターンを避ける</a></h3>
 <p>Mithrilは制約が少なく柔軟ですが、いつくか非推奨のコードパターンがあります。</p>
-<h4 id="avoid-fat-components">太ったコンポーネントを避ける</h4>
+<h4 id="avoid-fat-components"><a href="#avoid-fat-components">太ったコンポーネントを避ける</a></h4>
 <p>一般的に言えば、「太った」コンポーネントというのは、カスタムのインスタンスメソッドを持ったコンポーネントです。言い換えると、<code>vnode.state</code>や<code>this</code>にはメソッドを追加すべきではありません。論理的に考えると、とあるコンポーネントにはフィットするが、他のコンポーネントで再利用できないロジックというものは非常にまれです。いちど作ったロジックを別のコンポーネントでも利用したくなることはよくあります。</p>
 <p>コンポーネントの状態に強く関連したロジックだとしても、それをデータのレイヤーにリファクタリングして移動することは難しくありません。</p>
 <p>次の太ったコンポーネントについて考えてみましょう</p>
@@ -253,7 +336,7 @@ var Login = {
 </code></pre>
 <p>このコードでは、<code>Auth</code>モジュールは認証周りの状態の正しい情報を提供するモジュールとなりました。<code>Register</code>コンポーネントからも簡単にデータにアクセスできますし、必要であれば<code>canSubmit</code>を呼び出す事ができます。これに加えて、必要であれば（例えばEメールのフィールドなどで）バリデーションが必要であれば、<code>setEmail</code>メソッドを修正して、コンポーネント側でEメールが入力されたときにメールアドレスのバリデーションを行わせるようにすることができます。</p>
 <p>おまけの効果として、<code>.bind</code>を使ってコンポーネントのイベントハンドラーに状態の参照をわざわざ結びつけておく必要もなくなりました。</p>
-<h4 id="avoid-restrictive-interfaces">制限のあるインターフェースを避ける</h4>
+<h4 id="avoid-restrictive-interfaces"><a href="#avoid-restrictive-interfaces">制限のあるインターフェースを避ける</a></h4>
 <p>コンポーネントのインタフェースの一般性を維持するために、もし、入力されたものに対して特別なロジックを実行するのでなければ、<code>attrs</code>と<code>children</code>を直接使うようにしてください。</p>
 <p>次のサンプルでは、<code>button</code>の設定が限られています。<code>onclick</code>以外のイベントハンドラが使えませんし、スタイルの設定もできません。また、子供の要素としてはテキストのみが利用できます。タグ要素、フラグメント、信頼されたHTMLは利用できません。</p>
 <pre><code class="lang-javascript">// 避けるべきコード
@@ -275,7 +358,7 @@ var FlexibleComponent = {
     }
 }
 </code></pre>
-<h4 id="don&#39;t-manipulate-children"><code>children</code>を変更しない</h4>
+<h4 id="don&#39;t-manipulate-children"><a href="#don't-manipulate-children"><code>children</code>を変更しない</a></h4>
 <p>コンポーネントが属性や子供の要素になにか手心を加える必要があれば、カスタム属性を代わりに使うべきです。</p>
 <p>例えば、設定可能なタイトルと本体があるコンポーネントの場合に、子供のコンポーネントを複数セット受け取りたいことがあります。</p>
 <p>この目的で使う場合に<code>children</code>プロパティを分離して使用することは避けるべきです。</p>
@@ -328,8 +411,8 @@ m(BetterHeader, {
     tagline: m("h2", "Lorem ipsum"),
 })
 </code></pre>
-<h4 id="define-components-statically,-call-them-dynamically">静的にコンポーネントを定義して、動的に使う</h4>
-<h5 id="avoid-creating-component-definitions-inside-views">コンポーネントをビューの内部で定義するのは避けるべきです。</h5>
+<h4 id="define-components-statically,-call-them-dynamically"><a href="#define-components-statically,-call-them-dynamically">静的にコンポーネントを定義して、動的に使う</a></h4>
+<h5 id="avoid-creating-component-definitions-inside-views"><a href="#avoid-creating-component-definitions-inside-views">コンポーネントをビューの内部で定義するのは避けるべきです。</a></h5>
 <p>もしコンポーネントを<code>view</code>メソッドの中で作成している（直接生成するか、そこから呼び出している関数で生成しているかにかかわらず）場合、再描画のたびにコンポーネントの別のクローンが生成されることになります。コンポーネントのvnodeの差分検出時に、もしコンポーネントが新しいvnodeから参照されていて、それが古いvnodeから参照されているコンポーネントと違っていたら、同じコードで実行していたとしても、２つは異なるコンポーネントとみなされます。これは、コンポーネントが毎回スクラッチから動的に再生成されているという意味です。</p>
 <p>これがコンポーネントの再作成を避ける理由です。慣用的なコンポーネントの利用例です。</p>
 <pre><code class="lang-javascript">// 避けるべきコード
@@ -355,7 +438,7 @@ m.render(document.body, m(Component, {greeting: "hello"}))
 // 2回呼び出してもDOMは変更されない
 m.render(document.body, m(Component, {greeting: "hello"}))
 </code></pre>
-<h5 id="avoid-creating-component-instances-outside-views">コンポーネントのインスタンスをビューの外で作成するのを避ける</h5>
+<h5 id="avoid-creating-component-instances-outside-views"><a href="#avoid-creating-component-instances-outside-views">コンポーネントのインスタンスをビューの外で作成するのを避ける</a></h5>
 <p>逆に、同様の理由で、コンポーネントのインスタンスがビューの外部で作成された場合、再描画時のビューの呼び出しでは何も変更されないため、ノードの等価かどうかのチェックで常に等価になるため、更新がスキップされます。そのため、コンポーネントのインスタンスは常にビューの中で作成されるべきです:</p>
 <pre><code class="lang-javascript">// 避けるべきコード
 var Counter = {
@@ -415,7 +498,8 @@ m.mount(document.body, {
 				<small>License: MIT. © Leo Horie.</small>
 			</section>
 		</main>
-		<script src="lib/prism/prism.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-jsx.min.js"></script>
 		<script>
 		document.querySelector(".hamburger").onclick = function() {
 			document.body.className = document.body.className === "navigating" ? "" : "navigating"

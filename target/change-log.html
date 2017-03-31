@@ -3,8 +3,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8" />
 		<title> 変更履歴 - Mithril.js</title>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
@@ -12,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<h1><img src="logo.svg">  Mithril <small>1.1.0</small></h1>
 				<nav>
 					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
 				</nav>
@@ -20,7 +19,7 @@
 		</header>
 		<main>
 			<section>
-				<h1 id="change-log">変更履歴</h1>
+				<h1 id="change-log"><a href="#change-log">変更履歴</a></h1>
 <ul>
 <li>チュートリアル<ul>
 <li><a href="installation.html">インストール</a></li>
@@ -54,6 +53,7 @@
 <li>その他<ul>
 <li><a href="framework-comparison.html">フレームワークの比較</a></li>
 <li><strong><a href="change-log.html">変更履歴/移行</a></strong><ul>
+<li><a href="#v110">v1.1.0</a></li>
 <li><a href="#v101">v1.0.1</a></li>
 <li><a href="#migrating-from-v02x">v0.2.xからの移行</a></li>
 <li><a href="./archive/v0.2.5/index.html">古いドキュメント</a></li>
@@ -63,18 +63,32 @@
 </li>
 </ul>
 <hr>
-<h3 id="v101">v1.0.1</h3>
-<h4 id="news">ニュース</h4>
+<h3 id="v110"><a href="#v110">v1.1.0</a></h3>
+<h4 id="news"><a href="#news">ニュース</a></h4>
+<ul>
+<li>ES6クラスによるコンポーネントをサポート</li>
+<li>クロージャによるコンポーネントをサポート</li>
+</ul>
+<h4 id="bug-fixes"><a href="#bug-fixes">バグ修正</a></h4>
+<ul>
+<li>IE11 input[type] のエラーを修正 - <a href="https://github.com/lhorie/mithril.js/issues/1610">#1610</a></li>
+<li><a href="https://github.com/lhorie/mithril.js/issues/1609">#1609</a>をキーのない子供のケースに適用 to unkeyed children case</li>
+<li>abort検知を修正 <a href="https://github.com/lhorie/mithril.js/issues/1612">#1612</a></li>
+<li>古い値とほぼ一致している時の入力値のフォーカスの問題を修正 <a href="https://github.com/lhorie/mithril.js/issues/1593">#1593</a></li>
+</ul>
+<hr>
+<h3 id="v101"><a href="#v101">v1.0.1</a></h3>
+<h4 id="news"><a href="#news">ニュース</a></h4>
 <ul>
 <li>IEでのパフォーマンス向上: <a href="https://github.com/lhorie/mithril.js/pull/1598">#1598</a></li>
 </ul>
-<h4 id="bug-fixes">バグ修正</h4>
+<h4 id="bug-fixes"><a href="#bug-fixes">バグ修正</a></h4>
 <ul>
 <li>デフォルトのラウトが存在しないときの無限ループを抑制 - <a href="https://github.com/lhorie/mithril.js/issues/1579">#1579</a></li>
 <li>キー付きの子供のvnodeをリサイクルするときに正しいライフサイクルメソッドが呼ばれるように修正 - <a href="https://github.com/lhorie/mithril.js/issues/1609">#1609</a></li>
 </ul>
 <hr>
-<h3 id="migrating-from-v02x">v0.2.xからの移行</h3>
+<h3 id="migrating-from-v02x"><a href="#migrating-from-v02x">v0.2.xからの移行</a></h3>
 <p><code>v1.x</code> は<code>v0.2.x</code>と幅広くAPIの互換性がありますが、破壊的変更もいくつか行われています。</p>
 <p>もし移行を考えている時は<a href="https://www.npmjs.com/package/mithril-codemods">mithril-codemods</a>の使用を検討してください。このツールはほとんどのシンプルな移行を自動化するツールです。</p>
 <ul>
@@ -108,14 +122,14 @@
 <li><a href="#vnode-equality-checks"><code>vnode</code>同値性チェック</a></li>
 </ul>
 <hr>
-<h2 id="mprop-removed"><code>m.prop</code>が削除された</h2>
+<h2 id="mprop-removed"><a href="#mprop-removed"><code>m.prop</code>が削除された</a></h2>
 <p><code>v1.x</code>では、<code>m.prop()</code>はより強力でコンパクトなストリームとしてライブラリ化されました。Mithrilのコアからは外れました。オプションであるストリームモジュールの使用方法は、こちらの<a href="stream.html">ドキュメント</a>で読むことができます。</p>
-<h3 id="v02x"><code>v0.2.x</code></h3>
+<h3 id="v02x"><a href="#v02x"><code>v0.2.x</code></a></h3>
 <pre><code class="lang-javascript">var m = require("mithril")
 
 var num = m.prop(1)
 </code></pre>
-<h3 id="v1x"><code>v1.x</code></h3>
+<h3 id="v1x"><a href="#v1x"><code>v1.x</code></a></h3>
 <pre><code class="lang-javascript">var m = require("mithril")
 var prop = require("mithril/stream")
 
@@ -123,20 +137,20 @@ var num = prop(1)
 var doubled = num.map(function(n) {return n * 2})
 </code></pre>
 <hr>
-<h2 id="mcomponent-removed"><code>m.component</code>が削除された</h2>
+<h2 id="mcomponent-removed"><a href="#mcomponent-removed"><code>m.component</code>が削除された</a></h2>
 <p><code>v0.2.x</code>では、<code>m(component)</code>か<code>m.component(component)</code>のどちらをつかってもコンポーネントを作ることができました。<code>v1.x</code>では<code>m(component)</code>だけがサポートされます。</p>
-<h3 id="v02x"><code>v0.2.x</code></h3>
+<h3 id="v02x"><a href="#v02x"><code>v0.2.x</code></a></h3>
 <pre><code class="lang-javascript">// 次の行は同じ
 m.component(component)
 m(component)
 </code></pre>
-<h3 id="v1x"><code>v1.x</code></h3>
+<h3 id="v1x"><a href="#v1x"><code>v1.x</code></a></h3>
 <pre><code class="lang-javascript">m(component)
 </code></pre>
 <hr>
-<h2 id="config-function"><code>config</code>関数</h2>
+<h2 id="config-function"><a href="#config-function"><code>config</code>関数</a></h2>
 <p><code>v0.2.x</code>では、Mithrilはライフサイクルメソッドとして<code>config</code>だけを提供していました。<code>v1.x</code>ではVノードのライフサイクルに対して適切な粒度の制御方法を提供しています。</p>
-<h3 id="v02x"><code>v0.2.x</code></h3>
+<h3 id="v02x"><a href="#v02x"><code>v0.2.x</code></a></h3>
 <pre><code class="lang-javascript">m("div", {
     config : function(element, isInitialized) {
         // 毎回の再描画時に呼ばれる
@@ -144,7 +158,7 @@ m(component)
     }
 })
 </code></pre>
-<h3 id="v1x"><code>v1.x</code></h3>
+<h3 id="v1x"><a href="#v1x"><code>v1.x</code></a></h3>
 <p>これらの新しいメソッドについては、<a href="lifecycle-methods.html">ライフサイクルメソッド</a>のドキュメントで紹介されています。</p>
 <pre><code class="lang-javascript">m("div", {
     // DOMノードが作成される前に呼ばれる
@@ -164,40 +178,40 @@ m(component)
 </code></pre>
 <p>もしDOMエレメントにアクセス可能であれば、<code>vnode.dom</code>プロパティを使って参照できます。</p>
 <hr>
-<h2 id="changes-in-redraw-behaviour">再描画時の動作の変更</h2>
+<h2 id="changes-in-redraw-behaviour"><a href="#changes-in-redraw-behaviour">再描画時の動作の変更</a></h2>
 <p>Mithrilのレンダリングエンジンは基本的に半自動グローバル再描画を行いますが、いくつかのAPIと挙動が変わりました。</p>
-<h3 id="no-more-redraw-locks">再描画のロックはなくなった</h3>
+<h3 id="no-more-redraw-locks"><a href="#no-more-redraw-locks">再描画のロックはなくなった</a></h3>
 <p>v0.2.xでは、Mithrilはデフォルトで一時的な描画ロジックのブロックを行っていました。<code>m.request()</code>は実行時に描画ループをロックし、すべての大気中のリクエストが完了したときにアンロックしていました。同様のことは手動で<code>m.startComputation()</code>と<code>m.endComputation()</code>を呼び出すことで実現できました。これらのAPIと、関連する動作はv1.xで削除されました。再描画のロックはUIのバグを引き起こすことがありました。アプリケーションの一部がビューの一部の更新を停止することで、他の部分で変更が反映されないことがありました。</p>
-<h3 id="cancelling-redraw-from-event-handlers">イベントハンドラから再描画をキャンセルする</h3>
+<h3 id="cancelling-redraw-from-event-handlers"><a href="#cancelling-redraw-from-event-handlers">イベントハンドラから再描画をキャンセルする</a></h3>
 <p><code>m.mount()</code>と<code>m.route()</code>は、引き続きDOMイベントハンドラの実行後に再描画を行います。イベントハンドラ内からこれらの再描画をキャンセルするには、イベントオブジェクトの<code>redraw</code>プロパティに<code>false</code>を設定してください。</p>
-<h4 id="v02x"><code>v0.2.x</code></h4>
+<h4 id="v02x"><a href="#v02x"><code>v0.2.x</code></a></h4>
 <pre><code class="lang-javascript">m("div", {
     onclick : function(e) {
         m.redraw.strategy("none")
     }
 })
 </code></pre>
-<h4 id="v1x"><code>v1.x</code></h4>
+<h4 id="v1x"><a href="#v1x"><code>v1.x</code></a></h4>
 <pre><code class="lang-javascript">m("div", {
     onclick : function(e) {
         e.redraw = false
     }
 })
 </code></pre>
-<h3 id="synchronous-redraw-removed">同期再描画の削除</h3>
+<h3 id="synchronous-redraw-removed"><a href="#synchronous-redraw-removed">同期再描画の削除</a></h3>
 <p>v0.2.xでは、<code>m.redraw()</code>にtrueを渡すことで即座にMithrilに再描画を行わせることができました。この<code>m.redraw()</code>メソッドを使った時の挙動は難しく、追跡が難しい問題を引き起こすことがあったので削除されました。</p>
-<h4 id="v02x"><code>v0.2.x</code></h4>
+<h4 id="v02x"><a href="#v02x"><code>v0.2.x</code></a></h4>
 <pre><code class="lang-javascript">m.redraw(true) // 即座に再描画を行って同期する
 </code></pre>
-<h4 id="v1x"><code>v1.x</code></h4>
+<h4 id="v1x"><a href="#v1x"><code>v1.x</code></a></h4>
 <pre><code class="lang-javascript">m.redraw() // 次のrequestAnimationFrame呼び出し時に再描画が行われるように予約する
 </code></pre>
-<h3 id="mstartcomputationmendcomputation-removed"><code>m.startComputation</code>/<code>m.endComputation</code>の削除</h3>
+<h3 id="mstartcomputationmendcomputation-removed"><a href="#mstartcomputationmendcomputation-removed"><code>m.startComputation</code>/<code>m.endComputation</code>の削除</a></h3>
 <p>これらの関数はさまざまなエッジケースの問題を発生させてきたため、アンチパターンと判断されました。v1.xからは除外されました。</p>
 <hr>
-<h2 id="component-controller-function">コンポーネントの<code>controller</code>関数</h2>
+<h2 id="component-controller-function"><a href="#component-controller-function">コンポーネントの<code>controller</code>関数</a></h2>
 <p><code>v1.x</code>のコンポーネントには<code>controller</code>プロパティはありません。代わりに<code>oninit</code>を使ってください。</p>
-<h3 id="v02x"><code>v0.2.x</code></h3>
+<h3 id="v02x"><a href="#v02x"><code>v0.2.x</code></a></h3>
 <pre><code class="lang-javascript">m.mount(document.body, {
     controller : function() {
         var ctrl = this
@@ -210,7 +224,7 @@ m(component)
     }
 })
 </code></pre>
-<h3 id="v1x"><code>v1.x</code></h3>
+<h3 id="v1x"><a href="#v1x"><code>v1.x</code></a></h3>
 <pre><code class="lang-javascript">m.mount(document.body, {
     oninit : function(vnode) {
         vnode.state.fooga = 1
@@ -238,9 +252,9 @@ m.mount(document.body, {
 })
 </code></pre>
 <hr>
-<h2 id="component-arguments">コンポーネントの引数</h2>
+<h2 id="component-arguments"><a href="#component-arguments">コンポーネントの引数</a></h2>
 <p><code>v1.x</code>のコンポーネントはオブジェクトでなければなりません。<code>String</code>、<code>Number</code>、<code>Boolean</code>は子供のテキストノードとして扱われます。コンポーネント内部では、引数は<code>vnode.attrs</code>オブジェクトとして参照できます。</p>
-<h3 id="v02x"><code>v0.2.x</code></h3>
+<h3 id="v02x"><a href="#v02x"><code>v0.2.x</code></a></h3>
 <pre><code class="lang-javascript">var component = {
     controller : function(options) {
         // options.fooga === 1
@@ -253,7 +267,7 @@ m.mount(document.body, {
 
 m("div", m.component(component, { fooga : 1 }))
 </code></pre>
-<h3 id="v1x"><code>v1.x</code></h3>
+<h3 id="v1x"><a href="#v1x"><code>v1.x</code></a></h3>
 <pre><code class="lang-javascript">var component = {
     oninit : function(vnode) {
         // vnode.attrs.fooga === 1
@@ -267,9 +281,9 @@ m("div", m.component(component, { fooga : 1 }))
 m("div", m(component, { fooga : 1 }))
 </code></pre>
 <hr>
-<h2 id="view-parameters"><code>view()</code>パラメータ</h2>
+<h2 id="view-parameters"><a href="#view-parameters"><code>view()</code>パラメータ</a></h2>
 <p><code>v0.2.x</code>ではビュー関数は<code>controller</code>インスタンスの参照と、オプションのコンポーネントの引数を受け取りました。<code>v1.x</code>では<code>controller</code>と同じように、<code>vnode</code><strong>のみ</strong>を受け取ります。</p>
-<h3 id="v02x"><code>v0.2.x</code></h3>
+<h3 id="v02x"><a href="#v02x"><code>v0.2.x</code></a></h3>
 <pre><code class="lang-javascript">m.mount(document.body, {
     controller : function() {},
 
@@ -278,7 +292,7 @@ m("div", m(component, { fooga : 1 }))
     }
 })
 </code></pre>
-<h3 id="v1x"><code>v1.x</code></h3>
+<h3 id="v1x"><a href="#v1x"><code>v1.x</code></a></h3>
 <pre><code class="lang-javascript">m.mount(document.body, {
     oninit : function(vnode) {
         // ...
@@ -291,19 +305,19 @@ m("div", m(component, { fooga : 1 }))
 })
 </code></pre>
 <hr>
-<h2 id="passing-components-to-m"><code>m()</code>にコンポーネントを渡す</h2>
+<h2 id="passing-components-to-m"><a href="#passing-components-to-m"><code>m()</code>にコンポーネントを渡す</a></h2>
 <p><code>v0.2.x</code>では、コンポーネントを<code>m()</code>の第二引数に直接渡すことができました。<code>v1.x</code>では一貫性のために、<code>m()</code>呼び出しでラップする必要があります。</p>
-<h3 id="v02x"><code>v0.2.x</code></h3>
+<h3 id="v02x"><a href="#v02x"><code>v0.2.x</code></a></h3>
 <pre><code class="lang-javascript">m("div", component)
 </code></pre>
-<h3 id="v1x"><code>v1.x</code></h3>
+<h3 id="v1x"><a href="#v1x"><code>v1.x</code></a></h3>
 <pre><code class="lang-javascript">m("div", m(component))
 </code></pre>
 <hr>
-<h2 id="passing-vnodes-to-mmount-and-mroute"><code>m.mount()</code>と<code>m.route()</code>にVノードを渡す</h2>
+<h2 id="passing-vnodes-to-mmount-and-mroute"><a href="#passing-vnodes-to-mmount-and-mroute"><code>m.mount()</code>と<code>m.route()</code>にVノードを渡す</a></h2>
 <p><code>v0.2.x</code>では、ドキュメントには書かれてませんでしたが、<code>m.mount(element, component)</code>は<a href="components.html">components</a>の代わりに<a href="vnodes.html">vnodes</a>を第二引数として渡すことができました。また、<code>m.route(element, defaultRoute, routes)</code>も<code>routes</code>の値としてvnodeを受け入れることができました。</p>
 <p><code>v1.x</code>ではどちらの場合もコンポーネントが必要となりました。</p>
-<h3 id="v02x"><code>v0.2.x</code></h3>
+<h3 id="v02x"><a href="#v02x"><code>v0.2.x</code></a></h3>
 <pre><code class="lang-javascript">m.mount(element, m('i', 'hello'))
 m.mount(element, m(Component, attrs))
 
@@ -311,7 +325,7 @@ m.route(element, '/', {
     '/': m('b', 'bye')
 })
 </code></pre>
-<h3 id="v1x"><code>v1.x</code></h3>
+<h3 id="v1x"><a href="#v1x"><code>v1.x</code></a></h3>
 <pre><code class="lang-javascript">m.mount(element, {view: function () {return m('i', 'hello')}})
 m.mount(element, {view: function () {return m(Component, attrs)}})
 
@@ -320,27 +334,27 @@ m.route(element, '/', {
 })
 </code></pre>
 <hr>
-<h2 id="mroutemode"><code>m.route.mode</code></h2>
+<h2 id="mroutemode"><a href="#mroutemode"><code>m.route.mode</code></a></h2>
 <p><code>v0.2.x</code>では、<code>"pathname"</code>、<code>"hash"</code>、<code>"search"</code>を<code>m.route.mode</code>に設定することでラウティングモードを変更できました。<code>v.1.x</code>では<code>m.route.prefix(prefix)</code>に変更されました。<code>prefix</code>としては、<code>#</code>、<code>?</code>あるいは空文字列（"pathname"）が使用できます。新APIはハッシュバング（<code>#!</code>）もサポートしており、これがデフォルトモードとなっています。このAPIはルート以外のパス名や、クエリーバング（<code>?!</code>）などの任意の文字列が設定できます。</p>
-<h3 id="v02x"><code>v0.2.x</code></h3>
+<h3 id="v02x"><a href="#v02x"><code>v0.2.x</code></a></h3>
 <pre><code class="lang-javascript">m.route.mode = "pathname"
 m.route.mode = "search"
 </code></pre>
-<h3 id="v1x"><code>v1.x</code></h3>
+<h3 id="v1x"><a href="#v1x"><code>v1.x</code></a></h3>
 <pre><code class="lang-javascript">m.route.prefix("")
 m.route.prefix("?")
 </code></pre>
 <hr>
-<h2 id="mroute-and-anchor-tags"><code>m.route()</code>とアンカータグ</h2>
+<h2 id="mroute-and-anchor-tags"><a href="#mroute-and-anchor-tags"><code>m.route()</code>とアンカータグ</a></h2>
 <p>アンカータグのクリックをハンドリングしてMithrilラウターと一緒に扱う方法は<code>v0.2.x</code>と似ていますが、新しいライフサイクルメソッドとAPIを使います。</p>
-<h3 id="v02x"><code>v0.2.x</code></h3>
+<h3 id="v02x"><a href="#v02x"><code>v0.2.x</code></a></h3>
 <pre><code class="lang-javascript">// リンクをクリックしたときに、ナビゲーションを行うのではなく、"/path"のラウターをロードする
 m("a", {
     href   : "/path",
     config : m.route
 })
 </code></pre>
-<h3 id="v1x"><code>v1.x</code></h3>
+<h3 id="v1x"><a href="#v1x"><code>v1.x</code></a></h3>
 <pre><code class="lang-javascript">// リンクをクリックしたときに、ナビゲーションを行うのではなく、"/path"のラウターをロードする
 m("a", {
     href     : "/path",
@@ -348,16 +362,16 @@ m("a", {
 })
 </code></pre>
 <hr>
-<h2 id="readingwriting-the-current-route">現在のラウトの読み込み/書き込み</h2>
+<h2 id="readingwriting-the-current-route"><a href="#readingwriting-the-current-route">現在のラウトの読み込み/書き込み</a></h2>
 <p><code>v0.2.x</code>では現在のラウトに関することはすべて<code>m.route()</code>メソッド経由で行っていました。<code>v1.x</code>ではこれは２つの関数に分離されました。</p>
-<h3 id="v02x"><code>v0.2.x</code></h3>
+<h3 id="v02x"><a href="#v02x"><code>v0.2.x</code></a></h3>
 <pre><code class="lang-javascript">// 現在のラウトを取得
 m.route()
 
 // 新しいラウトを設定
 m.route("/other/route")
 </code></pre>
-<h3 id="v1x"><code>v1.x</code></h3>
+<h3 id="v1x"><a href="#v1x"><code>v1.x</code></a></h3>
 <pre><code class="lang-javascript">// 現在のラウトを取得
 m.route.get()
 
@@ -365,9 +379,9 @@ m.route.get()
 m.route.set("/other/route")
 </code></pre>
 <hr>
-<h2 id="accessing-route-params">ラウトパラメータへのアクセス</h2>
+<h2 id="accessing-route-params"><a href="#accessing-route-params">ラウトパラメータへのアクセス</a></h2>
 <p><code>v0.2.x</code>ではラウトパラメータの読み込みは<code>m.route.param()</code>を使って行っていました。このAPIは<code>v1.x</code>でも利用可能ですが、これに加えて、ラウトパラメータはVノードの<code>attrs</code>プロパティを通じて取得することができます。</p>
-<h3 id="v02x"><code>v0.2.x</code></h3>
+<h3 id="v02x"><a href="#v02x"><code>v0.2.x</code></a></h3>
 <pre><code class="lang-javascript">m.route(document.body, "/booga", {
     "/:attr" : {
         controller : function() {
@@ -379,7 +393,7 @@ m.route.set("/other/route")
     }
 })
 </code></pre>
-<h3 id="v1x"><code>v1.x</code></h3>
+<h3 id="v1x"><a href="#v1x"><code>v1.x</code></a></h3>
 <pre><code class="lang-javascript">m.route(document.body, "/booga", {
     "/:attr" : {
         oninit : function(vnode) {
@@ -394,22 +408,22 @@ m.route.set("/other/route")
 })
 </code></pre>
 <hr>
-<h2 id="buildingparsing-query-strings">クエリー文字列の組み立てとパース</h2>
+<h2 id="buildingparsing-query-strings"><a href="#buildingparsing-query-strings">クエリー文字列の組み立てとパース</a></h2>
 <p><code>v0.2.x</code>では<code>m.route</code>にぶら下がっていた関数<code>m.route.buildQueryString()</code>と<code>m.route.parseQueryString()</code>を使っていました。<code>v1.x</code>では、名前が変わって<code>m</code>配下に移動しました。</p>
-<h3 id="v02x"><code>v0.2.x</code></h3>
+<h3 id="v02x"><a href="#v02x"><code>v0.2.x</code></a></h3>
 <pre><code class="lang-javascript">var qs = m.route.buildQueryString({ a : 1 });
 
 var obj = m.route.parseQueryString("a=1");
 </code></pre>
-<h3 id="v1x"><code>v1.x</code></h3>
+<h3 id="v1x"><a href="#v1x"><code>v1.x</code></a></h3>
 <pre><code class="lang-javascript">var qs = m.buildQueryString({ a : 1 });
 
 var obj = m.parseQueryString("a=1");
 </code></pre>
 <hr>
-<h2 id="preventing-unmounting">アンマウントを停止させる</h2>
+<h2 id="preventing-unmounting"><a href="#preventing-unmounting">アンマウントを停止させる</a></h2>
 <p><code>onunload</code>の<code>e.preventDefault()</code>を使ってアンマウントを中断させることはもうできません。その代わりに、中断条件にマッチしたときは<code>m.route.set</code>を呼んでください。</p>
-<h3 id="v02x"><code>v0.2.x</code></h3>
+<h3 id="v02x"><a href="#v02x"><code>v0.2.x</code></a></h3>
 <pre><code class="lang-javascript">var Component = {
     controller: function() {
         this.onunload = function(e) {
@@ -421,7 +435,7 @@ var obj = m.parseQueryString("a=1");
     }
 }
 </code></pre>
-<h3 id="v1x"><code>v1.x</code></h3>
+<h3 id="v1x"><a href="#v1x"><code>v1.x</code></a></h3>
 <pre><code class="lang-javascript">var Component = {
     view: function() {
         return m("a", {onclick: function() {if (!condition) m.route.set("/")}})
@@ -429,9 +443,9 @@ var obj = m.parseQueryString("a=1");
 }
 </code></pre>
 <hr>
-<h2 id="run-code-on-component-removal">コンポーネント削除時にコードを実行</h2>
+<h2 id="run-code-on-component-removal"><a href="#run-code-on-component-removal">コンポーネント削除時にコードを実行</a></h2>
 <p>コンポーネントは削除時に<code>this.onunload</code>を呼ばなくなりました。標準化されたライフサイクルフックの<code>onremove</code>を使用します。</p>
-<h3 id="v02x"><code>v0.2.x</code></h3>
+<h3 id="v02x"><a href="#v02x"><code>v0.2.x</code></a></h3>
 <pre><code class="lang-javascript">var Component = {
     controller: function() {
         this.onunload = function(e) {
@@ -443,7 +457,7 @@ var obj = m.parseQueryString("a=1");
     }
 }
 </code></pre>
-<h3 id="v1x"><code>v1.x</code></h3>
+<h3 id="v1x"><a href="#v1x"><code>v1.x</code></a></h3>
 <pre><code class="lang-javascript">var Component = {
     onremove : function() {
         // ...
@@ -454,10 +468,10 @@ var obj = m.parseQueryString("a=1");
 }
 </code></pre>
 <hr>
-<h2 id="mrequest">m.request</h2>
+<h2 id="mrequest"><a href="#mrequest">m.request</a></h2>
 <p><a href="request.html">m.request</a>が返すPromiseは<code>m.prop()</code>ゲッター・セッターではなくなります。これに加えて、<code>initialValue</code>、<code>unwrapSuccess</code>、<code>unwrapError</code>はオプションからはサポートされなくなります。</p>
 <p>さらに、<code>m.startComputation</code>/<code>m.endComputation</code>セマンティクスはサポートされなくなります。これらはサポートされませんが、Promiseのチェーンが完了するときには、<code>background:true</code>がセットされていない時は再描画が実行されます。</p>
-<h3 id="v02x"><code>v0.2.x</code></h3>
+<h3 id="v02x"><a href="#v02x"><code>v0.2.x</code></a></h3>
 <pre><code class="lang-javascript">var data = m.request({
     method: "GET",
     url: "https://api.github.com/",
@@ -468,7 +482,7 @@ setTimeout(function() {
     console.log(data())
 }, 1000)
 </code></pre>
-<h3 id="v1x"><code>v1.x</code></h3>
+<h3 id="v1x"><a href="#v1x"><code>v1.x</code></a></h3>
 <pre><code class="lang-javascript">var data = []
 m.request({
     method: "GET",
@@ -484,9 +498,9 @@ setTimeout(function() {
 </code></pre>
 <p>これに加えて、<code>extract</code>オプションが<code>m.request</code>に渡されると、指定された関数の返り値がPromiseの解決にそのまま使われ、<code>deserialize</code>コールバックは無視されます。</p>
 <hr>
-<h2 id="mdeferred-removed"><code>m.deferred</code>が削除された</h2>
+<h2 id="mdeferred-removed"><a href="#mdeferred-removed"><code>m.deferred</code>が削除された</a></h2>
 <p><code>v0.2.x</code>では、<code>m.deferred</code>という名前でMithril自身が提供する非同期の契約オブジェクトが使われてきました。また、これは<code>m.request</code>からも使用されていました。<code>v1.x</code>ではこれの代わりにPromiseが使われます。非サポートの環境のために<a href="promises.html">polyfill</a>を使った実装になっています。<code>m.deferred</code>を使用していたところではPromiseを使用してください。</p>
-<h3 id="v02x"><code>v0.2.x</code></h3>
+<h3 id="v02x"><a href="#v02x"><code>v0.2.x</code></a></h3>
 <pre><code class="lang-javascript">var greetAsync = function() {
     var deferred = m.deferred()
     setTimeout(function() {
@@ -499,21 +513,23 @@ greetAsync()
     .then(function(value) {return value + " world"})
     .then(function(value) {console.log(value)}) // 1秒後に "hello world" のログ出力
 </code></pre>
-<h3 id="v1x"><code>v1.x</code></h3>
-<pre><code class="lang-javascript">var greetAsync = new Promise(function(resolve){
-    setTimeout(function() {
-        resolve("hello")
-    }, 1000)
-})
+<h3 id="v1x"><a href="#v1x"><code>v1.x</code></a></h3>
+<pre><code class="lang-javascript">var greetAsync = function() {
+    return new Promise(function(resolve){
+        setTimeout(function() {
+            resolve("hello")
+        }, 1000)
+    })
+}
 
 greetAsync()
     .then(function(value) {return value + " world"})
     .then(function(value) {console.log(value)}) // 1秒後に "hello world" のログ出力
 </code></pre>
 <hr>
-<h2 id="msync-removed"><code>m.sync</code>が削除された</h2>
+<h2 id="msync-removed"><a href="#msync-removed"><code>m.sync</code>が削除された</a></h2>
 <p><code>v1.x</code>では標準準拠のPromiseが使われるようになったため、<code>m.sync</code>は削除されました。<code>Promise.all</code>を使用してください。</p>
-<h3 id="v02x"><code>v0.2.x</code></h3>
+<h3 id="v02x"><a href="#v02x"><code>v0.2.x</code></a></h3>
 <pre><code class="lang-javascript">m.sync([
     m.request({ method: 'GET', url: 'https://api.github.com/users/lhorie' }),
     m.request({ method: 'GET', url: 'https://api.github.com/users/isiahmeadows' }),
@@ -522,7 +538,7 @@ greetAsync()
     console.log("コントリビュータ:", users[0].name, "and", users[1].name)
 })
 </code></pre>
-<h3 id="v1x"><code>v1.x</code></h3>
+<h3 id="v1x"><a href="#v1x"><code>v1.x</code></a></h3>
 <pre><code class="lang-javascript">Promise.all([
     m.request({ method: 'GET', url: 'https://api.github.com/users/lhorie' }),
     m.request({ method: 'GET', url: 'https://api.github.com/users/isiahmeadows' }),
@@ -532,32 +548,33 @@ greetAsync()
 })
 </code></pre>
 <hr>
-<h2 id="xlink-namespace-required"><code>xlink</code>名前空間が必要になった</h2>
+<h2 id="xlink-namespace-required"><a href="#xlink-namespace-required"><code>xlink</code>名前空間が必要になった</a></h2>
 <p><code>v0.2.x</code>では、<code>xlink</code>名前空間は属性の名前空間として唯一サポートされていて、特別な場合だけサポートしていました。現在は名前空間のパースは完全にサポートされました。名前空間の属性は、その名前空間の中で明示的に定義されなければなりません。</p>
-<h3 id="v02x"><code>v0.2.x</code></h3>
+<h3 id="v02x"><a href="#v02x"><code>v0.2.x</code></a></h3>
 <pre><code class="lang-javascript">m("svg",
     // `href`属性は自動で名前空間が付与される
     m("image[href='image.gif']")
 )
 </code></pre>
-<h3 id="v1x"><code>v1.x</code></h3>
+<h3 id="v1x"><a href="#v1x"><code>v1.x</code></a></h3>
 <pre><code class="lang-javascript">m("svg",
     // `href`属性にユーザー指定の名前空間を付与する
     m("image[xlink:href='image.gif']")
 )
 </code></pre>
 <hr>
-<h2 id="nested-arrays-in-views">ビューのネストされた配列</h2>
+<h2 id="nested-arrays-in-views"><a href="#nested-arrays-in-views">ビューのネストされた配列</a></h2>
 <p>配列は<a href="fragment.html">フラグメント</a>を表現するのに使われるようになりました。これはv1.xの仮想DOMの主要な構造です。v0.2.xではネストされた配列は差分検知のためにフラット化され、1つのリストにされていました。v1.xでは配列構造をそのまま維持します。別の配列の子要素が、京大の要素として扱われることはありません。</p>
 <hr>
-<h2 id="vnode-equality-checks"><code>vnode</code>同値性チェック</h2>
+<h2 id="vnode-equality-checks"><a href="#vnode-equality-checks"><code>vnode</code>同値性チェック</a></h2>
 <p>もしvnodeが前回の描画時のものと厳格に一致していたときは、v1.xはその部分のサブツリーのチェックや、ライフサイクルメソッドの呼び出しをスキップします。コンポーネントのドキュメントに<a href="components.html#avoid-creating-component-instances-outside-views">この問題に関する詳細情報</a>が含まれています。</p>
 
 				<hr />
 				<small>License: MIT. © Leo Horie.</small>
 			</section>
 		</main>
-		<script src="lib/prism/prism.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-jsx.min.js"></script>
 		<script>
 		document.querySelector(".hamburger").onclick = function() {
 			document.body.className = document.body.className === "navigating" ? "" : "navigating"

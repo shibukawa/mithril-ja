@@ -3,8 +3,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8" />
 		<title>  ES6 - Mithril.js</title>
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-		<link href="lib/prism/prism.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
 		<link href="style.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
@@ -12,7 +11,7 @@
 		<header>
 			<section>
 				<a class="hamburger" href="javascript:;">≡</a>
-				<h1><img src="logo.svg">  Mithril <small>1.0.1</small></h1>
+				<h1><img src="logo.svg">  Mithril <small>1.1.0</small></h1>
 				<nav>
 					<a href="index.html">ガイド</a> <a href="api.html">API</a> <a href="https://gitter.im/lhorie/mithril.js">チャット</a> <a href="https://github.com/lhorie/mithril.js">Github</a>
 				</nav>
@@ -20,7 +19,7 @@
 		</header>
 		<main>
 			<section>
-				<h1 id="es6">ES6</h1>
+				<h1 id="es6"><a href="#es6">ES6</a></h1>
 <ul>
 <li>チュートリアル<ul>
 <li><a href="installation.html">インストール</a></li>
@@ -64,7 +63,7 @@
 <hr>
 <p>MithrilはES6とは完全に互換性があるES5で書かれています。ES6はよく使われる一般的なケースのために新しいシンタックスシュガーを導入するという方法でJavaScriptをアップデートしています。全ブラウザで完全にサポートされているわけではありませんし、アプリケーションを書くための必須要件となっているわけではありませんが、チームによっては使いたがるでしょう。</p>
 <p>IEをサポートしない内部向けのアプリケーションなど、限られた環境の中では、追加のツールを導入しないで、ES6のサブセットを直接使って開発することもできます。しかし、ほとんどのユースケースではES6のコードをコンパイルしてES5にダウングレードする<a href="https://babeljs.io">Babel</a>のようなコンパイラーツールチェーンが必要になります。</p>
-<h3 id="setup">セットアップ</h3>
+<h3 id="setup"><a href="#setup">セットアップ</a></h3>
 <p>ES6コンパイルツールチェーンをセットアップで一番簡単な方法は<a href="https://babeljs.io/">Babel</a>を使うことです。</p>
 <p>Babelは<a href="https://nodejs.org/en/">Node.js</a>をインストールすると維持でインストールされるnpmが必要です。npmがインストールされたら、プロジェクトフォルダを作り、次のコマンドを入力しましょう:</p>
 <pre><code class="lang-bash">npm init -y
@@ -86,7 +85,7 @@
 <p>スタンドアロンツールとしてBabelを実行するには、次のように起動します:</p>
 <pre><code class="lang-bash">babel src --out-dir bin --source-maps
 </code></pre>
-<h4 id="using-babel-with-webpack">WebPackとBabelを使用する</h4>
+<h4 id="using-babel-with-webpack"><a href="#using-babel-with-webpack">WebPackとBabelを使用する</a></h4>
 <p>もしソースコードのバンドルにWebPackをすでに使っているのであれば、次のように設定することでBabelをWebPackに統合できます。</p>
 <pre><code class="lang-bash">npm install babel-core babel-loader babel-preset-es2015 babel-plugin-transform-react-jsx --save-dev
 </code></pre>
@@ -128,7 +127,7 @@
 <p>これでバンドラーをコマンドラインツールから実行できるようになりました:</p>
 <pre><code class="lang-bash">npm start
 </code></pre>
-<h4 id="production-build">本番ビルド</h4>
+<h4 id="production-build"><a href="#production-build">本番ビルド</a></h4>
 <p>ミニファイされたファイルを生成するには、<code>package.json</code>を開き、<code>build</code>という新しいnpmスクリプトの項目を追加します:</p>
 <pre><code class="lang-json">{
     "name": "my-project",
@@ -153,7 +152,8 @@
 				<small>License: MIT. © Leo Horie.</small>
 			</section>
 		</main>
-		<script src="lib/prism/prism.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-jsx.min.js"></script>
 		<script>
 		document.querySelector(".hamburger").onclick = function() {
 			document.body.className = document.body.className === "navigating" ? "" : "navigating"
