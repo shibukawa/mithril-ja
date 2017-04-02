@@ -64,7 +64,7 @@
 <li><a href="#basic-usage">基本的な使い方</a><ul>
 <li><a href="#streams-as-variables">Streamを変数として使う</a></li>
 <li><a href="#bidirectional-bindings">双方向バインディング</a></li>
-<li><a href="#computed-properties">計算済みプロパティ</a></li>
+<li><a href="#computed-properties">算出プロパティ</a></li>
 </ul>
 </li>
 <li><a href="#chaining-streams">Streamのチェーン</a></li>
@@ -90,10 +90,10 @@
 <p>StreamはMithrilのコアのディストリビューションにはバンドルされていません。Streamモジュールをインクルードするためには次のようにします:</p>
 <pre><code class="lang-javascript">var Stream = require("mithril/stream")
 </code></pre>
-<p>You can also download the module directly if your environment does not support a bundling toolchain:</p>
+<p>バンドルのツールチェーンがサポートされない環境であれば、直接モジュールをダウンロードすることもできます。</p>
 <pre><code class="lang-markup">&lt;script src="https://unpkg.com/mithril-stream"&gt;&lt;/script&gt;
 </code></pre>
-<p>When loaded directly with a <code>&lt;script&gt;</code> tag (rather than required), the stream library will be exposed as <code>window.m.stream</code>. If <code>window.m</code> is already defined (e.g. because you also use the main Mithril script), it will attach itself to the existing object. Otherwise it creates a new <code>window.m</code>. If you want to use streams in conjunction with Mithril as raw script tags, you should include Mithril in your page before <code>mithril-stream</code>, because <code>mithril</code> will otherwise overwrite the <code>window.m</code> object defined by <code>mithril-stream</code>. This is not a concern when the libraries are consumed as CommonJS modules (using <code>require(...)</code>).</p>
+<p><code>&lt;script&gt;</code>タグを使って直接ダウンロードすると、streamライブラリは<code>window.m.stream</code>という名前で利用できます。メインのMithrilスクリプトを使用していて<code>window.m</code>がすでに定義されているのであれば、すでにあるオブジェクトに追加します。そうでなければ新たに<code>window.m</code>が作成されます。もし、Mithrilもscriptタグで直接読み込むのであれば、<code>mithril</code>が<code>mithril-stream</code>が追加した<code>window.m</code>オブジェクトを上書きしてしまうため、Mithrilを<code>mithril-stream</code>よりも先に読み込まなければなりません。この問題は、<code>require(...)</code>を使ったCommonJSモジュールを利用して使う分には気にする必要はありません。</p>
 <hr>
 <h3 id="signature"><a href="#signature">シグニチャ</a></h3>
 <p>Steamの作成</p>
@@ -225,7 +225,7 @@
 <p><a href="signatures.html">シグニチャの読み方</a></p>
 <hr>
 <h5 id="streamscan"><a href="#streamscan">Stream.scan</a></h5>
-<p>Creates a new stream with the results of calling the function on every value in the stream with an accumulator and the incoming value.</p>
+<p>全てのstreamの値に対して関数を呼び出し、入力ストリームのすべての値とアキュームレータを一緒に関数に渡して、その結果を値を持つ新しいstreamを返します。</p>
 <p><code>stream = Stream.scan(fn, accumulator, stream)</code></p>
 <table>
 <thead>
@@ -241,32 +241,32 @@
 <td><code>fn</code></td>
 <td><code>(accumulator, value) -&gt; result</code></td>
 <td>Yes</td>
-<td>A function that takes an accumulator and value parameter and returns a new accumulator value</td>
+<td>アキュームレータと値を受け取り、新しいアキュームレータ値を返します。</td>
 </tr>
 <tr>
 <td><code>accumulator</code></td>
 <td><code>any</code></td>
 <td>Yes</td>
-<td>The starting value for the accumulator</td>
+<td>アキュームレータの初期値です</td>
 </tr>
 <tr>
 <td><code>stream</code></td>
 <td><code>Stream</code></td>
 <td>Yes</td>
-<td>Stream containing the values</td>
+<td>値を含むstream</td>
 </tr>
 <tr>
 <td><strong>返り値</strong></td>
 <td><code>Stream</code></td>
 <td></td>
-<td>Returns a new stream containing the result</td>
+<td>結果を含む新しいstream</td>
 </tr>
 </tbody>
 </table>
 <p><a href="signatures.html">シグニチャの読み方</a></p>
 <hr>
 <h5 id="streamscanmerge"><a href="#streamscanmerge">Stream.scanMerge</a></h5>
-<p>Takes an array of pairs of streams and scan functions and merges all those streams using the given functions into a single stream.</p>
+<p>streamとscan関数のペアを要素に持つ配列を受け取り、与えられた関数を使ってこれらのstreamをマージして１つのstreamにします。</p>
 <p><code>stream = Stream.scanMerge(pairs, accumulator)</code></p>
 <table>
 <thead>
@@ -282,29 +282,29 @@
 <td><code>pairs</code></td>
 <td><code>Array&lt;[Stream, (accumulator, value) -&gt; value]&gt;</code></td>
 <td>Yes</td>
-<td>An array of tuples of stream and scan functions</td>
+<td>streamとscan関数のタプルの配列</td>
 </tr>
 <tr>
 <td><code>accumulator</code></td>
 <td><code>any</code></td>
 <td>Yes</td>
-<td>The starting value for the accumulator</td>
+<td>アキュームレータの初期値です</td>
 </tr>
 <tr>
 <td><strong>返り値</strong></td>
 <td><code>Stream</code></td>
 <td></td>
-<td>Returns a new stream containing the result</td>
+<td>結果を含む新しいstream</td>
 </tr>
 </tbody>
 </table>
 <p><a href="signatures.html">シグニチャの読み方</a></p>
 <hr>
 <h5 id="streamhalt"><a href="#streamhalt">Stream.HALT</a></h5>
-<p>A special value that can be returned to stream callbacks to halt execution of downstreams</p>
+<p>下流streamの実行を停止するためにstreamのコールバックを返すことができる特別な値です</p>
 <hr>
 <h5 id="streamfantasy-landof"><a href="#streamfantasy-landof">Stream["fantasy-land/of"]</a></h5>
-<p>This method is functionally identical to <code>stream</code>. It exists to conform to <a href="https://github.com/fantasyland/fantasy-land">Fantasy Land's Applicative specification</a>. For more information, see the <a href="#what-is-fantasy-land">What is Fantasy Land</a> section.</p>
+<p>このメソッドは機能的に<code>stream</code>と同じです。<a href="https://github.com/fantasyland/fantasy-land">Fantasy Landの適用仕様</a>に適合させるために存在しています。詳しくは<a href="#what-is-fantasy-land">Fantasy Landとは何か</a>のセクションで紹介します。</p>
 <p><code>stream = stream["fantasy-land/of"](value)</code></p>
 <table>
 <thead>
@@ -333,7 +333,7 @@
 <hr>
 <h4 id="instance-members"><a href="#instance-members">インスタンスメンバー</a></h4>
 <h5 id="streammap"><a href="#streammap">stream.map</a></h5>
-<p>Creates a dependent stream whose value is set to the result of the callback function. This method is an alias of <a href="#streamfantasy-landmap">stream["fantasy-land/map"]</a>.</p>
+<p>コールバック関数の結果を値として持つ依存streamを作成します。このメソッドは<a href="#streamfantasy-landmap">stream["fantasy-land/map"]</a>のエイリアスです。</p>
 <p><code>dependentStream = stream().map(callback)</code></p>
 <table>
 <thead>
@@ -349,7 +349,7 @@
 <td><code>callback</code></td>
 <td><code>any -&gt; any</code></td>
 <td>Yes</td>
-<td>A callback whose return value becomes the value of the stream</td>
+<td>このコールバック関数の結果値がstreamの値になります。</td>
 </tr>
 <tr>
 <td><strong>返り値</strong></td>
@@ -362,11 +362,11 @@
 <p><a href="signatures.html">シグニチャの読み方</a></p>
 <hr>
 <h5 id="streamend"><a href="#streamend">stream.end</a></h5>
-<p>A co-dependent stream that unregisters dependent streams when set to true. See <a href="#ended-state">ended state</a>.</p>
+<p>trueに設定すると、従属streamの登録を解除する相互依存streamです。<a href="#ended-state">終了状態</a>を見てください。</p>
 <p><code>endStream = stream().end</code></p>
 <hr>
 <h5 id="streamfantasy-landof"><a href="#streamfantasy-landof">stream["fantasy-land/of"]</a></h5>
-<p>This method is functionally identical to <code>stream</code>. It exists to conform to <a href="https://github.com/fantasyland/fantasy-land">Fantasy Land's Applicative specification</a>. For more information, see the <a href="#what-is-fantasy-land">What is Fantasy Land</a> section.</p>
+<p>このメソッドは機能的に<code>stream</code>と同じです。<a href="https://github.com/fantasyland/fantasy-land">Fantasy Landの適用仕様</a>に適合させるために存在しています。詳しくは<a href="#what-is-fantasy-land">Fantasy Landとは何か</a>のセクションで紹介します。</p>
 <p><code>stream = stream()["fantasy-land/of"](value)</code></p>
 <table>
 <thead>
@@ -394,8 +394,8 @@
 </table>
 <hr>
 <h5 id="streamfantasy-landmap"><a href="#streamfantasy-landmap">stream["fantasy-land/map"]</a></h5>
-<p>Creates a dependent stream whose value is set to the result of the callback function. See <a href="#chaining-streams">chaining streams</a></p>
-<p>This method exists to conform to <a href="https://github.com/fantasyland/fantasy-land">Fantasy Land's Applicative specification</a>. For more information, see the <a href="#what-is-fantasy-land">What is Fantasy Land</a> section.</p>
+<p>コールバック関数の結果を値として持つ依存streamを作成します。<a href="#chaining-streams">streamの結合</a>を参照してください。</p>
+<p><a href="https://github.com/fantasyland/fantasy-land">Fantasy Landの適用仕様</a>に適合させるために存在しています。詳しくは<a href="#what-is-fantasy-land">Fantasy Landとは何か</a>のセクションで紹介します。</p>
 <p><code>dependentStream = stream()["fantasy-land/of"](callback)</code></p>
 <table>
 <thead>
@@ -411,7 +411,7 @@
 <td><code>callback</code></td>
 <td><code>any -&gt; any</code></td>
 <td>Yes</td>
-<td>A callback whose return value becomes the value of the stream</td>
+<td>このコールバック関数の結果値がstreamの値になります。</td>
 </tr>
 <tr>
 <td><strong>返り値</strong></td>
@@ -424,7 +424,7 @@
 <p><a href="signatures.html">シグニチャの読み方</a></p>
 <hr>
 <h5 id="streamfantasy-landap"><a href="#streamfantasy-landap">stream["fantasy-land/ap"]</a></h5>
-<p>The name of this method stands for <code>apply</code>. If a stream <code>a</code> has a function as its value, another stream <code>b</code> can use it as the argument to <code>b.ap(a)</code>. Calling <code>ap</code> will call the function with the value of stream <code>b</code> as its argument, and it will return another stream whose value is the result of the function call. This method exists to conform to <a href="https://github.com/fantasyland/fantasy-land">Fantasy Land's Applicative specification</a>. For more information, see the <a href="#what-is-fantasy-land">What is Fantasy Land</a> section.</p>
+<p>このメソッドは<code>apply</code>の短縮形です。もしstream<code>a</code>が関数を値として持つ時に、他のstream<code>b</code>は<code>b.ap(a)</code>とすることでそれを引数として使用できます。<code>ap</code>を呼び出すと、stream<code>b</code>の値を引数に渡して関数を呼び出します。そして、その関数の結果を値として持つstreamを返します。<a href="https://github.com/fantasyland/fantasy-land">Fantasy Landの適用仕様</a>に適合させるために存在しています。詳しくは<a href="#what-is-fantasy-land">Fantasy Landとは何か</a>のセクションで紹介します。</p>
 <p><code>stream = stream()["fantasy-land/ap"](apply)</code></p>
 <table>
 <thead>
@@ -440,7 +440,7 @@
 <td><code>apply</code></td>
 <td><code>Stream</code></td>
 <td>Yes</td>
-<td>A stream whose value is a function</td>
+<td>関数が値として設定されているstream</td>
 </tr>
 <tr>
 <td><strong>返り値</strong></td>
@@ -452,89 +452,88 @@
 </table>
 <hr>
 <h3 id="basic-usage"><a href="#basic-usage">基本的な使い方</a></h3>
-<p>Streams are not part of the core Mithril distribution. To include them in a project, require its module:</p>
+<p>streamはMithrilのコアのディストリビューションにはバンドルされていません。プロジェクトに追加するにはrequireを使います。</p>
 <pre><code class="lang-javascript">var stream = require("mithril/stream")
 </code></pre>
 <h4 id="streams-as-variables"><a href="#streams-as-variables">Streamを変数として使う</a></h4>
-<p><code>stream()</code> returns a stream. At its most basic level, a stream works similar to a variable or a getter-setter property: it can hold state, which can be modified.</p>
-<pre><code class="lang-javascript">var username = stream("John")
-console.log(username()) // logs "John"
+<p><code>stream()</code>はstreamを返します。streamの基本特性としては、streamは変数や、ゲッター・セッター・プロパティのように使うことができます。値を保持したり、変更できます。</p>
+<pre><code class="lang-javascript">var username = stream("ジョン")
+console.log(username()) // 出力: "ジョン"
 
-username("John Doe")
-console.log(username()) // logs "John Doe"
+username("ジョン・ドー")
+console.log(username()) // 出力: "ジョン・ドー"
 </code></pre>
-<p>The main difference is that a stream is a function, and therefore can be composed into higher order functions.</p>
+<p>主な違いはstreamが関数である点です。そのため、他の上位の関数と組み合わせることができます。</p>
 <pre><code class="lang-javascript">var users = stream()
 
-// request users from a server using the fetch API
+// fetch APIを使ってユーザーをサーバーから取得
 fetch("/api/users")
     .then(function(response) {return response.json()})
     .then(users)
 </code></pre>
-<p>In the example above, the <code>users</code> stream is populated with the response data when the request resolves.</p>
+<p>上記の例では、<code>users</code>streamはリクエストが完了した時に、そのレスポンスのデータに設定されます。</p>
 <h4 id="bidirectional-bindings"><a href="#bidirectional-bindings">双方向バインディング</a></h4>
-<p>Streams can also be populated from other higher order functions, such as <a href="withAttr.html"><code>m.withAttr</code></a></p>
-<pre><code class="lang-javascript">// a stream
+<p>streamは<a href="withAttr.html"><code>m.withAttr</code></a>のような他の上位のの関数と一緒に利用できます。</p>
+<pre><code class="lang-javascript">// stream
 var user = stream("")
 
-// a bi-directional binding to the stream
+// streamとの双方向バインディング
 m("input", {
     oninput: m.withAttr("value", user),
     value: user()
 })
 </code></pre>
-<p>In the example above, when the user types in the input, the <code>user</code> stream is updated to the value of the input field.</p>
-<h4 id="computed-properties"><a href="#computed-properties">計算済みプロパティ</a></h4>
-<p>Streams are useful for implementing computed properties:</p>
+<p>上記の例では、ユーザーがinputに入力を行うと、<code>user</code>streamの値がinputフィールドの値に設定されます。</p>
+<h4 id="computed-properties"><a href="#computed-properties">算出プロパティ</a></h4>
+<p>streamは算出プロパティを実装するのにも便利です:</p>
 <pre><code class="lang-javascript">var title = stream("")
 var slug = title.map(function(value) {
     return value.toLowerCase().replace(/\W/g, "-")
 })
 
 title("Hello world")
-console.log(slug()) // logs "hello-world"
+console.log(slug()) // 出力: "hello-world"
 </code></pre>
-<p>In the example above, the value of <code>slug</code> is computed when <code>title</code> is updated, not when <code>slug</code> is read.</p>
-<p>It's of course also possible to compute properties based on multiple streams:</p>
-<pre><code class="lang-javascript">var firstName = stream("John")
-var lastName = stream("Doe")
+<p>上記のサンプルでは、<code>slug</code>は読み込まれたときではなく、<code>title</code>が更新されたときに算出されます。</p>
+<p>もちろん、複数のstreamを元にした算出プロパティを作ることもできます:</p>
+<pre><code class="lang-javascript">var firstName = stream("ジョン")
+var lastName = stream("ドー")
 var fullName = stream.merge([firstName, lastName]).map(function(values) {
-    return values.join(" ")
+    return values.join("・")
 })
 
-console.log(fullName()) // logs "John Doe"
+console.log(fullName()) // 出力: "ジョン・ドー"
+firstName("メアリー")
 
-firstName("Mary")
-
-console.log(fullName()) // logs "Mary Doe"
+console.log(fullName()) // 出力: "メアリー・ドー"
 </code></pre>
-<p>Computed properties in Mithril are updated atomically: streams that depend on multiple streams will never be called more than once per value update, no matter how complex the computed property's dependency graph is.</p>
+<p>Mithrilの算出プロパティは動的に更新されます。streamは複数のstreamに依存しており、値の更新ごとに1度以上呼ばれることはありません。算出プロパティの依存グラフがとても複雑であっても問題ありません。</p>
 <hr>
 <h3 id="chaining-streams"><a href="#chaining-streams">Streamのチェーン</a></h3>
-<p>Streams can be chained using the <code>map</code> method. A chained stream is also known as a <em>dependent stream</em>.</p>
-<pre><code class="lang-javascript">// parent stream
+<p><code>map</code>メソッドを使うとことでstreamをチェーンさせることができます。チェーンしたstreamは<em>依存stream</em>となります。</p>
+<pre><code class="lang-javascript">// 親stream
 var value = stream(1)
 
-// dependent stream
+// 依存stream
 var doubled = value.map(function(value) {
     return value * 2
 })
 
-console.log(doubled()) // logs 2
+console.log(doubled()) // 出力: 2
 </code></pre>
-<p>Dependent streams are <em>reactive</em>: their values are updated any time the value of their parent stream is updated. This happens regardless of whether the dependent stream was created before or after the value of the parent stream was set.</p>
-<p>You can prevent dependent streams from being updated by returning the special value <code>stream.HALT</code></p>
+<p>依存streamは<em>リアクティブ</em>です。親のstreamの値が更新されると、即座に依存streamの値も更新されます。依存streamが作成されるのが、親のstreamに値をセットする前でも後でも正しく動作します。</p>
+<p>特別な値<code>stream.HALT</code>を返すことで、従属streamの更新を止めることができます:</p>
 <pre><code class="lang-javascript">var halted = stream(1).map(function(value) {
     return stream.HALT
 })
 
 halted.map(function() {
-    // never runs
+    // 実行されない
 })
 </code></pre>
 <hr>
 <h3 id="combining-streams"><a href="#combining-streams">Streamの結合</a></h3>
-<p>Streams can depend on more than one parent stream. These kinds of streams can be created via <code>stream.merge()</code></p>
+<p>streamは複数の親streamに依存させることができます。このような種類のstreamは<code>stream.merge()</code>を使った作ることができます。</p>
 <pre><code class="lang-javascript">var a = stream("hello")
 var b = stream("world")
 
@@ -542,9 +541,9 @@ var greeting = stream.merge([a, b]).map(function(values) {
     return values.join(" ")
 })
 
-console.log(greeting()) // logs "hello world"
+console.log(greeting()) // 出力: "hello world"
 </code></pre>
-<p>There's also a lower level method called <code>stream.combine()</code> that exposes the stream themselves in the reactive computations for more advanced use cases</p>
+<p>低レベルのメソッドである<code>stream.combine()</code>を使うと、各streamを直接扱う事ができるため、より高度なリアクティブな計算処理に使えます。</p>
 <pre><code class="lang-javascript">var a = stream(5)
 var b = stream(7)
 
@@ -552,50 +551,50 @@ var added = stream.combine(function(a, b) {
     return a() + b()
 }, [a, b])
 
-console.log(added()) // logs 12
+console.log(added()) // 出力: 12
 </code></pre>
-<p>A stream can depend on any number of streams and it's guaranteed to update atomically. For example, if a stream A has two dependent streams B and C, and a fourth stream D is dependent on both B and C, the stream D will only update once if the value of A changes. This guarantees that the callback for stream D is never called with unstable values such as when B has a new value but C has the old value. Atomicity also bring the performance benefits of not recomputing downstreams unnecessarily.</p>
-<p>You can prevent dependent streams from being updated by returning the special value <code>stream.HALT</code></p>
+<p>streamは任意の数のstreamに依存することができ、自動更新されることが保証されます。例えば、stream AがBとCから使われていて、DがBとCに依存しているのであれば、stream Aの値が変更された時に一度だけDも更新されます。また、Bだけが新しく、Cがまだ更新されていないといった安定された状態でDが呼ばれることもありません。自動で更新されるのは、不要な下流streamの再計算を避けるので、パフォーマンス上のメリットもあります。</p>
+<p>特別な値<code>stream.HALT</code>を返すことで、従属streamの更新を止めることができます:</p>
 <pre><code class="lang-javascript">var halted = stream.combine(function(stream) {
     return stream.HALT
 }, [stream(1)])
 
 halted.map(function() {
-    // never runs
+    // 実行されない
 })
 </code></pre>
 <hr>
 <h3 id="stream-states"><a href="#stream-states">Streamの状態</a></h3>
-<p>At any given time, a stream can be in one of three states: <em>pending</em>, <em>active</em>, and <em>ended</em>.</p>
-<h4 id="pending-state"><a href="#pending-state">Pending state</a></h4>
-<p>Pending streams can be created by calling <code>stream()</code> with no parameters.</p>
+<p>streamには、次の3つの状態があります: <em>ペンディング</em>, <em>アクティブ</em>, <em>終了</em></p>
+<h4 id="pending-state"><a href="#pending-state">ペンディング状態</a></h4>
+<p>ペンディング状態は、<code>stream()</code>で作成されたがまだパラメータが設定されていない状態です。</p>
 <pre><code class="lang-javascript">var pending = stream()
 </code></pre>
-<p>If a stream is dependent on more than one stream, any of its parent streams is in a pending state, the dependent streams is also in a pending state, and does not update its value.</p>
+<p>streamが1つ以上のstreamに依存していて、どれか１つでもペンディング状態の親があると、依存streamもペンディング状態になり、値の更新が行われなくなります。</p>
 <pre><code class="lang-javascript">var a = stream(5)
-var b = stream() // pending stream
+var b = stream() // ペンディング状態の stream
 
 var added = stream.combine(function(a, b) {
     return a() + b()
 }, [a, b])
 
-console.log(added()) // logs undefined
+console.log(added()) // 出力: undefined
 </code></pre>
-<p>In the example above, <code>added</code> is a pending stream, because its parent <code>b</code> is also pending.</p>
-<p>This also applies to dependent streams created via <code>stream.map</code>:</p>
+<p>上記の例では、親の<code>b</code>がペンディングなので、<code>added</code>もペンディング状態です。</p>
+<p>これは<code>stream.map</code>を使って作ったstreamでも同じ動作になります:</p>
 <pre><code class="lang-javascript">var value = stream()
 var doubled = value.map(function(value) {return value * 2})
 
-console.log(doubled()) // logs undefined because `doubled` is pending
+console.log(doubled()) // `doubled` がペンディングなのでundfinedが出力
 </code></pre>
-<h4 id="active-state"><a href="#active-state">Active state</a></h4>
-<p>When a stream receives a value, it becomes active (unless the stream is ended).</p>
-<pre><code class="lang-javascript">var stream1 = stream("hello") // stream1 is active
+<h4 id="active-state"><a href="#active-state">アクティブ状態</a></h4>
+<p>値を受け取ったstreamはアクティブ（もしくは終了状態）となります。</p>
+<pre><code class="lang-javascript">var stream1 = stream("hello") // stream1 がアクティブ
 
-var stream2 = stream() // stream2 starts off pending
-stream2("world") // then becomes active
+var stream2 = stream() // stream2 をペンディング状態で作成し、
+stream2("world") // 後にアクティブに
 </code></pre>
-<p>A dependent stream with multiple parents becomes active if all of its parents are active.</p>
+<p>複数の親を持つ依存streamの場合、すべての親がアクティブな時にアクティブとなります。</p>
 <pre><code class="lang-javascript">var a = stream("hello")
 var b = stream()
 
@@ -603,63 +602,63 @@ var greeting = stream.merge([a, b]).map(function(values) {
     return values.join(" ")
 })
 </code></pre>
-<p>In the example above, the <code>a</code> stream is active, but <code>b</code> is pending. setting <code>b("world")</code> would cause <code>b</code> to become active, and therefore <code>greeting</code> would also become active, and be updated to have the value <code>"hello world"</code></p>
-<h4 id="ended-state"><a href="#ended-state">Ended state</a></h4>
-<p>A stream can stop affecting its dependent streams by calling <code>stream.end(true)</code>. This effectively removes the connection between a stream and its dependent streams.</p>
+<p>上記の例では、<code>a</code>はアクティブですが、<code>b</code>はペンディング状態です。<code>b("world")</code>を実行すると、<code>b</code>がアクティブになり、その後<code>greeting</code>もアクティブ化され、streamの値が<code>"hello world"</code>となります。</p>
+<h4 id="ended-state"><a href="#ended-state">終了状態</a></h4>
+<p><code>stream.end(true)</code>を呼ぶと、依存streamに影響を与えることがなくなります。これを使うと、親streamと依存streamの接続を効率的に削除することができます。</p>
 <pre><code class="lang-javascript">var value = stream()
 var doubled = value.map(function(value) {return value * 2})
 
-value.end(true) // set to ended state
+value.end(true) // 終了状態の設定
 
 value(5)
 
 console.log(doubled())
-// logs undefined because `doubled` no longer depends on `value`
+// `doubled` はもう `value` に依存してないので、undefined出力
 </code></pre>
-<p>Ended streams still have state container semantics, i.e. you can still use them as getter-setters, even after they are ended.</p>
+<p>終了したstreamもまだ状態のコンテナとしては機能します。そのため、終了状態に設定しても、ゲッター・セッターとしては使えます。</p>
 <pre><code class="lang-javascript">var value = stream(1)
-value.end(true) // set to ended state
+value.end(true) // 終了状態にセット
 
-console.log(value(1)) // logs 1
+console.log(value(1)) // 出力: 1
 
 value(2)
-console.log(value()) // logs 2
+console.log(value()) // 出力: 2
 </code></pre>
-<p>Ending a stream can be useful in cases where a stream has a limited lifetime (for example, reacting to <code>mousemove</code> events only while a DOM element is being dragged, but not after it's been dropped).</p>
+<p>終了したstreamは、ライフサイクルが決まっているケースで便利です。例えば、DOMエレメントをドラッグしている間だけ<code>mousemove</code>イベントに対してリアクティブに動作し、ドロップしたら接続を切りたい場合などです。</p>
 <hr>
 <h3 id="serializing-streams"><a href="#serializing-streams">Streamのシリアライズ</a></h3>
-<p>Streams implement a <code>.toJSON()</code> method. When a stream is passed as the argument to <code>JSON.stringify()</code>, the value of the stream is serialized.</p>
+<p>streamは<code>.toJSON()</code>メソッドを実装しています。<code>JSON.stringify()</code>にstreamを渡すと、streamが持っている値がシリアライズされます。</p>
 <pre><code class="lang-javascript">var value = stream(123)
 var serialized = JSON.stringify(value)
-console.log(serialized) // logs 123
+console.log(serialized) // 出力: 123
 </code></pre>
-<p>Streams also implement a <code>valueOf</code> method that returns the value of the stream.</p>
+<p>streamは<code>valueOf</code>メソッドもも実装しているため、streamの値を統一インタフェースで扱うことができます。</p>
 <pre><code class="lang-javascript">var value = stream(123)
-console.log("test " + value) // logs "test 123"
+console.log("test " + value) // 出力 "test 123"
 </code></pre>
 <hr>
 <h3 id="streams-do-not-trigger-rendering"><a href="#streams-do-not-trigger-rendering">Streamはレンダリングを起動しない</a></h3>
-<p>Unlike libraries like Knockout, Mithril streams do not trigger re-rendering of templates. Redrawing happens in response to event handlers defined in Mithril component views, route changes, or after <a href="request.html"><code>m.request</code></a> calls resolve.</p>
-<p>If redrawing is desired in response to other asynchronous events (e.g. <code>setTimeout</code>/<code>setInterval</code>, websocket subscription, 3rd party library event handler, etc), you should manually call <a href="redraw.html"><code>m.redraw()</code></a></p>
+<p>Knockoutなどのようなライブラリと異なり、Mithrilのstreamはテンプレートの再描画をトリガーしません。再描画はMithrilのコンポーネントのビューで定義されたイベントハンドラ、ラウトの変更、<a href="request.html"><code>m.request</code></a>の呼び出しが解決したタイミングで行われます。</p>
+<p><code>setTimeout</code>/<code>setInterval</code>, websocketのサブスクリプション、サードパーティーライブラリのイベントハンドラなど、他の非同期イベントで再描画を行う場合は、手動で<a href="redraw.html"><code>m.redraw()</code></a>を呼びます。</p>
 <hr>
 <h3 id="what-is-fantasy-land"><a href="#what-is-fantasy-land">Fantasy Landとは何か</a></h3>
-<p><a href="https://github.com/fantasyland/fantasy-land">Fantasy Land</a> specifies interoperability of common algebraic structures. In plain english, that means that libraries that conform to Fantasy Land specs can be used to write generic functional style code that works regardless of how these libraries implement the constructs.</p>
-<p>For example, say we want to create a generic function called <code>plusOne</code>. The naive implementation would look like this:</p>
+<p><a href="https://github.com/fantasyland/fantasy-land">Fantasy Land</a>は一般的な代数構造の相互運用性のための共通のインタフェースを定義したものです。Fantasy Landの仕様に準拠したライブラリは、これらのライブラリがどのような内部構造で実装されているかに関係なく、汎用的な関数型スタイルのコードから利用できます。</p>
+<p>例えば、汎用関数<code>plusOne</code>を作りたいとします。JavaScriptのネイティブ実装では次のようになるでしょう:</p>
 <pre><code class="lang-javascript">function plusOne(a) {
     return a + 1
 }
 </code></pre>
-<p>The problem with this implementation is that it can only be used with a number. However it's possible that whatever logic produces a value for <code>a</code> could also produce an error state (wrapped in a Maybe or an Either from a library like <a href="https://github.com/sanctuary-js/sanctuary">Sanctuary</a> or <a href="https://github.com/ramda/ramda-fantasy">Ramda-Fantasy</a>), or it could be a Mithril stream, or a <a href="https://github.com/paldepind/flyd">flyd</a> stream, etc. Ideally, we wouldn't want to write a similar version of the same function for every possible type that <code>a</code> could have and we wouldn't want to be writing wrapping/unwrapping/error handling code repeatedly.</p>
-<p>This is where Fantasy Land can help. Let's rewrite that function in terms of a Fantasy Land algebra:</p>
+<p>この実装の問題点は、数値型に対してのみしか利用できない点です。しかし、<code>a</code>の値によっては、このロジックはエラー状態を発生する可能性があります。エラー状態は、<a href="https://github.com/sanctuary-js/sanctuary">Sanctuary</a>や<a href="https://github.com/ramda/ramda-fantasy">Ramda-Fantasy</a>ではMaybeやEitherとしてラップされますし、Mithrilのstreamや<a href="https://github.com/paldepind/flyd">flyd</a>のstreamなどでも発生する可能性があります。理想的には、<code>a</code>が持つ可能性のあるすべての型に対して、ラップ/アンラップ/エラーハンドリングコードなどを書きたくはないでしょう。</p>
+<p>Fantasy Landはこの分野の手助けをしてくれます。Fantasy Landの代数のルールに従って関数を書いてみましょう:</p>
 <pre><code class="lang-javascript">var fl = require("fantasy-land")
 
 function plusOne(a) {
     return a[fl.map](function(value) {return value + 1})
 }
 </code></pre>
-<p>Now this method works with any Fantasy Land compliant <a href="https://github.com/fantasyland/fantasy-land#functor">Functor</a>, such as <a href="https://github.com/ramda/ramda-fantasy/blob/master/docs/Maybe.md"><code>R.Maybe</code></a>, <a href="https://github.com/sanctuary-js/sanctuary#either-type"><code>S.Either</code></a>, <code>stream</code>, etc.</p>
-<p>This example may seem convoluted, but it's a trade-off in complexity: the naive <code>plusOne</code> implementation makes sense if you have a simple system and only ever increment numbers, but the Fantasy Land implementation becomes more powerful if you have a large system with many wrapper abstractions and reused algorithms.</p>
-<p>When deciding whether you should adopt Fantasy Land, you should consider your team's familiarity with functional programming, and be realistic regarding the level of discipline that your team can commit to maintaining code quality (vs the pressure of writing new features and meeting deadlines). Functional style programming heavily depends on compiling, curating and mastering a large set of small, precisely defined functions, and therefore it's not suitable for teams who do not have solid documentation practices, and/or lack experience in functional oriented languages.</p>
+<p>このメソッドは、Fantasy Land準拠の<a href="https://github.com/fantasyland/fantasy-land#functor">Functor</a>（such as <a href="https://github.com/ramda/ramda-fantasy/blob/master/docs/Maybe.md"><code>R.Maybe</code></a>, <a href="https://github.com/sanctuary-js/sanctuary#either-type"><code>S.Either</code></a>, <code>stream</code>）に対して動作します。</p>
+<p>この例だけを見ると、単に複雑にしているだけに見えるかもしれませんが、複雑さとトレードオフのメリットがあります。シンプルなシステムで数字を増やすだけの単純な<code>plusOne</code>実装はこのケースでは理にかなっていますが、Fantasy Landの実装にすると、数多くの多くの抽象化された再利用可能なアルゴリズムのラッパーが利用できます。</p>
+<p>Fantasy Landに対応すべきかどうかを判断するには、チームが関数型プログラミングに精通しているか、新機能の作成と締め切りのプレッシャーに負けずにコード品質を維持できるほど教育されているかどうかを確認する必要があります。関数型スタイルのプログラミングは、数多くの小さなよく定義された関数のコンパイル、キュレーション、マスタリングに大きく依存します。したがって、実践的なドキュメントが書けないチームや、関数指向の言語の経験が不足しているチームには適していません。</p>
 
 				<hr />
 				<small>License: MIT. © Leo Horie.</small>

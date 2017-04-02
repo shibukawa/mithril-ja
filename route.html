@@ -241,8 +241,8 @@ m.route(document.body, "/home", {
 <p>この関数はおそらく<code>m("a")</code> vnodeの<code>oncreate</code>（と<code>onupdate</code>）フック内で使用されます:</p>
 <pre><code class="lang-JS">m("a[href=/]", {oncreate: m.route.link})`.
 </code></pre>
-<p>Using <code>m.route.link</code> as a <code>oncreate</code> hook causes the link to behave as a router link (i.e. it navigates to the route specified in <code>href</code>, instead of nagivating away from the current page to the URL specified in <code>href</code>.</p>
-<p>If the <code>href</code> attribute is not static, the <code>onupdate</code> hook must also be set:</p>
+<p><code>m.route.link</code>を<code>oncreate</code>フックとして使用すると、ラウター用のリンクとして動作するようになります。<code>href</code>はラウトに特化したナビゲーションリンクなります。現在のページから他のページへジャンプしてブラウザの内容がリセットされるのではなく、<code>href</code>で指定されたラウトへの内部ジャンプになります。</p>
+<p><code>href</code>属性が静的なものでなければ、<code>onupdate</code>フックも設定しなければなりません。</p>
 <pre><code class="lang-JS">m("a", {href: someVariable, oncreate: m.route.link, onupdate: m.route.link})`
 </code></pre>
 <p><code>m.route.link(vnode)</code></p>
@@ -260,7 +260,7 @@ m.route(document.body, "/home", {
 <td><code>vnode</code></td>
 <td><code>Vnode</code></td>
 <td>Yes</td>
-<td>This method is meant to be used as or in conjunction with an <code>&lt;a&gt;</code> <a href="vnodes.html">vnode</a>'s <a href="lifecycle-methods.html"><code>oncreate</code> and <code>onupdate</code> hooks</a></td>
+<td>このメソッドは<code>&lt;a&gt;</code>タグと<a href="vnodes.html">vnode</a>の<a href="lifecycle-methods.html"><code>oncreate</code>と<code>onupdate</code>フック</a>を結びつけるときに使います。</td>
 </tr>
 <tr>
 <td><strong>返り値</strong></td>
@@ -271,11 +271,11 @@ m.route(document.body, "/home", {
 </tbody>
 </table>
 <h5 id="mrouteparam"><a href="#mrouteparam">m.route.param</a></h5>
-<p>Retrieves a route parameter. A route parameter is a key-value pair. Route parameters may come from a few different places:</p>
+<p>ラウトパラメータの取得ラウとパラメータはキー・バリューのペアです。ラウトパラメータはいくつかの場所から収集されます:</p>
 <ul>
-<li>route interpolations (e.g. if a route is <code>/users/:id</code>, and it resolves to <code>/users/1</code>, the route parameter has a key <code>id</code> and value <code>"1"</code>)</li>
-<li>router querystrings (e.g. if the path is <code>/users?page=1</code>, the route parameter has a key <code>page</code> and value <code>"1"</code>)</li>
-<li><code>history.state</code> (e.g. if history.state is <code>{foo: "bar"}</code>, the route parameter has key <code>foo</code> and value <code>"bar"</code>)</li>
+<li>ラウトへの挿入。<code>/users/:id</code>というラウトが設定され、<code>/users/1</code>というラウトを解決すると、ラウとパラメータは<code>id</code>というキーが作られ、その値には<code>"1"</code>が設定されます。</li>
+<li>ラウターのクエリー文字列。パスが<code>/users?page=1</code>の時は、ラウトパラメータには<code>page</code>というキーができ、<code>"1"</code>が設定されます。</li>
+<li><code>history.state</code>。history.stateが<code>{foo: "bar"}</code>に設定されると、ラウとパラメータには<code>foo</code>というキーができ、<code>"bar"</code>が設定されます。</li>
 </ul>
 <p><code>value = m.route.param(key)</code></p>
 <table>
@@ -292,13 +292,13 @@ m.route(document.body, "/home", {
 <td><code>key</code></td>
 <td><code>String</code></td>
 <td>No</td>
-<td>A route parameter name (e.g. <code>id</code> in route <code>/users/:id</code>, or <code>page</code> in path <code>/users/1?page=3</code>, or a key in <code>history.state</code>)</td>
+<td>ラウトパラメータ名（例えば、<code>/users/:id</code>というラウトであれば<code>id</code>、<code>/users/1?page=3</code>というパスなら<code>page</code>、あるいは<code>history.state</code>のキー）</td>
 </tr>
 <tr>
 <td><strong>返り値</strong></td>
 <td><code>String|Object</code></td>
 <td></td>
-<td>Returns a value for the specified key. If a key is not specified, it returns an object that contains all the interpolation keys</td>
+<td>指定されたキーの値を返します。もしキーが指定されなければ、すべての挿入されたキーを含むオブジェクトを返します。</td>
 </tr>
 </tbody>
 </table>
