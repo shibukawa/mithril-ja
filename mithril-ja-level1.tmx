@@ -822,6 +822,14 @@ npm start</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>#active-state</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232315Z" creationid="shibukawa.yoshiki" creationdate="20170331T232315Z">
+        <seg>#active-state</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>#advanced-component-resolution</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T000610Z" creationid="shibukawa.yoshiki" creationdate="20170222T000610Z">
@@ -950,6 +958,14 @@ npm start</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>#avoid-blind-copying-and-pasting</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T164533Z" creationid="shibukawa.yoshiki" creationdate="20170402T164533Z">
+        <seg>#avoid-blind-copying-and-pasting</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>#avoid-creating-component-definitions-inside-views</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T151100Z" creationid="shibukawa.yoshiki" creationdate="20170331T151100Z">
@@ -994,6 +1010,22 @@ npm start</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T151338Z" creationid="shibukawa.yoshiki" creationdate="20170331T151338Z">
         <seg>#avoid-hiding-keys-in-component-root-elements</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>#avoid-html-entities</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T164534Z" creationid="shibukawa.yoshiki" creationdate="20170402T164534Z">
+        <seg>#avoid-html-entities</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>#avoid-memoizing-mutable-vnodes</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T234647Z" creationid="shibukawa.yoshiki" creationdate="20170331T234647Z">
+        <seg>#avoid-memoizing-mutable-vnodes</seg>
       </tuv>
     </tu>
     <tu>
@@ -1566,6 +1598,14 @@ npm start</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>#ended-state</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231522Z" creationid="shibukawa.yoshiki" creationdate="20170331T231522Z">
+        <seg>#ended-state</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>#error-handling</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004517Z" creationid="shibukawa.yoshiki" creationdate="20170330T004517Z">
@@ -1698,6 +1738,14 @@ npm start</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170221T235720Z" creationid="shibukawa.yoshiki" creationdate="20170221T235720Z">
         <seg>#getting-started</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>#good-testing-practices</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T163542Z" creationid="shibukawa.yoshiki" creationdate="20170402T163542Z">
+        <seg>#good-testing-practices</seg>
       </tuv>
     </tu>
     <tu>
@@ -2454,6 +2502,14 @@ npm start</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>#pending-state</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232409Z" creationid="shibukawa.yoshiki" creationdate="20170331T232409Z">
+        <seg>#pending-state</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>#performance</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170221T235453Z" creationid="shibukawa.yoshiki" creationdate="20170221T235453Z">
@@ -2838,6 +2894,14 @@ npm start</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>#running-mithril-in-a-non-browser-environment</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T163517Z" creationid="shibukawa.yoshiki" creationdate="20170402T163517Z">
+        <seg>#running-mithril-in-a-non-browser-environment</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>#scripts-that-do-not-run</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T042954Z" creationid="shibukawa.yoshiki" creationdate="20170331T042954Z">
@@ -3158,6 +3222,14 @@ npm start</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>#testing</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T163511Z" creationid="shibukawa.yoshiki" creationdate="20170402T163511Z">
+        <seg>#testing</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>#the-auto-redraw-system</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T145002Z" creationid="shibukawa.yoshiki" creationdate="20170331T145002Z">
@@ -3206,10 +3278,26 @@ npm start</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>#trusthtml</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T164530Z" creationid="shibukawa.yoshiki" creationdate="20170402T164530Z">
+        <seg>#trusthtml</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>#typical-usage</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T000049Z" creationid="shibukawa.yoshiki" creationdate="20170222T000049Z">
         <seg>#typical-usage</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>#unit-testing</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T163546Z" creationid="shibukawa.yoshiki" creationdate="20170402T163546Z">
+        <seg>#unit-testing</seg>
       </tuv>
     </tu>
     <tu>
@@ -3358,6 +3446,14 @@ npm start</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>#version</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T164535Z" creationid="shibukawa.yoshiki" creationdate="20170402T164535Z">
+        <seg>#version</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>#via-the-this-keyword</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T151054Z" creationid="shibukawa.yoshiki" creationdate="20170331T151054Z">
@@ -3378,6 +3474,14 @@ npm start</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T013812Z" creationid="shibukawa.yoshiki" creationdate="20170222T013812Z">
         <seg>#view-parameters</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>#virtual-dom-nodes</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T235134Z" creationid="shibukawa.yoshiki" creationdate="20170331T235134Z">
+        <seg>#virtual-dom-nodes</seg>
       </tuv>
     </tu>
     <tu>
@@ -3534,10 +3638,26 @@ npm start</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>#why-not-insert-favorite-framework-here?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T164604Z" creationid="shibukawa.yoshiki" creationdate="20170402T164604Z">
+        <seg>#why-not-insert-favorite-framework-here?</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>#why-use-mithril</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170327T115832Z" creationid="shibukawa.yoshiki" creationdate="20170327T115832Z">
         <seg>#why-use-mithril</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>#why-use-mithril?</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T164607Z" creationid="shibukawa.yoshiki" creationdate="20170402T164607Z">
+        <seg>#why-use-mithril?</seg>
       </tuv>
     </tu>
     <tu>
@@ -3554,6 +3674,14 @@ npm start</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T000137Z" creationid="shibukawa.yoshiki" creationdate="20170222T000137Z">
         <seg>#why-xhr-instead-of-fetch</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>#withattrattrname,-callback</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T000616Z" creationid="shibukawa.yoshiki" creationdate="20170401T000616Z">
+        <seg>#withattrattrname,-callback</seg>
       </tuv>
     </tu>
     <tu>
@@ -3646,6 +3774,14 @@ npm start</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T074319Z" creationid="shibukawa.yoshiki" creationdate="20170331T074319Z">
         <seg>(String|Number|Boolean)?</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>(accumulator, value) -&gt; result</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232246Z" creationid="shibukawa.yoshiki" creationdate="20170331T232246Z">
+        <seg>(accumulator, value) -&gt; result</seg>
       </tuv>
     </tu>
     <tu>
@@ -3896,6 +4032,14 @@ npm start</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>.then(function(response) {return response.json()})</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232538Z" creationid="shibukawa.yoshiki" creationdate="20170331T232538Z">
+        <seg>.then(function(response) {return response.json()})</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>.then(function(result) {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170221T233752Z" creationid="shibukawa.yoshiki" creationdate="20170221T233752Z">
@@ -3996,6 +4140,14 @@ npm start</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150415T173433Z" creationid="shibukawa.yoshiki" creationdate="20150415T173433Z">
         <seg>.then(null, error) //アプリケーションのエラーをテンプレートで表示するためにsetter-getterにバインド</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>.then(users)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232539Z" creationid="shibukawa.yoshiki" creationdate="20170331T232539Z">
+        <seg>.then(users)</seg>
       </tuv>
     </tu>
     <tu>
@@ -4614,6 +4766,18 @@ var BetterInput = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>// Polyfill DOM env for mithril
+global.window = require("mithril/test-utils/browserMock.js")();
+global.document = window.document;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T164450Z" creationid="shibukawa.yoshiki" creationdate="20170402T164450Z">
+        <seg>// MithrilでDOM環境をモックするためのPolyfill
+global.window = require("mithril/test-utils/browserMock.js")();
+global.document = window.document;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>// Sample hook in component
 var ComponentWithHook = {</seg>
       </tuv>
@@ -4756,6 +4920,22 @@ m.mount(document.body, MyComponent)</seg>
 }
 
 m.mount(document.body, MyComponent)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>// a stream
+var user = stream("")
+
+// a bi-directional binding to the stream
+m("input", {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232102Z" creationid="shibukawa.yoshiki" creationdate="20170331T232102Z">
+        <seg>// stream
+var user = stream("")
+
+// streamとの双方向バインディング
+m("input", {</seg>
       </tuv>
     </tu>
     <tu>
@@ -4994,6 +5174,16 @@ module.exports = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>// never runs
+})</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231820Z" creationid="shibukawa.yoshiki" creationdate="20170331T231820Z">
+        <seg>// 実行されない
+})</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>// no longer triggers a redraw when the div is clicked
 }
 
@@ -5020,6 +5210,22 @@ m.mount(document.body, MyComponent)</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T013854Z" creationid="shibukawa.yoshiki" creationdate="20170222T013854Z">
         <seg>// options.fooga === 1</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>// parent stream
+var value = stream(1)
+
+// dependent stream
+var doubled = value.map(function(value) {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231858Z" creationid="shibukawa.yoshiki" creationdate="20170331T231858Z">
+        <seg>// 親stream
+var value = stream(1)
+
+// 依存stream
+var doubled = value.map(function(value) {</seg>
       </tuv>
     </tu>
     <tu>
@@ -6964,6 +7170,14 @@ todo.Todo = function(data) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Fantasy Land specifies interoperability of common algebraic structures.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T001234Z" creationid="shibukawa.yoshiki" creationdate="20170402T001201Z">
+        <seg>Fantasy Landは一般的な代数構造の相互運用性のための共通のインタフェースを定義したものです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Guide API Chat Github</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170131T024549Z" creationid="shibukawa.yoshiki" creationdate="20170131T024549Z">
@@ -7662,6 +7876,14 @@ todo.Todo = function(data) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>history.state (e.g. if history.state is {foo: "bar"}, the route parameter has key foo and value "bar")</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T002344Z" creationid="shibukawa.yoshiki" creationdate="20170401T002344Z">
+        <seg>history.state。history.stateが{foo: "bar"}に設定されると、ラウとパラメータにはfooというキーができ、"bar"が設定されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>m(component, ...args) can now be used as a shorthand for m.component(component, ...args)</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T140251Z" creationid="shibukawa.yoshiki" creationdate="20160412T140251Z">
@@ -7906,6 +8128,14 @@ todo.Todo = function(data) {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T133322Z" creationid="shibukawa.yoshiki" creationdate="20150412T133322Z">
         <seg>select2.configは、与えられたコントローラに対応するconfig関数を作成するファクトリー関数です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>stream() returns a stream.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T011137Z" creationid="shibukawa.yoshiki" creationdate="20170401T011137Z">
+        <seg>stream()はstreamを返します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -8586,6 +8816,14 @@ todo.Todo = function(data) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&lt;script src="https://unpkg.com/mithril-stream"&gt;&lt;/script&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231121Z" creationid="shibukawa.yoshiki" creationdate="20170331T231121Z">
+        <seg>&lt;script src="https://unpkg.com/mithril-stream"&gt;&lt;/script&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>&lt;script src="https://unpkg.com/mithril/mithril.js"&gt;&lt;/script&gt;</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T020920Z" creationid="shibukawa.yoshiki" creationdate="20170328T020920Z">
@@ -8952,6 +9190,30 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A callback whose return value becomes the value of the stream</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T010023Z" creationid="shibukawa.yoshiki" creationdate="20170401T010023Z">
+        <seg>このコールバック関数の結果値がstreamの値になります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A chained stream is also known as a dependent stream.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T231759Z" creationid="shibukawa.yoshiki" creationdate="20170401T231759Z">
+        <seg>チェーンしたstreamは依存streamとなります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A co-dependent stream that unregisters dependent streams when set to true.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T010502Z" creationid="shibukawa.yoshiki" creationdate="20170401T010502Z">
+        <seg>trueに設定すると、従属streamの登録を解除する相互依存streamです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A common pattern is to have data comprised of an array of objects and to generate a list of vnodes that map to each object in the array.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T124834Z" creationid="shibukawa.yoshiki" creationdate="20170329T124834Z">
@@ -9064,6 +9326,14 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A dependent stream with multiple parents becomes active if all of its parents are active.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T000050Z" creationid="shibukawa.yoshiki" creationdate="20170402T000050Z">
+        <seg>複数の親を持つ依存streamの場合、すべての親がアクティブな時にアクティブとなります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A deserialization method to be applied to the xhr.responseText.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T172320Z" creationid="shibukawa.yoshiki" creationdate="20170331T172320Z">
@@ -9124,6 +9394,14 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T030245Z" creationid="shibukawa.yoshiki" creationdate="20170330T030245Z">
         <seg>Promiseが拒絶されたときに呼び出される関数。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A function that takes an accumulator and value parameter and returns a new accumulator value</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T002854Z" creationid="shibukawa.yoshiki" creationdate="20170401T002629Z">
+        <seg>アキュームレータと値を受け取り、新しいアキュームレータ値を返します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -9440,6 +9718,22 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A route parameter is a key-value pair.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T001524Z" creationid="shibukawa.yoshiki" creationdate="20170401T001524Z">
+        <seg>ラウとパラメータはキー・バリューのペアです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A route parameter name (e.g. id in route /users/:id, or page in path /users/1?page=3, or a key in history.state)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T002451Z" creationid="shibukawa.yoshiki" creationdate="20170401T002451Z">
+        <seg>ラウトパラメータ名（例えば、/users/:idというラウトであればid、/users/1?page=3というパスならpage、あるいはhistory.stateのキー）</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A route with parameters might look like this:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T170600Z" creationid="shibukawa.yoshiki" creationdate="20150414T170600Z">
@@ -9480,10 +9774,42 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>A special value that can be returned to stream callbacks to halt execution of downstreams</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T004055Z" creationid="shibukawa.yoshiki" creationdate="20170401T004055Z">
+        <seg>下流streamの実行を停止するためにstreamのコールバックを返すことができる特別な値です</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>A splat argument means that if the argument is an array, you can omit the square brackets and have a variable number of arguments in the method instead.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T042505Z" creationid="shibukawa.yoshiki" creationdate="20170331T042344Z">
         <seg>可変長でフラット化が可能な引数は配列で引数を渡すこともできるし、角かっこを省略して通常の引数としても渡すことができる引数です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A stream can depend on any number of streams and it's guaranteed to update atomically.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T232741Z" creationid="shibukawa.yoshiki" creationdate="20170401T232741Z">
+        <seg>streamは任意の数のstreamに依存することができ、自動更新されることが保証されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A stream can stop affecting its dependent streams by calling stream.end(true).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T000323Z" creationid="shibukawa.yoshiki" creationdate="20170402T000323Z">
+        <seg>stream.end(true)を呼ぶと、依存streamに影響を与えることがなくなります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A stream whose value is a function</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T011004Z" creationid="shibukawa.yoshiki" creationdate="20170401T011004Z">
+        <seg>関数が値として設定されているstream</seg>
       </tuv>
     </tu>
     <tu>
@@ -9700,6 +10026,14 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T160239Z" creationid="shibukawa.yoshiki" creationdate="20170329T160239Z">
         <seg>コンポーネントを有効にし、ユーザーイベントに反応して自動再描画が起動するようにします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Active state</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232321Z" creationid="shibukawa.yoshiki" creationdate="20170331T232321Z">
+        <seg>アクティブ状態</seg>
       </tuv>
     </tu>
     <tu>
@@ -10116,6 +10450,14 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T034917Z" creationid="shibukawa.yoshiki" creationdate="20150502T034917Z">
         <seg>アップロードが完了するとアラートボックスが表示されます。"),</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>An array of tuples of stream and scan functions</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T003409Z" creationid="shibukawa.yoshiki" creationdate="20170401T003355Z">
+        <seg>streamとscan関数のタプルの配列</seg>
       </tuv>
     </tu>
     <tu>
@@ -10648,6 +10990,14 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Array&lt;[Stream, (accumulator, value) -&gt; value]&gt;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232238Z" creationid="shibukawa.yoshiki" creationdate="20170331T232238Z">
+        <seg>Array&lt;[Stream, (accumulator, value) -&gt; value]&gt;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Array promises</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T004335Z" creationid="shibukawa.yoshiki" creationdate="20170328T004335Z">
@@ -10952,6 +11302,14 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>At any given time, a stream can be in one of three states: pending, active, and ended.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T235538Z" creationid="shibukawa.yoshiki" creationdate="20170401T235538Z">
+        <seg>streamには、次の3つの状態があります: ペンディング, アクティブ, 終了</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>At initialization</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170302T011022Z" creationid="shibukawa.yoshiki" creationdate="20170302T011022Z">
@@ -10964,6 +11322,22 @@ var todo = {};
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170208T085918Z" creationid="shibukawa.yoshiki" creationdate="20170208T085918Z">
         <seg>もっとも基本的な形式は次のようになります:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>At its most basic level, a stream works similar to a variable or a getter-setter property: it can hold state, which can be modified.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T011242Z" creationid="shibukawa.yoshiki" creationdate="20170401T011242Z">
+        <seg>streamの基本特性としては、streamは変数や、ゲッター・セッター・プロパティのように使うことができます。値を保持したり、変更できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Atomicity also bring the performance benefits of not recomputing downstreams unnecessarily.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T233239Z" creationid="shibukawa.yoshiki" creationdate="20170401T233239Z">
+        <seg>自動で更新されるのは、不要な下流streamの再計算を避けるので、パフォーマンス上のメリットもあります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12016,6 +12390,14 @@ var todo = {};
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Calling ap will call the function with the value of stream b as its argument, and it will return another stream whose value is the result of the function call.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T010922Z" creationid="shibukawa.yoshiki" creationdate="20170401T010922Z">
+        <seg>apを呼び出すと、streambの値を引数に渡して関数を呼び出します。そして、その関数の結果を値として持つstreamを返します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Calling the then method attaches the computations represented by successCallback and errorCallback to the promise, which will be called when either resolve or reject is called.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150415T134626Z" creationid="shibukawa.yoshiki" creationdate="20150415T134626Z">
@@ -12628,6 +13010,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Component|Promise|undefined</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T002605Z" creationid="shibukawa.yoshiki" creationdate="20170401T002605Z">
+        <seg>Component|Promise|undefined</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Component|null</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T160247Z" creationid="shibukawa.yoshiki" creationdate="20170329T160247Z">
@@ -12654,8 +13044,16 @@ where:</seg>
       <tuv lang="EN-US">
         <seg>Computed properties</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T030417Z" creationid="shibukawa.yoshiki" creationdate="20170222T030417Z">
-        <seg>計算済みプロパティ</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T011700Z" creationid="shibukawa.yoshiki" creationdate="20170222T030417Z">
+        <seg>算出プロパティ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Computed properties in Mithril are updated atomically: streams that depend on multiple streams will never be called more than once per value update, no matter how complex the computed property's dependency graph is.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T095427Z" creationid="shibukawa.yoshiki" creationdate="20170401T095427Z">
+        <seg>Mithrilの算出プロパティは動的に更新されます。streamは複数のstreamに依存しており、値の更新ごとに1度以上呼ばれることはありません。算出プロパティの依存グラフがとても複雑であっても問題ありません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12904,6 +13302,22 @@ var ContactsWidget = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T142619Z" creationid="shibukawa.yoshiki" creationdate="20170331T142619Z">
         <seg>上流のStreamが更新されたら計算が行われるStreamを作成します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Creates a dependent stream whose value is set to the result of the callback function.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T005952Z" creationid="shibukawa.yoshiki" creationdate="20170401T005952Z">
+        <seg>コールバック関数の結果を値として持つ依存streamを作成します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Creates a new stream with the results of calling the function on every value in the stream with an accumulator and the incoming value.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T002740Z" creationid="shibukawa.yoshiki" creationdate="20170331T234557Z">
+        <seg>全てのstreamの値に対して関数を呼び出し、入力ストリームのすべての値とアキュームレータを一緒に関数に渡して、その結果を値を持つ新しいstreamを返します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -13472,6 +13886,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Dependent streams are reactive: their values are updated any time the value of their parent stream is updated.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T231958Z" creationid="shibukawa.yoshiki" creationdate="20170401T231958Z">
+        <seg>依存streamはリアクティブです。親のstreamの値が更新されると、即座に依存streamの値も更新されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Depending on the application, this may or may not be desirable.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170208T071842Z" creationid="shibukawa.yoshiki" creationdate="20170208T071842Z">
@@ -13904,6 +14326,30 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Ended state</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231529Z" creationid="shibukawa.yoshiki" creationdate="20170331T231529Z">
+        <seg>終了状態</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Ended streams still have state container semantics, i.e. you can still use them as getter-setters, even after they are ended.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T000443Z" creationid="shibukawa.yoshiki" creationdate="20170402T000443Z">
+        <seg>終了したstreamもまだ状態のコンテナとしては機能します。そのため、終了状態に設定しても、ゲッター・セッターとしては使えます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Ending a stream can be useful in cases where a stream has a limited lifetime (for example, reacting to mousemove events only while a DOM element is being dragged, but not after it's been dropped).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T000625Z" creationid="shibukawa.yoshiki" creationdate="20170402T000625Z">
+        <seg>終了したstreamは、ライフサイクルが決まっているケースで便利です。例えば、DOMエレメントをドラッグしている間だけmousemoveイベントに対してリアクティブに動作し、ドロップしたら接続を切りたい場合などです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Ensure that no new features are added</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T172202Z" creationid="shibukawa.yoshiki" creationdate="20170331T172202Z">
@@ -14268,6 +14714,22 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For components, a reference to the original vnode.state object, used to lookup the view and hooks.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T235517Z" creationid="shibukawa.yoshiki" creationdate="20170331T235517Z">
+        <seg>オリジナルのvnode.stateオブジェクトへの参照です。viewやフックを探すのに使われます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For components, a storage location for the value returned by the view.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T000537Z" creationid="shibukawa.yoshiki" creationdate="20170401T000537Z">
+        <seg>コンポーネントのviewが返す値を保存していおくものです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For convenience, the m.parseQueryString method ignores a leading question mark, if present:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T004243Z" creationid="shibukawa.yoshiki" creationdate="20170330T004243Z">
@@ -14412,6 +14874,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For example, if a stream A has two dependent streams B and C, and a fourth stream D is dependent on both B and C, the stream D will only update once if the value of A changes.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T232942Z" creationid="shibukawa.yoshiki" creationdate="20170401T232942Z">
+        <seg>例えば、stream AがBとCから使われていて、DがBとCに依存しているのであれば、stream Aの値が変更された時に一度だけDも更新されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For example, if the response is {data: [{name: "John"}, {name: "Mary"}]} and the unwrap function is function(response) {return response.data}, then the response will be considered to be [{name: "John"}, {name: "Mary"}] when processing the type parameter</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150415T012946Z" creationid="shibukawa.yoshiki" creationdate="20150415T012946Z">
@@ -14508,6 +14978,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For example, say we want to create a generic function called plusOne.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T001441Z" creationid="shibukawa.yoshiki" creationdate="20170402T001441Z">
+        <seg>例えば、汎用関数plusOneを作りたいとします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>For example, the value for className should be a string.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150413T153641Z" creationid="shibukawa.yoshiki" creationdate="20150413T153641Z">
@@ -14600,6 +15078,30 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150417T014234Z" creationid="shibukawa.yoshiki" creationdate="20150417T014234Z">
         <seg>詳細についてはこのページを参照してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For more information, see the What is Fantasy Land section.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T010612Z" creationid="shibukawa.yoshiki" creationdate="20170401T010612Z">
+        <seg>詳しくはFantasy Landとは何かのセクションで紹介します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For more information, see the What is Fantasy Land section.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T004420Z" creationid="shibukawa.yoshiki" creationdate="20170401T004420Z">
+        <seg>詳しくはFantasy Landとは何かのセクションで紹介します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For more information, see the What is Fantasy Land section.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T010947Z" creationid="shibukawa.yoshiki" creationdate="20170401T010947Z">
+        <seg>詳しくはFantasy Landとは何かのセクションで紹介します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -14832,6 +15334,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160412T143354Z" creationid="shibukawa.yoshiki" creationdate="20160412T143354Z">
         <seg>関数型 / リレーショナル関連のツール</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Functional style programming heavily depends on compiling, curating and mastering a large set of small, precisely defined functions, and therefore it's not suitable for teams who do not have solid documentation practices, and/or lack experience in functional oriented languages.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T163454Z" creationid="shibukawa.yoshiki" creationdate="20170402T163454Z">
+        <seg>関数型スタイルのプログラミングは、数多くの小さなよく定義された関数のコンパイル、キュレーション、マスタリングに大きく依存します。したがって、実践的なドキュメントが書けないチームや、関数指向の言語の経験が不足しているチームには適していません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15520,6 +16030,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>However it's possible that whatever logic produces a value for a could also produce an error state (wrapped in a Maybe or an Either from a library like Sanctuary or Ramda-Fantasy), or it could be a Mithril stream, or a flyd stream, etc.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T002413Z" creationid="shibukawa.yoshiki" creationdate="20170402T002413Z">
+        <seg>しかし、aの値によっては、このロジックはエラー状態を発生する可能性があります。エラー状態は、SanctuaryやRamda-FantasyではMaybeやEitherとしてラップされますし、Mithrilのstreamやflydのstreamなどでも発生する可能性があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>However, Javascript arrays cannot be keyed or hold lifecycle methods.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170327T115240Z" creationid="shibukawa.yoshiki" creationdate="20170327T115240Z">
@@ -15802,6 +16320,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Ideally, we wouldn't want to write a similar version of the same function for every possible type that a could have and we wouldn't want to be writing wrapping/unwrapping/error handling code repeatedly.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T002621Z" creationid="shibukawa.yoshiki" creationdate="20170402T002611Z">
+        <seg>理想的には、aが持つ可能性のあるすべての型に対して、ラップ/アンラップ/エラーハンドリングコードなどを書きたくはないでしょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Idiomatic Mithril code is meant to apply good programming conventions and be easy to refactor.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150408T234007Z" creationid="shibukawa.yoshiki" creationdate="20150408T234007Z">
@@ -15854,6 +16380,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170219T075927Z" creationid="shibukawa.yoshiki" creationdate="20170219T075927Z">
         <seg>trueの場合は再描画を行いません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If window.m is already defined (e.g. because you also use the main Mithril script), it will attach itself to the existing object.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231301Z" creationid="shibukawa.yoshiki" creationdate="20170331T231301Z">
+        <seg>メインのMithrilスクリプトを使用していてwindow.mがすでに定義されているのであれば、すでにあるオブジェクトに追加します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -15994,6 +16528,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If a key is not specified, it returns an object that contains all the interpolation keys</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T002602Z" creationid="shibukawa.yoshiki" creationdate="20170401T002602Z">
+        <seg>もしキーが指定されなければ、すべての挿入されたキーを含むオブジェクトを返します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If a method is not listed below, it's meant for advanced usage.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170206T112015Z" creationid="shibukawa.yoshiki" creationdate="20170206T112015Z">
@@ -16006,6 +16548,22 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T135230Z" creationid="shibukawa.yoshiki" creationdate="20150414T135230Z">
         <seg>promiseがm.prop()Mithrilのpromiseが返されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If a stream a has a function as its value, another stream b can use it as the argument to b.ap(a).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T010806Z" creationid="shibukawa.yoshiki" creationdate="20170401T010806Z">
+        <seg>もしstreamaが関数を値として持つ時に、他のstreambはb.ap(a)とすることでそれを引数として使用できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If a stream is dependent on more than one stream, any of its parent streams is in a pending state, the dependent streams is also in a pending state, and does not update its value.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T235703Z" creationid="shibukawa.yoshiki" creationdate="20170401T235703Z">
+        <seg>streamが1つ以上のstreamに依存していて、どれか１つでもペンディング状態の親があると、依存streamもペンディング状態になり、値の更新が行われなくなります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16202,6 +16760,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If redrawing is desired in response to other asynchronous events (e.g. setTimeout/setInterval, websocket subscription, 3rd party library event handler, etc), you should manually call m.redraw()</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T001027Z" creationid="shibukawa.yoshiki" creationdate="20170402T001027Z">
+        <seg>setTimeout/setInterval, websocketのサブスクリプション、サードパーティーライブラリのイベントハンドラなど、他の非同期イベントで再描画を行う場合は、手動でm.redraw()を呼びます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If set to true, forces the redraw to be synchronous.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T151738Z" creationid="shibukawa.yoshiki" creationdate="20150416T151738Z">
@@ -16230,6 +16796,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150413T130246Z" creationid="shibukawa.yoshiki" creationdate="20150413T130246Z">
         <seg>config関数に渡されるcontextオブジェクトには、onunloadと呼ばれるプロパティがあります。この関数は、Mithirilの差分検出エンジンによって対象のエレメントがドキュメントから切り離される時に呼ばされます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If the href attribute is not static, the onupdate hook must also be set:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T001020Z" creationid="shibukawa.yoshiki" creationdate="20170401T001020Z">
+        <seg>href属性が静的なものでなければ、onupdateフックも設定しなければなりません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -16818,6 +17392,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>If you want to use streams in conjunction with Mithril as raw script tags, you should include Mithril in your page before mithril-stream, because mithril will otherwise overwrite the window.m object defined by mithril-stream.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T233556Z" creationid="shibukawa.yoshiki" creationdate="20170331T233556Z">
+        <seg>もし、Mithrilもscriptタグで直接読み込むのであれば、mithrilがmithril-streamが追加したwindow.mオブジェクトを上書きしてしまうため、Mithrilをmithril-streamよりも先に読み込まなければなりません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If you want to use the bleeding edge version, you can fork the development repository.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150408T000353Z" creationid="shibukawa.yoshiki" creationdate="20150408T000353Z">
@@ -17186,6 +17768,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In POJO component vnodes, the state inherits prototypically from the component object/class.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T235409Z" creationid="shibukawa.yoshiki" creationdate="20170331T235409Z">
+        <seg>POJOコンポーネントのvnodeでは、stateはコンポーネントのオブジェクト/クラスをプロトタイプ継承します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In a command line, type:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150412T150201Z" creationid="shibukawa.yoshiki" creationdate="20150412T150201Z">
@@ -17442,6 +18032,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In class component vnodes it is an instance of the class.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T235433Z" creationid="shibukawa.yoshiki" creationdate="20170331T235433Z">
+        <seg>クラスコンポーネントのvnodeはクラスのインスタンスです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In classic MVC, the role of the controller is to dispatch actions from the view to the model layer.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T163947Z" creationid="shibukawa.yoshiki" creationdate="20150407T163947Z">
@@ -17454,6 +18052,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150408T002248Z" creationid="shibukawa.yoshiki" creationdate="20150408T002248Z">
         <seg>クライアントサイドMVCではこのような定義との不一致は存在しないため、コントローラは極めてシンプルになります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In closure components it is the object returned by the closure.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T235447Z" creationid="shibukawa.yoshiki" creationdate="20170331T235447Z">
+        <seg>クロージャーコンポーネントの場合は、クロージャーが返すオブジェクトです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -17882,6 +18488,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In plain english, that means that libraries that conform to Fantasy Land specs can be used to write generic functional style code that works regardless of how these libraries implement the constructs.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T001425Z" creationid="shibukawa.yoshiki" creationdate="20170402T001416Z">
+        <seg>Fantasy Landの仕様に準拠したライブラリは、これらのライブラリがどのような内部構造で実装されているかに関係なく、汎用的な関数型スタイルのコードから利用できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In practice, this means performing operations like shifting an item from the beginning of a list would cause every element in the list to be diffed and potentially recreated.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150413T141226Z" creationid="shibukawa.yoshiki" creationdate="20150413T141226Z">
@@ -18122,6 +18736,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In the example above, added is a pending stream, because its parent b is also pending.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T235835Z" creationid="shibukawa.yoshiki" creationdate="20170401T235835Z">
+        <seg>上記の例では、親のbがペンディングなので、addedもペンディング状態です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In the example above, A+ promises are required to log 2 before logging 1, whereas Mithril logs 1 before 2.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150415T140509Z" creationid="shibukawa.yoshiki" creationdate="20150415T140509Z">
@@ -18194,6 +18816,22 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In the example above, the a stream is active, but b is pending.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T000136Z" creationid="shibukawa.yoshiki" creationdate="20170402T000136Z">
+        <seg>上記の例では、aはアクティブですが、bはペンディング状態です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In the example above, the users stream is populated with the response data when the request resolves.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T011413Z" creationid="shibukawa.yoshiki" creationdate="20170401T011413Z">
+        <seg>上記の例では、usersstreamはリクエストが完了した時に、そのレスポンスのデータに設定されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In the example above, the layout merely consists of a &lt;div class="layout"&gt; that contains the children passed to the component, but in a real life scenario it could be as complex as needed.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T001753Z" creationid="shibukawa.yoshiki" creationdate="20170222T001753Z">
@@ -18226,6 +18864,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>In the example above, the value of slug is computed when title is updated, not when slug is read.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T011826Z" creationid="shibukawa.yoshiki" creationdate="20170401T011826Z">
+        <seg>上記のサンプルでは、slugは読み込まれたときではなく、titleが更新されたときに算出されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>In the example above, there are 3 components.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150502T001408Z" creationid="shibukawa.yoshiki" creationdate="20150502T001408Z">
@@ -18254,6 +18900,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170208T053744Z" creationid="shibukawa.yoshiki" creationdate="20170208T053744Z">
         <seg>このサンプルでは/edit/:idというラウトを定義しています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>In the example above, when the user types in the input, the user stream is updated to the value of the input field.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T011522Z" creationid="shibukawa.yoshiki" creationdate="20170401T011522Z">
+        <seg>上記の例では、ユーザーがinputに入力を行うと、userstreamの値がinputフィールドの値に設定されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -19090,6 +19744,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It exists to conform to Fantasy Land's Applicative specification.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T004349Z" creationid="shibukawa.yoshiki" creationdate="20170401T004349Z">
+        <seg>Fantasy Landの適用仕様に適合させるために存在しています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>It exposes a promise property which can bind callbacks to build a computation tree.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150415T133727Z" creationid="shibukawa.yoshiki" creationdate="20150415T133512Z">
@@ -19222,6 +19884,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T141641Z" creationid="shibukawa.yoshiki" creationdate="20170331T141641Z">
         <seg>vnodeを再利用することで差分検知を抑制することができますが、onbeforeupdateフックを使った方が他のプログラマーや自分自身に対して明確に意図を伝えることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It is provided by the core engine when needed.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T235221Z" creationid="shibukawa.yoshiki" creationdate="20170331T235221Z">
+        <seg>このプロパティはコアのエンジンが設定します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -19599,6 +20269,14 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170309T032434Z" creationid="shibukawa.yoshiki" creationdate="20170309T032434Z">
         <seg>全ブラウザで完全にサポートされているわけではありませんし、アプリケーションを書くための必須要件となっているわけではありませんが、チームによっては使いたがるでしょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It's of course also possible to compute properties based on multiple streams:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T011846Z" creationid="shibukawa.yoshiki" creationdate="20170401T011846Z">
+        <seg>もちろん、複数のstreamを元にした算出プロパティを作ることもできます:</seg>
       </tuv>
     </tu>
     <tu>
@@ -20329,6 +21007,14 @@ m.request({method: "GET", url: "/foo/bar.x", extract: nonJsonErrors})</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Let's rewrite that function in terms of a Fantasy Land algebra:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T002742Z" creationid="shibukawa.yoshiki" creationdate="20170402T002742Z">
+        <seg>Fantasy Landの代数のルールに従って関数を書いてみましょう:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Let's start as small as we can: render some text on screen.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T151232Z" creationid="shibukawa.yoshiki" creationdate="20170331T151232Z">
@@ -20795,8 +21481,8 @@ m.request({method: "GET", url: "/foo/bar.x", extract: nonJsonErrors})</seg>
       <tuv lang="EN-US">
         <seg>Mithril also generates carefully crafted vnode data structures that are compiled by Javascript engines for near-native data structure access performance.</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T075500Z" creationid="shibukawa.yoshiki" creationdate="20170331T075500Z">
-        <seg>Mithrilはまた&lt;/ e0&gt;、JavaScriptエンジンがJITコンパイルしてネイティブに近いデータ構造アクセスのパフォーマンスが出せるように、慎重に設計されたvnodeデータ構造を使用しています。</seg>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T234632Z" creationid="shibukawa.yoshiki" creationdate="20170331T075500Z">
+        <seg>Mithrilはまた、JavaScriptエンジンがJITコンパイルしてネイティブに近いデータ構造アクセスのパフォーマンスが出せるように、慎重に設計されたvnodeデータ構造を使用しています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -21061,6 +21747,14 @@ m.request({method: "GET", url: "/foo/bar.x", extract: nonJsonErrors})</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T000142Z" creationid="shibukawa.yoshiki" creationdate="20170328T000142Z">
         <seg>MithrilはSVGを完全にサポートしています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Mithril has a few dependencies on globals that exist in all its supported browser environments but are missing in all non-browser environments.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T163941Z" creationid="shibukawa.yoshiki" creationdate="20170402T163941Z">
+        <seg>Mithrilはいくつかのグローバルの要素に少しだけ依存しています。これらはどれもブラウザ環境であればサポートされていますが、非ブラウザ環境ではいくつか定義されていないものもあります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -22425,6 +23119,14 @@ m.request({method: "GET", url: "/foo/bar.x", extract: nonJsonErrors})</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Now this method works with any Fantasy Land compliant Functor, such as R.Maybe, S.Either, stream, etc.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T002857Z" creationid="shibukawa.yoshiki" creationdate="20170402T002857Z">
+        <seg>このメソッドは、Fantasy Land準拠のFunctor（such as R.Maybe, S.Either, stream）に対して動作します。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Now try editing the name of a user in the application.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170221T140720Z" creationid="shibukawa.yoshiki" creationdate="20170221T140720Z">
@@ -22785,6 +23487,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150411T190035Z" creationid="shibukawa.yoshiki" creationdate="20150411T190035Z">
         <seg>カウンタがゼロになるとMithrilは再描画を行います。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Once that snippet has been run you can require("mithril") and it should be quite happy.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T164527Z" creationid="shibukawa.yoshiki" creationdate="20170402T164527Z">
+        <seg>このコードを実行すると、require("mithril")が行えるようになり、幸せになれるでしょう。</seg>
       </tuv>
     </tu>
     <tu>
@@ -23173,6 +23883,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Otherwise it creates a new window.m.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231311Z" creationid="shibukawa.yoshiki" creationdate="20170331T231311Z">
+        <seg>そうでなければ新たにwindow.mが作成されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Otherwise it follows the Promises/A+ specifications.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150415T174356Z" creationid="shibukawa.yoshiki" creationdate="20150415T174356Z">
@@ -23273,6 +23991,22 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170306T142037Z" creationid="shibukawa.yoshiki" creationdate="20170306T142037Z">
         <seg>Pat CavitはほとんどのMithril 1.0の公開APIの設計をしました。また、テストカバレッジを導入したり、公開プロセスの自動化を行いました。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Pending state</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232458Z" creationid="shibukawa.yoshiki" creationdate="20170331T232458Z">
+        <seg>ペンディング状態</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Pending streams can be created by calling stream() with no parameters.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T235600Z" creationid="shibukawa.yoshiki" creationdate="20170401T235600Z">
+        <seg>ペンディング状態は、stream()で作成されたがまだパラメータが設定されていない状態です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -23839,6 +24573,14 @@ promise</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Redrawing happens in response to event handlers defined in Mithril component views, route changes, or after m.request calls resolve.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T000919Z" creationid="shibukawa.yoshiki" creationdate="20170402T000919Z">
+        <seg>再描画はMithrilのコンポーネントのビューで定義されたイベントハンドラ、ラウトの変更、m.requestの呼び出しが解決したタイミングで行われます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Redrawing semantics of routing</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T140401Z" creationid="shibukawa.yoshiki" creationdate="20160101T140401Z">
@@ -24119,6 +24861,14 @@ promise</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Retrieves a route parameter.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T001512Z" creationid="shibukawa.yoshiki" creationdate="20170401T001512Z">
+        <seg>ラウトパラメータの取得</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Retrieving a value via the getter-setter API</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150415T014904Z" creationid="shibukawa.yoshiki" creationdate="20150415T014904Z">
@@ -24183,6 +24933,14 @@ promise</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Returns a new stream containing the result</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T003021Z" creationid="shibukawa.yoshiki" creationdate="20170401T003021Z">
+        <seg>結果を含む新しいstream</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Returns a promise</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T013350Z" creationid="shibukawa.yoshiki" creationdate="20170330T013350Z">
@@ -24203,6 +24961,14 @@ promise</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T143942Z" creationid="shibukawa.yoshiki" creationdate="20170331T143942Z">
         <seg>入力のstreamの値の配列を値とするstreamを返します</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Returns a value for the specified key.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T002518Z" creationid="shibukawa.yoshiki" creationdate="20170401T002518Z">
+        <seg>指定されたキーの値を返します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -24307,6 +25073,14 @@ promise</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170208T055340Z" creationid="shibukawa.yoshiki" creationdate="20170208T055340Z">
         <seg>ラウとパラメータはvnodeのattrsプロパティとなります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Route parameters may come from a few different places:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T001830Z" creationid="shibukawa.yoshiki" creationdate="20170401T001830Z">
+        <seg>ラウトパラメータはいくつかの場所から収集されます:</seg>
       </tuv>
     </tu>
     <tu>
@@ -24487,6 +25261,14 @@ promise</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Running mithril in a non-browser environment</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T163538Z" creationid="shibukawa.yoshiki" creationdate="20170402T163538Z">
+        <seg>Mithrilをブラウザ以外の環境で実行する</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Runs after a vnode is appended to the DOM</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170327T230304Z" creationid="shibukawa.yoshiki" creationdate="20170327T230304Z">
@@ -24623,6 +25405,14 @@ promise</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>See chaining streams</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T010532Z" creationid="shibukawa.yoshiki" creationdate="20170401T010532Z">
+        <seg>streamの結合を参照してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>See combiner argument</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T142827Z" creationid="shibukawa.yoshiki" creationdate="20170331T142827Z">
@@ -24643,6 +25433,14 @@ promise</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T144952Z" creationid="shibukawa.yoshiki" creationdate="20160101T144952Z">
         <seg>より詳細な情報はコンポーネントを参照してください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>See ended state.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T010514Z" creationid="shibukawa.yoshiki" creationdate="20170401T010514Z">
+        <seg>終了状態を見てください。</seg>
       </tuv>
     </tu>
     <tu>
@@ -25375,6 +26173,14 @@ promise</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Stream containing the values</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T003002Z" creationid="shibukawa.yoshiki" creationdate="20170401T003002Z">
+        <seg>値を含むstream</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Stream states</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T030919Z" creationid="shibukawa.yoshiki" creationdate="20170222T030447Z">
@@ -25431,10 +26237,34 @@ promise</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Streams also implement a valueOf method that returns the value of the stream.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T000749Z" creationid="shibukawa.yoshiki" creationdate="20170402T000749Z">
+        <seg>streamはvalueOfメソッドもも実装しているため、streamの値を統一インタフェースで扱うことができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Streams are NOT bundled with Mithril's core distribution.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T142417Z" creationid="shibukawa.yoshiki" creationdate="20170331T142345Z">
         <seg>StreamはMithrilのコアのディストリビューションにはバンドルされていません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Streams are not part of the core Mithril distribution.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T011021Z" creationid="shibukawa.yoshiki" creationdate="20170401T011021Z">
+        <seg>streamはMithrilのコアのディストリビューションにはバンドルされていません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Streams are useful for implementing computed properties:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T011719Z" creationid="shibukawa.yoshiki" creationdate="20170401T011719Z">
+        <seg>streamは算出プロパティを実装するのにも便利です:</seg>
       </tuv>
     </tu>
     <tu>
@@ -25447,10 +26277,42 @@ promise</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Streams can also be populated from other higher order functions, such as m.withAttr</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T011438Z" creationid="shibukawa.yoshiki" creationdate="20170401T011438Z">
+        <seg>streamはm.withAttrのような他の上位のの関数と一緒に利用できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Streams can be chained using the map method.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T231711Z" creationid="shibukawa.yoshiki" creationdate="20170401T231711Z">
+        <seg>mapメソッドを使うとことでstreamをチェーンさせることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Streams can depend on more than one parent stream.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T232402Z" creationid="shibukawa.yoshiki" creationdate="20170401T232402Z">
+        <seg>streamは複数の親streamに依存させることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Streams do not trigger rendering</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T030927Z" creationid="shibukawa.yoshiki" creationdate="20170222T030558Z">
         <seg>Streamはレンダリングを起動しない</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Streams implement a .toJSON() method.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T000644Z" creationid="shibukawa.yoshiki" creationdate="20170402T000644Z">
+        <seg>streamは.toJSON()メソッドを実装しています。</seg>
       </tuv>
     </tu>
     <tu>
@@ -25795,6 +26657,14 @@ promise</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150420T015147Z" creationid="shibukawa.yoshiki" creationdate="20150420T015147Z">
         <seg>そのまま鵜呑みにせずに、参考程度にお読みください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Takes an array of pairs of streams and scan functions and merges all those streams using the given functions into a single stream.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T003344Z" creationid="shibukawa.yoshiki" creationdate="20170401T003344Z">
+        <seg>streamとscan関数のペアを要素に持つ配列を受け取り、与えられた関数を使ってこれらのstreamをマージして１つのstreamにします。</seg>
       </tuv>
     </tu>
     <tu>
@@ -27639,6 +28509,14 @@ promise</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The main difference is that a stream is a function, and therefore can be composed into higher order functions.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T011342Z" creationid="shibukawa.yoshiki" creationdate="20170401T011342Z">
+        <seg>主な違いはstreamが関数である点です。そのため、他の上位の関数と組み合わせることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The main problem with many of these libraries is that even though they require a non-trivial amount of transpiler tooling and configuration, they also require sacrificing code readability in order to work, e.g. &lt;a class={classnames(styles.button, styles.danger)}&gt;&lt;/a&gt; vs &lt;a class="button danger"&gt;&lt;/a&gt; (or m("a.button.danger") if we're using hyperscript).</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170307T122618Z" creationid="shibukawa.yoshiki" creationdate="20170307T122549Z">
@@ -27711,6 +28589,14 @@ promise</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The naive implementation would look like this:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T001452Z" creationid="shibukawa.yoshiki" creationdate="20170402T001452Z">
+        <seg>JavaScriptのネイティブ実装では次のようになるでしょう:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The name of a route parameter.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T135425Z" creationid="shibukawa.yoshiki" creationdate="20160101T135425Z">
@@ -27755,6 +28641,14 @@ promise</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T011820Z" creationid="shibukawa.yoshiki" creationdate="20170329T011820Z">
         <seg>コールバック名を渡すためのクエリーパラメータ名です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The name of this method stands for apply.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T010652Z" creationid="shibukawa.yoshiki" creationdate="20170401T010652Z">
+        <seg>このメソッドはapplyの短縮形です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -27907,6 +28801,14 @@ promise</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170206T105655Z" creationid="shibukawa.yoshiki" creationdate="20170206T105655Z">
         <seg>以前のバージョンでは、要素の削除時にアニメーションさせるのは、本当の削除が行われるまで実際の削除を遅延させるというややこしい実装が必要でした。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The problem with this implementation is that it can only be used with a number.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T001515Z" creationid="shibukawa.yoshiki" creationdate="20170402T001515Z">
+        <seg>この実装の問題点は、数値型に対してのみしか利用できない点です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -28199,6 +29101,14 @@ promise</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The simplest way to do this is ensure the following snippet of code runs before you include mithril itself in your project.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T164419Z" creationid="shibukawa.yoshiki" creationdate="20170402T164419Z">
+        <seg>これを行うための最もシンプルな方法は、Mithrilをインクルードする前に次のコードをプロジェクトにインクルードします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The simplest way to setup an ES6 compilation toolchain is via Babel.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170309T032735Z" creationid="shibukawa.yoshiki" creationdate="20170309T032735Z">
@@ -28235,6 +29145,14 @@ promise</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170307T012326Z" creationid="shibukawa.yoshiki" creationdate="20170307T012228Z">
         <seg>空白演算子は親子関係を定義する（例: .a .b）とともに、セレクタに適用されるCSSルールの優先度を上げます。これにより、意図しないスタイルの上書きが発生することがあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The starting value for the accumulator</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T002951Z" creationid="shibukawa.yoshiki" creationdate="20170401T002951Z">
+        <seg>アキュームレータの初期値です</seg>
       </tuv>
     </tu>
     <tu>
@@ -28679,6 +29597,14 @@ promise</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>There's also a lower level method called stream.combine() that exposes the stream themselves in the reactive computations for more advanced use cases</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T232711Z" creationid="shibukawa.yoshiki" creationdate="20170401T232711Z">
+        <seg>低レベルのメソッドであるstream.combine()を使うと、各streamを直接扱う事ができるため、より高度なリアクティブな計算処理に使えます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>There's also an upcoming Web API and a polyfill if you like living on the bleeding edge.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170206T105001Z" creationid="shibukawa.yoshiki" creationdate="20170206T105001Z">
@@ -28811,6 +29737,14 @@ promise</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150410T174508Z" creationid="shibukawa.yoshiki" creationdate="20150410T174508Z">
         <seg>これらのフックを使うと、レスポンスが成功したかどうかによって、レスポンスデータの違う箇所をアンラップできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>These kinds of streams can be created via stream.merge()</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T232431Z" creationid="shibukawa.yoshiki" creationdate="20170401T232431Z">
+        <seg>このような種類のstreamはstream.merge()を使った作ることができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -29047,6 +29981,14 @@ promise</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This also applies to dependent streams created via stream.map:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T235925Z" creationid="shibukawa.yoshiki" creationdate="20170401T235925Z">
+        <seg>これはstream.mapを使って作ったstreamでも同じ動作になります:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This approach means that developers can get discoverable codebases without necessarily getting locked into the framework.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150417T144943Z" creationid="shibukawa.yoshiki" creationdate="20150417T144943Z">
@@ -29247,6 +30189,14 @@ promise</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This effectively removes the connection between a stream and its dependent streams.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T000357Z" creationid="shibukawa.yoshiki" creationdate="20170402T000357Z">
+        <seg>これを使うと、親streamと依存streamの接続を効率的に削除することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This endpoint returns an object with the same count value that was sent to it.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170204T151120Z" creationid="shibukawa.yoshiki" creationdate="20170204T151120Z">
@@ -29291,6 +30241,14 @@ promise</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150408T163514Z" creationid="shibukawa.yoshiki" creationdate="20150408T163514Z">
         <seg>このサンプルは、jsFiddleでも確認することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This example may seem convoluted, but it's a trade-off in complexity: the naive plusOne implementation makes sense if you have a simple system and only ever increment numbers, but the Fantasy Land implementation becomes more powerful if you have a large system with many wrapper abstractions and reused algorithms.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T003320Z" creationid="shibukawa.yoshiki" creationdate="20170402T003320Z">
+        <seg>この例だけを見ると、単に複雑にしているだけに見えるかもしれませんが、複雑さとトレードオフのメリットがあります。シンプルなシステムで数字を増やすだけの単純なplusOne実装はこのケースでは理にかなっていますが、Fantasy Landの実装にすると、数多くの多くの抽象化された再利用可能なアルゴリズムのラッパーが利用できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -29359,10 +30317,26 @@ promise</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This guarantees that the callback for stream D is never called with unstable values such as when B has a new value but C has the old value.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T233027Z" creationid="shibukawa.yoshiki" creationdate="20170401T233027Z">
+        <seg>また、Bだけが新しく、Cがまだ更新されていないといった安定された状態でDが呼ばれることもありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This handler method can be assigned to properties like onclick, or passed as callbacks to addEventListener.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T141043Z" creationid="shibukawa.yoshiki" creationdate="20150414T141043Z">
         <seg>このハンドラメソッドは、onclickなどのプロパティに設定したり、addEventListenerにコールバックとして渡すことができるメソッドです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This happens regardless of whether the dependent stream was created before or after the value of the parent stream was set.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T232253Z" creationid="shibukawa.yoshiki" creationdate="20170401T232253Z">
+        <seg>依存streamが作成されるのが、親のstreamに値をセットする前でも後でも正しく動作します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -29599,6 +30573,14 @@ promise</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This is not a concern when the libraries are consumed as CommonJS modules (using require(...)).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T233626Z" creationid="shibukawa.yoshiki" creationdate="20170331T233626Z">
+        <seg>この問題は、require(...)を使ったCommonJSモジュールを利用して使う分には気にする必要はありません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This is only set in fragment and trusted HTML vnodes, and it's undefined in all other vnode types.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T125857Z" creationid="shibukawa.yoshiki" creationdate="20170331T125857Z">
@@ -29747,6 +30729,14 @@ promise</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150414T181246Z" creationid="shibukawa.yoshiki" creationdate="20150414T181246Z">
         <seg>もしJSONとしては不正なレスポンスをプロダクション環境のサーバから受け取ったとして、ユーザに対してサーバがオフラインであるというメッセージを表示したいとします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This is where Fantasy Land can help.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T002706Z" creationid="shibukawa.yoshiki" creationdate="20170402T002706Z">
+        <seg>Fantasy Landはこの分野の手助けをしてくれます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -29975,6 +30965,22 @@ promise</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This method exists to conform to Fantasy Land's Applicative specification.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T010602Z" creationid="shibukawa.yoshiki" creationdate="20170401T010602Z">
+        <seg>Fantasy Landの適用仕様に適合させるために存在しています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This method exists to conform to Fantasy Land's Applicative specification.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T010935Z" creationid="shibukawa.yoshiki" creationdate="20170401T010935Z">
+        <seg>Fantasy Landの適用仕様に適合させるために存在しています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This method flags a string as trusted HTML.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150416T013558Z" creationid="shibukawa.yoshiki" creationdate="20150416T013558Z">
@@ -29995,6 +31001,30 @@ promise</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150415T180257Z" creationid="shibukawa.yoshiki" creationdate="20150415T180257Z">
         <seg>このメソッドはpromiseコールバックの中で例外が発生するたびに呼ばれます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This method is an alias of stream["fantasy-land/map"].</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T010004Z" creationid="shibukawa.yoshiki" creationdate="20170401T010004Z">
+        <seg>このメソッドはstream["fantasy-land/map"]のエイリアスです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This method is functionally identical to stream.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T004137Z" creationid="shibukawa.yoshiki" creationdate="20170401T004137Z">
+        <seg>このメソッドは機能的にstreamと同じです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This method is meant to be used as or in conjunction with an &lt;a&gt; vnode's oncreate and onupdate hooks</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T001451Z" creationid="shibukawa.yoshiki" creationdate="20170401T001451Z">
+        <seg>このメソッドは&lt;a&gt;タグとvnodeのoncreateとonupdateフックを結びつけるときに使います。</seg>
       </tuv>
     </tu>
     <tu>
@@ -30131,6 +31161,22 @@ promise</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T125742Z" creationid="shibukawa.yoshiki" creationdate="20170331T125742Z">
         <seg>oninitライフサイクルメソッドではこのプロパティはundefinedです。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This property is only used internally by Mithril when diffing keyed lists, do not use or modify it.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T000614Z" creationid="shibukawa.yoshiki" creationdate="20170401T000614Z">
+        <seg>このプロパティはMithrilがキーが設定されたリストの差分検知時に内部的に使うもので、変更してはいけません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This property is only used internally by Mithril, do not use or modify it.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T000510Z" creationid="shibukawa.yoshiki" creationdate="20170401T000510Z">
+        <seg>このプロパティはMithrilが内部的に使うもので変更してはいけません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -30583,6 +31629,14 @@ promise</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>To include them in a project, require its module:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T011127Z" creationid="shibukawa.yoshiki" creationdate="20170401T011127Z">
+        <seg>プロジェクトに追加するにはrequireを使います。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To install Babel as a standalone tool, use this command:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170309T032943Z" creationid="shibukawa.yoshiki" creationdate="20170309T032943Z">
@@ -30867,6 +31921,14 @@ promise</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150408T000846Z" creationid="shibukawa.yoshiki" creationdate="20150408T000833Z">
         <seg>npmを使って最先端のバージョンをインストールするには、次のコマンドを使用してください:</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To work around this you can use the browser mocks that ship with the mithril npm package.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T164035Z" creationid="shibukawa.yoshiki" creationdate="20170402T164035Z">
+        <seg>Mithrilのnpmパッケージと一緒にリリーうされているブラウザモックを使うことで、この問題を回避できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -31303,6 +32365,14 @@ promise</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Unlike libraries like Knockout, Mithril streams do not trigger re-rendering of templates.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T000817Z" creationid="shibukawa.yoshiki" creationdate="20170402T000817Z">
+        <seg>Knockoutなどのようなライブラリと異なり、Mithrilのstreamはテンプレートの再描画をトリガーしません。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Unlike some frameworks, Mithril tries very hard to avoid locking you into a web of dependencies: you can use as little of the framework as you need.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T142104Z" creationid="shibukawa.yoshiki" creationdate="20150407T142104Z">
@@ -31579,6 +32649,14 @@ promise</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T161404Z" creationid="shibukawa.yoshiki" creationdate="20170329T161404Z">
         <seg>以前にマウントされたコンポーネントを持つエレメントに対してm.mount(element, null)を使用すると、そのコンポーネントがアンマウントされ、Mithrilの内部状態が片付けられます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Using m.route.link as a oncreate hook causes the link to behave as a router link (i.e. it navigates to the route specified in href, instead of nagivating away from the current page to the URL specified in href.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T000856Z" creationid="shibukawa.yoshiki" creationdate="20170401T000856Z">
+        <seg>m.route.linkをoncreateフックとして使用すると、ラウター用のリンクとして動作するようになります。hrefはラウトに特化したナビゲーションリンクなります。現在のページから他のページへジャンプしてブラウザの内容がリセットされるのではなく、hrefで指定されたラウトへの内部ジャンプになります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -32307,6 +33385,22 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>When a stream is passed as the argument to JSON.stringify(), the value of the stream is serialized.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T000721Z" creationid="shibukawa.yoshiki" creationdate="20170402T000721Z">
+        <seg>JSON.stringify()にstreamを渡すと、streamが持っている値がシリアライズされます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>When a stream receives a value, it becomes active (unless the stream is ended).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T235958Z" creationid="shibukawa.yoshiki" creationdate="20170401T235958Z">
+        <seg>値を受け取ったstreamはアクティブ（もしくは終了状態）となります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>When a tag is not specified, div is the default.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170220T133547Z" creationid="shibukawa.yoshiki" creationdate="20170220T133547Z">
@@ -32379,10 +33473,26 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>When deciding whether you should adopt Fantasy Land, you should consider your team's familiarity with functional programming, and be realistic regarding the level of discipline that your team can commit to maintaining code quality (vs the pressure of writing new features and meeting deadlines).</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T163230Z" creationid="shibukawa.yoshiki" creationdate="20170402T163230Z">
+        <seg>Fantasy Landに対応すべきかどうかを判断するには、チームが関数型プログラミングに精通しているか、新機能の作成と締め切りのプレッシャーに負けずにコード品質を維持できるほど教育されているかどうかを確認する必要があります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>When diffing component vnodes, if the component referenced by the new vnode is not strictly equal to the one referenced by the old component, the two are assumed to be different components even if they ultimately run equivalent code.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170302T043511Z" creationid="shibukawa.yoshiki" creationdate="20170302T043511Z">
         <seg>コンポーネントのvnodeの差分検出時に、もしコンポーネントが新しいvnodeから参照されていて、それが古いvnodeから参照されているコンポーネントと違っていたら、同じコードで実行していたとしても、２つは異なるコンポーネントとみなされます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>When loaded directly with a &lt;script&gt; tag (rather than required), the stream library will be exposed as window.m.stream.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231216Z" creationid="shibukawa.yoshiki" creationdate="20170331T231216Z">
+        <seg>&lt;script&gt;タグを使って直接ダウンロードすると、streamライブラリはwindow.m.streamという名前で利用できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -33039,6 +34149,14 @@ where:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>You can also download the module directly if your environment does not support a bundling toolchain:</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231120Z" creationid="shibukawa.yoshiki" creationdate="20170331T231120Z">
+        <seg>バンドルのツールチェーンがサポートされない環境であれば、直接モジュールをダウンロードすることもできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>You can also find Mithril in cdnjs and jsDelivr.</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150407T165214Z" creationid="shibukawa.yoshiki" creationdate="20150407T165214Z">
@@ -33259,6 +34377,14 @@ where:</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20150417T014212Z" creationid="shibukawa.yoshiki" creationdate="20150417T014212Z">
         <seg>Mithirlのテンプレートは事前にコンパイルすることでさらに高速にすることができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You can prevent dependent streams from being updated by returning the special value stream.HALT</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T232339Z" creationid="shibukawa.yoshiki" creationdate="20170401T232339Z">
+        <seg>特別な値stream.HALTを返すことで、従属streamの更新を止めることができます:</seg>
       </tuv>
     </tu>
     <tu>
@@ -33987,6 +35113,14 @@ function persistent(el, isInit, context) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>_state</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T234658Z" creationid="shibukawa.yoshiki" creationdate="20170331T234658Z">
+        <seg>_state</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>`id` is the the same as `value`</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20160101T132826Z" creationid="shibukawa.yoshiki" creationdate="20160101T132826Z">
@@ -33999,6 +35133,14 @@ function persistent(el, isInit, context) {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T000407Z" creationid="shibukawa.yoshiki" creationdate="20170222T000407Z">
         <seg>abortPreviousSearch()</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>accumulator</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232250Z" creationid="shibukawa.yoshiki" creationdate="20170331T232250Z">
+        <seg>accumulator</seg>
       </tuv>
     </tu>
     <tu>
@@ -34289,6 +35431,14 @@ getUsers()</seg>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T004410Z" creationid="shibukawa.yoshiki" creationdate="20170328T004410Z">
         <seg>app.vm.init();
 };</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>apply</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232549Z" creationid="shibukawa.yoshiki" creationdate="20170331T232549Z">
+        <seg>apply</seg>
       </tuv>
     </tu>
     <tu>
@@ -35961,6 +37111,22 @@ setTimeout(function() {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>dependentStream = stream().map(callback)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232603Z" creationid="shibukawa.yoshiki" creationdate="20170331T232603Z">
+        <seg>dependentStream = stream().map(callback)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>dependentStream = stream()["fantasy-land/of"](callback)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232635Z" creationid="shibukawa.yoshiki" creationdate="20170331T232635Z">
+        <seg>dependentStream = stream()["fantasy-land/of"](callback)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>deserialize: function(value) {return value;}
 });</seg>
       </tuv>
@@ -36155,6 +37321,14 @@ m.request({method: "POST", url: "/foo", extract: extract});</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T003211Z" creationid="shibukawa.yoshiki" creationdate="20170328T003211Z">
         <seg>en</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>endStream = stream().end</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232222Z" creationid="shibukawa.yoshiki" creationdate="20170331T232222Z">
+        <seg>endStream = stream().end</seg>
       </tuv>
     </tu>
     <tu>
@@ -36467,6 +37641,14 @@ m.request({method: "POST", url: "/foo", extract: extract});</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>fn</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232248Z" creationid="shibukawa.yoshiki" creationdate="20170331T232248Z">
+        <seg>fn</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>for (var channel in channels) {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T002856Z" creationid="shibukawa.yoshiki" creationdate="20170328T002856Z">
@@ -36661,6 +37843,14 @@ getUsers().then(function(users) {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170327T171506Z" creationid="shibukawa.yoshiki" creationdate="20170327T171506Z">
         <seg>function initialize(vnode) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>function plusOne(a) {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231401Z" creationid="shibukawa.yoshiki" creationdate="20170331T231401Z">
+        <seg>function plusOne(a) {</seg>
       </tuv>
     </tu>
     <tu>
@@ -38003,6 +39193,22 @@ searchUsers("John").then(function(users) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>https://github.com/fantasyland/fantasy-land</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232213Z" creationid="shibukawa.yoshiki" creationdate="20170331T232213Z">
+        <seg>https://github.com/fantasyland/fantasy-land</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>https://github.com/fantasyland/fantasy-land#functor</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231352Z" creationid="shibukawa.yoshiki" creationdate="20170331T231352Z">
+        <seg>https://github.com/fantasyland/fantasy-land#functor</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>https://github.com/github/fetch</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T000510Z" creationid="shibukawa.yoshiki" creationdate="20170222T000510Z">
@@ -39059,6 +40265,46 @@ searchUsers("John").then(function(users) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>https://github.com/paldepind/flyd</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231404Z" creationid="shibukawa.yoshiki" creationdate="20170331T231404Z">
+        <seg>https://github.com/paldepind/flyd</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>https://github.com/ramda/ramda-fantasy</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231403Z" creationid="shibukawa.yoshiki" creationdate="20170331T231403Z">
+        <seg>https://github.com/ramda/ramda-fantasy</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>https://github.com/ramda/ramda-fantasy/blob/master/docs/Maybe.md</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231353Z" creationid="shibukawa.yoshiki" creationdate="20170331T231353Z">
+        <seg>https://github.com/ramda/ramda-fantasy/blob/master/docs/Maybe.md</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>https://github.com/sanctuary-js/sanctuary</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231403Z" creationid="shibukawa.yoshiki" creationdate="20170331T231403Z">
+        <seg>https://github.com/sanctuary-js/sanctuary</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>https://github.com/sanctuary-js/sanctuary#either-type</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231356Z" creationid="shibukawa.yoshiki" creationdate="20170331T231356Z">
+        <seg>https://github.com/sanctuary-js/sanctuary#either-type</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>https://github.com/tachyons-css/tachyons</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170307T115838Z" creationid="shibukawa.yoshiki" creationdate="20170307T115838Z">
@@ -39760,6 +41006,14 @@ setTimeout(function() {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>instance</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T234655Z" creationid="shibukawa.yoshiki" creationdate="20170331T234655Z">
+        <seg>instance</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>integration.html</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T030151Z" creationid="shibukawa.yoshiki" creationdate="20170222T030151Z">
@@ -40256,6 +41510,14 @@ m("a#google.external[href='http://google.com']", "Google"); //&lt;a id="google" 
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T003833Z" creationid="shibukawa.yoshiki" creationdate="20170328T003833Z">
         <seg>m("a", {href: link.url}, link.title)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>m("a", {href: someVariable, oncreate: m.route.link, onupdate: m.route.link})`</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T001020Z" creationid="shibukawa.yoshiki" creationdate="20170401T001020Z">
+        <seg>m("a", {href: someVariable, oncreate: m.route.link, onupdate: m.route.link})`</seg>
       </tuv>
     </tu>
     <tu>
@@ -42596,6 +43858,14 @@ var dir = m.route.param("dir") // "desc"</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>m.route.link(vnode)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T001022Z" creationid="shibukawa.yoshiki" creationdate="20170401T001022Z">
+        <seg>m.route.link(vnode)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>m.route.mode</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T013815Z" creationid="shibukawa.yoshiki" creationdate="20170222T013815Z">
@@ -43924,6 +45194,14 @@ m.render(document.body, view)
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>oninput: m.withAttr("value", user),</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232104Z" creationid="shibukawa.yoshiki" creationdate="20170331T232104Z">
+        <seg>oninput: m.withAttr("value", user),</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>onmatch: function() {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T001831Z" creationid="shibukawa.yoshiki" creationdate="20170222T001831Z">
@@ -44242,6 +45520,14 @@ m.render(document.body, view)
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170309T033151Z" creationid="shibukawa.yoshiki" creationdate="20170309T033151Z">
         <seg>output: {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>pairs</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232610Z" creationid="shibukawa.yoshiki" creationdate="20170331T232610Z">
+        <seg>pairs</seg>
       </tuv>
     </tu>
     <tu>
@@ -44794,6 +46080,54 @@ m.render(document.body, view)
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T132253Z" creationid="shibukawa.yoshiki" creationdate="20170329T132253Z">
         <seg>return [ // フラグメントはvnodeで、それ自身にキーが設定できる</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>return a + 1
+}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231402Z" creationid="shibukawa.yoshiki" creationdate="20170331T231402Z">
+        <seg>return a + 1
+}</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>return a() + b()
+}, [a, b])
+
+console.log(added()) // logs 12</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231804Z" creationid="shibukawa.yoshiki" creationdate="20170331T231757Z">
+        <seg>return a() + b()
+}, [a, b])
+
+console.log(added()) // 出力: 12</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>return a() + b()
+}, [a, b])
+
+console.log(added()) // logs undefined</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232426Z" creationid="shibukawa.yoshiki" creationdate="20170331T232426Z">
+        <seg>return a() + b()
+}, [a, b])
+
+console.log(added()) // 出力: undefined</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>return a[fl.map](function(value) {return value + 1})
+}</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231351Z" creationid="shibukawa.yoshiki" creationdate="20170331T231351Z">
+        <seg>return a[fl.map](function(value) {return value + 1})
+}</seg>
       </tuv>
     </tu>
     <tu>
@@ -46012,6 +47346,34 @@ app.vm.init = function() {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>return stream.HALT
+})
+
+halted.map(function() {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231828Z" creationid="shibukawa.yoshiki" creationdate="20170331T231828Z">
+        <seg>return stream.HALT
+})
+
+halted.map(function() {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>return stream.HALT
+}, [stream(1)])
+
+halted.map(function() {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231807Z" creationid="shibukawa.yoshiki" creationdate="20170331T231807Z">
+        <seg>return stream.HALT
+}, [stream(1)])
+
+halted.map(function() {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>return this.username !== "" &amp;&amp; this.password !== ""</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170302T015812Z" creationid="shibukawa.yoshiki" creationdate="20170302T015812Z">
@@ -46077,10 +47439,85 @@ var users = m.request({method: "GET", url: "/user"})</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>return value * 2
+})
+
+console.log(doubled()) // logs 2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231837Z" creationid="shibukawa.yoshiki" creationdate="20170331T231837Z">
+        <seg>return value * 2
+})
+
+console.log(doubled()) // 出力: 2</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>return value - 273.15</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T003540Z" creationid="shibukawa.yoshiki" creationdate="20170328T003540Z">
         <seg>return value - 273.15</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>return value.toLowerCase().replace(/\W/g, "-")
+})
+
+title("Hello world")
+console.log(slug()) // logs "hello-world"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232041Z" creationid="shibukawa.yoshiki" creationdate="20170331T232035Z">
+        <seg>return value.toLowerCase().replace(/\W/g, "-")
+})
+
+title("Hello world")
+console.log(slug()) // 出力: "hello-world"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>return values.join(" ")
+})</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232312Z" creationid="shibukawa.yoshiki" creationdate="20170331T232312Z">
+        <seg>return values.join(" ")
+})</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>return values.join(" ")
+})
+
+console.log(fullName()) // logs "John Doe"
+
+firstName("Mary")
+
+console.log(fullName()) // logs "Mary Doe"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232027Z" creationid="shibukawa.yoshiki" creationdate="20170331T232027Z">
+        <seg>return values.join("・")
+})
+
+console.log(fullName()) // 出力: "ジョン・ドー"
+firstName("メアリー")
+
+console.log(fullName()) // 出力: "メアリー・ドー"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>return values.join(" ")
+})
+
+console.log(greeting()) // logs "hello world"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231749Z" creationid="shibukawa.yoshiki" creationdate="20170331T231749Z">
+        <seg>return values.join(" ")
+})
+
+console.log(greeting()) // 出力: "hello world"</seg>
       </tuv>
     </tu>
     <tu>
@@ -46479,6 +47916,14 @@ demo.view = function(ctrl) {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>route interpolations (e.g. if a route is /users/:id, and it resolves to /users/1, the route parameter has a key id and value "1")</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T002222Z" creationid="shibukawa.yoshiki" creationdate="20170401T002222Z">
+        <seg>ラウトへの挿入。/users/:idというラウトが設定され、/users/1というラウトを解決すると、ラウとパラメータはidというキーが作られ、その値には"1"が設定されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>route(root, defaultRoute, routes)</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T000551Z" creationid="shibukawa.yoshiki" creationdate="20170222T000551Z">
@@ -46579,6 +48024,14 @@ demo.view = function(ctrl) {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T000604Z" creationid="shibukawa.yoshiki" creationdate="20170222T000604Z">
         <seg>routeResolver.render</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>router querystrings (e.g. if the path is /users?page=1, the route parameter has a key page and value "1")</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T002309Z" creationid="shibukawa.yoshiki" creationdate="20170401T002309Z">
+        <seg>ラウターのクエリー文字列。パスが/users?page=1の時は、ラウトパラメータにはpageというキーができ、"1"が設定されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -46843,6 +48296,14 @@ var Component = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>setting b("world") would cause b to become active, and therefore greeting would also become active, and be updated to have the value "hello world"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170402T000211Z" creationid="shibukawa.yoshiki" creationdate="20170402T000211Z">
+        <seg>b("world")を実行すると、bがアクティブになり、その後greetingもアクティブ化され、streamの値が"hello world"となります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>signatures.html</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170222T000311Z" creationid="shibukawa.yoshiki" creationdate="20170222T000311Z">
@@ -46863,6 +48324,14 @@ var Component = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170221T233505Z" creationid="shibukawa.yoshiki" creationdate="20170221T233505Z">
         <seg>simple-application.html</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>skip</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T234651Z" creationid="shibukawa.yoshiki" creationdate="20170331T234651Z">
+        <seg>skip</seg>
       </tuv>
     </tu>
     <tu>
@@ -46931,6 +48400,14 @@ var Component = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>stream</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232251Z" creationid="shibukawa.yoshiki" creationdate="20170331T232251Z">
+        <seg>stream</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>stream = Stream(value)</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T142433Z" creationid="shibukawa.yoshiki" creationdate="20170331T142433Z">
@@ -46951,6 +48428,46 @@ var Component = {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T143549Z" creationid="shibukawa.yoshiki" creationdate="20170331T143549Z">
         <seg>stream = Stream.merge(streams)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>stream = Stream.scan(fn, accumulator, stream)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232254Z" creationid="shibukawa.yoshiki" creationdate="20170331T232254Z">
+        <seg>stream = Stream.scan(fn, accumulator, stream)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>stream = Stream.scanMerge(pairs, accumulator)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232613Z" creationid="shibukawa.yoshiki" creationdate="20170331T232613Z">
+        <seg>stream = Stream.scanMerge(pairs, accumulator)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>stream = stream()["fantasy-land/ap"](apply)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232630Z" creationid="shibukawa.yoshiki" creationdate="20170331T232630Z">
+        <seg>stream = stream()["fantasy-land/ap"](apply)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>stream = stream()["fantasy-land/of"](value)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232225Z" creationid="shibukawa.yoshiki" creationdate="20170331T232225Z">
+        <seg>stream = stream()["fantasy-land/of"](value)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>stream = stream["fantasy-land/of"](value)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232231Z" creationid="shibukawa.yoshiki" creationdate="20170331T232231Z">
+        <seg>stream = stream["fantasy-land/of"](value)</seg>
       </tuv>
     </tu>
     <tu>
@@ -48197,6 +49714,14 @@ m.render(document, todo.view()); // テキスト入力に「コードを書く�
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>value = m.route.param(key)</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170401T002345Z" creationid="shibukawa.yoshiki" creationdate="20170401T002345Z">
+        <seg>value = m.route.param(key)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>value: "",</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T005457Z" creationid="shibukawa.yoshiki" creationdate="20170329T005457Z">
@@ -48241,6 +49766,16 @@ m.render(document, todo.view()); // テキスト入力に「コードを書く�
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170329T005504Z" creationid="shibukawa.yoshiki" creationdate="20170329T005504Z">
         <seg>value: state.value,</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>value: user()
+})</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232105Z" creationid="shibukawa.yoshiki" creationdate="20170331T232105Z">
+        <seg>value: user()
+})</seg>
       </tuv>
     </tu>
     <tu>
@@ -48547,6 +50082,62 @@ o.spec("MyComponent", function() {</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T004023Z" creationid="shibukawa.yoshiki" creationdate="20170328T004023Z">
         <seg>var User = function(data) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>var a = stream("hello")
+var b = stream("world")
+
+var greeting = stream.merge([a, b]).map(function(values) {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231737Z" creationid="shibukawa.yoshiki" creationdate="20170331T231737Z">
+        <seg>var a = stream("hello")
+var b = stream("world")
+
+var greeting = stream.merge([a, b]).map(function(values) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>var a = stream("hello")
+var b = stream()
+
+var greeting = stream.merge([a, b]).map(function(values) {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232310Z" creationid="shibukawa.yoshiki" creationdate="20170331T232310Z">
+        <seg>var a = stream("hello")
+var b = stream()
+
+var greeting = stream.merge([a, b]).map(function(values) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>var a = stream(5)
+var b = stream() // pending stream
+
+var added = stream.combine(function(a, b) {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232421Z" creationid="shibukawa.yoshiki" creationdate="20170331T232421Z">
+        <seg>var a = stream(5)
+var b = stream() // ペンディング状態の stream
+
+var added = stream.combine(function(a, b) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>var a = stream(5)
+var b = stream(7)
+
+var added = stream.combine(function(a, b) {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231752Z" creationid="shibukawa.yoshiki" creationdate="20170331T231752Z">
+        <seg>var a = stream(5)
+var b = stream(7)
+
+var added = stream.combine(function(a, b) {</seg>
       </tuv>
     </tu>
     <tu>
@@ -48950,6 +50541,18 @@ m.request({method: "GET", url: "/user/:id", data: {id: 1}})</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>var firstName = stream("John")
+var lastName = stream("Doe")
+var fullName = stream.merge([firstName, lastName]).map(function(values) {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231945Z" creationid="shibukawa.yoshiki" creationdate="20170331T231945Z">
+        <seg>var firstName = stream("ジョン")
+var lastName = stream("ドー")
+var fullName = stream.merge([firstName, lastName]).map(function(values) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>var firstTen = users.slice(0, 9)</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T114451Z" creationid="shibukawa.yoshiki" creationdate="20170330T114451Z">
@@ -48962,6 +50565,18 @@ m.request({method: "GET", url: "/user/:id", data: {id: 1}})</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T114453Z" creationid="shibukawa.yoshiki" creationdate="20170330T114453Z">
         <seg>var firstTenNames = firstTen.map(function(user) {return user.firstName + " " + user.lastName})</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>var fl = require("fantasy-land")
+
+function plusOne(a) {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231350Z" creationid="shibukawa.yoshiki" creationdate="20170331T231350Z">
+        <seg>var fl = require("fantasy-land")
+
+function plusOne(a) {</seg>
       </tuv>
     </tu>
     <tu>
@@ -49022,6 +50637,22 @@ var log = function() {</seg>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170313T122902Z" creationid="shibukawa.yoshiki" creationdate="20170313T122902Z">
         <seg>var groupVisible = true
 var log = function() {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>var halted = stream(1).map(function(value) {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231826Z" creationid="shibukawa.yoshiki" creationdate="20170331T231826Z">
+        <seg>var halted = stream(1).map(function(value) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>var halted = stream.combine(function(stream) {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232504Z" creationid="shibukawa.yoshiki" creationdate="20170331T232504Z">
+        <seg>var halted = stream.combine(function(stream) {</seg>
       </tuv>
     </tu>
     <tu>
@@ -49230,6 +50861,14 @@ var Toggler = {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>var pending = stream()</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232411Z" creationid="shibukawa.yoshiki" creationdate="20170331T232411Z">
+        <seg>var pending = stream()</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>var people = [</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170328T003551Z" creationid="shibukawa.yoshiki" creationdate="20170328T003551Z">
@@ -49410,6 +51049,38 @@ function search() {</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>var stream = require("mithril/stream")</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232545Z" creationid="shibukawa.yoshiki" creationdate="20170331T232545Z">
+        <seg>var stream = require("mithril/stream")</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>var stream1 = stream("hello") // stream1 is active
+
+var stream2 = stream() // stream2 starts off pending
+stream2("world") // then becomes active</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232359Z" creationid="shibukawa.yoshiki" creationdate="20170331T232359Z">
+        <seg>var stream1 = stream("hello") // stream1 がアクティブ
+
+var stream2 = stream() // stream2 をペンディング状態で作成し、
+stream2("world") // 後にアクティブに</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>var title = stream("")
+var slug = title.map(function(value) {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232033Z" creationid="shibukawa.yoshiki" creationdate="20170331T232033Z">
+        <seg>var title = stream("")
+var slug = title.map(function(value) {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>var titles = projects.map(function(project) {return project.title})</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170330T142311Z" creationid="shibukawa.yoshiki" creationdate="20170330T142311Z">
@@ -49510,6 +51181,22 @@ m.render(document.body, view)
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>var username = stream("John")
+console.log(username()) // logs "John"
+
+username("John Doe")
+console.log(username()) // logs "John Doe"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232144Z" creationid="shibukawa.yoshiki" creationdate="20170331T232144Z">
+        <seg>var username = stream("ジョン")
+console.log(username()) // 出力: "ジョン"
+
+username("ジョン・ドー")
+console.log(username()) // 出力: "ジョン・ドー"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>var users = [</seg>
       </tuv>
       <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170327T234227Z" creationid="shibukawa.yoshiki" creationdate="20170327T234227Z">
@@ -49601,6 +51288,100 @@ m.request({method: "GET", url: "/user"}).then(users).then(doSomething)</seg>
 //レスポンスには`[{name: "John"}, {name: "Mary"}]`というデータが格納されると想定
 //そのため、ビューなどの中で解決されると、`users` getter-setterはユーザの配列を持ちます
 //例: users() //[{name: "John"}, {name: "Mary"}]</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>var users = stream()
+
+// request users from a server using the fetch API
+fetch("/api/users")</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232536Z" creationid="shibukawa.yoshiki" creationdate="20170331T232536Z">
+        <seg>var users = stream()
+
+// fetch APIを使ってユーザーをサーバーから取得
+fetch("/api/users")</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>var value = stream()
+var doubled = value.map(function(value) {return value * 2})
+
+console.log(doubled()) // logs undefined because `doubled` is pending</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T232448Z" creationid="shibukawa.yoshiki" creationdate="20170331T232448Z">
+        <seg>var value = stream()
+var doubled = value.map(function(value) {return value * 2})
+
+console.log(doubled()) // `doubled` がペンディングなのでundfinedが出力</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>var value = stream()
+var doubled = value.map(function(value) {return value * 2})
+
+value.end(true) // set to ended state
+
+value(5)
+
+console.log(doubled())
+// logs undefined because `doubled` no longer depends on `value`</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231620Z" creationid="shibukawa.yoshiki" creationdate="20170331T231544Z">
+        <seg>var value = stream()
+var doubled = value.map(function(value) {return value * 2})
+
+value.end(true) // 終了状態の設定
+
+value(5)
+
+console.log(doubled())
+// `doubled` はもう `value` に依存してないので、undefined出力</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>var value = stream(1)
+value.end(true) // set to ended state
+
+console.log(value(1)) // logs 1
+
+value(2)
+console.log(value()) // logs 2</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231517Z" creationid="shibukawa.yoshiki" creationdate="20170331T231456Z">
+        <seg>var value = stream(1)
+value.end(true) // 終了状態にセット
+
+console.log(value(1)) // 出力: 1
+
+value(2)
+console.log(value()) // 出力: 2</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>var value = stream(123)
+console.log("test " + value) // logs "test 123"</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231427Z" creationid="shibukawa.yoshiki" creationdate="20170331T231427Z">
+        <seg>var value = stream(123)
+console.log("test " + value) // 出力 "test 123"</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>var value = stream(123)
+var serialized = JSON.stringify(value)
+console.log(serialized) // logs 123</seg>
+      </tuv>
+      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170331T231416Z" creationid="shibukawa.yoshiki" creationdate="20170331T231416Z">
+        <seg>var value = stream(123)
+var serialized = JSON.stringify(value)
+console.log(serialized) // 出力: 123</seg>
       </tuv>
     </tu>
     <tu>

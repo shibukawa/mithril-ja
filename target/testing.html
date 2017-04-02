@@ -78,14 +78,14 @@ o.spec("math", function() {
 <p>テストを実行するには<code>npm test</code>コマンドを使います。Ospecはプロジェクトフォルダ内の<code>tests</code>フォルダに入っているJavaScriptファイルはすべてテストコードだとみなします。</p>
 <pre><code>npm test
 </code></pre><hr>
-<h3 id="running-mithril-in-a-non-browser-environment"><a href="#running-mithril-in-a-non-browser-environment">Running mithril in a non-browser environment</a></h3>
-<p>Mithril has a few dependencies on globals that exist in all its supported browser environments but are missing in all non-browser environments. To work around this you can use the browser mocks that ship with the mithril npm package.</p>
-<p>The simplest way to do this is ensure the following snippet of code runs <strong>before</strong> you include mithril itself in your project.</p>
-<pre><code class="lang-js">// Polyfill DOM env for mithril
+<h3 id="running-mithril-in-a-non-browser-environment"><a href="#running-mithril-in-a-non-browser-environment">Mithrilをブラウザ以外の環境で実行する</a></h3>
+<p>Mithrilはいくつかのグローバルの要素に少しだけ依存しています。これらはどれもブラウザ環境であればサポートされていますが、非ブラウザ環境ではいくつか定義されていないものもあります。Mithrilのnpmパッケージと一緒にリリーうされているブラウザモックを使うことで、この問題を回避できます。</p>
+<p>これを行うための最もシンプルな方法は、Mithrilをインクルードする<strong>前に</strong>次のコードをプロジェクトにインクルードします。</p>
+<pre><code class="lang-js">// MithrilでDOM環境をモックするためのPolyfill
 global.window = require("mithril/test-utils/browserMock.js")();
 global.document = window.document;
 </code></pre>
-<p>Once that snippet has been run you can <code>require("mithril")</code> and it should be quite happy.</p>
+<p>このコードを実行すると、<code>require("mithril")</code>が行えるようになり、幸せになれるでしょう。</p>
 <hr>
 <h3 id="good-testing-practices"><a href="#good-testing-practices">良いテストプラクティス</a></h3>
 <p>一般的にはテストを書く方法には2つあります。事前と事後です。</p>

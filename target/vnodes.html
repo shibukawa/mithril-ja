@@ -70,7 +70,7 @@
 <p>仮想DOMが最初にレンダリングされる時はDOMツリーを作るためのブループリントとして使われます。</p>
 <p>通常、仮想DOMツリーはレンダリングのサイクルのたびに再生成されます。レンダリングはイベントハンドラやデータの変更時に発生します。Mithrilは以前のバージョンのvnodeとの<em>差分検知</em>を行い、変更が必要なDOM要素に対してのみ変更を行います。</p>
 <p>頻繁にvnodeを再作成するのは無駄に思えるかもしれませんが、現代のJavaScriptエンジンは1ミリ秒未満で数十万のオブジェクトを作成できます。一方、DOMを変更すると、vnodeを作成するよりも数桁上のコストがかかります。</p>
-<p>そのため、Mithrilは高度に最適化された仮想DOMの差分検知アルゴリズムを使用し、DOMアップデートの量を最小限に抑えます。Mithrilは<em>また&lt;/ e0&gt;、JavaScriptエンジンがJITコンパイルしてネイティブに近いデータ構造アクセスのパフォーマンスが出せるように、慎重に設計されたvnodeデータ構造を使用しています。さらに、Mithrilはvnodeを作成する機能を積極的に最適化します。</p>
+<p>そのため、Mithrilは高度に最適化された仮想DOMの差分検知アルゴリズムを使用し、DOMアップデートの量を最小限に抑えます。Mithrilは<em>また</em>、JavaScriptエンジンがJITコンパイルしてネイティブに近いデータ構造アクセスのパフォーマンスが出せるように、慎重に設計されたvnodeデータ構造を使用しています。さらに、Mithrilはvnodeを作成する機能を積極的に最適化します。</p>
 <p>Mithrilがこのように仮想DOMツリーを毎回生成するようなレンダリングモデルを採用するのは、<a href="https://en.wikipedia.org/wiki/Retained_mode">保持モードレンダリング（retained mode rendering）</a>をサポートするためです。このスタイルを採用することで、UIの複雑さを著しく下げます。</p>
 <p>なぜ保持モードが大事なのかを説明するために、DOM APIとHTMLについてみてみましょう。DOM APIは<a href="https://en.wikipedia.org/wiki/Immediate_mode_(computer_graphics)">直接モード（immediate mode）</a>のレンダリングシステムとなっていて、DOMツリーを逐次構築するための命令を正確に組み立てる必要があります。DOM APIの特性としては、マイクロ最適化の機会はたくさんありますが、バグを作り込んでしまったり、理解しにくいコードになってしまうリスクもあります。</p>
 <p>対象的に、HTMLのレンダリングシステムは保持モードです。HTMLではより自然で読みやすい方法でDOMツリーを書くことができます。子を親に追加し忘れたりもなく、とても深いツリーを書き出そうとしてスタックオーバーフローすることもありません。</p>
@@ -145,27 +145,27 @@ m(ExampleComponent, {style: "color:red;"}, "world")
 <tr>
 <td><code>state</code></td>
 <td><code>Object?</code></td>
-<td>再描画のサイクル間でステータスを永続化するオブジェクトです。It is provided by the core engine when needed. In POJO component vnodes, the <code>state</code> inherits prototypically from the component object/class. In class component vnodes it is an instance of the class. In closure components it is the object returned by the closure.</td>
+<td>再描画のサイクル間でステータスを永続化するオブジェクトです。このプロパティはコアのエンジンが設定します。POJOコンポーネントのvnodeでは、<code>state</code>はコンポーネントのオブジェクト/クラスをプロトタイプ継承します。クラスコンポーネントのvnodeはクラスのインスタンスです。クロージャーコンポーネントの場合は、クロージャーが返すオブジェクトです。</td>
 </tr>
 <tr>
 <td><code>_state</code></td>
 <td><code>Object?</code></td>
-<td>For components, a reference to the original <code>vnode.state</code> object, used to lookup the <code>view</code> and hooks. This property is only used internally by Mithril, do not use or modify it.</td>
+<td>オリジナルの<code>vnode.state</code>オブジェクトへの参照です。<code>view</code>やフックを探すのに使われます。このプロパティはMithrilが内部的に使うもので変更してはいけません。</td>
 </tr>
 <tr>
 <td><code>events</code></td>
 <td><code>Object?</code></td>
-<td>このオブジェクトは再描画間で、DOM APIを使って削除される可能性のあるイベントハンドラを永続化します。イベントハンドラを持たない型の場合は、<code>events</code>プロパティは<code>undefined</code>です。This property is only used internally by Mithril, do not use or modify it.</td>
+<td>このオブジェクトは再描画間で、DOM APIを使って削除される可能性のあるイベントハンドラを永続化します。イベントハンドラを持たない型の場合は、<code>events</code>プロパティは<code>undefined</code>です。このプロパティはMithrilが内部的に使うもので変更してはいけません。</td>
 </tr>
 <tr>
 <td><code>instance</code></td>
 <td><code>Object?</code></td>
-<td>For components, a storage location for the value returned by the <code>view</code>. This property is only used internally by Mithril, do not use or modify it.</td>
+<td>コンポーネントの<code>view</code>が返す値を保存していおくものです。このプロパティはMithrilが内部的に使うもので変更してはいけません。</td>
 </tr>
 <tr>
 <td><code>skip</code></td>
 <td><code>Boolean</code></td>
-<td>This property is only used internally by Mithril when diffing keyed lists, do not use or modify it.</td>
+<td>このプロパティはMithrilがキーが設定されたリストの差分検知時に内部的に使うもので、変更してはいけません。</td>
 </tr>
 </tbody>
 </table>
