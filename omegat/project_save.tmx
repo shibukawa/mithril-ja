@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tmx SYSTEM "tmx11.dtd">
 <tmx version="1.1">
-  <header creationtool="OmegaT" o-tmf="OmegaT TMX" adminlang="EN-US" datatype="plaintext" creationtoolversion="3.6.0_1_r8695:8697" segtype="sentence" srclang="EN-US"/>
+  <header creationtool="OmegaT" o-tmf="OmegaT TMX" adminlang="EN-US" datatype="plaintext" creationtoolversion="3.6.0_5_r9644:9647" segtype="sentence" srclang="EN-US"/>
   <body>
 <!-- Default translations -->
     <tu>
@@ -13839,8 +13839,8 @@ where:</seg>
       <tuv lang="EN-US">
         <seg>Component lifecycle methods are always run after the vnode's corresponding method.</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170223T130425Z" creationid="shibukawa.yoshiki" creationdate="20170223T130425Z">
-        <seg>今ポー０ネントのライフサイクルメソッドは、常にvnodeの同名のメソッドの後に呼ばれます。</seg>
+      <tuv lang="JA" changeid="haburibe" changedate="20170618T125150Z" creationid="shibukawa.yoshiki" creationdate="20170223T130425Z">
+        <seg>コンポーネントのライフサイクルメソッドは、常にvnodeの同名のメソッドの後に呼ばれます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -20253,8 +20253,8 @@ Hyperscriptを使うと、複雑なタグを持つHTMLよりも自然にイン�
       <tuv lang="EN-US">
         <seg>In the example above, clicking the counter component button will increase its state count, but its view will not be triggered because the vnode representing the component shares the same reference, and therefore the render process doesn't diff them.</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170302T162359Z" creationid="shibukawa.yoshiki" creationdate="20170302T162359Z">
-        <seg>上記のサンプルでは、カウンターコンポーネントのボタンをクリックすると、カウントの状態がインクリメントされますが、vnode表現の参照が同じ為、採苗は実行されません。そのため、描画プロセスはそれらの差分を取ることもしません。</seg>
+      <tuv lang="JA" changeid="haburibe" changedate="20170618T125218Z" creationid="shibukawa.yoshiki" creationdate="20170302T162359Z">
+        <seg>上記のサンプルでは、カウンターコンポーネントのボタンをクリックすると、カウントの状態がインクリメントされますが、vnode表現の参照が同じ為、再描画は実行されません。そのため、描画プロセスはそれらの差分を取ることもしません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -27002,8 +27002,8 @@ promise</seg>
       <tuv lang="EN-US">
         <seg>Right away, we see that sharing the &lt;c0&gt;username&lt;/c0&gt; and &lt;c1&gt;password&lt;/c1&gt; fields from this component to another is difficult.</seg>
       </tuv>
-      <tuv lang="JA" changeid="shibukawa.yoshiki" changedate="20170302T024314Z" creationid="shibukawa.yoshiki" creationdate="20170302T024314Z">
-        <seg>現在はこの&lt;c0&gt;username&lt;/c0&gt;と&lt;c1&gt;password&lt;/c1&gt;のフィールドを他のコンポーネントと共有するのはこんなんです。</seg>
+      <tuv lang="JA" changeid="haburibe" changedate="20170618T125211Z" creationid="shibukawa.yoshiki" creationdate="20170302T024314Z">
+        <seg>現在はこの&lt;c0&gt;username&lt;/c0&gt;と&lt;c1&gt;password&lt;/c1&gt;のフィールドを他のコンポーネントと共有するのは困難です。</seg>
       </tuv>
     </tu>
     <tu>
